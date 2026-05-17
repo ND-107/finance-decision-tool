@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./verify.sh)",
+      "Bash(python3 audit/build_audit_xlsx.py)",
+      "Bash(python3 -c *)",
+      "Bash(node --check *)",
+      "Bash(node -c *)",
+      "Bash(open flowchart.html)",
+      "Bash(open ./flowchart.html)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(git status)",
+      "Bash(git status -s)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git show *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/coding/code/finance-decision-tool/.claude/hooks/finance-decision-tool-session-start.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
