@@ -4101,6 +4101,29 @@ const QUESTIONS = [
   {
     section: 'Foundation',
     qs: [
+      { id: 'litInterest', type: 'single', label: 'Suppose you have $100 in a savings account earning 2% per year. After 5 years, how much would you have if you left the money to grow?', help: 'Lusardi-Mitchell "Big Three" financial-literacy probe (interest compounding). Calibrates downstream presentation to your baseline. No "right" answer punishment — wrong answers just unlock more foundational explanations in your Plan output.', options: [
+        { v: 'correct', l: 'More than $110' },
+        { v: 'wrong-flat', l: 'Exactly $110' },
+        { v: 'wrong-less', l: 'Less than $110' },
+        { v: 'unsure', l: 'I don\'t know / prefer not to guess' },
+      ]},
+      { id: 'litInflation', type: 'single', label: 'Imagine the interest rate on your savings is 1% per year and inflation is 2% per year. After 1 year, how much will the money in this account buy?', help: 'Lusardi-Mitchell Big Three #2 (inflation effect on purchasing power).', options: [
+        { v: 'correct', l: 'Less than today' },
+        { v: 'wrong-same', l: 'Exactly the same' },
+        { v: 'wrong-more', l: 'More than today' },
+        { v: 'unsure', l: 'I don\'t know / prefer not to guess' },
+      ]},
+      { id: 'litDiversification', type: 'single', label: 'Is the following statement true or false: "Buying shares of a single company usually provides a safer return than buying shares of a mutual fund that holds many companies"?', help: 'Lusardi-Mitchell Big Three #3 (risk diversification).', options: [
+        { v: 'correct', l: 'False' },
+        { v: 'wrong-true', l: 'True' },
+        { v: 'unsure', l: 'I don\'t know / prefer not to guess' },
+      ]},
+      { id: 'litDebt', type: 'single', label: 'Suppose you owe $1,000 on a credit card and the interest rate is 20% per year, compounded annually. If you make no payments and no new charges, how many years would it take for the debt to double?', help: 'Lusardi-Tufano debt-literacy item (Rule of 72 inverse): at 20%, 72/20 ≈ 3.6 years.', options: [
+        { v: 'correct', l: 'Less than 5 years' },
+        { v: 'wrong-mid', l: '5 to 10 years' },
+        { v: 'wrong-long', l: 'More than 10 years' },
+        { v: 'unsure', l: 'I don\'t know / prefer not to guess' },
+      ]},
       { id: 'budgetTracking', type: 'single', label: 'Do you track your cash flow / have a working budget?', options: [
         { v: 'yes', l: 'Yes, consistently' },
         { v: 'sometimes', l: 'Loosely or inconsistently' },
@@ -5045,9 +5068,22 @@ function diagPrev() {
 // ============================================================
 // RENDERING: Plan
 // ============================================================
+// CL381 — financial-literacy scoring helper.
+// Lusardi-Mitchell (2014, JEL) Big Three + Lusardi-Tufano debt-literacy item.
+// Returns {score: 0-4, total: 4, level: 'low'|'mid'|'high'|null}; null when no items answered.
+function getLiteracyScore(a) {
+  const items = ['litInterest', 'litInflation', 'litDiversification', 'litDebt'];
+  const answered = items.filter(k => a[k] !== undefined);
+  if (answered.length === 0) return null;
+  const correct = items.filter(k => a[k] === 'correct').length;
+  const level = correct <= 1 ? 'low' : correct === 2 ? 'mid' : 'high';
+  return { score: correct, total: items.length, level, answeredCount: answered.length };
+}
+
 // Three-paragraph synthesis at the top of the Plan view (CL338).
 // Reads only from existing state.answers + the computed plan; no new diagnostic.
-// Output structure: (1) situation, (2) constraints & binding risks, (3) horizon & sequencing.
+// Output structure: (1) situation, (2) constraints & binding risks, (3) horizon & sequencing,
+// (4) CL381 literacy-aware framing + Fernandes-Lynch-Netemeyer information-limits acknowledgment.
 function renderPlanSynthesis(a, plan) {
   if (!a || Object.keys(a).length === 0) return '';
 
@@ -5154,6 +5190,19 @@ function renderPlanSynthesis(a, plan) {
   const stageNote = `Your prioritized action list has <strong>${totalCount} item${totalCount === 1 ? '' : 's'}</strong>` + (criticalCount > 0 ? ` (${criticalCount} marked critical)` : '') + (nowCount > 0 ? `, with ${nowCount} item${nowCount === 1 ? '' : 's'} in the immediate "do now" stage.` : '.');
   const p3 = horizonNote + ' ' + stageNote;
 
+  // CL381 — literacy-aware coda + information-alone limit acknowledgment.
+  const lit = getLiteracyScore(a);
+  let litBlock = '';
+  if (lit && lit.answeredCount >= 3) {
+    const litLabel = lit.level === 'low'
+      ? `<strong>Literacy probe — foundational layer recommended.</strong> You answered ${lit.score} of the ${lit.total} financial-literacy questions in the Diagnostic correctly (Lusardi-Mitchell Big Three + Lusardi-Tufano debt item). That puts you in the bottom band of the published US distribution — which the framework treats as a calibration input, not as a judgment. <em>Practical implication:</em> the Math view §1 (compound interest), §3 (savings rate), and §4 (real vs nominal) are foundational concepts to internalize <strong>before</strong> acting on the Plan's optimization items. Several of the action recommendations below assume comfort with concepts the literacy probe suggests are not yet intuitive for you; spending an hour with the Math view first will substantially change how the action list reads.`
+      : lit.level === 'mid'
+        ? `<strong>Literacy probe.</strong> You answered ${lit.score} of the ${lit.total} financial-literacy questions correctly. You have a working baseline; the framework's action list should mostly read directly without needing the Math view as prerequisite — though §1 (compound interest) and §4 (real vs nominal) are worth a 10-minute skim before the decumulation actions if you're within 10 years of retirement.`
+        : `<strong>Literacy probe — high baseline.</strong> You answered ${lit.score} of ${lit.total} financial-literacy questions correctly. Skip directly to the optimization layer; the framework's Math view is reference material rather than prerequisite for you.`;
+    litBlock = `<h3>Literacy calibration</h3><p>${litLabel}</p>`;
+  }
+  const infoLimitBlock = `<h3>What this plan can and can't do</h3><p>One honest caveat the framework owes you: <em>information alone has near-zero behavioral persistence past about six months</em>. Fernandes, Lynch, and Netemeyer (2014, <em>Management Science</em> 60(8) "Financial Literacy, Financial Education, and Downstream Financial Behaviors"), a meta-analysis of 168 financial-education studies, found that financial-education interventions explain ~0.1% of variance in observed financial behavior — an order of magnitude smaller than choice-architecture interventions like auto-enrollment (Madrian-Shea 2001) or Save More Tomorrow (Thaler-Benartzi 2004). The Plan above will produce real behavior change <em>to the extent</em> that you convert its recommendations into one-time setup actions with auto-mechanics behind them: auto-deferral and auto-escalation, auto-transfer to your emergency fund, auto-rebalancing target-date funds, automatic-investment continuation through drawdowns. Items that require sustained willpower (the "high" friction-tag items) are at structurally elevated risk of not getting done; if you find an action that's listed as high-friction blocking the rest of your plan, look for a vendor or automation that converts it into a one-time setup instead.</p>`;
+
   return `
     <div class="plan-synthesis">
       <h3>Situation</h3>
@@ -5162,6 +5211,8 @@ function renderPlanSynthesis(a, plan) {
       <p>${p2}</p>
       <h3>Horizon and sequencing</h3>
       <p>${p3}</p>
+      ${litBlock}
+      ${infoLimitBlock}
     </div>
   `;
 }
