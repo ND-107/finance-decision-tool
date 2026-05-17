@@ -1511,6 +1511,35 @@ body {
   margin: 0 auto 28px;
 }
 
+.welcome-scope {
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--p-foundation);
+  border-radius: 4px;
+}
+.welcome-scope h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 12px 0;
+}
+.welcome-scope p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: normal;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  text-align: left;
+  max-width: none;
+  margin: 0 0 12px 0;
+}
+.welcome-scope p:last-child { margin-bottom: 0; }
+.welcome-scope p strong { color: var(--ink); font-weight: 500; }
+.welcome-scope em { color: var(--ink-soft); }
+
 .welcome .btn.primary {
   font-size: 15px;
   padding: 14px 28px;
@@ -1824,6 +1853,13 @@ body {
     <p>The original Reddit "prime directive" flowchart gives universal advice. This tool gives <em>you</em> advice — based on whether you have an employer match, what your bracket is, what debt you carry, what insurance is in place, and a couple dozen other things that determine which steps actually apply to you.</p>
     <button class="btn primary" id="start-diagnostic">Start the diagnostic</button>
     <p style="font-size: 13px; margin-top: 20px; color: var(--muted); font-style: normal; font-family: var(--font-body);">Takes 5–8 minutes. About 25 questions. You can edit answers later.</p>
+  </div>
+  <div class="welcome-scope">
+    <h3>What this framework is calibrated for — and what it doesn't address</h3>
+    <p>This tool is calibrated to a US household with stable enough income to make discretionary financial decisions — roughly $60K+ for a single earner, $100K+ for a household — and prior comfort with concepts like marginal tax brackets, employer-sponsored retirement plans, and index funds. If you're earlier in that arc, the Foundation phase of the action list still applies and the Math view is worth time, but several Plan recommendations (asset location, conversion ladders, advanced estate planning) will read as not-yet-relevant. That's a feature of the tool's calibration, not a critique of your situation.</p>
+    <p>The framework throughout treats individual-level optimization within the existing US financial system: tax-advantaged accounts, employer-sponsored plans, the indexing-vs-active argument, the rent-vs-buy math, decumulation strategy. It explicitly does <em>not</em> engage the structural conditions that determine which households can act on which recommendations: real wage stagnation since 1979 (EPI <em>State of Working America</em> series); the documented racial wealth gap (Federal Reserve <em>Survey of Consumer Finances</em> 2022 shows median white household wealth at roughly 6× median Black household wealth and 5× median Hispanic household wealth; Darrick Hamilton and the New School wealth-gap literature; Darity &amp; Mullen <em>From Here to Equality</em>, 2020); the gender wealth gap (Federal Reserve SCF analyses); banking-deserts and predatory-finance concentration in lower-income communities of color (FDIC <em>Survey of Unbanked and Underbanked Households</em>, annual; National Community Reinvestment Coalition research); the structural design of US tax policy that disproportionately rewards already-affluent households via vehicles like the mortgage interest deduction, the capital-gains step-up at death, and retirement-account contribution limits (Brookings Tax Policy Center on retirement-account contribution distributions). For households where those structural constraints are the binding ones, this framework's recommendations are not <em>wrong</em> but <em>incomplete</em> — the individual moves work to the extent the structural conditions permit them.</p>
+    <p><strong>For policy-context reading on the structural critique:</strong> Helaine Olen, <em>Pound Foolish: Exposing the Dark Side of the Personal Finance Industry</em> (Penguin Portfolio, 2012); Darrick Hamilton &amp; William Darity Jr. via Darity &amp; Mullen, <em>From Here to Equality: Reparations for Black Americans in the Twenty-First Century</em> (UNC Press, 2020); the Aspen Institute Financial Security Program, <em>The Future of Wealth in the United States</em> (2022). <strong>For practitioner-level guidance calibrated to households navigating these structural conditions:</strong> Tiffany Aliche, <em>Get Good with Money</em> (Rodale, 2021) and the Live Richer Challenge framework; Lynnette Khalfani-Cox, <em>Zero Debt</em> (Advantage World Press, 2004) and <em>The Money Coach's Guide to Your First Million</em> (Random House, 2007); Erin Lowry's <em>Broke Millennial</em> series (TarcherPerigee, 2017–); Andrew Tobias, <em>The Only Investment Guide You'll Ever Need</em> (Harvest, revised ed. 2022) — written from an explicitly anti-financial-services-industry stance and continuously updated since 1978.</p>
+    <p><strong>What we owe you in return for your time:</strong> direct framing of contested empirical claims (see the McQuarrie / Pfau-international / Bessembinder / ex-ante-vs-ex-post callouts throughout the Math and Portfolio views), explicit acknowledgment of the gap between information-as-intervention and observed behavior change (Fernandes-Lynch-Netemeyer 2014 meta-analysis cited in the Plan view synthesis), and a Plan view that surfaces the highest-leverage lowest-friction actions first rather than burying them in a list ranked by abstract urgency. Where the framework is honest about its own limits is in those acknowledgments. Where it could be more honest is the structural-conditions context above. We name it here rather than burying it.</p>
   </div>
 </section>
 
