@@ -2264,9 +2264,10 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
       <p>What to avoid. Whole life insurance as an investment vehicle (illustrated returns are typically 3–5% gross, much less net of fees). Extended warranties on most consumer electronics (statistical expected value is negative; manufacturer warranties cover the period when failure is most likely). Credit card insurance, mortgage life insurance, and rental car insurance are usually duplicative of coverage you already have through other policies.</p>
       <div class="calculator">
         <h4>Term life insurance sizing (DIME method)</h4>
+        <p style="font-size:13px;color:var(--muted);margin:0 0 14px 0;font-family:var(--font-body);">CL333 refinement: the right replacement target is <em>essential</em> household income, not aggregate household spending — life insurance funds the floor your dependents need to keep the house, food, healthcare, insurance, and transportation; discretionary spending naturally cuts when an earner dies. If you completed the diagnostic\'s annual-expenses and essential-fraction questions, the calculator below pre-fills "annual income to replace" with the essential-income approximation.</p>
         <div class="calc-grid">
           <div class="calc-row"><label>Total debt to pay off ($)</label><input type="number" id="dime-debt" value="20000" min="0" max="10000000" step="1000"></div>
-          <div class="calc-row"><label>Annual income to replace ($)</label><input type="number" id="dime-income" value="80000" min="0" max="1000000" step="5000"></div>
+          <div class="calc-row"><label>Annual <strong>essential</strong> income to replace ($)</label><input type="number" id="dime-income" value="80000" min="0" max="1000000" step="5000"></div>
           <div class="calc-row"><label>Years of income dependency</label><input type="number" id="dime-years" value="20" min="1" max="50" step="1"></div>
           <div class="calc-row"><label>Mortgage balance ($)</label><input type="number" id="dime-mortgage" value="400000" min="0" max="10000000" step="10000"></div>
           <div class="calc-row"><label>Education funding (per child × children) ($)</label><input type="number" id="dime-edu" value="250000" min="0" max="5000000" step="10000"></div>
@@ -5017,10 +5018,78 @@ function computePlan() {
       reason: 'Within 10 years of retirement, the math shifts from accumulation to distribution. Roth conversion ladders, withdrawal sequencing, bridge-capital planning, and sequence-of-returns mitigation all need to be modeled before you stop earning.',
       because: 'Youre within 10 years of your target retirement.',
       nodeKey: 'w2:10.1', tags: [] });
+
+    // CL330 — Spousal-split-aware SS claiming recommendation.
+    let ssReason, ssBecause;
+    if (a.filingStatus === 'mfj' && (a.spousalIncomeSplit === '70-30' || a.spousalIncomeSplit === '60-40')) {
+      ssReason = 'The standard high-leverage decumulation play for an income-asymmetric couple: <strong>higher earner delays to 70, lower earner files at FRA</strong>. The higher earner\'s deferred benefit grows ~8%/yr past FRA (delayed retirement credits per SSA POMS); for the lower earner, filing at FRA frees up household cash flow while the higher benefit compounds in the background. The survivor-benefit math is the binding consideration: when the first spouse dies, the survivor keeps the larger of the two benefits permanently — so maximizing the higher earner\'s benefit also maximizes the survivor floor against the widow\'s-tax-trap exposure (filing-status compression from MFJ to single in the year after first death). Pfau-Kitces (2017) "Reducing the Risk of Black Swans" formalized the SS-bridge strategy: drawing more heavily on the portfolio in years 62-70 specifically to fund the higher earner\'s delay is one of the most-replicated decumulation findings of the last decade. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model both claiming scenarios — enter primary SS at age 70 vs age 67 to see the spread directly.';
+      ssBecause = 'Your spousal income split (' + a.spousalIncomeSplit + ') makes the higher-earner-delays-to-70 play the dominant lever; for couples this is the largest single decumulation decision available.';
+    } else if (a.filingStatus === 'mfj' && a.spousalIncomeSplit === 'sole') {
+      ssReason = 'Sole-earner household compresses survivor-benefit math into a single decision: the surviving spouse will receive your full benefit when you die (capped at your PIA × claiming-age factor). Delaying to 70 maximizes that survivor floor at the cost of more aggressive portfolio drawdown in the bridge years. The widow\'s-tax-trap exposure is particularly steep — the survivor files single brackets the year after the first death, typically losing 15-25% of household income capacity from filing-status compression alone, independent of any market event. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model claiming at 62 / FRA / 70 and see how the survivor-floor differential moves your household-level success rate. For most sole-earner households with normal life expectancy, delaying to 70 dominates.';
+      ssBecause = 'You\'re a sole-earner MFJ household — the SS claiming decision compresses the entire survivor-benefit math into one variable.';
+    } else if (a.filingStatus === 'mfj' && a.spousalIncomeSplit === '50-50') {
+      ssReason = 'Balanced two-earner couples have the most claiming flexibility — both spouses\' benefits matter for survivor purposes. The standard pattern still favors delaying the higher of the two (even small earnings differences create a primary / secondary distinction) to 70 while the lower files at FRA, but the differential is smaller than for asymmetric couples. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model claiming combinations directly.';
+      ssBecause = 'Balanced spousal income split — claiming flexibility is highest but the higher-of-the-two-delays-to-70 pattern still typically wins.';
+    } else {
+      ssReason = 'For most retirees with normal life expectancy, delaying to 70 dominates. Breakeven is age ~80–82 vs. claiming at 62. For couples, the survivor-benefit math typically favors delay for the higher earner. The §7 simulator (CL329 overlay) lets you model the difference directly.';
+      ssBecause = 'Within 10 years of retirement, this becomes one of the largest single financial decisions of your life.';
+    }
     add({ title: 'Plan your Social Security claiming strategy', stage: 'eventually',
-      reason: 'For most retirees with normal life expectancy, delaying to 70 dominates. Breakeven is age ~80–82 vs. claiming at 62. For couples, the survivor-benefit math typically favors delay for the higher earner.',
-      because: 'Within 10 years of retirement, this becomes one of the largest single financial decisions of your life.',
+      reason: ssReason,
+      because: ssBecause,
       nodeKey: 'w2:10.3', tags: [] });
+  }
+
+  // CL330 — Capacity-limited glide-path adjustment Plan action.
+  // When the household has stated (or revealed) low willingness for drawdowns,
+  // the binding constraint on equity allocation is willingness, not horizon.
+  // Bernstein's three-component framing (ability/willingness/need) — the lower of
+  // the three governs. Surface this as an explicit Plan action so the user doesn't
+  // anchor to the horizon-derived glide path the framework otherwise implies.
+  const cap = a.riskCapacityRevealed && a.riskCapacityRevealed !== 'not-investing'
+    ? a.riskCapacityRevealed
+    : a.riskCapacity;
+  const lowWillingness = cap === 'reduce-equity' || cap === 'move-to-cash' || cap === 'reduced-equity' || cap === 'moved-to-cash';
+  if (lowWillingness && (a.yearsToRetirement === '20-30' || a.yearsToRetirement === '30+')) {
+    add({ title: 'Set a glide path more conservative than your horizon alone would prescribe', stage: 'next-quarter',
+      reason: 'You have a long investment horizon (' + a.yearsToRetirement + ' years to retirement), which by horizon-math alone would prescribe 80–100% equity allocation. But your stated or revealed behavioral response to a 35% drawdown (you indicated you would reduce equity or move to cash) is the binding constraint, not the horizon. Bernstein\'s three-component framing (<em>ability, willingness, need</em>) treats the lowest of the three as governing — and a saver who panics into selling at the 2008 / 2020 / 2022 bottom permanently impairs the portfolio in a way the horizon-derived allocation didn\'t predict and can\'t fix. Practical recommendation: target a glide path one full risk band more conservative than the horizon-default — e.g., 60-70% equity rather than 80-90%, with the difference in bonds or a target-date fund that does the rebalancing automatically. The behavior-gap evidence cited in Bog:1 (myopic loss aversion mechanism, CL385) supports this: reducing evaluation frequency and using automation that takes the rebalancing decision out of your hands consistently beats willpower-based "stay the course" framing. The cost of carrying lower equity over your horizon is real but bounded; the cost of selling at the bottom is unbounded.',
+      because: 'Your behavioral response to drawdowns (riskCapacity / riskCapacityRevealed = ' + (cap || 'unset') + ') is more conservative than your horizon suggests; willingness is the binding constraint.',
+      nodeKey: 'math:1', tags: [] });
+  }
+
+  // CL333 — Plan-view §7 strategy-class recommendation keyed off essentialFraction.
+  // Different essential/discretionary mixes support different strategy classes;
+  // a household with 90%+ essential spending can't credibly run a dynamic-spending
+  // strategy that depends on cutting in down years (because there's nothing to cut).
+  if ((a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already') && a.essentialFraction) {
+    let stratClass, stratReason;
+    if (a.essentialFraction === '90+') {
+      stratClass = 'Bengen fixed-real with floor-and-upside structural backup';
+      stratReason = 'Your essential-fraction (90%+) means there\'s essentially no discretionary spending to cut in down years — which structurally rules out Vanguard-style dynamic spending and Guyton-Klinger guardrails as primary strategies, because they depend on having discretionary cuttability. For high-essential households the operative class is Bengen fixed-real (Bengen 1994 JFP) <em>plus</em> a structural floor-and-upside backstop (Blanchett floor-and-upside literature, multiple JFP papers 2010s) — annuitize the essential portion with a deferred income annuity / SPIA / QLAC starting at age 80–85 (use the §7 simulator\'s guaranteed-income overlay from CL329 to model the impact), and run the portfolio at Bengen fixed-real to fund the period before annuitization kicks in. The annuity puzzle (CL386 in Zeit:Life §5) is the operative behavioral obstacle; consumption framing rather than investment framing materially increases uptake.';
+    } else if (a.essentialFraction === '70-90') {
+      stratClass = 'Guyton-Klinger guardrails (modest discretionary cushion)';
+      stratReason = 'Your essential-fraction (70–90%) supports Guyton-Klinger guardrails as a primary strategy — the ±20% bands give you discretionary-cut capacity in down years without compromising essentials. The §7 simulator (CL329 overlay) models this directly as the "Guyton-Klinger (2006) guardrails" option. Run it with your guaranteed-income overlay and the 70/30 default to see how the cohort-survival curve shifts vs Bengen fixed-real.';
+    } else if (a.essentialFraction === '50-70') {
+      stratClass = 'Vanguard-style dynamic spending or Guyton-Klinger (meaningful discretionary cushion)';
+      stratReason = 'Your essential-fraction (50–70%) supports either Vanguard-style dynamic spending or Guyton-Klinger guardrails. Both extract roughly 50–80 bps of additional sustainable spending vs Bengen fixed-real in historical backtests (Pfau-Ameriks-Madamba 2014 Vanguard; Guyton-Klinger 2006 JFP). The discretionary cushion you have provides the cut-in-down-years flexibility these strategies depend on. Use the §7 simulator to compare strategy options under your guaranteed-income overlay.';
+    } else if (a.essentialFraction === 'under-50') {
+      stratClass = 'Maximum flexibility — Vanguard dynamic or even higher initial withdrawal rate';
+      stratReason = 'Your essential-fraction (under 50%) gives you substantial cut-in-down-years flexibility. The literature supports both Vanguard dynamic spending and higher initial withdrawal rates (Bengen has himself said in later interviews that the original 4% was a floor and the historical realized safe rate is closer to 7% — but the higher rates require willingness to actually cut in down years). The §7 simulator (CL329 overlay) lets you model higher initial WRs and dynamic-cut behavior directly.';
+    }
+    if (stratClass) {
+      add({ title: 'Use the ' + stratClass + ' strategy class in §7 — your essential-fraction allows it', stage: 'eventually',
+        reason: stratReason,
+        because: 'Your essential-fraction (' + a.essentialFraction + ') is what gates which decumulation-strategy classes the literature treats as feasible for your household.',
+        nodeKey: 'w2:10.2', tags: [] });
+    }
+  }
+
+  // CL330 — Parent-care provisioning line item.
+  if (a.parentCare === 'yes-substantial') {
+    add({ title: 'Build aging-parent financial support into your cash-flow and savings-rate planning', stage: 'this-year',
+      reason: 'You indicated likely substantial financial support to aging parents in the next 10–15 years. The Genworth/MetLife caregiver studies document median sandwich-generation cost at $50K–$200K per parent in adult-child contribution, plus opportunity-cost from career interruption (the burnout-as-financial-event pattern CL324 addresses). This is rarely line-itemed in personal finance planning, but it materially shifts both cash-flow timing and the LTC planning calculus for the household. <strong>Operational moves:</strong> (a) sit down with your parents (and siblings, if relevant) early to understand their financial position, long-term-care preferences, and whether they have LTC insurance / a CCRC plan / Medicaid-path expectations — most families have not had this conversation; (b) provision a parent-care reserve in your annual budget (5–15% of household income is a typical planning band when "yes-substantial" is the household expectation); (c) consider whether you should be co-owners or named on accounts for transition-management purposes (estate planning attorney territory); (d) factor parent-care years into your own retirement-timing planning — caregiving frequently coincides with the household\'s own peak earning years and substantially affects savings-rate sustainability. The framework\'s broader CL328 family-system framing applies: most consequential household financial decisions are multi-party, not individual.',
+      because: 'You indicated likely substantial financial support to aging parents in the next 10–15 years — a planning variable rarely line-itemed but materially load-bearing.',
+      nodeKey: 'w2:10.4', tags: [] });
   }
 
   // CL331 — Roth conversion ladder Plan-view branch with IRMAA-aware sizing.
@@ -5057,8 +5126,13 @@ function computePlan() {
         because: 'Your net-worth level makes Medicaid the realistic LTC funding path; the focus shifts to lookback planning and not making the wrong moves before application.',
         nodeKey: 'w2:10.4', tags: [] });
     } else if (a.netWorth === '500k-2m') {
+      // CL333 — LTC sizing tied to essentialExpenses when captured.
+      const essAnnual = getDefault('essentialExpenses');
+      const sizingNote = essAnnual
+        ? ' <strong>Coverage-sizing guidance (CL333):</strong> your diagnostic essential-annual-expenses figure is approximately ' + fmtMoneyFull(essAnnual) + '/yr. LTC pressure is on the essentials side of the household budget — discretionary spending naturally cuts when care begins. So the right daily-benefit target is the essentials portion of your annual spending divided by 365, not the headline CareScout regional average. For a ' + fmtMoneyFull(essAnnual) + '/yr essential-spending household, that\'s roughly $' + Math.round(essAnnual / 365) + '/day of LTC daily-benefit floor (before the comp from family informal care, if any) — substantially below the $350/day implied by the $127K/yr nursing-home regional median, and consequently a smaller (cheaper) policy than headline pricing suggests.'
+        : '';
       add({ title: 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year', stage: inSweetSpot ? 'this-year' : 'eventually',
-        reason: 'Your net-worth band ($500K–$2M) is exactly where LTC insurance or hybrid life+LTC policies are most actionable. The household has enough to lose to make the coverage worthwhile, but not enough to comfortably self-insure 5+ years of $127K/yr nursing care. The purchase window matters: premiums for new policies rise meaningfully between ages 55 and 65, and underwriting denials accelerate as health conditions develop. AALTCI 2024 pricing data documents 30–60%+ premium increases across the 55→65 window for the same coverage. ' + (isDink ? 'As a household without children, the family-substitute informal-caregiving channel that defrays cost in many family households is unavailable — LTC and CCRC planning is more important, not less. ' : '') + 'For the highest-leverage decade of LTC decisions, this is it.',
+        reason: 'Your net-worth band ($500K–$2M) is exactly where LTC insurance or hybrid life+LTC policies are most actionable. The household has enough to lose to make the coverage worthwhile, but not enough to comfortably self-insure 5+ years of $127K/yr nursing care. The purchase window matters: premiums for new policies rise meaningfully between ages 55 and 65, and underwriting denials accelerate as health conditions develop. AALTCI 2024 pricing data documents 30–60%+ premium increases across the 55→65 window for the same coverage. ' + (isDink ? 'As a household without children, the family-substitute informal-caregiving channel that defrays cost in many family households is unavailable — LTC and CCRC planning is more important, not less. ' : '') + 'For the highest-leverage decade of LTC decisions, this is it.' + sizingNote,
         because: 'Your net-worth band ($500K–$2M)' + (inSweetSpot ? ' and age (55–65 window)' : '') + ' put you in the LTC-insurance sweet spot' + (isDink ? '; DINK structure heightens it.' : '.'),
         nodeKey: 'w2:10.4', tags: inSweetSpot ? ['critical'] : [] });
     } else if (a.netWorth === '2m+') {
@@ -6586,6 +6660,9 @@ function calcDIME() {
 }
 
 function renderSpendingEssentials() {
+  // CL333 — pre-fill dime-income with essentialExpenses approximation when available.
+  applyDefaultIfFallback('dime-income', 'essentialExpenses', 80000);
+  markUserTyped('dime-income');
   calcRentVsBuy();
   calcVehicleTCO();
   calcHDHPvsPPO();
