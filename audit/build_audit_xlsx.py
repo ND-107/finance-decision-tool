@@ -1917,6 +1917,16 @@ CLAIMS = [
      "Family systems theory; financial therapy clinical practice; couples and family financial decision-making literature",
      "APPLIED: Math-callout 'Family-system framing' in Zeitgeist Lifestyle §10 (synthesis). Most consequential financial decisions are family-system decisions, not individual: spousal disagreement about saving rate, family about elder care funding, parent-child about inheritance expectations, sibling about parent-care responsibilities. Clinical patterns more common than individual-optimization patterns framework's optimization frameworks address. Boomerang living math from §7 only works with relational agreement. Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs. Retirement-age decision almost always made jointly by spouses. Framework throughout treats reader as single agent making single decisions; actual decision-making structure usually multi-party family system. Acknowledgment rather than correction: framework useful as individual-perspective optimization reference, but operative decisions in actual lives often require family-system conversation framework's individual-agent framing doesn't surface.",
      "Phase 5.5 cleanup — fold-in callout to synthesis."),
+
+    # ============================================================
+    # Phase 6 — Session 1 (Tax Attorney + CFP) findings
+    # ============================================================
+
+    ("CL360", "Contractor:8.2", "QBI §199A SSTB threshold is measured against taxable income before the QBI deduction (IRC §199A(e)(2)), not AGI",
+     "STATUTORY", "CON", "PARTIAL", "A",
+     "IRC §199A(e)(2); see also Rev. Proc. 2025-32 for 2026 indexed dollar figures",
+     "APPLIED PARTIALLY: Added the 'taxable income before QBI, not AGI' clarifier to the Contractor:8.2 paragraph — material because retirement / HSA / itemize-vs-standard / capital-loss-carryover choices move taxable income but not AGI, and the SSTB threshold rides on the former. NOT APPLIED: P6 Tax Attorney persona also claimed the dollar threshold figures in the artifact ($201,775/$403,500 begin, $276,775/$553,500 complete) are stale 2024 numbers, asserting 2025 actual is $241,950/$483,900 (Rev. Proc. 2024-40). This contradicts the existing CL056 audit row, which captured 2025 actual at $197,300/$394,600 and 2026 at the figures currently in the artifact. The $241,950 figure for 2025 is inconsistent with the IRS's normal 3–5% inflation indexing trajectory from the 2024 base of $191,950 and is likely a persona-recall error. Threshold dollar values left unchanged pending an authoritative Rev. Proc. 2025-32 re-verification.",
+     "Phase 6 — Session 1 Tax Attorney finding, applied partially."),
 ]
 
 # Build Excel workbook
