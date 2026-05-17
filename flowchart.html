@@ -2086,12 +2086,24 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
         <p style="font-size:13px;color:var(--muted);margin:14px 0 8px 0;font-family:var(--font-body);"><strong>Tax rates</strong></p>
         <div class="calc-grid">
           <div class="calc-row"><label>Current ordinary income rate (%)</label><input type="number" id="al-ord" value="32" min="0" max="50" step="1"></div>
-          <div class="calc-row"><label>Future ordinary rate at withdrawal (%)</label><input type="number" id="al-future-ord" value="22" min="0" max="50" step="1"></div>
+          <div class="calc-row"><label>Future ordinary rate at withdrawal — <em>no ladder</em> (%)</label><input type="number" id="al-future-ord" value="22" min="0" max="50" step="1"></div>
+          <div class="calc-row"><label>Future ordinary rate at withdrawal — <em>with Roth conversion ladder</em> (%)</label><input type="number" id="al-ladder-rate" value="12" min="0" max="50" step="1"></div>
           <div class="calc-row"><label>LTCG/qualified dividend rate (%)</label><input type="number" id="al-ltcg" value="15" min="0" max="30" step="1"></div>
         </div>
         <div class="calc-result" id="al-result"></div>
       </div>
-      <div class="math-callout"><strong>The future tax rate is a choice variable, not a static input — Roth conversion ladders rewrite the optimal placement.</strong> The "future ordinary rate at withdrawal" input above is presented as a planning assumption, but for households with a planned Roth conversion ladder in the early-retirement bridge years (see W2:10.1), the future rate is driven by ladder design — bracket-fill target, claiming age, ladder duration. For a household at peak earning years (32% current marginal, 24% future expected with no ladder), the standard "bonds in Traditional, stocks in taxable" advice holds. For the same household with a planned 5-year ladder keeping income in the 12% bracket, the optimal accumulation-phase placement can <em>invert</em> — keeping bond yields in taxable and stocks in Roth becomes defensible because the Traditional → Roth conversion at 12% functions as a 20-percentage-point arbitrage that dominates the per-year tax-drag math. Vanguard's research on integrated planning (Bruno &amp; Bortolotti 2017) puts the value of asset-location + conversion-ladder integration at 30–80 bps/year on top of the 20–50 bps from naive asset location alone. The Phase 6.5 backlog includes a calculator extension to model both regimes simultaneously; until that ships, the practical move is to run the matrix above twice — once with your current "no ladder" future rate assumption, once with your "with ladder" future rate — and see how the optimal placement shifts.</div>
+      <div class="math-callout"><strong>Muni-bond taxable-equivalent yield — when munis-in-taxable beat Treasuries-in-tax-deferred for HNW households.</strong> The 3×3 matrix above treats all bonds as ordinary-income-taxed in taxable. For HNW households in high state-tax jurisdictions (CA, NY, NJ, MA), municipal bonds in taxable can break the standard "bonds in tax-deferred" rule because muni interest is federal-tax-exempt under IRC §103 and in-state munis are typically state-tax-exempt as well. The relevant comparison is the <em>taxable-equivalent yield</em>: TEY = muni_yield / (1 − combined_rate). The mini-calculator below quantifies it for your household.
+        <div class="calc-grid" style="margin-top:14px;">
+          <div class="calc-row"><label>Muni bond yield (%)</label><input type="number" id="muni-yield" value="4.0" min="0" max="15" step="0.1"></div>
+          <div class="calc-row"><label>Treasury yield (taxable comparison) (%)</label><input type="number" id="muni-treasury" value="4.3" min="0" max="15" step="0.1"></div>
+          <div class="calc-row"><label>Federal marginal rate (%)</label><input type="number" id="muni-fed" value="37" min="0" max="50" step="1"></div>
+          <div class="calc-row"><label>State marginal rate (%; 0 if no-tax state)</label><input type="number" id="muni-state" value="9.3" min="0" max="15" step="0.1"></div>
+          <div class="calc-row"><label>In-state muni? (state tax exemption applies)</label><select id="muni-instate"><option value="yes">Yes — in-state, both federal &amp; state exempt</option><option value="no">No — out-of-state, federal exempt only</option></select></div>
+          <div class="calc-row"><label>NIIT applies (income above $200K single / $250K MFJ)?</label><select id="muni-niit"><option value="no">No</option><option value="yes">Yes — add 3.8% to the Treasury after-tax math</option></select></div>
+        </div>
+        <div class="calc-result" id="muni-result" style="margin-top:14px;"></div>
+      </div>
+      <div class="math-callout"><strong>The future tax rate is a choice variable, not a static input — Roth conversion ladders rewrite the optimal placement.</strong> The two "future ordinary rate" inputs above let you model the placement under both regimes simultaneously (CL336 — Phase 6.5 extension delivered): the <em>no-ladder</em> scenario uses your projected ordinary rate at withdrawal if you take the standard path of letting Trad balances grow until RMDs at age 73/75; the <em>with-ladder</em> scenario uses the bracket-fill rate during your planned conversion-ladder window (typically 12% if filling the 12% bracket from 65→75, possibly 22% if filling 22%). The calculator now produces parallel optimal-placement recommendations under both regimes and surfaces the placement <em>delta</em> — for households where the ladder rate is materially below the no-ladder rate (the typical 32% peak / 24% no-ladder / 12% with-ladder spread), the optimal placement can invert (bonds → taxable, stocks → Roth) because the Traditional→Roth conversion at the ladder rate functions as a 10–20 percentage-point arbitrage that dominates the per-year tax-drag math. Vanguard research (Bruno &amp; Bortolotti 2017) puts the value of asset-location + conversion-ladder integration at 30–80 bps/year on top of the 20–50 bps from naive asset location alone. Cross-reference W2:10.1 + CL331 ladder Plan action for execution; this calculator quantifies the accumulation-phase implication.</div>
       <p class="model-limits"><strong>Model limits.</strong> Three-asset, three-account model — real households often have additional assets (international equity with foreign tax credit considerations, small-cap and emerging markets, alternatives) and additional accounts (HSA, 529, after-tax 401(k), brokerage with direct indexing). The 10% annual realization fraction for stocks is calibrated for modern broad-market ETFs and breaks down for actively managed funds, factor-tilted portfolios, or frequent rebalancing. Doesn't model: NIIT (3.8% above thresholds), state taxes (which can shift bond placement in high-tax states toward munis-in-taxable), the step-up basis at death (which strengthens the case for stocks-in-taxable since unrealized gains escape tax entirely), Roth conversion strategy interactions, or partial-account-fill optimization. The waterfall optimizer is greedy by spread rather than globally optimal; for moderate-sized portfolios the difference is typically under 5 bps/year. For HNW or complex situations, see the Bogleheads view §5 for context. International equity in taxable retains the foreign tax credit (typically 10–20 bps annually) that's lost when held in tax-advantaged accounts — a nuance the simplified model doesn't capture.</p>
     </div>
   </div>
@@ -2273,6 +2285,19 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
           <div class="calc-row"><label>Education funding (per child × children) ($)</label><input type="number" id="dime-edu" value="250000" min="0" max="5000000" step="10000"></div>
         </div>
         <div class="calc-result" id="dime-result"></div>
+      </div>
+      <div class="calculator">
+        <h4>Disability insurance gap sizing (CL335 — parallel to DIME)</h4>
+        <p style="font-size:13px;color:var(--muted);margin:0 0 14px 0;font-family:var(--font-body);">Mirrors DIME structure for disability — the more probable event for working-age adults than premature death (Council for Disability Awareness Personal Disability Quotient: ~25% lifetime probability of 90+ day disability before age 65). Most employer group LTD policies cap at $10K–$15K/month and are taxable when employer-paid; for high earners the cap typically replaces 30% of income vs. the 60–70% standard target, leaving the gap that individual own-occupation supplements close.</p>
+        <div class="calc-grid">
+          <div class="calc-row"><label>Gross monthly income ($)</label><input type="number" id="di-income" value="10000" min="0" max="200000" step="500"></div>
+          <div class="calc-row"><label>Group LTD monthly cap ($)</label><input type="number" id="di-group-cap" value="10000" min="0" max="50000" step="500"></div>
+          <div class="calc-row"><label>Group LTD employer-paid (taxable benefit)?</label><select id="di-group-taxable"><option value="yes">Yes — employer-paid, benefit taxable</option><option value="no">No — I pay premium with after-tax, benefit tax-free</option></select></div>
+          <div class="calc-row"><label>Target replacement rate (%)</label><input type="number" id="di-target" value="65" min="0" max="100" step="5"></div>
+          <div class="calc-row"><label>Marginal tax rate on income (%)</label><input type="number" id="di-tax" value="32" min="0" max="50" step="1"></div>
+          <div class="calc-row"><label>Years to retirement</label><input type="number" id="di-years" value="20" min="1" max="50" step="1"></div>
+        </div>
+        <div class="calc-result" id="di-result"></div>
       </div>
     </div>
   </div>
@@ -6167,6 +6192,7 @@ function calcAssetLocation() {
   // Tax rates
   const ordRate = $val('al-ord', 32) / 100;
   const futureOrd = $val('al-future-ord', 22) / 100;
+  const ladderRate = $val('al-ladder-rate', 12) / 100;  // CL336 — Roth-ladder integration
   const ltcgRate = $val('al-ltcg', 15) / 100;
 
   const allocTotal = stockPct + bondPct + reitPct;
@@ -6180,63 +6206,63 @@ function calcAssetLocation() {
     validationNote += `<br>⚠ Account capacity sums to ${(acctTotal*100).toFixed(0)}% (should be 100%).`;
   }
 
-  // Terminal value per $1 invested, by (asset, account)
-  // Traditional: tax-deferred growth, withdrawal taxed at ordinary
-  const termTrad = (r) => Math.pow(1 + r, years) * (1 - futureOrd);
-  // Roth: tax-free growth, no tax
-  const termRoth = (r) => Math.pow(1 + r, years);
-  // Taxable for stocks (modern broad ETF, ~10% annual realization at LTCG rate)
+  // Terminal value per $1 invested, by (asset, account, rate-regime).
+  // CL336 — compute under both no-ladder and with-ladder future-ordinary rates.
   const realizationFraction = 0.10;
-  const termTaxableStock = (r) => Math.pow(1 + r * (1 - realizationFraction * ltcgRate), years);
-  // Taxable for bonds and REITs: interest/non-qualified distributions taxed annually at ordinary
-  const termTaxableOrd = (r) => Math.pow(1 + r * (1 - ordRate), years);
+  function computeRegime(rateAtWithdrawal) {
+    const termTrad = (r) => Math.pow(1 + r, years) * (1 - rateAtWithdrawal);
+    const termRoth = (r) => Math.pow(1 + r, years);
+    const termTaxableStock = (r) => Math.pow(1 + r * (1 - realizationFraction * ltcgRate), years);
+    const termTaxableOrd = (r) => Math.pow(1 + r * (1 - ordRate), years);
+    return {
+      Stocks: { Traditional: termTrad(sret), Roth: termRoth(sret), Taxable: termTaxableStock(sret) },
+      Bonds:  { Traditional: termTrad(bret), Roth: termRoth(bret), Taxable: termTaxableOrd(bret) },
+      REITs:  { Traditional: termTrad(rret), Roth: termRoth(rret), Taxable: termTaxableOrd(rret) }
+    };
+  }
+  const matrixNoLadder = computeRegime(futureOrd);
+  const matrixLadder = computeRegime(ladderRate);
+  // Primary regime for display = no-ladder (matches pre-CL336 behavior).
+  const matrix = matrixNoLadder;
 
-  const matrix = {
-    Stocks: { Traditional: termTrad(sret), Roth: termRoth(sret), Taxable: termTaxableStock(sret) },
-    Bonds:  { Traditional: termTrad(bret), Roth: termRoth(bret), Taxable: termTaxableOrd(bret) },
-    REITs:  { Traditional: termTrad(rret), Roth: termRoth(rret), Taxable: termTaxableOrd(rret) }
-  };
   const assets = ['Stocks', 'Bonds', 'REITs'];
   const accounts = ['Traditional', 'Roth', 'Taxable'];
   const assetDollars = { Stocks: pv * stockPct, Bonds: pv * bondPct, REITs: pv * reitPct };
   const acctCapacity = { Traditional: pv * tradPct, Roth: pv * rothPct, Taxable: pv * taxablePct };
 
-  // Identify optimal account per asset (highest per-$ terminal value)
-  const optimalAccount = {};
-  assets.forEach(a => {
-    optimalAccount[a] = accounts.slice().sort((x, y) => matrix[a][y] - matrix[a][x])[0];
-  });
+  function optimalPlacement(mat) {
+    const optAcct = {};
+    assets.forEach(a => { optAcct[a] = accounts.slice().sort((x, y) => mat[a][y] - mat[a][x])[0]; });
+    const entries = assets.map(a => {
+      const order = accounts.slice().sort((x, y) => mat[a][y] - mat[a][x]);
+      return { asset: a, dollars: assetDollars[a], preferredOrder: order, spread: mat[a][order[0]] - mat[a][order[2]] };
+    }).sort((x, y) => y.spread - x.spread);
+    const remaining = { ...acctCapacity };
+    const allocs = [];
+    for (const e of entries) {
+      let left = e.dollars;
+      for (const acct of e.preferredOrder) {
+        if (left <= 0) break;
+        const fit = Math.min(left, remaining[acct]);
+        if (fit > 0) { allocs.push({ asset: e.asset, account: acct, dollars: fit }); remaining[acct] -= fit; left -= fit; }
+      }
+    }
+    let total = 0;
+    allocs.forEach(a => { total += a.dollars * mat[a.asset][a.account]; });
+    return { optAcct, allocs, total };
+  }
+  const noLadder = optimalPlacement(matrixNoLadder);
+  const withLadder = optimalPlacement(matrixLadder);
+  const optimalAccount = noLadder.optAcct;
+  const allocations = noLadder.allocs;
+  let optimalTotal = noLadder.total;
 
-  // Naive: each asset distributed proportional to account capacity
+  // Naive: each asset distributed proportional to account capacity (uses no-ladder matrix).
   let naiveTotal = 0;
   assets.forEach(a => {
     const perDollar = tradPct * matrix[a].Traditional + rothPct * matrix[a].Roth + taxablePct * matrix[a].Taxable;
     naiveTotal += assetDollars[a] * perDollar;
   });
-
-  // Optimal (waterfall): sort assets by spread (best-worst), allocate to preferred account up to capacity
-  const assetEntries = assets.map(a => {
-    const accountsByPref = accounts.slice().sort((x, y) => matrix[a][y] - matrix[a][x]);
-    const spread = matrix[a][accountsByPref[0]] - matrix[a][accountsByPref[2]];
-    return { asset: a, dollars: assetDollars[a], preferredOrder: accountsByPref, spread };
-  }).sort((x, y) => y.spread - x.spread);
-
-  const remaining = { ...acctCapacity };
-  const allocations = [];
-  for (const e of assetEntries) {
-    let dollarsLeft = e.dollars;
-    for (const acct of e.preferredOrder) {
-      if (dollarsLeft <= 0) break;
-      const fit = Math.min(dollarsLeft, remaining[acct]);
-      if (fit > 0) {
-        allocations.push({ asset: e.asset, account: acct, dollars: fit });
-        remaining[acct] -= fit;
-        dollarsLeft -= fit;
-      }
-    }
-  }
-  let optimalTotal = 0;
-  allocations.forEach(a => { optimalTotal += a.dollars * matrix[a.asset][a.account]; });
 
   // Worst (anti-optimal): flip preferred order
   const worstEntries = assets.map(a => {
@@ -6271,6 +6297,30 @@ function calcAssetLocation() {
     .map(a => `${a.asset} → ${a.account}: ${fmtMoneyFull(a.dollars)}`)
     .join('<br>');
 
+  // CL336 — Ladder-regime comparison: show ladder placement + alpha + inversion flag.
+  const ladderAllocSummary = withLadder.allocs
+    .filter(a => a.dollars > 0.01)
+    .map(a => `${a.asset} → ${a.account}: ${fmtMoneyFull(a.dollars)}`)
+    .join('<br>');
+  const ladderTotal = withLadder.total;
+  const ladderAlphaBps = naiveTotal > 0 ? (Math.pow(ladderTotal / naiveTotal, 1 / years) - 1) * 10000 : 0;
+  // Detect placement inversion: any asset's optimal account differs between regimes
+  const inversions = assets.filter(a => noLadder.optAcct[a] !== withLadder.optAcct[a]);
+  const ladderRegimeBlock = `
+    <p style="font-size:13px;color:var(--muted);margin:18px 0 6px 0;font-family:var(--font-body);"><strong>With planned Roth conversion ladder (${(ladderRate*100).toFixed(0)}% future rate)</strong> — CL336 integrated regime</p>
+    <div style="font-size:14px;line-height:1.7;font-family:var(--font-body);background:var(--surface);padding:12px 14px;border-radius:6px;">${ladderAllocSummary || 'No allocation possible (check inputs).'}</div>
+    <table class="calc-table" style="margin-top:10px;">
+      <tr><th>Regime</th><th>Optimal terminal value</th><th>Annualized alpha vs naive</th></tr>
+      <tr><td>No ladder (future rate ${(futureOrd*100).toFixed(0)}%)</td><td>${fmtMoneyFull(optimalTotal)}</td><td>${alphaAnnualizedBps.toFixed(0)} bps/yr</td></tr>
+      <tr class="${ladderTotal > optimalTotal ? 'highlight' : ''}"><td>With ladder (future rate ${(ladderRate*100).toFixed(0)}%)</td><td>${fmtMoneyFull(ladderTotal)}</td><td>${ladderAlphaBps.toFixed(0)} bps/yr</td></tr>
+      <tr><td>Delta from executing the ladder</td><td>${fmtMoneyFull(ladderTotal - optimalTotal)}</td><td>${(ladderAlphaBps - alphaAnnualizedBps).toFixed(0)} bps/yr</td></tr>
+    </table>
+    ${inversions.length > 0
+      ? `<span class="calc-result-detail" style="display:block;margin-top:10px;"><strong>Placement inversion under the ladder regime:</strong> ${inversions.map(a => `${a} moves from ${noLadder.optAcct[a]} → ${withLadder.optAcct[a]}`).join('; ')}. This is the integrated-planning premium that the Vanguard Bruno-Bortolotti 2017 research quantifies at 30–80 bps/year on top of naive asset-location alpha — the ladder rewrites the placement, not just the rate. See W2:10.1 + CL331 ladder Plan action for execution.</span>`
+      : `<span class="calc-result-detail" style="display:block;margin-top:10px;">Optimal placements are unchanged between regimes at your current rate spread — the ladder execution still produces direct tax-rate-arbitrage value (the delta dollar figure above), but doesn't invert the accumulation-phase placement. This is the typical pattern when your ladder rate and no-ladder rate are close; at wider spreads (e.g., 32% peak / 12% with-ladder), placement inversion becomes more likely.</span>`
+    }
+  `;
+
   document.getElementById('al-result').innerHTML = `
     ${validationNote ? `<span class="calc-result-detail">${validationNote}</span>` : ''}
     <span class="calc-result-headline">${alphaAnnualizedBps.toFixed(0)} bps/year alpha</span>
@@ -6291,6 +6341,44 @@ function calcAssetLocation() {
       <tr><td>Worst (anti-optimal)</td><td>${fmtMoneyFull(worstTotal)}</td></tr>
     </table>
     <span class="calc-result-detail" style="display:block;margin-top:10px;">The waterfall optimizer is greedy — it ranks assets by the spread between their best and worst account placement, then allocates the highest-spread asset to its preferred account first. This is near-optimal for the 3×3 case and within ~5 bps/year of globally optimal under realistic parameters. The dollar alpha grows with portfolio size and time horizon; for a $1M portfolio over 30 years, 25 bps/year compounds to roughly $80K-$200K depending on inputs. Vanguard's research range of 20–50 bps/year for typical balanced portfolios falls in this regime. Note: the Roth case for stocks is sensitive to expected return — at lower equity returns, the gap between Roth and Taxable narrows, and Taxable can win for stocks because of the step-up basis at death (not modeled here).</span>
+    ${ladderRegimeBlock}
+  `;
+}
+
+// CL367 — muni taxable-equivalent yield mini-calculator.
+function calcMuniTEY() {
+  const muniYield = $val('muni-yield', 4.0) / 100;
+  const treasuryYield = $val('muni-treasury', 4.3) / 100;
+  const fedRate = $val('muni-fed', 37) / 100;
+  const stateRate = $val('muni-state', 9.3) / 100;
+  const inState = ((document.getElementById('muni-instate') || {}).value || 'yes') === 'yes';
+  const niitApplies = ((document.getElementById('muni-niit') || {}).value || 'no') === 'yes';
+
+  // Combined rate the Treasury yield gets taxed at = fed + (state) + (NIIT)
+  // Munis: federal-exempt; in-state munis also state-exempt; NIIT does NOT apply to muni interest (IRC §1411).
+  const treasuryCombinedRate = fedRate + stateRate + (niitApplies ? 0.038 : 0);
+  const muniEffectiveRate = inState ? 0 : stateRate; // out-of-state munis taxed by your state but not federal
+  const muniAfterTaxYield = muniYield * (1 - muniEffectiveRate);
+  const treasuryAfterTaxYield = treasuryYield * (1 - treasuryCombinedRate);
+  const muniTEY = muniYield / Math.max(0.0001, 1 - treasuryCombinedRate); // muni's yield in pre-tax terms vs Treasury
+
+  const muniWins = muniAfterTaxYield > treasuryAfterTaxYield;
+  const gap = Math.abs(muniAfterTaxYield - treasuryAfterTaxYield) * 100;
+
+  document.getElementById('muni-result').innerHTML = `
+    <table class="calc-table">
+      <tr><th>Yield comparison</th><th>Pre-tax</th><th>After-tax (your rates)</th></tr>
+      <tr class="${muniWins ? 'highlight' : ''}"><td>Muni bond (${inState ? 'in-state, fed + state exempt' : 'out-of-state, fed exempt only'})</td><td>${(muniYield*100).toFixed(2)}%</td><td>${(muniAfterTaxYield*100).toFixed(2)}%</td></tr>
+      <tr class="${!muniWins ? 'highlight' : ''}"><td>Treasury (taxed at ${(treasuryCombinedRate*100).toFixed(1)}% combined${niitApplies ? ', incl. NIIT' : ''})</td><td>${(treasuryYield*100).toFixed(2)}%</td><td>${(treasuryAfterTaxYield*100).toFixed(2)}%</td></tr>
+    </table>
+    <span class="calc-result-detail" style="display:block;margin-top:10px;">
+      <strong>Muni taxable-equivalent yield:</strong> ${(muniTEY*100).toFixed(2)}% — the pre-tax yield a fully-taxable bond would need to match this muni after tax. <strong>${muniWins ? 'Munis-in-taxable wins' : 'Treasury-in-tax-deferred wins'} by ${gap.toFixed(0)} bps after-tax.</strong>
+      ${muniWins
+        ? ' For HNW households in high-state-tax jurisdictions, this is the standard pattern that breaks the "bonds in tax-deferred" rule from the matrix above — the muni-in-taxable yield, after federal-and-state exemption, exceeds the Treasury-in-tax-deferred yield once your combined marginal rate is high enough. The 3-asset matrix calculator above treats all bonds as ordinary-taxed in taxable and so understates this option; full muni integration as a 4th asset is a Phase 7 deliverable (adjacent-vehicles theme). Until then, run the matrix at your bond allocation × your non-muni fraction, and treat the muni fraction as a separate taxable-only sleeve sized to your after-tax-yield advantage.'
+        : ' At your rates, the Treasury wins after-tax — the standard "bonds in tax-deferred" rule from the matrix above applies cleanly to your situation. The muni case is sensitive to combined rate: at federal rates below ~32% or in no-state-tax jurisdictions, Treasury after-tax frequently wins; at federal ≥35% with material state tax, munis frequently win.'
+      }
+      The NIIT (IRC §1411) applies to investment income above the income threshold but specifically does NOT apply to muni interest, which is one of the structural advantages this calculator captures.
+    </span>
   `;
 }
 
@@ -6313,6 +6401,7 @@ function renderMath() {
   calcRealNominal();
   calcSequence();
   calcAssetLocation();
+  calcMuniTEY();
   calcHistoricalCycles();
 }
 
@@ -6659,14 +6748,62 @@ function calcDIME() {
   `;
 }
 
+// CL335 — DI gap sizing calculator parallel to DIME.
+function calcDI() {
+  const monthlyIncome = $val('di-income', 10000);
+  const groupCap = $val('di-group-cap', 10000);
+  const groupTaxable = ((document.getElementById('di-group-taxable') || {}).value || 'yes') === 'yes';
+  const targetRate = $val('di-target', 65) / 100;
+  const taxRate = $val('di-tax', 32) / 100;
+  const years = $val('di-years', 20);
+
+  // Tax-equivalent group benefit: if employer-paid (taxable), divide by (1-tax) to compare with after-tax target.
+  // Standard analysis works in pre-tax (gross) dollar terms.
+  const groupAfterTax = groupTaxable ? groupCap * (1 - taxRate) : groupCap;
+  const targetMonthly = monthlyIncome * targetRate;
+  const gapMonthly = Math.max(0, targetMonthly - groupAfterTax);
+  const gapAnnual = gapMonthly * 12;
+  // PV of gap at 3% real discount over years
+  const r = 0.03;
+  const pvFactor = r === 0 ? years : (1 - Math.pow(1 + r, -years)) / r;
+  const gapPV = gapAnnual * pvFactor;
+
+  let posture;
+  if (gapMonthly < 500) {
+    posture = '<strong>Coverage is approximately adequate.</strong> Your group LTD' + (groupTaxable ? ' (after taxes on the benefit)' : '') + ' is close to your target replacement rate; the marginal value of additional individual own-occupation coverage is bounded. Verify your group policy is <em>own-occupation</em> rather than "any-occupation" (the any-occ definition is much narrower and frequently denies legitimate claims for skilled workers).';
+  } else if (gapMonthly < 2500) {
+    posture = '<strong>Modest gap.</strong> Consider an individual own-occupation DI supplement for the gap. For your income level, pricing typically runs $40–$120/month for $' + Math.round(gapMonthly/100)*100 + '/mo of additional own-occ coverage from a top carrier (Guardian, Principal, MassMutual, Standard) — verifiable in 15 minutes via a broker quote. Lock pricing in while you\'re healthy; underwriting tightens with each diagnosis.';
+  } else {
+    posture = '<strong>Substantial gap — close it before adding term life.</strong> Your group LTD' + (groupTaxable ? ' (after taxes on the benefit)' : '') + ' replaces a fraction of your target. At your income, the unreplaced gap PV typically exceeds $1M and the lifetime probability of a 90+ day disability before age 65 is approximately 25% per Council for Disability Awareness data. Get an individual own-occupation DI supplement from a top carrier (Guardian, Principal, MassMutual, Standard) with a 90-day elimination period and benefits to age 65 or 67. Pricing typically runs 1–3% of income for this level of coverage. <em>The DI-vs-life priority inversion at high income (CL335 Plan action) treats this as a "next-quarter / critical" item — DI gap PV typically exceeds the additional term-life need.</em>';
+  }
+
+  document.getElementById('di-result').innerHTML = `
+    <span class="calc-result-headline">${fmtMoneyFull(gapMonthly)}/mo gap</span>
+    <span class="calc-result-detail">Target replacement: ${fmtMoneyFull(targetMonthly)}/mo (${(targetRate*100).toFixed(0)}% of ${fmtMoneyFull(monthlyIncome)}/mo gross). Group LTD effective benefit (${groupTaxable ? 'after tax' : 'tax-free'}): ${fmtMoneyFull(groupAfterTax)}/mo. <strong>Gap: ${fmtMoneyFull(gapMonthly)}/mo</strong>, annualized ${fmtMoneyFull(gapAnnual)}, PV over ${years}yr at 3% real discount: ${fmtMoneyFull(gapPV)}.</span>
+    <span class="calc-result-detail" style="display:block;margin-top:10px;">${posture}</span>
+  `;
+}
+
 function renderSpendingEssentials() {
   // CL333 — pre-fill dime-income with essentialExpenses approximation when available.
   applyDefaultIfFallback('dime-income', 'essentialExpenses', 80000);
   markUserTyped('dime-income');
+  // CL335 — pre-fill DI monthly income default with annualExpenses / 12 (rough proxy
+  // since we don't have gross income directly; user can override).
+  const annExp = getDefault('annualExpenses');
+  if (annExp) {
+    const el = document.getElementById('di-income');
+    if (el && el.dataset.userTyped !== 'true' && (el.value === '' || Math.abs(parseFloat(el.value) - 10000) < 0.01)) {
+      // Annual expenses ≈ post-tax. Gross income ≈ expenses / (1 - blended-tax-est ~25%).
+      el.value = Math.round(annExp / 12 / 0.75 / 100) * 100;
+    }
+  }
+  markUserTyped('di-income');
   calcRentVsBuy();
   calcVehicleTCO();
   calcHDHPvsPPO();
   calcDIME();
+  calcDI();
 }
 
 function renderSpendingLifestyle() {
@@ -7062,6 +7199,13 @@ function wireSpendingEssentialsCalculators() {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', calcDIME);
   });
+  ['di-income','di-group-cap','di-group-taxable','di-target','di-tax','di-years'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      const ev = el.tagName === 'SELECT' ? 'change' : 'input';
+      el.addEventListener(ev, calcDI);
+    }
+  });
 }
 
 // Wire up live updates
@@ -7089,7 +7233,14 @@ function wireMathCalculators() {
       el.addEventListener(ev, calcSequence);
     }
   });
-  ['al-pv', 'al-years', 'al-stock', 'al-bond', 'al-reit', 'al-trad', 'al-roth', 'al-tax', 'al-sret', 'al-bret', 'al-rret', 'al-ord', 'al-future-ord', 'al-ltcg'].forEach(id => {
+  ['muni-yield', 'muni-treasury', 'muni-fed', 'muni-state', 'muni-instate', 'muni-niit'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      const ev = el.tagName === 'SELECT' ? 'change' : 'input';
+      el.addEventListener(ev, calcMuniTEY);
+    }
+  });
+  ['al-pv', 'al-years', 'al-stock', 'al-bond', 'al-reit', 'al-trad', 'al-roth', 'al-tax', 'al-sret', 'al-bret', 'al-rret', 'al-ord', 'al-future-ord', 'al-ladder-rate', 'al-ltcg'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', calcAssetLocation);
   });
