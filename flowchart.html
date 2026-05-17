@@ -2142,6 +2142,10 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
           <div class="calc-row"><label>Pension / SPIA / QLAC annual ($/yr, real)</label><input type="number" id="hc-pension" value="0" min="0" max="500000" step="500"></div>
           <div class="calc-row"><label>Pension / SPIA / QLAC start age</label><input type="number" id="hc-pension-age" value="65" min="50" max="100" step="1"></div>
         </div>
+        <p style="font-size:13px;color:var(--muted);margin:18px 0 8px 0;font-family:var(--font-body);"><strong>Starting-valuation regime (CL370/CL373).</strong> Pfau (2012, <em>JFP</em>) and Kitces' updates establish that the historical SWR is materially conditional on starting CAPE — at 90th-percentile CAPE (where the US has spent most of 2015–2026), the 30-year SWR drops to roughly 3.0–3.5%; at 10th-percentile (post-1932, 1974, 2009), it rises to 5.5–6%. The simulator below applies a directional haircut or boost to the first 10 years of stock returns in each cohort to capture this mean-reversion effect. <em>Default is "typical" (no adjustment).</em></p>
+        <div class="calc-grid">
+          <div class="calc-row"><label>Starting CAPE / valuation regime</label><select id="hc-cape"><option value="very-low">Very low (bottom quintile — post-1932/1974/2009 style)</option><option value="low">Low (20–40th percentile)</option><option value="typical" selected>Typical / median (no adjustment)</option><option value="high">High (60–80th percentile)</option><option value="very-high">Very high (top quintile — current US 2026)</option></select></div>
+        </div>
         <div class="calc-result" id="hc-result"></div>
         <div class="calc-chart" id="hc-chart" aria-label="Percentile fan chart of historical cohort balances over the horizon"></div>
       </div>
@@ -4589,7 +4593,7 @@ const HIST_RETURNS = [
 
 // Returns an array of cycle results when starting in each plausible year
 // and running for `horizonYears` years. params: { pv, annualWithdrawal,
-// stockAlloc (0-1), horizonYears, strategy, streams? }
+// stockAlloc (0-1), horizonYears, strategy, streams?, capeAdjustment? }
 //
 // `streams` (CL329 — OPTIONAL guaranteed-income overlay): array of
 //   { annualReal, startYearOffset }
@@ -4598,15 +4602,22 @@ const HIST_RETURNS = [
 // streams that grow with inflation; the simulator subtracts active streams
 // from the year's withdrawal need before drawing from the portfolio.
 //
-// When omitted, behavior is identical to pre-CL329 (portfolio-only). External
-// backends may ignore the field entirely.
+// `capeAdjustment` (CL370/CL373 — OPTIONAL starting-valuation regime): a
+//   percentage-point adjustment applied to first-10-year stock returns in
+//   each cohort to approximate Pfau 2012 valuation-conditional SWR. Pass
+//   a negative number (e.g., -0.015 = -1.5pp) for high-CAPE start, positive
+//   for low-CAPE. When omitted or 0, behavior is identical to pre-CL370.
+//
+// When `streams` and `capeAdjustment` are omitted, behavior is identical
+// to pre-CL329 (portfolio-only, no valuation conditioning). External
+// backends may ignore both fields entirely.
 //
 // Return shape: { cycles, successRate, percentiles, failures, totalCycles, paths? }
 // `paths` is OPTIONAL (CL161 fan chart) — array of arrays of length horizonYears+1
 // holding the end-of-year portfolio balance for each cohort. External backends
 // may omit it; the fan chart skips rendering when absent.
 function historicalCyclesSimulate(params) {
-  const { pv, annualWithdrawal, stockAlloc, horizonYears, strategy = 'fixed', streams = [] } = params;
+  const { pv, annualWithdrawal, stockAlloc, horizonYears, strategy = 'fixed', streams = [], capeAdjustment = 0 } = params;
   const bondAlloc = 1 - stockAlloc;
   const lastStartIdx = HIST_RETURNS.length - horizonYears;
   if (lastStartIdx < 0) return { cycles: [], successRate: 0, percentiles: {}, note: 'horizon exceeds dataset' };
@@ -4636,7 +4647,13 @@ function historicalCyclesSimulate(params) {
 
     for (let y = 0; y < horizonYears; y++) {
       const yr = HIST_RETURNS[startIdx + y];
-      const stockRet = yr[1] / 100;
+      // CL370/CL373 — apply CAPE adjustment only to first 10 years of stock returns.
+      // The mean-reversion in equity valuations affects the early portion of a
+      // cohort's return sequence; by year 10+, valuations have typically reverted
+      // enough that the conditional effect on annual returns is small. Pfau 2012
+      // documents the effect predominantly in the first decade.
+      const capeShift = (y < 10) ? capeAdjustment : 0;
+      const stockRet = (yr[1] / 100) + capeShift;
       const bondRet = yr[2] / 100;
       const portRet = stockAlloc * stockRet + bondAlloc * bondRet;
 
@@ -6415,6 +6432,16 @@ function calcHistoricalCycles() {
   const horizon = $val('hc-years', 30);
   const strategy = (document.getElementById('hc-strategy') || {}).value || 'fixed';
 
+  // CL370/CL373 — starting-valuation regime, applied to first-10-year stock returns.
+  const capeRegime = (document.getElementById('hc-cape') || {}).value || 'typical';
+  const capeAdjustment = {
+    'very-low': 0.020,
+    'low': 0.010,
+    'typical': 0.000,
+    'high': -0.010,
+    'very-high': -0.020,
+  }[capeRegime] || 0;
+
   // CL329 — Guaranteed-income overlay inputs.
   const curAge = $val('hc-curage', 65);
   const ss1Pia = $val('hc-ss1', 0);
@@ -6451,7 +6478,7 @@ function calcHistoricalCycles() {
 
   const backend = getMCBackend();
   const result = backend.simulate({
-    pv, annualWithdrawal: wd, stockAlloc, horizonYears: horizon, strategy, streams
+    pv, annualWithdrawal: wd, stockAlloc, horizonYears: horizon, strategy, streams, capeAdjustment
   });
 
   if (result.note) {
@@ -6473,6 +6500,10 @@ function calcHistoricalCycles() {
         return `${labels[i] || 'stream'} ${fmtMoneyFull(s.annualReal)}/yr starting year ${s.startYearOffset}`;
       }).join('; ')}. Across the ${horizon}-year horizon this overlay contributes roughly ${fmtMoneyFull(totalLifetimeGuaranteed)} of real-dollar income that the portfolio doesn't have to fund — connecting back to Math §7's Pfau-Kitces "Social Security bridge" framing where drawing more heavily on the portfolio in early retirement to delay claiming is one of the most-replicated decumulation findings of the last decade.</span>`
     : `<span class="calc-result-detail" style="display:block;margin-top:10px;"><em>No guaranteed-income overlay applied</em> — the success rate above is portfolio-only. For any household reaching FRA, Social Security typically funds 25–60% of essential spending; modeling it materially changes the success rate. Add your PIA and claiming age above to see the household-level picture.</span>`;
+  // CL370/CL373 — CAPE regime summary.
+  const capeNote = capeRegime !== 'typical'
+    ? `<span class="calc-result-detail" style="display:block;margin-top:10px;"><strong>Starting-valuation regime applied:</strong> "${capeRegime}" → ${(capeAdjustment * 100).toFixed(1)}pp shift applied to first 10 years of stock returns in each cohort, approximating the Pfau 2012 valuation-conditional SWR effect. The unconditional historical 4% result is the median-CAPE figure; at very-high CAPE (current US 2026 regime), the conditional historical SWR drops toward 3.0–3.5%. Toggle the regime to "typical" to see the unconditional result for comparison.</span>`
+    : '';
 
   el.innerHTML = `
     <span class="calc-result-headline">${successPct}% historical success rate</span>
@@ -6486,6 +6517,7 @@ function calcHistoricalCycles() {
       <tr><td>90th — best quintile</td><td>${fmtMoneyFull(result.percentiles.p90)}</td></tr>
     </table>
     ${overlaySummary}
+    ${capeNote}
     <span class="calc-result-detail" style="display:block;margin-top:10px;">A 95%+ success rate is the conventional threshold for "safe" — below that, failure cohorts deserve attention. The median ending balance often substantially exceeds starting portfolio (real terms), which is the upside skew that drives the "die with substantial wealth" critique that Die With Zero engages with (see Phase 5 §5). Use percentile spread as the indicator of risk: a tight spread means historical outcomes converged; a wide spread means your plan's outcome depends materially on what kind of cycle you actually encounter.</span>
   `;
   // Fan chart (CL161) — only renders if backend provides per-year paths.
@@ -7246,7 +7278,7 @@ function wireMathCalculators() {
   });
   ['hc-pv', 'hc-wd', 'hc-stock', 'hc-years', 'hc-strategy',
    'hc-curage', 'hc-ss1', 'hc-ss1-age', 'hc-ss2', 'hc-ss2-age', 'hc-spouse-age',
-   'hc-pension', 'hc-pension-age'].forEach(id => {
+   'hc-pension', 'hc-pension-age', 'hc-cape'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
