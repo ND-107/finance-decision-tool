@@ -1061,6 +1061,30 @@ body {
 
 .plan-chip.accent { background: var(--accent-dark); color: white; border-color: var(--accent-dark); }
 
+.plan-synthesis {
+  margin: 24px 0 32px 0;
+  padding: 20px 22px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+.plan-synthesis h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 10px 0;
+}
+.plan-synthesis p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 12px 0;
+}
+.plan-synthesis p:last-child { margin-bottom: 0; }
+.plan-synthesis p strong { color: var(--ink); font-weight: 500; }
+
 .stage {
   margin-bottom: 32px;
 }
@@ -1777,6 +1801,7 @@ body {
 <!-- Plan view -->
 <section class="view" id="view-plan">
   <div class="plan-header" id="plan-header"></div>
+  <div id="plan-synthesis"></div>
   <div id="plan-stages"></div>
   <div id="plan-skipped"></div>
 </section>
@@ -2033,6 +2058,9 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
       <div class="math-callout"><strong>Geographic arbitrage salary haircut.</strong> The cost-of-living differential is one side of the trade; the salary differential is the other. The same job often pays 15–35% less in lower-cost markets than in HCOL hubs (SF, NYC, Seattle, Boston). For a software engineer earning $250K in San Francisco, the equivalent role in Austin might pay $180K and in Raleigh $160K. The net savings calculation requires both numbers: SF gross $250K with effective net (after state income tax + housing) of ~$120K versus Austin gross $180K with effective net of ~$130K. Geographic arbitrage usually still wins for remote workers retaining HCOL salary, marginally wins for relocating with the same employer, and frequently breaks even or loses for relocating with a market-rate role at the new location. The arbitrage is largest when (a) the job is remote and pays HCOL rates regardless of residence, (b) the relocation is to a no-income-tax state, and (c) the household has children or other factors that make HCOL premium amenities (private schools, services) materially expensive.</div>
       <div class="math-callout"><strong>What homeownership actually costs.</strong> Principal and interest is roughly 50–65% of true monthly cost. Add property tax (1–2.5% of value annually, state-dependent), insurance (0.3–0.5%), maintenance (1% of value as a planning figure — actual ranges 0.5–2% depending on age and quality), HOA where applicable, and the opportunity cost on the down payment (whatever you'd otherwise earn invested). A $500K home with $100K down at 6.5% mortgage rate has roughly $2,530/mo P&amp;I — but true monthly cost including taxes, insurance, maintenance, and opportunity cost is closer to $4,200/mo. The gap is where most rent-vs-buy comparisons go wrong.</div>
       <p>Geographic arbitrage is the highest-leverage housing decision for remote-capable workers. The cost difference between San Francisco and Austin is not 20% — it's often 50–60% when you include both housing and state income tax. House hacking (renting rooms or an ADU, or living in one unit of a multi-family) is the second-highest leverage — FHA loans permit 3.5% down on 2–4 unit properties, and rental income from the other units can cover most or all of the mortgage.</p>
+      <div class="math-callout"><strong>Property-tax basis-reset trap (the empty-nester downsize penalty).</strong> Long-tenure homeowners in states with assessment caps face a non-obvious cost when "downsizing." California's Prop 13 (1978) caps annual assessed-value increases at 2% regardless of market value; Prop 19 (2020) modified the rules for transferring base-year value at age 55+ but still constrains transfers across counties and to lower-value replacement properties. Florida's Save Our Homes amendment caps homesteaded property at 3%/yr or CPI (whichever is lower). Texas, Georgia, Oregon, and others have analogous structures. A retiree who's owned a $1.5M California home since 1995 may have an assessed value of $300K and pay $3,500/yr in property tax; selling and buying a comparable $1.5M home triggers reassessment to current market value and a property-tax jump to $18,000/yr — a $14,500/yr permanent expense increase at zero net price change. Often the largest hidden cost in any retiree downsize decision. Verify your state's assessment-cap rules and whether base-year-value portability applies before pricing the move. CA Prop 19 specifically permits one-time transfer at 55+ within California; FL portability allows transfer of the SOH differential between Florida homesteads.</div>
+      <div class="math-callout"><strong>Mortgage recast — the right move for most lump-sum windfalls.</strong> When a windfall arrives (inheritance, stock-comp vest, business-sale proceeds, bonus) and you carry a mortgage, the three options are typically framed as <em>refinance</em>, <em>pay down principal</em>, or <em>invest the difference</em>. A fourth option is routinely under-discussed outside lender circles: <em>recast</em>. A recast is a lump-sum principal payment that the lender then re-amortizes against the remaining term <em>at the same interest rate</em>. The monthly payment drops permanently; the rate stays put; closing costs are typically $250–$500 (often zero); no underwriting and no refi friction. For a $400K mortgage at 6.5% with 25 years left, a $100K recast drops the monthly P&amp;I from ~$2,700 to ~$2,025 — $675/month of recovered cash flow with no other moving parts. Recast generally beats <em>extra principal payments alone</em> (which shorten the term but don't lower the monthly payment) and beats <em>refinancing</em> when current rates are above your existing rate (avoiding the rate-step-up while still getting payment relief). Most conventional and FHA loans permit recasts; VA and most jumbos typically do not — check your loan documents before assuming eligibility.</div>
+      <div class="math-callout"><strong>Reverse mortgage as a retirement standby line of credit.</strong> The reverse mortgage's reputation is poor — and historically deserved, given high-fee products and predatory marketing. Wade Pfau's research (2016 onward) repositions one specific structure: the <em>standby line-of-credit HECM</em> opened in early retirement and left unused as a sequence-of-returns buffer. The mechanics: the HECM (Home Equity Conversion Mortgage, FHA-insured under HUD) opens a line of credit on the home's equity that <em>grows over time</em> at the loan's effective rate even if undrawn. The retiree taps it in bad market years to avoid selling portfolio assets during drawdowns, then refrains from drawing in good years. Pfau-Wagner (2014, JFP) and subsequent work documents that this strategy materially improves portfolio survival rates for asset-rich house-rich retirees — by 5–15 percentage points in some historical-cycles backtests — by addressing sequence-of-returns risk through a non-portfolio source. The cost-benefit pencils best when the HECM is opened around age 62–65 (the earliest HUD permits), the home is owned outright or with small remaining mortgage, and the retiree has significant home equity relative to portfolio (the "house-rich, portfolio-modest" case). This is not the right tool for everyone, and the historical product abuses are real — but the structured Pfau standby use case deserves engagement rather than the categorical dismissal it usually gets in personal finance literature.</div>
       <div class="calculator">
         <h4>Rent vs buy: total cost comparison</h4>
         <div class="calc-grid">
@@ -4643,11 +4671,28 @@ function computePlan() {
       nodeKey: 'w2:10.3', tags: [] });
   }
 
+  // LTC (CL334) — tier the action by netWorth × age window × household structure.
+  // The undifferentiated "address LTC" recommendation is what gets deferred indefinitely;
+  // matching the recommendation to the household's actual decision shape is what gets acted on.
   if (['50-59', '60-63', '64+'].includes(a.ageBracket)) {
-    add({ title: 'Address long-term care planning', stage: 'eventually',
-      reason: '~70% of Americans turning 65 will need some long-term care; ~20% need 5+ years. Median nursing home runs $120K/year. Decide between self-insurance (requires substantial liquid assets), traditional LTC insurance, or hybrid life+LTC policies — pricing improves substantially when bought in 50s vs 60s.',
-      because: 'Youre at the age where LTC planning becomes time-sensitive.',
-      nodeKey: 'w2:10.4', tags: [] });
+    const inSweetSpot = a.ageBracket === '50-59' || a.ageBracket === '60-63';
+    const isDink = a.filingStatus === 'mfj' && a.dependents === 'no';
+    if (a.netWorth === 'negative' || a.netWorth === 'under-100k' || a.netWorth === '100k-500k') {
+      add({ title: 'Plan for Medicaid-path long-term care, not LTC insurance', stage: 'eventually',
+        reason: 'At your net-worth level, comprehensive LTC insurance is rarely affordable on the income that produced the current portfolio. The rational plan is Medicaid coverage for nursing-facility care after asset spend-down. Understand the Medicaid 5-year lookback (transfers in the 5 years before application are disqualifying), avoid disqualifying transfers (e.g., gifts to children "to protect assets"), and review state-specific spousal-impoverishment protections that preserve the community-spouse resource allowance. CareScout 2024 cost data: ~$127K/yr private nursing room; ~$71K assisted living; ~$77K home health aide. Medicare does not cover custodial care; Medicaid does after spend-down.',
+        because: 'Your net-worth level makes Medicaid the realistic LTC funding path; the focus shifts to lookback planning and not making the wrong moves before application.',
+        nodeKey: 'w2:10.4', tags: [] });
+    } else if (a.netWorth === '500k-2m') {
+      add({ title: 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year', stage: inSweetSpot ? 'this-year' : 'eventually',
+        reason: 'Your net-worth band ($500K–$2M) is exactly where LTC insurance or hybrid life+LTC policies are most actionable. The household has enough to lose to make the coverage worthwhile, but not enough to comfortably self-insure 5+ years of $127K/yr nursing care. The purchase window matters: premiums for new policies rise meaningfully between ages 55 and 65, and underwriting denials accelerate as health conditions develop. AALTCI 2024 pricing data documents 30–60%+ premium increases across the 55→65 window for the same coverage. ' + (isDink ? 'As a household without children, the family-substitute informal-caregiving channel that defrays cost in many family households is unavailable — LTC and CCRC planning is more important, not less. ' : '') + 'For the highest-leverage decade of LTC decisions, this is it.',
+        because: 'Your net-worth band ($500K–$2M)' + (inSweetSpot ? ' and age (55–65 window)' : '') + ' put you in the LTC-insurance sweet spot' + (isDink ? '; DINK structure heightens it.' : '.'),
+        nodeKey: 'w2:10.4', tags: inSweetSpot ? ['critical'] : [] });
+    } else if (a.netWorth === '2m+') {
+      add({ title: 'Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation', stage: 'eventually',
+        reason: 'At $2M+ liquid net worth, self-insuring 5+ years of $127K/yr nursing-facility care is defensible without portfolio impairment. The remaining LTC-insurance case is about legacy preservation: insurance keeps the care cost off the estate, leaving more for heirs and charitable beneficiaries. Hybrid life+LTC policies that pay either the death benefit or the LTC benefit are the most-purchased category here because they avoid the use-it-or-lose-it framing. ' + (isDink ? 'For DINK households without children, the calculus shifts somewhat — CCRC entry around age 75–80 is often the right structural answer because it converts the late-life cost spike into known monthly fees and provides care infrastructure without family-substitute reliance. ' : ''),
+        because: 'Your net worth ($2M+) supports self-insurance; the LTC question reduces to legacy preservation and convenience.',
+        nodeKey: 'w2:10.4', tags: [] });
+    }
   }
 
   if (hasIncome('business') && (a.netWorth === '2m+' || a.netWorth === '500k-2m')) {
@@ -4772,6 +4817,93 @@ function diagPrev() {
 // ============================================================
 // RENDERING: Plan
 // ============================================================
+// Three-paragraph synthesis at the top of the Plan view (CL338).
+// Reads only from existing state.answers + the computed plan; no new diagnostic.
+// Output structure: (1) situation, (2) constraints & binding risks, (3) horizon & sequencing.
+function renderPlanSynthesis(a, plan) {
+  if (!a || Object.keys(a).length === 0) return '';
+
+  const incomeLabels = (a.incomeTypes || []).map(t => ({
+    w2: 'W-2 employee', contractor: '1099 / self-employed contractor', business: 'business owner', retired: 'retired'
+  }[t])).filter(Boolean);
+  const incomeStr = incomeLabels.length === 0 ? 'a household with no income type captured' :
+    incomeLabels.length === 1 ? incomeLabels[0] :
+    incomeLabels.slice(0, -1).join(', ') + ' and ' + incomeLabels[incomeLabels.length - 1];
+  const filing = ({mfj: 'married filing jointly', single: 'single', hoh: 'head of household', mfs: 'married filing separately'}[a.filingStatus]) || 'household';
+  const bracket = ({low: 'low (10–12% federal marginal)', mid: 'middle (22–24%)', high: 'high (32%+)'}[a.taxBracket]) || 'unspecified-bracket';
+  const ageStr = a.ageBracket ? `age ${a.ageBracket}` : 'age unspecified';
+  const horizonMap = {'<5': 'within 5 years of retirement', '5-10': '5–10 years from retirement', '10-20': '10–20 years from retirement', '20-30': '20–30 years from retirement', '30+': '30+ years from retirement', 'already': 'already in retirement'};
+  const horizonStr = horizonMap[a.yearsToRetirement] || 'with horizon unspecified';
+  const dependentsStr = a.dependents === 'yes' ? 'with dependents who rely on your income' : a.dependents === 'no' ? 'without dependents' : 'with dependent status unspecified';
+  const nwMap = {'negative': 'negative net worth (debts exceed assets)', 'under-100k': 'under $100K net worth', '100k-500k': '$100K–$500K net worth', '500k-2m': '$500K–$2M net worth', '2m+': '$2M+ net worth'};
+  const nwStr = nwMap[a.netWorth] || 'net worth band unspecified';
+
+  // ---- Paragraph 1: situation ----
+  const p1 = `You are a ${ageStr} ${incomeStr} household, ${filing}, in the ${bracket} bracket, ${dependentsStr}, ${nwStr}, ${horizonStr}.`;
+
+  // ---- Paragraph 2: binding constraints / risks ----
+  const constraints = [];
+  if (a.budgetTracking === 'no' || a.budgetTracking === 'sometimes') {
+    constraints.push('the absence of consistent cash-flow tracking, which makes every downstream optimization a guess');
+  }
+  if (a.emergencyFund === 'no' || a.emergencyFund === 'partial') {
+    constraints.push('an emergency fund that is not yet at the 3–6 month threshold the framework treats as the precondition for higher-return moves');
+  }
+  if (a.highInterestDebt === 'yes') {
+    constraints.push('high-interest debt currently outranking most investment returns on after-tax expected-value math');
+  }
+  if (a.dependents === 'yes' && (a.termLifeInPlace === 'no' || a.termLifeInPlace === 'partial')) {
+    constraints.push('an unfunded term-life gap that exposes dependents to the household\'s primary income risk');
+  }
+  if (a.ltdInPlace === 'no' || a.ltdInPlace === 'partial') {
+    constraints.push('insufficient long-term disability coverage — empirically a higher-probability event than premature death for working-age adults');
+  }
+  if (a.restrictedStockRecent === 'yes') {
+    constraints.push('a §83(b) election window currently open and closing within 30 days of grant');
+  }
+  if (a.taxBracket === 'high' && a.incomeStability === 'concentrated') {
+    constraints.push('income concentration in a single employer or client, which reduces your effective risk capacity relative to a horizon-derived glide path');
+  }
+  if (a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already') {
+    constraints.push('proximity to or position in retirement, where decumulation accuracy starts to dominate accumulation math');
+  }
+
+  const constraintsStr = constraints.length === 0
+    ? 'No binding constraints stand out from your diagnostic answers — your plan reads as an optimization problem rather than a recovery problem.'
+    : 'Your binding constraints — the items the framework treats as gating downstream optimization — are ' + constraints.join('; ') + '. The action list below sequences against those constraints first; the optimization moves come after the gates clear.';
+  const p2 = constraintsStr;
+
+  // ---- Paragraph 3: horizon & sequencing ----
+  const criticalCount = plan.actions.filter(act => (act.tags || []).includes('critical')).length;
+  const nowCount = plan.actions.filter(act => act.stage === 'now').length;
+  const totalCount = plan.actions.length;
+  let horizonNote = '';
+  if (a.yearsToRetirement === '30+' || a.yearsToRetirement === '20-30') {
+    horizonNote = 'With a horizon this long, the highest-leverage move is almost always the savings rate (see Math §3) — investment-return optimization is second-order to it. Capture the employer match, fund the emergency floor, then graduate to bracket-aware account ordering. Phase 7 advanced strategies will become relevant only after the foundational arc completes.';
+  } else if (a.yearsToRetirement === '10-20') {
+    horizonNote = 'Mid-horizon households should be running the foundational arc on autopilot and beginning to think in terms of decumulation architecture — asset location, Roth conversion ladder planning, and the Social Security claiming decision that becomes urgent in the next decade.';
+  } else if (a.yearsToRetirement === '5-10' || a.yearsToRetirement === '<5') {
+    horizonNote = 'Within 10 years of retirement, the math shifts from accumulation to distribution. Roth conversion ladders (see W2:10.1, with IRMAA-aware sizing), withdrawal sequencing (W2:10.2 + the SECURE Act 10-year rule strengthening the conversion case), Social Security claiming optimization (W2:10.3), QCD planning for charitably-inclined retirees post-70½ (W2:10.5), and long-term care decision tiering all become active rather than theoretical. The Math §7 historical-cycles simulator currently omits Social Security and other guaranteed-income overlay — read its outputs as portfolio-only success rates, not household-level success rates, until the planned Phase 6.5 SS-overlay extension ships.';
+  } else if (a.yearsToRetirement === 'already') {
+    horizonNote = 'In decumulation, the action list focuses on tax-efficient drawdown sequencing, RMD planning, IRMAA-aware MAGI management (W2:10.1), QCD substitution for charitable giving at 70½+ (W2:10.5), Social Security claiming for any not-yet-claimed benefit, and LTC structure decisions. The framework\'s Math §7 historical-cycles simulator and the Plan view both currently operate on portfolio-only inputs without Social Security or pension overlay — for a household within retirement, this means the success-rate numbers should be treated as portfolio-only, not household-level. The Phase 6.5 backlog includes the overlay extension.';
+  } else {
+    horizonNote = 'Your retirement horizon is unspecified; the sequencing below reflects the foundational arc that applies across most horizons.';
+  }
+  const stageNote = `Your prioritized action list has <strong>${totalCount} item${totalCount === 1 ? '' : 's'}</strong>` + (criticalCount > 0 ? ` (${criticalCount} marked critical)` : '') + (nowCount > 0 ? `, with ${nowCount} item${nowCount === 1 ? '' : 's'} in the immediate "do now" stage.` : '.');
+  const p3 = horizonNote + ' ' + stageNote;
+
+  return `
+    <div class="plan-synthesis">
+      <h3>Situation</h3>
+      <p>${p1}</p>
+      <h3>Binding constraints</h3>
+      <p>${p2}</p>
+      <h3>Horizon and sequencing</h3>
+      <p>${p3}</p>
+    </div>
+  `;
+}
+
 function renderPlan() {
   const plan = computePlan();
   planCache = plan;
@@ -4794,6 +4926,10 @@ function renderPlan() {
       <span class="plan-chip">${({'<5':'<5yr to retirement','5-10':'5–10yr','10-20':'10–20yr','20-30':'20–30yr','30+':'30+yr','already':'Retired'}[a.yearsToRetirement]) || ''}</span>
     </div>
   `;
+
+  // Plan-view integrated narrative synthesis (CL338): three paragraphs generated
+  // from existing state.answers that frame the action list as a plan, not a list.
+  document.getElementById('plan-synthesis').innerHTML = renderPlanSynthesis(a, plan);
 
   // Stages
   const stages = [
