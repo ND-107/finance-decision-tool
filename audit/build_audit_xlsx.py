@@ -2204,6 +2204,12 @@ CLAIMS = [
     # Phase 6.5 — backlog-clearing sprint (deferred items from Sessions 1-3)
     # ============================================================
 
+    ("CL331", "Diagnostic:Foundation; computePlan", "Plan view never recommended the Roth conversion ladder to candidate households despite W2:10.1 covering the mechanics — the diagnostic didn't capture the Traditional-balance + early-retirement-window signal that identifies ladder candidates",
+     "META", "CON", "CORRECTED", "B",
+     "IRC §408A; Kitces NEV 'Filling Up the Tax Bracket With Partial Roth Conversions' (2014); SECURE 2.0 §107 (RMD age 73→75 in 2033); 42 U.S.C. §1395r(i) (IRMAA); SSA POMS HI 01101.020; W2:10.1 + W2:10.2 Phase 6 work on SECURE 10-year rule and IRMAA awareness (CL362/CL363)",
+     "APPLIED: New 'rothLadderCandidate' diagnostic question in Foundation section (yes-window / yes-no-window / low-trad / unsure), shown when yearsToRetirement is <5 / 5-10 / already. computePlan adds three branches: (1) yes-window → critical 'this-year' action with full IRMAA-aware sizing guidance (size to IRMAA tier boundary not federal bracket from age 63+, with the 2026 ~$106K/$212K first-tier and ~$394K/$788K top-tier dollar figures, 2-year MAGI lookback, citing Kitces NEV 2014 + SECURE 10-year case strengthening from CL363); (2) yes-no-window → 'this-year' partial-conversion action coordinated with QCD planning (W2:10.5) for households past the full window; (3) unsure → 'next-quarter' inventory action walking through the operational steps to determine candidacy. All link to W2:10.1 for mechanics. CL331 added as primary audit row (was previously only referenced in CL338's notes). Status CORRECTED.",
+     "Phase 6.5 — Sprint 1B. Originally Session-1 CFP CL331 finding."),
+
     ("CL329", "Math:7; historicalCyclesSimulate; calcHistoricalCycles", "§7 historical-cycles simulator omitted Social Security, pensions, and other guaranteed-income overlay — produced wrong SWR for any household reaching FRA",
      "META", "CON", "CORRECTED", "B",
      "Pfau & Kitces (2014) JFP 'Reducing Retirement Risk with a Rising Equity Glide Path' on SS bridge; Kotlikoff/Mahaney/Carmel on SS claiming optimization; SSA POMS RS 00615.105 (actuarial reduction); SSA 'Delayed Retirement Credits' (8%/yr past FRA, max 70)",

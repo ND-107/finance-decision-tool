@@ -4231,6 +4231,12 @@ const QUESTIONS = [
         { v: 'never', l: 'No, never audited' },
         { v: 'unsure', l: 'Not sure what this means' },
       ]},
+      { id: 'rothLadderCandidate', type: 'single', label: 'Do you have meaningful Traditional / pre-tax retirement balances (401(k), 403(b), Traditional IRA) and an early-retirement window before Social Security and RMDs begin?', help: 'Roth conversions during the "tax valley" between retirement and RMD age (73 now, rising to 75 in 2033 per SECURE 2.0) are one of the highest-NPV decumulation moves available — a typical conversion ladder of $300K-$500K filling the 12% bracket from a household otherwise pulled into 22-24% by SS + RMDs saves $30K-$60K in lifetime federal tax (Kitces NEV).', showIf: (a) => a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already', options: [
+        { v: 'yes-window', l: 'Yes — meaningful Trad balances and a window of lower-income years before SS / RMDs' },
+        { v: 'yes-no-window', l: 'Meaningful Trad balances but already claiming SS / at RMD age' },
+        { v: 'low-trad', l: 'Low or no Traditional pre-tax balances (mostly Roth or taxable)' },
+        { v: 'unsure', l: 'Not sure — need to look at account balances' },
+      ]},
     ]
   },
   {
@@ -5015,6 +5021,28 @@ function computePlan() {
       reason: 'For most retirees with normal life expectancy, delaying to 70 dominates. Breakeven is age ~80–82 vs. claiming at 62. For couples, the survivor-benefit math typically favors delay for the higher earner.',
       because: 'Within 10 years of retirement, this becomes one of the largest single financial decisions of your life.',
       nodeKey: 'w2:10.3', tags: [] });
+  }
+
+  // CL331 — Roth conversion ladder Plan-view branch with IRMAA-aware sizing.
+  // The framework's full chart has node W2:10.1 covering the ladder mechanics
+  // (extended in Phase 6 with IRMAA awareness + SECURE 10-year strengthening),
+  // but the Plan engine never recommended it directly to candidates. This branch
+  // surfaces it when the household has Trad balances + an early-retirement window.
+  if (a.rothLadderCandidate === 'yes-window') {
+    add({ title: 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket', stage: 'this-year',
+      reason: 'You have meaningful Traditional / pre-tax balances and a window of lower-income years before Social Security and RMDs (age 73 now, rising to 75 in 2033 per SECURE 2.0). The conversion ladder during this window is one of the highest-NPV decumulation moves available — a typical $300K–$500K ladder filling the 12% bracket from a household otherwise pulled into the 22–24% bracket by SS + RMDs saves $30K–$60K in lifetime federal tax (Kitces "Filling Up the Tax Bracket With Partial Roth Conversions," NEV 2014). <strong>Critical sizing rule from age 63 onward:</strong> size each conversion to the IRMAA tier boundary, not to the federal bracket boundary. The 2026 first IRMAA tier begins at approximately $106,000 MAGI single / $212,000 MFJ, with five cliff tiers stepping up to a combined Part B + Part D surcharge of roughly $440/month per spouse at the top tier (~$394K single / ~$788K MFJ). Each tier is a cliff with a 2-year MAGI lookback — a conversion in tax year 2026 affects Medicare premiums in 2028 (42 U.S.C. §1395r(i); SSA POMS HI 01101.020). The 12% bracket fill (~$96,950 MFJ taxable income, 2026) generally clears the first IRMAA tier; the larger 22%/24%-bracket fills routinely don\'t. The SECURE Act 10-year inherited-IRA rule (CL363 work in W2:10.1) strengthens the case further — pre-tax balances inherited by working-age children typically distribute into their 32–37% peak earning years, so converting at the parent\'s 10–24% brackets captures an 8–20pp tax-rate spread before death. See W2:10.1 for full mechanics including the bridge-capital requirement.',
+      because: 'You have Trad balances and an early-retirement window — the standard candidate profile for the ladder.',
+      nodeKey: 'w2:10.1', tags: ['critical'] });
+  } else if (a.rothLadderCandidate === 'yes-no-window') {
+    add({ title: 'Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning', stage: 'this-year',
+      reason: 'You have Trad balances but are already at or past SS/RMD age — the full conversion-ladder window has closed, but partial conversions in any year where your MAGI sits below an IRMAA tier boundary can still capture meaningful tax-rate arbitrage, particularly for households with adult-child heirs who would otherwise inherit pre-tax balances under the SECURE 10-year rule (see W2:10.1 callout on the SECURE rule strengthening the case). Coordinate any conversion with QCD planning at 70½+ (W2:10.5) — QCDs reduce AGI and lower IRMAA exposure, creating room for larger conversions in the same year. The SECURE 10-year rule means converting at your 10–24% brackets captures an 8–20pp spread versus your children\'s likely 32–37% — even small partial conversions are NPV-positive across most household profiles.',
+      because: 'You have Trad balances but the early-retirement window has narrowed or closed.',
+      nodeKey: 'w2:10.1', tags: [] });
+  } else if (a.rothLadderCandidate === 'unsure') {
+    add({ title: 'Inventory your Traditional / pre-tax retirement balances and evaluate ladder candidacy', stage: 'next-quarter',
+      reason: 'The Roth conversion ladder is potentially the highest-NPV decumulation move available to you, but it depends on facts you haven\'t looked up — your total Traditional 401(k) / 403(b) / Traditional IRA balances, and whether your retirement-income trajectory has a lower-tax window before SS and RMDs begin. Pull balances from each pre-tax account and sketch your expected income for the 5–10 years between retirement and SS claim / RMD age 73 (rising to 75 in 2033). If the window exists and the balances are meaningful (typically $200K+ in pre-tax), the ladder is worth modeling in detail; see W2:10.1 for mechanics including IRMAA-aware sizing (size to IRMAA tier from age 63+, not just federal bracket).',
+      because: 'You weren\'t sure about your Trad balances or the window — this is the operational inventory step.',
+      nodeKey: 'w2:10.1', tags: [] });
   }
 
   // LTC (CL334) — tier the action by netWorth × age window × household structure.
