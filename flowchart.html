@@ -1634,6 +1634,32 @@ body {
   color: var(--ink-soft);
   font-size: 13.5px;
 }
+.calc-chart {
+  margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px 12px;
+}
+.calc-chart svg { display: block; width: 100%; height: auto; }
+.calc-chart .axis-line { stroke: var(--border); stroke-width: 1; }
+.calc-chart .grid-line { stroke: var(--border-soft); stroke-width: 1; stroke-dasharray: 2 3; }
+.calc-chart .axis-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--muted);
+}
+.calc-chart .chart-title {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  fill: var(--ink-soft);
+  font-weight: 500;
+}
+.calc-chart .legend-text {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  fill: var(--ink-soft);
+}
 .calc-table {
   width: 100%;
   border-collapse: collapse;
@@ -1798,6 +1824,7 @@ body {
           <div class="calc-row"><label>Years</label><input type="number" id="ci-years" value="30" min="1" max="70" step="1"></div>
         </div>
         <div class="calc-result" id="ci-result"></div>
+        <div class="calc-chart" id="ci-chart" aria-label="Year-by-year stacked bar of contributions vs investment growth"></div>
       </div>
       <p class="model-limits"><strong>Model limits.</strong> Assumes a constant return rate and constant monthly contributions. Real returns are volatile (see volatility drag callout above). Doesn't account for taxes, fees, asymmetric drawdowns, or contribution irregularity. For long-horizon planning, the geometric mean is what matters and is below arithmetic mean whenever returns vary.</p>
     </div>
@@ -1899,6 +1926,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
           <div class="calc-row"><label>Withdrawal strategy</label><select id="seq-strategy"><option value="fixed">Fixed real (constant inflation-adjusted)</option><option value="flexible">Flexible (cut 25% in down years)</option><option value="guardrails">Guyton-Klinger guardrails (±20% bands)</option></select></div>
         </div>
         <div class="calc-result" id="seq-result"></div>
+        <div class="calc-chart" id="seq-chart" aria-label="Two 30-year balance paths comparing bad-sequence-early vs bad-sequence-late"></div>
       </div>
       <p class="model-limits"><strong>Model limits.</strong> Uses smoothed pedagogical return sequences with constant filler rates between explicit bad years — actual market sequences cluster (multi-year bear markets are common) and are far more volatile. Doesn't model multi-asset rebalancing, taxes on withdrawals, Social Security or pension income, or longevity uncertainty. Withdrawal strategy options model behavior in a stylized way; real flexible strategies adapt to many signals not captured here. A historical-cycles simulator (rolling 30-year windows of actual S&P 500 + Treasury returns) is more representative of return distribution shape — planned for the next sub-phase. Longevity considerations: SSA tables suggest a 65-year-old couple has ~50% chance one partner reaches 90 and ~25% chance one reaches 95; plans targeting median life expectancy run short for roughly half of retirees.</p>
     </div>
@@ -1972,6 +2000,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
           <div class="calc-row"><label>Withdrawal strategy</label><select id="hc-strategy"><option value="fixed">Fixed real (constant inflation-adjusted)</option><option value="flexible">Flexible (cut 25% in down years)</option><option value="guardrails">Guyton-Klinger guardrails (±20% bands)</option></select></div>
         </div>
         <div class="calc-result" id="hc-result"></div>
+        <div class="calc-chart" id="hc-chart" aria-label="Percentile fan chart of historical cohort balances over the horizon"></div>
       </div>
       <p class="model-limits"><strong>Model limits.</strong> Historical data is approximate (rounded to 0.5pp) and sourced from publicly available datasets (Shiller, Damodaran/NYU Stern). Production tools like FIRECalc and cFireSim maintain more precise sub-period data including monthly granularity. Dataset covers 1928-2024, dominated by US market history during an unusually prosperous century — international and pre-1928 sequences would shift conclusions. Two-asset model (stocks + bonds) doesn't capture international diversification, REITs, alternatives, or rebalancing premia. Withdrawal strategies are stylized; real flexible plans adapt to more signals. The "future hook" architecture: this simulator implements the framework's <code>getMCBackend()</code> interface, so a personal Monte Carlo backend can replace it by assigning <code>window.__customMCBackend = {simulate: yourFunction}</code> before the Math view renders.</p>
     </div>
@@ -4223,6 +4252,11 @@ const HIST_RETURNS = [
 // Returns an array of cycle results when starting in each plausible year
 // and running for `horizonYears` years. params: { pv, annualWithdrawal,
 // stockAlloc (0-1), horizonYears, strategy }
+//
+// Return shape: { cycles, successRate, percentiles, failures, totalCycles, paths? }
+// `paths` is OPTIONAL (CL161 fan chart) — array of arrays of length horizonYears+1
+// holding the end-of-year balance for each cohort. External backends may omit it;
+// the fan chart skips rendering when absent.
 function historicalCyclesSimulate(params) {
   const { pv, annualWithdrawal, stockAlloc, horizonYears, strategy = 'fixed' } = params;
   const bondAlloc = 1 - stockAlloc;
@@ -4230,12 +4264,14 @@ function historicalCyclesSimulate(params) {
   if (lastStartIdx < 0) return { cycles: [], successRate: 0, percentiles: {}, note: 'horizon exceeds dataset' };
 
   const cycles = [];
+  const paths = [];
   for (let startIdx = 0; startIdx <= lastStartIdx; startIdx++) {
     let bal = pv;
     let realWithdrawal = annualWithdrawal;
     const initialWR = annualWithdrawal / pv;
     let prevPortRet = 0;
     let depleted = null;
+    const path = [pv];
 
     for (let y = 0; y < horizonYears; y++) {
       const yr = HIST_RETURNS[startIdx + y];
@@ -4252,13 +4288,21 @@ function historicalCyclesSimulate(params) {
         else if (currentWR < initialWR * 0.8) actualWD = realWithdrawal * 1.1;
       }
       bal -= actualWD;
-      if (bal < 0) { depleted = y + 1; bal = 0; break; }
+      if (bal < 0) {
+        depleted = y + 1;
+        bal = 0;
+        // Pad remaining years with $0 so the path is full-length.
+        while (path.length <= horizonYears) path.push(0);
+        break;
+      }
       bal *= 1 + portRet;
       prevPortRet = portRet;
+      path.push(bal);
       // realWithdrawal stays in real $ across years (historical returns already real)
     }
 
     cycles.push({ startYear: HIST_RETURNS[startIdx][0], endingBalance: bal, depleted });
+    paths.push(path);
   }
 
   const successes = cycles.filter(c => !c.depleted).length;
@@ -4269,7 +4313,7 @@ function historicalCyclesSimulate(params) {
 
   // Identify worst cycles (failed cycles or lowest ending balance)
   const failures = cycles.filter(c => c.depleted).map(c => c.startYear);
-  return { cycles, successRate, percentiles, failures, totalCycles: cycles.length };
+  return { cycles, successRate, percentiles, failures, totalCycles: cycles.length, paths };
 }
 
 
@@ -5017,6 +5061,134 @@ function $val(id, def) {
   return isFinite(v) ? v : def;
 }
 
+// ============================================================
+// SVG CHART HELPERS (CL161)
+// ============================================================
+// Inline SVG renderers for the Math view calculators. No external library.
+// Use the artifact's CSS custom properties so chart colors track the palette.
+//
+// Shared conventions:
+//   - viewBox 600x320, plot area inset by margin (left 60 / right 16 / top 24 / bottom 38)
+//   - Y axis formatted via fmtAxisMoney (short $K/$M)
+//   - X axis: sparse labels (every nth tick) chosen so labels don't crowd
+
+function fmtAxisMoney(v) {
+  const a = Math.abs(v);
+  if (a >= 1e9) return '$' + (v / 1e9).toFixed(1) + 'B';
+  if (a >= 1e6) return '$' + (v / 1e6).toFixed(1) + 'M';
+  if (a >= 1e3) return '$' + Math.round(v / 1e3) + 'K';
+  if (a === 0)  return '$0';
+  return '$' + Math.round(v);
+}
+
+// "Nice" upper bound for axis: round up to 1/2/5 × 10^k
+function niceCeil(v) {
+  if (v <= 0) return 1;
+  const exp = Math.pow(10, Math.floor(Math.log10(v)));
+  const m = v / exp;
+  let nice;
+  if (m <= 1) nice = 1;
+  else if (m <= 2) nice = 2;
+  else if (m <= 5) nice = 5;
+  else nice = 10;
+  return nice * exp;
+}
+
+// Draw shared chart frame: title, y-axis ticks + gridlines, x-axis ticks.
+// Returns the SVG markup for the frame and the plot-area scales.
+function chartFrame({ title, xLabels, yMax, yTicks = 5, xTickEvery }) {
+  const W = 600, H = 320;
+  const ML = 60, MR = 16, MT = 24, MB = 38;
+  const PW = W - ML - MR;
+  const PH = H - MT - MB;
+  const xScale = i => ML + (xLabels.length > 1 ? (i / (xLabels.length - 1)) * PW : PW / 2);
+  const yScale = v => MT + PH - (v / yMax) * PH;
+
+  let frame = '';
+  if (title) frame += `<text class="chart-title" x="${ML}" y="${MT - 8}">${title}</text>`;
+
+  // Y grid + ticks
+  for (let i = 0; i <= yTicks; i++) {
+    const v = (yMax * i) / yTicks;
+    const y = yScale(v);
+    frame += `<line class="grid-line" x1="${ML}" x2="${ML + PW}" y1="${y}" y2="${y}"/>`;
+    frame += `<text class="axis-label" x="${ML - 6}" y="${y + 3.5}" text-anchor="end">${fmtAxisMoney(v)}</text>`;
+  }
+  // X axis line
+  frame += `<line class="axis-line" x1="${ML}" x2="${ML + PW}" y1="${MT + PH}" y2="${MT + PH}"/>`;
+  // X tick labels
+  const step = xTickEvery || Math.max(1, Math.round(xLabels.length / 8));
+  for (let i = 0; i < xLabels.length; i += step) {
+    const x = xScale(i);
+    frame += `<line class="axis-line" x1="${x}" x2="${x}" y1="${MT + PH}" y2="${MT + PH + 4}"/>`;
+    frame += `<text class="axis-label" x="${x}" y="${MT + PH + 16}" text-anchor="middle">${xLabels[i]}</text>`;
+  }
+  // Ensure last tick rendered
+  if ((xLabels.length - 1) % step !== 0) {
+    const i = xLabels.length - 1;
+    const x = xScale(i);
+    frame += `<line class="axis-line" x1="${x}" x2="${x}" y1="${MT + PH}" y2="${MT + PH + 4}"/>`;
+    frame += `<text class="axis-label" x="${x}" y="${MT + PH + 16}" text-anchor="middle">${xLabels[i]}</text>`;
+  }
+  return { frame, W, H, ML, MR, MT, MB, PW, PH, xScale, yScale };
+}
+
+function renderSVG(containerId, viewBoxW, viewBoxH, inner) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = `<svg viewBox="0 0 ${viewBoxW} ${viewBoxH}" role="img">${inner}</svg>`;
+}
+
+// Compound interest: year-by-year stacked bar (principal vs growth)
+// Years sampled to keep at most ~30 bars for readability.
+function renderCompoundChart({ pv, pmt, rateAnnual, years, containerId }) {
+  const rMonthly = rateAnnual / 12;
+  // Sample year indices so we render at most ~30 bars; always include final year.
+  const maxBars = 30;
+  const stride = Math.max(1, Math.ceil(years / maxBars));
+  const yearsToShow = [];
+  for (let y = stride; y < years; y += stride) yearsToShow.push(y);
+  if (yearsToShow[yearsToShow.length - 1] !== years) yearsToShow.push(years);
+
+  const data = yearsToShow.map(y => {
+    const n = y * 12;
+    const fvP = pv * Math.pow(1 + rMonthly, n);
+    const fvC = rMonthly === 0 ? pmt * n : pmt * (Math.pow(1 + rMonthly, n) - 1) / rMonthly;
+    const contributed = pv + pmt * n;
+    const total = fvP + fvC;
+    const growth = Math.max(0, total - contributed);
+    return { year: y, contributed, growth, total };
+  });
+  const yMax = niceCeil(data[data.length - 1].total);
+  const xLabels = data.map(d => String(d.year));
+  const F = chartFrame({ title: 'Year-by-year balance: contributions (taupe) + investment growth (gold)', xLabels, yMax });
+
+  const barWidth = (F.PW / data.length) * 0.7;
+  let bars = '';
+  data.forEach((d, i) => {
+    const cx = F.xScale(i);
+    const x = cx - barWidth / 2;
+    const yTop = F.yScale(d.total);
+    const yContribTop = F.yScale(d.contributed);
+    const yBase = F.MT + F.PH;
+    // contributions (bottom segment, taupe)
+    bars += `<rect x="${x}" y="${yContribTop}" width="${barWidth}" height="${yBase - yContribTop}" fill="var(--p-foundation)"/>`;
+    // growth (top segment, gold)
+    if (d.growth > 0) {
+      bars += `<rect x="${x}" y="${yTop}" width="${barWidth}" height="${yContribTop - yTop}" fill="var(--accent)"/>`;
+    }
+  });
+
+  const legend = `
+    <g transform="translate(${F.ML}, ${F.H - 8})">
+      <rect x="0" y="-9" width="11" height="11" fill="var(--p-foundation)"/>
+      <text class="legend-text" x="16" y="0">Contributions</text>
+      <rect x="118" y="-9" width="11" height="11" fill="var(--accent)"/>
+      <text class="legend-text" x="134" y="0">Investment growth</text>
+    </g>`;
+  renderSVG(containerId, F.W, F.H, F.frame + bars + legend);
+}
+
 // 1. Compound interest
 function calcCompound() {
   const pv = $val('ci-pv', 0);
@@ -5036,6 +5208,7 @@ function calcCompound() {
     <span class="calc-result-headline">${fmtMoneyFull(fv)}</span>
     <span class="calc-result-detail">Total contributed: ${fmtMoneyFull(totalContributed)} · Investment growth: ${fmtMoneyFull(totalGrowth)} (${((totalGrowth / Math.max(totalContributed, 1)) * 100).toFixed(0)}% of contributions)</span>
   `;
+  renderCompoundChart({ pv, pmt, rateAnnual, years, containerId: 'ci-chart' });
 }
 
 // 2. Rule of 72
@@ -5140,11 +5313,14 @@ function calcSequence() {
   // 'fixed' — constant real (inflation-indexed dollar amount)
   // 'flexible' — cut 25% in years following a negative return
   // 'guardrails' — Guyton-Klinger: cut 10% if WR > initial × 1.2; raise 10% if WR < initial × 0.8
+  // Returns end-of-year balance path (length seq.length + 1, starting at pv).
   function simulate(seq) {
     let bal = pv;
     let withdrawal = wd;
     const initialWR = wd / pv;
     let prevRet = 0;
+    const path = [pv];
+    let depleted = null;
     for (let y = 0; y < seq.length; y++) {
       let actualWD = withdrawal;
       if (strategy === 'flexible' && prevRet < 0) {
@@ -5155,12 +5331,18 @@ function calcSequence() {
         else if (currentWR < initialWR * 0.8) actualWD = withdrawal * 1.1;
       }
       bal -= actualWD;
-      if (bal < 0) return { ending: 0, depleted: y + 1 };
+      if (bal < 0) {
+        depleted = y + 1;
+        // Fill remaining years with $0 so the chart path is well-defined.
+        while (path.length <= seq.length) path.push(0);
+        return { ending: 0, depleted, path };
+      }
       bal *= 1 + seq[y] / 100;
       prevRet = seq[y];
       withdrawal *= 1 + inflation;
+      path.push(bal);
     }
-    return { ending: bal, depleted: null };
+    return { ending: bal, depleted: null, path };
   }
   const bad = simulate(badSeq);
   const good = simulate(goodSeq);
@@ -5175,6 +5357,34 @@ function calcSequence() {
     </table>
     <span class="calc-result-detail" style="display:block;margin-top:10px;">Strategy: <strong>${stratLabel}</strong>. Identical 7% nominal arithmetic-mean returns over 30 years; same starting inflation-indexed withdrawal schedule. Balances are in nominal (future) dollars — purchasing power 30 years out is roughly 40% lower at 3% inflation. The ordering of returns alone produces the gap. Flexible and guardrails strategies materially reduce the bad-sequence damage by cutting spending in down years, at the cost of accepting lower realized lifestyle. The 'what this doesn't model' note: actual market returns cluster and are far more volatile than this smoothed pedagogical demonstration; historical-cycles or Monte Carlo simulation give better distribution shapes (planned for the next sub-phase).</span>
   `;
+  renderSequenceChart({ badPath: bad.path, goodPath: good.path, pv, containerId: 'seq-chart' });
+}
+
+// Sequence-risk two-path chart (CL161): two lines, bad-sequence-early vs late.
+function renderSequenceChart({ badPath, goodPath, pv, containerId }) {
+  const n = Math.max(badPath.length, goodPath.length);
+  const xLabels = [];
+  for (let i = 0; i < n; i++) xLabels.push(String(i));
+  const yMax = niceCeil(Math.max(pv, ...badPath, ...goodPath) * 1.05);
+  const F = chartFrame({ title: 'Portfolio balance over 30 years (nominal $)', xLabels, yMax, xTickEvery: 5 });
+
+  const toPoints = path => path.map((v, i) => `${F.xScale(i).toFixed(1)},${F.yScale(v).toFixed(1)}`).join(' ');
+  // Starting reference line (initial balance)
+  const startY = F.yScale(pv);
+  const refLine = `<line class="grid-line" x1="${F.ML}" x2="${F.ML + F.PW}" y1="${startY}" y2="${startY}" stroke="var(--muted-soft)" stroke-dasharray="3 4"/>`;
+  const refLabel = `<text class="axis-label" x="${F.ML + F.PW - 4}" y="${startY - 4}" text-anchor="end" fill="var(--muted)">Starting balance</text>`;
+
+  const badLine = `<polyline points="${toPoints(badPath)}" fill="none" stroke="var(--p-safety)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  const goodLine = `<polyline points="${toPoints(goodPath)}" fill="none" stroke="var(--p-highdebt)" stroke-width="2.2" stroke-linejoin="round"/>`;
+
+  const legend = `
+    <g transform="translate(${F.ML}, ${F.H - 8})">
+      <line x1="0" x2="22" y1="-4" y2="-4" stroke="var(--p-safety)" stroke-width="2.2"/>
+      <text class="legend-text" x="28" y="0">Bad sequence (losses early)</text>
+      <line x1="200" x2="222" y1="-4" y2="-4" stroke="var(--p-highdebt)" stroke-width="2.2"/>
+      <text class="legend-text" x="228" y="0">Good sequence (losses late)</text>
+    </g>`;
+  renderSVG(containerId, F.W, F.H, F.frame + refLine + refLabel + goodLine + badLine + legend);
 }
 
 // 6. Asset location — full matrix (CL163)
@@ -5384,6 +5594,66 @@ function calcHistoricalCycles() {
     </table>
     <span class="calc-result-detail" style="display:block;margin-top:10px;">A 95%+ success rate is the conventional threshold for "safe" — below that, failure cohorts deserve attention. The median ending balance often substantially exceeds starting portfolio (real terms), which is the upside skew that drives the "die with substantial wealth" critique that Die With Zero engages with (see Phase 5 §5). Use percentile spread as the indicator of risk: a tight spread means historical outcomes converged; a wide spread means your plan's outcome depends materially on what kind of cycle you actually encounter.</span>
   `;
+  // Fan chart (CL161) — only renders if backend provides per-year paths.
+  if (result.paths && result.paths.length) {
+    renderHistoricalFanChart({ paths: result.paths, horizonYears: horizon, pv, containerId: 'hc-chart' });
+  } else {
+    const chartEl = document.getElementById('hc-chart');
+    if (chartEl) chartEl.innerHTML = '';
+  }
+}
+
+// Historical-cycles percentile fan chart (CL161).
+// Renders p10-p90 outer band, p25-p75 inner band, p50 median line.
+function renderHistoricalFanChart({ paths, horizonYears, pv, containerId }) {
+  const H = horizonYears;
+  // Per-year percentiles across cohorts.
+  const p10 = [], p25 = [], p50 = [], p75 = [], p90 = [];
+  for (let y = 0; y <= H; y++) {
+    const col = paths.map(p => p[y]).sort((a, b) => a - b);
+    const at = q => col[Math.floor(q * (col.length - 1))];
+    p10.push(at(0.10));
+    p25.push(at(0.25));
+    p50.push(at(0.50));
+    p75.push(at(0.75));
+    p90.push(at(0.90));
+  }
+  const yMax = niceCeil(Math.max(pv, ...p90) * 1.05);
+  const xLabels = [];
+  for (let i = 0; i <= H; i++) xLabels.push(String(i));
+  const F = chartFrame({ title: 'Historical cohort balances over horizon (real $) — fan of p10/p25/p50/p75/p90', xLabels, yMax, xTickEvery: Math.max(5, Math.round(H / 6)) });
+
+  // Build band polygon: forward along upper, back along lower.
+  function band(upper, lower) {
+    const fwd = upper.map((v, i) => `${F.xScale(i).toFixed(1)},${F.yScale(v).toFixed(1)}`);
+    const back = lower.slice().reverse().map((v, idx) => {
+      const i = lower.length - 1 - idx;
+      return `${F.xScale(i).toFixed(1)},${F.yScale(v).toFixed(1)}`;
+    });
+    return fwd.concat(back).join(' ');
+  }
+  const bandOuter = band(p90, p10);
+  const bandInner = band(p75, p25);
+  const medianLine = p50.map((v, i) => `${F.xScale(i).toFixed(1)},${F.yScale(v).toFixed(1)}`).join(' ');
+
+  const startY = F.yScale(pv);
+  const refLine = `<line class="grid-line" x1="${F.ML}" x2="${F.ML + F.PW}" y1="${startY}" y2="${startY}" stroke="var(--muted-soft)" stroke-dasharray="3 4"/>`;
+  const refLabel = `<text class="axis-label" x="${F.ML + F.PW - 4}" y="${startY - 4}" text-anchor="end" fill="var(--muted)">Starting balance</text>`;
+
+  const fanOuter = `<polygon points="${bandOuter}" fill="var(--accent)" fill-opacity="0.15" stroke="none"/>`;
+  const fanInner = `<polygon points="${bandInner}" fill="var(--accent)" fill-opacity="0.28" stroke="none"/>`;
+  const median = `<polyline points="${medianLine}" fill="none" stroke="var(--accent-dark)" stroke-width="2" stroke-linejoin="round"/>`;
+
+  const legend = `
+    <g transform="translate(${F.ML}, ${F.H - 8})">
+      <rect x="0" y="-9" width="14" height="11" fill="var(--accent)" fill-opacity="0.15"/>
+      <text class="legend-text" x="19" y="0">p10–p90</text>
+      <rect x="86" y="-9" width="14" height="11" fill="var(--accent)" fill-opacity="0.28"/>
+      <text class="legend-text" x="105" y="0">p25–p75</text>
+      <line x1="172" x2="194" y1="-4" y2="-4" stroke="var(--accent-dark)" stroke-width="2"/>
+      <text class="legend-text" x="200" y="0">median</text>
+    </g>`;
+  renderSVG(containerId, F.W, F.H, F.frame + refLine + refLabel + fanOuter + fanInner + median + legend);
 }
 
 // ============================================================
