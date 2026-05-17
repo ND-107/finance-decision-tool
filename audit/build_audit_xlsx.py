@@ -1927,6 +1927,12 @@ CLAIMS = [
      "IRC §199A(e)(2); see also Rev. Proc. 2025-32 for 2026 indexed dollar figures",
      "APPLIED PARTIALLY: Added the 'taxable income before QBI, not AGI' clarifier to the Contractor:8.2 paragraph — material because retirement / HSA / itemize-vs-standard / capital-loss-carryover choices move taxable income but not AGI, and the SSTB threshold rides on the former. NOT APPLIED: P6 Tax Attorney persona also claimed the dollar threshold figures in the artifact ($201,775/$403,500 begin, $276,775/$553,500 complete) are stale 2024 numbers, asserting 2025 actual is $241,950/$483,900 (Rev. Proc. 2024-40). This contradicts the existing CL056 audit row, which captured 2025 actual at $197,300/$394,600 and 2026 at the figures currently in the artifact. The $241,950 figure for 2025 is inconsistent with the IRS's normal 3–5% inflation indexing trajectory from the 2024 base of $191,950 and is likely a persona-recall error. Threshold dollar values left unchanged pending an authoritative Rev. Proc. 2025-32 re-verification.",
      "Phase 6 — Session 1 Tax Attorney finding, applied partially."),
+
+    ("CL366", "Diagnostic:Income & taxes; Plan:computePlan", "§83(b) election must be filed within 30 days of grant of restricted property; no relief for missed deadline (IRC §83(b), Treas. Reg. §1.83-2(b))",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §83(b)(1)-(2); Treas. Reg. §1.83-2(b); Rev. Proc. 2012-29 (sample election form)",
+     "APPLIED: Bridge warning ahead of full Phase 7 equity-comp coverage. New diagnostic question in Income & taxes section: 'In the past 30 days, have you received restricted stock, founder equity, or early-exercised stock options?' (yes/considering/no). When yes, computePlan adds a 'now / critical' action surfacing the 30-day deadline, the $1M+ magnitude on founder-equity scenarios, and that there is no late-filing relief or equitable tolling. When considering, adds a 'now' (non-critical) action to plan the filing logistics ahead of grant. NodeKey points to business:9.1 (Section 1202 QSBS) as the closest existing equity node — full §83(b) mechanics treatment is a Phase 7 deliverable.",
+     "Phase 6 — Session 1 Tax Attorney finding, structural bridge applied; full Phase 7 §83(b) section still deferred."),
 ]
 
 # Build Excel workbook

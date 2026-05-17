@@ -3953,6 +3953,11 @@ const QUESTIONS = [
         { v: 'yes', l: 'Yes, paying quarterly and using a safe-harbor target' },
         { v: 'no', l: 'No, or not consistently' },
       ]},
+      { id: 'restrictedStockRecent', type: 'single', label: 'In the past 30 days, have you received restricted stock, founder equity, or early-exercised stock options?', help: '§83(b) election must be filed within 30 days of grant or it is permanently lost — there is no late-filing relief.', options: [
+        { v: 'yes', l: 'Yes — within the past 30 days' },
+        { v: 'considering', l: 'Considering / not yet received but expected soon' },
+        { v: 'no', l: 'No' },
+      ]},
     ]
   },
   {
@@ -4363,6 +4368,20 @@ function computePlan() {
       nodeKey: 'contractor:0.3', tags: ['critical'] });
   } else if (isSE() && a.quarterlyTaxes === 'yes') {
     skip('Set up quarterly taxes', 'Youre already on a quarterly safe-harbor schedule.');
+  }
+
+  // §83(b) bridge warning (CL366) — full Phase 7 equity-comp coverage forthcoming;
+  // surfaces the 30-day deadline so the right action happens before it's permanently lost.
+  if (a.restrictedStockRecent === 'yes') {
+    add({ title: 'File §83(b) election within 30 days of grant — deadline is unforgiving', stage: 'now',
+      reason: 'IRC §83(b) lets you elect to recognize ordinary income on the spread today (often $0 at founding or early-exercise) rather than at vest, when the value may be enormous. The election must be postmarked to the IRS service center within 30 days of grant per Treas. Reg. §1.83-2(b); after 30 days the right is permanently lost — there is no late-filing relief and no equitable tolling. For a founder who gets $0-spread stock that vests over four years and grows to $5M, a missed §83(b) costs roughly $1.5M in unnecessary ordinary-income tax vs. the long-term capital-gain treatment §83(b) would have preserved. Full equity-comp coverage (ISO/NSO/RSU mechanics, NUA, §1202 stacking) is planned for Phase 7; this bridge action exists so the deadline trigger never gets missed waiting on the full treatment.',
+      because: 'You indicated you received restricted stock, founder equity, or early-exercised options within the past 30 days.',
+      nodeKey: 'business:9.1', tags: ['critical'] });
+  } else if (a.restrictedStockRecent === 'considering') {
+    add({ title: 'Plan §83(b) filing ahead of any restricted-stock or early-exercise grant', stage: 'now',
+      reason: 'When the grant lands, you have 30 calendar days to file the §83(b) election with the IRS (Treas. Reg. §1.83-2(b)). Have the election form drafted, equity-comp counsel identified, and a mailing-confirmation method (certified mail with return receipt is conventional) decided before the grant rather than after. Full equity-comp coverage forthcoming in Phase 7.',
+      because: 'You indicated you are considering or expecting restricted-stock / equity-comp soon.',
+      nodeKey: 'business:9.1', tags: [] });
   }
 
   if (a.emergencyFund === '0' || a.emergencyFund === '<1mo') {
