@@ -1986,6 +1986,42 @@ CLAIMS = [
      "APPLIED: New math-callout 'Ex-post vs ex-ante — why historical averages overstate planning returns' added in Math §4 after the inflation-index callout. Names the Mehra-Prescott equity premium puzzle, the Fama-French 2002 ex-ante 2.5-4.3% real estimate, the Damodaran current 4-5% nominal forward implied premium, and Bogle's 2015 4-5% nominal published forward estimate. Operational planning implication: 4-5% real is the more defensible forward planning number for US equities at current valuations. Calculator defaults left unchanged but the callout instructs users to plug their own forward-return assumption rather than relying on defaults; defaults exist to be replaced.",
      "Phase 6 — Session 2 academic finance economist finding."),
 
+    ("CL371", "Math:1", "Volatility-drag σ²/2 formula presented as exact rather than as a first-order continuous-time approximation; two near-duplicate callouts with subtly different framings and numerical examples",
+     "METHODOLOGICAL", "CON", "CORRECTED", "C",
+     "Markowitz (1959) Portfolio Selection Ch. 6; MacLean-Thorp-Ziemba (2010) The Kelly Capital Growth Investment Criterion",
+     "APPLIED: Consolidated the two Math §1 callouts at lines 1840 and 1841 into a single 'Arithmetic vs geometric returns — volatility drag' callout. Adds 'to first order' qualifier; cites Markowitz 1959 and MacLean-Thorp-Ziemba 2010; notes the approximation is within ~15 bps for σ ≤ 20% and that fat-tailed return distributions produce small additional empirical drag beyond the σ²/2 prediction. Uses one consistent numerical example (US σ ≈ 16%, ~1.3pp drag, 10% arithmetic → ~8.7% geometric).",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
+    ("CL372", "Bog:3", "BHB 1986 sample was 91 homogeneous large US pension funds; Xiong-Ibbotson-Idzorek-Chen 2010 FAJ found asset allocation and active management equally important in dispersed cross-sections; the 90%-of-variance result is pedagogically clean but doesn't bear the weight of the popular reading",
+     "CITATION", "SOFT", "CORRECTED", "C",
+     "Xiong, Ibbotson, Idzorek, Chen (2010) 'The Equal Importance of Asset Allocation and Active Management,' FAJ 66(2); Statman (2000) 'The 93.6% Question of Financial Advisors,' JoPM",
+     "APPLIED: Extended the existing Bog:3 'What the 90% of variance claim actually means' math-callout with the BHB sample-homogeneity caveat (91 large US pension funds 1974-1983), Xiong-Ibbotson-Idzorek-Chen 2010 FAJ rebuttal showing equal importance in dispersed samples, Statman 2000 retail-context pushback. Re-anchors the Bogleheads conclusion that allocation matters more than fund selection within a category to SPIVA/Bessembinder rather than BHB.",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
+    ("CL376", "Bog:3", "Pfau-Kitces 2014 rising-equity glide path is conditional on US 1926-2010 sample (Estrada 2016 didn't replicate internationally) and on high assumed forward equity premium (Kitces 2016 update); Bernstein 2013 deep-risk framework provides separate psychological skepticism",
+     "EMPIRICAL", "SOFT", "CORRECTED", "C",
+     "Pfau-Kitces (2014) JFP 'Reducing Retirement Risk with a Rising Equity Glide Path'; Estrada (2016) JoPM 'The Retirement Glidepath: An International Perspective'; Bernstein (2013) Deep Risk: How History Informs Portfolio Design; Kitces NEV 2016 update",
+     "APPLIED: Extended the existing Bog:3 rising-equity-glide-path paragraph. Now explicitly cites the 1926-2010 US data scope, Estrada 2016 international non-replication, Kitces 2016 sensitivity to ex-ante equity premium (connecting back to Math §4's ex-post-vs-ex-ante callout from CL374), and Bernstein 2013 'deep risk' psychological-feasibility skepticism. Defensibility framing tightened: defensible under specific assumptions about future equity returns and the retiree's psychological tolerance, not as a default recommendation.",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
+    ("CL377", "Port:Th:6", "DeMiguel-Garlappi-Uppal 2009 1/N-dominance result is the opening of a 15-year academic debate; Kirby-Ostdiek 2012 JFQA and Tu-Zhou 2011 JFE rebuttals show timing strategies and combination estimators outperform pure 1/N; current consensus is shrinkage/combination over both naive 1/N and naive sample-based MV",
+     "CITATION", "SOFT", "CORRECTED", "C",
+     "Kirby-Ostdiek (2012) JFQA 47(2) 'It's All in the Timing'; Tu-Zhou (2011) JFE 99(1) 'Markowitz Meets Talmud: A Combination of Sophisticated and Naive Diversification Strategies'; Jorion (1986) JFQA 21(3) 'Bayes-Stein Estimation for Portfolio Analysis'",
+     "APPLIED: Extended the existing Port:Th:6 paragraph on DeMiguel-Garlappi-Uppal 2009. Now narrates the 2009 result as the opening of a 15-year debate, cites Kirby-Ostdiek 2012 and Tu-Zhou 2011 rebuttals, frames current consensus as 'shrinkage or combination estimators outperform both naive 1/N and naive sample-based MV' rather than '1/N dominates all optimization.' Reframes the Bogleheads market-cap defensibility on Sharpe-Lintner-Mossin equilibrium grounds and Bessembinder skewness grounds (cross-referencing the CL375 work) rather than on a contested 1/N-dominance claim.",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
+    ("CL378", "Bog:2", "Home bias is welfare-reducing for US investors per published literature (French-Poterba 1991, Coeurdacier-Rey 2013, Vanguard 2017, Asness-Israelov-Liew 2011); the artifact's framing presented Bogle's 0% as symmetric with global-market-cap weights when the literature treats it as a contested outlier",
+     "EMPIRICAL", "CON", "CORRECTED", "B",
+     "French-Poterba (1991) AER P&P 81(2); Coeurdacier-Rey (2013) JEL 51(1) 'Home Bias in Open Economy Financial Macroeconomics'; Asness-Israelov-Liew (2011) FAJ 67(3) 'International Diversification Works (Eventually)'; Vanguard (2017) 'Global Equity Investing: The Benefits of Diversification and Sizing Your Allocation' Donaldson-Kinniry-Maciulis-Patterson",
+     "APPLIED: Rewrote the Bog:2 'Common variants worth knowing' callout. Now leads with Vanguard 2017 + Asness-Israelov-Liew 2011 published consensus that ~30-50% international is welfare-improving for US investors. Bogle's 0% framing demoted from 'symmetric end of range' to 'contested outlier' explicitly. Cross-referenced to the Math §7 McQuarrie callout from CL370: accepting the international SWR evidence logically implies accepting that diversifying away from US-equity dependence has positive expected utility.",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
+    ("CL379", "Math:7", "HIST_RETURNS 0.5pp rounding produces ±1-3pp bias in simulated success rates at tail-binding years; bond series maturity (intermediate Treasury) was unlabeled",
+     "METHODOLOGICAL", "SOFT", "PARTIAL", "C",
+     "Shiller online dataset http://www.econ.yale.edu/~shiller/data.htm; Damodaran NYU Stern historical returns dataset",
+     "APPLIED PARTIALLY: §7 model-limits note extended to quantify the rounding bias (±1-3pp on headline success rates at tail-binding years for typical 4% withdrawal rates), label the bond series as intermediate Treasury real returns (consistent with Bengen/Pfau convention), and cross-reference the McQuarrie/Pfau-international callouts above the calculator for the broader US-only conditionality. DEFERRED P6.5: full dataset replacement with unrounded Shiller/Damodaran source data + explicit bond-series proxy choice. Aligns with the existing swap-interface architecture — if ND plugs in a personal MC backend, that backend can carry its own dataset.",
+     "Phase 6 — Session 2 academic finance economist finding."),
+
     ("CL375", "Port:Th:8, Bog:1", "Bessembinder 2018 JFE and Bessembinder-Chen-Choi-Wei 2023 FAJ are the strongest modern empirical foundation for indexing — top 4% of US stocks generated all 1926-2016 excess return; 60% of global stocks underperformed T-bills lifetime — not cited in artifact",
      "CITATION", "CON", "CORRECTED", "B",
      "Bessembinder (2018) Journal of Financial Economics 129(3) 'Do Stocks Outperform Treasury Bills?'; Bessembinder, Chen, Choi, Wei (2023) FAJ 'Long-Term Shareholder Returns: Evidence from 64,000 Global Stocks'",
