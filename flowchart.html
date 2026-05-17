@@ -4004,6 +4004,18 @@ const QUESTIONS = [
         { v: '30+', l: '30+ years' },
         { v: 'already', l: 'Already retired' },
       ]},
+      { id: 'spousalIncomeSplit', type: 'single', label: 'If married, approximate income split between spouses', help: 'Drives Social Security claiming optimization, survivor-benefit planning, and the widow\'s tax-trap exposure assessment. The higher-earner spouse delaying SS to 70 while the lower-earner files at FRA is the standard high-leverage decumulation play.', showIf: (a) => a.filingStatus === 'mfj' || a.filingStatus === 'mfs', options: [
+        { v: '50-50', l: 'Roughly 50/50 — both spouses earn similar amounts' },
+        { v: '60-40', l: 'Roughly 60/40 split' },
+        { v: '70-30', l: 'Roughly 70/30 or more concentrated in one spouse' },
+        { v: 'sole', l: 'Effectively sole-earner household' },
+      ]},
+      { id: 'riskCapacity', type: 'single', label: 'If your portfolio dropped 35% in a single year (2008-style), what would you most likely do?', help: 'Operationalizes Bernstein\'s "willingness" component. Combined with income stability, emergency fund, and dependents, this surfaces risk capacity vs tolerance — usually a binding constraint glide paths ignore.', options: [
+        { v: 'rebalance-in', l: 'Rebalance into the drop (buy more equity to restore target allocation)' },
+        { v: 'hold', l: 'Hold steady; let the rebalancing happen mechanically' },
+        { v: 'cut-equity', l: 'Reduce equity to lock in what\'s left and reduce future loss' },
+        { v: 'sell-to-cash', l: 'Sell to cash and wait for the dust to settle' },
+      ]},
     ]
   },
   {
@@ -4156,6 +4168,26 @@ const QUESTIONS = [
         { v: '500k-2m', l: '$500K – $2M' },
         { v: '2m+', l: '$2M+' },
       ]},
+      { id: 'parentCare', type: 'single', label: 'Are you likely to provide financial support to aging parents in the next 10–15 years?', help: 'Median sandwich-generation cost runs $50K–$200K per parent in adult-child financial contribution per Genworth/MetLife caregiver studies — material enough to surface as a planning line item.', options: [
+        { v: 'yes-substantial', l: 'Yes, substantial — likely to provide significant ongoing support' },
+        { v: 'yes-modest', l: 'Yes, modest — some support likely but not the primary funding source' },
+        { v: 'unlikely', l: 'Unlikely — parents independently funded but not certain' },
+        { v: 'na', l: 'Parents deceased or independently funded with high certainty' },
+      ]},
+      { id: 'annualExpenses', type: 'single', label: 'Approximate annual after-tax household expenses', help: 'Drives every downstream calculator that needs a spending figure — SWR target, FI math, DIME sizing, retirement-replacement-rate.', options: [
+        { v: 'under-40k', l: 'Under $40K' },
+        { v: '40-60k', l: '$40K – $60K' },
+        { v: '60-90k', l: '$60K – $90K' },
+        { v: '90-150k', l: '$90K – $150K' },
+        { v: '150-250k', l: '$150K – $250K' },
+        { v: '250k+', l: '$250K+' },
+      ]},
+      { id: 'essentialFraction', type: 'single', label: 'Roughly what fraction of your annual expenses are essential (housing, healthcare, basic food, insurance, transportation to essential places) vs discretionary (travel, entertainment, gifting, lifestyle)?', help: 'Determines whether dynamic-withdrawal or guardrails strategies are feasible (they require cuttable discretionary) and the right LTC / DI sizing target (which is the essential portion, not the total).', options: [
+        { v: '90+', l: '90%+ essential — almost all spending is non-cuttable' },
+        { v: '70-90', l: '70–90% essential — modest discretionary cushion' },
+        { v: '50-70', l: '50–70% essential — meaningful discretionary cushion' },
+        { v: 'under-50', l: 'Under 50% essential — substantial discretionary, high flexibility' },
+      ]},
     ]
   },
   {
@@ -4254,6 +4286,22 @@ function getDefault(field) {
     }
     case 'filingStatus': return a.filingStatus;
     case 'isMarried': return a.filingStatus === 'mfj' || a.filingStatus === 'mfs';
+    case 'annualExpenses': {
+      // CL333 — map bucket to midpoint for calculator pre-fill.
+      const m = { 'under-40k': 30000, '40-60k': 50000, '60-90k': 75000, '90-150k': 120000, '150-250k': 200000, '250k+': 350000 };
+      return m[a.annualExpenses];
+    }
+    case 'essentialFraction': {
+      // CL333 — map bucket to midpoint as a decimal.
+      const m = { '90+': 0.95, '70-90': 0.80, '50-70': 0.60, 'under-50': 0.40 };
+      return m[a.essentialFraction];
+    }
+    case 'essentialExpenses': {
+      // Convenience: annualExpenses × essentialFraction for downstream LTC / DI / floor calculations.
+      const exp = getDefault('annualExpenses');
+      const frac = getDefault('essentialFraction');
+      return (exp != null && frac != null) ? Math.round(exp * frac) : undefined;
+    }
     default: return undefined;
   }
 }
@@ -4902,6 +4950,15 @@ function renderPlanSynthesis(a, plan) {
   }
   if (a.taxBracket === 'high' && a.incomeStability === 'concentrated') {
     constraints.push('income concentration in a single employer or client, which reduces your effective risk capacity relative to a horizon-derived glide path');
+  }
+  if (a.riskCapacity === 'sell-to-cash' || a.riskCapacity === 'cut-equity') {
+    constraints.push('a stated panic-response in a 35% drawdown that suggests a glide path more conservative than horizon alone would prescribe — the binding constraint is willingness, not horizon');
+  }
+  if (a.parentCare === 'yes-substantial') {
+    constraints.push('a likely sandwich-generation financial obligation to aging parents (median $50K–$200K per parent in adult-child contribution per Genworth/MetLife data), which is rarely line-itemed but materially shifts both cash-flow timing and the LTC planning calculus for the household');
+  }
+  if ((a.filingStatus === 'mfj' || a.filingStatus === 'mfs') && a.spousalIncomeSplit === 'sole') {
+    constraints.push('a sole-earner household structure, which compresses survivor-benefit math and the widow\'s-tax-trap exposure into a single-earner Social Security claiming decision');
   }
   if (a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already') {
     constraints.push('proximity to or position in retirement, where decumulation accuracy starts to dominate accumulation math');
@@ -5745,12 +5802,15 @@ function calcAssetLocation() {
 }
 
 function renderMath() {
-  // Apply personalized defaults from diagnostic answers (CL157, CL162)
+  // Apply personalized defaults from diagnostic answers (CL157, CL162, CL333)
   applyDefaultIfFallback('ci-years', 'horizonYears', 30);
   applyDefaultIfFallback('al-ord', 'taxBracketPct', 32);
   applyDefaultIfFallback('al-ltcg', 'ltcgPct', 15);
+  // CL333 — annual-expenses propagation to §3 SS-offset input and §7 first-year withdrawal.
+  applyDefaultIfFallback('sr-expenses', 'annualExpenses', 60000);
+  applyDefaultIfFallback('hc-wd', 'annualExpenses', 40000);
   // Track user edits so subsequent renders don't overwrite manual changes
-  ['ci-years', 'al-ord', 'al-ltcg'].forEach(markUserTyped);
+  ['ci-years', 'al-ord', 'al-ltcg', 'sr-expenses', 'hc-wd'].forEach(markUserTyped);
   calcCompound();
   calcRule72();
   calcSavingsRate();
@@ -6401,7 +6461,9 @@ function renderZeitgeistInvesting() {
 function renderZeitgeistLifestyle() {
   applyDefaultIfFallback('dz-age', 'currentAge', 40);
   applyDefaultIfFallback('dz-retire', 'retirementAge', 65);
-  ['dz-age', 'dz-retire'].forEach(markUserTyped);
+  // CL333 — propagate annual expenses to Die-with-Zero income proxy when present.
+  applyDefaultIfFallback('dz-income', 'annualExpenses', 120000);
+  ['dz-age', 'dz-retire', 'dz-income'].forEach(markUserTyped);
   calcDieWithZero();
 }
 
