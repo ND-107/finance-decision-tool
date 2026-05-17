@@ -1231,6 +1231,48 @@ body {
 .action-tag-business { color: var(--p-advanced); border-color: var(--p-advanced); background: rgba(92, 58, 92, 0.06); }
 .action-tag-bracket { color: var(--accent-dark); border-color: var(--accent); background: rgba(184, 137, 62, 0.08); }
 .action-tag-critical { color: var(--p-safety); border-color: var(--p-safety); background: rgba(168, 65, 46, 0.06); }
+.action-tag-friction-low { color: var(--p-highdebt); border-color: var(--p-highdebt); background: rgba(61, 90, 69, 0.06); text-transform: none; letter-spacing: 0.02em; font-weight: 500; }
+.action-tag-friction-med { color: var(--ink-soft); border-color: var(--border); background: var(--bg); text-transform: none; letter-spacing: 0.02em; font-weight: 500; }
+.action-tag-friction-high { color: var(--muted); border-color: var(--border); background: var(--bg); text-transform: none; letter-spacing: 0.02em; font-weight: 500; }
+
+.plan-tier1-block {
+  margin: 32px 0 36px 0;
+  padding: 24px 26px 22px;
+  background: linear-gradient(180deg, rgba(184, 137, 62, 0.06) 0%, var(--surface) 80%);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+.plan-tier1-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+.plan-tier1-header h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 4px 0 8px 0;
+}
+.plan-tier1-header p {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px 0;
+}
+.plan-tier1-body .action {
+  background: var(--surface-elev);
+  border-left: 3px solid var(--accent);
+  margin-bottom: 12px;
+}
+.plan-tier1-body .action:last-child { margin-bottom: 0; }
+.action-tier1 { /* class hook for additional Tier-1-only styling if needed */ }
 
 .action-toggle {
   font-family: var(--font-mono);
@@ -1802,6 +1844,7 @@ body {
 <section class="view" id="view-plan">
   <div class="plan-header" id="plan-header"></div>
   <div id="plan-synthesis"></div>
+  <div id="plan-tier1"></div>
   <div id="plan-stages"></div>
   <div id="plan-skipped"></div>
 </section>
@@ -4016,11 +4059,18 @@ const QUESTIONS = [
         { v: '70-30', l: 'Roughly 70/30 or more concentrated in one spouse' },
         { v: 'sole', l: 'Effectively sole-earner household' },
       ]},
-      { id: 'riskCapacity', type: 'single', label: 'If your portfolio dropped 35% in a single year (2008-style), what would you most likely do?', help: 'Operationalizes Bernstein\'s "willingness" component. Combined with income stability, emergency fund, and dependents, this surfaces risk capacity vs tolerance — usually a binding constraint glide paths ignore.', options: [
-        { v: 'rebalance-in', l: 'Rebalance into the drop (buy more equity to restore target allocation)' },
-        { v: 'hold', l: 'Hold steady; let the rebalancing happen mechanically' },
-        { v: 'cut-equity', l: 'Reduce equity to lock in what\'s left and reduce future loss' },
-        { v: 'sell-to-cash', l: 'Sell to cash and wait for the dust to settle' },
+      { id: 'riskCapacity', type: 'single', label: 'If your portfolio dropped 35% in a single year (2008-style), what would you most likely do?', help: 'No "right" answer here — we calibrate the framework\'s recommendations to how you actually invest, not how the textbook says you should. Reframed per behavioral-economics evidence on social-desirability bias in normatively-ranked options.', options: [
+        { v: 'add-equity', l: 'Add to equity (deploy cash or rebalance into the drop)' },
+        { v: 'hold', l: 'Hold steady; no allocation change' },
+        { v: 'reduce-equity', l: 'Reduce equity allocation' },
+        { v: 'move-to-cash', l: 'Move substantially to cash' },
+      ]},
+      { id: 'riskCapacityRevealed', type: 'single', label: 'Looking back at March 2020 (COVID drawdown), the 2022 bear market, or 2008 if you were investing then — what did you actually do in the worst of it?', help: 'Affective forecasting evidence (Wilson-Gilbert 2003; Frydman-Rangel 2014) shows people systematically over-predict their composure under future financial stress; past behavior is a stronger signal than predicted behavior. When both are available, the framework weights this answer more heavily.', options: [
+        { v: 'added-equity', l: 'Added to equity (deployed cash or rebalanced into the drop)' },
+        { v: 'held', l: 'Held steady — no allocation change' },
+        { v: 'reduced-equity', l: 'Reduced equity allocation during the drawdown' },
+        { v: 'moved-to-cash', l: 'Moved substantially to cash' },
+        { v: 'not-investing', l: 'I wasn\'t investing during any of those events' },
       ]},
     ]
   },
@@ -4100,6 +4150,12 @@ const QUESTIONS = [
         { v: 'yes', l: 'Yes, capturing the full match' },
         { v: 'partial', l: 'Partially' },
         { v: 'no', l: 'No' },
+      ]},
+      { id: 'autoEscalation', type: 'single', label: 'Does your 401(k) plan offer automatic annual contribution escalation, and is it enabled?', help: 'Auto-escalation (Thaler-Benartzi "Save More Tomorrow" 2004) pre-commits future-you to a 1–2pp/yr increase, capped at a target rate. SECURE 2.0 made this default-on for new plans starting 2025.', showIf: (a) => (a.incomeTypes || []).includes('w2') && a.employerMatch === 'yes', options: [
+        { v: 'yes-enabled', l: 'Yes, available and currently enabled' },
+        { v: 'yes-not-enabled', l: 'Yes, available but I haven\'t enabled it' },
+        { v: 'no', l: 'No, plan doesn\'t offer it' },
+        { v: 'unsure', l: 'Not sure' },
       ]},
       { id: 'hdhpEligible', type: 'single', label: 'Are you enrolled in an HDHP (high-deductible health plan) eligible for an HSA?', options: [
         { v: 'yes', l: 'Yes, currently enrolled' },
@@ -4193,6 +4249,25 @@ const QUESTIONS = [
         { v: '70-90', l: '70–90% essential — modest discretionary cushion' },
         { v: '50-70', l: '50–70% essential — meaningful discretionary cushion' },
         { v: 'under-50', l: 'Under 50% essential — substantial discretionary, high flexibility' },
+      ]},
+      { id: 'spousalAlignSaving', type: 'single', label: 'Are you and your spouse aligned on your target savings rate?', help: 'Within-household disagreement about saving rate is one of the strongest predictors of plan-execution failure per Yilmazer-Lyons 2010 and Bertocchi-Brunetti-Torricelli 2014. The framework\'s optimization recommendations assume household alignment.', showIf: (a) => a.filingStatus === 'mfj', options: [
+        { v: 'yes-fully', l: 'Yes — we\'ve discussed and we\'re aligned' },
+        { v: 'yes-mostly', l: 'Mostly aligned, small differences' },
+        { v: 'no-gap', l: 'No, there\'s a significant gap' },
+        { v: 'not-discussed', l: 'We haven\'t had this conversation' },
+      ]},
+      { id: 'spousalAlignRetirement', type: 'single', label: 'Are you and your spouse aligned on retirement timing and what retirement looks like?', help: 'The retirement-age decision is almost always made jointly by spouses (CL328 family-system framing); disagreement here delays or derails the entire decumulation arc.', showIf: (a) => a.filingStatus === 'mfj', options: [
+        { v: 'yes-fully', l: 'Yes — same timeline and same picture of what retirement looks like' },
+        { v: 'yes-mostly', l: 'Mostly aligned, some differences in timing or vision' },
+        { v: 'no-gap', l: 'No, there\'s a significant gap' },
+        { v: 'not-discussed', l: 'We haven\'t had this conversation' },
+      ]},
+      { id: 'spousalAlignLegacy', type: 'single', label: 'Are you and your spouse aligned on whether to leave wealth to children / heirs vs spend it down per Die-with-Zero?', help: 'Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs (CL328) — and only with spousal agreement on the framing.', showIf: (a) => a.filingStatus === 'mfj', options: [
+        { v: 'yes-fully', l: 'Yes — same view on legacy vs spend-down' },
+        { v: 'yes-mostly', l: 'Mostly aligned' },
+        { v: 'no-gap', l: 'No, there\'s a significant gap' },
+        { v: 'not-discussed', l: 'We haven\'t had this conversation' },
+        { v: 'na', l: 'Not applicable (no heirs of concern)' },
       ]},
     ]
   },
@@ -4542,6 +4617,25 @@ function computePlan() {
     } else if (a.employerMatch === 'no') {
       skip('Capture employer match', 'No W-2 employer match available.');
     }
+    // CL382 — Save More Tomorrow / auto-escalation. The single most empirically
+    // validated savings-rate intervention in the behavioral-finance literature
+    // (Thaler-Benartzi 2004 JPE; SECURE 2.0 §101 made it default-on for new plans
+    // starting 2025). Surfaced as "do now / critical" because it is the lowest-
+    // friction highest-leverage savings move available — one decision, pre-commits
+    // multiple future decisions, exploits status-quo bias instead of fighting it.
+    if (a.autoEscalation === 'yes-not-enabled') {
+      add({ title: 'Enable 401(k) auto-escalation to ratchet your deferral toward 15–20% over the next 5 years', stage: 'now',
+        reason: 'Auto-escalation pre-commits future-you to a 1–2pp annual deferral increase, typically tied to your raises so take-home pay never drops. This is the single most empirically validated savings-rate intervention in the behavioral-finance literature — Thaler-Benartzi (2004, JPE) "Save More Tomorrow" took savings rates in the original field experiment from 3.5% to 13.6% over 40 months by exploiting four behavioral levers (hyperbolic discounting via future-dated commitment, status-quo bias via auto-execution, loss aversion via raise-tied increases, inertia working FOR the saver instead of against). One decision today pre-commits five future decisions you would otherwise procrastinate on indefinitely. SECURE 2.0 §101 made this default-on for new 401(k) plans starting 2025; for plans that offer it but haven\'t auto-enrolled you, it\'s a single login + one form field.',
+        because: 'Your plan offers auto-escalation but it isn\'t currently enabled.',
+        nodeKey: 'w2:3.1', tags: ['critical'], incomeType: 'w2' });
+    } else if (a.autoEscalation === 'unsure') {
+      add({ title: 'Ask HR whether your 401(k) plan supports auto-escalation, and enable it if so', stage: 'now',
+        reason: 'Most modern 401(k) plans support automatic annual contribution escalation — the single most empirically validated savings-rate intervention (Thaler-Benartzi 2004 JPE "Save More Tomorrow"). One email or HR-portal check to confirm; if available, enable to ratchet toward 15–20% deferral over the next 5 years. SECURE 2.0 §101 made it default-on for new plans starting 2025.',
+        because: 'You weren\'t sure whether auto-escalation is available on your plan.',
+        nodeKey: 'w2:3.1', tags: [], incomeType: 'w2' });
+    } else if (a.autoEscalation === 'yes-enabled') {
+      skip('Enable auto-escalation', 'Auto-escalation already enabled — the operative behavioral lever for sustained savings-rate growth.');
+    }
   }
 
   if (a.highInterestDebt === 'yes') {
@@ -4809,7 +4903,48 @@ function computePlan() {
       nodeKey: 'business:10.1', tags: [], incomeType: 'business' });
   }
 
-  return { actions, skipped };
+  // CL380 + CL388 — friction inference + Tier-1 selection.
+  // Behavioral choice-architecture: ordering by friction-to-action measurably
+  // improves follow-through (Madrian-Shea 2001, Choi-Laibson-Madrian-Metrick
+  // 2003 'Optimal Defaults'). The single 'critical' tag is over-applied when
+  // 7+ items fire for the same household (Iyengar-Lepper 2000 choice-overload).
+  // Rule of thumb:
+  //   low  — single login or single mailing, < 10 minutes, one decision
+  //   med  — one vendor onboarding or one professional engagement, < 2 hours of active work
+  //   high — sustained behavioral change over weeks, debt-attack discipline, ongoing optimization
+  const FRICTION_RULES = [
+    [/budget|cash-flow|cash flow|tracking/i, 'high'],
+    [/eliminate high-interest debt|moderate-interest debt/i, 'high'],
+    [/start formal decumulation|advanced estate planning|business succession|S-corp status|tax-loss harvesting|Plan for the Section 199A/i, 'high'],
+    [/build the full emergency fund|Build your full emergency fund/i, 'med'],
+    [/quarterly estimated tax|Get health insurance|income-driven repayment|long-term disability|term life|disability gap|self-employed retirement plan|business insurance|estate documents|moderate-interest debt|529 plan|Roth catch-up|Mega Backdoor|LTC insurance|Plan for Medicaid|sweet spot|legacy preservation|hybrid|§1202 QSBS positioning|Open a taxable|Plan §83\(b\) filing ahead/i, 'med'],
+    [/Plan your Social Security|decumulation planning/i, 'med'],
+    [/.+/, 'low'],  // default — explicit one-decision actions and short-form items
+  ];
+  function inferFriction(title) {
+    for (const [pat, lvl] of FRICTION_RULES) {
+      if (pat.test(title)) return lvl;
+    }
+    return 'low';
+  }
+  actions.forEach(act => { act.friction = inferFriction(act.title); });
+
+  // Tier 1 = up to 3 critical-tagged actions, ranked by (friction asc).
+  // Surfaced as "Start here" anchor above the stage groups. Doesn't remove them
+  // from the stage view — they appear both places, since stage encodes time-to-act
+  // and Tier 1 encodes start-here-first.
+  const fricRank = { low: 0, med: 1, high: 2 };
+  const stageRank = { 'now': 0, 'next-quarter': 1, 'this-year': 2, 'eventually': 3 };
+  const tier1Pool = actions
+    .filter(act => (act.tags || []).includes('critical'))
+    .slice()
+    .sort((x, y) => fricRank[x.friction] - fricRank[y.friction]
+      || stageRank[x.stage] - stageRank[y.stage]
+      || x.idx - y.idx);
+  const tier1 = tier1Pool.slice(0, 3).map(act => act.idx);
+  actions.forEach(act => { act.tier1 = tier1.includes(act.idx); });
+
+  return { actions, skipped, tier1 };
 }
 
 // ============================================================
@@ -4957,14 +5092,39 @@ function renderPlanSynthesis(a, plan) {
   if (a.taxBracket === 'high' && a.incomeStability === 'concentrated') {
     constraints.push('income concentration in a single employer or client, which reduces your effective risk capacity relative to a horizon-derived glide path');
   }
-  if (a.riskCapacity === 'sell-to-cash' || a.riskCapacity === 'cut-equity') {
-    constraints.push('a stated panic-response in a 35% drawdown that suggests a glide path more conservative than horizon alone would prescribe — the binding constraint is willingness, not horizon');
+  // CL384 — risk capacity: weight revealed preference over self-prediction
+  // (Wilson-Gilbert 2003; Frydman-Rangel 2014). Use revealed-preference answer
+  // when it's a real-event response (not "not-investing"); fall back to the
+  // self-prediction otherwise.
+  const revealed = a.riskCapacityRevealed;
+  const predicted = a.riskCapacity;
+  const isRevealedReal = revealed && revealed !== 'not-investing';
+  const lowWillingness = isRevealedReal
+    ? (revealed === 'reduced-equity' || revealed === 'moved-to-cash')
+    : (predicted === 'reduce-equity' || predicted === 'move-to-cash');
+  if (lowWillingness) {
+    const source = isRevealedReal
+      ? 'a documented real-event response (you reduced equity or moved to cash during a past drawdown)'
+      : 'a stated panic-response in a 35% drawdown';
+    constraints.push(source + ' that suggests a glide path more conservative than horizon alone would prescribe — the binding constraint is willingness, not horizon');
   }
   if (a.parentCare === 'yes-substantial') {
     constraints.push('a likely sandwich-generation financial obligation to aging parents (median $50K–$200K per parent in adult-child contribution per Genworth/MetLife data), which is rarely line-itemed but materially shifts both cash-flow timing and the LTC planning calculus for the household');
   }
   if ((a.filingStatus === 'mfj' || a.filingStatus === 'mfs') && a.spousalIncomeSplit === 'sole') {
     constraints.push('a sole-earner household structure, which compresses survivor-benefit math and the widow\'s-tax-trap exposure into a single-earner Social Security claiming decision');
+  }
+  // CL389 — spousal alignment as binding constraint. Within-household
+  // disagreement on saving rate, retirement timing, or legacy framing is one
+  // of the highest-leverage household-level behavioral predictors of plan
+  // execution per Yilmazer-Lyons 2010 / Bertocchi-Brunetti-Torricelli 2014.
+  const spousalGaps = [];
+  if (a.spousalAlignSaving === 'no-gap' || a.spousalAlignSaving === 'not-discussed') spousalGaps.push('savings rate');
+  if (a.spousalAlignRetirement === 'no-gap' || a.spousalAlignRetirement === 'not-discussed') spousalGaps.push('retirement timing');
+  if (a.spousalAlignLegacy === 'no-gap' || a.spousalAlignLegacy === 'not-discussed') spousalGaps.push('legacy / spend-down framing');
+  if (spousalGaps.length > 0) {
+    constraints.push('an unresolved spousal-alignment gap on ' + spousalGaps.join(', ') +
+      ' — the framework\'s recommendations assume household alignment, and the published evidence (Yilmazer-Lyons 2010; Bertocchi-Brunetti-Torricelli 2014) treats spousal disagreement as one of the strongest predictors of plan-execution failure; consider running this diagnostic separately with your spouse and reconciling the outputs before pursuing the action list');
   }
   if (a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already') {
     constraints.push('proximity to or position in retirement, where decumulation accuracy starts to dominate accumulation math');
@@ -5041,33 +5201,71 @@ function renderPlan() {
     { key: 'eventually', label: 'Do eventually', subtitle: 'Plan for, optimize over time' }
   ];
 
+  // CL380 — friction-time hint per action card.
+  const frictionLabel = { low: '~5–10 min to start', med: 'one onboarding or pro engagement', high: 'sustained over weeks' };
+
+  // Action card renderer (shared between Tier-1 anchor and stage groups).
+  function renderActionCard(act, opts = {}) {
+    const globalNum = plan.actions.indexOf(act) + 1;
+    const tagsHTML = (act.tags || []).map(t => {
+      if (t === 'critical') return '<span class="action-tag action-tag-critical">Critical</span>';
+      if (t === 'bracket') return '<span class="action-tag action-tag-bracket">Bracket-sensitive</span>';
+      return '';
+    }).join('')
+      + (act.incomeType ? `<span class="action-tag action-tag-${act.incomeType}">${({w2:'W-2',contractor:'1099/SE',business:'Business'}[act.incomeType])}</span>` : '')
+      + (act.friction ? `<span class="action-tag action-tag-friction-${act.friction}">${frictionLabel[act.friction]}</span>` : '');
+    const node = NODE_LOOKUP[act.nodeKey];
+    const detailsHTML = node ? renderActionDetail(node) : '<p>Detailed reference not available for this action.</p>';
+    const isOpen = state.openActions.has(act.idx);
+    const extraClass = opts.tier1 ? 'action-tier1' : '';
+    return `
+      <div class="action ${isOpen ? 'open' : ''} ${extraClass}" data-action-idx="${act.idx}">
+        <div class="action-num">${String(globalNum).padStart(2, '0')}</div>
+        <div class="action-content">
+          <div class="action-title">${act.title}</div>
+          <div class="action-reason">${act.reason}</div>
+          <div class="action-because"><strong>Why this stage</strong>${act.because}</div>
+          ${tagsHTML ? `<div class="action-meta">${tagsHTML}</div>` : ''}
+          <div class="action-toggle">${isOpen ? '− Hide reference details' : '+ Show reference details (math, exceptions, bracket-specific guidance)'}</div>
+          <div class="action-detail"><div class="action-detail-inner">${detailsHTML}</div></div>
+        </div>
+      </div>
+    `;
+  }
+
+  // CL388 — Tier-1 "Start here" anchor above the stage groups. Up to three
+  // critical-tagged actions ranked friction-asc + stage-asc. Behavioral
+  // choice-architecture: a single clear top-3 reduces choice overload and
+  // increases follow-through vs 7+ items tagged equally critical.
+  const tier1Acts = plan.actions.filter(a => a.tier1);
+  let tier1HTML = '';
+  if (tier1Acts.length > 0) {
+    tier1HTML = `
+      <div class="plan-tier1-block">
+        <div class="plan-tier1-header">
+          <span class="plan-tier1-eyebrow">Start here · this week</span>
+          <h3>The top ${tier1Acts.length} highest-leverage action${tier1Acts.length === 1 ? '' : 's'} you can take now</h3>
+          <p>Ranked by ease of starting. These are the items most likely to actually get done — the rest of the plan below sequences the full picture by time horizon. <em>Madrian-Shea 2001 / Choi-Laibson-Madrian 2003: execution friction is the binding constraint, not information.</em></p>
+        </div>
+        <div class="plan-tier1-body">${tier1Acts.map(act => renderActionCard(act, { tier1: true })).join('')}</div>
+      </div>
+    `;
+  }
+  document.getElementById('plan-tier1').innerHTML = tier1HTML;
+
+  // Within each stage, sort by (critical desc, friction asc) so the most
+  // executable items surface first within each time horizon.
+  const fricRank = { low: 0, med: 1, high: 2 };
   const stagesHTML = stages.map(s => {
     const stageActions = plan.actions.filter(a => a.stage === s.key);
     if (stageActions.length === 0) return '';
-    const actionsHTML = stageActions.map((act, i) => {
-      const globalNum = plan.actions.indexOf(act) + 1;
-      const tagsHTML = (act.tags || []).map(t => {
-        if (t === 'critical') return '<span class="action-tag action-tag-critical">Critical</span>';
-        if (t === 'bracket') return '<span class="action-tag action-tag-bracket">Bracket-sensitive</span>';
-        return '';
-      }).join('') + (act.incomeType ? `<span class="action-tag action-tag-${act.incomeType}">${({w2:'W-2',contractor:'1099/SE',business:'Business'}[act.incomeType])}</span>` : '');
-      const node = NODE_LOOKUP[act.nodeKey];
-      const detailsHTML = node ? renderActionDetail(node) : '<p>Detailed reference not available for this action.</p>';
-      const isOpen = state.openActions.has(act.idx);
-      return `
-        <div class="action ${isOpen ? 'open' : ''}" data-action-idx="${act.idx}">
-          <div class="action-num">${String(globalNum).padStart(2, '0')}</div>
-          <div class="action-content">
-            <div class="action-title">${act.title}</div>
-            <div class="action-reason">${act.reason}</div>
-            <div class="action-because"><strong>Why this stage</strong>${act.because}</div>
-            ${tagsHTML ? `<div class="action-meta">${tagsHTML}</div>` : ''}
-            <div class="action-toggle">${isOpen ? '− Hide reference details' : '+ Show reference details (math, exceptions, bracket-specific guidance)'}</div>
-            <div class="action-detail"><div class="action-detail-inner">${detailsHTML}</div></div>
-          </div>
-        </div>
-      `;
-    }).join('');
+    const sorted = stageActions.slice().sort((x, y) => {
+      const xCrit = (x.tags || []).includes('critical') ? 0 : 1;
+      const yCrit = (y.tags || []).includes('critical') ? 0 : 1;
+      if (xCrit !== yCrit) return xCrit - yCrit;
+      return fricRank[x.friction] - fricRank[y.friction];
+    });
+    const actionsHTML = sorted.map(act => renderActionCard(act)).join('');
     return `
       <div class="stage stage-${s.key}">
         <div class="stage-header">
