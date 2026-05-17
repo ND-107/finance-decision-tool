@@ -2843,7 +2843,8 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
   </div>
   <div>
     <h3>Limitations</h3>
-    <p>The reasoning is rule-based, not predictive. It uses 2026 federal figures and the OBBBA estate/QSBS regime, but ignores state-level nuances beyond California and New Jersey HSA conformity. This is a framework, not legal or tax advice. For decisions involving significant sums, consult a fiduciary advisor or CPA.</p>
+    <p>The reasoning is rule-based, not predictive. It uses 2026 federal figures and the OBBBA estate/QSBS regime, but ignores state-level nuances beyond California and New Jersey HSA conformity. This is a framework, not legal or tax advice. For decisions involving significant sums, consult a <strong>fiduciary</strong> advisor or CPA.</p>
+    <p style="margin-top: 12px;"><strong>On finding actually-unconflicted advice.</strong> Most professionals who call themselves "financial advisors" operate under one of two legal standards: the <em>fiduciary standard</em> (Investment Advisers Act of 1940 §206 — legally required to act in your best interest with full conflict disclosure) or the <em>suitability / best-interest standard</em> (SEC Regulation Best Interest, 17 CFR §240.15l-1 — permits recommendations that pay the recommender well as long as they're "suitable"). The difference is consequential. <em>To filter:</em> ask any professional you're considering — including CFP credential-holders — "Are you a fiduciary 100% of the time when working with me, and will you put that in writing?" If the answer is anything other than an unqualified yes, they're operating at least partly under the weaker standard. <em>Fee structure matters separately:</em> fee-only (paid only by you; no commissions; no AUM percentage above ~1%) is structurally less conflicted than fee-based (mixed fees and commissions) or commission-only. NAPFA (napfa.org), the Garrett Planning Network (garrettplanningnetwork.com), and the XY Planning Network (xyplanningnetwork.com — under-$1M-net-worth segment) maintain directories of fee-only fiduciaries. For RIAs, request Form ADV Part 2 and read the conflicts-of-interest disclosure before engaging — RIAs file this with the SEC and are required to deliver it on request. Helaine Olen's <em>Pound Foolish</em> (2012, ch. 3–4) is the foundational consumer-advocate work on industry-capture in the financial-services profession.</p>
   </div>
 </section>
 
@@ -3073,7 +3074,7 @@ Example: 22% bracket, 7% expected nominal return
       ${bracketBlock(
         'Roth IRA, unambiguously. You\'ll almost certainly be in a higher bracket in retirement than you are today. Pay 10–12% tax now and watch the balance grow tax-free for decades.',
         'The choice depends on your retirement projection. If you expect to be in the same or higher bracket in retirement (high savings rate, pension, rental income), Roth wins. If you expect a lower bracket (typical for most Americans who don\'t save aggressively), Traditional wins. Splitting contributions hedges the uncertainty.',
-        'You are likely above the Roth IRA direct contribution income limits. For 2026, the phase-out is $153,000–$168,000 (single) and $242,000–$252,000 (married filing jointly). Above the upper end, direct contributions are prohibited. Use the <strong>backdoor Roth IRA</strong>: contribute to a non-deductible Traditional IRA, then convert immediately to Roth. The pro-rata rule complicates this if you have existing pre-tax Traditional IRA balances; consult a tax advisor before executing.'
+        'You are likely above the Roth IRA direct contribution income limits. For 2026, the phase-out is $153,000–$168,000 (single) and $242,000–$252,000 (married filing jointly). Above the upper end, direct contributions are prohibited. Use the <strong>backdoor Roth IRA</strong>: contribute to a non-deductible Traditional IRA, then convert immediately to Roth. The pro-rata rule complicates this if you have existing pre-tax Traditional IRA balances; consult a fiduciary tax advisor (apply the fiduciary-vs-suitability test on the Welcome view before engaging) before executing.'
       )}
       <div class="math">2026 IRA limits:
   $7,500 standard
@@ -4041,7 +4042,7 @@ Same founder exiting at 4 years instead:
       <p><strong>GRATs (Grantor Retained Annuity Trusts):</strong> Transfer appreciating assets out of the estate with minimal gift tax. Effective when interest rates are low and assets are expected to appreciate substantially.</p>
       <p><strong>SLATs (Spousal Lifetime Access Trusts):</strong> One spouse gifts assets to an irrevocable trust benefiting the other spouse. Uses exemption while keeping family access to the assets indirectly.</p>
       <p><strong>Dynasty trusts (in favorable states like SD, NV, DE):</strong> Multi-generational trusts that hold assets outside the estate of each beneficiary, potentially for centuries.</p>
-      <p>None of this should be attempted without a qualified estate planning attorney. The complexity is significant; the cost of getting it wrong is significant.</p>
+      <p>None of this should be attempted without a qualified estate planning attorney. The complexity is significant; the cost of getting it wrong is significant. (For finding the attorney or financial-planning support, apply the fiduciary-vs-suitability filter on the Welcome view — estate attorneys generally operate under fiduciary duty to the client, but coordinating financial-planning teams often include suitability-standard professionals; surfacing the question early prevents the conflicted-recommendation pattern.)</p>
     `
   },
   {
@@ -4212,6 +4213,12 @@ const QUESTIONS = [
         { v: 'yes', l: 'Yes — qualifying employment, pursuing forgiveness' },
         { v: 'no', l: 'No' },
         { v: 'unsure', l: 'Not sure / need to check' },
+      ]},
+      { id: 'studentLoanAudited', type: 'single', label: 'Have you ever audited your IDR / PSLF payment history at studentaid.gov?', help: 'Federal loan servicers (Navient, MOHELA, Nelnet) have been the subject of CFPB enforcement actions documenting systematic mis-tracking of qualifying payments. Pulling your full payment history and reconciling it is often the highest-NPV financial action available to federal student loan borrowers — sometimes worth $40K–$80K in retroactive PSLF or IDR forgiveness credit.', showIf: (a) => a.federalStudentLoans === 'yes', options: [
+        { v: 'yes-recent', l: 'Yes — within the past year, no discrepancies' },
+        { v: 'yes-discrepancies', l: 'Yes — found discrepancies, working with servicer/CFPB' },
+        { v: 'never', l: 'No, never audited' },
+        { v: 'unsure', l: 'Not sure what this means' },
       ]},
     ]
   },
@@ -4741,6 +4748,25 @@ function computePlan() {
       reason: 'PSLF eligibility depends on employer type, loan type, and repayment plan. If eligible, the optimal payoff strategy inverts — minimize payments, maximize forgiveness. Check at studentaid.gov before paying extra.',
       because: 'You have federal loans and PSLF eligibility is unclear.',
       nodeKey: 'w2:4.1', tags: ['critical'] });
+  }
+
+  // CL396 — Federal-student-loan servicer-audit action regardless of PSLF status.
+  // Federal loan servicers (Navient, MOHELA, Nelnet) have been the subject of
+  // sustained CFPB enforcement documenting systematic mis-tracking of qualifying
+  // payments — Sweet v. Cardona, the 2023-2024 IDR Account Adjustment, multiple
+  // consent orders. For many borrowers the highest-NPV financial action available
+  // is to pull and reconcile the payment history; the framework's silence on this
+  // is an advice-by-omission gap consumer advocates flag.
+  if (a.federalStudentLoans === 'yes' && (a.studentLoanAudited === 'never' || a.studentLoanAudited === 'unsure')) {
+    add({ title: 'Audit your IDR / PSLF payment history at studentaid.gov', stage: 'now',
+      reason: 'Federal loan servicers (Navient, MOHELA, Nelnet) have been the subject of sustained CFPB enforcement documenting systematic mis-tracking of qualifying payments and steering borrowers into forbearance instead of IDR. The 2023 PSLF Account Adjustment and the IDR Account Adjustment that ran through mid-2024 retroactively counted previously-non-qualifying months for millions of borrowers — many of whom never realized they were eligible because servicers had told them they weren\'t. The action: log in at studentaid.gov, pull your full payment history, verify your current IDR plan election is recertified annually, confirm any PSLF-qualifying employment is certified via the PSLF Employment Certification Form (or the PSLF Help Tool for employer-eligibility verification), and if you\'ve ever been told your payments don\'t qualify, file a CFPB complaint and request review under the IDR Account Adjustment framework. For a borrower with $80K in federal loans at IDR / PSLF eligibility, getting the audit right is worth $40K–$80K in expected NPV — comparable to or exceeding every other optimization item on this list combined. Cite: CFPB Student Loan Ombudsman Annual Reports 2018–2024; Sweet v. Cardona settlement 2022; Student Borrower Protection Center research.',
+      because: a.studentLoanAudited === 'unsure' ? 'You weren\'t sure what the audit entails — this is the operational walkthrough.' : 'You have federal loans and have never audited the payment history that determines forgiveness eligibility.',
+      nodeKey: 'w2:4.1', tags: ['critical'] });
+  } else if (a.studentLoanAudited === 'yes-discrepancies') {
+    add({ title: 'Continue the servicer-history dispute / CFPB complaint process', stage: 'next-quarter',
+      reason: 'You\'ve identified discrepancies in your IDR / PSLF payment history — this is one of the highest-NPV ongoing efforts you have. Sustained CFPB complaint engagement and direct contact with the servicer\'s ombudsman office have produced retroactive payment-count adjustments worth tens of thousands of dollars for many borrowers. Keep documentation, escalate when needed, and re-pull your studentaid.gov history quarterly until the discrepancies are resolved on record.',
+      because: 'You\'re in active dispute on payment-history discrepancies.',
+      nodeKey: 'w2:4.1', tags: [] });
   }
 
   // === STAGE: NEXT QUARTER ===
