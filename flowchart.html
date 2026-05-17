@@ -2114,15 +2114,26 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
         <h4>Historical-cycles retirement simulator</h4>
         <div class="calc-grid">
           <div class="calc-row"><label>Starting portfolio ($)</label><input type="number" id="hc-pv" value="1000000" min="10000" max="100000000" step="10000"></div>
-          <div class="calc-row"><label>Annual withdrawal in year 1 ($)</label><input type="number" id="hc-wd" value="40000" min="1000" max="10000000" step="1000"></div>
+          <div class="calc-row"><label>Annual spending need in year 1 ($)</label><input type="number" id="hc-wd" value="40000" min="1000" max="10000000" step="1000"></div>
           <div class="calc-row"><label>Stock allocation (%)</label><input type="number" id="hc-stock" value="70" min="0" max="100" step="5"></div>
           <div class="calc-row"><label>Horizon (years)</label><input type="number" id="hc-years" value="30" min="10" max="60" step="1"></div>
           <div class="calc-row"><label>Withdrawal strategy</label><select id="hc-strategy"><option value="fixed">Bengen (1994) — fixed real, inflation-adjusted</option><option value="flexible">Vanguard-style dynamic (cut 25% after down years)</option><option value="guardrails">Guyton-Klinger (2006) guardrails (±20% bands)</option></select></div>
         </div>
+        <p style="font-size:13px;color:var(--muted);margin:18px 0 8px 0;font-family:var(--font-body);"><strong>Guaranteed-income overlay (CL329).</strong> Social Security, pensions, and annuities reduce the portfolio's withdrawal need each year they're active. The simulator subtracts active streams from the year's spending need before drawing from the portfolio, materially changing success rates for any household reaching FRA. Leave at 0 to model portfolio-only as before.</p>
+        <div class="calc-grid">
+          <div class="calc-row"><label>Your current age</label><input type="number" id="hc-curage" value="65" min="30" max="100" step="1"></div>
+          <div class="calc-row"><label>Your Social Security at FRA ($/yr, real)</label><input type="number" id="hc-ss1" value="0" min="0" max="100000" step="500"></div>
+          <div class="calc-row"><label>Your SS claiming age</label><select id="hc-ss1-age"><option value="62">62 (70% of PIA)</option><option value="63">63 (75%)</option><option value="64">64 (80%)</option><option value="65">65 (86.7%)</option><option value="66">66 (93.3%)</option><option value="67" selected>67 — FRA (100%)</option><option value="68">68 (108%)</option><option value="69">69 (116%)</option><option value="70">70 (124%)</option></select></div>
+          <div class="calc-row"><label>Spouse SS at FRA ($/yr, real; 0 if N/A)</label><input type="number" id="hc-ss2" value="0" min="0" max="100000" step="500"></div>
+          <div class="calc-row"><label>Spouse SS claiming age</label><select id="hc-ss2-age"><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67" selected>67 — FRA</option><option value="68">68</option><option value="69">69</option><option value="70">70</option></select></div>
+          <div class="calc-row"><label>Spouse current age (if applicable)</label><input type="number" id="hc-spouse-age" value="65" min="30" max="100" step="1"></div>
+          <div class="calc-row"><label>Pension / SPIA / QLAC annual ($/yr, real)</label><input type="number" id="hc-pension" value="0" min="0" max="500000" step="500"></div>
+          <div class="calc-row"><label>Pension / SPIA / QLAC start age</label><input type="number" id="hc-pension-age" value="65" min="50" max="100" step="1"></div>
+        </div>
         <div class="calc-result" id="hc-result"></div>
         <div class="calc-chart" id="hc-chart" aria-label="Percentile fan chart of historical cohort balances over the horizon"></div>
       </div>
-      <p class="model-limits"><strong>Model limits.</strong> Historical data is approximate (rounded to 0.5pp) and sourced from publicly available datasets (Shiller, Damodaran/NYU Stern); the bond series is intermediate Treasury real returns, consistent with the conventional Bengen/Pfau choice but unlabeled in the dataset itself. The 0.5pp rounding on the worst historical years (1931, 1937, 1974, 2008, 2022) is within stated tolerance for typical analysis but produces ±1–3pp bias in headline success rates at typical 4% withdrawal rates compared to the same simulation run against unrounded source data — the direction of the bias varies with which year's rounding is binding for which cohort. Production tools like FIRECalc and cFireSim maintain more precise sub-period data including monthly granularity. Dataset covers 1928–2024, dominated by US market history during an unusually prosperous century — see the McQuarrie / Pfau-international callouts above the calculator for the quantified haircut; international and pre-1928 sequences would shift conclusions. Two-asset model (stocks + bonds) doesn't capture international diversification, REITs, alternatives, or rebalancing premia. Withdrawal strategies are stylized; real flexible plans adapt to more signals. The "future hook" architecture: this simulator implements the framework's <code>getMCBackend()</code> interface, so a personal Monte Carlo backend can replace it by assigning <code>window.__customMCBackend = {simulate: yourFunction}</code> before the Math view renders.</p>
+      <p class="model-limits"><strong>Model limits.</strong> Historical data is approximate (rounded to 0.5pp) and sourced from publicly available datasets (Shiller, Damodaran/NYU Stern); the bond series is intermediate Treasury real returns, consistent with the conventional Bengen/Pfau choice but unlabeled in the dataset itself. The 0.5pp rounding on the worst historical years (1931, 1937, 1974, 2008, 2022) is within stated tolerance for typical analysis but produces ±1–3pp bias in headline success rates at typical 4% withdrawal rates compared to the same simulation run against unrounded source data — the direction of the bias varies with which year's rounding is binding for which cohort. Production tools like FIRECalc and cFireSim maintain more precise sub-period data including monthly granularity. Dataset covers 1928–2024, dominated by US market history during an unusually prosperous century — see the McQuarrie / Pfau-international callouts above the calculator for the quantified haircut; international and pre-1928 sequences would shift conclusions. Two-asset model (stocks + bonds) doesn't capture international diversification, REITs, alternatives, or rebalancing premia. Withdrawal strategies are stylized; real flexible plans adapt to more signals. <em>Guaranteed-income overlay (CL329)</em>: the simulator models Social Security with simplified SSA actuarial reduction / delayed-retirement-credit factors at FRA=67 (born 1960+); the linear approximation between standard claim ages introduces small errors (&lt;1% benefit deviation) that don't change structural conclusions. Pension and annuity streams modeled as real-dollar (COLA-adjusted) — for nominal-only pensions, mental-haircut the starting figure by your expected inflation rate × horizon. The "future hook" architecture: this simulator implements the framework's <code>getMCBackend()</code> interface, so a personal Monte Carlo backend can replace it by assigning <code>window.__customMCBackend = {simulate: yourFunction}</code> before the Math view renders; the optional <code>streams</code> parameter passed to the backend (CL329) lets external backends either model the guaranteed-income overlay themselves or ignore the field for portfolio-only behavior.</p>
     </div>
   </div>
 
@@ -4546,24 +4557,47 @@ const HIST_RETURNS = [
 
 // Returns an array of cycle results when starting in each plausible year
 // and running for `horizonYears` years. params: { pv, annualWithdrawal,
-// stockAlloc (0-1), horizonYears, strategy }
+// stockAlloc (0-1), horizonYears, strategy, streams? }
+//
+// `streams` (CL329 — OPTIONAL guaranteed-income overlay): array of
+//   { annualReal, startYearOffset }
+// where startYearOffset is the 0-indexed simulation year the stream begins
+// (e.g., 5 for a stream that starts 5 years into the simulation). Real-dollar
+// streams that grow with inflation; the simulator subtracts active streams
+// from the year's withdrawal need before drawing from the portfolio.
+//
+// When omitted, behavior is identical to pre-CL329 (portfolio-only). External
+// backends may ignore the field entirely.
 //
 // Return shape: { cycles, successRate, percentiles, failures, totalCycles, paths? }
 // `paths` is OPTIONAL (CL161 fan chart) — array of arrays of length horizonYears+1
-// holding the end-of-year balance for each cohort. External backends may omit it;
-// the fan chart skips rendering when absent.
+// holding the end-of-year portfolio balance for each cohort. External backends
+// may omit it; the fan chart skips rendering when absent.
 function historicalCyclesSimulate(params) {
-  const { pv, annualWithdrawal, stockAlloc, horizonYears, strategy = 'fixed' } = params;
+  const { pv, annualWithdrawal, stockAlloc, horizonYears, strategy = 'fixed', streams = [] } = params;
   const bondAlloc = 1 - stockAlloc;
   const lastStartIdx = HIST_RETURNS.length - horizonYears;
   if (lastStartIdx < 0) return { cycles: [], successRate: 0, percentiles: {}, note: 'horizon exceeds dataset' };
+
+  // CL329 — Pre-compute per-year guaranteed-income (real $) so the strategy
+  // adjustments compare against the *portfolio* withdrawal need, not the
+  // headline withdrawal need.
+  function guaranteedIncomeAtYear(y) {
+    let total = 0;
+    for (const s of streams) {
+      if (y >= (s.startYearOffset || 0)) total += (s.annualReal || 0);
+    }
+    return total;
+  }
 
   const cycles = [];
   const paths = [];
   for (let startIdx = 0; startIdx <= lastStartIdx; startIdx++) {
     let bal = pv;
     let realWithdrawal = annualWithdrawal;
-    const initialWR = annualWithdrawal / pv;
+    // Initial portfolio-only withdrawal rate uses year-1 guaranteed income.
+    const initialPortfolioNeed = Math.max(0, annualWithdrawal - guaranteedIncomeAtYear(0));
+    const initialWR = pv > 0 ? initialPortfolioNeed / pv : 0;
     let prevPortRet = 0;
     let depleted = null;
     const path = [pv];
@@ -4574,15 +4608,17 @@ function historicalCyclesSimulate(params) {
       const bondRet = yr[2] / 100;
       const portRet = stockAlloc * stockRet + bondAlloc * bondRet;
 
-      let actualWD = realWithdrawal;
+      const yearGuaranteed = guaranteedIncomeAtYear(y);
+      let portfolioNeed = Math.max(0, realWithdrawal - yearGuaranteed);
+
       if (strategy === 'flexible' && prevPortRet < 0) {
-        actualWD = realWithdrawal * 0.75;
+        portfolioNeed = portfolioNeed * 0.75;
       } else if (strategy === 'guardrails' && bal > 0) {
-        const currentWR = realWithdrawal / bal;
-        if (currentWR > initialWR * 1.2) actualWD = realWithdrawal * 0.9;
-        else if (currentWR < initialWR * 0.8) actualWD = realWithdrawal * 1.1;
+        const currentWR = portfolioNeed / bal;
+        if (currentWR > initialWR * 1.2) portfolioNeed = portfolioNeed * 0.9;
+        else if (currentWR < initialWR * 0.8) portfolioNeed = portfolioNeed * 1.1;
       }
-      bal -= actualWD;
+      bal -= portfolioNeed;
       if (bal < 0) {
         depleted = y + 1;
         bal = 0;
@@ -4609,6 +4645,19 @@ function historicalCyclesSimulate(params) {
   // Identify worst cycles (failed cycles or lowest ending balance)
   const failures = cycles.filter(c => c.depleted).map(c => c.startYear);
   return { cycles, successRate, percentiles, failures, totalCycles: cycles.length, paths };
+}
+
+// CL329 — SSA actuarial reduction / delayed-retirement-credit table.
+// Assumes FRA = 67 (born 1960+). Linear approximation between standard ages.
+// Source: SSA POMS RS 00615.105 (actuarial reduction) + SSA "Delayed
+// Retirement Credits" (8% per year past FRA, max age 70).
+const SSA_CLAIM_AGE_FACTOR = {
+  62: 0.700, 63: 0.750, 64: 0.800, 65: 0.867, 66: 0.933,
+  67: 1.000, 68: 1.080, 69: 1.160, 70: 1.240
+};
+function ssaAdjustedBenefit(piaAtFRA, claimAge) {
+  const a = Math.max(62, Math.min(70, Math.round(claimAge)));
+  return piaAtFRA * (SSA_CLAIM_AGE_FACTOR[a] || 1.0);
 }
 
 
@@ -5268,9 +5317,9 @@ function renderPlanSynthesis(a, plan) {
   } else if (a.yearsToRetirement === '10-20') {
     horizonNote = 'Mid-horizon households should be running the foundational arc on autopilot and beginning to think in terms of decumulation architecture — asset location, Roth conversion ladder planning, and the Social Security claiming decision that becomes urgent in the next decade.';
   } else if (a.yearsToRetirement === '5-10' || a.yearsToRetirement === '<5') {
-    horizonNote = 'Within 10 years of retirement, the math shifts from accumulation to distribution. Roth conversion ladders (see W2:10.1, with IRMAA-aware sizing), withdrawal sequencing (W2:10.2 + the SECURE Act 10-year rule strengthening the conversion case), Social Security claiming optimization (W2:10.3), QCD planning for charitably-inclined retirees post-70½ (W2:10.5), and long-term care decision tiering all become active rather than theoretical. The Math §7 historical-cycles simulator currently omits Social Security and other guaranteed-income overlay — read its outputs as portfolio-only success rates, not household-level success rates, until the planned Phase 6.5 SS-overlay extension ships.';
+    horizonNote = 'Within 10 years of retirement, the math shifts from accumulation to distribution. Roth conversion ladders (see W2:10.1, with IRMAA-aware sizing), withdrawal sequencing (W2:10.2 + the SECURE Act 10-year rule strengthening the conversion case), Social Security claiming optimization (W2:10.3), QCD planning for charitably-inclined retirees post-70½ (W2:10.5), and long-term care decision tiering all become active rather than theoretical. The Math §7 historical-cycles simulator now models Social Security, pensions, and annuities via the guaranteed-income overlay (CL329) — enter your PIA + claiming age + any pension/SPIA/QLAC to see the household-level success rate, not just portfolio-only.';
   } else if (a.yearsToRetirement === 'already') {
-    horizonNote = 'In decumulation, the action list focuses on tax-efficient drawdown sequencing, RMD planning, IRMAA-aware MAGI management (W2:10.1), QCD substitution for charitable giving at 70½+ (W2:10.5), Social Security claiming for any not-yet-claimed benefit, and LTC structure decisions. The framework\'s Math §7 historical-cycles simulator and the Plan view both currently operate on portfolio-only inputs without Social Security or pension overlay — for a household within retirement, this means the success-rate numbers should be treated as portfolio-only, not household-level. The Phase 6.5 backlog includes the overlay extension.';
+    horizonNote = 'In decumulation, the action list focuses on tax-efficient drawdown sequencing, RMD planning, IRMAA-aware MAGI management (W2:10.1), QCD substitution for charitable giving at 70½+ (W2:10.5), Social Security claiming for any not-yet-claimed benefit, and LTC structure decisions. The framework\'s Math §7 historical-cycles simulator now models Social Security, pensions, and annuities via the guaranteed-income overlay (CL329) — enter your active streams to get household-level success rates rather than portfolio-only figures.';
   } else {
     horizonNote = 'Your retirement horizon is unspecified; the sequencing below reflects the foundational arc that applies across most horizons.';
   }
@@ -6144,15 +6193,18 @@ function calcAssetLocation() {
 }
 
 function renderMath() {
-  // Apply personalized defaults from diagnostic answers (CL157, CL162, CL333)
+  // Apply personalized defaults from diagnostic answers (CL157, CL162, CL333, CL329)
   applyDefaultIfFallback('ci-years', 'horizonYears', 30);
   applyDefaultIfFallback('al-ord', 'taxBracketPct', 32);
   applyDefaultIfFallback('al-ltcg', 'ltcgPct', 15);
   // CL333 — annual-expenses propagation to §3 SS-offset input and §7 first-year withdrawal.
   applyDefaultIfFallback('sr-expenses', 'annualExpenses', 60000);
   applyDefaultIfFallback('hc-wd', 'annualExpenses', 40000);
+  // CL329 — current-age default for §7 SS-overlay model.
+  applyDefaultIfFallback('hc-curage', 'currentAge', 65);
+  applyDefaultIfFallback('hc-spouse-age', 'currentAge', 65);
   // Track user edits so subsequent renders don't overwrite manual changes
-  ['ci-years', 'al-ord', 'al-ltcg', 'sr-expenses', 'hc-wd'].forEach(markUserTyped);
+  ['ci-years', 'al-ord', 'al-ltcg', 'sr-expenses', 'hc-wd', 'hc-curage', 'hc-spouse-age'].forEach(markUserTyped);
   calcCompound();
   calcRule72();
   calcSavingsRate();
@@ -6172,14 +6224,43 @@ function calcHistoricalCycles() {
   const horizon = $val('hc-years', 30);
   const strategy = (document.getElementById('hc-strategy') || {}).value || 'fixed';
 
+  // CL329 — Guaranteed-income overlay inputs.
+  const curAge = $val('hc-curage', 65);
+  const ss1Pia = $val('hc-ss1', 0);
+  const ss1ClaimAge = parseInt((document.getElementById('hc-ss1-age') || {}).value || '67');
+  const ss2Pia = $val('hc-ss2', 0);
+  const ss2ClaimAge = parseInt((document.getElementById('hc-ss2-age') || {}).value || '67');
+  const spouseAge = $val('hc-spouse-age', curAge);
+  const pensionAnnual = $val('hc-pension', 0);
+  const pensionStartAge = $val('hc-pension-age', 65);
+
   if (pv <= 0 || wd <= 0 || horizon < 10) {
     el.innerHTML = '<span class="calc-result-detail">Inputs must be positive; horizon must be at least 10 years.</span>';
     return;
   }
 
+  // Build streams[] of { annualReal, startYearOffset }.
+  const streams = [];
+  if (ss1Pia > 0) {
+    const benefit = ssaAdjustedBenefit(ss1Pia, ss1ClaimAge);
+    const offset = Math.max(0, ss1ClaimAge - curAge);
+    streams.push({ annualReal: benefit, startYearOffset: offset });
+  }
+  if (ss2Pia > 0) {
+    const benefit = ssaAdjustedBenefit(ss2Pia, ss2ClaimAge);
+    const offset = Math.max(0, ss2ClaimAge - spouseAge);
+    streams.push({ annualReal: benefit, startYearOffset: offset });
+  }
+  if (pensionAnnual > 0) {
+    const offset = Math.max(0, pensionStartAge - curAge);
+    streams.push({ annualReal: pensionAnnual, startYearOffset: offset });
+  }
+  const overlayActive = streams.length > 0;
+  const totalLifetimeGuaranteed = streams.reduce((sum, s) => sum + s.annualReal * Math.max(0, horizon - s.startYearOffset), 0);
+
   const backend = getMCBackend();
   const result = backend.simulate({
-    pv, annualWithdrawal: wd, stockAlloc, horizonYears: horizon, strategy
+    pv, annualWithdrawal: wd, stockAlloc, horizonYears: horizon, strategy, streams
   });
 
   if (result.note) {
@@ -6194,17 +6275,26 @@ function calcHistoricalCycles() {
 
   const stratLabel = strategy === 'fixed' ? 'Bengen (1994) fixed real' : strategy === 'flexible' ? 'Vanguard-style dynamic (cut 25% after down years)' : 'Guyton-Klinger (2006) guardrails';
 
+  // CL329 — overlay summary explaining what was modeled.
+  const overlaySummary = overlayActive
+    ? `<span class="calc-result-detail" style="display:block;margin-top:10px;"><strong>Guaranteed-income overlay applied:</strong> ${streams.map((s, i) => {
+        const labels = ['primary SS', 'spouse SS', 'pension/SPIA/QLAC'];
+        return `${labels[i] || 'stream'} ${fmtMoneyFull(s.annualReal)}/yr starting year ${s.startYearOffset}`;
+      }).join('; ')}. Across the ${horizon}-year horizon this overlay contributes roughly ${fmtMoneyFull(totalLifetimeGuaranteed)} of real-dollar income that the portfolio doesn't have to fund — connecting back to Math §7's Pfau-Kitces "Social Security bridge" framing where drawing more heavily on the portfolio in early retirement to delay claiming is one of the most-replicated decumulation findings of the last decade.</span>`
+    : `<span class="calc-result-detail" style="display:block;margin-top:10px;"><em>No guaranteed-income overlay applied</em> — the success rate above is portfolio-only. For any household reaching FRA, Social Security typically funds 25–60% of essential spending; modeling it materially changes the success rate. Add your PIA and claiming age above to see the household-level picture.</span>`;
+
   el.innerHTML = `
     <span class="calc-result-headline">${successPct}% historical success rate</span>
-    <span class="calc-result-detail">Across ${result.totalCycles} rolling ${horizon}-year cohorts (start years ${HIST_RETURNS[0][0]}–${HIST_RETURNS[HIST_RETURNS.length-horizon][0]}), strategy: <strong>${stratLabel}</strong>.${failureList}</span>
+    <span class="calc-result-detail">Across ${result.totalCycles} rolling ${horizon}-year cohorts (start years ${HIST_RETURNS[0][0]}–${HIST_RETURNS[HIST_RETURNS.length-horizon][0]}), strategy: <strong>${stratLabel}</strong>${overlayActive ? ', with guaranteed-income overlay' : ''}.${failureList}</span>
     <table class="calc-table" style="margin-top:14px;">
-      <tr><th>Percentile of ending balance (real $)</th><th>Value</th></tr>
+      <tr><th>Percentile of ending portfolio balance (real $)</th><th>Value</th></tr>
       <tr><td>10th — worst quintile</td><td>${fmtMoneyFull(result.percentiles.p10)}</td></tr>
       <tr><td>25th</td><td>${fmtMoneyFull(result.percentiles.p25)}</td></tr>
       <tr class="highlight"><td>50th — median outcome</td><td>${fmtMoneyFull(result.percentiles.p50)}</td></tr>
       <tr><td>75th</td><td>${fmtMoneyFull(result.percentiles.p75)}</td></tr>
       <tr><td>90th — best quintile</td><td>${fmtMoneyFull(result.percentiles.p90)}</td></tr>
     </table>
+    ${overlaySummary}
     <span class="calc-result-detail" style="display:block;margin-top:10px;">A 95%+ success rate is the conventional threshold for "safe" — below that, failure cohorts deserve attention. The median ending balance often substantially exceeds starting portfolio (real terms), which is the upside skew that drives the "die with substantial wealth" critique that Die With Zero engages with (see Phase 5 §5). Use percentile spread as the indicator of risk: a tight spread means historical outcomes converged; a wide spread means your plan's outcome depends materially on what kind of cycle you actually encounter.</span>
   `;
   // Fan chart (CL161) — only renders if backend provides per-year paths.
@@ -6898,7 +6988,9 @@ function wireMathCalculators() {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', calcAssetLocation);
   });
-  ['hc-pv', 'hc-wd', 'hc-stock', 'hc-years', 'hc-strategy'].forEach(id => {
+  ['hc-pv', 'hc-wd', 'hc-stock', 'hc-years', 'hc-strategy',
+   'hc-curage', 'hc-ss1', 'hc-ss1-age', 'hc-ss2', 'hc-ss2-age', 'hc-spouse-age',
+   'hc-pension', 'hc-pension-age'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
