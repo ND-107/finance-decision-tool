@@ -269,11 +269,11 @@ CLAIMS = [
      "", "Verified. Bengen has repeatedly stated 4% was the worst-case observation, not the average."),
 
     # === QBI ===
-    ("CL056", "Contractor:8.2", "QBI SSTB thresholds $241,950 single / $483,900 MFJ for 2025; slightly higher 2026",
-     "TAX-FIGURE", "CON", "FAIL", "",
-     "IRS Rev. Proc. 2025-32; OBBBA expansion of phase-in",
-     "The 2025 figures stated are INCORRECT. Actual 2025 phase-out: starts at $197,300 (S) / $394,600 (MFJ), completes at $247,300 / $494,600. For 2026 post-OBBBA: phase-out STARTS at $201,775 single / $403,500 MFJ (per Rev. Proc. 2025-32); phase-in range expanded by OBBBA to $75K/$150K, so SSTB complete phase-out at $276,775 / $553,500. Update node to reflect 2026 figures and the expanded OBBBA phase-in window. Also add the new $400 minimum deduction provision for QBI ≥ $1,000.",
-     "Material correction. Substantial figures error."),
+    ("CL056", "Contractor:8.2", "QBI SSTB thresholds (2026 post-OBBBA)",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "IRS Rev. Proc. 2025-32; OBBBA expansion of phase-in to $75K/$150K; OBBBA $400 minimum deduction provision",
+     "RESOLVED 2026-05-17 by accumulated CL360 + CL414 + CL461 work. Original 2025 figures ($241,950 / $483,900) were stale and incorrect. Artifact now correctly states for 2026: SSTB phase-out begins at $201,775 single / $403,550 MFJ and completes at $276,775 single / $553,550 MFJ per Rev. Proc. 2025-32; OBBBA phase-in expansion to $75K/$150K documented; $400 minimum deduction (CL360) present; engineering/architecture exclusion documented; §199A(e)(2) taxable-income-not-AGI clarification present; non-SSTB W-2 wage + UBIA limitation (CL461) added. Plan-view QBI action also corrected to match via CL414. Closing pass 2026-05-17.",
+     "Closed in final cleanup pass — accumulated CL360/CL414/CL461 work resolved this."),
 
     ("CL057", "Contractor:8.2", "QBI deduction is 20% of pass-through qualified business income",
      "STATUTORY", "CON", "PASS", "A",
@@ -509,11 +509,11 @@ CLAIMS = [
      "Verified math."),
 
     # === ROTH 401k EMPLOYER MATCH ===
-    ("CL102", "W2:3.1", "Employer match contributions are typically pre-tax even when employee is Roth",
-     "STATUTORY", "CON", "FAIL", "",
-     "SECURE 2.0 §604; IRS Notice 2024-2",
-     "Update to: 'Historically all employer match was pre-tax. SECURE 2.0 §604 permits (but does not require) plans to offer Roth employer match contributions; as of 2026, many large-plan recordkeepers have rolled this out. Check your plan document. If the match is made as Roth, it is taxable income to the employee in the year of contribution.'",
-     "Persona 1 flagged. Material update needed."),
+    ("CL102", "W2:3.1", "Employer match contributions — SECURE 2.0 §604 Roth-match treatment",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "SECURE 2.0 §604; §604(a) immediate-100%-vesting requirement; IRS Notice 2024-2; W-2 Box 12 Code AA/BB context",
+     "RESOLVED 2026-05-17 by CL413 work (Session 1 Tax Atty). Original artifact said match is pre-tax-only; CL102 originally flipped to acknowledge §604 in Phase 6; CL413 (Session 1) then extended W2:3.1 mid-bracket bracketBlock to fully document: (a) historical pre-tax-only treatment; (b) SECURE 2.0 §604 permits-not-requires Roth match; (c) large-plan recordkeeper rollout 2025-26; (d) taxable-income treatment in year of contribution; (e) W-2 Box 12 / Code AA/BB reporting per IRS guidance; (f) §604(a) immediate-100%-vesting requirement (dominant plan-administration limit on adoption — plans with graded or cliff vesting cannot offer Roth match on non-vested portion). Complete treatment. Closing pass 2026-05-17.",
+     "Closed in final cleanup pass — CL413 work fully resolved this."),
 
     # === 401(a)(17) ===
     ("CL103", "Various SE/business", "401(a)(17) compensation limit 2026: $360,000",
