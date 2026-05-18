@@ -1707,6 +1707,21 @@ body {
   outline: none;
   border-color: var(--accent);
 }
+
+/* Global focus-visible — keyboard users get a visible ring on every focusable
+   element. Uses :focus-visible so mouse-clicks don't show the ring. */
+*:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* Restore an outline on calc inputs (which override the default :focus) */
+.calc-row input:focus-visible,
+.calc-row select:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+  border-color: var(--ink);
+}
 .calc-result {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -4734,6 +4749,19 @@ let planCache = null;
 // localStorage persistence (v1). Survives refresh; openActions/openNodes stay
 // in-memory (UI state, not worth persisting). Bump the key suffix if schema breaks.
 const LS_KEY = 'fdt:state-v1';
+const VALID_VIEWS = new Set(['welcome','diagnostic','plan','personal-chart','full-chart','math','spending-essentials','spending-lifestyle','portfolio-bogleheads','portfolio-theory','zeitgeist-investing','zeitgeist-lifestyle','advanced-strategies']);
+const VALID_INCOMES = new Set(['w2','contractor','business']);
+const VALID_BRACKETS_LS = new Set(['low','mid','high']);
+
+// Short stable hash of a string (djb2-style). Used as a stable identifier for
+// Plan actions so state.openActions survives diagnostic edits + Tier-1/stage
+// duplicates toggle together. Output is short alphanumeric — safe in attributes.
+function hashKey(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+  return 'k' + h.toString(36);
+}
+
 function savePersistedState() {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify({
@@ -4745,19 +4773,47 @@ function savePersistedState() {
     }));
   } catch (e) { /* private mode / quota / unavailable — noop */ }
 }
+
+// Validate saved answers against the live QUESTIONS schema. Drops unknown keys,
+// rejects values not in the question's option set, rejects arrays for non-multi.
+// Returns a sanitized answers object — never the raw payload.
+function sanitizeAnswers(raw) {
+  const clean = {};
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return clean;
+  const spec = {};
+  for (const sec of QUESTIONS) for (const q of sec.qs) spec[q.id] = { type: q.type, vals: new Set(q.options.map(o => o.v)) };
+  for (const [k, v] of Object.entries(raw)) {
+    const s = spec[k];
+    if (!s) continue;
+    if (s.type === 'multi') {
+      if (Array.isArray(v) && v.every(x => typeof x === 'string' && s.vals.has(x))) clean[k] = v.slice();
+    } else {
+      if (typeof v === 'string' && s.vals.has(v)) clean[k] = v;
+    }
+  }
+  return clean;
+}
+
 function loadPersistedState() {
-  try {
-    const raw = localStorage.getItem(LS_KEY);
-    if (!raw) return false;
-    const saved = JSON.parse(raw);
-    if (!saved || typeof saved !== 'object') return false;
-    if (saved.answers && typeof saved.answers === 'object') state.answers = saved.answers;
-    if (typeof saved.diagSection === 'number') state.diagSection = saved.diagSection;
-    if (typeof saved.view === 'string') state.view = saved.view;
-    if (typeof saved.fullChartIncome === 'string') state.fullChartIncome = saved.fullChartIncome;
-    if (typeof saved.fullChartBracket === 'string') state.fullChartBracket = saved.fullChartBracket;
-    return true;
-  } catch (e) { return false; }
+  let raw;
+  try { raw = localStorage.getItem(LS_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let saved;
+  try { saved = JSON.parse(raw); } catch (e) {
+    try { localStorage.removeItem(LS_KEY); } catch (_) {}
+    return false;
+  }
+  if (!saved || typeof saved !== 'object' || Array.isArray(saved)) {
+    try { localStorage.removeItem(LS_KEY); } catch (_) {}
+    return false;
+  }
+  state.answers = sanitizeAnswers(saved.answers);
+  state.diagSection = (typeof saved.diagSection === 'number' && Number.isFinite(saved.diagSection))
+    ? Math.max(0, Math.floor(saved.diagSection)) : 0;
+  state.view = (typeof saved.view === 'string' && VALID_VIEWS.has(saved.view)) ? saved.view : 'welcome';
+  state.fullChartIncome = (typeof saved.fullChartIncome === 'string' && VALID_INCOMES.has(saved.fullChartIncome)) ? saved.fullChartIncome : 'w2';
+  state.fullChartBracket = (typeof saved.fullChartBracket === 'string' && VALID_BRACKETS_LS.has(saved.fullChartBracket)) ? saved.fullChartBracket : 'mid';
+  return true;
 }
 
 // ============================================================
@@ -5053,7 +5109,10 @@ function computePlan() {
   const a = state.answers;
   const actions = [];
   const skipped = [];
-  function add(o) { actions.push({ ...o, idx: actions.length }); }
+  function add(o) {
+    const key = hashKey((o.nodeKey || '') + '::' + (o.title || ''));
+    actions.push({ ...o, idx: actions.length, key });
+  }
   function skip(t, r) { skipped.push({ title: t, reason: r }); }
 
   // === STAGE: NOW ===
@@ -5707,7 +5766,7 @@ function computePlan() {
 // ============================================================
 function renderDiagnostic() {
   const sections = getActiveSections();
-  const idx = Math.min(state.diagSection, sections.length - 1);
+  const idx = Math.max(0, Math.min(state.diagSection, sections.length - 1));
   state.diagSection = idx;
   const section = sections[idx];
   const qs = getActiveQuestions(section);
@@ -5718,22 +5777,25 @@ function renderDiagnostic() {
 
   const questionsHTML = qs.map(q => {
     const isMulti = q.type === 'multi';
+    const role = isMulti ? 'checkbox' : 'radio';
+    const groupRole = isMulti ? 'group' : 'radiogroup';
+    const labelId = 'q-label-' + q.id;
     const optionsHTML = q.options.map(opt => {
       const isSelected = isMulti
         ? (state.answers[q.id] || []).includes(opt.v)
         : state.answers[q.id] === opt.v;
       return `
-        <div class="option ${isMulti ? 'multi' : ''} ${isSelected ? 'selected' : ''}" data-qid="${q.id}" data-val="${opt.v}" data-type="${q.type}">
-          <div class="option-indicator"></div>
+        <div class="option ${isMulti ? 'multi' : ''} ${isSelected ? 'selected' : ''}" role="${role}" tabindex="0" aria-checked="${isSelected ? 'true' : 'false'}" data-qid="${q.id}" data-val="${opt.v}" data-type="${q.type}">
+          <div class="option-indicator" aria-hidden="true"></div>
           <div class="option-text">${opt.l}</div>
         </div>
       `;
     }).join('');
     return `
       <div class="question" data-qid="${q.id}">
-        <div class="question-label">${q.label}</div>
+        <div class="question-label" id="${labelId}">${q.label}</div>
         ${q.help ? `<div class="question-help">${q.help}</div>` : ''}
-        <div class="options-grid">${optionsHTML}</div>
+        <div class="options-grid" role="${groupRole}" aria-labelledby="${labelId}">${optionsHTML}</div>
       </div>
     `;
   }).join('');
@@ -5749,9 +5811,9 @@ function renderDiagnostic() {
   `;
   document.getElementById('diagnostic-content').innerHTML = content;
 
-  // Wire option clicks
+  // Wire option clicks + keyboard (Enter/Space activate, matching radio/checkbox semantics).
   document.querySelectorAll('.option').forEach(opt => {
-    opt.addEventListener('click', () => {
+    const activate = () => {
       const qid = opt.dataset.qid;
       const val = opt.dataset.val;
       const type = opt.dataset.type;
@@ -5767,6 +5829,13 @@ function renderDiagnostic() {
       }
       savePersistedState();
       renderDiagnostic();
+    };
+    opt.addEventListener('click', activate);
+    opt.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        activate();
+      }
     });
   });
 
@@ -6004,18 +6073,19 @@ function renderPlan() {
       + (act.friction ? `<span class="action-tag action-tag-friction-${act.friction}">${frictionLabel[act.friction]}</span>` : '');
     const node = NODE_LOOKUP[act.nodeKey];
     const detailsHTML = node ? renderActionDetail(node) : '<p>Detailed reference not available for this action.</p>';
-    const isOpen = state.openActions.has(act.idx);
+    const isOpen = state.openActions.has(act.key);
     const extraClass = opts.tier1 ? 'action-tier1' : '';
+    const detailId = 'action-detail-' + act.key + (opts.tier1 ? '-tier1' : '-stage');
     return `
-      <div class="action ${isOpen ? 'open' : ''} ${extraClass}" data-action-idx="${act.idx}">
+      <div class="action ${isOpen ? 'open' : ''} ${extraClass}" data-action-idx="${act.idx}" data-action-key="${act.key}">
         <div class="action-num">${String(globalNum).padStart(2, '0')}</div>
         <div class="action-content">
           <div class="action-title">${act.title}</div>
           <div class="action-reason">${act.reason}</div>
           <div class="action-because"><strong>Why this stage</strong>${act.because}</div>
           ${tagsHTML ? `<div class="action-meta">${tagsHTML}</div>` : ''}
-          <div class="action-toggle">${isOpen ? '− Hide reference details' : '+ Show reference details (math, exceptions, bracket-specific guidance)'}</div>
-          <div class="action-detail"><div class="action-detail-inner">${detailsHTML}</div></div>
+          <button type="button" class="action-toggle" aria-expanded="${isOpen ? 'true' : 'false'}" aria-controls="${detailId}">${isOpen ? '− Hide reference details' : '+ Show reference details (math, exceptions, bracket-specific guidance)'}</button>
+          <div class="action-detail" id="${detailId}"><div class="action-detail-inner">${detailsHTML}</div></div>
         </div>
       </div>
     `;
@@ -6068,23 +6138,25 @@ function renderPlan() {
 
   document.getElementById('plan-stages').innerHTML = stagesHTML;
 
-  // Wire action toggles
+  // Wire action toggles. Keyed by act.key (stable across re-renders), so
+  // Tier-1 + stage duplicates toggle together and survive diagnostic edits.
   document.querySelectorAll('.action').forEach(el => {
     el.addEventListener('click', (e) => {
       // Don't toggle when clicking inside an inline calculator
       if (e.target.closest('[data-inline-calc]')) return;
-      const idx = parseInt(el.dataset.actionIdx);
-      if (state.openActions.has(idx)) {
-        state.openActions.delete(idx);
-        el.classList.remove('open');
-        el.querySelector('.action-toggle').textContent = '+ Show reference details (math, exceptions, bracket-specific guidance)';
-      } else {
-        state.openActions.add(idx);
-        el.classList.add('open');
-        el.querySelector('.action-toggle').textContent = '− Hide reference details';
-        // Apply bracket filter to newly-revealed bracket blocks
-        applyBracketFilter(el);
-      }
+      const key = el.dataset.actionKey;
+      if (!key) return;
+      const willOpen = !state.openActions.has(key);
+      if (willOpen) state.openActions.add(key); else state.openActions.delete(key);
+      document.querySelectorAll('.action[data-action-key="' + CSS.escape(key) + '"]').forEach(twin => {
+        twin.classList.toggle('open', willOpen);
+        const t = twin.querySelector('.action-toggle');
+        if (t) {
+          t.setAttribute('aria-expanded', String(willOpen));
+          t.textContent = willOpen ? '− Hide reference details' : '+ Show reference details (math, exceptions, bracket-specific guidance)';
+        }
+        if (willOpen) applyBracketFilter(twin);
+      });
     });
   });
 
@@ -7750,7 +7822,10 @@ function switchView(viewName) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + viewName).classList.add('active');
   document.querySelectorAll('#view-tabs button').forEach(b => {
-    b.classList.toggle('active', b.dataset.view === viewName);
+    const isActive = b.dataset.view === viewName;
+    b.classList.toggle('active', isActive);
+    if (isActive) b.setAttribute('aria-current', 'page');
+    else b.removeAttribute('aria-current');
   });
   if (viewName === 'diagnostic') renderDiagnostic();
   else if (viewName === 'plan') renderPlan();
@@ -7801,10 +7876,19 @@ document.querySelectorAll('#bracket-selector button').forEach(btn => {
 
 // Restore any persisted state. If the user was past Welcome with answers,
 // un-hide the nav tabs and resume on their last view; otherwise stay on Welcome.
+// switchView is wrapped — any failure resets to Welcome and clears storage so a
+// corrupt blob can never permanently brick the app.
 loadPersistedState();
 if (state.answers && Object.keys(state.answers).length > 0 && state.view && state.view !== 'welcome') {
-  document.getElementById('view-tabs').style.display = 'flex';
-  switchView(state.view);
+  try {
+    document.getElementById('view-tabs').style.display = 'flex';
+    switchView(state.view);
+  } catch (e) {
+    console.warn('Failed to restore persisted view, resetting:', e);
+    state.view = 'welcome';
+    try { localStorage.removeItem(LS_KEY); } catch (_) {}
+    document.getElementById('view-tabs').style.display = 'none';
+  }
 }
 
 </script>
