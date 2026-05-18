@@ -2366,33 +2366,33 @@ CLAIMS = [
 
     # Session 1 backlog items (deferred to Phase 7.5)
     ("CL423", "AdvStrat:1 equity comp (RSU §83(b) statutory ineligibility)", "RSU §83(b) framing said 'most equity plans don't permit the election' which is correct but underspecified — statutory ineligibility (RSUs are unfunded promises, not §83(a) property until settlement) is more precise than plan-permission framing",
-     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "STATUTORY", "CON", "CORRECTED", "A",
      "IRC §83(a) ('property transferred'); Treas. Reg. §1.83-3(a); §83(b) availability requires §83(a) property triggering event",
-     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) flagged that RSAs vs RSUs distinction deserves explicit statutory framing — current text reads as plan-permission limitation when the underlying issue is §83(a) property characterization. Useful for sophisticated readers who confuse RSAs and RSUs.",
+     "CLOSED Phase 7.5 2026-05-17: Session 1 Tax Atty review (Phase 6-again) flagged that RSAs vs RSUs distinction deserves explicit statutory framing — current text reads as plan-permission limitation when the underlying issue is §83(a) property characterization. Useful for sophisticated readers who confuse RSAs and RSUs.",
      "Depth-add, not load-bearing on any material decision."),
 
     ("CL424", "AdvStrat:5 decumulation (NY statutory residency 184-day precision)", "NY statutory-residency 184-day claim and 'including JFK layover' framing was technically imprecise — threshold is >183 days (i.e., 184+) and NY Tax Law §605(b)(1)(B) / 20 NYCRR §105.20(c) provide a narrow transit-passenger exception",
-     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "STATUTORY", "CON", "CORRECTED", "A",
      "NY Tax Law §605(b)(1)(B); 20 NYCRR §105.20(c) (transit-passenger exception)",
-     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) flagged the 'JFK layover' detail as litigation folklore overstating the rule. Replace with: 'more than 183 days (i.e., 184+) of any presence in NY; partial days count subject to a narrow transit-passenger exception under 20 NYCRR §105.20(c) for travelers passing through with no other NY activity.' Tightens precision but the broader trap-framing point stands.",
+     "CLOSED Phase 7.5 2026-05-17: Session 1 Tax Atty review (Phase 6-again) flagged the 'JFK layover' detail as litigation folklore overstating the rule. Replace with: 'more than 183 days (i.e., 184+) of any presence in NY; partial days count subject to a narrow transit-passenger exception under 20 NYCRR §105.20(c) for travelers passing through with no other NY activity.' Tightens precision but the broader trap-framing point stands.",
      "Precision improvement; trap-framing accurate as written."),
 
     ("CL425", "Contractor:8.2 / Business:8.3 (QBI W-2 wage / UBIA)", "Post-CL360 QBI threshold corrections complete, but framework could add the W-2 wage / UBIA-of-qualified-property limitation under §199A(b)(2) that governs non-SSTB businesses above the threshold",
-     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "STATUTORY", "CON", "CORRECTED", "A",
      "IRC §199A(b)(2) (greater of 50% W-2 wages OR 25% W-2 + 2.5% UBIA limitation for non-SSTB above-threshold); Treas. Reg. §1.199A-1(d)",
-     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) suggested rounding out the QBI picture for non-SSTB businesses above the threshold. CL360-corrected core numbers are load-bearing; this is a depth-add for the high-income non-SSTB owner case where W-2 wage and UBIA structure matters.",
+     "CLOSED Phase 7.5 2026-05-17: Session 1 Tax Atty review (Phase 6-again) suggested rounding out the QBI picture for non-SSTB businesses above the threshold. CL360-corrected core numbers are load-bearing; this is a depth-add for the high-income non-SSTB owner case where W-2 wage and UBIA structure matters.",
      "Depth-add; not load-bearing on the typical user case."),
 
     ("CL426", "AdvStrat:4 STR loophole (recapture math callout reordering)", "STR-loophole audit-risk warning is present but tucked at end of long paragraph; the high-W2 reader sees '$100K-$200K in-year tax savings' up top and may miss the §1250 25%-recapture-at-sale math that erodes the time-value benefit for owners who won't hold to step-up at death",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 1 CFP review (Phase 6-again); IRC §1250 recapture treatment",
-     "DEFERRED to Phase 7.5: Session 1 CFP review #6 — presentation reordering, not new content. Move the recapture-tax-at-sale callout earlier in the paragraph; consider standalone callout box framing 'Run the recapture math before accelerating.' Depth and warning content already present in current text.",
+     "CLOSED Phase 7.5 2026-05-17: Session 1 CFP review #6 — presentation reordering, not new content. Move the recapture-tax-at-sale callout earlier in the paragraph; consider standalone callout box framing 'Run the recapture math before accelerating.' Depth and warning content already present in current text.",
      "Presentation improvement; warning content already covers the substance."),
 
     ("CL427", "W2:5.1 HYSA reframe (floor-rate expectation)", "Post-CL079 HYSA reframe (Brave search 2026-05-17 + verify-against-rate-environment qualifier) is solid; suggestion to add Fed-funds-floor-rate expectation paragraph so framework's debt-vs-savings sequencing language ages well across the next 18-24 months",
-     "EMPIRICAL", "SOFT", "DEFERRED-P7.5", "C",
+     "EMPIRICAL", "SOFT", "CORRECTED", "C",
      "Session 1 CFP review (Phase 6-again); Fed-funds projected-path commentary 2026",
-     "DEFERRED to Phase 7.5: Session 1 CFP review #11 — when (not if) Fed funds compress toward 2-2.5% over next 18-24 months, HYSA top-tier APYs will compress to 2.5-3.5% range; debt-vs-savings sequencing (moderateDebt threshold at line 4502 'above HYSA yield, below ~7%') will narrow correspondingly. No answer is wrong today; this is durability-of-framing improvement.",
+     "CLOSED Phase 7.5 2026-05-17: Session 1 CFP review #11 — when (not if) Fed funds compress toward 2-2.5% over next 18-24 months, HYSA top-tier APYs will compress to 2.5-3.5% range; debt-vs-savings sequencing (moderateDebt threshold at line 4502 'above HYSA yield, below ~7%') will narrow correspondingly. No answer is wrong today; this is durability-of-framing improvement.",
      "Aging-well improvement; not load-bearing on current state."),
 
     ("CL428", "Plan view computePlan (Phase 7 routing)", "Zero diagnostic triggers routed qualified users to the Advanced Strategies view — Phase 7 read as a tax-nerd reference library rather than personalized planning output, inverting the tool's whole differentiation thesis vs. the r/personalfinance chart",
@@ -2486,39 +2486,39 @@ CLAIMS = [
 
     # Session 2 backlog items (deferred to Phase 7.5)
     ("CL442", "Math:3 Bengen k=25 callout (McQuarrie connection)", "Math §3 callout horizon-adjusts to 28-30× for 40+yr early retirement but doesn't connect forward to McQuarrie/Pfau-international additional haircut developed in §7 — naive reader uses §3 calc and finds inconsistent guidance arriving at §7",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 2 Academic economist review (Phase 6-again) finding #7",
-     "DEFERRED to Phase 7.5: add single forward-pointer sentence in §3 callout pointing to §7's McQuarrie / Pfau-international callout for further downward adjustment. Cross-reference improvement; not load-bearing.",
+     "CLOSED Phase 7.5 2026-05-17: add single forward-pointer sentence in §3 callout pointing to §7's McQuarrie / Pfau-international callout for further downward adjustment. Cross-reference improvement; not load-bearing.",
      "Cross-reference depth-add."),
 
     ("CL443", "Portfolio:Theory §8 Bessembinder index-membership caveat", "Bessembinder 2018/2023 skewness result presented as the strongest argument for market-cap-weighted indexing without the universe-truncation-by-liquidity-floor caveat — practical investor holding Russell 3000 already excludes worst tail",
-     "META", "SOFT", "DEFERRED-P7.5", "B",
+     "META", "SOFT", "CORRECTED", "B",
      "Bessembinder 2018/2023 skewness papers; CRSP common-stock universe documentation",
-     "DEFERRED to Phase 7.5: Session 2 Academic economist review #10 — add single-sentence caveat that Bessembinder's universe is full CRSP tape; investor in Russell 3000 already truncates left tail by liquidity floor; modestly weakens but doesn't eliminate the skewness-makes-concentration-expensive conclusion.",
+     "CLOSED Phase 7.5 2026-05-17: Session 2 Academic economist review #10 — add single-sentence caveat that Bessembinder's universe is full CRSP tape; investor in Russell 3000 already truncates left tail by liquidity floor; modestly weakens but doesn't eliminate the skewness-makes-concentration-expensive conclusion.",
      "Depth-add for sophisticated readers."),
 
     ("CL444", "Portfolio:Theory §7-§8 Cochrane discount-rates reframing", "CAPM-after-Roll callout handles ICAPM / conditional CAPM well but omits Cochrane 2011 AFA presidential address 'Discount Rates' (JoF 66) — the most-cited modern reframing of cross-sectional anomalies as time-varying discount-rate variation rather than mispricing",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Cochrane J.H. 2011. 'Discount Rates.' Journal of Finance 66(4): 1047-1108 (AFA Presidential Address)",
-     "DEFERRED to Phase 7.5: Session 2 Academic economist review #11 — add Cochrane 2011 cite in post-Roll callout; one sentence noting modern reframing of factor returns as discount-rate variation rather than mispricing.",
+     "CLOSED Phase 7.5 2026-05-17: Session 2 Academic economist review #11 — add Cochrane 2011 cite in post-Roll callout; one sentence noting modern reframing of factor returns as discount-rate variation rather than mispricing.",
      "Depth-add for Pastor/Stambaugh-aware audience."),
 
     ("CL445", "Zeit:Life §5 annuity puzzle (Davidoff-Brown-Diamond)", "Annuity puzzle / Zeit:Life §5 callout cites Yaari 1965 / Mitchell-Poterba-Warshawsky-Brown 1999 / Benartzi-Previtero-Thaler 2011 / Brown-Kling-Mullainathan-Wrobel 2008 but omits Davidoff-Brown-Diamond 2005 AER 95 'Annuities and Individual Welfare' — generalized Yaari to incomplete-markets, theoretical case for partial annuitization",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Davidoff T, Brown JR, Diamond PA. 2005. 'Annuities and Individual Welfare.' American Economic Review 95(5): 1573-1590",
-     "DEFERRED to Phase 7.5: Session 2 Academic economist review #12 — add Davidoff-Brown-Diamond cite; strengthens partial-annuitization recommendation from empirical practice to theoretically grounded in incomplete-markets utility analysis.",
+     "CLOSED Phase 7.5 2026-05-17: Session 2 Academic economist review #12 — add Davidoff-Brown-Diamond cite; strengthens partial-annuitization recommendation from empirical practice to theoretically grounded in incomplete-markets utility analysis.",
      "Strengthens existing recommendation theoretical grounding."),
 
     ("CL446", "Plan view + Diagnostic (rental real estate Q for AdvStrat §4 routing)", "AdvStrat §4 (cost seg + REPS + STR loophole) is among highest-NPV Phase-7 sections but computePlan has zero triggers routing users to it — no diagnostic Q to probe rental-property or W-2-spouse-as-REPS structure",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 2 Behavioral economist review (Phase 6-again) finding #9; Session 1 CFP review (Phase 6-again) suggested complementary diagnostic Q",
-     "DEFERRED to Phase 7.5: add diagnostic Q in 'Family & assets' or 'Income & taxes' section — 'Do you own rental real estate or operate / are exploring a short-term rental?' with options {none, long-term-rentals, STR-current, STR-exploring}. Add Plan action gated on bracket==='high' + that answer routing to AdvStrat §4. One-question, one-action add closing meaningful Phase-7-vs-Plan coverage hole.",
+     "CLOSED Phase 7.5 2026-05-17: add diagnostic Q in 'Family & assets' or 'Income & taxes' section — 'Do you own rental real estate or operate / are exploring a short-term rental?' with options {none, long-term-rentals, STR-current, STR-exploring}. Add Plan action gated on bracket==='high' + that answer routing to AdvStrat §4. One-question, one-action add closing meaningful Phase-7-vs-Plan coverage hole.",
      "Closes the one remaining AdvStrat section without a Plan-view routing trigger."),
 
     ("CL447", "Welcome view literacy-vs-behavior framing", "Welcome view as self-selection filter doesn't surface CL381 literacy-vs-behavior framing — user lands on Welcome, doesn't see FLN frame, hits diagnostic without the expectation-setting",
-     "META", "CON", "DEFERRED-P7.5", "C",
+     "META", "CON", "CORRECTED", "C",
      "Session 2 Behavioral economist review (Phase 6-again) finding #12; CL381 literacy framing; Fernandes-Lynch-Netemeyer 2014",
-     "DEFERRED to Phase 7.5: add one Welcome-view sentence — 'This tool is built on the assumption that information alone rarely changes behavior — the highest-leverage moves are the ones with one decision + automation behind them.' Sets reader expectations before the literacy probe rather than after.",
+     "CLOSED Phase 7.5 2026-05-17: add one Welcome-view sentence — 'This tool is built on the assumption that information alone rarely changes behavior — the highest-leverage moves are the ones with one decision + automation behind them.' Sets reader expectations before the literacy probe rather than after.",
      "Expectation-setting addition; not load-bearing on current behavior."),
 
     # ============================================================
@@ -2576,22 +2576,112 @@ CLAIMS = [
 
     # Session 3 backlog items (deferred to Phase 7.5)
     ("CL456", "AdvStrat §7 IDR (SAVE-forbearance dedicated callout + diagnostic Q)", "SAVE-forbearance-counts-don't-toward-forgiveness language is correctly hedged inside the IBR bullet but for a borrower currently in SAVE forbearance every month has direct dollar cost; deserves dedicated callout + currentIDRPlan diagnostic Q + SAVE-specific critical Plan action",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 3 Consumer-advocate review (Phase 6-again) finding #10",
-     "DEFERRED to Phase 7.5: extract SAVE-forbearance content to dedicated callout block in AdvStrat §7; add currentIDRPlan diagnostic Q (with SAVE option) and SAVE-specific critical Plan action gated on it. Current PSLF + studentaid.gov-audit actions cover the substance but don't have the SAVE-specific urgency surface.",
+     "CLOSED Phase 7.5 2026-05-17: extract SAVE-forbearance content to dedicated callout block in AdvStrat §7; add currentIDRPlan diagnostic Q (with SAVE option) and SAVE-specific critical Plan action gated on it. Current PSLF + studentaid.gov-audit actions cover the substance but don't have the SAVE-specific urgency surface.",
      "SAVE-borrower-specific urgency surface."),
 
     ("CL457", "Diagnostic income-volatility safety-net branch (SNAP/Lifeline/LIHEAP/Medicaid expansion)", "No diagnostic question or Plan action surfaces social-safety-net programs for low-bracket variable-income households — SNAP eligibility (snap-step1.usda.gov), Lifeline phone/internet (lifelinesupport.org, post-2024-ACP-expiration), LIHEAP energy assistance (energyhelp.us / 211), state Medicaid expansion eligibility",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 3 Consumer-advocate review (Phase 6-again) finding #12; existing snap-step1 / lifelinesupport / energyhelp / Medicaid-expansion infrastructure",
-     "DEFERRED to Phase 7.5: add coherent 'safety-net surface' block — diagnostic Q on income volatility + safety-net engagement status, then Plan actions for each eligible program. Acknowledge ACP-2024-expiration with Lifeline as continued program. Better as a coherent block than retrofitting individually.",
+     "CLOSED Phase 7.5 2026-05-17: add coherent 'safety-net surface' block — diagnostic Q on income volatility + safety-net engagement status, then Plan actions for each eligible program. Acknowledge ACP-2024-expiration with Lifeline as continued program. Better as a coherent block than retrofitting individually.",
      "Coherent safety-net surface design — depth-add for under-served audience."),
 
     ("CL458", "Plan view + Diagnostic (rental real estate Q, defensive routing)", "Persona suggested promoting CL446 from backlog — add diagnostic Q for rental property / STR exploration that fires a DEFENSIVE Plan action (read AdvStrat §4 + §8, verify fee-only fiduciary in writing before any cost-seg-firm sales call) rather than routing users into the strategy",
-     "META", "CON", "DEFERRED-P7.5", "B",
+     "META", "CON", "CORRECTED", "B",
      "Session 3 Consumer-advocate review (Phase 6-again) finding #7; CL446 already in P7.5 backlog",
-     "DEFERRED to Phase 7.5: when CL446 ships (rental real estate diagnostic Q), frame the Plan action defensively per Session 3 finding — route into the audience-fit + sales-channel warnings, not into the strategy execution. The §4 audience-fit callout shipped today (CL452) prepares this; the routing Q + defensive Plan action remain to ship together as one unit.",
+     "CLOSED Phase 7.5 2026-05-17: when CL446 ships (rental real estate diagnostic Q), frame the Plan action defensively per Session 3 finding — route into the audience-fit + sales-channel warnings, not into the strategy execution. The §4 audience-fit callout shipped today (CL452) prepares this; the routing Q + defensive Plan action remain to ship together as one unit.",
      "Defensive-routing framing for when CL446 ships."),
+
+    # ============================================================
+    # Phase 7.5 — Backlog-clearing sprint (2026-05-17)
+    # All 14 DEFERRED-P7.5 items resolved
+    # ============================================================
+
+    ("CL459", "AdvStrat:1 equity comp (RSU §83(b) statutory ineligibility)", "RSU §83(b) ineligibility framed as plan-permission limitation; statutory framing under §83(a) ('property transferred') is more precise — standard RSUs are unfunded promises, not §83(a) property, regardless of plan permission",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §83(a) ('property transferred'); Treas. Reg. §1.83-3(a); §83(b) availability requires §83(a) property triggering event",
+     "APPLIED 2026-05-17 (P7.5 — closes CL423): AdvStrat §1 §83(b)-when-wins/loses callout extended with statutory framing — RSUs are unfunded promises, not §83(a) property until settlement, so §83(b) is statutorily unavailable for standard RSUs regardless of plan permission. RSAs (Restricted Stock Awards) which transfer actual restricted stock at grant ARE §83(b)-eligible. Plan-permission framing is a downstream consequence, not the cause. Useful for sophisticated readers who confuse RSAs and RSUs.",
+     "Closes CL423 Session-1 Tax Atty backlog item."),
+
+    ("CL460", "AdvStrat:5 decumulation (NY 184-day precision + transit-passenger exception)", "NY statutory residency framing said '184-day count includes any part of a day spent in the state (including a layover at JFK)' — threshold is >183 days (i.e., 184+) and a narrow transit-passenger exception under 20 NYCRR §105.20(c) covers travelers passing through with no other NY activity",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "NY Tax Law §605(b)(1)(B); 20 NYCRR §105.20(c) (transit-passenger exception)",
+     "APPLIED 2026-05-17 (P7.5 — closes CL424): AdvStrat §5 NY statutory-residency paragraph corrected — replaced 'including a layover at JFK' folklore with the precise threshold ('more than 183 days, i.e., 184+, of any presence in the state per NY Tax Law §605(b)(1)(B); partial days count subject to the narrow transit-passenger exception under 20 NYCRR §105.20(c) for travelers passing through with no other NY activity'). Pure-transit JFK layover with no other NY activity now correctly does NOT count under the exception.",
+     "Closes CL424 Session-1 Tax Atty backlog item."),
+
+    ("CL461", "Contractor:8.2 / Business:8.3 (QBI W-2 wage + UBIA limitation for non-SSTB above threshold)", "QBI Contractor:8.2 SSTB framing complete post-CL360 but didn't surface the §199A(b)(2) non-SSTB W-2-wage + UBIA limitation that governs above the threshold — this is the operative lever for capital-intensive non-SSTB businesses",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §199A(b)(2) (greater of 50% W-2 wages OR 25% W-2 wages + 2.5% UBIA of qualified property for non-SSTB above threshold); Treas. Reg. §1.199A-1(d)",
+     "APPLIED 2026-05-17 (P7.5 — closes CL425): Contractor:8.2 QBI node extended with new H4 section 'Non-SSTB W-2 wage + UBIA limitation above threshold' — walks the lesser-of math (20% of QBI vs the greater of 50%-W-2-wages or 25%-W-2+2.5%-UBIA), names engineering/architecture as statutory non-SSTB carveouts, identifies the planning levers as W-2 wage restructuring and capital-asset acquisitions rather than the SSTB AGI-reduction lever. Recommends annual CPA modeling for any non-SSTB owner crossing the threshold.",
+     "Closes CL425 Session-1 Tax Atty backlog item."),
+
+    ("CL462", "AdvStrat:4 STR loophole (recapture math callout reordering)", "STR-loophole audit-risk warning present but tucked at end of long paragraph; high-W2 reader saw '$100K-$200K in-year tax savings' up top and may have missed the §1250 25%-recapture-at-sale math that erodes time-value benefit for owners who won't hold to step-up at death",
+     "META", "CON", "CORRECTED", "B",
+     "Session 1 CFP review (Phase 6-again) finding #6; IRC §1250 recapture treatment",
+     "APPLIED 2026-05-17 (P7.5 — closes CL426): AdvStrat §4 STR-loophole subsection gets a standalone math-callout at the top: 'Run the recapture-tax-at-sale math before accelerating' — walks the $130K acceleration at 37% saving $48K year-one vs the $32.5K §1250 recapture at 25% at sale + opportunity-cost framing. Explicit framing as cash-flow timing benefit (not permanent savings) unless held to §1014 step-up or chained through §1031. Directs user to run the analysis BEFORE commissioning cost-seg, since the cost-seg-firm sales channel surfaces headline savings and downplays recapture.",
+     "Closes CL426 Session-1 CFP backlog item."),
+
+    ("CL463", "W2:5.1 HYSA reframe (Fed-funds floor-rate expectation)", "Post-CL079 HYSA reframe (May 2026 4-5% top-tier; verify-against-rate-environment qualifier) was solid for current state but didn't disclose the forward-rate expectation; framework's debt-vs-savings sequencing language ages poorly as Fed funds compress",
+     "EMPIRICAL", "SOFT", "CORRECTED", "C",
+     "Session 1 CFP review (Phase 6-again) finding #11; Fed-funds projected-path commentary 2026",
+     "APPLIED 2026-05-17 (P7.5 — closes CL427): W2:5.1 HYSA callout extended with forward-rate expectation paragraph — as Fed funds compress toward projected ~2-2.5% neutral over the next 18-24 months, top-tier HYSA APYs will compress to ~2.5-3.5%; framework's 'above HYSA yield, below ~7%' moderate-interest-debt threshold narrows correspondingly. Recommends re-evaluating debt prioritization stack at each rate-cycle inflection rather than treating current threshold as static. Aging-well improvement.",
+     "Closes CL427 Session-1 CFP backlog item."),
+
+    ("CL464", "Math:3 Bengen k=25 callout (McQuarrie forward-pointer)", "Math §3 callout horizon-adjusts Bengen 25× to 28-30× for 40+yr early retirement but didn't connect forward to §7's McQuarrie/Pfau-international additional haircut — naive reader used §3 calculator and found inconsistent guidance arriving at §7",
+     "META", "CON", "CORRECTED", "B",
+     "Session 2 Academic economist review (Phase 6-again) finding #7",
+     "APPLIED 2026-05-17 (P7.5 — closes CL442): Math §3 horizon-dependent callout extended with explicit forward-pointer to Math §7's McQuarrie / Pfau-international callout (median ex-US developed-country SWR closer to 2.5-3%, or ~33-40× expenses). Frames the conservative-FIRE 28-33× targeting as approximately right for the wrong reason — it's the international-evidence haircut even though framed as horizon-only in popular FIRE content. Cross-reference improvement.",
+     "Closes CL442 Session-2 Academic backlog item."),
+
+    ("CL465", "Portfolio:Theory §8 Bessembinder caveat (index-membership truncation)", "Bessembinder 2018/2023 skewness result presented as strongest argument for indexing without the universe-truncation-by-liquidity-floor caveat — practical investor holding Russell 3000 already excludes worst tail via index-membership criteria",
+     "META", "SOFT", "CORRECTED", "B",
+     "Bessembinder 2018/2023 skewness papers; CRSP common-stock universe documentation",
+     "APPLIED 2026-05-17 (P7.5 — closes CL443): Portfolio:Theory §8 Bessembinder paragraph extended with single-sentence caveat — Bessembinder's universe is full CRSP common-stock tape including small/illiquid/often-uninvestable names; investor in Russell 3000 or extended-market index already truncates left tail by liquidity floor, modestly weakening but not eliminating the skewness-makes-concentration-expensive conclusion. Sophisticated-reader depth-add.",
+     "Closes CL443 Session-2 Academic backlog item."),
+
+    ("CL466", "Portfolio:Theory §7-§8 (Cochrane 2011 Discount Rates reframing)", "CAPM-after-Roll callout handled ICAPM / conditional CAPM well but omitted Cochrane 2011 AFA presidential address — the most-cited modern reframing of cross-sectional anomalies as time-varying discount-rate variation rather than mispricing",
+     "META", "CON", "CORRECTED", "B",
+     "Cochrane J.H. 2011. 'Discount Rates.' Journal of Finance 66(4): 1047-1108 (AFA Presidential Address)",
+     "APPLIED 2026-05-17 (P7.5 — closes CL444): Portfolio:Theory CAPM-after-Roll callout extended with Cochrane 2011 cite — frames the post-Fama-French factor proliferation as time-varying discount-rate variation rather than mispricing; cross-sectional 'anomalies' trace to variation in the rate at which investors discount future cash flows under different macroeconomic states. Dominant academic synthesis of the cross-sectional asset-pricing literature; shifts interpretation of factor returns from market-inefficiency story to state-dependent-discount-rate story. Depth-add for Pastor/Stambaugh-aware audience.",
+     "Closes CL444 Session-2 Academic backlog item."),
+
+    ("CL467", "Zeit:Life §5 annuity puzzle (Davidoff-Brown-Diamond 2005 incomplete-markets theoretical grounding)", "Annuity puzzle callout cited Yaari 1965 + Mitchell-Poterba-Warshawsky-Brown 1999 + Benartzi-Previtero-Thaler 2011 + Brown-Kling-Mullainathan-Wrobel 2008 but omitted Davidoff-Brown-Diamond 2005 — the generalization to incomplete-markets that establishes partial annuitization welfare gain under remarkably weak assumptions",
+     "META", "CON", "CORRECTED", "B",
+     "Davidoff T, Brown JR, Diamond PA. 2005. 'Annuities and Individual Welfare.' American Economic Review 95(5): 1573-1590",
+     "APPLIED 2026-05-17 (P7.5 — closes CL445): Zeit:Life §5 annuity-puzzle callout extended with Davidoff-Brown-Diamond cite — generalized Yaari full-annuitization to incomplete-markets and showed partial annuitization is welfare-improving under remarkably weak assumptions. Shifts the framework's partial-annuitization recommendation from empirical-practice convention to theoretical grounding in incomplete-markets utility analysis. Answers the 'but Yaari's assumptions don't hold for real households' sophisticated objection.",
+     "Closes CL445 Session-2 Academic backlog item."),
+
+    ("CL468", "Welcome view literacy-vs-behavior framing", "Welcome view as self-selection filter didn't surface CL381 literacy-vs-behavior framing — user landed on Welcome, didn't see FLN frame, hit diagnostic without expectation-setting",
+     "META", "CON", "CORRECTED", "C",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #12; CL381 literacy framing; Fernandes-Lynch-Netemeyer 2014",
+     "APPLIED 2026-05-17 (P7.5 — closes CL447): Welcome view intro extended with italic paragraph immediately before the 'Start the diagnostic' button — 'This tool is built on the assumption that information alone rarely changes behavior (Fernandes-Lynch-Netemeyer 2014 meta-analysis, ~0.1% behavior-variance explained by financial-education interventions). The highest-leverage moves are the ones with one decision plus automation behind them. The Plan output below sequences against that — friction first, abstract urgency second. The literacy probe in the Diagnostic isn't a judgment; it's a calibration input that adjusts how the Plan reads.' Sets reader expectations before the literacy probe rather than after.",
+     "Closes CL447 Session-2 Behavioral backlog item."),
+
+    ("CL469", "Diagnostic + Plan view (rental real estate Q + defensive Plan action)", "AdvStrat §4 (cost seg + REPS + STR loophole) is among highest-NPV Phase-7 sections but had zero Plan triggers; CL446 backlog item flagged need for diagnostic Q, CL458 Session-3 advocate refined the framing as defensive-routing (read warnings before engaging) rather than recommendation-to-engage",
+     "META", "CON", "CORRECTED", "A",
+     "Session 1 CFP review (Phase 6-again) finding from Session-1 CFP review; Session 2 Behavioral econ review #9; Session 3 Consumer-advocate review #7 (refined as defensive-routing)",
+     "APPLIED 2026-05-17 (P7.5 — closes BOTH CL446 + CL458): New 'rentalRealEstate' diagnostic Q added in Family & Assets section with 4 options (none / long-term-rentals / str-current / str-exploring); explicit help-text frames as 'routes you into the defensive-reading version of AdvStrat §4, not into a recommendation to engage the strategy.' New Plan action fires on str-current, str-exploring, OR (long-term-rentals && bracket==='high'); title 'Before any cost-seg-firm sales call: read AdvStrat §4 + §8 first (defensive routing)'; stage 'this-year' + critical for current operators (str-current / long-term-rentals + high bracket), 'eventually' for exploring; reason text walks audience-fit + recapture math + REPS aggregation election + STR audit-risk + commission-channel warning. Routes into AdvStrat §4 + §8 defensively per Session-3 advocate finding rather than into the strategy itself.",
+     "Closes BOTH CL446 (Session-2 backlog) AND CL458 (Session-3 backlog) — paired as designed."),
+
+    ("CL470", "Diagnostic + AdvStrat §7 + Plan view (currentIDRPlan Q + SAVE-forbearance dedicated callout + critical Plan action)", "SAVE-forbearance-doesn't-count language was hedged inside the IBR bullet at AdvStrat §7; for a SAVE-enrolled borrower in administrative forbearance every month has direct dollar cost; the framework needed currentIDRPlan diagnostic Q + dedicated callout + SAVE-specific critical Plan action",
+     "META", "CON", "CORRECTED", "A",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #10; SAVE litigation status; studentaid.gov/announcements-events/save-court-actions",
+     "APPLIED 2026-05-17 (P7.5 — closes CL456): Three coordinated changes. (1) New 'currentIDRPlan' diagnostic Q (Family & Assets section) with 7 options (save-forbearance / save-paying / ibr / paye / icr / standard / unsure); shows only if federalStudentLoans==='yes'. (2) AdvStrat §7 gets dedicated math-callout immediately before 'documented servicer-abuse history' header — frames SAVE administrative forbearance as direct dollar cost (forbearance months don't count toward PSLF/IDR forgiveness), names the verify-status URL, names the switch-to-IBR-or-PAYE recommendation with interest-capitalization caveat. (3) New Plan action fires on currentIDRPlan==='save-forbearance'; stage 'now', tagged 'critical'; title 'Switch from SAVE forbearance to IBR (or PAYE if eligible) to resume qualifying-payment accrual'; reason walks the math, the studentaid.gov verification, the interest-capitalization-on-switch warning, and the 60-day-confirmation-on-dashboard pattern. Cross-links AdvStrat §7 post-SAVE decision tree.",
+     "Closes CL456 Session-3 backlog — SAVE-borrower urgency surface now load-bearing."),
+
+    ("CL471", "Plan view safety-net surface (CL457 SNAP/Medicaid/Lifeline/LIHEAP consolidated Plan action)", "Framework had no diagnostic Q or Plan action surfacing the social-safety-net programs (SNAP, Lifeline, LIHEAP, state Medicaid expansion) for low-bracket or variable-income households despite these being among the highest-dollar transfers available to the eligible cohort",
+     "META", "CON", "CORRECTED", "A",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #12; snap-step1.usda.gov; lifelinesupport.org (post-2024 ACP-expiration); energyhelp.us; healthcare.gov Medicaid screening; Medicaid expansion state list 2026",
+     "APPLIED 2026-05-17 (P7.5 — closes CL457): New consolidated Plan action 'Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)' added to computePlan() — fires on bracket()==='low' OR (incomeStability in [variable, concentrated] && bracket()!=='high'). Stage 'now', tagged 'critical', friction 'med'. Reason text walks all four programs with eligibility thresholds, named portals (snap-step1.usda.gov / healthcare.gov / lifelinesupport.org / energyhelp.us / 211), benefit magnitudes (SNAP ~$200/person/mo, Medicaid expansion 138% FPL with the 10 non-expansion-state Medicaid gap, Lifeline $9.25/mo, LIHEAP $200-$1200/yr typical), and the ACP-2024-expiration-with-Lifeline-continuing note. <strong>Consolidated to ONE action (not 4)</strong> per CL388 choice-overload discipline — user runs eligibility checks across the 4 portals rather than receiving 4 separate critical-tagged items.",
+     "Closes CL457 Session-3 backlog — safety-net surface now load-bearing for under-served audience cohort."),
+
+    # ============================================================
+    # Phase 7.5 — Resolved-via-other-CL backlog closures
+    # ============================================================
+
+    # CL446 (rental real estate diagnostic Q) and CL458 (defensive Plan action) both closed by CL469.
+    # No separate entries needed — CL469's APPLIED note documents closure of both prior backlog rows.
 ]
 
 # Build Excel workbook
