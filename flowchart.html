@@ -14,8 +14,8 @@
   --surface-elev: #FFFFFF;
   --ink: #1C2128;
   --ink-soft: #2D3540;
-  --muted: #6B7280;
-  --muted-soft: #9CA3AF;
+  --muted: #5A6470;       /* darkened from #6B7280 — 4.22:1 → 5.02:1 on bg, passes AA body text */
+  --muted-soft: #6B7280;  /* darkened from #9CA3AF — 2.22:1 → 4.22:1 on bg, passes non-text 3:1 */
   --border: #D6CFC2;
   --border-soft: #E5DFD2;
   --accent: #B8893E;
@@ -1578,7 +1578,7 @@ body {
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 — passes large-text + body */
   font-style: italic;
   line-height: 1;
 }
@@ -1592,7 +1592,7 @@ body {
 }
 .math-section h3 em {
   font-style: italic;
-  color: var(--accent);
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 */
 }
 .math-content p {
   font-family: var(--font-body);
@@ -1736,7 +1736,7 @@ body {
   font-family: var(--font-display);
   font-size: 26px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 */
   display: block;
   margin-bottom: 6px;
 }
@@ -1822,7 +1822,7 @@ body {
   color: var(--ink);
   line-height: 1.15;
 }
-.math-intro h2 em { font-style: italic; color: var(--accent); }
+.math-intro h2 em { font-style: italic; color: var(--accent-dark); }
 .math-intro p {
   font-family: var(--font-body);
   font-size: 16px;
@@ -1851,6 +1851,10 @@ body {
 </style>
 </head>
 <body>
+<!-- Visually-hidden screen-reader live region. switchView / renderDiagnostic /
+     renderPlan call srAnnounce() to update so AT users hear "Section 3 of 6"
+     or "Your personalized plan is ready, 14 actions." -->
+<div id="sr-status" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;"></div>
 <div class="page">
 
 <header class="masthead">
@@ -1896,7 +1900,7 @@ body {
 <section class="view" id="view-diagnostic">
   <div class="diagnostic-progress" id="diag-progress">
     <span class="diagnostic-progress-label" id="diag-progress-label">Section 1 of 6</span>
-    <div class="diagnostic-progress-bar"><div class="diagnostic-progress-fill" id="diag-progress-fill" style="width: 16%;"></div></div>
+    <div class="diagnostic-progress-bar" id="diag-progress-bar" role="progressbar" aria-valuemin="1" aria-valuenow="1" aria-valuemax="6" aria-label="Diagnostic progress"><div class="diagnostic-progress-fill" id="diag-progress-fill" style="width: 16%;"></div></div>
   </div>
   <div id="diagnostic-content"></div>
   <div class="diagnostic-nav">
@@ -5800,6 +5804,12 @@ function renderDiagnostic() {
   const sectionLabel = `Section ${idx + 1} of ${sections.length}`;
   document.getElementById('diag-progress-label').textContent = sectionLabel;
   document.getElementById('diag-progress-fill').style.width = `${((idx + 1) / sections.length) * 100}%`;
+  const progBar = document.getElementById('diag-progress-bar');
+  if (progBar) {
+    progBar.setAttribute('aria-valuemax', String(sections.length));
+    progBar.setAttribute('aria-valuenow', String(idx + 1));
+    progBar.setAttribute('aria-valuetext', sectionLabel);
+  }
 
   const questionsHTML = qs.map(q => {
     const isMulti = q.type === 'multi';
@@ -5871,6 +5881,10 @@ function renderDiagnostic() {
   const isLast = idx === sections.length - 1;
   document.getElementById('diag-next').textContent = isLast ? 'Generate my plan' : 'Next section';
   document.getElementById('diag-next').disabled = !isSectionComplete(section);
+
+  // Announce progress to AT (screen-reader users otherwise have no signal
+  // that the section advanced after Enter on "Next section").
+  srAnnounce('Section ' + (idx + 1) + ' of ' + sections.length + ': ' + section.section);
 }
 
 function diagNext() {
@@ -6208,6 +6222,10 @@ function renderPlan() {
   } else {
     document.getElementById('plan-skipped').innerHTML = '';
   }
+
+  // Announce result to AT — screen-reader users need to know the long render
+  // produced something other than nothing.
+  srAnnounce('Your personalized plan is ready. ' + plan.actions.length + ' action' + (plan.actions.length === 1 ? '' : 's') + ' across ' + stages.length + ' stages.');
 }
 
 function renderActionDetail(node) {
@@ -6495,7 +6513,12 @@ function chartFrame({ title, xLabels, yMax, yTicks = 5, xTickEvery }) {
 function renderSVG(containerId, viewBoxW, viewBoxH, inner) {
   const el = document.getElementById(containerId);
   if (!el) return;
-  el.innerHTML = `<svg viewBox="0 0 ${viewBoxW} ${viewBoxH}" role="img">${inner}</svg>`;
+  // Copy aria-label from wrapper to the svg itself so AT actually announces
+  // the chart's purpose (wrapper-level aria-label on a roleless div is
+  // inconsistently exposed by screen readers).
+  const wrapperLabel = el.getAttribute('aria-label');
+  const labelAttr = wrapperLabel ? ` aria-label="${wrapperLabel.replace(/"/g, '&quot;')}"` : '';
+  el.innerHTML = `<svg viewBox="0 0 ${viewBoxW} ${viewBoxH}" role="img"${labelAttr}>${inner}</svg>`;
 }
 
 // Compound interest: year-by-year stacked bar (principal vs growth)
@@ -7843,6 +7866,41 @@ function wireMathCalculators() {
   });
 }
 
+// Screen-reader announcement helper. Updates a polite aria-live region so
+// AT users hear context changes (view switches, section advances, plan ready).
+function srAnnounce(text) {
+  const el = document.getElementById('sr-status');
+  if (el) el.textContent = text;
+}
+
+// Move keyboard focus into the just-rendered view so screen reader + Tab order
+// land on the new content instead of staying behind on the activated tab.
+function focusViewHeading(viewName) {
+  const viewEl = document.getElementById('view-' + viewName);
+  if (!viewEl) return;
+  const heading = viewEl.querySelector('h2, h1, .eyebrow');
+  if (heading) {
+    if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+    try { heading.focus({ preventScroll: true }); } catch (e) { /* old browsers */ try { heading.focus(); } catch (_) {} }
+  }
+}
+
+const VIEW_TITLE = {
+  'welcome': 'Welcome',
+  'diagnostic': 'Diagnostic',
+  'plan': 'Your prioritized plan',
+  'personal-chart': 'Personalized chart',
+  'full-chart': 'Full framework chart',
+  'math': 'The math',
+  'spending-essentials': 'Spending — essentials',
+  'spending-lifestyle': 'Spending — lifestyle',
+  'portfolio-bogleheads': 'Portfolio — Bogleheads',
+  'portfolio-theory': 'Portfolio — theory',
+  'zeitgeist-investing': 'Zeitgeist — investing',
+  'zeitgeist-lifestyle': 'Zeitgeist — lifestyle',
+  'advanced-strategies': 'Advanced strategies'
+};
+
 function switchView(viewName) {
   state.view = viewName;
   savePersistedState();
@@ -7866,6 +7924,8 @@ function switchView(viewName) {
   else if (viewName === 'zeitgeist-investing') renderZeitgeistInvesting();
   else if (viewName === 'zeitgeist-lifestyle') renderZeitgeistLifestyle();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  srAnnounce('Now viewing: ' + (VIEW_TITLE[viewName] || viewName));
+  focusViewHeading(viewName);
 }
 
 // ============================================================
@@ -7879,6 +7939,17 @@ document.getElementById('diag-prev').addEventListener('click', diagPrev);
 document.querySelectorAll('#view-tabs button').forEach(btn => {
   btn.addEventListener('click', () => switchView(btn.dataset.view));
 });
+// Programmatically associate every .calc-row / .input-row label with its
+// sibling input/select/textarea. Cheaper than editing 100+ HTML elements
+// by hand; result is the same: AT users hear "Starting amount, dollars"
+// instead of "edit, blank" when tabbing through calculators.
+(function wireLabelAssociations() {
+  document.querySelectorAll('.calc-row, .input-row').forEach(row => {
+    const label = row.querySelector('label');
+    const input = row.querySelector('input, select, textarea');
+    if (label && input && input.id && !label.htmlFor) label.htmlFor = input.id;
+  });
+})();
 wireMathCalculators();
 wireSpendingEssentialsCalculators();
 wireSpendingLifestyleCalculators();
