@@ -18,7 +18,7 @@ The framework throughout treats ND as the audience implicitly. Tone should be an
 
 ## Current artifact state
 
-`flowchart.html` is approximately 7,700 lines and ~620KB. It contains 13 views accessible via top navigation, roughly 45 content sections across those views, 23+ interactive calculators, a 27-question diagnostic, and a decision engine that produces personalized plans with friction-aware Tier-1 anchoring.
+`flowchart.html` is approximately 7,775 lines and ~770KB. It contains 13 views accessible via top navigation, roughly 45 content sections across those views, 23+ interactive calculators, a 27-question diagnostic, and a decision engine that produces personalized plans with friction-aware Tier-1 anchoring.
 
 The 13 views, in navigation order:
 
