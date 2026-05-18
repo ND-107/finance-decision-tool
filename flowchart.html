@@ -4731,6 +4731,35 @@ let state = {
 
 let planCache = null;
 
+// localStorage persistence (v1). Survives refresh; openActions/openNodes stay
+// in-memory (UI state, not worth persisting). Bump the key suffix if schema breaks.
+const LS_KEY = 'fdt:state-v1';
+function savePersistedState() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({
+      answers: state.answers,
+      diagSection: state.diagSection,
+      view: state.view,
+      fullChartIncome: state.fullChartIncome,
+      fullChartBracket: state.fullChartBracket
+    }));
+  } catch (e) { /* private mode / quota / unavailable — noop */ }
+}
+function loadPersistedState() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return false;
+    const saved = JSON.parse(raw);
+    if (!saved || typeof saved !== 'object') return false;
+    if (saved.answers && typeof saved.answers === 'object') state.answers = saved.answers;
+    if (typeof saved.diagSection === 'number') state.diagSection = saved.diagSection;
+    if (typeof saved.view === 'string') state.view = saved.view;
+    if (typeof saved.fullChartIncome === 'string') state.fullChartIncome = saved.fullChartIncome;
+    if (typeof saved.fullChartBracket === 'string') state.fullChartBracket = saved.fullChartBracket;
+    return true;
+  } catch (e) { return false; }
+}
+
 // ============================================================
 // HELPERS
 // ============================================================
@@ -5736,6 +5765,7 @@ function renderDiagnostic() {
       } else {
         state.answers[qid] = val;
       }
+      savePersistedState();
       renderDiagnostic();
     });
   });
@@ -5904,7 +5934,7 @@ function renderPlanSynthesis(a, plan) {
         : `<strong>Literacy probe — high baseline.</strong> You answered ${lit.score} of ${lit.total} financial-literacy questions correctly. Skip directly to the optimization layer; the framework's Math view is reference material rather than prerequisite for you.`;
     litBlock = `<h3>Literacy calibration</h3><p>${litLabel}</p>`;
   }
-  const structuralBlock = bracket() === 'low'
+  const structuralBlock = a.taxBracket === 'low'
     ? `<h3>Structural conditions context</h3><p>This tool's recommendations are individual-optimization moves within the existing US financial system. The structural conditions named on the Welcome view — wage stagnation, banking-desert geography, the racial and gender wealth gaps, US tax-policy regressivity, and the fee-extraction patterns that fall most heavily on the income tier the framework's behavioral economist flagged as the under-served audience — are real and they shape which moves are accessible to which households. The Plan above surfaces the highest-leverage individual-optimization actions for your specific signals (EITC, ACA-PTC, Saver's Credit, overdraft opt-out, the studentaid.gov audit) — these are the actions where the framework can help. The structural conditions are not something individual optimization can fix; they require policy change, collective action, or both. The framework's posture is to be honest about that boundary rather than pretend it doesn't exist.</p>`
     : '';
   const infoLimitBlock = `<h3>What this plan can and can't do</h3><p>One honest caveat the framework owes you: <em>information alone has near-zero behavioral persistence past about six months</em>. Fernandes, Lynch, and Netemeyer (2014, <em>Management Science</em> 60(8) "Financial Literacy, Financial Education, and Downstream Financial Behaviors"), a meta-analysis of 168 financial-education studies, found that financial-education interventions explain ~0.1% of variance in observed financial behavior — an order of magnitude smaller than choice-architecture interventions like auto-enrollment (Madrian-Shea 2001) or Save More Tomorrow (Thaler-Benartzi 2004). The Plan above will produce real behavior change <em>to the extent</em> that you convert its recommendations into one-time setup actions with auto-mechanics behind them: auto-deferral and auto-escalation, auto-transfer to your emergency fund, auto-rebalancing target-date funds, automatic-investment continuation through drawdowns. Items that require sustained willpower (the "high" friction-tag items) are at structurally elevated risk of not getting done; if you find an action that's listed as high-friction blocking the rest of your plan, look for a vendor or automation that converts it into a one-time setup instead.</p>`;
@@ -7716,6 +7746,7 @@ function wireMathCalculators() {
 
 function switchView(viewName) {
   state.view = viewName;
+  savePersistedState();
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + viewName).classList.add('active');
   document.querySelectorAll('#view-tabs button').forEach(b => {
@@ -7768,7 +7799,13 @@ document.querySelectorAll('#bracket-selector button').forEach(btn => {
   });
 });
 
-// Show welcome view on load
+// Restore any persisted state. If the user was past Welcome with answers,
+// un-hide the nav tabs and resume on their last view; otherwise stay on Welcome.
+loadPersistedState();
+if (state.answers && Object.keys(state.answers).length > 0 && state.view && state.view !== 'welcome') {
+  document.getElementById('view-tabs').style.display = 'flex';
+  switchView(state.view);
+}
 
 </script>
 </body>
