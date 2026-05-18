@@ -2400,6 +2400,126 @@ CLAIMS = [
      "Session 1 CFP review (Phase 6-again) finding #2; CL400-CL405 Phase 7 view content",
      "APPLIED: computePlan() extended with four new diagnostic-triggered Plan-view actions 2026-05-17 (P6+ Session 1 CFP review #2). (a) High-bracket SE → AdvStrat §3 Cash Balance DB + full §415 stack walkthrough with income-stability prerequisite framing. (b) High-bracket household with dependents → AdvStrat §2 family-wealth catalog (custodial Roth, 529 superfunding, FLP/IDGT with prereq). (c) High-bracket CA + liquidity event or Roth-ladder horizon → AdvStrat §5 state-domicile playbook with 12-months-ahead-of-event timing. (d) High-bracket + $2M+ net worth → AdvStrat §6 adjacent-vehicles catalog (direct indexing, §1256, OZ funds, §831(b), SDIRA). Existing §83(b) bridge action (CL366) updated to drop 'forthcoming in Phase 7' framing and cross-link AdvStrat §1 equity-comp catalog. Existing PSLF action (CL418 above) cross-links AdvStrat §7 IDR landscape.",
      "Phase 7 content now surfaces in personalized plan output for qualified users, not just as nav-bar reference."),
+
+    # ============================================================
+    # Phase 6-again — Post-Phase-7 original-5-personas review
+    # Session 2: Academic finance economist + Behavioral economist (paired)
+    # ============================================================
+
+    ("CL429", "AdvStrat:3 compound stack (Solo 401(k) profit-sharing formula)", "Solo 401(k) employer profit-sharing formula was 'up to 25% of net SE earnings or 20% of net profit (entity-dependent)' — the labels were inverted; sole-prop is ~20% of net SE earnings (after circular SE-tax-and-contribution deduction), S-corp / C-corp is 25% of W-2 wages",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "IRC §404(a)(8); IRS Pub. 560 (Retirement Plans for Small Business) — sole-prop circular SE-tax-and-contribution deduction worksheet",
+     "APPLIED: AdvStrat §3 §415-stack bullet corrected 2026-05-17 (P6+ Session 2 Academic economist review #8) — distinguished 25% of W-2 wages for S-corp / C-corp owner-employees from ~20% of net SE earnings for unincorporated sole-prop / SMLLC / partner setups, with the circular-deduction explanation and Pub. 560 cite. Added explicit flag that this distinction is the single most common Solo 401(k) over-contribution error.",
+     "Hard error — would produce return-prep over-contribution for any sole-prop reading the original formula."),
+
+    ("CL430", "AdvStrat:3 compound stack (QBI lever direction)", "Compound-stack QBI characterization collapsed SSTB and non-SSTB cases — contribution-driven AGI reduction is the primary lever for SSTBs in/above phase-in band but a much weaker lever for non-SSTBs above threshold (W-2-wages-and-UBIA limit governs there)",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §199A(b)(2) (greater-of W-2 wages / W-2+UBIA limit for non-SSTB above threshold); Rev. Proc. 2025-32; Treas. Reg. §1.199A-1(d)",
+     "APPLIED: AdvStrat §3 QBI-interaction paragraph corrected 2026-05-17 (P6+ Session 2 Academic economist review #9) — split SSTB vs non-SSTB lever-direction explicitly. For SSTBs in or above phase-in band ($202K/$404K to $277K/$554K), contribution-driven AGI reduction is primary lever (preserves deduction proportionally in band; can restore partial deduction from above). For non-SSTBs above threshold, W-2-wages-and-UBIA limit governs and the contribution lever is weaker; restructuring wage/distribution mix or capital-asset acquisitions are the operative levers.",
+     "Cleaner sequencing guidance for the high-bracket non-SSTB owner case."),
+
+    ("CL431", "Math:7 model-limits (1-5pp vs 5-15pp claim reconciliation)", "Model-limits prose said 1-5pp empirical shift; JS comment block said 5-15pp worst-cohort shift — analytically the right distinction is aggregate-success-rate vs worst-cohort-outcome but the two surfaces were inconsistent",
+     "EMPIRICAL", "CON", "CORRECTED", "B",
+     "CL379 dataset-swap empirical analysis; sequence-risk literature on worst-cohort vs aggregate-success distinction",
+     "APPLIED: Math §7 model-limits paragraph corrected 2026-05-17 (P6+ Session 2 Academic economist review #1) — reconciled to single empirical claim distinguishing aggregate success rates (1-5pp shift) from worst-cohort outcomes (5-15pp shift) explicitly because GS10 amplifies 1969-1981 bond destruction in those cohorts. JS comment now matches.",
+     "Removes the user-facing-vs-source-code contradiction a sophisticated reader would catch."),
+
+    ("CL432", "Math:7 model-limits (Shiller bond-series construction caveat)", "Shiller 'Real Total Bond Returns' column is a constructed constant-maturity-10yr total-return series imputed from GS10 yields, not an observed-price total-return index like the equity column — the model-limits note didn't disclose this construction assumption",
+     "EMPIRICAL", "CON", "CORRECTED", "B",
+     "Shiller ie_data.xls methodology (constant-maturity-10yr rolling assumption); standard academic-research methodology note",
+     "APPLIED: Math §7 model-limits paragraph extended 2026-05-17 (P6+ Session 2 Academic economist review #2) — added one-sentence construction caveat that the bond series is constructed via constant-maturity rolling and reinvestment, not observed-price; differs structurally from a tradable total-return index like Bloomberg US Treasury 7-10yr; difference is noise at cohort level, not directional bias.",
+     "Methodology precision for sophisticated readers."),
+
+    ("CL433", "Math:7 dataset window labels (1928-2024 → 1928-2025)", "Stale '1928-2024' label persisted in McQuarrie callout and success-rate callout even though dataset extends to 1928-2025 post-CL379",
+     "META", "CON", "CORRECTED", "A",
+     "CL379 dataset extension to 1928-2025",
+     "APPLIED: Math §7 McQuarrie callout and What-Success-Rate-Means callout corrected 2026-05-17 (P6+ Session 2 Academic economist review #4) — replaced '1928-2024' with '1928-2025' to match actual dataset extent.",
+     "Window-label consistency post-CL379."),
+
+    ("CL434", "Math:7 model-limits (CAPE overlay implementation disclosure)", "CAPE-regime selector applies flat pp-shift to first 10 years of stock returns only (per Pfau 2012 first-decade mean-reversion); the model-limits note didn't disclose the mechanism — sophisticated readers reverse-engineer it from output",
+     "META", "CON", "CORRECTED", "B",
+     "Pfau (2012, JFP) Withdrawal Rates / Savings Rates / Valuation-Based Asset Allocation",
+     "APPLIED: Math §7 model-limits paragraph extended 2026-05-17 (P6+ Session 2 Academic economist review #5) — added explicit one-sentence implementation note: flat pp-shift to first 10 years of stock returns only, no bond adjustment, no cohort-conditional variation, no post-year-10 adjustment. Framed as directional adjustment, not re-estimated conditional distribution.",
+     "Implementation transparency for sophisticated readers."),
+
+    ("CL435", "Math:7 Estrada 2016 journal citation", "Estrada (2016) 'The Retirement Glidepath: An International Perspective' was cited as JoPM (Journal of Portfolio Management) — actual publication was Journal of Investing Summer 2016",
+     "CITATION", "CON", "CORRECTED", "A",
+     "Estrada, J. 2016. 'The Retirement Glidepath: An International Perspective.' Journal of Investing 25(2), Summer 2016",
+     "APPLIED: Math §7 rising-equity-glide-path callout citation corrected 2026-05-17 (P6+ Session 2 Academic economist review #6) — 'JoPM' → 'Journal of Investing Summer 2016'.",
+     "Citation-accuracy fix per Academic-persona meta-take."),
+
+    ("CL436", "Plan view computePlan (CL428 friction misclassification)", "All four new CL428 Plan-view actions defaulted to friction='low' (~5-10 min) — CB-DB plan engagement is multi-pro / months-long, state-domicile is 12+ months of life-pattern restructuring; friction-rule classification was wrong for two of the four",
+     "META", "CON", "CORRECTED", "A",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #1; Madrian-Shea / Choi-Laibson-Madrian friction-classification framework",
+     "APPLIED: computePlan FRICTION_RULES corrected 2026-05-17 (P6+ Session 2 Behavioral econ review #1) — added 'Evaluate the Cash Balance DB plan' and 'Evaluate state-domicile change' to the 'high' bucket (sustained behavioral change over weeks); added 'Read the family-wealth strategies catalog' and 'Read the adjacent-vehicles catalog' to the 'med' bucket (read-then-decide, accurately one-pro engagement). Sequence-against-wrong-friction-signal bug removed.",
+     "Tier-1 selection now correctly reflects actual execution friction of the Phase 7 routing actions."),
+
+    ("CL437", "Plan view computePlan (CL428 state-domicile stage timing)", "State-domicile action staged 'eventually' for all firing conditions — when exitTimeline === 'within-3' is also true, the 12-months-pre-event timing window is closing and stage should be 'this-year'",
+     "META", "CON", "CORRECTED", "A",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #2; CFP-practice now-or-never-timing convention",
+     "APPLIED: CL428 state-domicile Plan-action stage and tags branched 2026-05-17 (P6+ Session 2 Behavioral econ review #2) — stage = (a.exitTimeline === 'within-3') ? 'this-year' : 'eventually'; tags = (within-3) ? ['critical'] : []. Because-line and reason-line also updated to reflect window-closing urgency in the within-3 case.",
+     "Removes the now-or-never-staged-as-eventually sequencing inversion."),
+
+    ("CL438", "Plan view computePlan (CL428 honest-default skip framing)", "Four new CL428 actions framed engagement as expected next step; for family-wealth / adjacent-vehicles / CB-DB the audience-fit rate even within the trigger population is well below 50%; framing inverted into anxiety-inducing optimization-FOMO rather than defensive reading",
+     "META", "CON", "CORRECTED", "B",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #4; behavioral-economics literature on framing-effects vs information-only interventions",
+     "APPLIED: CL428 four Plan-action reason-lines reframed 2026-05-17 (P6+ Session 2 Behavioral econ review #4) — Cash Balance DB action now leads with 'Most households at your bracket should NOT pursue the compound stack — the income-stability gate disqualifies most SE owners'; family-wealth action distinguishes accessible items (custodial Roth, 529 superfunding) from specialist (FLP/IDGT with OBBBA $15M/$30M filter); adjacent-vehicles action leads with 'Most households at your band should NOT pursue any of the structures in this catalog — read defensively before salespeople surface them'. Convert from FOMO surface into self-selection filter.",
+     "Behavioral framing now consistent with AdvStrat view's own substantive prose."),
+
+    ("CL439", "Plan view renderPlanSynthesis (critical-count leak)", "renderPlanSynthesis stageNote surfaced raw critical-count ('Y items marked critical') even when Tier-1 cap is 3 — for high-bracket SE with dependents and Phase-7 triggers, raw count routinely 8-11, reintroducing the choice-overload signal the Tier-1 anchor was designed to eliminate",
+     "META", "CON", "CORRECTED", "B",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #5; Iyengar-Lepper 2000 choice-overload literature; CL388 audit row Tier-1 design",
+     "APPLIED: renderPlanSynthesis stageNote rewritten 2026-05-17 (P6+ Session 2 Behavioral econ review #5) — replaced raw-count leak with 'Your top 3 actions are anchored above as Start here. The full N-item list below sequences the rest of the picture by horizon — work the top 3 first, treat the remaining items as reference until those are in motion.' Drops critical-count from synthesis surface entirely.",
+     "Preserves Tier-1 anchor's choice-architecture work."),
+
+    ("CL440", "AdvStrat view top-level framing (skip-default prepend)", "AdvStrat view top scope-note read as a menu of optimization strategies; honest framing is that <20% of households should engage any item in the view and <5% should engage more than one",
+     "META", "CON", "CORRECTED", "B",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #7",
+     "APPLIED: AdvStrat view intro prepended with explicit 'Most households should skip this view entirely' framing 2026-05-17 (P6+ Session 2 Behavioral econ review #7) — names the prerequisite foundation work (employer match + EF + high-interest debt + tax-advantaged max), warns that several items are commission-driven sales channels to understand defensively, gives measured 20% / 5% engagement-rate estimate, converts view from optimization-FOMO surface into self-selection filter.",
+     "View-level framing now consistent with section-level skip-by-default language."),
+
+    ("CL441", "Plan view computePlan (Saver's Credit wiring)", "Saver's Credit (IRC §25B) lived only in W2:6.2 reference content; no Plan action ever surfaced it despite being one of the highest-leverage one-form actions available to low/moderate-income contributors (~67% under-claim rate per IRS / Pew / Brookings)",
+     "META", "CON", "CORRECTED", "A",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #3; CL395 Saver's Credit reference content; IRC §25B; IRS / Pew / Brookings under-claim research; CL381 information→behavior framing",
+     "APPLIED: computePlan() extended with new Saver's Credit Plan action 2026-05-17 (P6+ Session 2 Behavioral econ review #3) — fires on bracket() === 'low' && active earner (not retired). Stage 'this-year', tagged 'critical' (one-form one-decision, high leverage at the eligible income band). Reason text walks 50% / 20% / 10% tiers with 2026 AGI thresholds (~$24K / $36K / $48K for 50%; phase-out around $39K / $59K / $78.5K), names Form 8880, surfaces the ~67% under-claim rate as motivation. Closes the CL395 reference-content-but-no-Plan-action gap.",
+     "Highest-leverage low-friction action now surfaces for the eligible income band; closes the audit's load-bearing-only-as-decoration gap on §25B."),
+
+    # Session 2 backlog items (deferred to Phase 7.5)
+    ("CL442", "Math:3 Bengen k=25 callout (McQuarrie connection)", "Math §3 callout horizon-adjusts to 28-30× for 40+yr early retirement but doesn't connect forward to McQuarrie/Pfau-international additional haircut developed in §7 — naive reader uses §3 calc and finds inconsistent guidance arriving at §7",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 2 Academic economist review (Phase 6-again) finding #7",
+     "DEFERRED to Phase 7.5: add single forward-pointer sentence in §3 callout pointing to §7's McQuarrie / Pfau-international callout for further downward adjustment. Cross-reference improvement; not load-bearing.",
+     "Cross-reference depth-add."),
+
+    ("CL443", "Portfolio:Theory §8 Bessembinder index-membership caveat", "Bessembinder 2018/2023 skewness result presented as the strongest argument for market-cap-weighted indexing without the universe-truncation-by-liquidity-floor caveat — practical investor holding Russell 3000 already excludes worst tail",
+     "META", "SOFT", "DEFERRED-P7.5", "B",
+     "Bessembinder 2018/2023 skewness papers; CRSP common-stock universe documentation",
+     "DEFERRED to Phase 7.5: Session 2 Academic economist review #10 — add single-sentence caveat that Bessembinder's universe is full CRSP tape; investor in Russell 3000 already truncates left tail by liquidity floor; modestly weakens but doesn't eliminate the skewness-makes-concentration-expensive conclusion.",
+     "Depth-add for sophisticated readers."),
+
+    ("CL444", "Portfolio:Theory §7-§8 Cochrane discount-rates reframing", "CAPM-after-Roll callout handles ICAPM / conditional CAPM well but omits Cochrane 2011 AFA presidential address 'Discount Rates' (JoF 66) — the most-cited modern reframing of cross-sectional anomalies as time-varying discount-rate variation rather than mispricing",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Cochrane J.H. 2011. 'Discount Rates.' Journal of Finance 66(4): 1047-1108 (AFA Presidential Address)",
+     "DEFERRED to Phase 7.5: Session 2 Academic economist review #11 — add Cochrane 2011 cite in post-Roll callout; one sentence noting modern reframing of factor returns as discount-rate variation rather than mispricing.",
+     "Depth-add for Pastor/Stambaugh-aware audience."),
+
+    ("CL445", "Zeit:Life §5 annuity puzzle (Davidoff-Brown-Diamond)", "Annuity puzzle / Zeit:Life §5 callout cites Yaari 1965 / Mitchell-Poterba-Warshawsky-Brown 1999 / Benartzi-Previtero-Thaler 2011 / Brown-Kling-Mullainathan-Wrobel 2008 but omits Davidoff-Brown-Diamond 2005 AER 95 'Annuities and Individual Welfare' — generalized Yaari to incomplete-markets, theoretical case for partial annuitization",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Davidoff T, Brown JR, Diamond PA. 2005. 'Annuities and Individual Welfare.' American Economic Review 95(5): 1573-1590",
+     "DEFERRED to Phase 7.5: Session 2 Academic economist review #12 — add Davidoff-Brown-Diamond cite; strengthens partial-annuitization recommendation from empirical practice to theoretically grounded in incomplete-markets utility analysis.",
+     "Strengthens existing recommendation theoretical grounding."),
+
+    ("CL446", "Plan view + Diagnostic (rental real estate Q for AdvStrat §4 routing)", "AdvStrat §4 (cost seg + REPS + STR loophole) is among highest-NPV Phase-7 sections but computePlan has zero triggers routing users to it — no diagnostic Q to probe rental-property or W-2-spouse-as-REPS structure",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #9; Session 1 CFP review (Phase 6-again) suggested complementary diagnostic Q",
+     "DEFERRED to Phase 7.5: add diagnostic Q in 'Family & assets' or 'Income & taxes' section — 'Do you own rental real estate or operate / are exploring a short-term rental?' with options {none, long-term-rentals, STR-current, STR-exploring}. Add Plan action gated on bracket==='high' + that answer routing to AdvStrat §4. One-question, one-action add closing meaningful Phase-7-vs-Plan coverage hole.",
+     "Closes the one remaining AdvStrat section without a Plan-view routing trigger."),
+
+    ("CL447", "Welcome view literacy-vs-behavior framing", "Welcome view as self-selection filter doesn't surface CL381 literacy-vs-behavior framing — user lands on Welcome, doesn't see FLN frame, hits diagnostic without the expectation-setting",
+     "META", "CON", "DEFERRED-P7.5", "C",
+     "Session 2 Behavioral economist review (Phase 6-again) finding #12; CL381 literacy framing; Fernandes-Lynch-Netemeyer 2014",
+     "DEFERRED to Phase 7.5: add one Welcome-view sentence — 'This tool is built on the assumption that information alone rarely changes behavior — the highest-leverage moves are the ones with one decision + automation behind them.' Sets reader expectations before the literacy probe rather than after.",
+     "Expectation-setting addition; not load-bearing on current behavior."),
 ]
 
 # Build Excel workbook
