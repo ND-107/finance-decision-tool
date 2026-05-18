@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-05-17 — Phase 6-again + Phase 7.5 + final closure + HANDOFF rewrite — audit closed
+
+**Done:**
+- Phase 6-again (all 3 sessions: Tax+CFP, Academic+Behavioral, Consumer-advocate solo) — 60 findings, 38 structural fixes across CL406-CL455 + 14 deferred-P7.5 items
+- Phase 7.5 backlog-clearing sprint — all 14 DEFERRED-P7.5 items resolved across three batches (CL459-CL471)
+- Final closure pass — CL056 + CL102 FAIL → CORRECTED (audit now 245 PASS / 202 CORRECTED / 0 DEFERRED / 0 FAIL across 447 claims)
+- HANDOFF.md rewrite — current state documented + 3-item optional roadmap (Phase 8 low-bracket reference depth, DMS international-data engineering, personal MC backend integration)
+
+**Open:**
+- ND asked about "an early list of functions or features we made" — clarification pending; candidates include EX1 catalog (built), various deferred backlogs (cleared), the 3-item HANDOFF roadmap
+- Optional 3-item roadmap available if framework growth resumes
+
+**Notes:**
+- Audit count discrepancy resolved at session end — actual final 447 claims (not 471 as one mid-sprint commit message claimed)
+- The CL428 Plan→AdvStrat routing pattern is the biggest single architectural change of the session; the four-action template is documented in HANDOFF for any future Phase-7-style content
+- The CL448-CL450 + CL471 low-bracket Plan-action wiring closed the framework's biggest distributional gap — EITC / ACA-PTC / overdraft opt-out / safety-net surface now route eligible users via Plan actions rather than living only as body prose
+- All session work captured in commits f656319 / d4ccdb2 / d5dda7b / 0995746 / 7b676dc / 40c01c3 / 3663207 — see entries below this date heading for the running narrative of each.
+
 ## 2026-05-16
 
 - Project migrated from Claude.ai chat thread to Claude Code. Bundle (artifact, audit, docs, transcript) routed from vault `_Inbox/` → `~/code/finance-decision-tool/` after a stop in `finance-project/data/research/decision-tool/`.
