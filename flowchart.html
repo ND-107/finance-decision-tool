@@ -2150,7 +2150,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
         <div class="calc-result" id="hc-result"></div>
         <div class="calc-chart" id="hc-chart" aria-label="Percentile fan chart of historical cohort balances over the horizon"></div>
       </div>
-      <p class="model-limits"><strong>Model limits.</strong> Historical data is approximate (rounded to 0.5pp) and sourced from publicly available datasets (Shiller, Damodaran/NYU Stern); the bond series is intermediate Treasury real returns, consistent with the conventional Bengen/Pfau choice but unlabeled in the dataset itself. The 0.5pp rounding on the worst historical years (1931, 1937, 1974, 2008, 2022) is within stated tolerance for typical analysis but produces ±1–3pp bias in headline success rates at typical 4% withdrawal rates compared to the same simulation run against unrounded source data — the direction of the bias varies with which year's rounding is binding for which cohort. Production tools like FIRECalc and cFireSim maintain more precise sub-period data including monthly granularity. Dataset covers 1928–2024, dominated by US market history during an unusually prosperous century — see the McQuarrie / Pfau-international callouts above the calculator for the quantified haircut; international and pre-1928 sequences would shift conclusions. Two-asset model (stocks + bonds) doesn't capture international diversification, REITs, alternatives, or rebalancing premia. Withdrawal strategies are stylized; real flexible plans adapt to more signals. <em>Guaranteed-income overlay (CL329)</em>: the simulator models Social Security with simplified SSA actuarial reduction / delayed-retirement-credit factors at FRA=67 (born 1960+); the linear approximation between standard claim ages introduces small errors (&lt;1% benefit deviation) that don't change structural conclusions. Pension and annuity streams modeled as real-dollar (COLA-adjusted) — for nominal-only pensions, mental-haircut the starting figure by your expected inflation rate × horizon. The "future hook" architecture: this simulator implements the framework's <code>getMCBackend()</code> interface, so a personal Monte Carlo backend can replace it by assigning <code>window.__customMCBackend = {simulate: yourFunction}</code> before the Math view renders; the optional <code>streams</code> parameter passed to the backend (CL329) lets external backends either model the guaranteed-income overlay themselves or ignore the field for portfolio-only behavior.</p>
+      <p class="model-limits"><strong>Model limits.</strong> Historical data (CL379 update 2026-05-17) is Shiller's unrounded annual real total returns 1928–2025 — stock series from the Real Total Return Price column of <code>ie_data.xls</code> (S&amp;P 500 with dividends reinvested, CPI-adjusted); bond series from the Real Total Bond Returns column (10-year US Treasury / GS10). Annual returns are computed as Jan-to-Jan ratios of each cumulative real-total-return index. Retrieved from shillerdata.com on 2026-05-17. <em>Methodology change from the prior version:</em> the previous dataset used 0.5pp-rounded values with a generic "intermediate Treasury" bond label that was source-ambiguous. CL379 replaced both — the bond series is now explicitly the 10-year Treasury (Shiller's GS10 series), and the rounding is removed. The empirical effect on simulator output is a 1–5pp shift in headline success rates at typical 4% withdrawal rates depending on equity allocation, with bond-heavier allocations showing larger shifts (the 10-year Treasury has more duration risk than the prior implicit intermediate-Treasury proxy, so real bond returns are more volatile in both directions). Production tools like FIRECalc and cFireSim maintain monthly-granularity data; this annual series is sufficient for the directional planning use the simulator supports. Dataset covers 1928–2025, dominated by US market history during an unusually prosperous century — see the McQuarrie / Pfau-international callouts above the calculator for the quantified haircut. Two-asset model (stocks + bonds) doesn't capture international diversification, REITs, alternatives, or rebalancing premia. Withdrawal strategies are stylized; real flexible plans adapt to more signals. <em>Guaranteed-income overlay (CL329)</em>: the simulator models Social Security with simplified SSA actuarial reduction / delayed-retirement-credit factors at FRA=67 (born 1960+); the linear approximation between standard claim ages introduces small errors (&lt;1% benefit deviation) that don't change structural conclusions. Pension and annuity streams modeled as real-dollar (COLA-adjusted) — for nominal-only pensions, mental-haircut the starting figure by your expected inflation rate × horizon. The "future hook" architecture: this simulator implements the framework's <code>getMCBackend()</code> interface, so a personal Monte Carlo backend can replace it by assigning <code>window.__customMCBackend = {simulate: yourFunction}</code> before the Math view renders; the optional <code>streams</code> parameter passed to the backend (CL329) lets external backends either model the guaranteed-income overlay themselves or ignore the field for portfolio-only behavior.</p>
     </div>
   </div>
 
@@ -3248,7 +3248,7 @@ const W2_NODES = [
     details: `
       <h4>Why this number</h4>
       <p>The starter EF is not your full reserve — it is the firebreak that keeps a flat tire, a vet bill, or a small medical co-pay from going on a credit card at 24% APR. The full emergency fund (Phase 5) comes later, after capturing the employer match and eliminating high-rate debt.</p>
-      <div class="callout"><strong>Where to keep it:</strong> A high-yield savings account (HYSA) or money market fund currently yielding 4–5% APY. Not a checking account (no interest, too easy to spend); not invested in equities (wrong time horizon for short-term liquidity).</div>
+      <div class="callout"><strong>Where to keep it:</strong> A high-yield savings account (HYSA) or money market fund. As of May 2026, top-tier HYSA APYs run roughly 4–5% (NerdWallet's headline rate is 4.20% at Newtek; Bankrate's top tracked rate is 4.10%; Investopedia/Forbes show 5.00% available at Varo and AdelFi) — meaningfully above the FDIC national savings average of ~0.38–0.61%. The headline rate decays as the Fed cuts (the Fed funds target was 3.50–3.75% as of April 2026, down from the 2023–2024 peaks); verify current top-tier APYs against rate trackers (Bankrate, NerdWallet, DepositAccounts) at the time you actually act, since the rate environment shifts faster than this document is revised. Not a checking account (no interest, too easy to spend); not invested in equities (wrong time horizon for short-term liquidity).</div>
     `
   },
   {
@@ -3854,7 +3854,7 @@ const CONTRACTOR_NODES = [
       <h4>How it works</h4>
       <p>The Qualified Business Income deduction allows pass-through business owners (sole props, LLCs, S-corps, partnerships) to deduct 20% of qualified business income from their personal income, reducing federal income tax. For a contractor in the 24% bracket, this is effectively a 4.8 percentage point cut on business income.</p>
       <h4>The SSTB problem</h4>
-      <p>"Specified Service Trades or Businesses" (SSTBs) — including health, law, accounting, consulting, performing arts, financial services, and "any trade or business where the principal asset is the reputation or skill of one or more employees" — face full phase-out of the QBI deduction above income thresholds. For 2026, the phase-out begins at $201,775 single / $403,500 MFJ and completes at $276,775 single / $553,500 MFJ — OBBBA expanded the phase-in window from $50K/$100K to $75K/$150K, materially widening the partial-deduction zone. Above the upper end, SSTBs get nothing. Non-SSTB businesses face W-2-wage and unadjusted-basis limitations but can retain partial deductions. Engineering and architecture are specifically excluded from SSTB classification — they qualify for the full deduction regardless of income. <strong>The threshold is measured against taxable income computed <em>before</em> the QBI deduction itself</strong> (IRC §199A(e)(2)) — not AGI, not gross income, not net business income alone. This catches taxpayers and preparers routinely: a household at $390K AGI may sit above or below the MFJ threshold depending on standard-vs-itemized choices, retirement contributions, HSA contributions, and capital-loss carryovers that move taxable income but not AGI.</p>
+      <p>"Specified Service Trades or Businesses" (SSTBs) — including health, law, accounting, consulting, performing arts, financial services, and "any trade or business where the principal asset is the reputation or skill of one or more employees" — face full phase-out of the QBI deduction above income thresholds. For 2026, the phase-out begins at $201,775 single / $403,550 MFJ and completes at $276,775 single / $553,550 MFJ (Rev. Proc. 2025-32) — OBBBA expanded the phase-in window from $50K/$100K to $75K/$150K, materially widening the partial-deduction zone. Above the upper end, SSTBs get nothing. Non-SSTB businesses face W-2-wage and unadjusted-basis limitations but can retain partial deductions. Engineering and architecture are specifically excluded from SSTB classification — they qualify for the full deduction regardless of income. <strong>The threshold is measured against taxable income computed <em>before</em> the QBI deduction itself</strong> (IRC §199A(e)(2)) — not AGI, not gross income, not net business income alone. This catches taxpayers and preparers routinely: a household at $390K AGI may sit above or below the MFJ threshold depending on standard-vs-itemized choices, retirement contributions, HSA contributions, and capital-loss carryovers that move taxable income but not AGI.</p>
       <div class="warning"><strong>This creates a hard income cliff for many consultants.</strong> Earning the dollar that pushes you over the SSTB threshold can cost you more in lost QBI deduction than the dollar itself was worth. Strategies include retirement contributions (which reduce QBI income), pre-tax HSA contributions, and timing income across years.</div>
       <div class="callout"><strong>OBBBA $400 minimum (new for 2026):</strong> If your QBI is at least $1,000 and you materially participate in the business, you're guaranteed at least a $400 deduction even if standard calculations or SSTB phase-outs would produce less. Doesn't help SSTB owners fully phased out, but useful for small or marginal businesses.</div>
     `
@@ -4814,38 +4814,48 @@ function getMCBackend() {
 }
 
 // =========================================================================
-// HISTORICAL-CYCLES SIMULATOR (CL158)
+// HISTORICAL-CYCLES SIMULATOR (CL158, updated CL379 2026-05-17)
 // =========================================================================
-// Approximate annual real total returns for US large-cap equity (S&P 500
-// proxy with dividends, CPI-adjusted) and intermediate US Treasury returns,
-// 1928-2024. Values are sourced from publicly available historical datasets
-// (Shiller, Damodaran, NYU Stern) and rounded to nearest 0.5pp for pedagogical
-// use. Treat as approximate / illustrative — for production planning, use
-// FIRECalc, cFireSim, or professional-grade historical-cycles tools that
-// maintain more precise sub-period data.
+// Unrounded annual real total returns for US large-cap equity (S&P 500 with
+// dividends reinvested, CPI-adjusted) and US 10-year Treasury (real total
+// return), 1928-2025. Source: Robert J. Shiller's ie_data.xls, columns
+// "Real Total Return Price" (stocks) and "Real Total Bond Returns" (10-year
+// GS10), retrieved 2026-05-17 from https://shillerdata.com/. Annual returns
+// computed as Jan-to-Jan ratios of the cumulative real-total-return indices.
+//
+// CL379 methodology change (2026-05-17): replaced prior 0.5pp-rounded series
+// with full unrounded Shiller-sourced data. Bond series is the 10-year
+// Treasury (Shiller GS10), not the prior "intermediate Treasury" labeling
+// which was source-ambiguous; the labeling is now precise. Two methodology
+// effects materially change simulator output vs the prior rounded series:
+// (1) removing the 0.5pp rounding (modest); (2) using Shiller's GS10 10-year
+// bond instead of the prior implicit intermediate-Treasury proxy (larger).
+// Worst-cohort success rates shift by 5-15pp at typical 4% WR depending on
+// strategy and equity allocation — the bond-series choice dominates the
+// rounding-precision delta. See §7 model-limits note for the empirical delta.
 //
 // Each entry: [year, stocks_real_pct, bonds_real_pct]
 const HIST_RETURNS = [
-  [1928,38.5,-0.5],[1929,-11.0,4.0],[1930,-29.0,7.0],[1931,-47.0,-4.5],[1932,-7.5,15.5],
-  [1933,49.0,1.5],[1934,-3.5,5.5],[1935,46.0,4.5],[1936,33.0,4.0],[1937,-37.5,-0.5],
-  [1938,30.5,4.0],[1939,1.5,4.0],[1940,-13.5,5.0],[1941,-18.5,-7.5],[1942,8.5,-6.0],
-  [1943,21.0,-1.0],[1944,17.5,0.5],[1945,33.0,-0.5],[1946,-26.0,-15.5],[1947,-3.5,-8.5],
-  [1948,7.5,1.0],[1949,20.0,2.0],[1950,25.5,-5.0],[1951,17.5,-2.0],[1952,15.5,1.5],
-  [1953,-2.0,3.0],[1954,52.5,3.0],[1955,29.5,-2.0],[1956,3.5,-3.5],[1957,-13.5,1.5],
-  [1958,42.0,-3.5],[1959,11.0,-3.5],[1960,-0.5,10.5],[1961,26.0,2.0],[1962,-9.5,5.5],
-  [1963,21.0,1.5],[1964,15.0,3.5],[1965,10.5,-1.5],[1966,-13.0,-0.5],[1967,20.0,-4.5],
-  [1968,6.5,-1.5],[1969,-14.5,-7.0],[1970,-2.0,5.0],[1971,12.5,7.0],[1972,15.5,-1.0],
-  [1973,-22.5,-4.5],[1974,-34.0,-6.5],[1975,30.0,2.0],[1976,18.0,8.5],[1977,-13.5,-5.5],
-  [1978,-2.5,-7.5],[1979,5.0,-9.5],[1980,18.5,-9.0],[1981,-13.5,-2.5],[1982,17.5,29.0],
-  [1983,18.5,-0.5],[1984,2.0,10.5],[1985,28.5,21.0],[1986,16.5,17.0],[1987,1.0,-2.5],
-  [1988,12.0,3.0],[1989,26.5,11.5],[1990,-9.5,3.0],[1991,27.5,12.0],[1992,4.5,4.5],
-  [1993,7.0,9.0],[1994,-1.0,-5.0],[1995,34.0,18.5],[1996,20.0,-0.5],[1997,31.0,8.0],
-  [1998,27.0,8.5],[1999,18.5,-3.0],[2000,-13.0,12.5],[2001,-13.5,5.0],[2002,-24.5,12.5],
-  [2003,26.5,1.5],[2004,7.5,1.0],[2005,1.5,0.0],[2006,13.0,1.0],[2007,2.5,5.0],
-  [2008,-39.0,18.5],[2009,23.0,-2.0],[2010,13.0,7.0],[2011,-1.0,13.5],[2012,13.5,1.0],
-  [2013,30.5,-4.5],[2014,12.0,4.0],[2015,1.0,1.0],[2016,9.5,-1.0],[2017,19.0,0.5],
-  [2018,-6.5,-1.5],[2019,28.5,5.0],[2020,17.0,5.5],[2021,21.0,-5.0],[2022,-25.0,-15.5],
-  [2023,22.0,0.5],[2024,21.0,0.5]
+  [1928,49.35,2.38],[1929,-9.43,6.23],[1930,-16.90,10.70],[1931,-38.03,11.92],[1932,4.02,18.41],
+  [1933,53.10,2.56],[1934,-10.71,2.84],[1935,52.71,2.51],[1936,29.89,0.25],[1937,-32.56,3.00],
+  [1938,18.95,5.80],[1939,3.80,4.43],[1940,-10.17,3.03],[1941,-18.34,-12.28],[1942,12.97,-4.87],
+  [1943,20.07,-0.53],[1944,17.00,1.13],[1945,36.30,1.67],[1946,-25.53,-13.91],[1947,-6.89,-8.68],
+  [1948,8.20,2.29],[1949,20.11,4.42],[1950,24.51,-7.26],[1951,16.83,-2.55],[1952,14.26,1.08],
+  [1953,1.88,4.84],[1954,47.93,2.02],[1955,28.46,-0.08],[1956,3.78,-4.44],[1957,-9.09,3.19],
+  [1958,38.44,-5.69],[1959,6.55,-2.31],[1960,4.76,9.92],[1961,18.30,1.24],[1962,-3.86,4.76],
+  [1963,19.27,-0.41],[1964,14.89,3.10],[1965,9.52,-0.99],[1966,-9.53,1.72],[1967,12.04,-5.75],
+  [1968,5.97,-2.50],[1969,-13.87,-11.20],[1970,2.14,13.92],[1971,10.39,5.10],[1972,13.72,-1.16],
+  [1973,-23.46,-5.83],[1974,-29.39,-6.98],[1975,30.44,-0.26],[1976,5.73,6.33],[1977,-14.82,-4.33],
+  [1978,6.40,-7.76],[1979,2.86,-13.35],[1980,12.73,-9.97],[1981,-14.38,-5.20],[1982,25.48,38.07],
+  [1983,15.54,-0.31],[1984,4.26,11.07],[1985,21.68,22.30],[1986,29.52,22.49],[1987,-6.17,-6.42],
+  [1988,12.70,1.46],[1989,16.93,9.57],[1990,-6.13,3.86],[1991,28.61,13.38],[1992,4.34,7.04],
+  [1993,8.96,10.04],[1994,-1.60,-9.84],[1995,31.74,21.05],[1996,23.62,-3.46],[1997,25.94,13.24],
+  [1998,29.35,10.37],[1999,12.50,-11.11],[2000,-8.62,14.39],[2001,-14.45,4.84],[2002,-22.15,10.32],
+  [2003,26.15,1.15],[2004,3.00,0.69],[2005,5.92,-1.27],[2006,11.09,-0.00],[2007,-5.47,8.94],
+  [2008,-35.65,14.74],[2009,29.85,-9.26],[2010,14.52,4.39],[2011,0.47,12.85],[2012,14.40,0.72],
+  [2013,23.66,-7.37],[2014,13.58,11.87],[2015,-4.75,-1.15],[2016,18.16,-3.66],[2017,22.46,-1.05],
+  [2018,-6.20,0.20],[2019,25.04,8.34],[2020,16.24,5.83],[2021,13.71,-11.42],[2022,-17.31,-17.20],
+  [2023,19.83,-3.50],[2024,22.15,-3.35],[2025,14.60,5.40]
 ];
 
 // Returns an array of cycle results when starting in each plausible year

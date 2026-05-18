@@ -393,10 +393,10 @@ CLAIMS = [
 
     # === PRICING ===
     ("CL079", "W2:2.1, W2:5.1", "HYSA currently yielding 4-5% APY",
-     "PRICING", "SOFT", "PARTIAL", "",
-     "Bankrate, NerdWallet (May 2026)",
-     "Time-sensitive. As of May 2026, top HYSA rates are in the 3.75-4.50% range as Fed has cut rates from late-2024 peak. Soften to '~4% APY in current rate environment' or 'check current rates.'",
-     "Minor staleness; not critical given hedged 'currently' language."),
+     "PRICING", "SOFT", "CORRECTED", "C",
+     "Bankrate, NerdWallet, Forbes Advisor, Investopedia, CBSNews, Fortune — all May 2026 retrieval via Brave search 2026-05-17; Fed funds target 3.50-3.75% per CBS News April 29, 2026 Fed announcement",
+     "APPLIED: Verified May 2026 HYSA landscape — top tier 4.20% (Newtek per NerdWallet) / 4.10% (Bankrate top tracked rate) / 5.00% (Varo, AdelFi per Investopedia/Forbes); national average 0.38-0.61%; Fed funds target 3.50-3.75% after April 2026 pause following late-2025 cuts. Original 4-5% APY claim still substantively accurate at the top end. Reframed the W2:5.1 callout to explicitly cite the May-2026 rate landscape with specific bank examples + the FDIC national savings average for context, plus an explicit 'verify against current rate environment via Bankrate / NerdWallet / DepositAccounts at the time you actually act' qualifier so the claim doesn't decay again. The other HYSA references throughout the artifact (W2:2.1 EF section, Math callouts, etc.) inherit this framing implicitly.",
+     "Phase 7+ data verification — 2026-05-17 web check confirms claim remains accurate; framing tightened to prevent future staleness."),
 
     ("CL080", "W2:2.3", "$1M umbrella policy: ~$200-$400/year",
      "PRICING", "SOFT", "PASS", "C",
@@ -1922,11 +1922,11 @@ CLAIMS = [
     # Phase 6 — Session 1 (Tax Attorney + CFP) findings
     # ============================================================
 
-    ("CL360", "Contractor:8.2", "QBI §199A SSTB threshold is measured against taxable income before the QBI deduction (IRC §199A(e)(2)), not AGI",
-     "STATUTORY", "CON", "PARTIAL", "A",
-     "IRC §199A(e)(2); see also Rev. Proc. 2025-32 for 2026 indexed dollar figures",
-     "APPLIED PARTIALLY: Added the 'taxable income before QBI, not AGI' clarifier to the Contractor:8.2 paragraph — material because retirement / HSA / itemize-vs-standard / capital-loss-carryover choices move taxable income but not AGI, and the SSTB threshold rides on the former. NOT APPLIED: P6 Tax Attorney persona also claimed the dollar threshold figures in the artifact ($201,775/$403,500 begin, $276,775/$553,500 complete) are stale 2024 numbers, asserting 2025 actual is $241,950/$483,900 (Rev. Proc. 2024-40). This contradicts the existing CL056 audit row, which captured 2025 actual at $197,300/$394,600 and 2026 at the figures currently in the artifact. The $241,950 figure for 2025 is inconsistent with the IRS's normal 3–5% inflation indexing trajectory from the 2024 base of $191,950 and is likely a persona-recall error. Threshold dollar values left unchanged pending an authoritative Rev. Proc. 2025-32 re-verification.",
-     "Phase 6 — Session 1 Tax Attorney finding, applied partially."),
+    ("CL360", "Contractor:8.2", "QBI §199A SSTB threshold is measured against taxable income before the QBI deduction (IRC §199A(e)(2)), not AGI; verify exact 2026 dollar figures against Rev. Proc. 2025-32",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §199A(e)(2); Rev. Proc. 2025-32 (2026 inflation adjustments, modifying Rev. Proc. 2024-40 for OBBBA changes); IRS Newsroom 'IRS releases tax inflation adjustments for tax year 2026' (October 2025); cross-confirmed via VIP Wealth Advisors / Current Federal Tax Developments / Millan CPA 2026 summaries (Brave search 2026-05-17)",
+     "APPLIED — full resolution 2026-05-17: Phase 6 work added the 'taxable income before QBI, not AGI' clarifier. Web verification 2026-05-17 against Rev. Proc. 2025-32 (the IRS's 2026 inflation adjustment Revenue Procedure that modified Rev. Proc. 2024-40 for OBBBA changes; IRS Newsroom announcement October 2025) confirms: 2026 §199A phase-in begins at $201,775 single / $403,550 MFJ (the artifact previously had $403,500 — corrected to $403,550, a $50 typo fix); 2026 phase-out completes at $276,775 single / $553,550 MFJ (artifact previously had $553,500 — corrected to $553,550). Artifact now cites Rev. Proc. 2025-32 explicitly. The Session-1 Tax Attorney persona's claim that 2025 figures are $241,950 / $483,900 is confirmed WRONG — actual 2025 figures per Rev. Proc. 2024-40 are $197,300 / $394,600 (the figures the existing CL056 audit row captured correctly). The persona's recall error was off by ~22% on a figure that indexes at 3-5%/year — likely confusion with a different statutory threshold. CL056 stands as previously CORRECTED.",
+     "Phase 7+ data verification — 2026-05-17 web check resolves the threshold conflict; artifact updated with $50 typo fixes and Rev. Proc. 2025-32 citation."),
 
     ("CL362", "W2:10.1, W2:10.3", "IRMAA Medicare premium surcharges apply at MAGI thresholds with 2-year lookback; Roth conversions and SS claiming in pre-Medicare years can trigger multi-year premium increases",
      "REGULATORY", "CON", "CORRECTED", "A",
@@ -1969,10 +1969,10 @@ CLAIMS = [
     # ============================================================
 
     ("CL370", "Math:7; historicalCyclesSimulate", "1928-2024 US historical-cycles dataset embeds survivorship/selection bias; international and pre-1871 evidence puts the median SWR at ~2.5-3%, not 4%",
-     "EMPIRICAL", "SOFT", "PARTIAL", "C",
+     "EMPIRICAL", "SOFT", "CORRECTED", "C",
      "Pfau (2010) JFP 'An International Perspective on Safe Withdrawal Rates'; Estrada (2017) JFP 'Refining the Failure Rate'; McQuarrie (2024) FAJ 'Stocks for the Long Run? Sometimes Yes, Sometimes No'; Dimson-Marsh-Staunton Triumph of the Optimists (2002) and annual Credit Suisse/UBS Global Investment Returns Yearbook",
-     "APPLIED: Phase 6 added the McQuarrie callout. Phase 6.5 Sprint 3 added the directional valuation-regime input (shared with CL373 — see that row for the engine extension). STILL PARTIAL: a full international-data toggle (running the simulator against DMS-style ex-US cohort data) would require sourcing additional historical-returns series for international markets. The CAPE adjustment captures the within-US valuation channel which empirically dominates the international-selection channel for shorter (10-15 year) projections; for longer projections the international-selection channel matters more. Full international-data toggle deferred to Phase 7+ as a data-engineering pass.",
-     "Phase 6 — Session 2 academic finance economist finding; Phase 6.5 Sprint 3 delivered CAPE channel; international-data toggle to Phase 7+."),
+     "APPLIED — accepted as resolved at CAPE-channel framing: Phase 6 added the McQuarrie callout above the §7 calculator narratively documenting the international-selection-bias channel and the directional SWR haircut (median ~2.5-3% vs unconditional ~4%). Phase 6.5 Sprint 3 added the CAPE valuation-regime input that operationalizes the within-US valuation-conditioning channel quantitatively (CL373). Full international-data toggle requires the DMS Investment Database (Morningstar Direct subscription) or hand-aggregated per-country annual return series from academic papers (Pfau 2010 / Estrada 2017 published subsets). ND's call (2026-05-17): accept the McQuarrie-callout-plus-CAPE-channel framing as the resolved state, on the empirical basis that the within-US valuation channel dominates the international-selection channel for shorter projection horizons and the narrative callout adequately frames the longer-horizon international-selection magnitude. Full DMS-data integration logged as a future paid-data enhancement opportunity rather than an active deferred item.",
+     "Phase 6 — Session 2 academic finance economist finding; resolved at CAPE-channel framing per ND 2026-05-17."),
 
     ("CL373", "Math:7, Math:3; historicalCyclesSimulate", "Safe withdrawal rate is empirically conditional on starting CAPE/valuation; Pfau 2012 and Kitces' updates show ~3-3.5% conditional SWR at current high-CAPE starting points vs the unconditional 4% historical result",
      "EMPIRICAL", "SOFT", "CORRECTED", "C",
@@ -2016,11 +2016,11 @@ CLAIMS = [
      "APPLIED: Rewrote the Bog:2 'Common variants worth knowing' callout. Now leads with Vanguard 2017 + Asness-Israelov-Liew 2011 published consensus that ~30-50% international is welfare-improving for US investors. Bogle's 0% framing demoted from 'symmetric end of range' to 'contested outlier' explicitly. Cross-referenced to the Math §7 McQuarrie callout from CL370: accepting the international SWR evidence logically implies accepting that diversifying away from US-equity dependence has positive expected utility.",
      "Phase 6 — Session 2 academic finance economist finding."),
 
-    ("CL379", "Math:7", "HIST_RETURNS 0.5pp rounding produces ±1-3pp bias in simulated success rates at tail-binding years; bond series maturity (intermediate Treasury) was unlabeled",
-     "METHODOLOGICAL", "SOFT", "PARTIAL", "C",
-     "Shiller online dataset http://www.econ.yale.edu/~shiller/data.htm; Damodaran NYU Stern historical returns dataset",
-     "APPLIED PARTIALLY: §7 model-limits note extended to quantify the rounding bias (±1-3pp on headline success rates at tail-binding years for typical 4% withdrawal rates), label the bond series as intermediate Treasury real returns (consistent with Bengen/Pfau convention), and cross-reference the McQuarrie/Pfau-international callouts above the calculator for the broader US-only conditionality. DEFERRED P6.5: full dataset replacement with unrounded Shiller/Damodaran source data + explicit bond-series proxy choice. Aligns with the existing swap-interface architecture — if ND plugs in a personal MC backend, that backend can carry its own dataset.",
-     "Phase 6 — Session 2 academic finance economist finding."),
+    ("CL379", "Math:7; HIST_RETURNS array; §7 model-limits note", "HIST_RETURNS 0.5pp rounding produces ±1-3pp bias in simulated success rates at tail-binding years; bond series maturity (intermediate Treasury) was unlabeled",
+     "METHODOLOGICAL", "SOFT", "CORRECTED", "C",
+     "Shiller ie_data.xls retrieved 2026-05-17 from shillerdata.com (current host of Shiller online dataset); columns 'Real Total Return Price' (stocks, S&P 500 with dividends + CPI-adjusted) and 'Real Total Bond Returns' (10-year US Treasury GS10, real cumulative index); Damodaran NYU Stern historical returns dataset (cross-confirmed via Firecrawl 2026-05-17 retrieval of histretSP.html)",
+     "APPLIED — full data replacement 2026-05-17: HIST_RETURNS replaced with Shiller's unrounded real total returns 1928-2025 (98 years, +1 vs the prior 1928-2024 dataset). Stock series: Jan-to-Jan ratios of column 9 (Real Total Return Price). Bond series: Jan-to-Jan ratios of column 18 (Real Total Bond Returns) — this is Shiller's GS10 10-year Treasury, which is now explicitly labeled (the prior 'intermediate Treasury' label was source-ambiguous and the underlying methodology was unclear). Methodology change shifted simulator headline success rates by 1-5pp at typical 4% WR depending on equity allocation: 100/0 stocks +3.1pp (95.7% vs 92.6%), 70/30 -1.4pp (94.2% vs 95.6%), 50/50 -4.3pp (91.3% vs 95.6%), 3.25% WR unchanged at 100%. The bond-heavier allocations show larger negative deltas because the 10-year Treasury has more duration risk than the prior implicit intermediate-Treasury proxy — real bond returns are more volatile in both directions. Comment block above HIST_RETURNS documents the methodology change explicitly. §7 model-limits note rewritten to remove the rounding-bias caveat (no longer applies) and document the 1-5pp methodology-change shift.",
+     "Phase 7+ data verification — 2026-05-17 data engineering pass via Firecrawl + Bash curl + xlrd parsing."),
 
     ("CL375", "Port:Th:8, Bog:1", "Bessembinder 2018 JFE and Bessembinder-Chen-Choi-Wei 2023 FAJ are the strongest modern empirical foundation for indexing — top 4% of US stocks generated all 1926-2016 excess return; 60% of global stocks underperformed T-bills lifetime — not cited in artifact",
      "CITATION", "CON", "CORRECTED", "B",
