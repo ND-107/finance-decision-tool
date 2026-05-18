@@ -5091,6 +5091,29 @@ function ssaAdjustedBenefit(piaAtFRA, claimAge) {
 function isSE() { return hasIncome('contractor') || hasIncome('business'); }
 function getActiveSections() { return QUESTIONS.filter(s => !s.showIf || s.showIf(state.answers)); }
 function getActiveQuestions(section) { return section.qs.filter(q => !q.showIf || q.showIf(state.answers)); }
+
+// Remove any answer whose question is no longer reachable under current
+// state.answers (its showIf returned false). Run after every answer change so
+// stale orphans don't drive Plan synthesis (e.g., spousalAlign* answers
+// persisting after filingStatus changes from mfj to single).
+function cascadeClearOrphanedAnswers() {
+  let removed = true, safetyCounter = 0;
+  // Loop until stable — clearing one answer can hide another question.
+  while (removed && safetyCounter++ < 10) {
+    removed = false;
+    for (const sec of QUESTIONS) {
+      const sectionActive = !sec.showIf || sec.showIf(state.answers);
+      for (const q of sec.qs) {
+        if (!(q.id in state.answers)) continue;
+        const questionActive = sectionActive && (!q.showIf || q.showIf(state.answers));
+        if (!questionActive) {
+          delete state.answers[q.id];
+          removed = true;
+        }
+      }
+    }
+  }
+}
 function isSectionComplete(section) {
   return getActiveQuestions(section).every(q => {
     const v = state.answers[q.id];
@@ -5730,9 +5753,12 @@ function computePlan() {
     [/budget|cash-flow|cash flow|tracking/i, 'high'],
     [/eliminate high-interest debt|moderate-interest debt/i, 'high'],
     [/start formal decumulation|advanced estate planning|business succession|S-corp status|tax-loss harvesting|Plan for the Section 199A|Evaluate state-domicile change|Evaluate the Cash Balance DB plan/i, 'high'],
+    // Multi-week / multi-month sustained-effort items that were silently
+    // defaulting to 'low' and disrupting Tier-1 ease-of-starting ordering.
+    [/Audit your IDR|servicer-history dispute|CFPB complaint|payment history/i, 'high'],
     [/build the full emergency fund|Build your full emergency fund/i, 'med'],
     [/quarterly estimated tax|Get health insurance|income-driven repayment|long-term disability|term life|disability gap|self-employed retirement plan|business insurance|estate documents|moderate-interest debt|529 plan|Roth catch-up|Mega Backdoor|LTC insurance|Plan for Medicaid|sweet spot|legacy preservation|hybrid|§1202 QSBS positioning|Open a taxable|Plan §83\(b\) filing ahead|Read the family-wealth strategies catalog|Read the adjacent-vehicles catalog|Apply for ACA Premium Tax Credit|Opt out of debit-card overdraft|Check EITC eligibility|Before any cost-seg-firm sales call|Switch from SAVE forbearance|Run safety-net program eligibility/i, 'med'],
-    [/Plan your Social Security|decumulation planning/i, 'med'],
+    [/Plan your Social Security|decumulation planning|partial Roth conversions/i, 'med'],
     [/.+/, 'low'],  // default — explicit one-decision actions and short-form items
   ];
   function inferFriction(title) {
@@ -5827,6 +5853,7 @@ function renderDiagnostic() {
       } else {
         state.answers[qid] = val;
       }
+      cascadeClearOrphanedAnswers();
       savePersistedState();
       renderDiagnostic();
     };
@@ -5896,7 +5923,7 @@ function renderPlanSynthesis(a, plan) {
     incomeLabels.length === 1 ? incomeLabels[0] :
     incomeLabels.slice(0, -1).join(', ') + ' and ' + incomeLabels[incomeLabels.length - 1];
   const filing = ({mfj: 'married filing jointly', single: 'single', hoh: 'head of household', mfs: 'married filing separately'}[a.filingStatus]) || 'household';
-  const bracket = ({low: 'low (10–12% federal marginal)', mid: 'middle (22–24%)', high: 'high (32%+)'}[a.taxBracket]) || 'unspecified-bracket';
+  const bracketLabel = ({low: 'low (10–12% federal marginal)', mid: 'middle (22–24%)', high: 'high (32%+)'}[a.taxBracket]) || 'unspecified-bracket';
   const ageStr = a.ageBracket ? `age ${a.ageBracket}` : 'age unspecified';
   const horizonMap = {'<5': 'within 5 years of retirement', '5-10': '5–10 years from retirement', '10-20': '10–20 years from retirement', '20-30': '20–30 years from retirement', '30+': '30+ years from retirement', 'already': 'already in retirement'};
   const horizonStr = horizonMap[a.yearsToRetirement] || 'with horizon unspecified';
@@ -5905,14 +5932,14 @@ function renderPlanSynthesis(a, plan) {
   const nwStr = nwMap[a.netWorth] || 'net worth band unspecified';
 
   // ---- Paragraph 1: situation ----
-  const p1 = `You are a ${ageStr} ${incomeStr} household, ${filing}, in the ${bracket} bracket, ${dependentsStr}, ${nwStr}, ${horizonStr}.`;
+  const p1 = `You are a ${ageStr} ${incomeStr} household, ${filing}, in the ${bracketLabel} bracket, ${dependentsStr}, ${nwStr}, ${horizonStr}.`;
 
   // ---- Paragraph 2: binding constraints / risks ----
   const constraints = [];
   if (a.budgetTracking === 'no' || a.budgetTracking === 'sometimes') {
     constraints.push('the absence of consistent cash-flow tracking, which makes every downstream optimization a guess');
   }
-  if (a.emergencyFund === 'no' || a.emergencyFund === 'partial') {
+  if (a.emergencyFund === '0' || a.emergencyFund === '<1mo' || a.emergencyFund === '1-3mo') {
     constraints.push('an emergency fund that is not yet at the 3–6 month threshold the framework treats as the precondition for higher-return moves');
   }
   if (a.highInterestDebt === 'yes') {
@@ -7879,6 +7906,7 @@ document.querySelectorAll('#bracket-selector button').forEach(btn => {
 // switchView is wrapped — any failure resets to Welcome and clears storage so a
 // corrupt blob can never permanently brick the app.
 loadPersistedState();
+cascadeClearOrphanedAnswers();
 if (state.answers && Object.keys(state.answers).length > 0 && state.view && state.view !== 'welcome') {
   try {
     document.getElementById('view-tabs').style.display = 'flex';
