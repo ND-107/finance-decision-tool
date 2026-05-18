@@ -4749,6 +4749,7 @@ let state = {
 };
 
 let planCache = null;
+let planRenderedHash = null; // hash of state.answers the rendered Plan DOM matches
 
 // localStorage persistence (v1). Survives refresh; openActions/openNodes stay
 // in-memory (UI state, not worth persisting). Bump the key suffix if schema breaks.
@@ -4764,6 +4765,23 @@ function hashKey(s) {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
   return 'k' + h.toString(36);
+}
+
+// Memoized debounce wrapper. Calling __debounce(fn, ms) on the same fn returns
+// the same wrapper so multiple input bindings (e.g., ci-pv, ci-pmt, ci-rate
+// all calling calcCompound) share a timer — typing across any of them
+// coalesces to a single calc invocation after the user stops.
+const _debouncedCache = new WeakMap();
+function __debounce(fn, ms) {
+  if (_debouncedCache.has(fn)) return _debouncedCache.get(fn);
+  let timer;
+  const wrapped = function() {
+    const args = arguments, self = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(self, args), ms);
+  };
+  _debouncedCache.set(fn, wrapped);
+  return wrapped;
 }
 
 function savePersistedState() {
@@ -5848,11 +5866,16 @@ function renderDiagnostic() {
   document.getElementById('diagnostic-content').innerHTML = content;
 
   // Wire option clicks + keyboard (Enter/Space activate, matching radio/checkbox semantics).
+  // Perf: when the click changes only this question's answer (no cascade-clear,
+  // no showIf side-effects elsewhere), do an in-place class+aria update instead
+  // of a full renderDiagnostic. Falls back to full re-render when the answer
+  // gates other questions and cascadeClearOrphanedAnswers removed entries.
   document.querySelectorAll('.option').forEach(opt => {
     const activate = () => {
       const qid = opt.dataset.qid;
       const val = opt.dataset.val;
       const type = opt.dataset.type;
+      const before = JSON.stringify(state.answers);
       if (type === 'multi') {
         const current = state.answers[qid] || [];
         if (current.includes(val)) {
@@ -5865,7 +5888,31 @@ function renderDiagnostic() {
       }
       cascadeClearOrphanedAnswers();
       savePersistedState();
-      renderDiagnostic();
+      // Did anything besides this question change?
+      const beforeObj = JSON.parse(before);
+      const afterObj = state.answers;
+      const allKeys = new Set([...Object.keys(beforeObj), ...Object.keys(afterObj)]);
+      let onlyThisChanged = true;
+      for (const k of allKeys) {
+        if (k === qid) continue;
+        if (JSON.stringify(beforeObj[k]) !== JSON.stringify(afterObj[k])) { onlyThisChanged = false; break; }
+      }
+      if (onlyThisChanged) {
+        // Partial update: this question's siblings only + Next-button state.
+        opt.parentElement.querySelectorAll('.option').forEach(sib => {
+          const isSelected = type === 'multi'
+            ? (state.answers[qid] || []).includes(sib.dataset.val)
+            : state.answers[qid] === sib.dataset.val;
+          sib.classList.toggle('selected', isSelected);
+          sib.setAttribute('aria-checked', String(isSelected));
+        });
+        const activeSections = getActiveSections();
+        const currentSection = activeSections[state.diagSection];
+        const nextBtn = document.getElementById('diag-next');
+        if (nextBtn && currentSection) nextBtn.disabled = !isSectionComplete(currentSection);
+      } else {
+        renderDiagnostic();
+      }
     };
     opt.addEventListener('click', activate);
     opt.addEventListener('keydown', (e) => {
@@ -6065,8 +6112,19 @@ function renderPlanSynthesis(a, plan) {
 }
 
 function renderPlan() {
+  // Short-circuit: if state.answers hasn't changed since last render, the DOM
+  // is still correct (openActions toggles don't go through renderPlan; they
+  // class-mutate in place). Skip the 5-region innerHTML rewrite + N-listener
+  // re-wire entirely. Re-runs whenever answers change.
+  const answersHash = JSON.stringify(state.answers);
+  if (planRenderedHash === answersHash && planCache &&
+      document.getElementById('plan-stages').innerHTML !== '') {
+    srAnnounce('Your personalized plan is ready. ' + planCache.actions.length + ' action' + (planCache.actions.length === 1 ? '' : 's') + '.');
+    return;
+  }
   const plan = computePlan();
   planCache = plan;
+  planRenderedHash = answersHash;
   const a = state.answers;
 
   // Header
@@ -7489,15 +7547,15 @@ function calcLifestyleCreep() {
 function wireSpendingLifestyleCalculators() {
   ['dc-amount','dc-fed','dc-state','dc-fica'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcDCFSA);
+    if (el) el.addEventListener('input', __debounce(calcDCFSA, 80));
   });
   ['sub-monthly','sub-years','sub-rate'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcSubscription);
+    if (el) el.addEventListener('input', __debounce(calcSubscription, 80));
   });
   ['lc-income','lc-rate','lc-creep','lc-return'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcLifestyleCreep);
+    if (el) el.addEventListener('input', __debounce(calcLifestyleCreep, 80));
   });
 }
 
@@ -7603,15 +7661,15 @@ function renderPortfolioTheory() {
 function wirePortfolioCalculators() {
   ['er-pv','er-pmt','er-years','er-gross','er-low','er-high'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcExpenseRatio);
+    if (el) el.addEventListener('input', __debounce(calcExpenseRatio, 80));
   });
   ['ef-sret','ef-svol','ef-bret','ef-bvol','ef-corr','ef-alloc'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcEfficientFrontier);
+    if (el) el.addEventListener('input', __debounce(calcEfficientFrontier, 80));
   });
   ['sh-aret','sh-avol','sh-bret','sh-bvol','sh-rf'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcSharpe);
+    if (el) el.addEventListener('input', __debounce(calcSharpe, 80));
   });
 }
 
@@ -7780,15 +7838,15 @@ function renderZeitgeistLifestyle() {
 function wireZeitgeistCalculators() {
   ['coast-pv','coast-target','coast-years','coast-rate','coast-contrib'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcCoastFIRE);
+    if (el) el.addEventListener('input', __debounce(calcCoastFIRE, 80));
   });
   ['div-pv','div-need','div-a-yield','div-a-apprec','div-b-yield','div-b-apprec'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcDividend);
+    if (el) el.addEventListener('input', __debounce(calcDividend, 80));
   });
   ['dz-income','dz-age','dz-retire','dz-life','dz-savings','dz-return'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcDieWithZero);
+    if (el) el.addEventListener('input', __debounce(calcDieWithZero, 80));
   });
 }
 
@@ -7796,25 +7854,25 @@ function wireZeitgeistCalculators() {
 function wireSpendingEssentialsCalculators() {
   ['rb-price','rb-down','rb-rate','rb-tax','rb-maint','rb-rent','rb-opp','rb-years'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcRentVsBuy);
+    if (el) el.addEventListener('input', __debounce(calcRentVsBuy, 80));
   });
   ['tco-a-price','tco-a-op','tco-b-price','tco-b-op','tco-years','tco-rate'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcVehicleTCO);
+    if (el) el.addEventListener('input', __debounce(calcVehicleTCO, 80));
   });
   ['hp-hdhp-prem','hp-hdhp-ded','hp-hdhp-oop','hp-ppo-prem','hp-ppo-ded','hp-ppo-oop','hp-spend','hp-hsa','hp-tax'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcHDHPvsPPO);
+    if (el) el.addEventListener('input', __debounce(calcHDHPvsPPO, 80));
   });
   ['dime-debt','dime-income','dime-years','dime-mortgage','dime-edu'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcDIME);
+    if (el) el.addEventListener('input', __debounce(calcDIME, 80));
   });
   ['di-income','di-group-cap','di-group-taxable','di-target','di-tax','di-years'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
-      el.addEventListener(ev, calcDI);
+      el.addEventListener(ev, __debounce(calcDI, 80));
     }
   });
 }
@@ -7823,37 +7881,37 @@ function wireSpendingEssentialsCalculators() {
 function wireMathCalculators() {
   ['ci-pv', 'ci-pmt', 'ci-rate', 'ci-years'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcCompound);
+    if (el) el.addEventListener('input', __debounce(calcCompound, 80));
   });
   ['r72-rate'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcRule72);
+    if (el) el.addEventListener('input', __debounce(calcRule72, 80));
   });
   ['sr-rate', 'sr-return', 'sr-wr', 'sr-ss', 'sr-expenses'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcSavingsRate);
+    if (el) el.addEventListener('input', __debounce(calcSavingsRate, 80));
   });
   ['rn-nominal', 'rn-inflation'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcRealNominal);
+    if (el) el.addEventListener('input', __debounce(calcRealNominal, 80));
   });
   ['seq-pv', 'seq-wd', 'seq-strategy'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
-      el.addEventListener(ev, calcSequence);
+      el.addEventListener(ev, __debounce(calcSequence, 80));
     }
   });
   ['muni-yield', 'muni-treasury', 'muni-fed', 'muni-state', 'muni-instate', 'muni-niit'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
-      el.addEventListener(ev, calcMuniTEY);
+      el.addEventListener(ev, __debounce(calcMuniTEY, 80));
     }
   });
   ['al-pv', 'al-years', 'al-stock', 'al-bond', 'al-reit', 'al-trad', 'al-roth', 'al-tax', 'al-sret', 'al-bret', 'al-rret', 'al-ord', 'al-future-ord', 'al-ladder-rate', 'al-ltcg'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcAssetLocation);
+    if (el) el.addEventListener('input', __debounce(calcAssetLocation, 80));
   });
   ['hc-pv', 'hc-wd', 'hc-stock', 'hc-years', 'hc-strategy',
    'hc-curage', 'hc-ss1', 'hc-ss1-age', 'hc-ss2', 'hc-ss2-age', 'hc-spouse-age',
@@ -7861,7 +7919,7 @@ function wireMathCalculators() {
     const el = document.getElementById(id);
     if (el) {
       const ev = el.tagName === 'SELECT' ? 'change' : 'input';
-      el.addEventListener(ev, calcHistoricalCycles);
+      el.addEventListener(ev, __debounce(calcHistoricalCycles, 80));
     }
   });
 }
