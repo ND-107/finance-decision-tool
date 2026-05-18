@@ -2520,6 +2520,78 @@ CLAIMS = [
      "Session 2 Behavioral economist review (Phase 6-again) finding #12; CL381 literacy framing; Fernandes-Lynch-Netemeyer 2014",
      "DEFERRED to Phase 7.5: add one Welcome-view sentence — 'This tool is built on the assumption that information alone rarely changes behavior — the highest-leverage moves are the ones with one decision + automation behind them.' Sets reader expectations before the literacy probe rather than after.",
      "Expectation-setting addition; not load-bearing on current behavior."),
+
+    # ============================================================
+    # Phase 6-again — Post-Phase-7 original-5-personas review
+    # Session 3: Consumer-finance advocate (solo)
+    # ============================================================
+
+    ("CL448", "Plan view computePlan (EITC wiring)", "EITC — the largest single anti-poverty transfer in the US tax code with documented ~20% non-claim rate per IRS/TIGTA and avg refund $2,500-$7,400 — had zero Plan-action surface; for a $40K-AGI household with kids it dwarfs Saver's Credit in dollar magnitude",
+     "META", "CON", "CORRECTED", "A",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #1; IRC §32 (EITC); IRS/TIGTA non-claim rate research; VITA program (irs.treasury.gov/freetaxprep); CFPB / state-AG enforcement of RAL/RAC products",
+     "APPLIED: computePlan() extended with EITC Plan action 2026-05-17 (P6+ Session 3 Consumer-advocate review #1) — fires on bracket()==='low' + active earner (non-retired income type). Stage 'now', tagged 'critical', friction 'med'. Reason text branches on dependents (parent vs childless) with the actual 2026 EITC magnitudes (~$4,200 / $7,000 / $7,830 for 1/2/3+ qualifying children; ~$600-$650 for childless aged 25-64). Action steps: IRS EITC Assistant, VITA preparation (via 211 or irs.treasury.gov/freetaxprep), avoid RAL/RAC storefront products, also check CTC refundable portion via Schedule 8812.",
+     "Closes the framework's largest distributional gap at the Plan-action layer — body prose acknowledged EITC matters but no action surfaced it."),
+
+    ("CL449", "Plan view computePlan (ACA-PTC wiring)", "ACA Premium Tax Credit lived only in body prose (W2:1.3, Contractor §5, AdvStrat §5) — no Plan action surfaced it for SE/contractor filers at low/mid bracket with variable income, despite existing W2:1.3 prose documenting $5K-$20K/yr typical magnitude for eligible band",
+     "META", "CON", "CORRECTED", "A",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #2; IRC §36B (Premium Tax Credit); ARPA / IRA subsidy extensions; healthcare.gov + state marketplaces; CMS short-term limited-duration plan warnings",
+     "APPLIED: computePlan() extended with ACA-PTC Plan action 2026-05-17 (P6+ Session 3 Consumer-advocate review #2) — fires on (isSE() || hasIncome('w2')) && bracket() !== 'high' && (healthInsurance no/minimal OR SE with variable/concentrated income stability). Stage 'now', tagged 'critical', friction 'med'. Reason text walks marketplace + advance PTC mechanics with income-projection workflow (Form 8962 year-end true-up, mid-year update); explicit warning against short-term limited-duration plans marketed as ACA alternatives.",
+     "Removes the SE-with-variable-income silent-uninsured failure mode; high-dollar federal transfer now surfaces in plan output."),
+
+    ("CL450", "Plan view computePlan (overdraft opt-out wiring)", "Spending Essentials §8 overdraft / structural-fee callout (CL394) was excellent prose but completely orphaned from Plan view; $40K household paying $400/yr overdraft fees has higher NPV-per-effort than Saver's Credit and the framework's body prose acknowledged this but didn't route there",
+     "META", "CON", "CORRECTED", "A",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #5; 12 CFR §1005.17 (Reg E debit-card overdraft opt-out); CFPB overdraft-fee supervisory data; CL394 audit row + Spending Essentials §8",
+     "APPLIED: computePlan() extended with overdraft opt-out Plan action 2026-05-17 (P6+ Session 3 Consumer-advocate review #5) — fires on bracket()==='low' OR low-EF buckets (0 / <1mo / 1-3mo). Stage 'now', tagged 'critical', friction 'med'. Reason text walks Reg E opt-out mechanics, named no-overdraft providers (Chime / Varo / Ally / Capital One 360 / credit unions with verify-current-policy caveat), EWA-fee-pattern warnings (Brigit / MoneyLion / Dave per-advance fees as small-dollar credit CFPB-regulated), and avoid payday / title / tip-based-EWA structures. Cross-link to Spending Essentials §8 for the full structural-fee landscape.",
+     "Closes the highest-NPV-per-effort Plan gap for the income tier the framework's behavioral economist flagged as under-served."),
+
+    ("CL451", "CL441 Saver's Credit Plan action (tier-conditional framing)", "CL441 Saver's Credit Plan action led with '$1,000 federal tax credit' example, but the diagnostic's 'low' band ($50K single / $100K joint) is over-inclusive for the 50% tier; a $45K-AGI filer expecting $1,000 may get $200 (10% tier) or $0 (above $39.25K phase-out)",
+     "META", "CON", "CORRECTED", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #3; IRC §25B tier structure",
+     "APPLIED: CL441 Plan action reason text refined 2026-05-17 (P6+ Session 3 Consumer-advocate review #3) — leads with '$200-$1,000 depending on AGI band, not a flat $1,000' framing; surfaces the $40K-AGI single filer = 10% tier ($200) example explicitly; preserves the 'even the 10% tier exceeds one-form effort cost' justification for the over-inclusive gate.",
+     "Calibration fix — expectations now match actual eligibility math."),
+
+    ("CL452", "AdvStrat §4 real estate (audience-fit opening callout)", "CL440 added view-level 'most should skip' framing but §4 body opened with 'the largest single source of Phase-7 strategies' and STR-loophole subsection read as recommending engagement — the aggressive IRS audit posture + commission-channel cost-seg ecosystem warrant section-level audience-fit framing",
+     "META", "CON", "CORRECTED", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #6; CL440 view-level skip framing convention",
+     "APPLIED: AdvStrat §4 prepended with audience-fit callout 2026-05-17 (P6+ Session 3 Consumer-advocate review #6) — names two legitimate audiences (HNW with $500K+ structuring RE portfolio, W-2 earner with non-W-2-spouse structure willing to maintain time logs), explicitly warns commission-channel + IRS-audit-defense-cost frame for households outside those audiences. Section-level framing now matches §6's adjacent-vehicles posture.",
+     "Aligns §4 body with view-level CL440 framing."),
+
+    ("CL453", "AdvStrat §6 (§831(b) sales-channel warning)", "§6 §831(b) micro-captive section was excellent on IRS enforcement posture but didn't name the captive-management-promoter sales-channel pattern — yet captive-promoter cold-calls drive most of the Avrahami / Reserve Mechanical / Caylor loss-case origination",
+     "META", "CON", "CORRECTED", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #8; IRS settlement-program data on §831(b) participant-promoter concentration",
+     "APPLIED: AdvStrat §6 §831(b) paragraph extended 2026-05-17 (P6+ Session 3 Consumer-advocate review #8) — added explicit sales-channel red-flag: cold calls, webinar invitations, conference 'tax strategy' pitches all warrant treatment as red flags; legitimate use case comes from insurance counsel already engaged for substantive operational risk, not from sales channel selling the structure itself.",
+     "Parity with §6 OZ-fund and SDIRA commission-channel warnings."),
+
+    ("CL454", "AdvStrat §8 fiduciary critique (consumer-remedies bullet)", "§8 fiduciary-vs-suitability section named SEC / FINRA / DOL fiduciary-rule litigation but omitted consumer-side enforcement infrastructure — CFPB complaint portal (which has jurisdiction over banks / brokers / many advisors), state AG consumer-protection bureaus (Navient $1.85B was multistate AG), state securities regulators (nasaa.org), NACA / PIABA / NCLC attorney directories",
+     "META", "CON", "CORRECTED", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #9; consumerfinance.gov/complaint; nasaa.org; consumeradvocates.org (NACA); piaba.org; nclc.org; FINRA arbitration data per PIABA",
+     "APPLIED: AdvStrat §8 added fifth practical-filtering bullet 2026-05-17 (P6+ Session 3 Consumer-advocate review #9) — consumer remedies when filters fail. Named complaint portals (CFPB consumerfinance.gov/complaint with 15-day response window; state AG consumer-protection bureaus; NASAA state-securities-regulator directory; FINRA arbitration with PIABA's ~60-70% industry-respondent win-rate calibration). Named attorney directories (NACA for consumer-finance disputes; PIABA for FINRA arbitration; NCLC for low-income consumer-finance practice). Frames consumer-protection apparatus as recovery path when filters fail, not as substitute for front-end diligence.",
+     "Closes §8's consumer-side enforcement-infrastructure gap."),
+
+    ("CL455", "Plan view renderPlanSynthesis (CL390 structural-conditions in Plan)", "CL390 structural-conditions framing applied at Welcome view but not surfaced in renderPlanSynthesis — low-bracket user who lands directly on diagnostic results never sees the structural-conditions calibration honesty, framing slides toward implicit individual-blame",
+     "META", "CON", "CORRECTED", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #11; CL390 Phase 6 audit row; existing Welcome-view structural-conditions paragraph",
+     "APPLIED: renderPlanSynthesis structuralBlock added 2026-05-17 (P6+ Session 3 Consumer-advocate review #11) — fires when bracket()==='low' and surfaces structural-conditions framing in the synthesis (wage stagnation, banking-desert geography, racial/gender wealth gaps, US tax-policy regressivity, fee-extraction patterns). Names what the Plan can help with (EITC, ACA-PTC, Saver's Credit, overdraft opt-out, studentaid.gov audit) vs what individual optimization can't fix (the structural conditions themselves require policy / collective action). Honest boundary-drawing rather than pretending the structural conditions don't exist.",
+     "Calibration honesty now travels with the Plan output for the under-served audience."),
+
+    # Session 3 backlog items (deferred to Phase 7.5)
+    ("CL456", "AdvStrat §7 IDR (SAVE-forbearance dedicated callout + diagnostic Q)", "SAVE-forbearance-counts-don't-toward-forgiveness language is correctly hedged inside the IBR bullet but for a borrower currently in SAVE forbearance every month has direct dollar cost; deserves dedicated callout + currentIDRPlan diagnostic Q + SAVE-specific critical Plan action",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #10",
+     "DEFERRED to Phase 7.5: extract SAVE-forbearance content to dedicated callout block in AdvStrat §7; add currentIDRPlan diagnostic Q (with SAVE option) and SAVE-specific critical Plan action gated on it. Current PSLF + studentaid.gov-audit actions cover the substance but don't have the SAVE-specific urgency surface.",
+     "SAVE-borrower-specific urgency surface."),
+
+    ("CL457", "Diagnostic income-volatility safety-net branch (SNAP/Lifeline/LIHEAP/Medicaid expansion)", "No diagnostic question or Plan action surfaces social-safety-net programs for low-bracket variable-income households — SNAP eligibility (snap-step1.usda.gov), Lifeline phone/internet (lifelinesupport.org, post-2024-ACP-expiration), LIHEAP energy assistance (energyhelp.us / 211), state Medicaid expansion eligibility",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #12; existing snap-step1 / lifelinesupport / energyhelp / Medicaid-expansion infrastructure",
+     "DEFERRED to Phase 7.5: add coherent 'safety-net surface' block — diagnostic Q on income volatility + safety-net engagement status, then Plan actions for each eligible program. Acknowledge ACP-2024-expiration with Lifeline as continued program. Better as a coherent block than retrofitting individually.",
+     "Coherent safety-net surface design — depth-add for under-served audience."),
+
+    ("CL458", "Plan view + Diagnostic (rental real estate Q, defensive routing)", "Persona suggested promoting CL446 from backlog — add diagnostic Q for rental property / STR exploration that fires a DEFENSIVE Plan action (read AdvStrat §4 + §8, verify fee-only fiduciary in writing before any cost-seg-firm sales call) rather than routing users into the strategy",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 3 Consumer-advocate review (Phase 6-again) finding #7; CL446 already in P7.5 backlog",
+     "DEFERRED to Phase 7.5: when CL446 ships (rental real estate diagnostic Q), frame the Plan action defensively per Session 3 finding — route into the audience-fit + sales-channel warnings, not into the strategy execution. The §4 audience-fit callout shipped today (CL452) prepares this; the routing Q + defensive Plan action remain to ship together as one unit.",
+     "Defensive-routing framing for when CL446 ships."),
 ]
 
 # Build Excel workbook
