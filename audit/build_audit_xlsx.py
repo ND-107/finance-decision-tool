@@ -75,11 +75,11 @@ CLAIMS = [
      "TAX-FIGURE", "CON", "PASS", "A",
      "IRS Notice 2025-67 (mirrors §415(c) DC limit)", "", "Verified."),
 
-    ("CL016", "Business:3.1", "2026 SIMPLE IRA: $17,000 + $3,850 catch-up",
-     "TAX-FIGURE", "CON", "FAIL", "",
-     "IRS Notice 2025-67 (Nov 2025)",
-     "SIMPLE catch-up for MOST plans in 2026 is $4,000 (up from $3,500). The $3,850 applies ONLY to 'certain applicable SIMPLE plans' that elect higher limits under SECURE 2.0. Correct to: '$17,000 + $4,000 catch-up for most SIMPLE plans; $18,100 + $3,850 catch-up for certain applicable SIMPLE plans under SECURE 2.0; super catch-up at 60-63 is $5,250 in either case.'",
-     "Material correction needed in Business:3.1 node."),
+    ("CL016", "Business:3.1, Contractor:3.1", "2026 SIMPLE IRA contribution + catch-up limits",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "IRS Notice 2025-67 (Nov 2025); SECURE 2.0 §§109, 117",
+     "APPLIED: Business:3.1 already had correct treatment ($17,000 + $4,000 standard; $18,100 + $3,850 §117 enhanced; $5,250 super catch-up at 60-63). Contractor:3.1 expanded 2026-05-17 (P6.5+ Session 1 Tax Atty review) from bare '$17,000 in 2026' to the full standard / §117-enhanced / super-catch-up treatment with cross-link to Business:3.1.",
+     "Both nodes now internally consistent."),
 
     ("CL017", "W2:8.1", "High-earner Roth catch-up triggers at $150,000 FICA wages (prior year)",
      "STATUTORY", "CON", "PASS", "A",
@@ -2256,6 +2256,150 @@ CLAIMS = [
      "Pfau & Kitces (2014) JFP 'Reducing Retirement Risk with a Rising Equity Glide Path' on SS bridge; Kotlikoff/Mahaney/Carmel on SS claiming optimization; SSA POMS RS 00615.105 (actuarial reduction); SSA 'Delayed Retirement Credits' (8%/yr past FRA, max 70)",
      "APPLIED: historicalCyclesSimulate extended with optional `streams` parameter — array of {annualReal, startYearOffset} entries that the engine sums per simulation year and subtracts from the withdrawal need before drawing from the portfolio (strategy adjustments now compare against portfolio-only need, not headline spending need). Strictly additive to the MC swap interface; external backends may ignore the field and produce pre-CL329 portfolio-only behavior. New §7 calculator inputs: current age, primary SS PIA at FRA + claiming age (dropdown 62-70 with SSA factors), spouse SS PIA + claiming age + spouse current age, pension/SPIA/QLAC annual + start age. New SSA_CLAIM_AGE_FACTOR table maps claim age to PIA fraction (62=70%, 67=100% FRA, 70=124%) per SSA POMS; linear approximation for ages between standard. calcHistoricalCycles builds the streams array from the new inputs, calls the simulator, and renders an 'overlay applied' summary identifying each active stream and the total lifetime real-dollar income contribution. When no streams are active (all SS/pension inputs at 0), preserves the explicit 'portfolio-only — household-level overlay not applied' framing. Model-limits note updated to reflect that SS / pension / annuity overlay is now modeled (with the simplified-actuarial-table caveat); renderPlanSynthesis '<5/5-10/already retired' horizon paragraphs updated to instruct users to enter overlay inputs rather than treat outputs as portfolio-only. Runtime-tested: portfolio-only case unchanged at 95.6% (no regression); same household with $48K SS overlay starting year 2 → 100% success; SSA factors correctly produce 70%/100%/124% at ages 62/67/70.",
      "Phase 6.5 — Sprint 1A. Originally Session-1 CFP CL329 finding; the biggest single P6.5 item per the CFP."),
+
+    # ============================================================
+    # Phase 6-again — Post-Phase-7 original-5-personas review
+    # Session 1: Tax Attorney + CFP (paired)
+    # ============================================================
+
+    ("CL406", "Advanced strategies:2 family wealth (IDGT installment-sale)", "IDGT installment-sale note erroneously cited the §7872 AFR (below-market-loan section) instead of the §1274 AFR (debt instruments for property) — miscite invites IRS recharacterization of the entire note as a disguised gift",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §1274 (debt instruments for property; §1274(d) AFR publication); §483 (unstated-interest backstop); §7872 (below-market loans — NOT applicable to arm's-length installment notes)",
+     "APPLIED: AdvStrat §2 IDGT paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — replaced '§7872 applicable federal rate' with '§1274 applicable federal rate (§1274(d) monthly publication; §483 backstop for unstated interest)' and added explicit parenthetical noting §7872 is for below-market loans, not arm's-length installment notes.",
+     "Statutory-miscite class of error — high-priority fix per Tax Atty meta-take."),
+
+    ("CL407", "Advanced strategies:2 family wealth (custodial Roth)", "Child-employment payroll-tax exemption section conflated FICA and FUTA exemptions under §3121(b)(3)(A) — the two exemptions have different age thresholds (FICA under 18; FUTA under 21 per §3306(c)(5))",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §3121(b)(3)(A) (FICA exemption, under-18 children of sole-prop or parent-only-partner partnership); IRC §3306(c)(5) (FUTA exemption, under-21 children of same entity types)",
+     "APPLIED: AdvStrat §2 family-employment paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — split the cite: 'FICA exempt under §3121(b)(3)(A) for ages under 18; FUTA exempt under §3306(c)(5) for ages under 21' with explicit callout that 18-20-year-olds remain FICA-taxable but FUTA-exempt, plus the entity-eligibility restriction (sole-prop / parent-only-partner partnership only; S-corp / C-corp / LLC-as-corporation excluded).",
+     "Payroll-audit exposure on 18-20 year-olds — corrected before any reader acts on the original framing."),
+
+    ("CL408", "Advanced strategies:4 real estate (REPS)", "REPS section omitted the §469(c)(7)(A) aggregation election — without it each rental tested independently and most multi-property claims fail by-property (dominant Tax Court loss pattern per Gragg v. Comm'r 9th Cir. 2016)",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §469(c)(7)(A) (REPS aggregation election); Gragg v. Comm'r, 831 F.3d 1189 (9th Cir. 2016); Treas. Reg. §1.469-9(g) (election mechanics + irrevocability absent material change)",
+     "APPLIED: AdvStrat §4 REPS paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — added aggregation-election callout citing §469(c)(7)(A) and Gragg as the dominant Tax Court loss pattern, with the election-is-irrevocable-absent-material-change caveat flagged for CPA-level upfront analysis.",
+     "Saves REPS claimants from the by-property failure mode that produces most multi-property Tax Court losses."),
+
+    ("CL409", "Advanced strategies:6 adjacent vehicles (§831(b))", "§831(b) micro-captive section had the substance-failure warning but omitted the §831(b)(2)(B) diversification eligibility gating that the IRS uses as a frontline invalidation theory",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §831(b)(2)(B) (diversification eligibility — 20% no-single-policyholder OR 2-of-3 ownership-diversification test added by PATH Act 2015); Avrahami v. Comm'r 149 T.C. 144 (2017); Reserve Mechanical T.C. Memo 2018-86",
+     "APPLIED: AdvStrat §6 §831(b) paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — added explicit diversification-eligibility section noting either 20% no-single-policyholder or the 2-of-3 ownership-diversification test under PATH Act 2015 is required, with framing that most single-business-owner captives fail this prong at threshold (separate from substance failures).",
+     "Eligibility-gating failure mode now disclosed before substance failure."),
+
+    ("CL410", "Advanced strategies:6 adjacent vehicles (direct indexing)", "Direct-indexing exit-path enumeration incorrectly listed 'rare §1031-like events that don't generally apply' for public equities — §1031 has never applied to stocks or securities (pre-TCJA excluded under former §1031(a)(2)(B); post-TCJA real-property only)",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §1031 (real property only post-TCJA 2018); former §1031(a)(2)(B) (pre-TCJA explicit exclusion of stocks and securities)",
+     "APPLIED: AdvStrat §6 direct-indexing paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — replaced '§1031-like events' phrasing with explicit statement that no §1031-equivalent exists for public equities, narrowing exit paths to §1014 step-up at death and §170 charitable contribution at FMV.",
+     "Removes a misleading 'sometimes possible' framing on a path that has never existed for public equities."),
+
+    ("CL411", "Advanced strategies:6 adjacent vehicles (OZ funds)", "OZ-fund section's 'OBBBA changes restructured several OZ provisions' framing was too vague and omitted the track-record caveat that has emerged across post-2018 QOFs (wide return dispersion, non-trivial sponsor-failure rate)",
+     "REGULATORY", "CON", "CORRECTED", "B",
+     "IRC §1400Z-2 + OBBBA QOZ amendments (designation extension through 2033; 7-year +5% basis step-up eliminated after 12/31/2026 deferral window close; 30% rural-area +5-yr step-up for QROFs added); QOF track-record literature 2020-2025",
+     "APPLIED: AdvStrat §6 OZ-fund paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty + CFP review) — replaced vague OBBBA pointer with explicit changes (2033 designation extension, 7-year step-up elimination, 30% QROF rural-area step-up); added track-record caveat (wide dispersion, sponsor-failure rate, permanent-exclusion benefit only matters if investment appreciates; recommend running QOF expected-return analysis against after-tax pay-tax-now-and-diversify alternative).",
+     "Brings OZ-fund warning density up to §831(b)-comparable level per Session 1 CFP finding #12."),
+
+    ("CL412", "Advanced strategies:3 compound stack (Cash Balance)", "Cash Balance DB plan section stated contribution deduction was 'Schedule C above-the-line for sole proprietors' — for sole-prop, the owner-employee's own contribution is on Form 1040 Schedule 1 line 16, not Schedule C; only non-owner-employee contributions flow through Schedule C",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "Form 1040 Schedule 1 line 16 (self-employed retirement contribution deduction); Pub. 560 (retirement plans for small business)",
+     "APPLIED: AdvStrat §3 Cash Balance paragraph corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — distinguished entity-level deduction for S-corp/partnership/C-corp from sole-prop split (non-owner-employee contributions through Schedule C, owner's own contribution on Form 1040 Schedule 1 line 16). Preserves the SE-tax base correctly.",
+     "Return-prep error the IRS catches — inflated SE-tax exposure inappropriately under the original framing."),
+
+    ("CL413", "W2:3.1 (Roth match note)", "SECURE 2.0 §604 Roth-match note correctly flagged the permissive-not-mandatory status but omitted the §604(a) immediate-100%-vesting requirement (dominant plan-administration limit on adoption) and the W-2 Box 12 reporting",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "SECURE 2.0 §604(a) (Roth-elected employer contribution must be immediately 100% vested at contribution; plans with graded/cliff vesting cannot offer Roth match on non-vested portion); IRS Notice 2024-2 §604 implementation guidance; W-2 Box 12 Code AA/BB context",
+     "APPLIED: W2:3.1 Roth-match note corrected 2026-05-17 (P6+ Session 1 Tax Atty review) — added W-2 Box 12 reporting framing and the §604(a) immediate-100%-vesting requirement with explicit callout that vesting is the dominant plan-administration limit on §604 adoption.",
+     "Tax Atty meta-take called this the #1 plan-administration gotcha."),
+
+    ("CL414", "Plan view computePlan (QBI action)", "QBI Plan-action reason text still cited pre-correction thresholds ('above ~$242K single / ~$484K joint') even though the underlying Contractor:8.2 / Business:8.3 nodes were corrected to Rev. Proc. 2025-32 figures — created a Plan-vs-node inconsistency that would route high-income consultants to skip QBI planning prematurely",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "Rev. Proc. 2025-32 (2026 QBI phase-in $202K single / $404K MFJ; phase-out complete $277K single / $554K MFJ); IRC §199A",
+     "APPLIED: Plan view QBI action reason text corrected 2026-05-17 (P6+ Session 1 CFP review #3) — replaced '$242K single / $484K joint' with '$202K single / $404K joint phase-in; phase-out complete $277K single / $554K joint per Rev. Proc. 2025-32' and reframed coordination guidance from below-threshold avoidance to in-band-managed deduction-preservation.",
+     "Plan-vs-node consistency restored; bug had high behavioral cost (high-income consultant routes around QBI planning that actually applies)."),
+
+    ("CL415", "Contractor:3.1 (SIMPLE IRA)", "Contractor:3.1 SIMPLE IRA description was bare '$17,000 in 2026' — internally inconsistent with Business:3.1 which already had the correct treatment (standard $17,000 + $4,000; §117 enhanced $18,100 + $3,850; super catch-up $5,250)",
+     "TAX-FIGURE", "CON", "CORRECTED", "A",
+     "IRS Notice 2025-67 (2026 SIMPLE limits); SECURE 2.0 §§109, 117",
+     "APPLIED: Contractor:3.1 SIMPLE IRA description expanded 2026-05-17 (P6+ Session 1 Tax Atty review) to match Business:3.1's full treatment with cross-link. CL016 audit row simultaneously flipped FAIL → CORRECTED.",
+     "Closes the last pre-existing FAIL on SIMPLE IRA limits; both nodes now internally consistent."),
+
+    ("CL416", "Advanced strategies:7 IDR landscape (PAYE)", "PAYE 'closed to new enrollment as of 2024' framing was out-of-date — PAYE was partially reopened in 2024-2025 as a SAVE-alternative; bare-closed framing would cause borrowers to skip the plan that may be their best non-SAVE option",
+     "REGULATORY", "CON", "CORRECTED", "B",
+     "studentaid.gov PAYE enrollment status (2024-2025 SAVE-alternative reopening); Federal Register / Dept. of Education PAYE-enrollment notices",
+     "APPLIED: AdvStrat §7 PAYE bullet corrected 2026-05-17 (P6+ Session 1 CFP review #8) — updated to 'closed to new enrollment in 2024 but partially reopened in 2024-2025 as a SAVE-alternative' with verify-current-status-at-studentaid.gov framing and the 10%-vs-IBR's-10/15% + shorter-20-year-term comparison for eligible new-borrower Direct Loan holders.",
+     "$20-50K of forgiveness-cohort positioning per Session-1 CFP estimate."),
+
+    ("CL417", "Advanced strategies:7 IDR landscape (SAVE litigation)", "SAVE litigation status was correctly hedged but lacked an actionable verification path — borrowers in SAVE administrative forbearance accrue time that does NOT count for PSLF or IDR forgiveness; every month of inaction has direct dollar cost",
+     "REGULATORY", "CON", "CORRECTED", "B",
+     "studentaid.gov/announcements-events/save-court-actions (authoritative SAVE status); 2024-2025 SAVE litigation record",
+     "APPLIED: AdvStrat §7 SAVE bullet corrected 2026-05-17 (P6+ Session 1 CFP review #9) — added explicit framing that SAVE-enrolled borrowers were placed in administrative forbearance, forbearance months do NOT count toward PSLF / IDR, every month of inaction has dollar cost; named the authoritative status page (studentaid.gov/announcements-events/save-court-actions); IBR-or-PAYE-switch recommendation with interest-capitalization caveat.",
+     "Closes the actionability gap on the highest-dollar-cost-of-inaction item in the IDR landscape."),
+
+    ("CL418", "Plan view (PSLF action)", "PSLF Plan-action sequencing told user to 'enroll in IDR and pursue PSLF' but never told them which IDR plan, and the SAVE-litigation status meant the default REPAYE-was-SAVE enrollment may have auto-flipped them to forbearance or out of qualifying-payment status",
+     "META", "CON", "CORRECTED", "A",
+     "Session 1 CFP review (Phase 6-again); cross-links AdvStrat §7 post-SAVE decision tree",
+     "APPLIED: Plan view PSLF action revised 2026-05-17 (P6+ Session 1 CFP review #1) — retitled 'Verify your IDR plan + pursue PSLF (post-SAVE-litigation decision tree)'; reason text now explicitly walks user through: verify current IDR plan at studentaid.gov; switch to IBR or PAYE if SAVE is non-qualifying; audit payment history; cross-link to AdvStrat §7. PSLF-unsure branch also cross-links AdvStrat §7.",
+     "Closes the Plan-action-to-AdvStrat disconnection on the highest-NPV federal-loan action."),
+
+    ("CL419", "Advanced strategies:2 family wealth (FLP/IDGT prereq)", "FLP/IDGT walkthrough went straight from mechanics to 'engage specialist counsel' without surfacing the basic-estate-docs prerequisite (revocable trust, pour-over will, POAs, healthcare directives, beneficiary titling)",
+     "META", "CON", "CORRECTED", "B",
+     "Session 1 CFP review (Phase 6-again); CFP-practice sequencing convention",
+     "APPLIED: AdvStrat §2 family-wealth section gets a new prerequisite callout 2026-05-17 (P6+ Session 1 CFP review #4) ahead of the FLP/IDGT subsection — names the foundational estate-plan package (revocable trust, pour-over will, durable POA, healthcare directive, HIPAA, beneficiary titling) as a precondition, with the $2.5-5K typical attorney engagement cost framing and the CFP-will-refuse-to-engage-without-foundation discipline.",
+     "Prevents the dynastic-transfer-without-foundation sequencing error."),
+
+    ("CL420", "Advanced strategies:3 compound stack (CB income stability)", "Cash Balance DB plan sequencing correctly named CB-DB as post-Foundation/Match/IRA/HSA but omitted the income-stability prerequisite — DB-plan funding minimums are real obligations not waivable in down years; CB-DB becomes a forced-deposit liability for owners with income volatility",
+     "META", "CON", "CORRECTED", "B",
+     "Session 1 CFP review (Phase 6-again); IRC §412 minimum funding standards; CFP-practice income-volatility-gate convention",
+     "APPLIED: AdvStrat §3 CB-DB plan win/lose paragraph corrected 2026-05-17 (P6+ Session 1 CFP review #5) — added three-consecutive-years-stable-income gate to the 'when the math wins' criteria; expanded 'when it loses' with explicit single-client-concentration / project-driven-income / >25% trailing-three-year coefficient-of-variation framing; named that income-stability gate is upstream of every other CB-DB calculation.",
+     "Prevents the CB-DB-becomes-liability failure mode in the next downturn."),
+
+    ("CL421", "Advanced strategies:8 fiduciary critique (AUM fee structure)", "1% AUM-fee ceiling framing silently endorsed a structure that NAPFA / Garrett / XYPN have explicitly criticized for HNW asset levels; flat-fee alternative ($5-15K/yr) above ~$1.5M is the actual sophisticated-practice maximum",
+     "META", "CON", "CORRECTED", "B",
+     "NAPFA / Garrett Planning Network / XYPN flat-fee model documentation; Aspen Institute Financial Security Program research; CFP Board ethics commentary",
+     "APPLIED: AdvStrat §8 1% AUM-fee ceiling bullet corrected 2026-05-17 (P6+ Session 1 CFP review #7) — kept 1% as a ceiling but added the flat-fee alternative explicitly with the $5-15K/yr typical range, the conflict-of-interest-scaling-with-portfolio-size critique, the $50K-on-$5M-rarely-10x-the-complexity-of-$500K-delivery counterpoint, and the broker-dealer-revenue-modeling-legacy framing.",
+     "Aligns framework's posture with Olen / Bernstein consumer-advocate literature it already cites."),
+
+    ("CL422", "Plan view (sequence-risk horizonNote)", "Plan-view <10yr-to-retirement guidance referenced Math §7 historical-cycles simulator but didn't acknowledge the CL370 dataset swap shifted empirical outputs 1-5pp — household whose retirement decision turned on a 95% simulator output deserves to know methodology shifted",
+     "META", "CON", "CORRECTED", "B",
+     "Session 1 CFP review (Phase 6-again); CL370 audit row (Shiller dataset swap with documented 1-5pp empirical shift)",
+     "APPLIED: renderPlanSynthesis <10yr horizonNote corrected 2026-05-17 (P6+ Session 1 CFP review #10) — appended explicit disclosure that if user ran simulator before 2026-05-17 they should re-run any marginal-success-rate scenario, with the bond-heavy-allocations-show-1-5pp-downward-shifts framing.",
+     "Closes the Plan-view-vs-Math-§7 dataset-change disclosure gap."),
+
+    # Session 1 backlog items (deferred to Phase 7.5)
+    ("CL423", "AdvStrat:1 equity comp (RSU §83(b) statutory ineligibility)", "RSU §83(b) framing said 'most equity plans don't permit the election' which is correct but underspecified — statutory ineligibility (RSUs are unfunded promises, not §83(a) property until settlement) is more precise than plan-permission framing",
+     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "IRC §83(a) ('property transferred'); Treas. Reg. §1.83-3(a); §83(b) availability requires §83(a) property triggering event",
+     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) flagged that RSAs vs RSUs distinction deserves explicit statutory framing — current text reads as plan-permission limitation when the underlying issue is §83(a) property characterization. Useful for sophisticated readers who confuse RSAs and RSUs.",
+     "Depth-add, not load-bearing on any material decision."),
+
+    ("CL424", "AdvStrat:5 decumulation (NY statutory residency 184-day precision)", "NY statutory-residency 184-day claim and 'including JFK layover' framing was technically imprecise — threshold is >183 days (i.e., 184+) and NY Tax Law §605(b)(1)(B) / 20 NYCRR §105.20(c) provide a narrow transit-passenger exception",
+     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "NY Tax Law §605(b)(1)(B); 20 NYCRR §105.20(c) (transit-passenger exception)",
+     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) flagged the 'JFK layover' detail as litigation folklore overstating the rule. Replace with: 'more than 183 days (i.e., 184+) of any presence in NY; partial days count subject to a narrow transit-passenger exception under 20 NYCRR §105.20(c) for travelers passing through with no other NY activity.' Tightens precision but the broader trap-framing point stands.",
+     "Precision improvement; trap-framing accurate as written."),
+
+    ("CL425", "Contractor:8.2 / Business:8.3 (QBI W-2 wage / UBIA)", "Post-CL360 QBI threshold corrections complete, but framework could add the W-2 wage / UBIA-of-qualified-property limitation under §199A(b)(2) that governs non-SSTB businesses above the threshold",
+     "STATUTORY", "CON", "DEFERRED-P7.5", "A",
+     "IRC §199A(b)(2) (greater of 50% W-2 wages OR 25% W-2 + 2.5% UBIA limitation for non-SSTB above-threshold); Treas. Reg. §1.199A-1(d)",
+     "DEFERRED to Phase 7.5: Session 1 Tax Atty review (Phase 6-again) suggested rounding out the QBI picture for non-SSTB businesses above the threshold. CL360-corrected core numbers are load-bearing; this is a depth-add for the high-income non-SSTB owner case where W-2 wage and UBIA structure matters.",
+     "Depth-add; not load-bearing on the typical user case."),
+
+    ("CL426", "AdvStrat:4 STR loophole (recapture math callout reordering)", "STR-loophole audit-risk warning is present but tucked at end of long paragraph; the high-W2 reader sees '$100K-$200K in-year tax savings' up top and may miss the §1250 25%-recapture-at-sale math that erodes the time-value benefit for owners who won't hold to step-up at death",
+     "META", "CON", "DEFERRED-P7.5", "B",
+     "Session 1 CFP review (Phase 6-again); IRC §1250 recapture treatment",
+     "DEFERRED to Phase 7.5: Session 1 CFP review #6 — presentation reordering, not new content. Move the recapture-tax-at-sale callout earlier in the paragraph; consider standalone callout box framing 'Run the recapture math before accelerating.' Depth and warning content already present in current text.",
+     "Presentation improvement; warning content already covers the substance."),
+
+    ("CL427", "W2:5.1 HYSA reframe (floor-rate expectation)", "Post-CL079 HYSA reframe (Brave search 2026-05-17 + verify-against-rate-environment qualifier) is solid; suggestion to add Fed-funds-floor-rate expectation paragraph so framework's debt-vs-savings sequencing language ages well across the next 18-24 months",
+     "EMPIRICAL", "SOFT", "DEFERRED-P7.5", "C",
+     "Session 1 CFP review (Phase 6-again); Fed-funds projected-path commentary 2026",
+     "DEFERRED to Phase 7.5: Session 1 CFP review #11 — when (not if) Fed funds compress toward 2-2.5% over next 18-24 months, HYSA top-tier APYs will compress to 2.5-3.5% range; debt-vs-savings sequencing (moderateDebt threshold at line 4502 'above HYSA yield, below ~7%') will narrow correspondingly. No answer is wrong today; this is durability-of-framing improvement.",
+     "Aging-well improvement; not load-bearing on current state."),
+
+    ("CL428", "Plan view computePlan (Phase 7 routing)", "Zero diagnostic triggers routed qualified users to the Advanced Strategies view — Phase 7 read as a tax-nerd reference library rather than personalized planning output, inverting the tool's whole differentiation thesis vs. the r/personalfinance chart",
+     "META", "CON", "CORRECTED", "A",
+     "Session 1 CFP review (Phase 6-again) finding #2; CL400-CL405 Phase 7 view content",
+     "APPLIED: computePlan() extended with four new diagnostic-triggered Plan-view actions 2026-05-17 (P6+ Session 1 CFP review #2). (a) High-bracket SE → AdvStrat §3 Cash Balance DB + full §415 stack walkthrough with income-stability prerequisite framing. (b) High-bracket household with dependents → AdvStrat §2 family-wealth catalog (custodial Roth, 529 superfunding, FLP/IDGT with prereq). (c) High-bracket CA + liquidity event or Roth-ladder horizon → AdvStrat §5 state-domicile playbook with 12-months-ahead-of-event timing. (d) High-bracket + $2M+ net worth → AdvStrat §6 adjacent-vehicles catalog (direct indexing, §1256, OZ funds, §831(b), SDIRA). Existing §83(b) bridge action (CL366) updated to drop 'forthcoming in Phase 7' framing and cross-link AdvStrat §1 equity-comp catalog. Existing PSLF action (CL418 above) cross-links AdvStrat §7 IDR landscape.",
+     "Phase 7 content now surfaces in personalized plan output for qualified users, not just as nav-bar reference."),
 ]
 
 # Build Excel workbook
