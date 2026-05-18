@@ -9,8 +9,8 @@
 - HANDOFF.md rewrite — current state documented + 3-item optional roadmap (Phase 8 low-bracket reference depth, DMS international-data engineering, personal MC backend integration)
 
 **Open:**
-- ND asked about "an early list of functions or features we made" — clarification pending; candidates include EX1 catalog (built), various deferred backlogs (cleared), the 3-item HANDOFF roadmap
-- Optional 3-item roadmap available if framework growth resumes
+- ~~ND asked about "an early list of functions or features we made" — clarification pending~~ — thread closed without resolution via `/save-done` on 2026-05-18; ND opted to close the session rather than debug which list
+- Optional 3-item roadmap available in HANDOFF.md if framework growth resumes
 
 **Notes:**
 - Audit count discrepancy resolved at session end — actual final 447 claims (not 471 as one mid-sprint commit message claimed)

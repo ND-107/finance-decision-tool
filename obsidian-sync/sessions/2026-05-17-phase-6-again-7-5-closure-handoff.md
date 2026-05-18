@@ -4,8 +4,8 @@ date: 2026-05-17
 zone: coding
 project: finance-decision-tool
 title: "Phase 6-again + Phase 7.5 + final closure + HANDOFF rewrite — audit closed"
-status: in-progress
-next-step: "Clarify which early-conversation feature list ND was asking about (EX1 catalog? P6.5/P7.5 backlogs? something else?); if it turns out to be the 3-item HANDOFF roadmap, pick one to start (Phase 8 low-bracket reference depth recommended)."
+status: done
+next-step: "Thread closed. Framework is in audit-closed state (245 PASS / 202 CORRECTED / 0 DEFERRED / 0 FAIL across 447 claims); HANDOFF.md houses the 3-item optional roadmap if/when ND wants to extend the project."
 related:
   - "[[finance-decision-tool CHANGELOG]]"
   - "[[finance-decision-tool HANDOFF]]"
@@ -43,3 +43,7 @@ session-id: 2026-05-17-finance-decision-tool-phase-6-again-handoff
 
 - [[finance-decision-tool CHANGELOG]] — chronological log of every commit-level change since migration
 - [[finance-decision-tool HANDOFF]] — project orientation doc (just rewritten this session)
+
+## Update — 2026-05-18 (session closed via /save-done)
+
+Thread closed without resolving the early-list question from yesterday's exchange. ND chose to mark the session done rather than continue debugging which list they were remembering — fair call since the framework itself is in audit-closed state and nothing in the project requires further action. The 3-item roadmap in `docs/HANDOFF.md` remains as the resumption point if framework growth resumes; the conversation thread itself is complete.
