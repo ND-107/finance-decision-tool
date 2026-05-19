@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-18 — Public release to GitHub Pages + 5-persona bug audit + 5 fix bundles (A→E)
+
+**Done:**
+- Public release prep — PII scan (clean), `git filter-repo` rewrote all 37 commits from personal email to GitHub noreply form (`270592679+ND-107@users.noreply.github.com`), `LICENSE` (MIT + educational-tool disclaimer), `index.html` meta-refresh, README refresh with accurate headline numbers + Try-it section + Disclaimer
+- Public repo created at https://github.com/ND-107/finance-decision-tool (first public repo on the account); GitHub Pages enabled at https://nd-107.github.io/finance-decision-tool/; topics + homepage set
+- Stale-string follow-up commit — `flowchart.html:1918` "1928-2024" → "1928–2025" + `HANDOFF.md:21` file size / line count refresh
+- Plan-view crash fix (`bracket()` shadow in `renderPlanSynthesis`) + localStorage persistence (`LS_KEY = 'fdt:state-v1'`)
+- 5-persona parallel bug audit — 38 distinct findings (5 CRITICAL · 14 HIGH · 13 MED · 6 LOW) deduped from Adversarial QA / Defensive Reviewer / Accessibility / Security / Performance agents
+- **Bundle A (commit `8f4e73a`) — 5 CRITICAL fixes:** `loadPersistedState` validation cluster (defends against XSS via crafted LS, kills 5 audit findings); `state.openActions` keyed by stable `hashKey(nodeKey+title)` instead of array position (survives Edit-Answers + dedups Tier-1/stage twins); global `:focus-visible`; keyboard-reachable diagnostic options (`role=radio|checkbox`, `tabindex=0`, `aria-checked`, keydown handler); button semantics on `.action-toggle` + `aria-current` on view tabs
+- **Bundle B (commit `fd5857c`) — 4 HIGH correctness fixes:** dead `emergencyFund` check (was matching values that don't exist in schema); `FRICTION_RULES` missing patterns for IDR audit / servicer dispute / partial Roth conversions (were silently `'low'`, breaking Tier-1 ordering); local `bracket` renamed to `bracketLabel` in `renderPlanSynthesis` (tripwire removed); `cascadeClearOrphanedAnswers()` removes stale `showIf`-gated answers
+- **Bundle C (commit `2c1b3a2`) — 5 HIGH a11y polish:** contrast bump (`--muted` 4.22:1 → 5.02:1, `--accent` text uses → `--accent-dark` 4.61:1); `sr-status` live region + `srAnnounce()` + `focusViewHeading()` wired into switchView / renderDiagnostic / renderPlan; calculator label associations via post-init IIFE (`label.htmlFor`); `role="progressbar"` + `aria-valuenow/max` on diagnostic progress bar; SVG chart `aria-label` copied from wrapper to the `<svg>` element
+- **Bundle D (commit `d96080f`) — 3 HIGH perf fixes:** partial-update path for diagnostic option clicks (full re-render only when cascadeClear actually changed something); `__debounce(fn, ms)` with WeakMap memoization applied to all 22 calc input listeners (80 ms); `planCache` short-circuit via `planRenderedHash` (early-return on re-visit when answers unchanged)
+- **Bundle E (commit `c904cfc`) — 13 MED-tier fixes:** CSP `<meta>` (incl. `frame-ancestors 'none'`); `prefers-reduced-motion`; stronger `.selected` (4px left border + 14% overlay + bold); `<main>` + skip-link + view-section `aria-label`; retired+W-2 narrative dedupe; `$val` honors min/max attrs + ±1e12 cap; `min`/`max` added to all 124 number inputs via regex; `parseInt` NaN guard on SS claim ages; `applyDefaultIfFallback` tightened to empty-only; Personal-chart skipped-action match normalized; two-tab `'storage'` event listener; `LS_SCHEMA_VERSION = 1` with mismatch wipe; non-render-blocking Google Fonts (`media="print" onload`); action-card click delegation via idempotent `__actionDelegated` flag
+- Cumulative: 68 harness assertions across 5 bundles, all pass; `./verify.sh` green after every bundle; 7 commits pushed to `main`; all 7 GitHub Pages builds completed cleanly
+
+**Open:**
+- 6 LOW-tier audit items as optional follow-up — `switchView` missing dispatch for welcome / advanced-strategies, `getLiteracyScore` treats `'unsure'` as wrong, unused `criticalCount`/`nowCount` locals, `restrictedStockRecent='considering'` missing from synthesis, safety-net `'mid'` default footgun, Math view eager 8-calc chain
+- Launch-post drafts (Show HN / r/financialindependence / Bogleheads forum) ready in conversation; user to post when ready
+
+**Notes:**
+- 5-persona audit pattern was unusually effective — Defensive Reviewer caught the `bracket` shadow tripwire from reading code alone; Adversarial QA caught the `state.openActions` positional-idx bug by simulating Edit-Answers cycles; minimal overlap, clean synthesis
+- Node + `vm.Context` harness pattern caught every logic bug. Doesn't scale to layout-dependent bugs but is the right tool for single-file HTML with no build step.
+- `git filter-repo` rewrites tags too — `backup/pre-email-rewrite` ended up pointing at the rewritten tip, not the original. Tree content is unchanged by definition (email metadata only), but if a real rollback ref is needed for a filter-repo run, save the SHA outside the repo.
+- Final state on disk: 810 KB / 7,917 lines / ~260 KB gzipped over the wire
+
 ## 2026-05-17 — Phase 6-again + Phase 7.5 + final closure + HANDOFF rewrite — audit closed
 
 **Done:**
