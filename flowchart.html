@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; form-action 'none'; base-uri 'self'" />
 <title>Personal Finance Decision Flowchart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- Non-render-blocking font load: browser fetches the stylesheet but applies
+     it asynchronously via the print→all media swap. display=swap keeps the
+     FOUT/FOIT behavior intact. <noscript> fallback for no-JS users. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" /></noscript>
 <style>
 :root {
   --bg: #F4EFE6;
@@ -719,6 +724,19 @@ body {
   border-radius: 2px;
 }
 
+/* Honor OS-level reduced-motion preference. Disables fade-ins, smooth-scroll,
+   and the page-level scroll-behavior:smooth. Users with vestibular sensitivity
+   get an instant non-animated experience. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto !important; }
+}
+
 @keyframes fadein {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
@@ -925,8 +943,10 @@ body {
 
 .option.selected {
   border-color: var(--accent-dark);
-  background: rgba(184, 137, 62, 0.08);
+  border-left-width: 4px;          /* stronger non-color cue for low-vision + color-blind users */
+  background: rgba(184, 137, 62, 0.14);
   color: var(--ink);
+  font-weight: 500;
 }
 
 .option-indicator {
@@ -1848,9 +1868,29 @@ body {
   .math-intro h2 { font-size: 26px; }
   .calc-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Skip-to-content link — visually hidden until focused. Keyboard users press
+   Tab once on page load and can jump past the masthead + tab nav. */
+.skip-link {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 12px 20px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  z-index: 10000;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--accent-dark);
+}
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 <!-- Visually-hidden screen-reader live region. switchView / renderDiagnostic /
      renderPlan call srAnnounce() to update so AT users hear "Section 3 of 6"
      or "Your personalized plan is ready, 14 actions." -->
@@ -1879,7 +1919,8 @@ body {
 </nav>
 
 <!-- Welcome view -->
-<section class="view active" id="view-welcome">
+<main id="main">
+<section class="view active" id="view-welcome" aria-label="Welcome">
   <div class="welcome">
     <h2>What should you do <em>next</em>?</h2>
     <p>The original Reddit "prime directive" flowchart gives universal advice. This tool gives <em>you</em> advice — based on whether you have an employer match, what your bracket is, what debt you carry, what insurance is in place, and a couple dozen other things that determine which steps actually apply to you.</p>
@@ -1897,7 +1938,7 @@ body {
 </section>
 
 <!-- Diagnostic view -->
-<section class="view" id="view-diagnostic">
+<section class="view" id="view-diagnostic" aria-label="Diagnostic">
   <div class="diagnostic-progress" id="diag-progress">
     <span class="diagnostic-progress-label" id="diag-progress-label">Section 1 of 6</span>
     <div class="diagnostic-progress-bar" id="diag-progress-bar" role="progressbar" aria-valuemin="1" aria-valuenow="1" aria-valuemax="6" aria-label="Diagnostic progress"><div class="diagnostic-progress-fill" id="diag-progress-fill" style="width: 16%;"></div></div>
@@ -1910,7 +1951,7 @@ body {
 </section>
 
 <!-- Plan view -->
-<section class="view" id="view-plan">
+<section class="view" id="view-plan" aria-label="Your prioritized plan">
   <div class="plan-header" id="plan-header"></div>
   <div id="plan-synthesis"></div>
   <div id="plan-tier1"></div>
@@ -1919,7 +1960,7 @@ body {
 </section>
 
 <!-- Personalized chart view -->
-<section class="view" id="view-personal-chart">
+<section class="view" id="view-personal-chart" aria-label="Personalized chart">
   <div class="plan-header">
     <div class="eyebrow">Personalized framework</div>
     <h2>Your <em>filtered</em> view of the full chart.</h2>
@@ -1930,7 +1971,7 @@ body {
 </section>
 
 <!-- Math foundations view -->
-<section class="view" id="view-math">
+<section class="view" id="view-math" aria-label="The math">
   <div class="math-intro">
     <div class="eyebrow">The math underneath</div>
     <h2>Seven equations that <em>actually move</em> the framework.</h2>
@@ -2177,7 +2218,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Spending: Essentials view -->
-<section class="view" id="view-spending-essentials">
+<section class="view" id="view-spending-essentials" aria-label="Spending: essentials">
   <div class="math-intro">
     <div class="eyebrow">Spending strategy · essentials</div>
     <h2>The four decisions that <em>set your savings rate</em>.</h2>
@@ -2330,7 +2371,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Spending: Lifestyle view -->
-<section class="view" id="view-spending-lifestyle">
+<section class="view" id="view-spending-lifestyle" aria-label="Spending: lifestyle">
   <div class="math-intro">
     <div class="eyebrow">Spending strategy · lifestyle</div>
     <h2>Variable spending and <em>creep resistance</em>.</h2>
@@ -2428,7 +2469,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Portfolio: Bogleheads view -->
-<section class="view" id="view-portfolio-bogleheads">
+<section class="view" id="view-portfolio-bogleheads" aria-label="Portfolio: Bogleheads">
   <div class="math-intro">
     <div class="eyebrow">Portfolio construction · Bogleheads practice</div>
     <h2>The framework that <em>won the empirical argument</em>.</h2>
@@ -2528,7 +2569,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Portfolio: Theory view -->
-<section class="view" id="view-portfolio-theory">
+<section class="view" id="view-portfolio-theory" aria-label="Portfolio: theory">
   <div class="math-intro">
     <div class="eyebrow">Portfolio construction · theory</div>
     <h2>The academic foundation <em>under the practice</em>.</h2>
@@ -2614,7 +2655,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Zeitgeist: investing behaviors view -->
-<section class="view" id="view-zeitgeist-investing">
+<section class="view" id="view-zeitgeist-investing" aria-label="Zeitgeist: investing">
   <div class="math-intro">
     <div class="eyebrow">Zeitgeist · investing behaviors</div>
     <h2>What the culture is <em>actually doing</em>.</h2>
@@ -2747,7 +2788,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Zeitgeist: lifestyle and synthesis view -->
-<section class="view" id="view-zeitgeist-lifestyle">
+<section class="view" id="view-zeitgeist-lifestyle" aria-label="Zeitgeist: lifestyle">
   <div class="math-intro">
     <div class="eyebrow">Zeitgeist · lifestyle and synthesis</div>
     <h2>The cultural moments around <em>spending, time, and meaning</em>.</h2>
@@ -2870,7 +2911,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Advanced strategies view (Phase 7 — EX1 catalog) -->
-<section class="view" id="view-advanced-strategies">
+<section class="view" id="view-advanced-strategies" aria-label="Advanced strategies">
   <div class="math-intro">
     <div class="eyebrow">Advanced strategies · Phase 7</div>
     <h2>The Phase-7 advanced playbook.</h2>
@@ -3134,7 +3175,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
 </section>
 
 <!-- Full chart view -->
-<section class="view" id="view-full-chart">
+<section class="view" id="view-full-chart" aria-label="Full framework chart">
   <div class="plan-header">
     <div class="eyebrow">The complete framework</div>
     <h2>Every decision, every <em>income type</em>.</h2>
@@ -3162,6 +3203,7 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
   <div class="flowchart" id="flowchart-full"></div>
 </section>
 
+</main>
 <section class="footer-notes">
   <div>
     <h3>How this tool differs from the original</h3>
@@ -4784,9 +4826,11 @@ function __debounce(fn, ms) {
   return wrapped;
 }
 
+const LS_SCHEMA_VERSION = 1;
 function savePersistedState() {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify({
+      schemaVersion: LS_SCHEMA_VERSION,
       answers: state.answers,
       diagSection: state.diagSection,
       view: state.view,
@@ -4826,6 +4870,14 @@ function loadPersistedState() {
     return false;
   }
   if (!saved || typeof saved !== 'object' || Array.isArray(saved)) {
+    try { localStorage.removeItem(LS_KEY); } catch (_) {}
+    return false;
+  }
+  // Schema version check — when LS_SCHEMA_VERSION bumps and migration logic
+  // doesn't recognize the saved version, wipe and start fresh rather than
+  // silently produce a Frankenstein state.
+  if (typeof saved.schemaVersion === 'number' && saved.schemaVersion !== LS_SCHEMA_VERSION) {
+    console.warn('Persisted state schema mismatch (saved=' + saved.schemaVersion + ', current=' + LS_SCHEMA_VERSION + '); discarding.');
     try { localStorage.removeItem(LS_KEY); } catch (_) {}
     return false;
   }
@@ -4922,9 +4974,10 @@ function applyDefaultIfFallback(inputId, field, fallback) {
   if (el.dataset.userTyped === 'true') return;  // respect manual edits
   const personalized = getDefault(field);
   if (personalized === undefined) return;
-  // Only override if the input is still at the hardcoded fallback or empty
-  const curVal = parseFloat(el.value);
-  if (el.value === '' || Math.abs(curVal - fallback) < 0.001) {
+  // Only override if the input is empty. The prior "value matches fallback"
+  // branch would silently overwrite a user-typed value that happened to match
+  // the hardcoded default — surprising when the user intended that exact value.
+  if (el.value === '') {
     el.value = personalized;
   }
 }
@@ -5939,7 +5992,7 @@ function diagNext() {
   if (state.diagSection < sections.length - 1) {
     state.diagSection++;
     renderDiagnostic();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   } else {
     // Generate plan
     document.getElementById('view-tabs').style.display = 'flex';
@@ -5951,7 +6004,7 @@ function diagPrev() {
   if (state.diagSection > 0) {
     state.diagSection--;
     renderDiagnostic();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
 }
 
@@ -5977,9 +6030,17 @@ function getLiteracyScore(a) {
 function renderPlanSynthesis(a, plan) {
   if (!a || Object.keys(a).length === 0) return '';
 
-  const incomeLabels = (a.incomeTypes || []).map(t => ({
-    w2: 'W-2 employee', contractor: '1099 / self-employed contractor', business: 'business owner', retired: 'retired'
-  }[t])).filter(Boolean);
+  // If retired co-selected with earned-income types, suppress "retired" in the
+  // narrative — having W-2 / 1099 / business income contradicts the "retired /
+  // no earned income" label, so the duplication ("retired retired and W-2") is
+  // both ungrammatical and semantically wrong.
+  const rawIncomeTypes = a.incomeTypes || [];
+  const hasEarnedIncome = rawIncomeTypes.some(t => t === 'w2' || t === 'contractor' || t === 'business');
+  const incomeLabels = rawIncomeTypes
+    .filter(t => !(t === 'retired' && hasEarnedIncome))
+    .map(t => ({
+      w2: 'W-2 employee', contractor: '1099 / self-employed contractor', business: 'business owner', retired: 'retired'
+    }[t])).filter(Boolean);
   const incomeStr = incomeLabels.length === 0 ? 'a household with no income type captured' :
     incomeLabels.length === 1 ? incomeLabels[0] :
     incomeLabels.slice(0, -1).join(', ') + ' and ' + incomeLabels[incomeLabels.length - 1];
@@ -6237,13 +6298,19 @@ function renderPlan() {
 
   document.getElementById('plan-stages').innerHTML = stagesHTML;
 
-  // Wire action toggles. Keyed by act.key (stable across re-renders), so
-  // Tier-1 + stage duplicates toggle together and survive diagnostic edits.
-  document.querySelectorAll('.action').forEach(el => {
-    el.addEventListener('click', (e) => {
-      // Don't toggle when clicking inside an inline calculator
+  // Wire action toggles via event delegation — one listener on each container
+  // instead of N per-card listeners (where N = number of action cards rendered,
+  // typically 25-40). Listeners get GC'd with innerHTML wipe so no leak; this
+  // version just reduces the per-render attach cost from N×addEventListener to 2.
+  ['plan-stages', 'plan-tier1'].forEach(containerId => {
+    const container = document.getElementById(containerId);
+    if (!container || container.__actionDelegated) return;
+    container.__actionDelegated = true;
+    container.addEventListener('click', (e) => {
       if (e.target.closest('[data-inline-calc]')) return;
-      const key = el.dataset.actionKey;
+      const card = e.target.closest('.action');
+      if (!card) return;
+      const key = card.dataset.actionKey;
       if (!key) return;
       const willOpen = !state.openActions.has(key);
       if (willOpen) state.openActions.add(key); else state.openActions.delete(key);
@@ -6332,7 +6399,17 @@ function renderPersonalChart() {
     const phaseNodes = byPhase[pk].map(n => {
       const key = `${primary}:${n.marker}`;
       const isActive = activeNodeKeys.has(key);
-      const isSkippedTitle = Object.keys(skippedMap).find(t => n.title.toLowerCase().includes(t.toLowerCase().replace(/[^a-z ]/g, '').slice(0, 12)));
+      // Strip both sides identically before substring-matching. Previously
+      // only the skip-title was stripped (dropping $ , - digits), producing
+      // double-spaces that almost never matched n.title — most skip reasons
+      // fell through to the generic message. Now both sides go through the
+      // same normalize before comparing.
+      const normalize = (s) => s.toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+      const nodeTitleNorm = normalize(n.title);
+      const isSkippedTitle = Object.keys(skippedMap).find(t => {
+        const k = normalize(t).slice(0, 16);
+        return k && nodeTitleNorm.includes(k);
+      });
       const skipReason = isSkippedTitle ? skippedMap[isSkippedTitle] : 'Not in your prioritized plan based on diagnostic answers.';
       return `
         <div class="node ${phase.tag} ${!isActive ? 'skipped' : ''}" data-node-idx="${n.idx}">
@@ -6493,7 +6570,18 @@ function $val(id, def) {
   const el = document.getElementById(id);
   if (!el) return def;
   const v = parseFloat(el.value);
-  return isFinite(v) ? v : def;
+  if (!isFinite(v)) return def;
+  // Honor the input's own min/max attributes — browsers don't enforce them
+  // for typed/pasted values on number inputs; this does.
+  const min = parseFloat(el.getAttribute('min'));
+  const max = parseFloat(el.getAttribute('max'));
+  if (isFinite(min) && v < min) return min;
+  if (isFinite(max) && v > max) return max;
+  // Defense-in-depth absolute cap for inputs lacking attrs (e.g., scientific
+  // notation like 1e308 that would overflow calculator math).
+  if (v > 1e12) return 1e12;
+  if (v < -1e12) return -1e12;
+  return v;
 }
 
 // ============================================================
@@ -7082,9 +7170,13 @@ function calcHistoricalCycles() {
   // CL329 — Guaranteed-income overlay inputs.
   const curAge = $val('hc-curage', 65);
   const ss1Pia = $val('hc-ss1', 0);
-  const ss1ClaimAge = parseInt((document.getElementById('hc-ss1-age') || {}).value || '67');
+  // Number.isFinite guard prevents silent NaN flow → SSA_CLAIM_AGE_FACTOR[NaN]
+  // || 1.0 = wrong-by-19% benefit projection. Falls back to FRA on bad input.
+  const _ss1Raw = parseInt((document.getElementById('hc-ss1-age') || {}).value, 10);
+  const ss1ClaimAge = Number.isFinite(_ss1Raw) ? _ss1Raw : 67;
   const ss2Pia = $val('hc-ss2', 0);
-  const ss2ClaimAge = parseInt((document.getElementById('hc-ss2-age') || {}).value || '67');
+  const _ss2Raw = parseInt((document.getElementById('hc-ss2-age') || {}).value, 10);
+  const ss2ClaimAge = Number.isFinite(_ss2Raw) ? _ss2Raw : 67;
   const spouseAge = $val('hc-spouse-age', curAge);
   const pensionAnnual = $val('hc-pension', 0);
   const pensionStartAge = $val('hc-pension-age', 65);
@@ -7981,7 +8073,7 @@ function switchView(viewName) {
   else if (viewName === 'portfolio-theory') renderPortfolioTheory();
   else if (viewName === 'zeitgeist-investing') renderZeitgeistInvesting();
   else if (viewName === 'zeitgeist-lifestyle') renderZeitgeistLifestyle();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   srAnnounce('Now viewing: ' + (VIEW_TITLE[viewName] || viewName));
   focusViewHeading(viewName);
 }
@@ -8036,6 +8128,18 @@ document.querySelectorAll('#bracket-selector button').forEach(btn => {
 // corrupt blob can never permanently brick the app.
 loadPersistedState();
 cascadeClearOrphanedAnswers();
+
+// Two-tab safety: if another tab writes to our LS key, reload state + re-render
+// the current view so we don't silently diverge from the other tab's answers.
+// Without this, two tabs editing in parallel last-writer-wins with no warning.
+window.addEventListener('storage', (e) => {
+  if (e.key !== LS_KEY) return;
+  if (loadPersistedState()) {
+    cascadeClearOrphanedAnswers();
+    // Re-render the current view so the new state is visible
+    try { switchView(state.view || 'welcome'); } catch (_) {}
+  }
+});
 if (state.answers && Object.keys(state.answers).length > 0 && state.view && state.view !== 'welcome') {
   try {
     document.getElementById('view-tabs').style.display = 'flex';
