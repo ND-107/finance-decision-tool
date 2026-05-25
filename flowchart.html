@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- iOS Safari caches local HTML aggressively; these meta tags force re-fetch
+     so iterations push through on refresh without manual cache-clearing. -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; form-action 'none'; base-uri 'self'" />
 <title>Personal Finance Decision Flowchart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,9 +83,55 @@ body {
 
 /* === Header === */
 .masthead {
+  position: relative;
   border-bottom: 1px solid var(--border);
   padding-bottom: 32px;
   margin-bottom: 28px;
+}
+
+.masthead-restart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 44px;
+}
+.masthead-restart:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+  background: var(--surface);
+}
+.masthead-restart:focus-visible {
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  /* On mobile, pin to the bottom-right of the viewport so it's always
+     reachable — long views like Plan and Full framework otherwise scroll
+     the masthead off-screen and the button becomes invisible. */
+  .masthead-restart {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    top: auto;
+    z-index: 100;
+    background: var(--surface);
+    border-color: var(--ink-soft);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    padding: 10px 14px;
+    font-size: 11px;
+  }
 }
 
 .eyebrow {
@@ -1459,6 +1510,25 @@ body {
   .skipped-item-title { min-width: 0; }
 }
 
+/* Plan footer — start-over button */
+.plan-footer {
+  margin-top: 48px;
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  text-align: center;
+}
+.plan-footer .btn { font-size: 14px; }
+.plan-footer-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+  line-height: 1.55;
+}
+
 /* Personalized chart - skipped state */
 .node.skipped {
   opacity: 0.4;
@@ -1898,6 +1968,7 @@ body {
 <div class="page">
 
 <header class="masthead">
+  <button class="masthead-restart" id="masthead-restart" type="button" style="display: none;" aria-label="Start over with a fresh diagnostic">↻ Start over</button>
   <div class="eyebrow">Personal Finance · 2026 · United States</div>
   <h1>An ordered path through <em>your money</em>.</h1>
   <p class="lede">A diagnostic-driven decision tool. Answer questions about your situation; receive a prioritized plan with reasoning, calibrated to your tax bracket, employment type, and stage of life.</p>
@@ -1957,6 +2028,10 @@ body {
   <div id="plan-tier1"></div>
   <div id="plan-stages"></div>
   <div id="plan-skipped"></div>
+  <div class="plan-footer">
+    <button class="btn" id="plan-restart" type="button">Start over with a fresh diagnostic</button>
+    <p class="plan-footer-note">Clears every answer and returns to the welcome screen. Your saved state is removed; this can't be undone.</p>
+  </div>
 </section>
 
 <!-- Personalized chart view -->
@@ -4784,6 +4859,7 @@ let state = {
   view: 'welcome',
   diagSection: 0,
   answers: {},
+  diagnosticCompleted: false,
   openActions: new Set(),
   openNodes: new Set(),
   fullChartIncome: 'w2',
@@ -4826,7 +4902,7 @@ function __debounce(fn, ms) {
   return wrapped;
 }
 
-const LS_SCHEMA_VERSION = 1;
+const LS_SCHEMA_VERSION = 2;
 function savePersistedState() {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify({
@@ -4834,6 +4910,7 @@ function savePersistedState() {
       answers: state.answers,
       diagSection: state.diagSection,
       view: state.view,
+      diagnosticCompleted: state.diagnosticCompleted,
       fullChartIncome: state.fullChartIncome,
       fullChartBracket: state.fullChartBracket
     }));
@@ -4885,6 +4962,7 @@ function loadPersistedState() {
   state.diagSection = (typeof saved.diagSection === 'number' && Number.isFinite(saved.diagSection))
     ? Math.max(0, Math.floor(saved.diagSection)) : 0;
   state.view = (typeof saved.view === 'string' && VALID_VIEWS.has(saved.view)) ? saved.view : 'welcome';
+  state.diagnosticCompleted = saved.diagnosticCompleted === true;
   state.fullChartIncome = (typeof saved.fullChartIncome === 'string' && VALID_INCOMES.has(saved.fullChartIncome)) ? saved.fullChartIncome : 'w2';
   state.fullChartBracket = (typeof saved.fullChartBracket === 'string' && VALID_BRACKETS_LS.has(saved.fullChartBracket)) ? saved.fullChartBracket : 'mid';
   return true;
@@ -5923,6 +6001,18 @@ function renderDiagnostic() {
   // no showIf side-effects elsewhere), do an in-place class+aria update instead
   // of a full renderDiagnostic. Falls back to full re-render when the answer
   // gates other questions and cascadeClearOrphanedAnswers removed entries.
+  // Snapshot the full active-questions tree across all active sections *before*
+  // the answer change, so we can detect if the click flips any showIf — either
+  // a within-section reveal (e.g. dependents=yes reveals termLifeInPlace) or a
+  // cross-section change (e.g. toggling incomeTypes adds/removes the Business
+  // specifics section, which changes the "Section X of Y" label). If we don't
+  // catch that, the partial-update branch leaves stale UI on screen.
+  function activeQuestionSignature() {
+    return getActiveSections().map(sec =>
+      sec.section + ':' + getActiveQuestions(sec).map(q => q.id).join(',')
+    ).join('|');
+  }
+  const signatureBefore = activeQuestionSignature();
   document.querySelectorAll('.option').forEach(opt => {
     const activate = () => {
       const qid = opt.dataset.qid;
@@ -5950,7 +6040,9 @@ function renderDiagnostic() {
         if (k === qid) continue;
         if (JSON.stringify(beforeObj[k]) !== JSON.stringify(afterObj[k])) { onlyThisChanged = false; break; }
       }
-      if (onlyThisChanged) {
+      // Did any showIf flip — within-section reveal or cross-section change?
+      const visibilityChanged = activeQuestionSignature() !== signatureBefore;
+      if (onlyThisChanged && !visibilityChanged) {
         // Partial update: this question's siblings only + Next-button state.
         opt.parentElement.querySelectorAll('.option').forEach(sib => {
           const isSelected = type === 'multi'
@@ -5991,10 +6083,12 @@ function diagNext() {
   const sections = getActiveSections();
   if (state.diagSection < sections.length - 1) {
     state.diagSection++;
+    savePersistedState();
     renderDiagnostic();
     window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   } else {
     // Generate plan
+    state.diagnosticCompleted = true;
     document.getElementById('view-tabs').style.display = 'flex';
     switchView('plan');
   }
@@ -6003,6 +6097,7 @@ function diagNext() {
 function diagPrev() {
   if (state.diagSection > 0) {
     state.diagSection--;
+    savePersistedState();
     renderDiagnostic();
     window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
@@ -8054,6 +8149,7 @@ const VIEW_TITLE = {
 function switchView(viewName) {
   state.view = viewName;
   savePersistedState();
+  if (typeof updateMastheadRestartVisibility === 'function') updateMastheadRestartVisibility();
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + viewName).classList.add('active');
   document.querySelectorAll('#view-tabs button').forEach(b => {
@@ -8086,6 +8182,29 @@ document.getElementById('start-diagnostic').addEventListener('click', () => {
 });
 document.getElementById('diag-next').addEventListener('click', diagNext);
 document.getElementById('diag-prev').addEventListener('click', diagPrev);
+function resetDiagnostic() {
+  const confirmed = window.confirm(
+    'Clear all answers and start the diagnostic from scratch?\n\nThis cannot be undone.'
+  );
+  if (!confirmed) return;
+  try { localStorage.removeItem(LS_KEY); } catch (_) {}
+  // Hard reload so every in-memory render artifact (plan cache, open actions,
+  // calculator inputs the user typed into, etc.) resets to a clean slate
+  // instead of trying to surgically un-render everything.
+  window.location.reload();
+}
+document.getElementById('plan-restart').addEventListener('click', resetDiagnostic);
+document.getElementById('masthead-restart').addEventListener('click', resetDiagnostic);
+
+// Show the masthead restart button once the user has actually started — i.e.
+// they have answers persisted, or they're past the welcome screen. Hidden on
+// a fresh welcome screen because "Start over" with zero progress is just noise.
+function updateMastheadRestartVisibility() {
+  const hasAnswers = state.answers && Object.keys(state.answers).length > 0;
+  const pastWelcome = state.view && state.view !== 'welcome';
+  document.getElementById('masthead-restart').style.display =
+    (hasAnswers || pastWelcome) ? '' : 'none';
+}
 document.querySelectorAll('#view-tabs button').forEach(btn => {
   btn.addEventListener('click', () => switchView(btn.dataset.view));
 });
@@ -8108,6 +8227,7 @@ wireZeitgeistCalculators();
 document.querySelectorAll('#income-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
     state.fullChartIncome = btn.dataset.income;
+    savePersistedState();
     document.querySelectorAll('#income-selector button').forEach(b => b.classList.toggle('active', b.dataset.income === state.fullChartIncome));
     renderFullChart();
   });
@@ -8115,6 +8235,7 @@ document.querySelectorAll('#income-selector button').forEach(btn => {
 document.querySelectorAll('#bracket-selector button').forEach(btn => {
   btn.addEventListener('click', () => {
     state.fullChartBracket = btn.dataset.bracket;
+    savePersistedState();
     document.querySelectorAll('#bracket-selector button').forEach(b => b.classList.toggle('active', b.dataset.bracket === state.fullChartBracket));
     document.querySelectorAll('#flowchart-full .bracket-block').forEach(b => {
       b.classList.toggle('active', b.dataset.bracket === state.fullChartBracket);
@@ -8142,8 +8263,18 @@ window.addEventListener('storage', (e) => {
 });
 if (state.answers && Object.keys(state.answers).length > 0 && state.view && state.view !== 'welcome') {
   try {
-    document.getElementById('view-tabs').style.display = 'flex';
-    switchView(state.view);
+    // Only reveal the post-completion tab nav (Plan, Math, Edit answers, etc.)
+    // if the user actually finished the diagnostic. Mid-diagnostic refresh
+    // should restore them to the same section without making the UI look like
+    // they've reached the end.
+    if (state.diagnosticCompleted) {
+      document.getElementById('view-tabs').style.display = 'flex';
+    }
+    // If state.view is a post-completion view but the diagnostic wasn't
+    // actually completed, fall back to the diagnostic so we don't render
+    // Plan/Math/etc. from a half-filled answer set.
+    const targetView = state.diagnosticCompleted ? state.view : 'diagnostic';
+    switchView(targetView);
   } catch (e) {
     console.warn('Failed to restore persisted view, resetting:', e);
     state.view = 'welcome';
