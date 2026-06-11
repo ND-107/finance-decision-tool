@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-05-25 — Fix Next-button stuck on showIf reveals + add Start-over button
+
+**Done:**
+- Root-cause Section 3 "Yes on federalStudentLoans" bug: option click handler's perf branch (`onlyThisChanged` partial update) skipped `renderDiagnostic` when nothing besides the clicked answer changed — so the three newly-`showIf`-revealed questions (`pslfEligible`, `studentLoanAudited`, `currentIDRPlan`) never entered the DOM, and Next stayed disabled because `isSectionComplete` counted those hidden questions as unanswered (commit `b465ef4`)
+- Generic fix via `activeQuestionSignature()` snapshot — captures the full active-questions tree (sections × visible question IDs) before the click; falls through to full re-render whenever the post-click signature differs. Catches every within-section reveal (Section 1 spousal, Section 3 student loans, Section 4 employer-match + HDHP, Section 5 SE plan, Section 6 dependents) AND cross-section changes (toggling `incomeTypes` adds/removes the Business specifics section + updates the "Section X of Y" label)
+- Section navigation now persists across refresh: `diagNext` and `diagPrev` call `savePersistedState()` (previously only the option click handler did, so advancing via Next without subsequently clicking an answer never persisted `state.diagSection`)
+- New `state.diagnosticCompleted` boolean gates the post-completion tab nav. Mid-diagnostic refresh no longer reveals the tab nav + "Edit answers" pseudo-tab — user lands back on the same section without the UI looking like they've reached the end. `LS_SCHEMA_VERSION` bumped 1→2 so returning users get a clean reset rather than `diagnosticCompleted: undefined` ambiguity
+- Full-chart income/bracket selectors now call `savePersistedState()` on click (previously updated `state.fullChartIncome` / `state.fullChartBracket` in memory but never persisted)
+- Plan view footer "Start over with a fresh diagnostic" button + persistent `↻ Start over` button in the masthead. Mobile (≤640px) pins the masthead button `position: fixed` bottom-right so long views (Plan, Math, Full framework) keep it reachable instead of scrolling it off-screen. Both share `resetDiagnostic()` — confirm dialog → `localStorage.removeItem(LS_KEY)` → `window.location.reload()`
+- Cache-control meta tags (`no-cache`/`no-store`/`Pragma`/`Expires`) so future iOS Safari iterations bust cache on refresh without manual Settings → Clear Data
+- All checks green: `./verify.sh` (HTML parse + node `--check` inline JS + audit xlsx regen); commit `b465ef4` pushed to `main`; GitHub Pages rebuilt; user confirmed live site works
+
+**Open:**
+- Nothing pending. Mid-conversation static audit found no other interactive-surface bugs.
+
+**Notes:**
+- Real failure mode for the entire iteration loop wasn't a code bug — it was that all fixes were sitting uncommitted on the laptop while the user kept testing https://nd-107.github.io/finance-decision-tool/ on iPhone. Cache-control meta tags only help when there's something new to fetch. Next time: push first, then ask the user to verify.
+- The §1.5 cwd-vs-topic mismatch (this session started from `finance-project/` cwd but was 100% finance-decision-tool work) is the common shape for "Claude Code session about a deployed coding project" — worth keeping in mind when /save routing feels off.
+
 ## 2026-05-18 — Public release to GitHub Pages + 5-persona bug audit + 5 fix bundles (A→E)
 
 **Done:**
