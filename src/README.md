@@ -24,9 +24,9 @@ src/
 | Piece | State |
 |---|---|
 | Branch `v2` + skeleton | ✅ created |
-| `data/figures.json` + `tools/validate-figures.mjs` gate | 🟡 in progress (this phase) — the §1.3 deliverable; directly fixes the drift the Phase 0 sprint hit twice |
-| Extraction harness + round-trip gate (§1.4) | ⬜ next — the keystone; round-trip DOM-equivalence must pass before any restructuring |
-| Kernel / graph (Phase 2) · diagnostic v2 (Phase 3) · content (Phase 4) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
+| `data/figures.json` (46 figures) + `tools/validate-figures.mjs` gate | ✅ §1.3 done — all live-verified 2026-06-15; expiry gate proven; surfaced 1 live staleness (std deduction, hotfixed to `main`) |
+| Extraction harness + round-trip gate (§1.4) | ✅ keystone proven — `tools/{extract,build,gate}.mjs` + `roundtrip.sh`; 12-segment partition round-trips **byte-exact**; gate fails on 1 corrupted byte; extract aborts on missing anchor |
+| Kernel / graph (Phase 2) · diagnostic v2 (Phase 3) · content (Phase 4) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued — Phase 2 extracts segments one at a time, gate green after each (see `tools/README.md`) |
 
 ## Why figures.json first
 
