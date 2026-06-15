@@ -1,0 +1,370 @@
+{
+  "limit_401k_deferral": {
+    "value": 24500,
+    "display": "$24,500",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_401k_catchup_50": {
+    "value": 8000,
+    "display": "$8,000",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_401k_supercatchup_6063": {
+    "value": 11250,
+    "display": "$11,250",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_ira": {
+    "value": 7500,
+    "display": "$7,500",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_ira_catchup": {
+    "value": 1100,
+    "display": "$1,100",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_415c_dc": {
+    "value": 72000,
+    "display": "$72,000",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_hsa_self": {
+    "value": 4400,
+    "display": "$4,400",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-19",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_hsa_family": {
+    "value": 8750,
+    "display": "$8,750",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-19",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "limit_hsa_catchup_55": {
+    "value": 1000,
+    "display": "$1,000",
+    "taxYear": 2026,
+    "source": "IRC 223(b)(3)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_contrib_cap": {
+    "value": 2000,
+    "display": "$2,000 (single) / $4,000 (MFJ)",
+    "taxYear": 2026,
+    "source": "IRC 25B",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "high_earner_roth_catchup_threshold": {
+    "value": 150000,
+    "display": "$150,000",
+    "taxYear": 2026,
+    "source": "SECURE 2.0 \u00a7603 final regs / IRS (indexed from $145,000)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "backdoor_roth_phaseout_single": {
+    "value": 153000,
+    "display": "$153,000\u2013$168,000 (single/HoH)",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "backdoor_roth_phaseout_mfj": {
+    "value": 242000,
+    "display": "$242,000\u2013$252,000 (MFJ)",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "bracket12_top_mfj": {
+    "value": 100800,
+    "display": "$100,800",
+    "taxYear": 2026,
+    "source": "IRS Newsroom IR-2025-103 / Rev. Proc. 2025-32 (22% rate begins over $100,800 MFJ)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "std_deduction_single": {
+    "value": 16100,
+    "display": "$16,100",
+    "taxYear": 2026,
+    "source": "IRS Newsroom IR-2025-103 / Rev. Proc. 2025-32 \u00a74.14(1); confirmed by multiple secondary sources citing Rev. Proc. 2025-32",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "std_deduction_mfj": {
+    "value": 32200,
+    "display": "$32,200",
+    "taxYear": 2026,
+    "source": "IRS Newsroom IR-2025-103 / Rev. Proc. 2025-32 \u00a74.14(1) ('Married Individuals Filing Joint Returns and Surviving Spouses: $32,200')",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "qbi_sstb_phasein_start": {
+    "value": 201775,
+    "display": "$201,775 single / $403,550 MFJ",
+    "taxYear": 2026,
+    "source": "IRS Newsroom IR-2025-103 / Rev. Proc. 2025-32 \u00a74.26 (IRC \u00a7199A(e)(2) threshold amount); Tax Foundation Table 7 confirms $201,775 single / $403,550 MFJ",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "qbi_sstb_phasein_complete": {
+    "value": 276775,
+    "display": "$276,775 single / $553,550 MFJ",
+    "taxYear": 2026,
+    "source": "Rev. Proc. 2025-32 \u00a74.26 \u2014 threshold ($201,775/$403,550) plus OBBBA-expanded phase-in range of $75,000 single / $150,000 MFJ (IRC \u00a7199A(b)(3)(B)) = $276,775 single / $553,550 MFJ",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_tier1_single": {
+    "value": 109000,
+    "display": "$109,000",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Parts A & B Premiums and Deductibles (Nov 14, 2025 fact sheet); 2024 MAGI lookback",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_tier1_mfj": {
+    "value": 218000,
+    "display": "$218,000",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Parts A & B Premiums and Deductibles (Nov 14, 2025)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_toptier_single": {
+    "value": 500000,
+    "display": "$500,000",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Parts A & B Premiums and Deductibles; Kiplinger 2026 IRMAA table",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_toptier_mfj": {
+    "value": 750000,
+    "display": "$750,000",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Parts A & B Premiums and Deductibles; Kiplinger 2026 IRMAA table",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_partb_standard": {
+    "value": 202.9,
+    "display": "$202.90/month",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Parts A & B Premiums and Deductibles (released Nov 14, 2025)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_partb_surcharge_top": {
+    "value": 487,
+    "display": "$487/month",
+    "taxYear": 2026,
+    "source": "CMS 2026 Part B IRMAA table; Kiplinger reports top-tier total Part B = $689.90/month",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_partd_surcharge_top": {
+    "value": 91,
+    "display": "$91.00/month",
+    "taxYear": 2026,
+    "source": "CMS 2026 Medicare Part D Income-Related Monthly Adjustment Amounts (Nov 14, 2025)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "irmaa_combined_surcharge_top": {
+    "value": 578,
+    "display": "$578/month",
+    "taxYear": 2026,
+    "source": "Derived from CMS 2026 Part B ($487 surcharge) + Part D ($91 surcharge) top-tier IRMAA",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "fpl_single_2026": {
+    "value": 15960,
+    "display": "$15,960",
+    "taxYear": 2026,
+    "source": "HHS 2026 Poverty Guidelines, 48 contiguous states + DC, household of 1 (published Federal Register Jan 2026; effective Jan 13, 2026)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "aca_cliff_400fpl_single": {
+    "value": 62600,
+    "display": "$62,600",
+    "taxYear": 2026,
+    "source": "400% x 2025 HHS FPL single $15,650 (coverage-year-2026 PTC eligibility uses prior-year/2025 FPL)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "aca_cliff_400fpl_couple": {
+    "value": 84600,
+    "display": "$84,600",
+    "taxYear": 2026,
+    "source": "400% x 2025 HHS FPL household of 2 ($21,150)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "aca_cliff_400fpl_family4": {
+    "value": 128600,
+    "display": "$128,600",
+    "taxYear": 2026,
+    "source": "400% x 2025 HHS FPL household of 4 ($32,150)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "ss_wage_base_2026": {
+    "value": 184500,
+    "display": "$184,500",
+    "taxYear": 2026,
+    "source": "SSA 2026 COLA Fact Sheet / SSA FAQ KA-02387 (announced Oct 24, 2025)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "ss_oasi_depletion": {
+    "value": 0,
+    "display": "OASI 2033 / combined OASDI 2034",
+    "taxYear": 2026,
+    "source": "2025 OASDI Trustees Report (released June 18, 2025) \u2014 most recent as of June 2026; SSA TRSUM and OACT II.A highlights",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "estate_exemption_individual": {
+    "value": 15000000,
+    "display": "$15,000,000",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-32 (IR-2025-103, Oct 9 2025); OBBBA / P.L. 119-21 \u00a770106 amending IRC \u00a72010(c)(3); IRS 'What's new \u2014 Estate and gift tax'",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "estate_exemption_couple": {
+    "value": 30000000,
+    "display": "$30,000,000",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-32; OBBBA / P.L. 119-21; Morgan Lewis / KPMG / Harris Beach summaries of the 2026 adjustments",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "gift_annual_exclusion": {
+    "value": 19000,
+    "display": "$19,000",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-32 \u00a73.43 (IRC \u00a72503(b)); IRS newsroom 'IRS releases tax inflation adjustments for tax year 2026'",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "qcd_annual": {
+    "value": 111000,
+    "display": "$111,000",
+    "taxYear": 2026,
+    "source": "IRC \u00a7408(d)(8), SECURE 2.0 \u00a7307 inflation indexing; Fidelity / Schwab / CRS IF11377 2026 QCD figures (up from $108,000 in 2025)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "qcd_split_interest": {
+    "value": 55000,
+    "display": "$55,000",
+    "taxYear": 2026,
+    "source": "IRC \u00a7408(d)(8)(F), SECURE 2.0 \u00a7307; CRS IF11377 (one-time split-interest limit $55,000 for 2026, up from $54,000 in 2025); Schwab / SVCF / Princeton Area CF",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_50tier_single": {
+    "value": 24250,
+    "display": "$24,250",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 (IR-2025-111) IRC \u00a725B(b)(1); National Tax Tools / Current Federal Tax Developments analysis of Notice 2025-67",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_50tier_hoh": {
+    "value": 36375,
+    "display": "$36,375",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 (IR-2025-111) IRC \u00a725B(b)(1); National Tax Tools analysis",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_50tier_mfj": {
+    "value": 48500,
+    "display": "$48,500",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 (IR-2025-111) IRC \u00a725B(b)(1); National Tax Tools analysis",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_20tier_single": {
+    "value": 26250,
+    "display": "$26,250",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 IRC \u00a725B(b)(1); National Tax Tools / Current Federal Tax Developments",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_20tier_hoh": {
+    "value": 39375,
+    "display": "$39,375",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 IRC \u00a725B(b)(1); National Tax Tools analysis",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_20tier_mfj": {
+    "value": 52500,
+    "display": "$52,500",
+    "taxYear": 2026,
+    "source": "IRS Notice 2025-67 IRC \u00a725B(b)(1); National Tax Tools analysis",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_phaseout_full_single": {
+    "value": 40250,
+    "display": "$40,250",
+    "taxYear": 2026,
+    "source": "IRS newsroom IR-2025-111 ('401(k) limit increases to $24,500 for 2026') + Notice 2025-67 IRC \u00a725B(b)(1)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_phaseout_full_hoh": {
+    "value": 60375,
+    "display": "$60,375",
+    "taxYear": 2026,
+    "source": "IRS newsroom IR-2025-111 + Notice 2025-67 IRC \u00a725B(b)(1)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  },
+  "savers_phaseout_full_mfj": {
+    "value": 80500,
+    "display": "$80,500",
+    "taxYear": 2026,
+    "source": "IRS newsroom IR-2025-111 + Notice 2025-67 IRC \u00a725B(b)(1)",
+    "verified": "2026-06-15",
+    "expires": "2026-12-31"
+  }
+}
