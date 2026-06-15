@@ -42,6 +42,21 @@ Lifts the diagnostic out of the artifact and turns its `showIf` closures into de
 
 **Proven (2026-06-15):** 4,200,292 comparisons, zero divergence — the declarative form is behavior-identical. Negative test passes: corrupting one predicate's value makes the harness exit 1 and print the divergent vectors. This is the "extract a structure, prove behavior-equivalence, repeat" loop the rebuild runs on.
 
+## computePlan golden master (Phase 2 — the engine parity gate)
+
+Characterize-before-refactor for the 660-line decision engine: capture v1 `computePlan`'s behavior across a broad answer-space NOW, so the v2 rule engine can be checked against it (V2_REBUILD_PLAN.md §2.3).
+
+| Tool | Does |
+|---|---|
+| `lib/load-plan-engine.mjs` | Loads the LIVE `computePlan` from `main:flowchart.html` as a callable, isolated from the DOM (evals the pure hashKey…computePlan slice in a Function sandbox). `computePlan(answers) → {actions, skipped, tier1}`. The reference implementation. |
+| `lib/plan-fingerprint.mjs` | `planLogic` = the behavior contract (ordered actions' title/stage/tags/tier1/friction/nodeKey/incomeType + skipped titles), **excluding prose** (reason/because move to content in v2). `logicHash` = its sha; `fullHash` = whole-output hash for v1-drift detection. |
+| `gen-plan-fixtures.mjs` | Builds the corpus — 15 named archetypes (the 5 audit personas as households + common types) + a 3000-vector seeded-random sample over the 44 fields computePlan reads (domains derived from `questions.json`) — and captures each fixture's golden fingerprint. Self-contained (reads `main` + `questions.json`); fully deterministic. |
+| `verify-plan-parity.mjs` | **The parity gate.** Re-runs the engine over the corpus, asserts every `logicHash` matches the golden (archetypes also deep-compared). Swap `ENGINE` to the v2 rule engine (one import) to make it the v2-vs-v1 gate. |
+
+**Coverage:** the corpus exercises **89 distinct action/skip titles** vs 63 `add()` + 25 `skip()` branches in `computePlan` — essentially the whole engine. **Proven:** parity passes deterministically (3030 checks); negative test passes (corrupting one golden hash → exit 1).
+
+**Fixtures:** `tests/fixtures/plan-golden-archetypes.json` (committed — 15 archetypes with full readable logic, the reviewable contract). `tests/fixtures/plan-golden.json` (git-ignored — full 3015-fixture corpus; regenerate with `gen-plan-fixtures.mjs`, deterministic).
+
 ## `validate-figures.mjs` (Phase 1.3 — figures data layer)
 
 Build-time gate for [`src/data/figures.json`](../src/data/figures.json): enforces the 6-field vintage-stamp contract and **fails the build on any past-expiry stamp** — the structural fix for the indexed-figure drift the Phase 0 sprint hit twice. See [`src/data/README.md`](../src/data/README.md).

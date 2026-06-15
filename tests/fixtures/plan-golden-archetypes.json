@@ -1,0 +1,2294 @@
+{
+  "generatedFrom": "main:flowchart.html computePlan()",
+  "generatedNote": "GOLDEN MASTER — the v2 rule engine must reproduce every fixture's logicHash. Regenerate only when v1 behavior intentionally changes.",
+  "fields": [
+    "ageBracket",
+    "autoEscalation",
+    "budgetTracking",
+    "businessInsurance",
+    "childrenEducation",
+    "currentIDRPlan",
+    "dependents",
+    "emergencyFund",
+    "employerMatch",
+    "entityStructure",
+    "essentialFraction",
+    "estateDocs",
+    "exitTimeline",
+    "federalStudentLoans",
+    "filingStatus",
+    "hdhpEligible",
+    "healthInsurance",
+    "highInterestDebt",
+    "hsaMaxed",
+    "incomeStability",
+    "incomeTypes",
+    "iraMaxed",
+    "k401Maxed",
+    "ltdInPlace",
+    "matchCaptured",
+    "moderateDebt",
+    "netWorth",
+    "parentCare",
+    "pslfEligible",
+    "quarterlyTaxes",
+    "rentalRealEstate",
+    "restrictedStockRecent",
+    "riskCapacity",
+    "riskCapacityRevealed",
+    "rothLadderCandidate",
+    "sePlan",
+    "sePlanMaxed",
+    "spousalIncomeSplit",
+    "state",
+    "studentLoanAudited",
+    "taxBracket",
+    "termLifeInPlace",
+    "tradIraBalance",
+    "yearsToRetirement"
+  ],
+  "archetypeCount": 15,
+  "randomCount": 3000,
+  "distinctTitles": 89,
+  "kind": "archetypes",
+  "fixtures": [
+    {
+      "name": "persona-taxatty-high-SE-equity",
+      "answers": {
+        "incomeTypes": [
+          "business"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "40-49",
+        "budgetTracking": "yes",
+        "quarterlyTaxes": "yes",
+        "restrictedStockRecent": "yes",
+        "emergencyFund": "6-12mo",
+        "healthInsurance": "yes",
+        "sePlan": "yes",
+        "sePlanMaxed": "partial",
+        "entityStructure": "s-corp",
+        "dependents": "yes",
+        "termLifeInPlace": "yes",
+        "ltdInPlace": "yes",
+        "netWorth": "2m+",
+        "estateDocs": "outdated",
+        "iraMaxed": "yes",
+        "tradIraBalance": "no",
+        "exitTimeline": "3-10"
+      },
+      "logicHash": "a66e5e45c6c7f5313abae7f74472a0aa2d5eb9d883cb7df9f266fd526d2ade31",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "File §83(b) election within 30 days of grant — deadline is unforgiving",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "business:9.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 1,
+            "title": "Establish or update baseline estate documents",
+            "stage": "next-quarter",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:6.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Maximize your Solo 401(k) / business 401(k) (employee + employer side)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": "business",
+            "nodeKey": "business:8.1",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Plan for the Section 199A QBI deduction",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:8.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Engage advanced estate planning (GRATs, SLATs, dynasty trusts)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:10.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Begin business succession or sale preparation",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:10.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Evaluate the Cash Balance DB plan + full §415 stack (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "business:8.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "Read the family-wealth strategies catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Read the adjacent-vehicles catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Max IRA",
+          "Set up quarterly taxes",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 12,
+          "skipped": 12,
+          "tier1": 1
+        }
+      },
+      "fullHash": "f082c5015178f1e0b27f173df6e135f7bef15f05b0839460625394a64eae66cc"
+    },
+    {
+      "name": "persona-cfp-midlife-mfj",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "mid",
+        "ageBracket": "40-49",
+        "budgetTracking": "yes",
+        "emergencyFund": "3-6mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "yes",
+        "autoEscalation": "yes-not-enabled",
+        "hdhpEligible": "yes",
+        "hsaMaxed": "partial",
+        "iraMaxed": "partial",
+        "k401Maxed": "no",
+        "dependents": "yes",
+        "termLifeInPlace": "partial",
+        "ltdInPlace": "partial",
+        "childrenEducation": "yes",
+        "netWorth": "500k-2m",
+        "yearsToRetirement": "20-30"
+      },
+      "logicHash": "2e0117164511d8b8f1689f247d3d768852311aea97e4983a1efe468c129d355a",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Enable 401(k) auto-escalation to ratchet your deferral toward 15–20% over the next 5 years",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": "w2",
+            "nodeKey": "w2:3.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 1,
+            "title": "Secure long-term disability insurance (own-occupation if available)",
+            "stage": "next-quarter",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 2,
+            "title": "Get term life insurance (10–12× annual income)",
+            "stage": "next-quarter",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 3,
+            "title": "Max your HSA contribution ($4,400 self / $8,750 family for 2026)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:6.1",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Increase your 401(k) contribution toward the $24,500 employee max",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": "w2",
+            "nodeKey": "w2:8.1",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Open a 529 plan for education funding",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.4",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Capture employer match",
+          "Eliminate high-interest debt",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 10,
+          "skipped": 7,
+          "tier1": 3
+        }
+      },
+      "fullHash": "c23ba3e8767b04621140e8fe66ede896e2189706d5ad96f8b4edce2078c87aa7"
+    },
+    {
+      "name": "persona-academic-fire",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "single",
+        "taxBracket": "high",
+        "ageBracket": "30-39",
+        "budgetTracking": "yes",
+        "emergencyFund": "12+mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "yes",
+        "k401Maxed": "yes",
+        "iraMaxed": "yes",
+        "hdhpEligible": "yes",
+        "hsaMaxed": "yes",
+        "dependents": "no",
+        "netWorth": "500k-2m",
+        "yearsToRetirement": "10-20",
+        "riskCapacity": "add-equity",
+        "riskCapacityRevealed": "added-equity"
+      },
+      "logicHash": "28ad021521d75ba93341e666bd57cc1e22e5c0cdb4cea0b82696698e8d0425f7",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Capture employer match",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Max HSA",
+          "Max IRA",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 3,
+          "skipped": 13,
+          "tier1": 0
+        }
+      },
+      "fullHash": "ace82918cd37e7c5779402485004598e87163ac1b9f5720903681ae568944214"
+    },
+    {
+      "name": "persona-behavioral-anxious",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "single",
+        "taxBracket": "mid",
+        "ageBracket": "under-30",
+        "budgetTracking": "sometimes",
+        "emergencyFund": "<1mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "no",
+        "autoEscalation": "unsure",
+        "highInterestDebt": "yes",
+        "federalStudentLoans": "yes",
+        "pslfEligible": "no",
+        "studentLoanAudited": "never",
+        "currentIDRPlan": "unsure",
+        "dependents": "no",
+        "netWorth": "negative",
+        "riskCapacity": "move-to-cash",
+        "riskCapacityRevealed": "moved-to-cash"
+      },
+      "logicHash": "04c69e1ebb07e2ef10ea853b9663660ccfc01fe7133be42517fff368f2c44927",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Tighten your cash-flow tracking into a real budget",
+            "stage": "now",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:0.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Build a $1,000 starter emergency fund (or one month of essentials)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 2,
+            "title": "Capture your full employer 401(k) match",
+            "stage": "now",
+            "tags": [
+              "bracket",
+              "critical"
+            ],
+            "incomeType": "w2",
+            "nodeKey": "w2:3.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 3,
+            "title": "Ask HR whether your 401(k) plan supports auto-escalation, and enable it if so",
+            "stage": "now",
+            "tags": [],
+            "incomeType": "w2",
+            "nodeKey": "w2:3.1",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Eliminate high-interest debt (above ~7% after tax)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Audit your IDR / PSLF payment history at studentaid.gov",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 7,
+            "title": "Build your full emergency fund (3–6 months of essential expenses)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 12,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Long-term disability insurance",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 13,
+          "skipped": 5,
+          "tier1": 3
+        }
+      },
+      "fullHash": "d5a156ab3dfa380202d87ebb52977ff4b57e8b56ad607a1adddd58f69ae73037"
+    },
+    {
+      "name": "persona-consumer-advocate-lowbracket",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "hoh",
+        "taxBracket": "low",
+        "ageBracket": "30-39",
+        "budgetTracking": "no",
+        "emergencyFund": "0",
+        "healthInsurance": "no",
+        "employerMatch": "no",
+        "highInterestDebt": "yes",
+        "incomeStability": "variable",
+        "federalStudentLoans": "yes",
+        "pslfEligible": "unsure",
+        "studentLoanAudited": "never",
+        "currentIDRPlan": "save-forbearance",
+        "dependents": "yes",
+        "netWorth": "negative"
+      },
+      "logicHash": "9f966c545c5c743220f7deb6444c28da58587493c0ff07d794dcc73439e261e1",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Build a comprehensive budget and start tracking cash flow",
+            "stage": "now",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:0.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Build a $1,000 starter emergency fund (or one month of essentials)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 2,
+            "title": "Get health insurance in place — this week",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Eliminate high-interest debt (above ~7% after tax)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Verify your PSLF eligibility before making payment decisions",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 5,
+            "title": "Audit your IDR / PSLF payment history at studentaid.gov",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Switch from SAVE forbearance to IBR (or evaluate RAP from July 2026) to resume qualifying-payment accrual",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Build your full emergency fund (3–6 months of essential expenses)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "File IRS Form 8880 to claim the Saver's Credit (IRC §25B)",
+            "stage": "this-year",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 11,
+            "title": "Check EITC eligibility + use free VITA preparation (do NOT use storefront preparers)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:8.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 12,
+            "title": "Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 13,
+            "title": "Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:8.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 14,
+            "title": "Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 15,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 16,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 17,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Capture employer match",
+          "Long-term disability insurance"
+        ],
+        "counts": {
+          "actions": 18,
+          "skipped": 4,
+          "tier1": 3
+        }
+      },
+      "fullHash": "60c37c3f417c630328acc4f6f2792ca6c76577ec63d9cff4ab2da2298547777f"
+    },
+    {
+      "name": "fresh-grad-w2",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "single",
+        "taxBracket": "low",
+        "ageBracket": "under-30",
+        "budgetTracking": "no",
+        "emergencyFund": "0",
+        "healthInsurance": "minimal",
+        "employerMatch": "yes",
+        "matchCaptured": "no",
+        "highInterestDebt": "yes",
+        "federalStudentLoans": "yes",
+        "pslfEligible": "no",
+        "studentLoanAudited": "never",
+        "currentIDRPlan": "standard",
+        "dependents": "no",
+        "netWorth": "under-100k",
+        "yearsToRetirement": "30+"
+      },
+      "logicHash": "4a5ac860ba645eddc30876d293cc4de1ca0e84a1599c048e1a2bc0e0c148c22e",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Build a comprehensive budget and start tracking cash flow",
+            "stage": "now",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:0.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Build a $1,000 starter emergency fund (or one month of essentials)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 2,
+            "title": "Reassess whether your minimal coverage is appropriate",
+            "stage": "now",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Capture your full employer 401(k) match",
+            "stage": "now",
+            "tags": [
+              "bracket",
+              "critical"
+            ],
+            "incomeType": "w2",
+            "nodeKey": "w2:3.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 4,
+            "title": "Eliminate high-interest debt (above ~7% after tax)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Audit your IDR / PSLF payment history at studentaid.gov",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:4.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Build your full emergency fund (3–6 months of essential expenses)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "File IRS Form 8880 to claim the Saver's Credit (IRC §25B)",
+            "stage": "this-year",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 10,
+            "title": "Check EITC eligibility + use free VITA preparation (do NOT use storefront preparers)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:8.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 12,
+            "title": "Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:8.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 13,
+            "title": "Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 14,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 15,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 16,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Long-term disability insurance",
+          "Term life insurance"
+        ],
+        "counts": {
+          "actions": 17,
+          "skipped": 4,
+          "tier1": 3
+        }
+      },
+      "fullHash": "015bcd4aaeb339b2606cc482b3ef0983c9e8dbbde0b0933cfb03c7b0cd338658"
+    },
+    {
+      "name": "solo-contractor-new",
+      "answers": {
+        "incomeTypes": [
+          "contractor"
+        ],
+        "filingStatus": "single",
+        "taxBracket": "mid",
+        "ageBracket": "30-39",
+        "budgetTracking": "yes",
+        "quarterlyTaxes": "no",
+        "emergencyFund": "1-3mo",
+        "healthInsurance": "minimal",
+        "incomeStability": "concentrated",
+        "sePlan": "no",
+        "businessInsurance": "no",
+        "entityStructure": "sole-prop",
+        "dependents": "no",
+        "netWorth": "under-100k"
+      },
+      "logicHash": "a3d10c35150556232efbc90e2c0320fe0c8c8ca9527c3b313a21013507036264",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Set up quarterly estimated tax payments and a tax reserve",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:0.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 1,
+            "title": "Reassess whether your minimal coverage is appropriate",
+            "stage": "now",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Set up your self-employed retirement plan (Solo 401(k) preferred)",
+            "stage": "next-quarter",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:3.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Get appropriate business insurance (liability, E&O, cyber)",
+            "stage": "next-quarter",
+            "tags": [],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:2.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Build your full emergency fund (6–12 months of essential expenses)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "contractor:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:1.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 7,
+            "title": "Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:8.1",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 8,
+            "title": "Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Plan for the Section 199A QBI deduction",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:8.2",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "Analyze whether to elect S-corp status",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:9.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 12,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 13,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Term life insurance"
+        ],
+        "counts": {
+          "actions": 14,
+          "skipped": 8,
+          "tier1": 3
+        }
+      },
+      "fullHash": "78c46a407627c96b91d67478de0e944c32b1f8a8cfa86af6d2a5813c5174deb1"
+    },
+    {
+      "name": "dink-mfj-highearners",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "30-39",
+        "budgetTracking": "yes",
+        "emergencyFund": "6-12mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "yes",
+        "k401Maxed": "yes",
+        "iraMaxed": "yes",
+        "tradIraBalance": "yes",
+        "hdhpEligible": "yes",
+        "hsaMaxed": "yes",
+        "dependents": "no",
+        "netWorth": "500k-2m",
+        "spousalIncomeSplit": "50-50",
+        "yearsToRetirement": "20-30"
+      },
+      "logicHash": "28ad021521d75ba93341e666bd57cc1e22e5c0cdb4cea0b82696698e8d0425f7",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Capture employer match",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Max HSA",
+          "Max IRA",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 3,
+          "skipped": 13,
+          "tier1": 0
+        }
+      },
+      "fullHash": "d600aa262d8cdea62d0cc98a81850c764fb1cd1b544fad6e13888734408cb276"
+    },
+    {
+      "name": "near-retiree-rothladder",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "60-63",
+        "budgetTracking": "yes",
+        "emergencyFund": "12+mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "yes",
+        "k401Maxed": "yes",
+        "iraMaxed": "yes",
+        "dependents": "no",
+        "netWorth": "2m+",
+        "yearsToRetirement": "<5",
+        "spousalIncomeSplit": "70-30",
+        "rothLadderCandidate": "yes-window",
+        "estateDocs": "yes"
+      },
+      "logicHash": "d2e5e72f12afa320acc82e50c7dd6ad0b84343a63d7d6da72b5948ca1d018572",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Start formal decumulation planning (Roth conversions, withdrawal sequencing)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Plan your Social Security claiming strategy",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket",
+            "stage": "this-year",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:10.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 6,
+            "title": "Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Read the adjacent-vehicles catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Capture employer match",
+          "Eliminate high-interest debt",
+          "Estate documents",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Max IRA",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 8,
+          "skipped": 13,
+          "tier1": 1
+        }
+      },
+      "fullHash": "e3bbdd03ace3aec31adc67ab92d3badb35d083dced7bb8969a327412255874f8"
+    },
+    {
+      "name": "already-retired",
+      "answers": {
+        "incomeTypes": [
+          "retired"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "mid",
+        "ageBracket": "retired",
+        "budgetTracking": "yes",
+        "emergencyFund": "12+mo",
+        "healthInsurance": "yes",
+        "dependents": "no",
+        "netWorth": "500k-2m",
+        "yearsToRetirement": "already",
+        "spousalIncomeSplit": "sole",
+        "rothLadderCandidate": "yes-no-window",
+        "estateDocs": "yes"
+      },
+      "logicHash": "2cf8dd10070d14ed3d75ce54a31b2e56077cec6ac7efb375190b3bf9e7f1d7ca",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.1",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Eliminate high-interest debt",
+          "Estate documents",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 4,
+          "skipped": 11,
+          "tier1": 0
+        }
+      },
+      "fullHash": "784ec54955331adb0861c347c23e4c3fcf724e371956a1645bc3024934a6693f"
+    },
+    {
+      "name": "business-owner-exit",
+      "answers": {
+        "incomeTypes": [
+          "business"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "50-59",
+        "budgetTracking": "yes",
+        "quarterlyTaxes": "yes",
+        "emergencyFund": "6-12mo",
+        "healthInsurance": "yes",
+        "sePlan": "yes",
+        "sePlanMaxed": "yes",
+        "businessInsurance": "yes",
+        "entityStructure": "s-corp",
+        "exitTimeline": "within-3",
+        "dependents": "yes",
+        "termLifeInPlace": "yes",
+        "ltdInPlace": "yes",
+        "netWorth": "2m+",
+        "rentalRealEstate": "long-term-rentals",
+        "parentCare": "yes-substantial"
+      },
+      "logicHash": "573a4da30294e17aeb2530542e2471cbbc993e7490e48fd11172babf5ce92f3b",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Execute the Backdoor Roth IRA ($7,500 for 2026)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Plan for the Section 199A QBI deduction",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:8.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Build aging-parent financial support into your cash-flow and savings-rate planning",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.4",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Engage advanced estate planning (GRATs, SLATs, dynasty trusts)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:10.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Begin business succession or sale preparation",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "business",
+            "nodeKey": "business:10.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Evaluate the Cash Balance DB plan + full §415 stack (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "business:8.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "Read the family-wealth strategies catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Before any cost-seg-firm sales call: read AdvStrat §4 + §8 first (defensive routing)",
+            "stage": "this-year",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 12,
+            "title": "Read the adjacent-vehicles catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Max SE retirement plan",
+          "Set up quarterly taxes",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 13,
+          "skipped": 12,
+          "tier1": 1
+        }
+      },
+      "fullHash": "1b4087a6bb218596b1688de71e013b9235e43e5a7a3f8e32561a5c5eb4763cd6"
+    },
+    {
+      "name": "str-explorer-w2",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "40-49",
+        "budgetTracking": "yes",
+        "emergencyFund": "6-12mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "yes",
+        "dependents": "yes",
+        "termLifeInPlace": "yes",
+        "ltdInPlace": "yes",
+        "netWorth": "500k-2m",
+        "rentalRealEstate": "str-exploring",
+        "moderateDebt": "yes"
+      },
+      "logicHash": "9e861b4768c7d35bdb3586dbb0e1ad8f69643d54079e1759038c4459f72e09d6",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Execute the Backdoor Roth IRA ($7,500 for 2026)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Address moderate-interest debt (rates above HYSA yield, below ~7%)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:7.2",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Read the family-wealth strategies catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.4",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Before any cost-seg-firm sales call: read AdvStrat §4 + §8 first (defensive routing)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Build full emergency fund",
+          "Capture employer match",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Term life insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 7,
+          "skipped": 9,
+          "tier1": 0
+        }
+      },
+      "fullHash": "42a98ebcbf50c78401111ece3d2f92546ffea062ed55b0fd17ac1afcc94709fc"
+    },
+    {
+      "name": "multi-income-w2-1099",
+      "answers": {
+        "incomeTypes": [
+          "w2",
+          "contractor"
+        ],
+        "filingStatus": "mfj",
+        "taxBracket": "high",
+        "ageBracket": "40-49",
+        "budgetTracking": "yes",
+        "quarterlyTaxes": "no",
+        "emergencyFund": "3-6mo",
+        "healthInsurance": "yes",
+        "employerMatch": "yes",
+        "matchCaptured": "partial",
+        "sePlan": "no",
+        "dependents": "yes",
+        "termLifeInPlace": "partial",
+        "ltdInPlace": "partial",
+        "netWorth": "500k-2m"
+      },
+      "logicHash": "64dd093b97fcc5ff886cdbec72056c4525b46e6bbef4a392be988cc46738bbb7",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Set up quarterly estimated tax payments and a tax reserve",
+            "stage": "now",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:0.3",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 1,
+            "title": "Capture your full employer 401(k) match",
+            "stage": "now",
+            "tags": [
+              "bracket",
+              "critical"
+            ],
+            "incomeType": "w2",
+            "nodeKey": "w2:3.1",
+            "friction": "low",
+            "tier1": true
+          },
+          {
+            "n": 2,
+            "title": "Secure long-term disability insurance (own-occupation if available)",
+            "stage": "next-quarter",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:2.2",
+            "friction": "med",
+            "tier1": true
+          },
+          {
+            "n": 3,
+            "title": "Get term life insurance (10–12× annual income)",
+            "stage": "next-quarter",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 4,
+            "title": "Close the disability gap before adding term-life coverage",
+            "stage": "next-quarter",
+            "tags": [
+              "critical"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:2.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 5,
+            "title": "Set up your self-employed retirement plan (Solo 401(k) preferred)",
+            "stage": "next-quarter",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:3.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 6,
+            "title": "Build your full emergency fund (6–12 months of essential expenses)",
+            "stage": "this-year",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "contractor:5.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 7,
+            "title": "Execute the Backdoor Roth IRA ($7,500 for 2026)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 8,
+            "title": "Plan for the Section 199A QBI deduction",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:8.2",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 9,
+            "title": "Analyze whether to elect S-corp status",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": "contractor",
+            "nodeKey": "contractor:9.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 10,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "contractor:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 11,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 12,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 13,
+            "title": "Evaluate the Cash Balance DB plan + full §415 stack (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "business:8.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
+            "n": 14,
+            "title": "Read the family-wealth strategies catalog (Phase 7)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.4",
+            "friction": "med",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Eliminate high-interest debt",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 15,
+          "skipped": 6,
+          "tier1": 3
+        }
+      },
+      "fullHash": "d9e52fb9a288fcd7f6ae8883b872cc2f248424beb76c905e94df732b0bf81903"
+    },
+    {
+      "name": "empty-answers",
+      "answers": {},
+      "logicHash": "4def925413c4bbd452d8aebba1f42eeda6996dddaf22fe6814b75ff206e94633",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Max 401(k)",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 3,
+          "skipped": 8,
+          "tier1": 0
+        }
+      },
+      "fullHash": "a523297e9ff3fc1c5f5bebe0430f5cc215fe6629544b6738abe4f83e8e3d4f52"
+    },
+    {
+      "name": "income-only",
+      "answers": {
+        "incomeTypes": [
+          "w2"
+        ],
+        "taxBracket": "mid"
+      },
+      "logicHash": "f28a62b279ae469f2736037d7b52876b76bb915bc30cf46c996dd932a0e57913",
+      "logic": {
+        "actions": [
+          {
+            "n": 0,
+            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+            "stage": "this-year",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:6.2",
+            "friction": "low",
+            "tier1": false
+          },
+          {
+            "n": 1,
+            "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+            "stage": "eventually",
+            "tags": [
+              "bracket"
+            ],
+            "incomeType": null,
+            "nodeKey": "w2:9.1",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 2,
+            "title": "Open a taxable brokerage with asset-location-optimized holdings",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.2",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 3,
+            "title": "Use tax-loss harvesting in your taxable account",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:9.3",
+            "friction": "high",
+            "tier1": false
+          }
+        ],
+        "skipped": [
+          "529 education plans",
+          "Address moderate-interest debt",
+          "Build $1,000 starter EF",
+          "Build a budget",
+          "Eliminate high-interest debt",
+          "Long-term disability insurance",
+          "Verify health insurance"
+        ],
+        "counts": {
+          "actions": 4,
+          "skipped": 7,
+          "tier1": 0
+        }
+      },
+      "fullHash": "b46e34dd4bc2abc2d4d000959cfb7195a0e6a32f88b9cf9e5c9b19b6c5871c12"
+    }
+  ]
+}
