@@ -65,6 +65,16 @@ v1's 660-line imperative `computePlan` reimplemented as data: `src/core/plan-rul
 
 `analyze-rules.mjs` — the static-analysis payoff the imperative engine couldn't offer: the field-dependency graph (which answers gate which actions), confirmation that every field a rule reads exists in the schema, and the 11 diagnostic fields that gate **no** plan action (they drive synthesis/other views — `filingStatus`, the literacy probes, `spousalAlign*`, etc.). Run: `node tools/analyze-rules.mjs`.
 
+`verify-rules.mjs` — build-time invariants (V2_REBUILD_PLAN.md §2.3), pure analysis: **dead-value detection** (eq/in values not in the field's domain), **reachability** (every rule fires for ≥1 corpus input — 79/79), **contradiction** (no title is both action and skip), **plan bounds** (no empty plans; min 3 / max 29 actions), and the **showIf dependency graph is acyclic (22 edges) ⇒ `cascadeClear` terminates in one pass** — a static proof replacing v1's runtime `safetyCounter`. Found and removed two latent dead branches in v1 (`dependents === 'multiple'`, `rothLadderCandidate === 'yes'` — both impossible values; removal is parity-confirmed zero-behavior-change).
+
+## `verify-v2.sh` — run every v2 gate
+
+```
+./tools/verify-v2.sh
+```
+
+Chains all six: unit tests · figures · diagnostic-predicate equivalence · plan-engine parity · rule invariants · lossless round-trip. Each is independently negative-tested (proven to fail on a planted defect). The `verify.sh`-equivalent for the rebuild branch.
+
 ## `validate-figures.mjs` (Phase 1.3 — figures data layer)
 
 Build-time gate for [`src/data/figures.json`](../src/data/figures.json): enforces the 6-field vintage-stamp contract and **fails the build on any past-expiry stamp** — the structural fix for the indexed-figure drift the Phase 0 sprint hit twice. See [`src/data/README.md`](../src/data/README.md).

@@ -212,10 +212,16 @@ export const RULE_GROUPS = [
     { when: all(T('_isSE'), eq('_bracket', 'high')), add: { title: 'Evaluate the Cash Balance DB plan + full §415 stack (Phase 7)', stage: 'eventually', nodeKey: 'business:8.1', tags: [] } },
   ] },
   { rules: [
-    { when: all(eq('_bracket', 'high'), any(eq('dependents', 'yes'), eq('dependents', 'multiple'))), add: { title: 'Read the family-wealth strategies catalog (Phase 7)', stage: 'eventually', nodeKey: 'w2:9.4', tags: [] } },
+    // v1 had `dependents === 'yes' || dependents === 'multiple'`; 'multiple' is not
+    // a valid dependents option, so that branch was dead. Removed (zero behavior change).
+    { when: all(eq('_bracket', 'high'), eq('dependents', 'yes')), add: { title: 'Read the family-wealth strategies catalog (Phase 7)', stage: 'eventually', nodeKey: 'w2:9.4', tags: [] } },
   ] },
   { rules: [
-    { when: all(eq('_bracket', 'high'), eq('state', 'ca'), any(eq('exitTimeline', 'within-3'), eq('exitTimeline', '3-10'), all(eq('rothLadderCandidate', 'yes'), inn('yearsToRetirement', ['<5', '5-10'])))), add: { title: 'Evaluate state-domicile change ahead of any major liquidity event (Phase 7)', stage: (d) => (d.exitTimeline === 'within-3' ? 'this-year' : 'eventually'), nodeKey: 'business:8.4', tags: (d) => (d.exitTimeline === 'within-3' ? ['critical'] : []) } },
+    // v1's third OR-branch tested `rothLadderCandidate === 'yes'`, but the options
+    // are yes-window / yes-no-window / low-trad / unsure — never bare 'yes' — so
+    // that branch was dead. Removed (zero behavior change); condition reduces to a
+    // high-bracket CA resident with a near-term liquidity event.
+    { when: all(eq('_bracket', 'high'), eq('state', 'ca'), any(eq('exitTimeline', 'within-3'), eq('exitTimeline', '3-10'))), add: { title: 'Evaluate state-domicile change ahead of any major liquidity event (Phase 7)', stage: (d) => (d.exitTimeline === 'within-3' ? 'this-year' : 'eventually'), nodeKey: 'business:8.4', tags: (d) => (d.exitTimeline === 'within-3' ? ['critical'] : []) } },
   ] },
   { rules: [
     { when: any(eq('rentalRealEstate', 'str-current'), eq('rentalRealEstate', 'str-exploring'), all(eq('rentalRealEstate', 'long-term-rentals'), eq('_bracket', 'high'))), add: { title: 'Before any cost-seg-firm sales call: read AdvStrat §4 + §8 first (defensive routing)', stage: (d) => (d._isExploring ? 'eventually' : 'this-year'), nodeKey: 'w2:9.3', tags: (d) => (d._isExploring ? [] : ['critical']) } },
