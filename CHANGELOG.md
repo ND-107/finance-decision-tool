@@ -1,5 +1,40 @@
 # Changelog
 
+## 2026-06-11 — Currency hotfix sprint (Phase 0 of V2_REBUILD_PLAN.md) — OBBBA loan restructuring + 2026-figure corrections
+
+Executes Phase 0 of `docs/V2_REBUILD_PLAN.md`, from the 2026-06-10 full content audit (447 claims re-examined; high-risk surface live-verified against IRS / CMS / HHS / SSA / ED / CRS sources). Time-driver: OBBBA's July 1, 2026 student-loan dates.
+
+**Vintage-figure corrections (2025 values had been labeled 2026):**
+- IRMAA first tier $106K/$212K → **$109,000 / $218,000** (both locations: W2:10.1 callout + rothLadderCandidate action); top tier corrected from unsourced ~$394K/~$788K → statutory **$500K/$750K**; per-spouse top-tier surcharge $440 → ~$500/mo (2026 Part B surcharge alone ~$405)
+- 12% MFJ bracket top $96,950 → **$100,800** (Rev. Proc. 2025-32; OBBBA extra-indexed the bottom brackets) — both locations
+- AdvStrat §7 IDR example "2026 FPL $15,650" → **$15,960** with derived chain re-computed ($23,940 / $56,060 / $5,606/yr / ~$467/mo). ACA cliff dollars deliberately unchanged (coverage-year-2026 correctly keys off 2025 FPL)
+- QCD $108,000 → **$111,000** (both locations); one-time split-interest QCD $54,000 → **$55,000**
+
+**OBBBA student-loan restructuring (was entirely absent):**
+- AdvStrat §7: new restructuring intro (the two dates: 2026-07-01 and 2028-07-01); new **RAP bullet** (1–10% of AGI, $10/mo floor, $50/dependent, interest waiver + principal match, 360-payment forgiveness, PSLF-qualifying per ED April 2026 final rule; tiered Standard NOT PSLF-qualifying); PAYE/SAVE/ICR bullets rewritten with sunsets; IBR marked as the surviving legacy plan; SAVE wind-down settlement
+- SAVE-forbearance critical action + §7 callout: "switch to IBR or PAYE" → **IBR now, or evaluate RAP from July 2026; avoid PAYE** (shares the 2028 sunset)
+- PSLF action updated (IBR/RAP both qualify; tiered Standard doesn't)
+- **New critical action:** Parent PLUS consolidation deadline July 1, 2026 (the consolidate-into-ICR bridge closes; Parent PLUS excluded from RAP) — fires for all federal-loan borrowers, self-dismissing framing
+- **New action:** legacy-plan migration planning for PAYE/ICR/SAVE-paying respondents (IBR-vs-RAP decision inputs); rap/ibr answers produce skip entries
+- `currentIDRPlan` diagnostic: RAP option added; help text updated. FRICTION_RULES extended for the two new action titles
+
+**Other corrections:**
+- SS trust-fund depletion "within the next 15-20 years" → OASI 2032–2033 / combined 2034 at 77–81% payable (2025+2026 Trustees Reports) — the old timeline matched no report ever published
+- ACA-PTC Plan action: stale "continued ARPA/IRA extensions" parenthetical → enhanced subsidies expired 2025-12-31, 400% cliff back for 2026
+- Solo 401(k) employer-side formulation fixed in the three locations CL429 missed (contractor 3.1 details, 8.1 summary, plan action) — 25%-of-W-2 (corp) vs ~20%-of-net-SE (sole prop)
+- "Form PS-509" (does not exist) → real PSLF Help Tool employer-eligibility documentation flow
+- **Bronze/catastrophic HSA expansion** (OBBBA; IRS Notice 2026-05): minimal-coverage action premise rewritten (was affirmatively false for 2026); W2:6.1 node + Spending:Essentials DPC paragraph updated (DPC ≤$150/$300 now HSA-compatible and HSA-payable); hdhpEligible help text added
+- Saver's Match (SECURE 2.0 §103, TY2027) horizon notes added to Saver's Credit action + reference callout
+- Estate "ahead of any sunset" hedge → permanent $15M/$30M framing; HYSA forward-rate expectation reframed two-sided (mid-2026 inflation prints)
+
+**Audit:** CL472–CL482 added (11 rows); CL362, CL364, CL331, FA018 corrected in place. xlsx regenerated.
+
+**Adversarial-verification corrections (2 of 4 lean verifiers surfaced real issues a deterministic sweep could not):**
+- **IRMAA top-tier surcharge** — the interim fix had stated "~$405/month Part B surcharge / ~$500/month combined." Both wrong: $405.40 is the 2026 monthly *actuarial rate*, not the IRMAA surcharge. Corrected (both locations) to CMS-confirmed top-tier **Part B surcharge $487/mo** (total Part B $689.90 on the $202.90 standard) **+ Part D ~$91/mo = ~$578/mo combined** per spouse.
+- **Saver's Credit phase-out ceilings** (pre-existing staleness, completeness-critic find) — both locations showed full-phase-out at $39,250/$58,875/$78,500 (callout) and $39,000/$59,000/$78,500 (action), *below even the 2025 values*. Corrected to 2026 Notice 2025-67: full phase-out $40,250 single / $60,375 HoH / $80,500 MFJ; 50% tier tightened to exact $24,250/$36,375/$48,500 (20%-tier band was already correct). [CL482]
+
+**Process note:** CL362's prior verification had itself anchored to stale data (wrong values in the source field), and the interim $405 figure was a fresh category error — both are exactly the class of mistake the v2 figures-vintage layer (V2_REBUILD_PLAN.md §1.3) exists to make structurally impossible. The adversarial verifier earned its keep: deterministic sweeps catch *stale* values but not *wrong-and-new* ones.
+
 ## 2026-05-25 — Fix Next-button stuck on showIf reveals + add Start-over button
 
 **Done:**

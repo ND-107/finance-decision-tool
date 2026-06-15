@@ -1930,9 +1930,9 @@ CLAIMS = [
 
     ("CL362", "W2:10.1, W2:10.3", "IRMAA Medicare premium surcharges apply at MAGI thresholds with 2-year lookback; Roth conversions and SS claiming in pre-Medicare years can trigger multi-year premium increases",
      "REGULATORY", "CON", "CORRECTED", "A",
-     "42 U.S.C. §1395r(i); SSA POMS HI 01101.020; CMS Annual IRMAA tables (2026 first tier ~$106K single / ~$212K MFJ; top tier ~$394K / ~$788K)",
+     "42 U.S.C. §1395r(i); SSA POMS HI 01101.020; CMS 2026 Parts A&B premiums notice / IRS Notice 2025-67 IRMAA tables (2026 first tier $109K single / $218K MFJ; top tier $500K / $750K; 2026 Part B standard $202.90, top-tier total $689.90 = $487.00 surcharge; top-tier Part D surcharge $91.00; combined top-tier surcharge $578.00/mo per spouse)",
      "APPLIED: Two callouts added. (1) W2:10.1 — IRMAA cliff awareness callout placed inside the Roth conversion ladder node, with the 2-year MAGI lookback, the five-tier cliff structure, the 2026 dollar figures, and the practical rule 'from age 63 onward, size conversions to the IRMAA tier boundary, not the federal bracket boundary.' Notes that the 12% bracket fill generally clears IRMAA for couples but the 22%/24% bracket-fill plays the framework otherwise recommends do not. (2) W2:10.3 — cross-reference callout to 10.1 explaining that SS claiming and conversion sizing are joint optimization problems on IRMAA grounds; claiming early at 62 with simultaneous large conversions is the most common way to land in the second or third IRMAA tier.",
-     "Phase 6 — Session 1 Tax Attorney + CFP convergent finding."),
+     "Phase 6 — Session 1 Tax Attorney + CFP convergent finding. 2026-06-11 currency sprint: first-tier figures corrected $106K/$212K → $109K/$218K (the originals were 2025 values labeled 2026 — the prior verification itself anchored stale); top tier corrected from the unsourced ~$394K/~$788K to the statutory $500K/$750K; 12%-bracket fill corrected $96,950 → $100,800 MFJ per Rev. Proc. 2025-32. 2026-06-15 adversarial-verifier correction: the interim '~$405/mo Part B surcharge' / '~$500/mo combined' figures were WRONG ($405.40 is the 2026 monthly actuarial rate, not the IRMAA surcharge) — corrected to the CMS-confirmed top-tier Part B surcharge $487.00/mo (total Part B $689.90) + Part D $91.00/mo = $578.00/mo combined per spouse. Both artifact locations (W2:10.1 callout + rothLadderCandidate Plan action) updated."),
 
     ("CL363", "W2:10.1, W2:10.2", "Post-SECURE 10-year inherited IRA rule eliminates stretch for most non-spouse beneficiaries; per 2024 final regs, annual RMDs during years 1-9 required when decedent had begun RMDs; SECURE 2.0 RMD age 73→75 in 2033",
      "STATUTORY", "CON", "CORRECTED", "A",
@@ -1940,11 +1940,11 @@ CLAIMS = [
      "APPLIED: Callout in W2:10.1 covering the SECURE Act 10-year rule, the July 2024 final-regs years-1-9-RMD requirement when decedent had begun RMDs, the eligible-designated-beneficiary exceptions (surviving spouse, minor child of decedent, disabled/chronically ill, beneficiary within 10 years of decedent age), and the practical effect — pre-tax IRA balances inherited by working-age children distribute into peak earning years at 32-37% federal vs the parent's possible 10-24%, strengthening the conversion-ladder case by an 8-20 pp tax-rate spread. W2:10.2 updated to note RMD age 73→75 in 2033 per SECURE 2.0 §107, which extends the 'tax valley' conversion window by two additional years for households turning 65 in 2023 or later.",
      "Phase 6 — Session 1 Tax Attorney finding."),
 
-    ("CL364", "W2:10.5 (new node); Zeit:Life:5", "QCDs permit direct IRA-to-charity transfer up to $108,000 (2026) at age 70½+; counts toward RMD, excluded from AGI; superior to most other charitable vehicles for eligible retirees",
+    ("CL364", "W2:10.5 (new node); Zeit:Life:5", "QCDs permit direct IRA-to-charity transfer up to $111,000 (2026) at age 70½+; counts toward RMD, excluded from AGI; superior to most other charitable vehicles for eligible retirees",
      "STATUTORY", "CON", "CORRECTED", "A",
      "IRC §408(d)(8); SECURE 2.0 §307 (indexation effective 2024); SECURE 2.0 §307 (one-time $54K QCD-to-CRT/CGA option, indexed); IRS Publication 590-B",
      "APPLIED: New full-chart W2:10.5 node 'Qualified Charitable Distributions (QCDs) — the most efficient give-while-alive vehicle at 70½+' covering: 2026 $108K annual limit per IRA owner, age trigger preserved at 70½ (not the current RMD age of 73), AGI-exclusion mechanism, RMD satisfaction, IRMAA / SS-taxability interaction, DAF and private-foundation exclusion, direct-transfer-from-trustee requirement, SECURE 2.0 one-time $54K QCD-to-CRT/CGA option. Cross-referenced from Zeit:Life:5 (Die with Zero) with a math-callout noting that for charitably-inclined retirees 70½+ with Traditional IRA balances, QCDs dominate DAF funding / after-tax cash giving / bunching on after-tax-cost-per-dollar-donated math. Note: the cross-reference is one-directional (Zeit→10.5) per the framework's forward-only linking discipline.",
-     "Phase 6 — Session 1 Tax Attorney finding; CFP convergent on the give-while-alive integration."),
+     "Phase 6 — Session 1 Tax Attorney finding; CFP convergent on the give-while-alive integration. 2026-06-11 currency sprint: $108,000 / $54,000 were 2025 values labeled '2026 indexed' — corrected to $111,000 annual / $55,000 one-time split-interest (2026; Notice 2025-67 indexing family; Northern Trust + Fidelity 2026 confirmations). All three artifact locations updated (W2:10.5 node ×2 + Zeit:Life:5 callout)."),
 
     ("CL334", "Plan:computePlan LTC trigger", "LTC plan action undifferentiated by net worth × household structure × age window",
      "UX", "CON", "CORRECTED", "C",
@@ -2213,7 +2213,7 @@ CLAIMS = [
     ("CL331", "Diagnostic:Foundation; computePlan", "Plan view never recommended the Roth conversion ladder to candidate households despite W2:10.1 covering the mechanics — the diagnostic didn't capture the Traditional-balance + early-retirement-window signal that identifies ladder candidates",
      "META", "CON", "CORRECTED", "B",
      "IRC §408A; Kitces NEV 'Filling Up the Tax Bracket With Partial Roth Conversions' (2014); SECURE 2.0 §107 (RMD age 73→75 in 2033); 42 U.S.C. §1395r(i) (IRMAA); SSA POMS HI 01101.020; W2:10.1 + W2:10.2 Phase 6 work on SECURE 10-year rule and IRMAA awareness (CL362/CL363)",
-     "APPLIED: New 'rothLadderCandidate' diagnostic question in Foundation section (yes-window / yes-no-window / low-trad / unsure), shown when yearsToRetirement is <5 / 5-10 / already. computePlan adds three branches: (1) yes-window → critical 'this-year' action with full IRMAA-aware sizing guidance (size to IRMAA tier boundary not federal bracket from age 63+, with the 2026 ~$106K/$212K first-tier and ~$394K/$788K top-tier dollar figures, 2-year MAGI lookback, citing Kitces NEV 2014 + SECURE 10-year case strengthening from CL363); (2) yes-no-window → 'this-year' partial-conversion action coordinated with QCD planning (W2:10.5) for households past the full window; (3) unsure → 'next-quarter' inventory action walking through the operational steps to determine candidacy. All link to W2:10.1 for mechanics. CL331 added as primary audit row (was previously only referenced in CL338's notes). Status CORRECTED.",
+     "APPLIED: New 'rothLadderCandidate' diagnostic question in Foundation section (yes-window / yes-no-window / low-trad / unsure), shown when yearsToRetirement is <5 / 5-10 / already. computePlan adds three branches: (1) yes-window → critical 'this-year' action with full IRMAA-aware sizing guidance (size to IRMAA tier boundary not federal bracket from age 63+, with the 2026 first-tier/top-tier dollar figures (corrected 2026-06-11 to $109K/$218K and $500K/$750K — see CL362 note), 2-year MAGI lookback, citing Kitces NEV 2014 + SECURE 10-year case strengthening from CL363); (2) yes-no-window → 'this-year' partial-conversion action coordinated with QCD planning (W2:10.5) for households past the full window; (3) unsure → 'next-quarter' inventory action walking through the operational steps to determine candidacy. All link to W2:10.1 for mechanics. CL331 added as primary audit row (was previously only referenced in CL338's notes). Status CORRECTED.",
      "Phase 6.5 — Sprint 1B. Originally Session-1 CFP CL331 finding."),
 
     # ============================================================
@@ -2682,6 +2682,77 @@ CLAIMS = [
 
     # CL446 (rental real estate diagnostic Q) and CL458 (defensive Plan action) both closed by CL469.
     # No separate entries needed — CL469's APPLIED note documents closure of both prior backlog rows.
+
+    # ============================================================
+    # 2026-06-11 currency sprint (Phase 0 of V2_REBUILD_PLAN.md)
+    # Live-verified 2026-06-10/11 against IRS / CMS / HHS / SSA / ED / CRS.
+    # ============================================================
+
+    ("CL472", "AdvStrat:7 (intro + taxonomy); Plan view (legacy-migration action)",
+     "OBBBA (P.L. 119-21, July 2025) restructures federal student-loan repayment: new borrowing from 2026-07-01 is limited to RAP + a tiered Standard plan; ICR/PAYE/SAVE are eliminated for all borrowers by 2028-07-01 with migration to IBR or RAP (non-electors auto-enrolled in RAP); any new loan on/after 2026-07-01 forfeits legacy-plan access going forward",
+     "STATUTORY", "CON", "PASS", "A",
+     "P.L. 119-21 (2025); CRS IF13075; NASFAA RISE-committee implementation guidance (2026); Kitces OBBBA student-loan breakout guide", "",
+     "Added 2026-06-11. Pre-sprint, AdvStrat:7 + all three loan Plan actions were framed entirely around the 2024-25 SAVE litigation with zero OBBBA coverage — the largest staleness finding of the 2026-06-10 content audit. New legacy-migration Plan action fires on currentIDRPlan in {paye, icr, save-paying}; rap/ibr answers produce skip entries."),
+
+    ("CL473", "AdvStrat:7 (RAP bullet); Plan view (SAVE-forbearance + migration actions); currentIDRPlan option",
+     "RAP mechanics: payments 1-10% of AGI (no poverty-line exclusion), stepping ~1pp per $10K AGI bracket and capping at 10% above $100K AGI; $10/mo minimum; $50/mo per-dependent payment reduction; unpaid monthly interest waived; principal match up to $50/mo; forgiveness at 360 qualifying payments (30 yrs, taxable under current law); RAP qualifies for PSLF (ED final rule April 2026); the tiered Standard plan does NOT qualify for PSLF",
+     "STATUTORY", "CON", "PASS", "A",
+     "CRS IF13075; ED final rule (April 2026, PSLF eligibility); SoFi/NerdWallet/savingforcollege RAP explainers 2025-26", "",
+     "Verified live 2026-06-11. RAP added to currentIDRPlan diagnostic options (opens July 2026 framing)."),
+
+    ("CL474", "AdvStrat:7 (ICR bullet); Plan view (new critical Parent PLUS action)",
+     "Parent PLUS income-driven access requires Direct consolidation + ICR enrollment; consolidations after 2026-07-01 no longer unlock income-driven plans; Parent PLUS is excluded from RAP; consolidated-and-enrolled borrowers are expected to transition into IBR before ICR's 2028 sunset",
+     "STATUTORY", "CON", "PASS", "A",
+     "P.L. 119-21; Kitces OBBBA breakout guide (2025); EdTrust + Upbeat Wealth analyses; TCNJ financial-aid implementation notice", "",
+     "Time-critical action added 2026-06-11 (deadline 2026-07-01). Fires for all federalStudentLoans=yes households with self-dismissing framing — no Parent PLUS diagnostic question exists in hotfix scope; flagged as v2 diagnostic backlog."),
+
+    ("CL475", "AdvStrat:7 (SAVE bullet + forbearance callout); Plan view (SAVE-forbearance action)",
+     "SAVE is being formally wound down via 2026 court settlement; ED no longer enrolls new borrowers in SAVE and is transitioning enrolled borrowers to alternative plans; SAVE-forbearance guidance updated to IBR-now-or-evaluate-RAP (not PAYE, which shares the 2028 sunset)",
+     "REGULATORY", "CON", "PASS", "B",
+     "ED settlement announcements (2026); Brookings 'How OBBBA reshapes student lending'; NerdWallet SAVE wind-down coverage", "",
+     "Verified live 2026-06-11. Replaced the 'switch to IBR or (if eligible) PAYE' recommendation in three locations — PAYE switching is now wrong-footed (forced second migration by 2028)."),
+
+    ("CL476", "W2:6.1 node; Spending:Essentials §3 (HDHP/HSA + DPC); Plan view (minimal-coverage action); hdhpEligible help text",
+     "From 2026-01-01 (OBBBA), bronze and catastrophic Exchange plans are treated as HSA-qualified HDHPs regardless of deductible/OOP thresholds; direct-primary-care arrangements ≤$150/mo individual ($300 family) no longer block HSA eligibility and the fees are HSA-payable within those caps; telehealth-before-deductible made permanent",
+     "STATUTORY", "CON", "PASS", "A",
+     "OBBBA; IRS Notice 2026-05 (Dec 9, 2025); RSM US + Wagner Law Group summaries", "",
+     "Closes the 2026-06-10 audit's missing-OBBBA-HSA-expansion gap. The prior minimal-coverage Plan action premise ('catastrophic-only plans without HSA pairing') was affirmatively false for 2026 and was rewritten."),
+
+    ("CL477", "W2:6.2 Saver's Credit callout; Plan view (Saver's Credit action)",
+     "SECURE 2.0 §103 replaces the Saver's Credit with the Saver's Match beginning tax year 2027: a 50% federal match on up to $2,000 of retirement contributions (max $1,000), deposited directly into the saver's retirement account rather than credited on the return",
+     "STATUTORY", "CON", "PASS", "A",
+     "SECURE 2.0 §103 (2022)", "",
+     "Horizon note added 2026-06-11 in both locations — relevant for multi-year planning by the low-bracket cohort the Phase 7.5 work serves."),
+
+    ("CL478", "Zeit:Life §8 (Gen-Z structural framing)",
+     "OASI trust fund reserve depletion projected for 2033 (2025 Trustees Report, 77% of scheduled benefits payable) / Q4 2032 (2026 report); combined OASI+DI funds 2034 (~81% payable)",
+     "EMPIRICAL", "CON", "PASS", "A",
+     "2025 + 2026 OASDI Trustees Reports (ssa.gov/oact/trsum); CRS IF13045; NOSSCR summary", "",
+     "Replaces the unsupported 'depletion within the next 15-20 years' claim (would have implied 2041-2046 — matched no trustees report ever published). The 77-80%-payable clause was already correct and is retained as 77-81%. The timeline had never been a tracked claim — only the percentage was."),
+
+    ("CL479", "W2:10.1 IRMAA callout; rothLadderCandidate Plan action",
+     "2026 12% MFJ bracket top is $100,800 of taxable income (22% bracket begins above); OBBBA provided extra ~4% indexing for the bottom two brackets, which is why the jump from 2025's $96,950 is outsized",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "Rev. Proc. 2025-32; IRS TY2026 inflation-adjustments newsroom release; Tax Foundation 2026 brackets", "",
+     "Corrects $96,950 (the 2025 value) which had been labeled 2026 in both locations."),
+
+    ("CL480", "AdvStrat:7 (IDR discretionary-income worked example)",
+     "2026 HHS poverty guideline (48 contiguous states, household of 1) is $15,960; the IDR worked example's derived chain is corrected to $23,940 / $56,060 / $5,606/yr / ~$467/mo",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "HHS ASPE 2026 poverty guidelines (published Jan 2026; shutdown-adjusted CPI methodology)", "",
+     "Corrects $15,650 (the 2025 guideline) labeled as '2026 FPL'. NOTE: the W2:1.3 ACA 400%-cliff dollar figures ($62,600 / $84,600 / $128,600) correctly key off the 2025 guideline (coverage-year-2026 marketplace subsidies use prior-year FPL) and were deliberately NOT changed."),
+
+    ("CL482", "W2:6.2 Saver's Credit callout; Plan view (CL395 Saver's Credit action)",
+     "2026 Saver's Credit (§25B) AGI bands (Notice 2025-67): 50% tier up to $24,250 single / $36,375 HoH / $48,500 MFJ; 20% tier up to $26,250 / $39,375 / $52,500; full phase-out (10% tier top) at $40,250 single / $60,375 HoH / $80,500 MFJ",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "IRS Notice 2025-67 (Rev. Proc. 2025-32); IRS newsroom '401(k) limit increases to $24,500 for 2026' (Saver's Credit MFJ $80,500 up from $79,000)", "",
+     "Added 2026-06-15 via the lean-verifier completeness critic (a JOB-B residual-staleness target the 2026-06-11 sprint missed). Both artifact locations had stale full-phase-out ceilings — callout '$39,250/$58,875/$78,500', Plan action '$39,000/$59,000/$78,500' — both BELOW even the 2025 values ($39,500/$59,250/$79,000), so doubly wrong; a $40K-AGI single / ~$80K MFJ filer was shown as phased out when actually still in the 10% tier. The 50%-tier figures were also tightened from 'approximately $24,000/$36,000/$48,000' to the exact $24,250/$36,375/$48,500; the 20%-tier band $26,250/$39,375/$52,500 was already exactly correct and unchanged."),
+
+    ("CL481", "AdvStrat:7 (PSLF workflow step 2)",
+     "PSLF employer-eligibility additions and disputes are handled through the PSLF Help Tool documentation flow (employer search by EIN; documentation upload for unlisted/undetermined employers); no separate paper form exists for adding an employer",
+     "UX", "CON", "PASS", "B",
+     "studentaid.gov PSLF Help Tool + Employer Search documentation", "",
+     "Removes invented form number 'PS-509' — it survived the 447-claim audit because workflow-step prose was never claim-annotated. Exhibit A for the v2 rebuild's inline claim-annotation requirement (V2_REBUILD_PLAN.md §1.2)."),
 ]
 
 # Build Excel workbook
@@ -3162,7 +3233,7 @@ FUTURE_ADDITIONS = [
     ("FA018", "Decumulation upside", "Qualified Charitable Distributions (QCDs) at 70½+: direct IRA-to-charity distribution up to $108,000 (2025); satisfies RMDs, excluded from AGI",
      "W2:10.x or new node",
      "IRC §408(d)(8); SECURE 2.0 §307 (indexing the QCD limit)",
-     "Age 70½ trigger (not RMD age 73); $108K limit indexed; new SECURE 2.0 split-interest CRT/CGA option ($53K one-time)"),
+     "Age 70½ trigger (not RMD age 73); $108K limit indexed (2025; $111K for 2026); SECURE 2.0 split-interest CRT/CGA option ($54K one-time 2025; $55K 2026)"),
 
     ("FA019", "Decumulation upside", "State domicile arbitrage: relocate from high-tax state (CA, NY, NJ) to no-income-tax state (FL, TN, NV, TX, WA) at retirement",
      "W2:10.x or new geographic-arbitrage node",
