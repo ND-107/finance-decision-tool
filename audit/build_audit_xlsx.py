@@ -2753,6 +2753,12 @@ CLAIMS = [
      "UX", "CON", "PASS", "B",
      "studentaid.gov PSLF Help Tool + Employer Search documentation", "",
      "Removes invented form number 'PS-509' — it survived the 447-claim audit because workflow-step prose was never claim-annotated. Exhibit A for the v2 rebuild's inline claim-annotation requirement (V2_REBUILD_PLAN.md §1.2)."),
+
+    ("CL483", "AdvStrat:2 (family-employment / custodial-Roth worked example)",
+     "A dependent child's standard deduction equals earned income (plus $450) up to the single-filer basic standard-deduction cap, which is $16,100 for 2026 (NOT $15,000); $15,000 of wages is therefore fully sheltered to ~$0 taxable income",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "IRS Rev. Proc. 2025-32 / IRS newsroom IR-2025-103 (2026 single standard deduction $16,100, MFJ $32,200); IRC §63(c)(5) dependent-SD limitation", "",
+     "Added 2026-06-15 via the v2 figures-layer verification workflow (the figures audit's payoff — a NEW live-staleness find the Phase 0 sprint had not touched). The example stated 'the child's standard deduction of $15,000 for 2026' — $15,000 is the pre-OBBBA-bump figure (2025 single SD was $15,750; 2026 is $16,100). Corrected to '$16,100 single-filer cap' and reworded to state the dependent-SD-tracks-earned-income mechanism accurately; downstream family-savings rounded $5,000 -> $5,500 ($15K x 37% = $5,550). This figure is now stamped in src/data/figures.json (key std_deduction_single) on the v2 branch so the class of error becomes a build failure post-re-platform."),
 ]
 
 # Build Excel workbook

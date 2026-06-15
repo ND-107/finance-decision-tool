@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-06-15 — Standard-deduction correction (surfaced by the v2 figures-layer audit)
+
+A follow-on single-figure hotfix to `main`, found while building the v2 figures data layer (`src/data/figures.json` on the `v2` branch) — a workflow that live-verified all 46 indexed statutory figures in the artifact against 2026 primary sources. 45/46 confirmed correct (including every Phase 0 fix); this was the one new staleness.
+
+- **AdvStrat §2 family-employment example:** "the child's standard deduction of **$15,000** for 2026" → **$16,100** (the 2026 single-filer basic standard deduction per Rev. Proc. 2025-32; $15,000 was the pre-OBBBA-bump value). Reworded to state the mechanism accurately — a dependent's standard deduction tracks earned income up to the single-filer cap — and the downstream family-savings figure corrected $5,000 → $5,500 ($15K × 37% = $5,550). [CL483]
+- Audit: CL483 added; xlsx regenerated; `verify.sh` green.
+
+This is the figures layer earning its keep before it even ships: the same vintage-stamping that will make this a build error post-re-platform is what surfaced it now. The full 46-figure registry (every value + source + verified date + expiry) lives on the `v2` branch with a build-time validator that fails loudly on any past-expiry stamp.
+
 ## 2026-06-11 — Currency hotfix sprint (Phase 0 of V2_REBUILD_PLAN.md) — OBBBA loan restructuring + 2026-figure corrections
 
 Executes Phase 0 of `docs/V2_REBUILD_PLAN.md`, from the 2026-06-10 full content audit (447 claims re-examined; high-risk surface live-verified against IRS / CMS / HHS / SSA / ED / CRS sources). Time-driver: OBBBA's July 1, 2026 student-loan dates.
