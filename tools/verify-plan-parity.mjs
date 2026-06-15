@@ -17,13 +17,18 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { loadPlanEngine } from './lib/load-plan-engine.mjs';
+import { computePlan as v2computePlan } from '../src/core/plan-engine.mjs';
 import { logicHash, planLogic } from './lib/plan-fingerprint.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FIX = join(ROOT, 'tests', 'fixtures');
 
-// ENGINE: the implementation under test. Swap to the v2 rule engine here later.
-const ENGINE = loadPlanEngine();
+// ENGINE under test. Default: the v2 data-driven rule engine (the real gate —
+// must reproduce the v1 golden). `--engine=v1` checks the live v1 engine against
+// the golden instead (a determinism self-check; tautological by construction).
+const useV1 = process.argv.includes('--engine=v1');
+const ENGINE = useV1 ? loadPlanEngine() : { computePlan: v2computePlan };
+console.log(`engine under test: ${useV1 ? 'v1 (live computePlan)' : 'v2 (src/core/plan-engine.mjs)'}`);
 
 if (!existsSync(join(FIX, 'plan-golden.json'))) {
   console.log('full corpus missing — regenerating (deterministic)…');

@@ -57,6 +57,14 @@ Characterize-before-refactor for the 660-line decision engine: capture v1 `compu
 
 **Fixtures:** `tests/fixtures/plan-golden-archetypes.json` (committed — 15 archetypes with full readable logic, the reviewable contract). `tests/fixtures/plan-golden.json` (git-ignored — full 3015-fixture corpus; regenerate with `gen-plan-fixtures.mjs`, deterministic).
 
+## The v2 data-driven plan engine (Phase 2)
+
+v1's 660-line imperative `computePlan` reimplemented as data: `src/core/plan-rules.mjs` (55 ordered first-match rule groups), `src/core/derive.mjs` (the helper-function-equivalent derived fields), `src/core/plan-engine.mjs` (90-line evaluator + verbatim friction/Tier-1). Predicates use the same grammar as the diagnostic.
+
+**Held to v1 by `verify-plan-parity.mjs`** (default engine = v2): 3030 golden fixtures, **all match**. Structurally exact too — v1 and v2 both emit 63 adds + 24 skips with identical title sets. 7 `node:test` spot-checks in `plan-engine.test.mjs`. Negative test passes (drop one rule's tag → parity exits 1).
+
+`analyze-rules.mjs` — the static-analysis payoff the imperative engine couldn't offer: the field-dependency graph (which answers gate which actions), confirmation that every field a rule reads exists in the schema, and the 11 diagnostic fields that gate **no** plan action (they drive synthesis/other views — `filingStatus`, the literacy probes, `spousalAlign*`, etc.). Run: `node tools/analyze-rules.mjs`.
+
 ## `validate-figures.mjs` (Phase 1.3 — figures data layer)
 
 Build-time gate for [`src/data/figures.json`](../src/data/figures.json): enforces the 6-field vintage-stamp contract and **fails the build on any past-expiry stamp** — the structural fix for the indexed-figure drift the Phase 0 sprint hit twice. See [`src/data/README.md`](../src/data/README.md).
