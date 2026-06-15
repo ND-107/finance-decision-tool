@@ -29,6 +29,19 @@ Extraction proceeds **one segment at a time**, gate green after each:
 
 This is the "lift one piece, prove round-trip, repeat" discipline — never a big-bang extraction.
 
+## Diagnostic-schema extraction (Phase 2 — first content extraction)
+
+Lifts the diagnostic out of the artifact and turns its `showIf` closures into declarative data — the crux of the rebuild (V2_REBUILD_PLAN.md §2/§3).
+
+| Tool | Does |
+|---|---|
+| `src/core/predicates.mjs` | Declarative predicate evaluator: leaves `{field, op, value}` (eq/ne/in/nin/has/hasAny/hasAll/exists/truthy) + combinators `{all}`/`{any}`/`{not}`. Pure, serializable, statically analyzable (`predicateFields` → the field-dependency graph). 9 unit tests in `predicates.test.mjs` (`node --test src/core/predicates.test.mjs`). |
+| `lib/showif-to-predicate.mjs` | Converts a v1 `showIf` arrow function → declarative predicate. STRICT — throws on any unrecognized shape, so nothing is silently mis-converted. |
+| `extract-questions.mjs` | Evals the live `QUESTIONS` array from `main:flowchart.html`, converts every `showIf`, writes `src/content/questions.json` (7 sections, 53 questions, 21 predicates). `--check` validates without writing. |
+| `verify-questions-equivalence.mjs` | **The Phase 2 round-trip gate.** Runs the live closures vs the declarative predicates over (1) an exhaustive per-predicate enumeration of referenced fields incl. `undefined` and every `incomeTypes` subset, and (2) a 200k deterministic random sample of the full 9-field space. Exits 1 on the first divergence (with the offending vector). |
+
+**Proven (2026-06-15):** 4,200,292 comparisons, zero divergence — the declarative form is behavior-identical. Negative test passes: corrupting one predicate's value makes the harness exit 1 and print the divergent vectors. This is the "extract a structure, prove behavior-equivalence, repeat" loop the rebuild runs on.
+
 ## `validate-figures.mjs` (Phase 1.3 — figures data layer)
 
 Build-time gate for [`src/data/figures.json`](../src/data/figures.json): enforces the 6-field vintage-stamp contract and **fails the build on any past-expiry stamp** — the structural fix for the indexed-figure drift the Phase 0 sprint hit twice. See [`src/data/README.md`](../src/data/README.md).

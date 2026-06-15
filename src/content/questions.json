@@ -1,0 +1,1362 @@
+{
+  "schemaVersion": 2,
+  "sections": [
+    {
+      "section": "About you",
+      "questions": [
+        {
+          "id": "incomeTypes",
+          "type": "multi",
+          "label": "How do you earn income?",
+          "help": "Select all that apply — many people have more than one source",
+          "options": [
+            {
+              "v": "w2",
+              "l": "W-2 employee — regular paycheck, taxes withheld"
+            },
+            {
+              "v": "contractor",
+              "l": "1099 / self-employed — contractor, freelancer, sole prop"
+            },
+            {
+              "v": "business",
+              "l": "Business owner — S-corp, LLC with employees, or similar"
+            },
+            {
+              "v": "retired",
+              "l": "Retired / no earned income currently"
+            }
+          ]
+        },
+        {
+          "id": "filingStatus",
+          "type": "single",
+          "label": "Your tax filing status",
+          "options": [
+            {
+              "v": "single",
+              "l": "Single"
+            },
+            {
+              "v": "mfj",
+              "l": "Married filing jointly"
+            },
+            {
+              "v": "mfs",
+              "l": "Married filing separately"
+            },
+            {
+              "v": "hoh",
+              "l": "Head of household"
+            }
+          ]
+        },
+        {
+          "id": "ageBracket",
+          "type": "single",
+          "label": "Your age",
+          "options": [
+            {
+              "v": "under-30",
+              "l": "Under 30"
+            },
+            {
+              "v": "30-39",
+              "l": "30–39"
+            },
+            {
+              "v": "40-49",
+              "l": "40–49"
+            },
+            {
+              "v": "50-59",
+              "l": "50–59 (catch-up contributions become available at 50)"
+            },
+            {
+              "v": "60-63",
+              "l": "60–63 (super catch-up window)"
+            },
+            {
+              "v": "64+",
+              "l": "64+"
+            },
+            {
+              "v": "retired",
+              "l": "Already retired"
+            }
+          ]
+        },
+        {
+          "id": "state",
+          "type": "single",
+          "label": "Your state of residence",
+          "help": "A few state-level quirks affect the framework",
+          "options": [
+            {
+              "v": "ca",
+              "l": "California — no state HSA deduction, no §1202 conformity"
+            },
+            {
+              "v": "nj",
+              "l": "New Jersey — no state HSA deduction"
+            },
+            {
+              "v": "no-tax",
+              "l": "No state income tax (TX, FL, WA, NH, SD, NV, WY, TN, AK)"
+            },
+            {
+              "v": "other",
+              "l": "Other state with income tax"
+            }
+          ]
+        },
+        {
+          "id": "yearsToRetirement",
+          "type": "single",
+          "label": "Years until your target retirement or financial independence",
+          "options": [
+            {
+              "v": "<5",
+              "l": "Less than 5 years"
+            },
+            {
+              "v": "5-10",
+              "l": "5–10 years"
+            },
+            {
+              "v": "10-20",
+              "l": "10–20 years"
+            },
+            {
+              "v": "20-30",
+              "l": "20–30 years"
+            },
+            {
+              "v": "30+",
+              "l": "30+ years"
+            },
+            {
+              "v": "already",
+              "l": "Already retired"
+            }
+          ]
+        },
+        {
+          "id": "spousalIncomeSplit",
+          "type": "single",
+          "label": "If married, approximate income split between spouses",
+          "help": "Drives Social Security claiming optimization, survivor-benefit planning, and the widow's tax-trap exposure assessment. The higher-earner spouse delaying SS to 70 while the lower-earner files at FRA is the standard high-leverage decumulation play.",
+          "showIf": {
+            "field": "filingStatus",
+            "op": "in",
+            "value": [
+              "mfj",
+              "mfs"
+            ]
+          },
+          "options": [
+            {
+              "v": "50-50",
+              "l": "Roughly 50/50 — both spouses earn similar amounts"
+            },
+            {
+              "v": "60-40",
+              "l": "Roughly 60/40 split"
+            },
+            {
+              "v": "70-30",
+              "l": "Roughly 70/30 or more concentrated in one spouse"
+            },
+            {
+              "v": "sole",
+              "l": "Effectively sole-earner household"
+            }
+          ]
+        },
+        {
+          "id": "riskCapacity",
+          "type": "single",
+          "label": "If your portfolio dropped 35% in a single year (2008-style), what would you most likely do?",
+          "help": "No \"right\" answer here — we calibrate the framework's recommendations to how you actually invest, not how the textbook says you should. Reframed per behavioral-economics evidence on social-desirability bias in normatively-ranked options.",
+          "options": [
+            {
+              "v": "add-equity",
+              "l": "Add to equity (deploy cash or rebalance into the drop)"
+            },
+            {
+              "v": "hold",
+              "l": "Hold steady; no allocation change"
+            },
+            {
+              "v": "reduce-equity",
+              "l": "Reduce equity allocation"
+            },
+            {
+              "v": "move-to-cash",
+              "l": "Move substantially to cash"
+            }
+          ]
+        },
+        {
+          "id": "riskCapacityRevealed",
+          "type": "single",
+          "label": "Looking back at March 2020 (COVID drawdown), the 2022 bear market, or 2008 if you were investing then — what did you actually do in the worst of it?",
+          "help": "Affective forecasting evidence (Wilson-Gilbert 2003; Frydman-Rangel 2014) shows people systematically over-predict their composure under future financial stress; past behavior is a stronger signal than predicted behavior. When both are available, the framework weights this answer more heavily.",
+          "options": [
+            {
+              "v": "added-equity",
+              "l": "Added to equity (deployed cash or rebalanced into the drop)"
+            },
+            {
+              "v": "held",
+              "l": "Held steady — no allocation change"
+            },
+            {
+              "v": "reduced-equity",
+              "l": "Reduced equity allocation during the drawdown"
+            },
+            {
+              "v": "moved-to-cash",
+              "l": "Moved substantially to cash"
+            },
+            {
+              "v": "not-investing",
+              "l": "I wasn't investing during any of those events"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Income & taxes",
+      "questions": [
+        {
+          "id": "taxBracket",
+          "type": "single",
+          "label": "Your federal marginal tax bracket",
+          "help": "The rate on your next dollar of income",
+          "options": [
+            {
+              "v": "low",
+              "l": "Low — 10–12% (under ~$50K single / $100K joint)"
+            },
+            {
+              "v": "mid",
+              "l": "Middle — 22–24% (~$50K–$200K single / $100K–$400K joint)"
+            },
+            {
+              "v": "high",
+              "l": "High — 32%+ (above ~$200K single / $400K joint)"
+            }
+          ]
+        },
+        {
+          "id": "incomeStability",
+          "type": "single",
+          "label": "How stable is your income?",
+          "options": [
+            {
+              "v": "stable",
+              "l": "Stable — predictable monthly amount, diversified or secure employer"
+            },
+            {
+              "v": "variable",
+              "l": "Variable — fluctuates month-to-month but generally consistent annually"
+            },
+            {
+              "v": "concentrated",
+              "l": "Concentrated — single dominant client or unstable employment"
+            }
+          ]
+        },
+        {
+          "id": "quarterlyTaxes",
+          "type": "single",
+          "label": "Are you making quarterly estimated tax payments?",
+          "help": "Required for self-employment income to avoid underpayment penalties",
+          "showIf": {
+            "field": "incomeTypes",
+            "op": "hasAny",
+            "value": [
+              "contractor",
+              "business"
+            ]
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, paying quarterly and using a safe-harbor target"
+            },
+            {
+              "v": "no",
+              "l": "No, or not consistently"
+            }
+          ]
+        },
+        {
+          "id": "restrictedStockRecent",
+          "type": "single",
+          "label": "In the past 30 days, have you received restricted stock, founder equity, or early-exercised stock options?",
+          "help": "§83(b) election must be filed within 30 days of grant or it is permanently lost — there is no late-filing relief.",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes — within the past 30 days"
+            },
+            {
+              "v": "considering",
+              "l": "Considering / not yet received but expected soon"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Foundation",
+      "questions": [
+        {
+          "id": "litInterest",
+          "type": "single",
+          "label": "Suppose you have $100 in a savings account earning 2% per year. After 5 years, how much would you have if you left the money to grow?",
+          "help": "Lusardi-Mitchell \"Big Three\" financial-literacy probe (interest compounding). Calibrates downstream presentation to your baseline. No \"right\" answer punishment — wrong answers just unlock more foundational explanations in your Plan output.",
+          "options": [
+            {
+              "v": "correct",
+              "l": "More than $110"
+            },
+            {
+              "v": "wrong-flat",
+              "l": "Exactly $110"
+            },
+            {
+              "v": "wrong-less",
+              "l": "Less than $110"
+            },
+            {
+              "v": "unsure",
+              "l": "I don't know / prefer not to guess"
+            }
+          ]
+        },
+        {
+          "id": "litInflation",
+          "type": "single",
+          "label": "Imagine the interest rate on your savings is 1% per year and inflation is 2% per year. After 1 year, how much will the money in this account buy?",
+          "help": "Lusardi-Mitchell Big Three #2 (inflation effect on purchasing power).",
+          "options": [
+            {
+              "v": "correct",
+              "l": "Less than today"
+            },
+            {
+              "v": "wrong-same",
+              "l": "Exactly the same"
+            },
+            {
+              "v": "wrong-more",
+              "l": "More than today"
+            },
+            {
+              "v": "unsure",
+              "l": "I don't know / prefer not to guess"
+            }
+          ]
+        },
+        {
+          "id": "litDiversification",
+          "type": "single",
+          "label": "Is the following statement true or false: \"Buying shares of a single company usually provides a safer return than buying shares of a mutual fund that holds many companies\"?",
+          "help": "Lusardi-Mitchell Big Three #3 (risk diversification).",
+          "options": [
+            {
+              "v": "correct",
+              "l": "False"
+            },
+            {
+              "v": "wrong-true",
+              "l": "True"
+            },
+            {
+              "v": "unsure",
+              "l": "I don't know / prefer not to guess"
+            }
+          ]
+        },
+        {
+          "id": "litDebt",
+          "type": "single",
+          "label": "Suppose you owe $1,000 on a credit card and the interest rate is 20% per year, compounded annually. If you make no payments and no new charges, how many years would it take for the debt to double?",
+          "help": "Lusardi-Tufano debt-literacy item (Rule of 72 inverse): at 20%, 72/20 ≈ 3.6 years.",
+          "options": [
+            {
+              "v": "correct",
+              "l": "Less than 5 years"
+            },
+            {
+              "v": "wrong-mid",
+              "l": "5 to 10 years"
+            },
+            {
+              "v": "wrong-long",
+              "l": "More than 10 years"
+            },
+            {
+              "v": "unsure",
+              "l": "I don't know / prefer not to guess"
+            }
+          ]
+        },
+        {
+          "id": "budgetTracking",
+          "type": "single",
+          "label": "Do you track your cash flow / have a working budget?",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, consistently"
+            },
+            {
+              "v": "sometimes",
+              "l": "Loosely or inconsistently"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "emergencyFund",
+          "type": "single",
+          "label": "Current emergency fund size",
+          "help": "Liquid cash and cash equivalents, excluding retirement accounts",
+          "options": [
+            {
+              "v": "0",
+              "l": "None or negligible"
+            },
+            {
+              "v": "<1mo",
+              "l": "Less than 1 month of essential expenses"
+            },
+            {
+              "v": "1-3mo",
+              "l": "1–3 months"
+            },
+            {
+              "v": "3-6mo",
+              "l": "3–6 months"
+            },
+            {
+              "v": "6-12mo",
+              "l": "6–12 months"
+            },
+            {
+              "v": "12+mo",
+              "l": "12+ months"
+            }
+          ]
+        },
+        {
+          "id": "healthInsurance",
+          "type": "single",
+          "label": "Are you covered by health insurance?",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, adequate coverage"
+            },
+            {
+              "v": "minimal",
+              "l": "Catastrophic only / very high deductible without HSA"
+            },
+            {
+              "v": "no",
+              "l": "No current coverage"
+            }
+          ]
+        },
+        {
+          "id": "highInterestDebt",
+          "type": "single",
+          "label": "Do you have high-interest debt (rates above ~7% after tax)?",
+          "help": "Credit cards, payday loans, high-rate private student loans",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "moderateDebt",
+          "type": "single",
+          "label": "Do you have moderate-interest debt (above HYSA yield, below ~7%)?",
+          "help": "Auto loans, some personal loans, some mortgages",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "federalStudentLoans",
+          "type": "single",
+          "label": "Do you have federal student loans?",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "pslfEligible",
+          "type": "single",
+          "label": "Are you working in a PSLF-eligible job?",
+          "help": "Qualifying nonprofit or government employment for Public Service Loan Forgiveness",
+          "showIf": {
+            "field": "federalStudentLoans",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes — qualifying employment, pursuing forgiveness"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure / need to check"
+            }
+          ]
+        },
+        {
+          "id": "studentLoanAudited",
+          "type": "single",
+          "label": "Have you ever audited your IDR / PSLF payment history at studentaid.gov?",
+          "help": "Federal loan servicers (Navient, MOHELA, Nelnet) have been the subject of CFPB enforcement actions documenting systematic mis-tracking of qualifying payments. Pulling your full payment history and reconciling it is often the highest-NPV financial action available to federal student loan borrowers — sometimes worth $40K–$80K in retroactive PSLF or IDR forgiveness credit.",
+          "showIf": {
+            "field": "federalStudentLoans",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes-recent",
+              "l": "Yes — within the past year, no discrepancies"
+            },
+            {
+              "v": "yes-discrepancies",
+              "l": "Yes — found discrepancies, working with servicer/CFPB"
+            },
+            {
+              "v": "never",
+              "l": "No, never audited"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure what this means"
+            }
+          ]
+        },
+        {
+          "id": "currentIDRPlan",
+          "type": "single",
+          "label": "If on income-driven repayment, which plan are you currently enrolled in?",
+          "help": "SAVE-enrolled borrowers were placed in administrative forbearance during the 2024–2025 litigation; forbearance months do NOT count toward PSLF or IDR forgiveness. Every month of inaction has direct dollar cost — this question routes whether the framework surfaces a SAVE-specific switch action. OBBBA sunsets SAVE, PAYE, and ICR by July 1, 2028 (migration to IBR or the new RAP), so PAYE/ICR answers route migration-planning actions too.",
+          "showIf": {
+            "field": "federalStudentLoans",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "save-forbearance",
+              "l": "SAVE — currently in administrative forbearance"
+            },
+            {
+              "v": "save-paying",
+              "l": "SAVE — currently making payments"
+            },
+            {
+              "v": "ibr",
+              "l": "IBR (Income-Based Repayment)"
+            },
+            {
+              "v": "paye",
+              "l": "PAYE (Pay As You Earn)"
+            },
+            {
+              "v": "icr",
+              "l": "ICR (Income-Contingent Repayment)"
+            },
+            {
+              "v": "rap",
+              "l": "RAP (Repayment Assistance Plan — new under OBBBA, opens July 2026)"
+            },
+            {
+              "v": "standard",
+              "l": "Standard 10-year repayment (not on IDR)"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure / haven't checked"
+            }
+          ]
+        },
+        {
+          "id": "rothLadderCandidate",
+          "type": "single",
+          "label": "Do you have meaningful Traditional / pre-tax retirement balances (401(k), 403(b), Traditional IRA) and an early-retirement window before Social Security and RMDs begin?",
+          "help": "Roth conversions during the \"tax valley\" between retirement and RMD age (73 now, rising to 75 in 2033 per SECURE 2.0) are one of the highest-NPV decumulation moves available — a typical conversion ladder of $300K-$500K filling the 12% bracket from a household otherwise pulled into 22-24% by SS + RMDs saves $30K-$60K in lifetime federal tax (Kitces NEV).",
+          "showIf": {
+            "field": "yearsToRetirement",
+            "op": "in",
+            "value": [
+              "<5",
+              "5-10",
+              "already"
+            ]
+          },
+          "options": [
+            {
+              "v": "yes-window",
+              "l": "Yes — meaningful Trad balances and a window of lower-income years before SS / RMDs"
+            },
+            {
+              "v": "yes-no-window",
+              "l": "Meaningful Trad balances but already claiming SS / at RMD age"
+            },
+            {
+              "v": "low-trad",
+              "l": "Low or no Traditional pre-tax balances (mostly Roth or taxable)"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure — need to look at account balances"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Benefits & coverage",
+      "questions": [
+        {
+          "id": "employerMatch",
+          "type": "single",
+          "label": "Does your employer offer a 401(k) / 403(b) match?",
+          "showIf": {
+            "field": "incomeTypes",
+            "op": "has",
+            "value": "w2"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure / not yet eligible"
+            }
+          ]
+        },
+        {
+          "id": "matchCaptured",
+          "type": "single",
+          "label": "Are you contributing enough to capture the full match?",
+          "showIf": {
+            "field": "employerMatch",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, capturing the full match"
+            },
+            {
+              "v": "partial",
+              "l": "Partially"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "autoEscalation",
+          "type": "single",
+          "label": "Does your 401(k) plan offer automatic annual contribution escalation, and is it enabled?",
+          "help": "Auto-escalation (Thaler-Benartzi \"Save More Tomorrow\" 2004) pre-commits future-you to a 1–2pp/yr increase, capped at a target rate. SECURE 2.0 made this default-on for new plans starting 2025.",
+          "showIf": {
+            "all": [
+              {
+                "field": "incomeTypes",
+                "op": "has",
+                "value": "w2"
+              },
+              {
+                "field": "employerMatch",
+                "op": "eq",
+                "value": "yes"
+              }
+            ]
+          },
+          "options": [
+            {
+              "v": "yes-enabled",
+              "l": "Yes, available and currently enabled"
+            },
+            {
+              "v": "yes-not-enabled",
+              "l": "Yes, available but I haven't enabled it"
+            },
+            {
+              "v": "no",
+              "l": "No, plan doesn't offer it"
+            },
+            {
+              "v": "unsure",
+              "l": "Not sure"
+            }
+          ]
+        },
+        {
+          "id": "planLowestER",
+          "type": "single",
+          "label": "What is the lowest expense ratio available in your 401(k) plan?",
+          "help": "Small-employer plans often have all-in expenses 3–5× higher than large-employer plans (DOL Form 5500 / Brightscope-ICI data). Affects whether the Bogleheads framework is actionable inside your 401(k) or whether you should weight toward the IRA for low-cost index funds.",
+          "showIf": {
+            "all": [
+              {
+                "field": "incomeTypes",
+                "op": "has",
+                "value": "w2"
+              },
+              {
+                "field": "employerMatch",
+                "op": "eq",
+                "value": "yes"
+              }
+            ]
+          },
+          "options": [
+            {
+              "v": "under-10bp",
+              "l": "Under 0.10% (typical large-employer plan with broad index funds)"
+            },
+            {
+              "v": "10-30bp",
+              "l": "0.10–0.30% (defensible)"
+            },
+            {
+              "v": "30-60bp",
+              "l": "0.30–0.60% (workable, weight toward IRA for asset location)"
+            },
+            {
+              "v": "over-60bp",
+              "l": "Above 0.60% (poor menu — capture match, weight other contributions toward IRA)"
+            },
+            {
+              "v": "unsure",
+              "l": "I don't know — need to look it up"
+            }
+          ]
+        },
+        {
+          "id": "hdhpEligible",
+          "type": "single",
+          "label": "Are you enrolled in an HDHP (high-deductible health plan) eligible for an HSA?",
+          "help": "As of January 1, 2026 (OBBBA), bronze and catastrophic ACA marketplace plans also count as HSA-qualified — if you're on one of those, answer Yes.",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, currently enrolled"
+            },
+            {
+              "v": "eligible-not",
+              "l": "Eligible but currently on a different plan"
+            },
+            {
+              "v": "no",
+              "l": "No, not on an HDHP"
+            }
+          ]
+        },
+        {
+          "id": "hsaMaxed",
+          "type": "single",
+          "label": "Are you maxing your HSA each year?",
+          "showIf": {
+            "field": "hdhpEligible",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, fully maxed"
+            },
+            {
+              "v": "partial",
+              "l": "Contributing some but not maxed"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "ltdInPlace",
+          "type": "single",
+          "label": "Do you have long-term disability insurance replacing 60%+ of income?",
+          "help": "Through employer or private policy",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, adequate coverage"
+            },
+            {
+              "v": "partial",
+              "l": "Some coverage but inadequate"
+            },
+            {
+              "v": "no",
+              "l": "No coverage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Retirement progress",
+      "questions": [
+        {
+          "id": "iraMaxed",
+          "type": "single",
+          "label": "Are you maxing your IRA each year ($7,500 in 2026)?",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "partial",
+              "l": "Contributing some but not maxed"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "tradIraBalance",
+          "type": "single",
+          "label": "Do you have an existing Traditional IRA, SEP-IRA, or SIMPLE IRA balance?",
+          "help": "Relevant for backdoor Roth pro-rata calculations",
+          "showIf": {
+            "field": "taxBracket",
+            "op": "eq",
+            "value": "high"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No (or only Roth IRA)"
+            }
+          ]
+        },
+        {
+          "id": "k401Maxed",
+          "type": "single",
+          "label": "Are you maxing your 401(k) employee deferral ($24,500 in 2026)?",
+          "showIf": {
+            "field": "incomeTypes",
+            "op": "has",
+            "value": "w2"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, fully maxed"
+            },
+            {
+              "v": "partial",
+              "l": "Contributing more than the match but not maxed"
+            },
+            {
+              "v": "no",
+              "l": "No, or just match level"
+            }
+          ]
+        },
+        {
+          "id": "sePlan",
+          "type": "single",
+          "label": "Have you set up a self-employed retirement plan (Solo 401(k) or SEP-IRA)?",
+          "showIf": {
+            "field": "incomeTypes",
+            "op": "hasAny",
+            "value": [
+              "contractor",
+              "business"
+            ]
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, plan is in place"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "sePlanMaxed",
+          "type": "single",
+          "label": "Are you maxing the self-employed plan (employee + employer side)?",
+          "showIf": {
+            "field": "sePlan",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, maxing both sides"
+            },
+            {
+              "v": "partial",
+              "l": "Contributing but not maxed"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Family & assets",
+      "questions": [
+        {
+          "id": "dependents",
+          "type": "single",
+          "label": "Do you have dependents who rely on your income?",
+          "help": "Spouse, children, aging parents you support financially",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "termLifeInPlace",
+          "type": "single",
+          "label": "Do you have adequate term life insurance?",
+          "help": "Roughly 10–12× annual income if youre a primary earner",
+          "showIf": {
+            "field": "dependents",
+            "op": "eq",
+            "value": "yes"
+          },
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, adequate"
+            },
+            {
+              "v": "partial",
+              "l": "Some coverage but inadequate"
+            },
+            {
+              "v": "no",
+              "l": "No coverage"
+            }
+          ]
+        },
+        {
+          "id": "childrenEducation",
+          "type": "single",
+          "label": "Do you plan to fund education for children?",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "estateDocs",
+          "type": "single",
+          "label": "Do you have current estate documents?",
+          "help": "Will, healthcare proxy, durable power of attorney",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, current"
+            },
+            {
+              "v": "outdated",
+              "l": "Have some but outdated"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "netWorth",
+          "type": "single",
+          "label": "Approximate household net worth",
+          "help": "Total assets minus all debts",
+          "options": [
+            {
+              "v": "negative",
+              "l": "Negative (debts exceed assets)"
+            },
+            {
+              "v": "under-100k",
+              "l": "Under $100K"
+            },
+            {
+              "v": "100k-500k",
+              "l": "$100K – $500K"
+            },
+            {
+              "v": "500k-2m",
+              "l": "$500K – $2M"
+            },
+            {
+              "v": "2m+",
+              "l": "$2M+"
+            }
+          ]
+        },
+        {
+          "id": "rentalRealEstate",
+          "type": "single",
+          "label": "Do you own rental real estate or are you exploring a short-term rental (STR)?",
+          "help": "Routes Phase 7 §4 (cost-seg + REPS + STR loophole) coverage. Most W-2 households who first encountered the STR loophole on personal-finance social media should NOT pursue it — the cost-seg-firm and STR-coaching-program ecosystem is heavily commission-driven and the IRS audit posture has tightened. This question routes you into the defensive-reading version of AdvStrat §4, not into a recommendation to engage the strategy.",
+          "options": [
+            {
+              "v": "none",
+              "l": "No rental real estate, not exploring"
+            },
+            {
+              "v": "long-term-rentals",
+              "l": "Yes — long-term rental(s)"
+            },
+            {
+              "v": "str-current",
+              "l": "Yes — short-term rental(s) currently operating"
+            },
+            {
+              "v": "str-exploring",
+              "l": "Exploring STR after seeing it discussed online"
+            }
+          ]
+        },
+        {
+          "id": "parentCare",
+          "type": "single",
+          "label": "Are you likely to provide financial support to aging parents in the next 10–15 years?",
+          "help": "Median sandwich-generation cost runs $50K–$200K per parent in adult-child financial contribution per Genworth/MetLife caregiver studies — material enough to surface as a planning line item.",
+          "options": [
+            {
+              "v": "yes-substantial",
+              "l": "Yes, substantial — likely to provide significant ongoing support"
+            },
+            {
+              "v": "yes-modest",
+              "l": "Yes, modest — some support likely but not the primary funding source"
+            },
+            {
+              "v": "unlikely",
+              "l": "Unlikely — parents independently funded but not certain"
+            },
+            {
+              "v": "na",
+              "l": "Parents deceased or independently funded with high certainty"
+            }
+          ]
+        },
+        {
+          "id": "annualExpenses",
+          "type": "single",
+          "label": "Approximate annual after-tax household expenses",
+          "help": "Drives every downstream calculator that needs a spending figure — SWR target, FI math, DIME sizing, retirement-replacement-rate.",
+          "options": [
+            {
+              "v": "under-40k",
+              "l": "Under $40K"
+            },
+            {
+              "v": "40-60k",
+              "l": "$40K – $60K"
+            },
+            {
+              "v": "60-90k",
+              "l": "$60K – $90K"
+            },
+            {
+              "v": "90-150k",
+              "l": "$90K – $150K"
+            },
+            {
+              "v": "150-250k",
+              "l": "$150K – $250K"
+            },
+            {
+              "v": "250k+",
+              "l": "$250K+"
+            }
+          ]
+        },
+        {
+          "id": "essentialFraction",
+          "type": "single",
+          "label": "Roughly what fraction of your annual expenses are essential (housing, healthcare, basic food, insurance, transportation to essential places) vs discretionary (travel, entertainment, gifting, lifestyle)?",
+          "help": "Determines whether dynamic-withdrawal or guardrails strategies are feasible (they require cuttable discretionary) and the right LTC / DI sizing target (which is the essential portion, not the total).",
+          "options": [
+            {
+              "v": "90+",
+              "l": "90%+ essential — almost all spending is non-cuttable"
+            },
+            {
+              "v": "70-90",
+              "l": "70–90% essential — modest discretionary cushion"
+            },
+            {
+              "v": "50-70",
+              "l": "50–70% essential — meaningful discretionary cushion"
+            },
+            {
+              "v": "under-50",
+              "l": "Under 50% essential — substantial discretionary, high flexibility"
+            }
+          ]
+        },
+        {
+          "id": "spousalAlignSaving",
+          "type": "single",
+          "label": "Are you and your spouse aligned on your target savings rate?",
+          "help": "Within-household disagreement about saving rate is one of the strongest predictors of plan-execution failure per Yilmazer-Lyons 2010 and Bertocchi-Brunetti-Torricelli 2014. The framework's optimization recommendations assume household alignment.",
+          "showIf": {
+            "field": "filingStatus",
+            "op": "eq",
+            "value": "mfj"
+          },
+          "options": [
+            {
+              "v": "yes-fully",
+              "l": "Yes — we've discussed and we're aligned"
+            },
+            {
+              "v": "yes-mostly",
+              "l": "Mostly aligned, small differences"
+            },
+            {
+              "v": "no-gap",
+              "l": "No, there's a significant gap"
+            },
+            {
+              "v": "not-discussed",
+              "l": "We haven't had this conversation"
+            }
+          ]
+        },
+        {
+          "id": "spousalAlignRetirement",
+          "type": "single",
+          "label": "Are you and your spouse aligned on retirement timing and what retirement looks like?",
+          "help": "The retirement-age decision is almost always made jointly by spouses (CL328 family-system framing); disagreement here delays or derails the entire decumulation arc.",
+          "showIf": {
+            "field": "filingStatus",
+            "op": "eq",
+            "value": "mfj"
+          },
+          "options": [
+            {
+              "v": "yes-fully",
+              "l": "Yes — same timeline and same picture of what retirement looks like"
+            },
+            {
+              "v": "yes-mostly",
+              "l": "Mostly aligned, some differences in timing or vision"
+            },
+            {
+              "v": "no-gap",
+              "l": "No, there's a significant gap"
+            },
+            {
+              "v": "not-discussed",
+              "l": "We haven't had this conversation"
+            }
+          ]
+        },
+        {
+          "id": "spousalAlignLegacy",
+          "type": "single",
+          "label": "Are you and your spouse aligned on whether to leave wealth to children / heirs vs spend it down per Die-with-Zero?",
+          "help": "Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs (CL328) — and only with spousal agreement on the framing.",
+          "showIf": {
+            "field": "filingStatus",
+            "op": "eq",
+            "value": "mfj"
+          },
+          "options": [
+            {
+              "v": "yes-fully",
+              "l": "Yes — same view on legacy vs spend-down"
+            },
+            {
+              "v": "yes-mostly",
+              "l": "Mostly aligned"
+            },
+            {
+              "v": "no-gap",
+              "l": "No, there's a significant gap"
+            },
+            {
+              "v": "not-discussed",
+              "l": "We haven't had this conversation"
+            },
+            {
+              "v": "na",
+              "l": "Not applicable (no heirs of concern)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Business specifics",
+      "showIf": {
+        "field": "incomeTypes",
+        "op": "hasAny",
+        "value": [
+          "contractor",
+          "business"
+        ]
+      },
+      "questions": [
+        {
+          "id": "entityStructure",
+          "type": "single",
+          "label": "Your business entity structure",
+          "options": [
+            {
+              "v": "sole-prop",
+              "l": "Sole proprietor / unincorporated"
+            },
+            {
+              "v": "llc",
+              "l": "LLC taxed as sole prop or partnership"
+            },
+            {
+              "v": "s-corp",
+              "l": "S-corp (or LLC taxed as S-corp)"
+            },
+            {
+              "v": "c-corp",
+              "l": "C-corp"
+            }
+          ]
+        },
+        {
+          "id": "businessInsurance",
+          "type": "single",
+          "label": "Do you have appropriate business insurance?",
+          "help": "Liability, professional / E&O, cyber as applicable",
+          "options": [
+            {
+              "v": "yes",
+              "l": "Yes, adequate"
+            },
+            {
+              "v": "partial",
+              "l": "Some coverage but gaps"
+            },
+            {
+              "v": "no",
+              "l": "No"
+            }
+          ]
+        },
+        {
+          "id": "exitTimeline",
+          "type": "single",
+          "label": "Are you considering a business sale or exit?",
+          "showIf": {
+            "field": "incomeTypes",
+            "op": "has",
+            "value": "business"
+          },
+          "options": [
+            {
+              "v": "within-3",
+              "l": "Yes, within 3 years"
+            },
+            {
+              "v": "3-10",
+              "l": "Possibly in 3–10 years"
+            },
+            {
+              "v": "no",
+              "l": "No plans / long-term hold"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
