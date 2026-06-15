@@ -1,0 +1,34 @@
+[
+  {
+    "matchTitle": "If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access",
+    "match": "exact",
+    "kind": "fixed",
+    "date": "2026-07-01",
+    "source": "OBBBA (P.L. 119-21)",
+    "note": "Parent PLUS borrowers must consolidate into a Direct Consolidation Loan before this date to preserve access to an income-driven repayment plan."
+  },
+  {
+    "matchTitle": "File §83(b) election within 30 days of grant",
+    "match": "prefix",
+    "kind": "relative",
+    "offset": "grantDate+30d",
+    "source": "Treas. Reg. §1.83-2(b)",
+    "note": "An 83(b) election must be filed with the IRS no later than 30 days after the property is transferred (the grant date). The window is statutory and not extendable."
+  },
+  {
+    "matchTitle": "Plan §83(b) filing ahead of any restricted-stock or early-exercise grant",
+    "match": "exact",
+    "kind": "relative",
+    "offset": "grantDate+30d",
+    "source": "Treas. Reg. §1.83-2(b)",
+    "note": "When a grant occurs, the 83(b) election must be filed within 30 days of that grant date. The window is statutory and not extendable."
+  },
+  {
+    "matchTitle": "Plan your migration off",
+    "match": "prefix",
+    "kind": "fixed",
+    "date": "2028-07-01",
+    "source": "OBBBA (P.L. 119-21) legacy-IDR sunset",
+    "note": "The legacy income-driven repayment plans (PAYE, ICR, SAVE) are sunset in July 2028; borrowers must migrate to a remaining plan before the shutdown."
+  }
+]
