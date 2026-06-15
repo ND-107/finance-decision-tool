@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "taxcore",
+  "marker": "6.3",
+  "title": "Personal protection: term life, disability, umbrella",
+  "summary": "Coverage scaled to your obligations.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'taxcore', marker: '6.3', title: 'Personal protection: term life, disability, umbrella',\n    summary: 'Coverage scaled to your obligations.',\n    details: ''\n  }",
+  "lead": ",\n  "
+}

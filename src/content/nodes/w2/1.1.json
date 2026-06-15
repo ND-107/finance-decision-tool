@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "essentials",
+  "marker": "1.1",
+  "title": "Cover essential housing, food, and utilities",
+  "summary": "Rent or mortgage (including required insurance), groceries, power, water, heat. These are non-negotiable.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Housing benchmark</h4>\n      <p>Lenders historically capped front-end debt-to-income at 28% for mortgages (housing costs to gross income). For renters in high-cost areas, 30–35% is common but adds pressure on every other goal. Above 40% and most paths through this flowchart become difficult — addressing the housing decision often dominates everything below it.</p>\n      <h4>Insurance requirements at this stage</h4>\n      <p>Renters insurance ($15–25/month) covers your possessions and liability — often the cheapest dollar-for-dollar protection available. Homeowners insurance is typically required by the mortgage. Auto insurance is legally required in nearly every state if you drive.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.1', title: 'Cover essential housing, food, and utilities',\n    summary: 'Rent or mortgage (including required insurance), groceries, power, water, heat. These are non-negotiable.',\n    details: `\n      <h4>Housing benchmark</h4>\n      <p>Lenders historically capped front-end debt-to-income at 28% for mortgages (housing costs to gross income). For renters in high-cost areas, 30–35% is common but adds pressure on every other goal. Above 40% and most paths through this flowchart become difficult — addressing the housing decision often dominates everything below it.</p>\n      <h4>Insurance requirements at this stage</h4>\n      <p>Renters insurance ($15–25/month) covers your possessions and liability — often the cheapest dollar-for-dollar protection available. Homeowners insurance is typically required by the mortgage. Auto insurance is legally required in nearly every state if you drive.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: ESSENTIALS ───\n  "
+}

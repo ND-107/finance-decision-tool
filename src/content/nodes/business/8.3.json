@@ -1,0 +1,14 @@
+{
+  "income": "business",
+  "phase": "maxtax",
+  "marker": "8.3",
+  "title": "QBI deduction and S-corp salary optimization",
+  "summary": "Same Section 199A logic as contractors. SSTB phase-outs create hard income cliffs for many professional services businesses.",
+  "badges": [
+    "critical",
+    "new"
+  ],
+  "detailsHtml": "\n      <p>The interaction between salary, distributions, retirement contributions, and QBI deduction is one of the most complex tax-planning problems in U.S. small business. The basic conflict: higher W-2 wages support higher retirement contributions but reduce QBI-eligible income; lower wages preserve QBI but limit retirement contributions. Professional tax software or a knowledgeable CPA models all of this simultaneously; doing it by hand is error-prone.</p>\n    ",
+  "rawSource": "{\n    phase: 'maxtax', marker: '8.3', title: 'QBI deduction and S-corp salary optimization',\n    summary: 'Same Section 199A logic as contractors. SSTB phase-outs create hard income cliffs for many professional services businesses.',\n    badges: ['critical', 'new'],\n    details: `\n      <p>The interaction between salary, distributions, retirement contributions, and QBI deduction is one of the most complex tax-planning problems in U.S. small business. The basic conflict: higher W-2 wages support higher retirement contributions but reduce QBI-eligible income; lower wages preserve QBI but limit retirement contributions. Professional tax software or a knowledgeable CPA models all of this simultaneously; doing it by hand is error-prone.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

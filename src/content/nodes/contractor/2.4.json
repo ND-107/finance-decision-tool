@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "safety",
+  "marker": "2.4",
+  "title": "Business insurance: liability, errors & omissions, cyber",
+  "summary": "Coverage scaled to your specific risk profile. Don't over-buy, but don't skip what your work actually requires.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>General liability</h4>\n      <p>Covers third-party bodily injury or property damage related to your business operations. Typically required if you visit client sites or have client visits to your space. $1M/$2M coverage runs $400–$800/year for most service businesses.</p>\n      <h4>Professional liability / errors & omissions</h4>\n      <p>Covers claims that your professional work caused financial harm to a client. Essential for consultants, developers, designers, advisors, and anyone whose deliverable could be claimed defective. Pricing varies widely with profession ($500/year for low-risk consulting, $5,000+/year for high-risk advisory work).</p>\n      <h4>Cyber liability</h4>\n      <p>Covers data breach notification costs, ransomware response, and third-party damages from compromise of client data. Increasingly required by larger clients before they will contract with you. $1M coverage runs $500–$2,000/year for small businesses without large data exposure.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.4', title: 'Business insurance: liability, errors & omissions, cyber',\n    summary: 'Coverage scaled to your specific risk profile. Don\\'t over-buy, but don\\'t skip what your work actually requires.',\n    badges: ['new'],\n    details: `\n      <h4>General liability</h4>\n      <p>Covers third-party bodily injury or property damage related to your business operations. Typically required if you visit client sites or have client visits to your space. $1M/$2M coverage runs $400–$800/year for most service businesses.</p>\n      <h4>Professional liability / errors & omissions</h4>\n      <p>Covers claims that your professional work caused financial harm to a client. Essential for consultants, developers, designers, advisors, and anyone whose deliverable could be claimed defective. Pricing varies widely with profession ($500/year for low-risk consulting, $5,000+/year for high-risk advisory work).</p>\n      <h4>Cyber liability</h4>\n      <p>Covers data breach notification costs, ransomware response, and third-party damages from compromise of client data. Increasingly required by larger clients before they will contract with you. $1M coverage runs $500–$2,000/year for small businesses without large data exposure.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

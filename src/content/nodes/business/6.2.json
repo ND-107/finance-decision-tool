@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "taxcore",
+  "marker": "6.2",
+  "title": "Max your personal IRA — Backdoor Roth likely",
+  "summary": "Most business owners at scale exceed Roth IRA direct-contribution income limits.",
+  "badges": [
+    "bracket"
+  ],
+  "detailsHtml": "\n      ${bracketBlock(\n        'Direct Roth IRA contribution. Rare at this bracket for established business owners, but possible in early-stage or scaling businesses.',\n        'Possibly direct Roth IRA, possibly approaching phase-out depending on personal salary structure. Below phase-out: direct Roth; near phase-out: Traditional non-deductible then convert; consult on pro-rata implications.',\n        'Backdoor Roth IRA. Same pro-rata caution: existing SEP-IRA / SIMPLE IRA / Traditional IRA balances will be partly taxed on conversion. Roll old IRAs into your business 401(k) (if it accepts incoming rollovers) before executing the backdoor.'\n      )}\n    ",
+  "rawSource": "{\n    phase: 'taxcore', marker: '6.2', title: 'Max your personal IRA — Backdoor Roth likely',\n    summary: 'Most business owners at scale exceed Roth IRA direct-contribution income limits.',\n    badges: ['bracket'],\n    details: `\n      ${bracketBlock(\n        'Direct Roth IRA contribution. Rare at this bracket for established business owners, but possible in early-stage or scaling businesses.',\n        'Possibly direct Roth IRA, possibly approaching phase-out depending on personal salary structure. Below phase-out: direct Roth; near phase-out: Traditional non-deductible then convert; consult on pro-rata implications.',\n        'Backdoor Roth IRA. Same pro-rata caution: existing SEP-IRA / SIMPLE IRA / Traditional IRA balances will be partly taxed on conversion. Roll old IRAs into your business 401(k) (if it accepts incoming rollovers) before executing the backdoor.'\n      )}\n    `\n  }",
+  "lead": ",\n  "
+}

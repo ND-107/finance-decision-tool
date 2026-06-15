@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "essentials",
+  "marker": "1.1",
+  "title": "Pay yourself a reasonable salary",
+  "summary": "S-corp owners must take a reasonable W-2 salary before distributions. Other entities follow your draw schedule.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Determining \"reasonable\"</h4>\n      <p>The IRS examines what you'd pay a non-owner to perform your specific functions, using industry benchmarks. Resources: RC Reports, Bureau of Labor Statistics OEWS data, Salary.com. Document your reasoning each year — auditors look for documentation as much as for the number itself.</p>\n      <h4>Salary vs. distribution optimization</h4>\n      <p>Higher salary increases SE/payroll tax but also increases retirement contribution limits (for plans tied to W-2 wages) and Social Security benefits. Lower salary saves SE tax but limits retirement contributions. Most planners target a salary high enough to fund retirement contributions and qualify for safe-harbor 401(k) plans, with the balance as distributions.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.1', title: 'Pay yourself a reasonable salary',\n    summary: 'S-corp owners must take a reasonable W-2 salary before distributions. Other entities follow your draw schedule.',\n    badges: ['new'],\n    details: `\n      <h4>Determining \"reasonable\"</h4>\n      <p>The IRS examines what you'd pay a non-owner to perform your specific functions, using industry benchmarks. Resources: RC Reports, Bureau of Labor Statistics OEWS data, Salary.com. Document your reasoning each year — auditors look for documentation as much as for the number itself.</p>\n      <h4>Salary vs. distribution optimization</h4>\n      <p>Higher salary increases SE/payroll tax but also increases retirement contribution limits (for plans tied to W-2 wages) and Social Security benefits. Lower salary saves SE tax but limits retirement contributions. Most planners target a salary high enough to fund retirement contributions and qualify for safe-harbor 401(k) plans, with the balance as distributions.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: ESSENTIALS ───\n  "
+}

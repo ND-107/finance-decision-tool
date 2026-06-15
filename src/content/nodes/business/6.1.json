@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "taxcore",
+  "marker": "6.1",
+  "title": "Max your HSA",
+  "summary": "Same triple-tax-advantaged logic. Even more valuable at high business-owner brackets.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'taxcore', marker: '6.1', title: 'Max your HSA',\n    summary: 'Same triple-tax-advantaged logic. Even more valuable at high business-owner brackets.',\n    details: ''\n  }",
+  "lead": ",\n\n  // ─── PHASE: TAX-ADV CORE ───\n  "
+}

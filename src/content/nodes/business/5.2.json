@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "fullef",
+  "marker": "5.2",
+  "title": "Business reserve to 6+ months",
+  "summary": "Operating runway. Critical for capital allocation flexibility during downturns.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'fullef', marker: '5.2', title: 'Business reserve to 6+ months',\n    summary: 'Operating runway. Critical for capital allocation flexibility during downturns.',\n    badges: ['new'],\n    details: ''\n  }",
+  "lead": ",\n  "
+}

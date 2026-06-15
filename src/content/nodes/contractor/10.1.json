@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "decumul",
+  "marker": "10.1",
+  "title": "Business sale or wind-down planning",
+  "summary": "Unique to self-employed: your business may have transferable value, or it may not. Plan accordingly.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Does your business have sale value?</h4>\n      <p>Service businesses built around a single owner's skill (consulting, freelancing, sole-practitioner law/accounting) typically have limited sale value — clients don't transfer reliably to a new owner. Businesses with systematized operations, employee teams, or recurring revenue (SaaS, productized services, subscription models) often sell for 2–8x SDE (seller's discretionary earnings).</p>\n      <h4>If saleable: prepare 3–5 years in advance</h4>\n      <p>Document systems and processes. Reduce owner-dependency. Build a leadership layer if practical. Clean up financials (separated personal/business, clear revenue tracking, audited or reviewed statements). Buyers pay materially more for businesses that \"run without the owner.\"</p>\n      <h4>If not saleable: plan a glide path</h4>\n      <p>Phased reduction in client load, transition of remaining clients to peers, gradual wind-down. The retirement question becomes \"when does my portfolio fully replace my income\" rather than \"when do I sell.\"</p>\n    ",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.1', title: 'Business sale or wind-down planning',\n    summary: 'Unique to self-employed: your business may have transferable value, or it may not. Plan accordingly.',\n    badges: ['new'],\n    details: `\n      <h4>Does your business have sale value?</h4>\n      <p>Service businesses built around a single owner's skill (consulting, freelancing, sole-practitioner law/accounting) typically have limited sale value — clients don't transfer reliably to a new owner. Businesses with systematized operations, employee teams, or recurring revenue (SaaS, productized services, subscription models) often sell for 2–8x SDE (seller's discretionary earnings).</p>\n      <h4>If saleable: prepare 3–5 years in advance</h4>\n      <p>Document systems and processes. Reduce owner-dependency. Build a leadership layer if practical. Clean up financials (separated personal/business, clear revenue tracking, audited or reviewed statements). Buyers pay materially more for businesses that \"run without the owner.\"</p>\n      <h4>If not saleable: plan a glide path</h4>\n      <p>Phased reduction in client load, transition of remaining clients to peers, gradual wind-down. The retirement question becomes \"when does my portfolio fully replace my income\" rather than \"when do I sell.\"</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: DECUMUL ───\n  "
+}

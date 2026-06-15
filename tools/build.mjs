@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { renderSegment } from './extract-nodes.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -34,6 +35,12 @@ const sha = (s) => createHash('sha256').update(s, 'utf8').digest('hex');
 // byte-for-byte while the round-trip gate is byte-exact, then relax later.
 const GENERATORS = {
   // 'data-questions': () => renderQuestions(loadYaml('src/content/questions.yaml')),
+  // Node arrays: regenerate each segment from src/content/nodes/<income>/ (per-node
+  // JSON + _array.json scaffold), byte-identical to the live artifact. The build's
+  // sha guard below + tools/gate.mjs both enforce byte-exactness.
+  'data-w2-nodes': () => renderSegment('w2'),
+  'data-contractor-nodes': () => renderSegment('contractor'),
+  'data-business-nodes': () => renderSegment('business'),
 };
 
 let out = '';

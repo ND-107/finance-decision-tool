@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "fullef",
+  "marker": "5.1",
+  "title": "Personal EF to full 6–12 months",
+  "summary": "Personal financial stability while the business operates.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'fullef', marker: '5.1', title: 'Personal EF to full 6–12 months',\n    summary: 'Personal financial stability while the business operates.',\n    details: ''\n  }",
+  "lead": ",\n\n  // ─── PHASE: FULL EF ───\n  "
+}

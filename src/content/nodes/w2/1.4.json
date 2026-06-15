@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "essentials",
+  "marker": "1.4",
+  "title": "Make all minimum payments on every debt",
+  "summary": "Before any acceleration, optimization, or saving — minimums are sacred. Missing them damages credit and triggers penalties that erase any other gains.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>The mechanics</h4>\n      <p>A single 30-day-late payment can drop a prime credit score 60–110 points and persist on your report for seven years. The downstream cost in higher rates on future mortgages, auto loans, and insurance premiums can run tens of thousands of dollars over a decade. Minimums are the cheapest insurance in personal finance.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.4', title: 'Make all minimum payments on every debt',\n    summary: 'Before any acceleration, optimization, or saving — minimums are sacred. Missing them damages credit and triggers penalties that erase any other gains.',\n    details: `\n      <h4>The mechanics</h4>\n      <p>A single 30-day-late payment can drop a prime credit score 60–110 points and persist on your report for seven years. The downstream cost in higher rates on future mortgages, auto loans, and insurance premiums can run tens of thousands of dollars over a decade. Minimums are the cheapest insurance in personal finance.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

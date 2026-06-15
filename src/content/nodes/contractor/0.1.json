@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "foundation",
+  "marker": "0.1",
+  "title": "Separate business and personal finances on day one",
+  "summary": "Distinct business checking, business savings, dedicated business credit card. Mixing the two is the #1 mistake of new contractors.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Why this matters</h4>\n      <p>Commingled finances create three immediate problems: (1) you lose audit defense — if the IRS examines your return, undifferentiated bank accounts make it impossible to substantiate business expenses; (2) you lose legal protection if you've formed an LLC, since piercing the corporate veil starts with showing commingled funds; (3) you lose visibility into actual business profitability, because personal spending masks the true margin of the business.</p>\n      <h4>The minimum setup</h4>\n      <p>One business checking account (income deposits + business expenses). One business savings account (tax reserve + business EF). One business credit card (everything that's a business expense, paid from business checking). Personal accounts kept entirely separate. Transfer to personal accounts as \"owner draws\" on a regular schedule rather than as needed.</p>\n    ",
+  "rawSource": "{\n    phase: 'foundation', marker: '0.1', title: 'Separate business and personal finances on day one',\n    summary: 'Distinct business checking, business savings, dedicated business credit card. Mixing the two is the #1 mistake of new contractors.',\n    badges: ['new'],\n    details: `\n      <h4>Why this matters</h4>\n      <p>Commingled finances create three immediate problems: (1) you lose audit defense — if the IRS examines your return, undifferentiated bank accounts make it impossible to substantiate business expenses; (2) you lose legal protection if you've formed an LLC, since piercing the corporate veil starts with showing commingled funds; (3) you lose visibility into actual business profitability, because personal spending masks the true margin of the business.</p>\n      <h4>The minimum setup</h4>\n      <p>One business checking account (income deposits + business expenses). One business savings account (tax reserve + business EF). One business credit card (everything that's a business expense, paid from business checking). Personal accounts kept entirely separate. Transfer to personal accounts as \"owner draws\" on a regular schedule rather than as needed.</p>\n    `\n  }",
+  "lead": "\n  // ─── PHASE: FOUNDATION ───\n  "
+}

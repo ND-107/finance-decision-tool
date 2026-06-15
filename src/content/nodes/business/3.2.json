@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "match",
+  "marker": "3.2",
+  "title": "Establish HSA-eligible group health plan if appropriate",
+  "summary": "Letting employees access HSAs through a group HDHP is a high-value benefit at low cost.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "<p>Many employees don't realize the HSA's value. Owner contributions on behalf of employees (a \"company HSA contribution\") cost the business as a deductible expense and provide employees with tax-advantaged savings. A $1,000/employee/year company HSA contribution often improves recruiting and retention more than equivalent salary increases.</p>",
+  "rawSource": "{\n    phase: 'match', marker: '3.2', title: 'Establish HSA-eligible group health plan if appropriate',\n    summary: 'Letting employees access HSAs through a group HDHP is a high-value benefit at low cost.',\n    badges: ['new'],\n    details: `<p>Many employees don't realize the HSA's value. Owner contributions on behalf of employees (a \"company HSA contribution\") cost the business as a deductible expense and provide employees with tax-advantaged savings. A $1,000/employee/year company HSA contribution often improves recruiting and retention more than equivalent salary increases.</p>`\n  }",
+  "lead": ",\n  "
+}

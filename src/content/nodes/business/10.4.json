@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "decumul",
+  "marker": "10.4",
+  "title": "Long-term care planning",
+  "summary": "Same considerations as W-2. Business sale proceeds often fund LTC self-insurance.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.4', title: 'Long-term care planning',\n    summary: 'Same considerations as W-2. Business sale proceeds often fund LTC self-insurance.',\n    details: ''\n  }",
+  "lead": ",\n  "
+}

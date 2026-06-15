@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "fullef",
+  "marker": "5.1",
+  "title": "Grow personal emergency fund to 6–12 months",
+  "summary": "Two to three times the W-2 target, because client concentration and payment delays create much higher cash-flow volatility.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Sizing for contractor reality</h4>\n      <p>Contractors who serve a single dominant client (>50% of revenue) or work in industries with long payment cycles (advertising, government contracting, large enterprise consulting) should target 12 months. Contractors with diversified clients and net-15 or net-30 payment terms can target 6 months.</p>\n      <h4>The \"client off-boarding\" stress test</h4>\n      <p>Imagine your largest client tells you tomorrow that they're not renewing. How many months can you survive at current expense levels while you replace the revenue? That number, plus a 50% buffer, is your EF target. For most contractors, this exercise produces something between 6 and 12 months.</p>\n    ",
+  "rawSource": "{\n    phase: 'fullef', marker: '5.1', title: 'Grow personal emergency fund to 6–12 months',\n    summary: 'Two to three times the W-2 target, because client concentration and payment delays create much higher cash-flow volatility.',\n    badges: ['new'],\n    details: `\n      <h4>Sizing for contractor reality</h4>\n      <p>Contractors who serve a single dominant client (>50% of revenue) or work in industries with long payment cycles (advertising, government contracting, large enterprise consulting) should target 12 months. Contractors with diversified clients and net-15 or net-30 payment terms can target 6 months.</p>\n      <h4>The \"client off-boarding\" stress test</h4>\n      <p>Imagine your largest client tells you tomorrow that they're not renewing. How many months can you survive at current expense levels while you replace the revenue? That number, plus a 50% buffer, is your EF target. For most contractors, this exercise produces something between 6 and 12 months.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: FULL EF ───\n  "
+}

@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "fullef",
+  "marker": "5.2",
+  "title": "Build a business operating reserve",
+  "summary": "Separate from your personal EF. Covers business expenses for 2–3 months if income halts.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <p>The business EF lets you keep the business running — paying subcontractors, software, professional dues, insurance — while your personal EF covers personal life. Mixing them creates the same problem as mixing checking accounts: you can't tell what you actually have for which purpose. Two accounts, two targets.</p>\n    ",
+  "rawSource": "{\n    phase: 'fullef', marker: '5.2', title: 'Build a business operating reserve',\n    summary: 'Separate from your personal EF. Covers business expenses for 2–3 months if income halts.',\n    badges: ['new'],\n    details: `\n      <p>The business EF lets you keep the business running — paying subcontractors, software, professional dues, insurance — while your personal EF covers personal life. Mixing them creates the same problem as mixing checking accounts: you can't tell what you actually have for which purpose. Two accounts, two targets.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "safety",
+  "marker": "2.2",
+  "title": "Cut non-essential expenses if cash flow is tight",
+  "summary": "Streaming, restaurants, subscriptions, premium phone plans — if the budget doesn't balance, this is where to cut first.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>The hierarchy of cuts</h4>\n      <p>The first cuts should be subscription-based recurring charges that you don't actively use — they're the highest-yield reduction because they require no behavioral discipline once cancelled. Restaurants and convenience purchases come next; these are higher-friction because they require sustained habit change.</p>\n      <div class=\"callout\"><strong>A note from r/personalfinance that holds up well:</strong> If you are dedicated to financial recovery, keep discretionary spending at an absolute minimum until high-interest debt is paid off. The math of high-interest debt is brutal enough that even modest discretionary cuts compound into substantial acceleration.</div>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.2', title: 'Cut non-essential expenses if cash flow is tight',\n    summary: 'Streaming, restaurants, subscriptions, premium phone plans — if the budget doesn\\'t balance, this is where to cut first.',\n    details: `\n      <h4>The hierarchy of cuts</h4>\n      <p>The first cuts should be subscription-based recurring charges that you don't actively use — they're the highest-yield reduction because they require no behavioral discipline once cancelled. Restaurants and convenience purchases come next; these are higher-friction because they require sustained habit change.</p>\n      <div class=\"callout\"><strong>A note from r/personalfinance that holds up well:</strong> If you are dedicated to financial recovery, keep discretionary spending at an absolute minimum until high-interest debt is paid off. The math of high-interest debt is brutal enough that even modest discretionary cuts compound into substantial acceleration.</div>\n    `\n  }",
+  "lead": ",\n  "
+}

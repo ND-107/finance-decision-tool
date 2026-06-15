@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "safety",
+  "marker": "2.1",
+  "title": "Personal emergency fund: 6 months",
+  "summary": "Business owners face two-sided risk: personal expenses still continue if the business stumbles, and the business may need owner capital to recover.",
+  "badges": [],
+  "detailsHtml": "<p>Six months is the floor for business owners. Many planners advise 12 months given the correlation between business stress and personal expenses (no salary if the business is struggling).</p>",
+  "rawSource": "{\n    phase: 'safety', marker: '2.1', title: 'Personal emergency fund: 6 months',\n    summary: 'Business owners face two-sided risk: personal expenses still continue if the business stumbles, and the business may need owner capital to recover.',\n    details: `<p>Six months is the floor for business owners. Many planners advise 12 months given the correlation between business stress and personal expenses (no salary if the business is struggling).</p>`\n  }",
+  "lead": ",\n\n  // ─── PHASE: SAFETY ───\n  "
+}

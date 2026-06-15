@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "essentials",
+  "marker": "1.2",
+  "title": "Cover essential business operating expenses",
+  "summary": "Payroll, rent, utilities, insurance, software, subcontractors, professional services. Categorize precisely for tax planning.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Cash flow timing</h4>\n      <p>Most business failures are cash flow failures rather than profitability failures. A profitable business can still fail if customers pay in 90 days while payroll is due in 14. Track Days Sales Outstanding (DSO) and Days Payable Outstanding (DPO) monthly; tighten collections and extend payables strategically.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.2', title: 'Cover essential business operating expenses',\n    summary: 'Payroll, rent, utilities, insurance, software, subcontractors, professional services. Categorize precisely for tax planning.',\n    badges: ['new'],\n    details: `\n      <h4>Cash flow timing</h4>\n      <p>Most business failures are cash flow failures rather than profitability failures. A profitable business can still fail if customers pay in 90 days while payroll is due in 14. Track Days Sales Outstanding (DSO) and Days Payable Outstanding (DPO) monthly; tighten collections and extend payables strategically.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

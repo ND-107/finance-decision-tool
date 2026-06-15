@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "goals",
+  "marker": "7.1",
+  "title": "Save for near-term goals (1–5 years)",
+  "summary": "Same logic as W-2. Vehicle replacement, home down payment, equipment purchases.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Equipment purchases as a tax lever</h4>\n      <p>Business equipment purchases over a few hundred dollars typically can be either depreciated over multiple years or fully expensed in year of purchase (Section 179 or bonus depreciation, depending on the year and rules). In a high-income year, accelerating equipment purchases into Q4 can materially reduce that year's tax burden. Coordinate large purchases with your tax planning.</p>\n    ",
+  "rawSource": "{\n    phase: 'goals', marker: '7.1', title: 'Save for near-term goals (1–5 years)',\n    summary: 'Same logic as W-2. Vehicle replacement, home down payment, equipment purchases.',\n    details: `\n      <h4>Equipment purchases as a tax lever</h4>\n      <p>Business equipment purchases over a few hundred dollars typically can be either depreciated over multiple years or fully expensed in year of purchase (Section 179 or bonus depreciation, depending on the year and rules). In a high-income year, accelerating equipment purchases into Q4 can materially reduce that year's tax burden. Coordinate large purchases with your tax planning.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: GOALS ───\n  "
+}

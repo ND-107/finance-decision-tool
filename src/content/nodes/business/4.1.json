@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "highdebt",
+  "marker": "4.1",
+  "title": "Personal debt above expected real return",
+  "summary": "Same logic. Eliminate before significant capital allocation elsewhere.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'highdebt', marker: '4.1', title: 'Personal debt above expected real return',\n    summary: 'Same logic. Eliminate before significant capital allocation elsewhere.',\n    details: ''\n  }",
+  "lead": ",\n\n  // ─── PHASE: HIGH DEBT ───\n  "
+}

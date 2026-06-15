@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "decumul",
+  "marker": "10.2",
+  "title": "Roth conversion ladder + 4% rule",
+  "summary": "Same logic as W-2.",
+  "badges": [],
+  "detailsHtml": "<p>See the W-2 path nodes 10.1 and 10.2 — the strategies are identical once you reach distribution phase. Contractors often have larger Traditional balances (because of higher Solo 401(k) limits), which makes Roth conversions in early-retirement low-income years particularly valuable.</p>",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.2', title: 'Roth conversion ladder + 4% rule',\n    summary: 'Same logic as W-2.',\n    details: `<p>See the W-2 path nodes 10.1 and 10.2 — the strategies are identical once you reach distribution phase. Contractors often have larger Traditional balances (because of higher Solo 401(k) limits), which makes Roth conversions in early-retirement low-income years particularly valuable.</p>`\n  }",
+  "lead": ",\n  "
+}

@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "decumul",
+  "marker": "10.3",
+  "title": "Social Security claiming — with a contractor caveat",
+  "summary": "Same general logic as W-2, but contractors with low historical SE earnings (cash-basis underreporting in early career) may have surprisingly small benefits.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>The earnings-history effect</h4>\n      <p>Social Security benefits are calculated on your highest 35 years of indexed earnings. Contractors who minimized reported SE income to reduce taxes in their 20s and 30s may face significantly lower benefits at retirement age. There's no fix retroactively — the only mitigation is awareness, and recognition that aggressive SE-tax minimization in early career has long-term costs.</p>\n    ",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.3', title: 'Social Security claiming — with a contractor caveat',\n    summary: 'Same general logic as W-2, but contractors with low historical SE earnings (cash-basis underreporting in early career) may have surprisingly small benefits.',\n    details: `\n      <h4>The earnings-history effect</h4>\n      <p>Social Security benefits are calculated on your highest 35 years of indexed earnings. Contractors who minimized reported SE income to reduce taxes in their 20s and 30s may face significantly lower benefits at retirement age. There's no fix retroactively — the only mitigation is awareness, and recognition that aggressive SE-tax minimization in early career has long-term costs.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "highdebt",
+  "marker": "4.1",
+  "title": "Eliminate debt above your expected real return",
+  "summary": "Same logic as W-2. Threshold: ~6–7% after-tax for personal debt.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Business debt nuance</h4>\n      <p>Business debt has two unique considerations for contractors. First, interest on business debt is deductible as a business expense, reducing its after-tax cost. Second, the alternative to paying off business debt is sometimes reinvesting in the business for growth — equipment, marketing, hiring — which can have higher returns than passive investing.</p>\n      <div class=\"math\">Business loan rate decision:\n  After-tax cost = rate × (1 − combined marginal rate)\n  9% loan, 24% federal + 15.3% SE tax + 5% state = 44.3% combined\n  After-tax cost: 9% × (1 − 0.443) = ~5%\n  Still likely worth paying down before taxable investing</div>\n    ",
+  "rawSource": "{\n    phase: 'highdebt', marker: '4.1', title: 'Eliminate debt above your expected real return',\n    summary: 'Same logic as W-2. Threshold: ~6–7% after-tax for personal debt.',\n    details: `\n      <h4>Business debt nuance</h4>\n      <p>Business debt has two unique considerations for contractors. First, interest on business debt is deductible as a business expense, reducing its after-tax cost. Second, the alternative to paying off business debt is sometimes reinvesting in the business for growth — equipment, marketing, hiring — which can have higher returns than passive investing.</p>\n      <div class=\"math\">Business loan rate decision:\n  After-tax cost = rate × (1 − combined marginal rate)\n  9% loan, 24% federal + 15.3% SE tax + 5% state = 44.3% combined\n  After-tax cost: 9% × (1 − 0.443) = ~5%\n  Still likely worth paying down before taxable investing</div>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: HIGH DEBT ───\n  "
+}

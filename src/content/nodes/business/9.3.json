@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "advanced",
+  "marker": "9.3",
+  "title": "Real estate investment via business or personal",
+  "summary": "Direct ownership, REITs, syndicated deals. Tax-advantaged in specific ways (depreciation, 1031 exchanges, cost segregation).",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>The tax advantages</h4>\n      <p>Real estate generates phantom losses through depreciation — accounting losses that don't reflect actual cash flow declines. These can offset passive income from other investments, and for \"real estate professionals\" can offset active income. 1031 exchanges allow deferral of capital gains by reinvesting in like-kind property. Cost segregation studies accelerate depreciation, front-loading deductions.</p>\n      <h4>The complexity</h4>\n      <p>Real estate is operationally intensive in ways equity index funds are not. Direct ownership requires property management, tenant management, repairs, vacancy handling. Many high-earning business owners discover that real estate's effective hourly return on time invested is lower than they'd realized. Passive vehicles (REITs, real estate funds, syndications) sidestep this but offer less tax advantage.</p>\n    ",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.3', title: 'Real estate investment via business or personal',\n    summary: 'Direct ownership, REITs, syndicated deals. Tax-advantaged in specific ways (depreciation, 1031 exchanges, cost segregation).',\n    badges: ['new'],\n    details: `\n      <h4>The tax advantages</h4>\n      <p>Real estate generates phantom losses through depreciation — accounting losses that don't reflect actual cash flow declines. These can offset passive income from other investments, and for \"real estate professionals\" can offset active income. 1031 exchanges allow deferral of capital gains by reinvesting in like-kind property. Cost segregation studies accelerate depreciation, front-loading deductions.</p>\n      <h4>The complexity</h4>\n      <p>Real estate is operationally intensive in ways equity index funds are not. Direct ownership requires property management, tenant management, repairs, vacancy handling. Many high-earning business owners discover that real estate's effective hourly return on time invested is lower than they'd realized. Passive vehicles (REITs, real estate funds, syndications) sidestep this but offer less tax advantage.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

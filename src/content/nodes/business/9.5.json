@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "advanced",
+  "marker": "9.5",
+  "title": "Taxable brokerage and asset location",
+  "summary": "Standard taxable investing for excess capital. Asset location strategy as in W-2 path.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.5', title: 'Taxable brokerage and asset location',\n    summary: 'Standard taxable investing for excess capital. Asset location strategy as in W-2 path.',\n    details: ''\n  }",
+  "lead": ",\n  "
+}

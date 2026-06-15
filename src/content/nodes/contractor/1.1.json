@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "essentials",
+  "marker": "1.1",
+  "title": "Cover essential personal expenses (housing, food, utilities)",
+  "summary": "Same logic as the W-2 path — housing, food, utilities, transportation, healthcare, minimum debt payments.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>The volatility wrinkle</h4>\n      <p>1099 income is lumpy. Pay yourself a stable \"salary\" from the business account to your personal account — typically based on your trailing 6-month average income, conservatively estimated. This buffers personal cash flow from monthly income variability and forces the business account to absorb the volatility instead.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.1', title: 'Cover essential personal expenses (housing, food, utilities)',\n    summary: 'Same logic as the W-2 path — housing, food, utilities, transportation, healthcare, minimum debt payments.',\n    details: `\n      <h4>The volatility wrinkle</h4>\n      <p>1099 income is lumpy. Pay yourself a stable \"salary\" from the business account to your personal account — typically based on your trailing 6-month average income, conservatively estimated. This buffers personal cash flow from monthly income variability and forces the business account to absorb the volatility instead.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: ESSENTIALS ───\n  "
+}

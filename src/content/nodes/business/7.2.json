@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "goals",
+  "marker": "7.2",
+  "title": "Moderate-interest debt: business reinvestment threshold",
+  "summary": "Personal moderate debt: same as W-2 logic. Business debt: compare to marginal ROI.",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'goals', marker: '7.2', title: 'Moderate-interest debt: business reinvestment threshold',\n    summary: 'Personal moderate debt: same as W-2 logic. Business debt: compare to marginal ROI.',\n    details: ''\n  }",
+  "lead": ",\n  "
+}

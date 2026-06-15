@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "advanced",
+  "marker": "9.3",
+  "title": "Taxable brokerage and asset location",
+  "summary": "Same logic as W-2 once tax-advantaged space is exhausted.",
+  "badges": [],
+  "detailsHtml": "\n      <p>The contractor advantage: with higher tax-advantaged contribution limits (Solo 401(k) + IRA + HSA), you may not need taxable accumulation as quickly as a W-2 employee at similar income. The contractor disadvantage: less Roth space relative to total contributions if your Solo 401(k) doesn't support Mega Backdoor Roth — making asset location even more important.</p>\n    ",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.3', title: 'Taxable brokerage and asset location',\n    summary: 'Same logic as W-2 once tax-advantaged space is exhausted.',\n    details: `\n      <p>The contractor advantage: with higher tax-advantaged contribution limits (Solo 401(k) + IRA + HSA), you may not need taxable accumulation as quickly as a W-2 employee at similar income. The contractor disadvantage: less Roth space relative to total contributions if your Solo 401(k) doesn't support Mega Backdoor Roth — making asset location even more important.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

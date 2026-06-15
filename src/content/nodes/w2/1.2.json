@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "essentials",
+  "marker": "1.2",
+  "title": "Cover transportation and income-earning expenses",
+  "summary": "Anything required to keep producing income — commuting, work tools, professional licensing, work phone/internet if essential.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Why this is treated as essential</h4>\n      <p>These expenses have a return: they produce the income that funds everything else. They take priority over discretionary savings because cutting them risks the income itself. The exception is when they are bloated (luxury car, premium gym, oversized phone plan) and could be downsized without affecting earning capacity — in which case they belong in the discretionary bucket.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.2', title: 'Cover transportation and income-earning expenses',\n    summary: 'Anything required to keep producing income — commuting, work tools, professional licensing, work phone/internet if essential.',\n    details: `\n      <h4>Why this is treated as essential</h4>\n      <p>These expenses have a return: they produce the income that funds everything else. They take priority over discretionary savings because cutting them risks the income itself. The exception is when they are bloated (luxury car, premium gym, oversized phone plan) and could be downsized without affecting earning capacity — in which case they belong in the discretionary bucket.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

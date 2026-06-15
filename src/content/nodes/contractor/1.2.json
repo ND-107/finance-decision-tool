@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "essentials",
+  "marker": "1.2",
+  "title": "Pay business operating expenses",
+  "summary": "Software subscriptions, contractor labor, business insurance, professional services. Track every receipt for deductibility.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Deductibility</h4>\n      <p>Most ordinary and necessary business expenses are fully deductible against business income on Schedule C, reducing both income tax and self-employment tax. This makes the effective after-tax cost of a business expense considerably lower than a personal expense.</p>\n      <div class=\"math\">Example: $1,000 business software subscription\n  Federal tax savings (24% bracket): $240\n  SE tax savings (15.3%):              $153\n  State tax savings (5%):              $50\n  Total tax savings:                   $443\n  Effective after-tax cost:            $557</div>\n      <p>This is also why \"running personal expenses through the business\" is a serious felony in the eyes of the IRS — the tax savings are real, and so are the penalties for fraud.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.2', title: 'Pay business operating expenses',\n    summary: 'Software subscriptions, contractor labor, business insurance, professional services. Track every receipt for deductibility.',\n    badges: ['new'],\n    details: `\n      <h4>Deductibility</h4>\n      <p>Most ordinary and necessary business expenses are fully deductible against business income on Schedule C, reducing both income tax and self-employment tax. This makes the effective after-tax cost of a business expense considerably lower than a personal expense.</p>\n      <div class=\"math\">Example: $1,000 business software subscription\n  Federal tax savings (24% bracket): $240\n  SE tax savings (15.3%):              $153\n  State tax savings (5%):              $50\n  Total tax savings:                   $443\n  Effective after-tax cost:            $557</div>\n      <p>This is also why \"running personal expenses through the business\" is a serious felony in the eyes of the IRS — the tax savings are real, and so are the penalties for fraud.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "goals",
+  "marker": "7.2",
+  "title": "Moderate-interest debt",
+  "summary": "Same threshold logic. Business debt with deductible interest gets evaluated at its after-tax rate.",
+  "badges": [],
+  "detailsHtml": "\n      <p>For most contractors, moderate-interest debt sits in the 5–7% range — auto loans, some personal loans, some business lines of credit. The decision is whether prepayment beats expected after-tax investment return on the alternative use of funds.</p>\n    ",
+  "rawSource": "{\n    phase: 'goals', marker: '7.2', title: 'Moderate-interest debt',\n    summary: 'Same threshold logic. Business debt with deductible interest gets evaluated at its after-tax rate.',\n    details: `\n      <p>For most contractors, moderate-interest debt sits in the 5–7% range — auto loans, some personal loans, some business lines of credit. The decision is whether prepayment beats expected after-tax investment return on the alternative use of funds.</p>\n    `\n  }",
+  "lead": ",\n  "
+}
