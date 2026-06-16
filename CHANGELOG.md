@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-06-15 — v2 UI shell ("make it clickable") — the v2 engine renders [branch `v2`, local-only]
+
+First artifact that renders the v2 core. The pure, gate-proven kernel (`src/core/*`) + declarative content (`src/content/*`) now drive an actual diagnostic → plan UI, bundled into a single self-contained `dist/v2.html` (240,799 bytes) by a zero-dependency builder — preserving the project's runnable-by-double-click invariant.
+
+**New files (`v2` branch):**
+- `src/ui/app.mjs` — UI controller. Diagnostic walks the active sections (showIf via the shared `evalPredicate`); a **provisional plan** appears once the core-8 are answered and sharpens with every further answer. Renders Tier-1 "Start here", the four time-stages, deadline + critical tags, the skip ledger, and the sensitivity ("which answers drive this plan") panel. Completion loop: ticking an action recomputes (`applyCompletions`) and either migrates it to the skip ledger or strikes it through. State persists to `localStorage`.
+- `src/ui/styles.css` — analytical stylesheet (serif headings, green accent, two-column layout collapsing to one on narrow screens; 44px tap targets; radio/checkbox-as-card options).
+- `tools/build-v2.mjs` — zero-dep bundler. Strips ESM imports/exports + the core's Node-only JSON loads, inlines `questions.json` / `deadlines.json` / `impact.json` / the 93 node files / `TODAY` as the globals the modules expect, extracts the pure `planLogic` from `plan-fingerprint.mjs`, concatenates in dependency order, appends the UI, wraps in one `<script>`. Reproducible (8 core modules · 93 nodes · 53 questions).
+
+**Verification — driven through real headless Chrome (149), not just unit checks:**
+- Bundle parses clean; welcome → diagnostic → plan flow exercised with **real `.click()` events** through the app's own DOM listeners (injected-driver harness, no browser-automation dependency).
+- Confirmed: clicking options selects them; `employerMatch` `showIf` reveals on W-2; plan renders **12 actions** for the low-bracket/no-EF/no-coverage/high-interest-debt profile; Tier-1 = 3 criticals (health insurance · $1k starter EF · EITC); 10 critical tags; sensitivity panel with 5 driver rows.
+- Completion verified **both paths**: ticking "Get health insurance" migrated it to the skip ledger (recompute set `healthInsurance=yes`); ticking an informational action rendered `text-decoration: line-through`.
+- Bundle's inlined core == `src/core` engine on 3/3 profiles. All 7 v2 gates remain green.
+
+Still local-only; `main` stays the live single-file artifact until Phase 6 cutover.
+
 ## 2026-06-11 — Currency hotfix sprint (Phase 0 of V2_REBUILD_PLAN.md) — OBBBA loan restructuring + 2026-figure corrections
 
 Executes Phase 0 of `docs/V2_REBUILD_PLAN.md`, from the 2026-06-10 full content audit (447 claims re-examined; high-risk surface live-verified against IRS / CMS / HHS / SSA / ED / CRS sources). Time-driver: OBBBA's July 1, 2026 student-loan dates.

@@ -33,7 +33,8 @@ src/
 | **Phase 3** — diagnostic core primitives | 🟢 `core/sensitivity.mjs` (which answers drive the plan) + `core/completion.mjs` (done/dismissed → recompute → migrate to skip ledger) — pure, tested. *UX + priority redesign deferred (needs design input).* |
 | **Phase 1.4 / 4** — node content extracted | 🟢 `content/nodes/<income>/<marker>.json` — all **93 reference nodes** as structured files; build regenerates the arrays **byte-exact** (`extract-nodes.mjs` + `build.mjs` generators), round-trip gate still green |
 | **Phase 2 §2.2** — explicit priority model | 🟢 `core/priority.mjs` + `data/impact.json` — **hybrid reorder** (stages kept, within-stage sorted by impact × completion-probability, smarter Tier-1); **absolute bands** from the framework's stated figures (adversarially verified — 2 independent banders, 4 refinements applied); **deadline > safety > score** overrides. `verify-priority.mjs` enforces the hybrid invariant across 3015 fixtures |
-| Graph projections (Plan/chart/skip as one graph) · rest of diagnostic v2 UX (Phase 3) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
+| **Phase 3** — v2 UI shell ("make it clickable") | 🟢 `ui/app.mjs` + `ui/styles.css` + `tools/build-v2.mjs` (zero-dep bundler → `dist/v2.html`, single self-contained file). Diagnostic drives the pure core directly; **progressive plan** after the core-8; Tier-1 / stages / deadline & critical tags / skip ledger / sensitivity drivers / completion loop. **Verified in real Chrome** (headless, interaction-driven): clicks select, `showIf` gates, plan renders (12 actions), completion both migrates to skip ledger *and* strikes through. Core logic in the bundle == engine (3/3 profiles). |
+| Graph projections (Plan/chart/skip as one graph) · rest of diagnostic v2 UX polish (Phase 3) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
 
 ## Why figures.json first
 
