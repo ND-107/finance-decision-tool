@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 6: cutover-readiness audit + accessibility pass [branch `v2`, local-only]
+
+A 5-lens cutover audit (1 parity + 4 accessibility), then fixes for everything fixable in the UI that exists.
+
+**Parity verdict: NOT cutover-ready** — captured in `docs/CUTOVER-READINESS.md`. v2 reproduces v1's *diagnostic → plan* core (3 of v1's 14 views, and improves on the plan), but v1 is also a browsable reference encyclopedia with ~80 interactive calculators + a bracket-switchable master chart (~62% of v1) — none of which v2 has yet. The remaining work ("Phase 7 — reference views + calculators + nav") is the blocker to swapping `v2` for `flowchart.html` on GitHub Pages. The diagnostic→plan product itself is done.
+
+**Accessibility — audited (29 findings, 12 critical/serious) and fixed** in `src/ui/app.mjs` + `src/ui/styles.css` + the build template:
+- **Focus management** (real barrier): the SPA wiped `#app` each render and dropped focus to `<body>`. Every control now carries a stable `data-fk`; `render()` captures + restores it. Verified: clicking an option keeps focus on it.
+- **Live region**: persistent `#sr-live` (`role=status`, outside `#app`) announces section + plan-recompute changes; `.flash` toast `role=status`.
+- **Forms**: options wrapped in `role=radiogroup`/`group` + `aria-labelledby`; completion checkboxes `aria-label="Mark done: <title>"`; decorative glyphs `aria-hidden`.
+- **Headings**: plan/diagnostic → `<h2>` (fixes H1→H3 skip). **Progress bar**: `role=progressbar` + `aria-value*`. **Disclosures**: `aria-expanded`/`aria-controls`.
+- **Contrast**: chip text 4.16→**5.47:1**, control borders 1.28→**3.5–3.7:1** (new `--muted-strong`/`--line-strong` tokens). **Focus-visible** outlines + a real reveal-on-focus **skip-link**. **Reduced-motion** media query. Deadline urgency + scenario removals no longer color-only. `type=button` on all buttons; labeled `aside`; 24px tap targets.
+
+Verified in real headless Chrome: ARIA roles/labels present, focus restoration works, live region announces, headings correct, contrast math passes; the `:focus`-rendered states are correct-by-construction but not headless-measurable (recommend an `axe-core` + VoiceOver/NVDA pass before launch). All 8 v2 gates green. `dist/v2.html` 333K → 337K.
+
 ## 2026-06-16 — v2 Phase 5: scenario toggles ("what if you'd answered differently?") [branch `v2`, local-only]
 
 The sensitivity panel becomes interactive. It already ranked the load-bearing answers (those whose change moves the most actions); now each driver expands into **counterfactual previews** — "If you were *mid-bracket* instead → + these actions, − these" — reading the `swings` the `sensitivity()` machinery already computes (`{to, added[], removed[], delta}`, pre-sorted by delta). A pure preview: the real answers don't change.

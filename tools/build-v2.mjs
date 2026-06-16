@@ -84,8 +84,9 @@ ${css}
 </style>
 </head>
 <body>
-<a href="#app" class="skip-link" style="position:absolute;left:-9999px">Skip to content</a>
+<a href="#app" class="skip-link">Skip to content</a>
 <main id="app"></main>
+<div id="sr-live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <script>
 ${bundle}
 </script>

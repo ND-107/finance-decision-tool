@@ -38,20 +38,36 @@ const answeredCount = () => activeSections().reduce((n, s) => n + activeQuestion
 const core8Done = () => CORE8.every((f) => state.answers[f] != null && (f !== 'incomeTypes' || state.answers[f].length));
 
 // =================== render ===================
+// The app re-renders by wiping #app; to keep keyboard/SR users in place we capture
+// the focused control's stable data-fk before the wipe and restore it after (WCAG
+// 2.4.3 / 3.2.2). #sr-live (a polite live region OUTSIDE #app, in the page shell)
+// announces plan/section changes (WCAG 4.1.3).
 function render() {
   const root = $('#app');
+  const ae = document.activeElement;
+  const fk = ae && ae.getAttribute ? ae.getAttribute('data-fk') : null;
   root.innerHTML = '';
   root.append(masthead());
-  if (!state.started) { root.append(welcome()); return; }
+  if (!state.started) { root.append(welcome()); restoreFocus(root, fk); return; }
   root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   save();
+  restoreFocus(root, fk);
+}
+function restoreFocus(root, fk) {
+  if (!fk) return;
+  const t = [...root.querySelectorAll('[data-fk]')].find((e) => e.getAttribute('data-fk') === fk);
+  if (t) try { t.focus(); } catch { /* noop */ }
+}
+function announce(msg) {
+  const live = document.getElementById('sr-live');
+  if (live && live.textContent !== msg) live.textContent = msg;
 }
 
 function masthead() {
   return el('header', { class: 'masthead' }, [
     el('div', { class: 'eyebrow' }, 'Personal Finance · 2026 · United States · v2 engine'),
     el('h1', { html: 'An ordered path through <em>your money</em>.' }),
-    state.started ? el('button', { class: 'ghost', onclick: reset }, '↻ Start over') : null,
+    state.started ? el('button', { class: 'ghost', type: 'button', onclick: reset }, '↻ Start over') : null,
   ]);
 }
 
@@ -59,7 +75,7 @@ function welcome() {
   return el('section', { class: 'welcome' }, [
     el('h2', { html: 'What should you do <em>next</em>?' }),
     el('p', {}, 'Answer questions about your situation; get a prioritized plan — sequenced by impact and ease, calibrated to your bracket, employment, and stage of life. A provisional plan appears after the first few answers and sharpens as you go.'),
-    el('button', { class: 'btn primary', onclick: () => { state.started = true; render(); } }, 'Start the diagnostic'),
+    el('button', { class: 'btn primary', type: 'button', 'data-fk': 'start', onclick: () => { state.started = true; render(); } }, 'Start the diagnostic'),
     el('p', { class: 'fine' }, `About 30–50 questions depending on your situation. Answers stay in this browser only.`),
   ]);
 }
@@ -70,38 +86,41 @@ function diagnostic() {
   const idx = Math.max(0, Math.min(state.sectionIdx, secs.length - 1));
   const sec = secs[idx];
   const qs = activeQuestions(sec);
-  const wrap = el('section', { class: 'diagnostic' });
+  const wrap = el('section', { class: 'diagnostic', 'aria-label': 'Diagnostic questions' });
   wrap.append(el('div', { class: 'diag-head' }, [
     el('span', { class: 'diag-step' }, `Section ${idx + 1} of ${secs.length}`),
-    el('span', { class: 'diag-title' }, sec.section),
+    el('h2', { class: 'diag-title' }, sec.section),
   ]));
-  const bar = el('div', { class: 'progress' }, el('div', { class: 'progress-fill' }));
+  const bar = el('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': '1', 'aria-valuemax': String(secs.length), 'aria-valuenow': String(idx + 1), 'aria-valuetext': `Section ${idx + 1} of ${secs.length}` }, el('div', { class: 'progress-fill', 'aria-hidden': 'true' }));
   bar.firstChild.style.width = `${((idx + 1) / secs.length) * 100}%`;
   wrap.append(bar);
+  announce(`Section ${idx + 1} of ${secs.length}: ${sec.section}`);
 
   for (const q of qs) wrap.append(question(q));
 
   const nav = el('div', { class: 'diag-nav' }, [
-    el('button', { class: 'btn', onclick: () => { state.sectionIdx = Math.max(0, idx - 1); render(); } }, 'Back'),
-    el('button', { class: 'btn primary', onclick: () => { state.sectionIdx = Math.min(secs.length - 1, idx + 1); render(); } }, idx === secs.length - 1 ? 'Done' : 'Next'),
+    el('button', { class: 'btn', type: 'button', 'data-fk': 'nav:back', onclick: () => { state.sectionIdx = Math.max(0, idx - 1); render(); } }, 'Back'),
+    el('button', { class: 'btn primary', type: 'button', 'data-fk': 'nav:next', onclick: () => { state.sectionIdx = Math.min(secs.length - 1, idx + 1); render(); } }, idx === secs.length - 1 ? 'Done' : 'Next'),
   ]);
   wrap.append(nav);
   return wrap;
 }
 
 function question(q) {
-  const node = el('div', { class: 'question' }, [el('div', { class: 'q-label' }, q.label)]);
+  const labelId = 'ql-' + q.id;
+  const multi = q.type === 'multi';
+  const node = el('div', { class: 'question' }, [el('div', { class: 'q-label', id: labelId }, q.label)]);
   if (q.help) node.append(el('div', { class: 'q-help', html: q.help }));
-  const grid = el('div', { class: 'options' });
+  const grid = el('div', { class: 'options', role: multi ? 'group' : 'radiogroup', 'aria-labelledby': labelId });
   for (const opt of q.options) {
-    const multi = q.type === 'multi';
     const selected = multi ? (state.answers[q.id] || []).includes(opt.v) : state.answers[q.id] === opt.v;
     grid.append(el('div', {
       class: `option${multi ? ' multi' : ''}${selected ? ' selected' : ''}`,
       role: multi ? 'checkbox' : 'radio', tabindex: '0', 'aria-checked': selected ? 'true' : 'false',
+      'data-fk': `opt:${q.id}:${opt.v}`,
       onclick: () => choose(q, opt.v),
       onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(q, opt.v); } },
-    }, [el('span', { class: 'dot' }), el('span', {}, opt.l)]));
+    }, [el('span', { class: 'dot', 'aria-hidden': 'true' }), el('span', {}, opt.l)]));
   }
   node.append(grid);
   return node;
@@ -171,9 +190,9 @@ function figuresBanner() {
 function planTools(plan) {
   const dated = plan.actions.filter((a) => a.deadline && a.deadline.dueDate);
   return el('div', { class: 'plan-tools' }, [
-    el('button', { class: 'tool-btn', type: 'button', onclick: () => copyText(planToMarkdown(plan)) }, '⧉ Copy as Markdown'),
-    el('button', { class: 'tool-btn', type: 'button', onclick: () => window.print() }, '🖶 Print one-pager'),
-    dated.length ? el('button', { class: 'tool-btn', type: 'button', onclick: () => download('finance-plan-deadlines.ics', planToICS(plan), 'text/calendar') }, `📅 ${dated.length} deadline${dated.length === 1 ? '' : 's'} → calendar`) : null,
+    el('button', { class: 'tool-btn', type: 'button', html: '<span aria-hidden="true">⧉</span> Copy as Markdown', onclick: () => copyText(planToMarkdown(plan)) }),
+    el('button', { class: 'tool-btn', type: 'button', html: '<span aria-hidden="true">🖶</span> Print one-pager', onclick: () => window.print() }),
+    dated.length ? el('button', { class: 'tool-btn', type: 'button', html: `<span aria-hidden="true">📅</span> ${dated.length} deadline${dated.length === 1 ? '' : 's'} → calendar`, onclick: () => download('finance-plan-deadlines.ics', planToICS(plan), 'text/calendar') }) : null,
   ]);
 }
 
@@ -223,7 +242,7 @@ function planToICS(plan) {
   return lines.map(icsFold).join('\r\n');
 }
 
-function flash(msg) { const n = el('div', { class: 'flash' }, msg); document.body.append(n); setTimeout(() => n.remove(), 1800); }
+function flash(msg) { const n = el('div', { class: 'flash', role: 'status', 'aria-live': 'polite' }, msg); document.body.append(n); setTimeout(() => n.remove(), 1800); }
 function fallbackCopy(text, cb) { const ta = el('textarea', { class: 'sr-only' }, text); document.body.append(ta); ta.select(); try { document.execCommand('copy'); cb(); } catch { /* noop */ } ta.remove(); }
 function copyText(text) {
   const ok = () => flash('Copied to clipboard');
@@ -238,18 +257,20 @@ function download(name, text, mime) {
 }
 
 function planPanel() {
-  const wrap = el('aside', { class: 'plan' });
+  const wrap = el('aside', { class: 'plan', 'aria-label': 'Your prioritized plan' });
   if (!core8Done()) {
+    announce(`${answeredCount()} of ${CORE8.length} essentials answered — provisional plan pending`);
     wrap.append(el('div', { class: 'plan-pending' }, [
-      el('h3', {}, 'Your plan'),
+      el('h2', {}, 'Your plan'),
       el('p', {}, `Answer the first ${CORE8.length} essentials (income, filing, age, bracket, emergency fund, high-interest debt, health coverage, employer match) and a provisional plan appears here — then sharpens with every further answer.`),
       el('div', { class: 'pending-count' }, `${answeredCount()} answered`),
     ]));
     return wrap;
   }
   const plan = buildPlan();
+  announce(`Plan updated: ${plan.actions.length} action${plan.actions.length === 1 ? '' : 's'}, ${plan.actions.filter((a) => a.tier1).length} to start this week.`);
   wrap.append(el('div', { class: 'plan-head' }, [
-    el('h3', {}, 'Your prioritized plan'),
+    el('h2', {}, 'Your prioritized plan'),
     el('p', {}, `${plan.actions.length} action${plan.actions.length === 1 ? '' : 's'} · ${answeredCount()} answers · sequenced by impact × ease, with deadlines & safety pinned.`),
   ]));
   wrap.append(planTools(plan));
@@ -290,15 +311,17 @@ function actionCard(a, isTier1) {
   const tags = [];
   if (a.tags.includes('critical')) tags.push(el('span', { class: 'tag crit' }, 'Critical'));
   if (a.deadline && ['overdue', 'critical', 'soon'].includes(a.deadline.urgency)) {
-    const lbl = a.deadline.dueDate ? `⏰ due ${a.deadline.dueDate}` : '⏰ time-critical';
+    // Encode urgency in the text, not color alone (WCAG 1.4.1).
+    const word = a.deadline.urgency === 'overdue' ? 'Overdue' : a.deadline.urgency === 'critical' ? 'Due soon' : 'Upcoming';
+    const lbl = a.deadline.dueDate ? `⏰ ${word} — due ${a.deadline.dueDate}` : `⏰ ${word} — time-critical`;
     tags.push(el('span', { class: `tag deadline ${a.deadline.urgency}` }, lbl));
   }
   if (a.incomeType) tags.push(el('span', { class: 'tag inc' }, { w2: 'W-2', contractor: '1099/SE', business: 'Business' }[a.incomeType]));
   const done = !!state.completions[a.title];
   const card = el('div', { class: `action${isTier1 ? ' t1' : ''}${done ? ' done' : ''}` }, [
     el('label', { class: 'action-check' }, [
-      el('input', { type: 'checkbox', checked: done ? 'checked' : null, onchange: () => toggleDone(a.title) }),
-      el('span', { class: 'check-box' }),
+      el('input', { type: 'checkbox', 'aria-label': `Mark done: ${a.title}`, 'data-fk': `done:${a.title}`, checked: done ? 'checked' : null, onchange: () => toggleDone(a.title) }),
+      el('span', { class: 'check-box', 'aria-hidden': 'true' }),
     ]),
     el('div', { class: 'action-body' }, [
       el('div', { class: 'action-title' }, a.title),
@@ -312,12 +335,13 @@ function actionCard(a, isTier1) {
 
 function detailToggle(a, node) {
   const id = 'd-' + a.key;
+  const bodyId = id + '-body';
   const isOpen = !!state.open[id];
   const label = (open) => (open ? '− Hide why & reference' : '+ Why this matters & reference');
   const inner = (a.reason ? `<div class="why-reason">${a.reason}</div>` : '')
     + (node && node.detailsHtml ? node.detailsHtml : '');
-  const btn = el('button', { class: 'detail-toggle', onclick: (e) => { state.open[id] = !state.open[id]; e.target.nextSibling.style.display = state.open[id] ? 'block' : 'none'; e.target.textContent = label(state.open[id]); save(); } }, label(isOpen));
-  const body = el('div', { class: 'detail', html: inner });
+  const btn = el('button', { class: 'detail-toggle', type: 'button', 'aria-expanded': String(isOpen), 'aria-controls': bodyId, 'data-fk': `det:${a.key}`, onclick: (e) => { state.open[id] = !state.open[id]; const open = state.open[id]; e.currentTarget.nextSibling.style.display = open ? 'block' : 'none'; e.currentTarget.setAttribute('aria-expanded', String(open)); e.currentTarget.textContent = label(open); save(); } }, label(isOpen));
+  const body = el('div', { class: 'detail', id: bodyId, html: inner });
   body.style.display = isOpen ? 'block' : 'none';
   return el('div', {}, [btn, body]);
 }
