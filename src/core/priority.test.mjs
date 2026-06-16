@@ -61,8 +61,16 @@ test('reorder is pure (input plan not mutated)', () => {
   assert.equal(JSON.stringify(base.actions.map((a) => a.title)), before);
 });
 
-test('score = impactWeight × completionProbability', () => {
-  // high impact (3) × low friction (prob 3) = 9 is the max
-  const hi = { title: 'Capture your full employer 401(k) match', friction: 'low' };
-  assert.equal(score(hi), 9);
+test('score is impact-dominant: impact band primary (×10), ease (friction) tiebreaker', () => {
+  // high impact (3) × 10 + low friction (prob 3) = 33 is the max
+  const match = { title: 'Capture your full employer 401(k) match', friction: 'low' }; // high/low
+  assert.equal(score(match), 33);
+  // audit fix BUG3: high-impact/high-effort debt payoff must outrank a low-impact/easy item
+  const debt = { title: 'Eliminate high-interest debt (above ~7% after tax)', friction: 'high' }; // high/high
+  const overdraft = { title: 'Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account', friction: 'med' }; // med/med
+  assert.equal(score(debt), 31); // 3*10 + 1
+  assert.equal(score(overdraft), 22); // 2*10 + 2
+  assert.ok(score(debt) > score(overdraft), 'high-interest debt must outrank overdraft opt-out');
+  // N6: out-of-domain friction degrades to low-probability, never NaN
+  assert.equal(score({ title: 'Capture your full employer 401(k) match', friction: 'bogus' }), 33);
 });

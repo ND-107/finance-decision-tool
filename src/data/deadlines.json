@@ -12,16 +12,9 @@
     "match": "prefix",
     "kind": "relative",
     "offset": "grantDate+30d",
+    "impliedUrgency": "critical",
     "source": "Treas. Reg. §1.83-2(b)",
-    "note": "An 83(b) election must be filed with the IRS no later than 30 days after the property is transferred (the grant date). The window is statutory and not extendable."
-  },
-  {
-    "matchTitle": "Plan §83(b) filing ahead of any restricted-stock or early-exercise grant",
-    "match": "exact",
-    "kind": "relative",
-    "offset": "grantDate+30d",
-    "source": "Treas. Reg. §1.83-2(b)",
-    "note": "When a grant occurs, the 83(b) election must be filed within 30 days of that grant date. The window is statutory and not extendable."
+    "note": "An 83(b) election must be filed with the IRS no later than 30 days after the property is transferred (the grant date). This action only fires when a grant was received in the past 30 days, so the deadline is inherently critical even when the exact grant date isn't collected. The window is statutory and not extendable."
   },
   {
     "matchTitle": "Plan your migration off",

@@ -122,11 +122,15 @@ export function deadlineFor(actionTitle, today, ctx = {}) {
 
   if (dueDay == null) {
     // Relative deadline with no base date supplied — due date is unknown.
+    // A record may declare `impliedUrgency` for actions whose mere existence
+    // implies the clock is already running (e.g. the §83(b) FILE action only
+    // fires when a grant was received in the past 30 days, so it is inherently
+    // critical even though we never collect the grant date).
     return {
       kind: rec.kind,
       dueDate: null,
       daysRemaining: null,
-      urgency: 'unknown',
+      urgency: rec.impliedUrgency || 'unknown',
       source: rec.source,
       note: rec.note,
       expired: false,

@@ -47,9 +47,19 @@ export function impactBand(title) {
   return 'med'; // unbanded → neutral (the verify-priority gate flags unbanded actions)
 }
 
-/** The base impact × completion-probability score (higher = surfaces first). */
+/**
+ * Priority score (higher = surfaces first). IMPACT-DOMINANT: the impact band is
+ * the primary key (×10) and completion-probability (ease) is the within-band
+ * tiebreaker. This keeps a high-impact / high-effort action (e.g. paying off
+ * high-interest debt — a guaranteed ~20%+ return) above a low-impact / easy one
+ * (e.g. opting out of overdraft), which a purely multiplicative impact×ease
+ * score did not. Defensive: an out-of-domain friction degrades to 'low'
+ * probability rather than producing NaN.
+ */
 export function score(action) {
-  return IMPACT_WEIGHT[impactBand(action.title)] * PROB_WEIGHT[action.friction || 'low'];
+  const impact = IMPACT_WEIGHT[impactBand(action.title)] || IMPACT_WEIGHT.med;
+  const prob = PROB_WEIGHT[action.friction] || PROB_WEIGHT.low;
+  return impact * 10 + prob;
 }
 
 /**

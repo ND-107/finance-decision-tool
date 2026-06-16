@@ -29,8 +29,11 @@ export const COMPLETION_EFFECTS = {
   'Max your HSA contribution ($4,400 self / $8,750 family for 2026)': { hsaMaxed: 'yes' },
   // Starter EF built → emergency fund is now in the 1–3mo band (clears the $1k starter step).
   'Build a $1,000 starter emergency fund (or one month of essentials)': { emergencyFund: '1-3mo' },
-  // Full EF built → 3–6 month band (clears the full-EF step for non-SE; SE re-shows naturally).
+  // Full EF built → clears the full-EF step. The action's title is DYNAMIC by
+  // income type (W-2 target "3–6 months", self-employed target "6–12 months"),
+  // so both title variants are keyed (audit 2026-06-15: the SE variant was missing).
   'Build your full emergency fund (3–6 months of essential expenses)': { emergencyFund: '6-12mo' },
+  'Build your full emergency fund (6–12 months of essential expenses)': { emergencyFund: '6-12mo' },
   // IRA funded — both the direct and the backdoor route collapse to iraMaxed:'yes'.
   'Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)': { iraMaxed: 'yes' },
   'Execute the Backdoor Roth IRA ($7,500 for 2026)': { iraMaxed: 'yes' },

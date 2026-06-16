@@ -57,36 +57,33 @@ test('fixed deadline: tier boundaries are inclusive at 30 and 90 days', () => {
   assert.equal(onDay.expired, false);
 });
 
-test('relative deadline without grantDate → unknown, dueDate null', () => {
+test('§83(b) FILE without grantDate → impliedUrgency CRITICAL (audit fix: action only fires when grant is within 30d)', () => {
   const d = deadlineFor(EIGHTYTHREEB_FILE, '2026-06-15');
   assert.ok(d);
   assert.equal(d.kind, 'relative');
   assert.equal(d.dueDate, null);
   assert.equal(d.daysRemaining, null);
-  assert.equal(d.urgency, 'unknown');
+  assert.equal(d.urgency, 'critical'); // impliedUrgency, not 'unknown' — so the override floats it
   assert.equal(d.expired, false);
   assert.equal(d.source, 'Treas. Reg. §1.83-2(b)');
 });
 
-test('relative deadline with grantDate → grantDate + 30 days', () => {
-  // file action matched by prefix
+test('§83(b) "Plan ahead" (considering) has NO deadline — future/contemplated grant, no 30d clock', () => {
+  // audit fix C6: the pre-grant "Plan ahead" action no longer carries a deadline.
+  assert.equal(deadlineFor(EIGHTYTHREEB_PLAN, '2026-06-15'), null);
+  assert.equal(deadlineFor(EIGHTYTHREEB_PLAN, '2026-06-15', { grantDate: '2026-01-01' }), null);
+});
+
+test('§83(b) FILE with grantDate → grantDate + 30 days computed urgency (overrides impliedUrgency)', () => {
   const filed = deadlineFor(EIGHTYTHREEB_FILE, '2026-06-15', { grantDate: '2026-06-01' });
   assert.equal(filed.dueDate, '2026-07-01'); // June 1 + 30d
   assert.equal(filed.urgency, 'critical');
   assert.equal(filed.daysRemaining, 16);
 
-  // plan action matched exactly
-  const planned = deadlineFor(EIGHTYTHREEB_PLAN, '2026-06-15', { grantDate: '2026-01-01' });
-  assert.equal(planned.dueDate, '2026-01-31'); // Jan 1 + 30d
-  assert.equal(planned.urgency, 'overdue'); // due 2026-01-31, today 2026-06-15
-  assert.equal(planned.expired, true);
-});
-
-test('relative deadline: overdue when grantDate is far in the past', () => {
-  const d = deadlineFor(EIGHTYTHREEB_PLAN, '2026-06-15', { grantDate: '2024-01-01' });
-  assert.equal(d.urgency, 'overdue');
-  assert.equal(d.expired, true);
-  assert.ok(d.daysRemaining < 0);
+  const overdue = deadlineFor(EIGHTYTHREEB_FILE, '2026-06-15', { grantDate: '2024-01-01' });
+  assert.equal(overdue.urgency, 'overdue');
+  assert.equal(overdue.expired, true);
+  assert.ok(overdue.daysRemaining < 0);
 });
 
 test('dynamic migration title matched by stable prefix (PAYE/ICR/SAVE)', () => {
@@ -131,12 +128,12 @@ test('annotateDeadlines attaches to the Parent PLUS action of a real plan; pure'
   assert.ok(noDeadline.length > 0, 'expected some actions without deadlines');
 });
 
-test('annotateDeadlines: relative deadline annotated unknown without ctx, dated with ctx', () => {
+test('annotateDeadlines: §83(b) FILE annotated critical without ctx (implied), dated with ctx', () => {
   const plan = computePlan({ restrictedStockRecent: 'yes' });
   const noCtx = annotateDeadlines(plan, '2026-06-15');
   const a1 = noCtx.actions.find((a) => a.title.startsWith('File §83(b)'));
   assert.ok(a1 && a1.deadline);
-  assert.equal(a1.deadline.urgency, 'unknown');
+  assert.equal(a1.deadline.urgency, 'critical'); // impliedUrgency
   assert.equal(a1.deadline.dueDate, null);
 
   const withCtx = annotateDeadlines(plan, '2026-06-15', { grantDate: '2026-06-10' });
