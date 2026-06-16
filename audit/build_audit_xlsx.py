@@ -2788,6 +2788,59 @@ CLAIMS = [
      "UX", "CON", "CORRECTED", "B",
      "Engine showIf walk: ungated floor 31, W-2 single 36, MFJ full 47, max 53", "",
      "Audit 2026-06-15 (Lens-3 + B2). The start CTA promised 'Takes 5-8 minutes. About 25 questions' but no path yields ~25 (floor is 31). Corrected to 'Takes 10-20 minutes. About 30-50 questions, depending on your situation.' Also fixed a user-visible help-text typo (\"youre\" -> \"you're\") in the term-life question (N3)."),
+
+    # ============================================================
+    # 2026-06-15 audit sprint — LIVE ADVICE-LOGIC fixes (8 items)
+    # Behavior changes to computePlan/QUESTIONS, each smoke-verified.
+    # ============================================================
+
+    ("CL488", "computePlan IRA rule group",
+     "IRA / Backdoor-Roth action requires earned income (W-2 or self-employment); a household with only retirement income is not eligible to contribute directly and must not be told to 'Max your IRA'",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §219(c) (compensation requirement for IRA contributions)", "",
+     "Audit C10. The IRA rule fired on iraMaxed!=='yes' with no income-type guard, so a retired-only household was advised to max an IRA it cannot fund. Added a hasEarnedIncome (w2||SE) guard; retired-only now gets a skip-ledger entry explaining the earned-income requirement (and the spousal-IRA exception)."),
+
+    ("CL489", "computePlan LTC sweet-spot action (W2:10.4)",
+     "The 500k-2m LTC action's title must match its stage: 'get quotes this year' only when in the 50-63 sweet spot (this-year/critical); at 64+ it is staged 'eventually' with a premiums-rise-past-the-sweet-spot framing",
+     "UX", "CON", "CORRECTED", "B",
+     "Audit C1/C9 — internal title/stage contradiction", "",
+     "The title hardcoded 'get quotes this year' while the stage was 'eventually' for 64+ households. Made the title conditional on inSweetSpot."),
+
+    ("CL490", "computePlan safety-net + overdraft actions",
+     "Safety-net (SNAP/Medicaid) and overdraft actions must not fire as critical on low TAX BRACKET alone — low taxable income is not poverty (asset-rich retirees have low taxable income). Gate on thin resources",
+     "META", "CON", "CORRECTED", "B",
+     "Audit B1 — SNAP/Medicaid have asset/resource tests an asset-rich household fails", "",
+     "Safety-net now requires (low-bracket OR variable/concentrated income) AND netWorth in [negative, under-100k] AND not high bracket. Overdraft now gates purely on a thin cash buffer (emergencyFund in [0,<1mo,1-3mo]), dropping the bare low-bracket trigger. An asset-rich low-taxable-income retiree no longer gets food-stamp/overdraft advice as critical; genuinely low-resource households still do."),
+
+    ("CL491", "computePlan decumulation + SS-claiming guard",
+     "'Start formal decumulation planning' and 'Plan your Social Security claiming strategy' should also fire for already-retired households, not only those <10yr from retirement",
+     "META", "CON", "CORRECTED", "B",
+     "Audit C8 — already-retired households were excluded from distribution-phase advice", "",
+     "Guard broadened from yearsToRetirement in [<5,5-10] to include 'already' (consistent with rothLadderCandidate, which already showed to 'already'). Decumulation reason/because reworded for the in-retirement case."),
+
+    ("CL492", "Diagnostic rothLadderCandidate showIf + action (W2:10.1)",
+     "rothLadderCandidate is now shown to 10-20yr-out households too; a 'yes-window' answer from a mid-horizon (10-20yr) candidate routes to a plan-ahead action (eventually) rather than 'execute this-year' (a ladder can't run while working full-time)",
+     "UX", "CON", "CORRECTED", "B",
+     "Audit C4 — help framed an 'early-retirement window' a 15-20yr-out FIRE aspirant never saw", "",
+     "showIf broadened to add '10-20'; the yes-window action is now horizon-aware (near-retirement → execute/this-year/critical; 10-20yr → model-ahead/eventually/non-critical) to avoid premature execution advice."),
+
+    ("CL493", "Diagnostic spousalAlign* + SS-claiming reason (MFS)",
+     "MFS (married-filing-separately) filers, who are asked spousalIncomeSplit, are now also asked the three spousalAlign questions and receive the spousal-aware SS-claiming reason (they have a spouse; survivor-benefit math applies)",
+     "UX", "SOFT", "CORRECTED", "B",
+     "Audit C5/C11/N7 — MFS asymmetry (asked income split but not alignment; SS reason ignored MFS)", "",
+     "spousalAlign{Saving,Retirement,Legacy} showIf broadened from mfj to mfj||mfs; the CL330 SS-claiming spousal branches now use married = (mfj||mfs)."),
+
+    ("CL494", "computePlan — planLowestER wired (W2:8.1)",
+     "The planLowestER question (lowest 401(k) expense ratio) now drives a plan action: an expensive menu (>=0.30%) routes incremental savings to a low-cost IRA/HSA after the match; 'unsure' prompts a fee lookup",
+     "META", "CON", "CORRECTED", "B",
+     "Audit BUG7 — the question was asked of every matched W-2 user and promised (in help text) to affect the plan, but no rule read it", "",
+     "Added a this-year action for planLowestER in [30-60bp, over-60bp] ('after the match, weight contributions toward IRA/HSA — your 401(k) menu is expensive') and a next-quarter fee-lookup action for 'unsure'. The previously-inert question now functions as its help text promised."),
+
+    ("CL495", "computePlan Tier-1 'Start here' selection",
+     "Tier-1 now ranks critical actions stage-first then friction (was friction-first), so an acute 'now'-stage critical (e.g. Get health insurance) is no longer buried behind a low-friction deferrable 'this-year' item (e.g. file the Saver's Credit form)",
+     "UX", "CON", "CORRECTED", "B",
+     "Audit BUG1 — friction-first Tier-1 surfaced a deferrable tax form above getting health insurance for an uninsured household", "",
+     "tier1Pool sort changed from [friction, stage, idx] to [stage, friction, idx]. (The v2 rebuild's full priority model — impact bands + safety/deadline overrides — supersedes this minimal live fix.)"),
 ]
 
 # Build Excel workbook

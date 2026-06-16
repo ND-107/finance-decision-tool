@@ -4676,7 +4676,7 @@ const QUESTIONS = [
         { v: 'standard', l: 'Standard 10-year repayment (not on IDR)' },
         { v: 'unsure', l: 'Not sure / haven\'t checked' },
       ]},
-      { id: 'rothLadderCandidate', type: 'single', label: 'Do you have meaningful Traditional / pre-tax retirement balances (401(k), 403(b), Traditional IRA) and an early-retirement window before Social Security and RMDs begin?', help: 'Roth conversions during the "tax valley" between retirement and RMD age (73 now, rising to 75 in 2033 per SECURE 2.0) are one of the highest-NPV decumulation moves available — a typical conversion ladder of $300K-$500K filling the 12% bracket from a household otherwise pulled into 22-24% by SS + RMDs saves $30K-$60K in lifetime federal tax (Kitces NEV).', showIf: (a) => a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already', options: [
+      { id: 'rothLadderCandidate', type: 'single', label: 'Do you have meaningful Traditional / pre-tax retirement balances (401(k), 403(b), Traditional IRA) and an early-retirement window before Social Security and RMDs begin?', help: 'Roth conversions during the "tax valley" between retirement and RMD age (73 now, rising to 75 in 2033 per SECURE 2.0) are one of the highest-NPV decumulation moves available — a typical conversion ladder of $300K-$500K filling the 12% bracket from a household otherwise pulled into 22-24% by SS + RMDs saves $30K-$60K in lifetime federal tax (Kitces NEV).', showIf: (a) => a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === '10-20' || a.yearsToRetirement === 'already', options: [
         { v: 'yes-window', l: 'Yes — meaningful Trad balances and a window of lower-income years before SS / RMDs' },
         { v: 'yes-no-window', l: 'Meaningful Trad balances but already claiming SS / at RMD age' },
         { v: 'low-trad', l: 'Low or no Traditional pre-tax balances (mostly Roth or taxable)' },
@@ -4809,19 +4809,19 @@ const QUESTIONS = [
         { v: '50-70', l: '50–70% essential — meaningful discretionary cushion' },
         { v: 'under-50', l: 'Under 50% essential — substantial discretionary, high flexibility' },
       ]},
-      { id: 'spousalAlignSaving', type: 'single', label: 'Are you and your spouse aligned on your target savings rate?', help: 'Within-household disagreement about saving rate is one of the strongest predictors of plan-execution failure per Yilmazer-Lyons 2010 and Bertocchi-Brunetti-Torricelli 2014. The framework\'s optimization recommendations assume household alignment.', showIf: (a) => a.filingStatus === 'mfj', options: [
+      { id: 'spousalAlignSaving', type: 'single', label: 'Are you and your spouse aligned on your target savings rate?', help: 'Within-household disagreement about saving rate is one of the strongest predictors of plan-execution failure per Yilmazer-Lyons 2010 and Bertocchi-Brunetti-Torricelli 2014. The framework\'s optimization recommendations assume household alignment.', showIf: (a) => a.filingStatus === 'mfj' || a.filingStatus === 'mfs', options: [
         { v: 'yes-fully', l: 'Yes — we\'ve discussed and we\'re aligned' },
         { v: 'yes-mostly', l: 'Mostly aligned, small differences' },
         { v: 'no-gap', l: 'No, there\'s a significant gap' },
         { v: 'not-discussed', l: 'We haven\'t had this conversation' },
       ]},
-      { id: 'spousalAlignRetirement', type: 'single', label: 'Are you and your spouse aligned on retirement timing and what retirement looks like?', help: 'The retirement-age decision is almost always made jointly by spouses (CL328 family-system framing); disagreement here delays or derails the entire decumulation arc.', showIf: (a) => a.filingStatus === 'mfj', options: [
+      { id: 'spousalAlignRetirement', type: 'single', label: 'Are you and your spouse aligned on retirement timing and what retirement looks like?', help: 'The retirement-age decision is almost always made jointly by spouses (CL328 family-system framing); disagreement here delays or derails the entire decumulation arc.', showIf: (a) => a.filingStatus === 'mfj' || a.filingStatus === 'mfs', options: [
         { v: 'yes-fully', l: 'Yes — same timeline and same picture of what retirement looks like' },
         { v: 'yes-mostly', l: 'Mostly aligned, some differences in timing or vision' },
         { v: 'no-gap', l: 'No, there\'s a significant gap' },
         { v: 'not-discussed', l: 'We haven\'t had this conversation' },
       ]},
-      { id: 'spousalAlignLegacy', type: 'single', label: 'Are you and your spouse aligned on whether to leave wealth to children / heirs vs spend it down per Die-with-Zero?', help: 'Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs (CL328) — and only with spousal agreement on the framing.', showIf: (a) => a.filingStatus === 'mfj', options: [
+      { id: 'spousalAlignLegacy', type: 'single', label: 'Are you and your spouse aligned on whether to leave wealth to children / heirs vs spend it down per Die-with-Zero?', help: 'Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs (CL328) — and only with spousal agreement on the framing.', showIf: (a) => a.filingStatus === 'mfj' || a.filingStatus === 'mfs', options: [
         { v: 'yes-fully', l: 'Yes — same view on legacy vs spend-down' },
         { v: 'yes-mostly', l: 'Mostly aligned' },
         { v: 'no-gap', l: 'No, there\'s a significant gap' },
@@ -5554,7 +5554,8 @@ function computePlan() {
     skip('Max HSA', 'Youre already maxing it.');
   }
 
-  if (a.iraMaxed !== 'yes') {
+  const hasEarnedIncome = hasIncome('w2') || isSE();
+  if (a.iraMaxed !== 'yes' && hasEarnedIncome) {
     const isBackdoor = bracket() === 'high';
     const proRataIssue = isBackdoor && a.tradIraBalance === 'yes';
     if (proRataIssue) {
@@ -5569,6 +5570,8 @@ function computePlan() {
         : 'Lower fees and broader fund selection than most 401(k) plans. ' + (bracket() === 'low' ? 'At your bracket, Roth is unambiguously preferred.' : 'Bracket determines Roth vs. Traditional choice — split contributions are a reasonable hedge.'),
       because: a.iraMaxed === 'partial' ? 'Youre contributing some but not maxing it.' : 'Youre not currently maxing your IRA.',
       nodeKey: hasIncome('contractor') ? 'contractor:6.2' : 'w2:6.2', tags: ['bracket'] });
+  } else if (!hasEarnedIncome) {
+    skip('Max IRA', 'IRA contributions require earned income (wages or self-employment); a household with only retirement income isnt eligible to contribute directly. A working spouse can fund a spousal IRA — model that separately if it applies.');
   } else {
     skip('Max IRA', 'Youre already maxing it.');
   }
@@ -5630,7 +5633,8 @@ function computePlan() {
   // discipline — the user runs eligibility checks across the 4 programs
   // via the named portals rather than receiving 4 separate critical-tagged
   // items.
-  if (bracket() === 'low' || ((a.incomeStability === 'variable' || a.incomeStability === 'concentrated') && bracket() !== 'high')) {
+  if ((bracket() === 'low' || a.incomeStability === 'variable' || a.incomeStability === 'concentrated') && bracket() !== 'high'
+      && (a.netWorth === 'negative' || a.netWorth === 'under-100k')) {
     add({ title: 'Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)', stage: 'now',
       reason: 'For households at your income tier or with variable income, four federal/state programs frequently provide meaningful support that the framework\'s body prose acknowledges but historically didn\'t route users to. Run all four eligibility checks; the per-program effort is small but the cumulative benefit can be substantial. <strong>(1) SNAP (food assistance):</strong> eligibility runs to ~130% of FPL gross income (higher in some states); benefit averages ~$200/person/month for eligible households. Check at snap-step1.usda.gov or by calling 211. <strong>(2) State Medicaid expansion:</strong> 40 states + DC adopted ACA Medicaid expansion (eligibility to 138% FPL for adults); the 10 non-expansion states (TX, FL, AL, GA, MS, SC, TN, WI, WY, KS as of 2026 — verify current state policy) have a "Medicaid gap" where adults under 100% FPL may have no affordable coverage at all. Check eligibility at healthcare.gov (the marketplace screens for Medicaid first) or your state Medicaid office. <strong>(3) Lifeline (phone/internet subsidy):</strong> $9.25/month off phone or internet for eligible households (those participating in SNAP, Medicaid, SSI, federal public housing, or below 135% FPL). Apply at lifelinesupport.org. Note: the broader Affordable Connectivity Program (ACP) expired in 2024; Lifeline remains as the continuing federal subsidy. <strong>(4) LIHEAP (energy assistance):</strong> seasonal heating / cooling assistance for low-income households, typically $200-$1,200/yr depending on state and family size. Find your state\'s LIHEAP office at energyhelp.us or via 211. <em>None of these programs trigger automatically — eligibility must be applied for, and many eligible households never apply because they don\'t realize they qualify.</em>',
       because: bracket() === 'low' ? 'Your federal bracket suggests you may be eligible for one or more of these programs.' : 'Variable / concentrated self-employment income produces months at low effective AGI that may qualify for one or more of these programs even if your annual income trends higher.',
@@ -5642,7 +5646,7 @@ function computePlan() {
   // but completely orphaned from the Plan view. A $40K household paying
   // $400/yr in overdraft fees has higher NPV-per-effort than Saver's Credit;
   // surface it as a critical Plan action for the eligible cohort.
-  if (bracket() === 'low' || a.emergencyFund === '0' || a.emergencyFund === '<1mo' || a.emergencyFund === '1-3mo') {
+  if (a.emergencyFund === '0' || a.emergencyFund === '<1mo' || a.emergencyFund === '1-3mo') {
     add({ title: 'Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account', stage: 'now',
       reason: 'Bank overdraft fees are concentrated on households with thin cash buffers — CFPB data shows the median overdraft-paying household incurs $250-$400+ per year, frequently in $35 chunks triggered by purchases under $25. <strong>Federal law (Regulation E, 12 CFR §1005.17) requires your bank to honor an opt-out of overdraft "protection" on debit-card and ATM transactions</strong> — once opted out, the transactions are simply declined rather than approved with a fee. Most banks default-enroll customers in opt-IN at account opening; the opt-out request is a single phone call or in-app toggle. For households with thin cash reserves, the optimal stack is: (1) opt out of debit/ATM overdraft at your current bank; (2) for the medium term, move to one of the no-overdraft-fee providers (Chime, Varo, Ally, Capital One 360, several credit unions with explicit no-overdraft policies — verify current policies, the landscape moves); (3) for paycheck-cycle smoothing, evaluate employer-offered Earned Wage Access (EWA) only if the provider is fee-free (many are not — Brigit, MoneyLion, Dave charge $1-$10 per advance, the per-advance fee compounded with frequency is high-APR-equivalent and the CFPB regulates them as small-dollar credit). <strong>Avoid:</strong> payday loans (often >390% APR), title loans (vehicle-secured + 200%+ APR), and any "tip-based" EWA app where the optional tip is socially-pressured. See Spending Essentials §8 for the full structural-fee landscape.',
       because: bracket() === 'low' ? 'You are a low-bracket household — the cohort where overdraft / EWA / payday fee extraction is concentrated and where the savings from opt-out compound fastest.' : 'You have minimal cash reserves, which structurally exposes you to overdraft-fee extraction even at higher income brackets.',
@@ -5687,6 +5691,21 @@ function computePlan() {
     skip('Max SE retirement plan', 'Youre already maxing it.');
   }
 
+  // Expensive-401(k)-menu asset-location (audit BUG7 — wires the previously-inert
+  // planLowestER question). When the plan's lowest available expense ratio is high,
+  // capture the match in the 401(k) but route incremental savings to a low-cost IRA/HSA.
+  if (hasIncome('w2') && a.employerMatch === 'yes' && (a.planLowestER === '30-60bp' || a.planLowestER === 'over-60bp')) {
+    add({ title: 'After the match, weight retirement contributions toward your IRA/HSA — your 401(k) menu is expensive', stage: 'this-year',
+      reason: 'Your plan\'s lowest available expense ratio (' + (a.planLowestER === 'over-60bp' ? 'above 0.60%' : '0.30–0.60%') + ') is high enough that fee drag materially erodes long-horizon returns: a 0.50pp annual fee compounds to roughly 10–13% of the ending balance over 30 years. The employer match still dwarfs any fee drag, so capture the full match inside the 401(k) first — but direct incremental retirement savings to a low-cost IRA (sub-0.10% total-market index funds at any major brokerage), and to your HSA if HDHP-eligible, before returning to the 401(k) only once those are maxed. If the plan offers a brokerage window or a low-cost institutional index option, that can change the calculus — check the full fund menu, not just the default target-date series.',
+      because: 'Your 401(k)\'s lowest expense ratio (' + (a.planLowestER === 'over-60bp' ? 'above 0.60%' : '0.30–0.60%') + ') is high enough that asset-location toward an IRA/HSA improves your net return.',
+      nodeKey: 'w2:8.1', tags: [], incomeType: 'w2' });
+  } else if (hasIncome('w2') && a.employerMatch === 'yes' && a.planLowestER === 'unsure') {
+    add({ title: 'Look up your 401(k)\'s lowest expense ratio (plan fee disclosure / Form 5500)', stage: 'next-quarter',
+      reason: 'Whether to prioritize your 401(k) above the match vs. an IRA/HSA for additional savings turns on your plan\'s fees. Find the lowest all-in expense ratio in your fund menu — it\'s in the annual participant fee disclosure (legally required) or on your provider\'s site; small-employer plans often run 0.50–1.5% all-in vs. under 0.10% at large employers. If the cheapest option is above ~0.30%, weight incremental contributions toward a low-cost IRA/HSA after the match.',
+      because: 'You weren\'t sure of your plan\'s lowest expense ratio — that fact determines whether to favor the 401(k) or an IRA for savings above the match.',
+      nodeKey: 'w2:8.1', tags: [], incomeType: 'w2' });
+  }
+
   // === STAGE: EVENTUALLY ===
   if (isSE()) {
     const ic = hasIncome('business') ? 'business' : 'contractor';
@@ -5729,21 +5748,23 @@ function computePlan() {
     skip('529 education plans', 'No children needing education funding.');
   }
 
-  if (a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10') {
+  if (a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already') {
+    const alreadyRetired = a.yearsToRetirement === 'already';
     add({ title: 'Start formal decumulation planning (Roth conversions, withdrawal sequencing)', stage: 'eventually',
-      reason: 'Within 10 years of retirement, the math shifts from accumulation to distribution. Roth conversion ladders, withdrawal sequencing, bridge-capital planning, and sequence-of-returns mitigation all need to be modeled before you stop earning.',
-      because: 'Youre within 10 years of your target retirement.',
+      reason: 'The distribution phase has different math than accumulation. Roth conversion ladders, withdrawal sequencing, bridge-capital planning, and sequence-of-returns mitigation all need to be modeled — ' + (alreadyRetired ? 'and revisited each year now that you are drawing down.' : 'before you stop earning.'),
+      because: alreadyRetired ? 'Youre already in retirement — the distribution-phase plan still needs to be modeled and maintained.' : 'Youre within 10 years of your target retirement.',
       nodeKey: 'w2:10.1', tags: [] });
 
     // CL330 — Spousal-split-aware SS claiming recommendation.
     let ssReason, ssBecause;
-    if (a.filingStatus === 'mfj' && (a.spousalIncomeSplit === '70-30' || a.spousalIncomeSplit === '60-40')) {
+    const married = a.filingStatus === 'mfj' || a.filingStatus === 'mfs';
+    if (married && (a.spousalIncomeSplit === '70-30' || a.spousalIncomeSplit === '60-40')) {
       ssReason = 'The standard high-leverage decumulation play for an income-asymmetric couple: <strong>higher earner delays to 70, lower earner files at FRA</strong>. The higher earner\'s deferred benefit grows ~8%/yr past FRA (delayed retirement credits per SSA POMS); for the lower earner, filing at FRA frees up household cash flow while the higher benefit compounds in the background. The survivor-benefit math is the binding consideration: when the first spouse dies, the survivor keeps the larger of the two benefits permanently — so maximizing the higher earner\'s benefit also maximizes the survivor floor against the widow\'s-tax-trap exposure (filing-status compression from MFJ to single in the year after first death). Pfau-Kitces (2017) "Reducing the Risk of Black Swans" formalized the SS-bridge strategy: drawing more heavily on the portfolio in years 62-70 specifically to fund the higher earner\'s delay is one of the most-replicated decumulation findings of the last decade. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model both claiming scenarios — enter primary SS at age 70 vs age 67 to see the spread directly.';
       ssBecause = 'Your spousal income split (' + a.spousalIncomeSplit + ') makes the higher-earner-delays-to-70 play the dominant lever; for couples this is the largest single decumulation decision available.';
-    } else if (a.filingStatus === 'mfj' && a.spousalIncomeSplit === 'sole') {
+    } else if (married && a.spousalIncomeSplit === 'sole') {
       ssReason = 'Sole-earner household compresses survivor-benefit math into a single decision: the surviving spouse will receive your full benefit when you die (capped at your PIA × claiming-age factor). Delaying to 70 maximizes that survivor floor at the cost of more aggressive portfolio drawdown in the bridge years. The widow\'s-tax-trap exposure is particularly steep — the survivor files single brackets the year after the first death, typically losing 15-25% of household income capacity from filing-status compression alone, independent of any market event. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model claiming at 62 / FRA / 70 and see how the survivor-floor differential moves your household-level success rate. For most sole-earner households with normal life expectancy, delaying to 70 dominates.';
       ssBecause = 'You\'re a sole-earner MFJ household — the SS claiming decision compresses the entire survivor-benefit math into one variable.';
-    } else if (a.filingStatus === 'mfj' && a.spousalIncomeSplit === '50-50') {
+    } else if (married && a.spousalIncomeSplit === '50-50') {
       ssReason = 'Balanced two-earner couples have the most claiming flexibility — both spouses\' benefits matter for survivor purposes. The standard pattern still favors delaying the higher of the two (even small earnings differences create a primary / secondary distinction) to 70 while the lower files at FRA, but the differential is smaller than for asymmetric couples. Use the §7 simulator\'s guaranteed-income overlay (CL329) to model claiming combinations directly.';
       ssBecause = 'Balanced spousal income split — claiming flexibility is highest but the higher-of-the-two-delays-to-70 pattern still typically wins.';
     } else {
@@ -5814,10 +5835,15 @@ function computePlan() {
   // but the Plan engine never recommended it directly to candidates. This branch
   // surfaces it when the household has Trad balances + an early-retirement window.
   if (a.rothLadderCandidate === 'yes-window') {
-    add({ title: 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket', stage: 'this-year',
+    // Horizon-aware (audit C4): near-retirees execute now; mid-horizon (10–20yr)
+    // candidates plan ahead — a ladder can't run while still working full-time.
+    const nearRetirement = a.yearsToRetirement === '<5' || a.yearsToRetirement === '5-10' || a.yearsToRetirement === 'already';
+    add({ title: nearRetirement
+        ? 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket'
+        : 'Plan ahead: model the Roth conversion ladder for your eventual tax-valley window', stage: nearRetirement ? 'this-year' : 'eventually',
       reason: 'You have meaningful Traditional / pre-tax balances and a window of lower-income years before Social Security and RMDs (age 73 now, rising to 75 in 2033 per SECURE 2.0). The conversion ladder during this window is one of the highest-NPV decumulation moves available — a typical $300K–$500K ladder filling the 12% bracket from a household otherwise pulled into the 22–24% bracket by SS + RMDs saves $30K–$60K in lifetime federal tax (Kitces "Filling Up the Tax Bracket With Partial Roth Conversions," NEV 2014). <strong>Critical sizing rule from age 63 onward:</strong> size each conversion to the IRMAA tier boundary, not to the federal bracket boundary. The 2026 first IRMAA tier begins at approximately $109,000 MAGI single / $218,000 MFJ, with five cliff tiers stepping up to a combined Part B + Part D surcharge of roughly $578/month per spouse at the top tier ($500K single / $750K MFJ — Part B surcharge $487/month on the $202.90 standard premium, plus ~$91/month Part D). Each tier is a cliff with a 2-year MAGI lookback — a conversion in tax year 2026 affects Medicare premiums in 2028 (42 U.S.C. §1395r(i); SSA POMS HI 01101.020). The 12% bracket fill (~$100,800 MFJ taxable income, 2026) generally clears the first IRMAA tier; the larger 22%/24%-bracket fills routinely don\'t. The SECURE Act 10-year inherited-IRA rule (CL363 work in W2:10.1) strengthens the case further — pre-tax balances inherited by working-age children typically distribute into their 32–37% peak earning years, so converting at the parent\'s 10–24% brackets captures an 8–20pp tax-rate spread before death. See W2:10.1 for full mechanics including the bridge-capital requirement.',
-      because: 'You have Trad balances and an early-retirement window — the standard candidate profile for the ladder.',
-      nodeKey: 'w2:10.1', tags: ['critical'] });
+      because: nearRetirement ? 'You have Trad balances and an early-retirement window — the standard candidate profile for the ladder.' : 'You have Trad balances and the ladder will apply once you reach your lower-income retirement window — worth modeling now so the runway is ready.',
+      nodeKey: 'w2:10.1', tags: nearRetirement ? ['critical'] : [] });
   } else if (a.rothLadderCandidate === 'yes-no-window') {
     add({ title: 'Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning', stage: 'this-year',
       reason: 'You have Trad balances but are already at or past SS/RMD age — the full conversion-ladder window has closed, but partial conversions in any year where your MAGI sits below an IRMAA tier boundary can still capture meaningful tax-rate arbitrage, particularly for households with adult-child heirs who would otherwise inherit pre-tax balances under the SECURE 10-year rule (see W2:10.1 callout on the SECURE rule strengthening the case). Coordinate any conversion with QCD planning at 70½+ (W2:10.5) — QCDs reduce AGI and lower IRMAA exposure, creating room for larger conversions in the same year. The SECURE 10-year rule means converting at your 10–24% brackets captures an 8–20pp spread versus your children\'s likely 32–37% — even small partial conversions are NPV-positive across most household profiles.',
@@ -5847,7 +5873,7 @@ function computePlan() {
       const sizingNote = essAnnual
         ? ' <strong>Coverage-sizing guidance (CL333):</strong> your diagnostic essential-annual-expenses figure is approximately ' + fmtMoneyFull(essAnnual) + '/yr. LTC pressure is on the essentials side of the household budget — discretionary spending naturally cuts when care begins. So the right daily-benefit target is the essentials portion of your annual spending divided by 365, not the headline CareScout regional average. For a ' + fmtMoneyFull(essAnnual) + '/yr essential-spending household, that\'s roughly $' + Math.round(essAnnual / 365) + '/day of LTC daily-benefit floor (before the comp from family informal care, if any) — substantially below the $350/day implied by the $127K/yr nursing-home regional median, and consequently a smaller (cheaper) policy than headline pricing suggests.'
         : '';
-      add({ title: 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year', stage: inSweetSpot ? 'this-year' : 'eventually',
+      add({ title: inSweetSpot ? 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year' : 'Price LTC insurance / hybrid policies — note premiums rise sharply past the 50–63 sweet spot', stage: inSweetSpot ? 'this-year' : 'eventually',
         reason: 'Your net-worth band ($500K–$2M) is exactly where LTC insurance or hybrid life+LTC policies are most actionable. The household has enough to lose to make the coverage worthwhile, but not enough to comfortably self-insure 5+ years of $127K/yr nursing care. The purchase window matters: premiums for new policies rise meaningfully between ages 55 and 65, and underwriting denials accelerate as health conditions develop. AALTCI 2024 pricing data documents 30–60%+ premium increases across the 55→65 window for the same coverage. ' + (isDink ? 'As a household without children, the family-substitute informal-caregiving channel that defrays cost in many family households is unavailable — LTC and CCRC planning is more important, not less. ' : '') + 'For the highest-leverage decade of LTC decisions, this is it.' + sizingNote,
         because: 'Your net-worth band ($500K–$2M)' + (inSweetSpot ? ' and age (55–65 window)' : '') + ' put you in the LTC-insurance sweet spot' + (isDink ? '; DINK structure heightens it.' : '.'),
         nodeKey: 'w2:10.4', tags: inSweetSpot ? ['critical'] : [] });
@@ -5961,8 +5987,8 @@ function computePlan() {
   const tier1Pool = actions
     .filter(act => (act.tags || []).includes('critical'))
     .slice()
-    .sort((x, y) => fricRank[x.friction] - fricRank[y.friction]
-      || stageRank[x.stage] - stageRank[y.stage]
+    .sort((x, y) => stageRank[x.stage] - stageRank[y.stage]
+      || fricRank[x.friction] - fricRank[y.friction]
       || x.idx - y.idx);
   const tier1 = tier1Pool.slice(0, 3).map(act => act.idx);
   actions.forEach(act => { act.tier1 = tier1.includes(act.idx); });

@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-06-15 — System audit: 8 live advice-logic improvements
+
+Behavior changes to `computePlan`/diagnostic from the 5-lens audit's "confirmed but advice-changing" findings (held for review, then approved). Each is smoke-verified (16 assertions, all pass); the deployed tool now gives sounder advice for the affected profiles.
+
+1. **IRA requires earned income** — a retired-only household (no wages/SE income) was told to "Max your IRA," which IRC §219(c) doesn't allow. Now guarded; surfaces a skip-ledger note instead (with the spousal-IRA exception). [CL488]
+2. **LTC title/stage fixed** — the "sweet spot — get quotes *this year*" title was rendering on an action staged "eventually" for age 64+. Title is now conditional on the 50–63 sweet-spot window. [CL489]
+3. **Safety-net/overdraft no longer keyed to tax bracket alone** — an asset-rich retiree with low *taxable* income was told (critically) to check SNAP/Medicaid and opt out of overdraft. Now gated on thin resources (net worth / cash buffer), not bracket; genuinely low-resource households still get them. [CL490]
+4. **Already-retired households get distribution-phase advice** — decumulation planning + SS-claiming were gated to <10yr-from-retirement, excluding current retirees. Now include "already retired." [CL491]
+5. **Roth-ladder visible to mid-horizon planners, horizon-aware** — `rothLadderCandidate` now shows to 10–20yr-out households; a mid-horizon "yes" routes to a *plan-ahead* action (eventually) rather than "execute this year" (a ladder can't run while working full-time). [CL492]
+6. **MFS symmetry** — married-filing-separately filers, already asked the spousal income split, now also get the spousal-alignment questions and the spousal-aware SS-claiming reason. [CL493]
+7. **`planLowestER` wired** — the 401(k)-expense-ratio question was asked of every matched W-2 user and *promised* (in help text) to matter, but no rule read it. Now drives an "after the match, weight savings toward IRA/HSA" action for expensive menus + a fee-lookup prompt for "unsure." [CL494]
+8. **Tier-1 "Start here" is stage-first** — was friction-first, which surfaced a low-friction deferrable tax form above "get health insurance" for an uninsured household. Now urgent "now"-stage criticals lead. (The v2 rebuild's full priority model supersedes this minimal fix.) [CL495]
+
+Audit CL488–CL495 added; `verify.sh` green; xlsx regenerated. (The v2 engine is being re-synced to match, with its golden master re-baselined.)
+
 ## 2026-06-15 — System audit fixes (live factual errors)
 
 Live-content corrections from a 5-lens adversarial audit (plan soundness / content / diagnostic-UX / code / edge-cases) plus a 20,194-evaluation mechanical simulation (which found zero structural bugs). The mechanical pass confirmed: no empty plans, every action `nodeKey` resolves, no income-type inconsistencies, no earned-income advice for income-less households, all `showIf` satisfiable.
