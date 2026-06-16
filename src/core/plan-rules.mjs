@@ -115,14 +115,17 @@ export const RULE_GROUPS = [
     { when: eq('hdhpEligible', 'eligible-not'), skip: 'Max HSA (consider HDHP switch)' },
     { when: eq('hsaMaxed', 'yes'), skip: 'Max HSA' },
   ] },
-  // IRA: when iraMaxed !== 'yes' → optional pro-rata rollover, then the IRA/backdoor add; else skip.
-  { guard: ne('iraMaxed', 'yes'), rules: [
+  // IRA: when iraMaxed !== 'yes' AND the household has earned income → optional
+  // pro-rata rollover, then the IRA/backdoor add; else skip. (CL488: IRA needs
+  // earned income — a retired-only household can't contribute directly.)
+  { guard: all(ne('iraMaxed', 'yes'), T('_hasEarned')), rules: [
     { when: T('_proRataIssue'), add: { title: 'Roll any existing Traditional IRA balances into your 401(k) first', stage: 'this-year', nodeKey: (d) => (d._contractor ? 'contractor:6.2' : 'w2:6.2'), tags: ['critical'] } },
   ] },
-  { guard: ne('iraMaxed', 'yes'), rules: [
+  { guard: all(ne('iraMaxed', 'yes'), T('_hasEarned')), rules: [
     { when: ELSE, add: { title: (d) => (d._isBackdoor ? 'Execute the Backdoor Roth IRA ($7,500 for 2026)' : 'Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)'), stage: 'this-year', nodeKey: (d) => (d._contractor ? 'contractor:6.2' : 'w2:6.2'), tags: ['bracket'] } },
   ] },
-  { rules: [{ when: eq('iraMaxed', 'yes'), skip: 'Max IRA' }] },
+  // skip 'Max IRA' when already maxed OR when the household has no earned income.
+  { rules: [{ when: any(eq('iraMaxed', 'yes'), { not: T('_hasEarned') }), skip: 'Max IRA' }] },
   { rules: [
     { when: all(eq('_bracket', 'low'), T('_notRetiredIncome')), add: { title: "File IRS Form 8880 to claim the Saver's Credit (IRC §25B)", stage: 'this-year', nodeKey: (d) => (d._contractor ? 'contractor:6.2' : 'w2:6.2'), tags: ['critical'] } },
   ] },
@@ -133,10 +136,10 @@ export const RULE_GROUPS = [
     { when: all(any(T('_isSE'), T('_w2')), ne('_bracket', 'high'), any(inn('healthInsurance', ['no', 'minimal']), all(T('_isSE'), inn('incomeStability', ['variable', 'concentrated'])))), add: { title: 'Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace', stage: 'now', nodeKey: 'w2:1.3', tags: ['critical'] } },
   ] },
   { rules: [
-    { when: any(eq('_bracket', 'low'), all(inn('incomeStability', ['variable', 'concentrated']), ne('_bracket', 'high'))), add: { title: 'Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)', stage: 'now', nodeKey: 'w2:8.1', tags: ['critical'] } },
+    { when: all(any(eq('_bracket', 'low'), inn('incomeStability', ['variable', 'concentrated'])), ne('_bracket', 'high'), inn('netWorth', ['negative', 'under-100k'])), add: { title: 'Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)', stage: 'now', nodeKey: 'w2:8.1', tags: ['critical'] } },
   ] },
   { rules: [
-    { when: any(eq('_bracket', 'low'), inn('emergencyFund', ['0', '<1mo', '1-3mo'])), add: { title: 'Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account', stage: 'now', nodeKey: 'w2:5.1', tags: ['critical'] } },
+    { when: inn('emergencyFund', ['0', '<1mo', '1-3mo']), add: { title: 'Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account', stage: 'now', nodeKey: 'w2:5.1', tags: ['critical'] } },
   ] },
   { rules: [
     { when: eq('moderateDebt', 'yes'), add: { title: 'Address moderate-interest debt (rates above HYSA yield, below ~7%)', stage: 'this-year', nodeKey: 'w2:7.2', tags: [] } },
@@ -157,6 +160,12 @@ export const RULE_GROUPS = [
     { when: all(ne('sePlanMaxed', 'yes'), eq('sePlan', 'yes')), add: { title: 'Maximize your Solo 401(k) / business 401(k) (employee + employer side)', stage: 'this-year', nodeKey: (d) => (d._ic === 'business' ? 'business:8.1' : 'contractor:8.1'), tags: ['bracket'], incomeType: (d) => d._ic } },
     { when: eq('sePlanMaxed', 'yes'), skip: 'Max SE retirement plan' },
   ] },
+  // CL494: wire the planLowestER question — expensive 401(k) menu → weight savings
+  // toward IRA/HSA after the match; 'unsure' → look up the fee.
+  { guard: all(T('_w2'), eq('employerMatch', 'yes')), rules: [
+    { when: inn('planLowestER', ['30-60bp', 'over-60bp']), add: { title: 'After the match, weight retirement contributions toward your IRA/HSA — your 401(k) menu is expensive', stage: 'this-year', nodeKey: 'w2:8.1', tags: [], incomeType: 'w2' } },
+    { when: eq('planLowestER', 'unsure'), add: { title: "Look up your 401(k)'s lowest expense ratio (plan fee disclosure / Form 5500)", stage: 'next-quarter', nodeKey: 'w2:8.1', tags: [], incomeType: 'w2' } },
+  ] },
 
   // ===================== STAGE: EVENTUALLY =====================
   { guard: T('_isSE'), rules: [
@@ -174,10 +183,11 @@ export const RULE_GROUPS = [
     { when: eq('childrenEducation', 'yes'), add: { title: 'Open a 529 plan for education funding', stage: 'eventually', nodeKey: 'w2:9.4', tags: [] } },
     { when: ELSE, skip: '529 education plans' },
   ] },
-  { guard: inn('yearsToRetirement', ['<5', '5-10']), rules: [
+  // CL491: decumulation + SS-claiming also fire for already-retired households.
+  { guard: inn('yearsToRetirement', ['<5', '5-10', 'already']), rules: [
     { when: ELSE, add: { title: 'Start formal decumulation planning (Roth conversions, withdrawal sequencing)', stage: 'eventually', nodeKey: 'w2:10.1', tags: [] } },
   ] },
-  { guard: inn('yearsToRetirement', ['<5', '5-10']), rules: [
+  { guard: inn('yearsToRetirement', ['<5', '5-10', 'already']), rules: [
     { when: ELSE, add: { title: 'Plan your Social Security claiming strategy', stage: 'eventually', nodeKey: 'w2:10.3', tags: [] } },
   ] },
   { rules: [
@@ -190,13 +200,13 @@ export const RULE_GROUPS = [
     { when: eq('parentCare', 'yes-substantial'), add: { title: 'Build aging-parent financial support into your cash-flow and savings-rate planning', stage: 'this-year', nodeKey: 'w2:10.4', tags: [] } },
   ] },
   { rules: [
-    { when: eq('rothLadderCandidate', 'yes-window'), add: { title: 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket', stage: 'this-year', nodeKey: 'w2:10.1', tags: ['critical'] } },
+    { when: eq('rothLadderCandidate', 'yes-window'), add: { title: (d) => (d._nearRetirement ? 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket' : 'Plan ahead: model the Roth conversion ladder for your eventual tax-valley window'), stage: (d) => (d._nearRetirement ? 'this-year' : 'eventually'), nodeKey: 'w2:10.1', tags: (d) => (d._nearRetirement ? ['critical'] : []) } },
     { when: eq('rothLadderCandidate', 'yes-no-window'), add: { title: 'Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning', stage: 'this-year', nodeKey: 'w2:10.1', tags: [] } },
     { when: eq('rothLadderCandidate', 'unsure'), add: { title: 'Inventory your Traditional / pre-tax retirement balances and evaluate ladder candidacy', stage: 'next-quarter', nodeKey: 'w2:10.1', tags: [] } },
   ] },
   { guard: inn('ageBracket', ['50-59', '60-63', '64+']), rules: [
     { when: inn('netWorth', ['negative', 'under-100k', '100k-500k']), add: { title: 'Plan for Medicaid-path long-term care, not LTC insurance', stage: 'eventually', nodeKey: 'w2:10.4', tags: [] } },
-    { when: eq('netWorth', '500k-2m'), add: { title: 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year', stage: (d) => (d._inSweetSpot ? 'this-year' : 'eventually'), nodeKey: 'w2:10.4', tags: (d) => (d._inSweetSpot ? ['critical'] : []) } },
+    { when: eq('netWorth', '500k-2m'), add: { title: (d) => (d._inSweetSpot ? 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year' : 'Price LTC insurance / hybrid policies — note premiums rise sharply past the 50–63 sweet spot'), stage: (d) => (d._inSweetSpot ? 'this-year' : 'eventually'), nodeKey: 'w2:10.4', tags: (d) => (d._inSweetSpot ? ['critical'] : []) } },
     { when: eq('netWorth', '2m+'), add: { title: 'Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation', stage: 'eventually', nodeKey: 'w2:10.4', tags: [] } },
   ] },
   { rules: [

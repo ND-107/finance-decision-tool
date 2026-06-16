@@ -637,6 +637,7 @@
             "value": [
               "<5",
               "5-10",
+              "10-20",
               "already"
             ]
           },
@@ -997,7 +998,7 @@
           "id": "termLifeInPlace",
           "type": "single",
           "label": "Do you have adequate term life insurance?",
-          "help": "Roughly 10–12× annual income if youre a primary earner",
+          "help": "Roughly 10–12× annual income if you're a primary earner",
           "showIf": {
             "field": "dependents",
             "op": "eq",
@@ -1192,8 +1193,11 @@
           "help": "Within-household disagreement about saving rate is one of the strongest predictors of plan-execution failure per Yilmazer-Lyons 2010 and Bertocchi-Brunetti-Torricelli 2014. The framework's optimization recommendations assume household alignment.",
           "showIf": {
             "field": "filingStatus",
-            "op": "eq",
-            "value": "mfj"
+            "op": "in",
+            "value": [
+              "mfj",
+              "mfs"
+            ]
           },
           "options": [
             {
@@ -1221,8 +1225,11 @@
           "help": "The retirement-age decision is almost always made jointly by spouses (CL328 family-system framing); disagreement here delays or derails the entire decumulation arc.",
           "showIf": {
             "field": "filingStatus",
-            "op": "eq",
-            "value": "mfj"
+            "op": "in",
+            "value": [
+              "mfj",
+              "mfs"
+            ]
           },
           "options": [
             {
@@ -1250,8 +1257,11 @@
           "help": "Die-with-Zero trajectory only works without inheritance-expectation conflict among heirs (CL328) — and only with spousal agreement on the framing.",
           "showIf": {
             "field": "filingStatus",
-            "op": "eq",
-            "value": "mfj"
+            "op": "in",
+            "value": [
+              "mfj",
+              "mfs"
+            ]
           },
           "options": [
             {

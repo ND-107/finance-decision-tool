@@ -382,5 +382,29 @@
     "band": "high",
     "match": "exact",
     "basis": "higher-limit tax-advantaged vehicle than W-2 employees have; up to $72K with Mega Backdoor"
+  },
+  {
+    "title": "After the match, weight retirement contributions toward your IRA/HSA \u2014 your 401(k) menu is expensive",
+    "band": "med",
+    "match": "exact",
+    "basis": "asset-location to avoid fee drag; a 0.50pp expense-ratio difference compounds to ~10-13% of ending balance over 30y (CL494)"
+  },
+  {
+    "title": "Look up your 401(k)'s lowest expense ratio (plan fee disclosure / Form 5500)",
+    "band": "low",
+    "match": "exact",
+    "basis": "one-time fee-disclosure lookup precursor (CL494)"
+  },
+  {
+    "title": "Plan ahead: model the Roth conversion ladder for your eventual tax-valley window",
+    "band": "med",
+    "match": "exact",
+    "basis": "preparatory modeling for a mid-horizon (10-20yr) ladder candidate; the execute version is high but this is forward-planning (CL492)"
+  },
+  {
+    "title": "Price LTC insurance / hybrid policies \u2014 note premiums rise sharply past the 50\u201363 sweet spot",
+    "band": "low",
+    "match": "exact",
+    "basis": "past the 50-63 LTC-buying sweet spot; lower-urgency review (CL489)"
   }
 ]

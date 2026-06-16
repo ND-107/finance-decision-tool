@@ -48,6 +48,8 @@ export function derive(a) {
     _stratClass: STRAT_CLASS[a.essentialFraction] || null,
     _idrPlanName: IDR_PLAN_NAME[a.currentIDRPlan] || null,
     _notRetiredIncome: inc.some((t) => t !== 'retired'),
+    _hasEarned: w2 || isSE, // earned income — IRA-contribution eligibility (audit CL488)
+    _nearRetirement: ['<5', '5-10', 'already'].includes(a.yearsToRetirement), // ladder execute vs plan-ahead (CL492)
   };
 }
 

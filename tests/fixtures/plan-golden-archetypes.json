@@ -30,6 +30,7 @@
     "moderateDebt",
     "netWorth",
     "parentCare",
+    "planLowestER",
     "pslfEligible",
     "quarterlyTaxes",
     "rentalRealEstate",
@@ -49,7 +50,7 @@
   ],
   "archetypeCount": 15,
   "randomCount": 3000,
-  "distinctTitles": 89,
+  "distinctTitles": 93,
   "kind": "archetypes",
   "fixtures": [
     {
@@ -685,7 +686,7 @@
         "dependents": "yes",
         "netWorth": "negative"
       },
-      "logicHash": "9f966c545c5c743220f7deb6444c28da58587493c0ff07d794dcc73439e261e1",
+      "logicHash": "85cb355f272690ede667d4d38110854fb01868dcfd247c4e3422ec59bab42d6a",
       "logic": {
         "actions": [
           {
@@ -720,7 +721,7 @@
             "incomeType": null,
             "nodeKey": "w2:1.3",
             "friction": "med",
-            "tier1": false
+            "tier1": true
           },
           {
             "n": 3,
@@ -814,7 +815,7 @@
             "incomeType": null,
             "nodeKey": "w2:6.2",
             "friction": "low",
-            "tier1": true
+            "tier1": false
           },
           {
             "n": 11,
@@ -909,7 +910,7 @@
           "tier1": 3
         }
       },
-      "fullHash": "60c37c3f417c630328acc4f6f2792ca6c76577ec63d9cff4ab2da2298547777f"
+      "fullHash": "b8f43b1b9649b3b7597f4f1b7265adff0f2edba10cb3eed2d46d7ba879cc3940"
     },
     {
       "name": "fresh-grad-w2",
@@ -934,7 +935,7 @@
         "netWorth": "under-100k",
         "yearsToRetirement": "30+"
       },
-      "logicHash": "4a5ac860ba645eddc30876d293cc4de1ca0e84a1599c048e1a2bc0e0c148c22e",
+      "logicHash": "dbe94b7f857441b424d9a0240a4e46c4ad05874a21b463f019ad48d4d4e42cd0",
       "logic": {
         "actions": [
           {
@@ -1016,7 +1017,7 @@
             "incomeType": null,
             "nodeKey": "w2:4.1",
             "friction": "med",
-            "tier1": false
+            "tier1": true
           },
           {
             "n": 7,
@@ -1050,7 +1051,7 @@
             "incomeType": null,
             "nodeKey": "w2:6.2",
             "friction": "low",
-            "tier1": true
+            "tier1": false
           },
           {
             "n": 10,
@@ -1145,7 +1146,7 @@
           "tier1": 3
         }
       },
-      "fullHash": "015bcd4aaeb339b2606cc482b3ef0983c9e8dbbde0b0933cfb03c7b0cd338658"
+      "fullHash": "a1f62a7142a1d2de120d275b424d33f000ad44295170f9cccbfdbfe3f9b8aa1e"
     },
     {
       "name": "solo-contractor-new",
@@ -1558,7 +1559,7 @@
           "tier1": 1
         }
       },
-      "fullHash": "e3bbdd03ace3aec31adc67ab92d3badb35d083dced7bb8969a327412255874f8"
+      "fullHash": "b6b51ad6f58dd5cdf38986398e6370e1e4df558a6eda75398a5e0ccb7905b159"
     },
     {
       "name": "already-retired",
@@ -1579,23 +1580,11 @@
         "rothLadderCandidate": "yes-no-window",
         "estateDocs": "yes"
       },
-      "logicHash": "2cf8dd10070d14ed3d75ce54a31b2e56077cec6ac7efb375190b3bf9e7f1d7ca",
+      "logicHash": "746ff8218803408bc7d8f56d530e7dc97cbd662de91c89fc5365ba8a473622a8",
       "logic": {
         "actions": [
           {
             "n": 0,
-            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
-            "stage": "this-year",
-            "tags": [
-              "bracket"
-            ],
-            "incomeType": null,
-            "nodeKey": "w2:6.2",
-            "friction": "low",
-            "tier1": false
-          },
-          {
-            "n": 1,
             "title": "Open a taxable brokerage with asset-location-optimized holdings",
             "stage": "eventually",
             "tags": [],
@@ -1605,7 +1594,7 @@
             "tier1": false
           },
           {
-            "n": 2,
+            "n": 1,
             "title": "Use tax-loss harvesting in your taxable account",
             "stage": "eventually",
             "tags": [],
@@ -1615,7 +1604,27 @@
             "tier1": false
           },
           {
+            "n": 2,
+            "title": "Start formal decumulation planning (Roth conversions, withdrawal sequencing)",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.1",
+            "friction": "high",
+            "tier1": false
+          },
+          {
             "n": 3,
+            "title": "Plan your Social Security claiming strategy",
+            "stage": "eventually",
+            "tags": [],
+            "incomeType": null,
+            "nodeKey": "w2:10.3",
+            "friction": "med",
+            "tier1": false
+          },
+          {
+            "n": 4,
             "title": "Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning",
             "stage": "this-year",
             "tags": [],
@@ -1635,16 +1644,17 @@
           "Estate documents",
           "Long-term disability insurance",
           "Max 401(k)",
+          "Max IRA",
           "Term life insurance",
           "Verify health insurance"
         ],
         "counts": {
-          "actions": 4,
-          "skipped": 11,
+          "actions": 5,
+          "skipped": 12,
           "tier1": 0
         }
       },
-      "fullHash": "784ec54955331adb0861c347c23e4c3fcf724e371956a1645bc3024934a6693f"
+      "fullHash": "e1077a4b0849a85b8e9f18ef70b9df13c7fd33233e99c573a6638c4ee03a07c4"
     },
     {
       "name": "business-owner-exit",
@@ -2163,23 +2173,11 @@
     {
       "name": "empty-answers",
       "answers": {},
-      "logicHash": "4def925413c4bbd452d8aebba1f42eeda6996dddaf22fe6814b75ff206e94633",
+      "logicHash": "10448c49cff8c641e930b1e14dd48f6a706dac9475e3e92b51325e35d1b7c2d4",
       "logic": {
         "actions": [
           {
             "n": 0,
-            "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
-            "stage": "this-year",
-            "tags": [
-              "bracket"
-            ],
-            "incomeType": null,
-            "nodeKey": "w2:6.2",
-            "friction": "low",
-            "tier1": false
-          },
-          {
-            "n": 1,
             "title": "Open a taxable brokerage with asset-location-optimized holdings",
             "stage": "eventually",
             "tags": [],
@@ -2189,7 +2187,7 @@
             "tier1": false
           },
           {
-            "n": 2,
+            "n": 1,
             "title": "Use tax-loss harvesting in your taxable account",
             "stage": "eventually",
             "tags": [],
@@ -2207,15 +2205,16 @@
           "Eliminate high-interest debt",
           "Long-term disability insurance",
           "Max 401(k)",
+          "Max IRA",
           "Verify health insurance"
         ],
         "counts": {
-          "actions": 3,
-          "skipped": 8,
+          "actions": 2,
+          "skipped": 9,
           "tier1": 0
         }
       },
-      "fullHash": "a523297e9ff3fc1c5f5bebe0430f5cc215fe6629544b6738abe4f83e8e3d4f52"
+      "fullHash": "e99db4b5e06c5a89d39ad338edbde361ee155ebfd4e0d04ff03aafe143446410"
     },
     {
       "name": "income-only",

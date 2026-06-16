@@ -80,7 +80,9 @@ export function computePlan(answers) {
   const tier1Pool = actions
     .filter((act) => (act.tags || []).includes('critical'))
     .slice()
-    .sort((x, y) => fricRank[x.friction] - fricRank[y.friction] || stageRank[x.stage] - stageRank[y.stage] || x.idx - y.idx);
+    // CL495: stage-first then friction — acute "now" criticals (health insurance)
+    // lead over low-friction deferrable items (the Saver's Credit form).
+    .sort((x, y) => stageRank[x.stage] - stageRank[y.stage] || fricRank[x.friction] - fricRank[y.friction] || x.idx - y.idx);
   const tier1 = tier1Pool.slice(0, 3).map((act) => act.idx);
   actions.forEach((act) => { act.tier1 = tier1.includes(act.idx); });
 
