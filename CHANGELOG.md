@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-06-15 — v2 Phase 4: action prose ("why this / why now") on the cards [branch `v2`, local-only]
+
+v2 cards now justify themselves. v1's computePlan builds each action's `reason` (why it matters) and `because` (the personalized "why now / why you") inline — often via ternaries / conditional assignment over the answers. The v2 rule engine reproduced the *decisions* but had dropped the prose (`reason:''`). Phase 4 recovers it, byte-for-byte.
+
+**Approach — auto-extract, don't retype.** `tools/extract-prose.mjs` parses v1's computePlan (`git show main:flowchart.html`) and, per `add()`, lifts the **verbatim** reason/because expression source plus the enclosing block's executed-prefix (so every local is reconstructed — `isBackdoor`, `isParent`, `ic`, the `efTarget`/`efSizes` sizing vars, even the multi-declarator `let stratClass, stratReason;` + its `if/else-if` assignment chain). Sibling `add()`/`skip()` calls in the prefix are neutralized. It hosts these under a shim that defines v1's exact module-level helpers (`bracket`/`hasIncome`/`isSE`/`efLabel`/`fmtMoneyFull`/`getDefault`, with `state.answers` shimmed to the passed answers). Output: `src/core/plan-prose.mjs` — `proseFor(pid, answers)` with cases `p1..p65`. Zero prose retyping → byte-exact by construction.
+
+**Wiring.** `src/core/plan-engine.mjs` tags each add-rule positionally at module load (`pN` = Nth add-rule, mirroring v1 source order) and reattaches `reason`/`because` from `proseFor`. Prose stays out of `plan-rules.mjs` (logic unchanged). `tools/build-v2.mjs` bundles `plan-prose` ahead of `plan-engine`. `dist/v2.html` 240,799 → 312,884 B.
+
+**UI.** `src/ui/app.mjs`: the short `because` renders inline under each title (muted "why this applies to you"); the longer `reason` (with its `<strong>`/`<em>`/`callout` markup) folds into the per-action "Why this matters & reference" toggle alongside the node reference. `src/ui/styles.css` adds `.action-because`, `.why-reason`, `.callout`.
+
+**Verification.**
+- New gate (8th): `tools/verify-prose-parity.mjs` runs v1-live (`loadPlanEngine`) vs v2 over the full golden corpus and asserts each action's `{title,stage,tags,incomeType,nodeKey,reason,because}` + skip-title set match. **3030 fixtures · 47,794 actions compared — byte-for-byte identical.** Negative-tested (one tampered reason → 811 fixture failures). Added to `verify-v2.sh` as `[7/8]`; all 8 gates green.
+- Real-Chrome render check across diverse profiles: `because` inline + `reason` in the detail panel, markup intact, no console errors.
+
 ## 2026-06-15 — v2 UI shell ("make it clickable") — the v2 engine renders [branch `v2`, local-only]
 
 First artifact that renders the v2 core. The pure, gate-proven kernel (`src/core/*`) + declarative content (`src/content/*`) now drive an actual diagnostic → plan UI, bundled into a single self-contained `dist/v2.html` (240,799 bytes) by a zero-dependency builder — preserving the project's runnable-by-double-click invariant.

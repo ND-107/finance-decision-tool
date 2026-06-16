@@ -193,8 +193,9 @@ function actionCard(a, isTier1) {
     ]),
     el('div', { class: 'action-body' }, [
       el('div', { class: 'action-title' }, a.title),
+      a.because ? el('div', { class: 'action-because', html: a.because }) : null,
       tags.length ? el('div', { class: 'action-tags' }, tags) : null,
-      node && node.detailsHtml ? detailToggle(a, node) : null,
+      (a.reason || (node && node.detailsHtml)) ? detailToggle(a, node) : null,
     ]),
   ]);
   return card;
@@ -203,8 +204,11 @@ function actionCard(a, isTier1) {
 function detailToggle(a, node) {
   const id = 'd-' + a.key;
   const isOpen = !!state.open[id];
-  const btn = el('button', { class: 'detail-toggle', onclick: (e) => { state.open[id] = !state.open[id]; e.target.nextSibling.style.display = state.open[id] ? 'block' : 'none'; e.target.textContent = state.open[id] ? '− Hide reference' : '+ Reference (math, exceptions, bracket guidance)'; save(); } }, isOpen ? '− Hide reference' : '+ Reference (math, exceptions, bracket guidance)');
-  const body = el('div', { class: 'detail', html: node.detailsHtml });
+  const label = (open) => (open ? '− Hide why & reference' : '+ Why this matters & reference');
+  const inner = (a.reason ? `<div class="why-reason">${a.reason}</div>` : '')
+    + (node && node.detailsHtml ? node.detailsHtml : '');
+  const btn = el('button', { class: 'detail-toggle', onclick: (e) => { state.open[id] = !state.open[id]; e.target.nextSibling.style.display = state.open[id] ? 'block' : 'none'; e.target.textContent = label(state.open[id]); save(); } }, label(isOpen));
+  const body = el('div', { class: 'detail', html: inner });
   body.style.display = isOpen ? 'block' : 'none';
   return el('div', {}, [btn, body]);
 }

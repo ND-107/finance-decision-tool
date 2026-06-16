@@ -7,6 +7,14 @@
 import { evalPredicate } from './predicates.mjs';
 import { derive } from './derive.mjs';
 import { RULE_GROUPS } from './plan-rules.mjs';
+import { proseFor } from './plan-prose.mjs';
+
+// Tag each add-rule with its positional prose id once, at module load: `pN` is the
+// Nth add-rule in RULE_GROUPS, whose order mirrors v1 computePlan's add() source
+// order — so it lines up with plan-prose.mjs's `case 'pN'`. Prose (reason/because)
+// is content, kept out of plan-rules.mjs; the engine reattaches it here.
+let _pidCounter = 0;
+for (const _g of RULE_GROUPS) for (const _r of _g.rules) if (_r.add && _r.add._pid === undefined) _r.add._pid = 'p' + ++_pidCounter;
 
 // FRICTION_RULES — verbatim from v1 computePlan (title-regex friction inference).
 const FRICTION_RULES = [
@@ -51,11 +59,12 @@ export function computePlan(answers) {
       if (rule.add) {
         const o = rule.add;
         const title = resolve(o.title, d);
+        const prose = o._pid ? proseFor(o._pid, answers) : { reason: '', because: '' };
         const act = {
           title,
           stage: resolve(o.stage, d),
-          reason: '', // prose deferred to content (Phase 4); not in the parity contract
-          because: '',
+          reason: prose.reason, // Phase 4: verbatim v1 prose via plan-prose.mjs (positional pid)
+          because: prose.because,
           nodeKey: resolve(o.nodeKey, d),
           tags: resolve(o.tags, d) || [],
         };

@@ -1,0 +1,457 @@
+[
+  {
+    "pid": "p1",
+    "title": "'Build a comprehensive budget and start tracking cash flow'",
+    "nodeKey": "'w2:0.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p2",
+    "title": "'Tighten your cash-flow tracking into a real budget'",
+    "nodeKey": "'w2:0.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p3",
+    "title": "'Set up quarterly estimated tax payments and a tax reserve'",
+    "nodeKey": "'contractor:0.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p4",
+    "title": "'File §83(b) election within 30 days of grant — deadline is unforgiving'",
+    "nodeKey": "'business:9.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p5",
+    "title": "'Plan §83(b) filing ahead of any restricted-stock or early-exercise grant'",
+    "nodeKey": "'business:9.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p6",
+    "title": "'Build a $1,000 starter emergency fund (or one month of essentials)'",
+    "nodeKey": "'w2:2.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p7",
+    "title": "'Get health insurance in place — this week'",
+    "nodeKey": "'w2:1.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p8",
+    "title": "'Reassess whether your minimal coverage is appropriate'",
+    "nodeKey": "'w2:1.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p9",
+    "title": "'Capture your full employer 401(k) match'",
+    "nodeKey": "'w2:3.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p10",
+    "title": "'Enable 401(k) auto-escalation to ratchet your deferral toward 15–20% over the next 5 years'",
+    "nodeKey": "'w2:3.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p11",
+    "title": "'Ask HR whether your 401(k) plan supports auto-escalation, and enable it if so'",
+    "nodeKey": "'w2:3.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p12",
+    "title": "'Eliminate high-interest debt (above ~7% after tax)'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p13",
+    "title": "'Verify your IDR plan + pursue PSLF (post-SAVE-litigation decision tree)'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p14",
+    "title": "'Verify your PSLF eligibility before making payment decisions'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p15",
+    "title": "'Audit your IDR / PSLF payment history at studentaid.gov'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p16",
+    "title": "'Continue the servicer-history dispute / CFPB complaint process'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p17",
+    "title": "'Switch from SAVE forbearance to IBR (or evaluate RAP from July 2026) to resume qualifying-payment accrual'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p18",
+    "title": "'If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p19",
+    "title": "'Plan your migration off ' + ({ paye: 'PAYE', icr: 'ICR', 'save-paying': 'SAVE' }[a.currentIDRPlan]) + ' before the July 2028 legacy-plan shutdown'",
+    "nodeKey": "'w2:4.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p20",
+    "title": "'Secure long-term disability insurance (own-occupation if available)'",
+    "nodeKey": "isSE() ? 'contractor:2.2' : 'w2:2.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p21",
+    "title": "'Get term life insurance (10–12× annual income)'",
+    "nodeKey": "'w2:2.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p22",
+    "title": "'Close the disability gap before adding term-life coverage'",
+    "nodeKey": "'w2:2.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p23",
+    "title": "'Set up your self-employed retirement plan (Solo 401(k) preferred)'",
+    "nodeKey": "ic + ':3.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p24",
+    "title": "'Get appropriate business insurance (liability, E&O, cyber)'",
+    "nodeKey": "ic === 'business' ? 'business:2.3' : 'contractor:2.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p25",
+    "title": "'Establish or update baseline estate documents'",
+    "nodeKey": "'w2:6.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p26",
+    "title": "'Build your full emergency fund (' + efTarget + ' of essential expenses)'",
+    "nodeKey": "isSE() ? 'contractor:5.1' : 'w2:5.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p27",
+    "title": "'Max your HSA contribution ($4,400 self / $8,750 family for 2026)'",
+    "nodeKey": "'w2:6.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p28",
+    "title": "'Roll any existing Traditional IRA balances into your 401(k) first'",
+    "nodeKey": "hasIncome('contractor') ? 'contractor:6.2' : 'w2:6.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p29",
+    "title": "isBackdoor ? 'Execute the Backdoor Roth IRA ($7,500 for 2026)' : 'Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)'",
+    "nodeKey": "hasIncome('contractor') ? 'contractor:6.2' : 'w2:6.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p30",
+    "title": "\"File IRS Form 8880 to claim the Saver's Credit (IRC §25B)\"",
+    "nodeKey": "hasIncome('contractor') ? 'contractor:6.2' : 'w2:6.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p31",
+    "title": "'Check EITC eligibility + use free VITA preparation (do NOT use storefront preparers)'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p32",
+    "title": "'Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace'",
+    "nodeKey": "'w2:1.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p33",
+    "title": "'Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p34",
+    "title": "'Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account'",
+    "nodeKey": "'w2:5.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p35",
+    "title": "'Address moderate-interest debt (rates above HYSA yield, below ~7%)'",
+    "nodeKey": "'w2:7.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p36",
+    "title": "'Increase your 401(k) contribution toward the $24,500 employee max'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p37",
+    "title": "'Verify your 401(k) plan supports Roth catch-up contributions'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p38",
+    "title": "'Maximize your Solo 401(k) / business 401(k) (employee + employer side)'",
+    "nodeKey": "ic === 'business' ? 'business:8.1' : 'contractor:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p39",
+    "title": "'After the match, weight retirement contributions toward your IRA/HSA — your 401(k) menu is expensive'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p40",
+    "title": "'Look up your 401(k)\\'s lowest expense ratio (plan fee disclosure / Form 5500)'",
+    "nodeKey": "'w2:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p41",
+    "title": "'Plan for the Section 199A QBI deduction'",
+    "nodeKey": "ic === 'business' ? 'business:8.3' : 'contractor:8.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p42",
+    "title": "'Analyze whether to elect S-corp status'",
+    "nodeKey": "'contractor:9.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p43",
+    "title": "'Check whether your 401(k) supports the Mega Backdoor Roth'",
+    "nodeKey": "hasIncome('contractor') ? 'contractor:9.2' : 'w2:9.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p44",
+    "title": "'Open a taxable brokerage with asset-location-optimized holdings'",
+    "nodeKey": "'w2:9.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p45",
+    "title": "'Use tax-loss harvesting in your taxable account'",
+    "nodeKey": "'w2:9.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p46",
+    "title": "'Open a 529 plan for education funding'",
+    "nodeKey": "'w2:9.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p47",
+    "title": "'Start formal decumulation planning (Roth conversions, withdrawal sequencing)'",
+    "nodeKey": "'w2:10.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p48",
+    "title": "'Plan your Social Security claiming strategy'",
+    "nodeKey": "'w2:10.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p49",
+    "title": "'Set a glide path more conservative than your horizon alone would prescribe'",
+    "nodeKey": "'math:1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p50",
+    "title": "'Use the ' + stratClass + ' strategy class in §7 — your essential-fraction allows it'",
+    "nodeKey": "'w2:10.2'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p51",
+    "title": "'Build aging-parent financial support into your cash-flow and savings-rate planning'",
+    "nodeKey": "'w2:10.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p52",
+    "title": "nearRetirement\n        ? 'Execute Roth conversion ladder during the tax-valley years — size to IRMAA tier, not federal bracket'\n        : 'Plan ahead: model the Roth conversion ladder for your eventual tax-valley window'",
+    "nodeKey": "'w2:10.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p53",
+    "title": "'Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning'",
+    "nodeKey": "'w2:10.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p54",
+    "title": "'Inventory your Traditional / pre-tax retirement balances and evaluate ladder candidacy'",
+    "nodeKey": "'w2:10.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p55",
+    "title": "'Plan for Medicaid-path long-term care, not LTC insurance'",
+    "nodeKey": "'w2:10.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p56",
+    "title": "inSweetSpot ? 'You are in the LTC insurance / hybrid-policy sweet spot — get quotes this year' : 'Price LTC insurance / hybrid policies — note premiums rise sharply past the 50–63 sweet spot'",
+    "nodeKey": "'w2:10.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p57",
+    "title": "'Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation'",
+    "nodeKey": "'w2:10.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p58",
+    "title": "'Engage advanced estate planning (GRATs, SLATs, dynasty trusts)'",
+    "nodeKey": "'business:10.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p59",
+    "title": "'Evaluate Section 1202 QSBS positioning'",
+    "nodeKey": "'business:9.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p60",
+    "title": "'Begin business succession or sale preparation'",
+    "nodeKey": "'business:10.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p61",
+    "title": "'Evaluate the Cash Balance DB plan + full §415 stack (Phase 7)'",
+    "nodeKey": "'business:8.1'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p62",
+    "title": "'Read the family-wealth strategies catalog (Phase 7)'",
+    "nodeKey": "'w2:9.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p63",
+    "title": "'Evaluate state-domicile change ahead of any major liquidity event (Phase 7)'",
+    "nodeKey": "'business:8.4'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p64",
+    "title": "'Before any cost-seg-firm sales call: read AdvStrat §4 + §8 first (defensive routing)'",
+    "nodeKey": "'w2:9.3'",
+    "hasReason": true,
+    "hasBecause": true
+  },
+  {
+    "pid": "p65",
+    "title": "'Read the adjacent-vehicles catalog (Phase 7)'",
+    "nodeKey": "'w2:9.3'",
+    "hasReason": true,
+    "hasBecause": true
+  }
+]

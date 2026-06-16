@@ -62,7 +62,7 @@ const NODES = ${JSON.stringify(buildNodes())};
 const TODAY = ${JSON.stringify(new Date().toISOString().slice(0, 10))};
 `;
 
-const coreOrder = ['predicates', 'derive', 'plan-rules', 'deadlines', 'plan-engine', 'priority'];
+const coreOrder = ['predicates', 'derive', 'plan-rules', 'plan-prose', 'deadlines', 'plan-engine', 'priority'];
 const coreParts = coreOrder.map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
 const planLogic = `// ===== planLogic (from tools/lib/plan-fingerprint.mjs) =====\n${strip(extractPlanLogic())}`;
 const afterPlan = ['completion', 'sensitivity'].map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
