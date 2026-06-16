@@ -32,7 +32,8 @@ src/
 | **Phase 2/3** — deadlines as first-class | 🟢 `core/deadlines.mjs` + `data/deadlines.json` — statutory-deadline overlay (Parent PLUS 2026-07-01, §83(b) grant+30d, legacy-IDR 2028-07-01) with urgency tiers; the category v1 couldn't represent |
 | **Phase 3** — diagnostic core primitives | 🟢 `core/sensitivity.mjs` (which answers drive the plan) + `core/completion.mjs` (done/dismissed → recompute → migrate to skip ledger) — pure, tested. *UX + priority redesign deferred (needs design input).* |
 | **Phase 1.4 / 4** — node content extracted | 🟢 `content/nodes/<income>/<marker>.json` — all **93 reference nodes** as structured files; build regenerates the arrays **byte-exact** (`extract-nodes.mjs` + `build.mjs` generators), round-trip gate still green |
-| Graph projections + derived staging + explicit priority (§2.2) · rest of diagnostic v2 (Phase 3) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
+| **Phase 2 §2.2** — explicit priority model | 🟢 `core/priority.mjs` + `data/impact.json` — **hybrid reorder** (stages kept, within-stage sorted by impact × completion-probability, smarter Tier-1); **absolute bands** from the framework's stated figures (adversarially verified — 2 independent banders, 4 refinements applied); **deadline > safety > score** overrides. `verify-priority.mjs` enforces the hybrid invariant across 3015 fixtures |
+| Graph projections (Plan/chart/skip as one graph) · rest of diagnostic v2 UX (Phase 3) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
 
 ## Why figures.json first
 

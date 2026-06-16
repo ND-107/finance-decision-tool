@@ -1,0 +1,386 @@
+[
+  {
+    "title": "Capture your full employer 401(k) match",
+    "band": "high",
+    "match": "exact",
+    "basis": "immediate 50\u2013100% return on matched dollars; no retail investment competes"
+  },
+  {
+    "title": "Enable 401(k) auto-escalation to ratchet your deferral toward 15\u201320% over the next 5 years",
+    "band": "med",
+    "match": "exact",
+    "basis": "savings-RATE behavioral nudge (Thaler-Benartzi); high-leverage + low-friction but no stated dollar GAIN \u2014 absolute-impact band MED, surfaces via low friction"
+  },
+  {
+    "title": "Ask HR whether your 401(k) plan supports auto-escalation, and enable it if so",
+    "band": "low",
+    "match": "exact",
+    "basis": "one-email info-gather precursor; no stated impact (rubric maps precursors to LOW)"
+  },
+  {
+    "title": "Eliminate high-interest debt (above ~7% after tax)",
+    "band": "high",
+    "match": "exact",
+    "basis": "guaranteed return equal to the debt rate (~20%+ on cards), dominates investment returns"
+  },
+  {
+    "title": "Audit your IDR / PSLF payment history at studentaid.gov",
+    "band": "high",
+    "match": "exact",
+    "basis": "$40K\u2013$80K expected NPV for an eligible $80K-loan borrower; highest per-effort financial action"
+  },
+  {
+    "title": "Verify your IDR plan + pursue PSLF (post-SAVE-litigation decision tree)",
+    "band": "high",
+    "match": "exact",
+    "basis": "forgiveness pathway; stalled SAVE clock has direct dollar cost"
+  },
+  {
+    "title": "Verify your PSLF eligibility before making payment decisions",
+    "band": "high",
+    "match": "exact",
+    "basis": "if eligible, the optimal payoff strategy inverts; large forgiveness at stake"
+  },
+  {
+    "title": "Switch from SAVE forbearance to IBR (or evaluate RAP from July 2026) to resume qualifying-payment accrual",
+    "band": "high",
+    "match": "exact",
+    "basis": "every forbearance month is lost forgiveness progress; direct dollar cost"
+  },
+  {
+    "title": "If any of your federal loans are Parent PLUS: consolidate before July 1, 2026 to preserve income-driven access",
+    "band": "high",
+    "match": "exact",
+    "basis": "deadline-gated permanent loss of income-driven access for Parent PLUS"
+  },
+  {
+    "title": "Continue the servicer-history dispute / CFPB complaint process",
+    "band": "high",
+    "match": "exact",
+    "basis": "stated 'retroactive adjustments worth tens of thousands' \u2014 same magnitude as the studentaid.gov audit action banded HIGH; absolute bands key on magnitude"
+  },
+  {
+    "title": "Plan your migration off ",
+    "band": "med",
+    "match": "prefix",
+    "basis": "preserve forgiveness-plan optionality before the 2028 legacy-IDR sunset (urgency carried by the deadline layer)"
+  },
+  {
+    "title": "File \u00a783(b) election within 30 days of grant \u2014 deadline is unforgiving",
+    "band": "high",
+    "match": "prefix",
+    "basis": "missed \u00a783(b) can cost ~$1.5M in unnecessary ordinary-income tax; hard deadline"
+  },
+  {
+    "title": "Plan \u00a783(b) filing ahead of any restricted-stock or early-exercise grant",
+    "band": "med",
+    "match": "exact",
+    "basis": "preparation for a future high-impact election"
+  },
+  {
+    "title": "Get health insurance in place \u2014 this week",
+    "band": "high",
+    "match": "exact",
+    "basis": "catastrophic tail $30K\u2013$100K+ from a single inpatient stay; safety firebreak"
+  },
+  {
+    "title": "Reassess whether your minimal coverage is appropriate",
+    "band": "med",
+    "match": "exact",
+    "basis": "catastrophic-only without HSA pairing; reassess but not an acute gap"
+  },
+  {
+    "title": "Build a $1,000 starter emergency fund (or one month of essentials)",
+    "band": "med",
+    "match": "exact",
+    "basis": "small dollar but the firebreak precondition for everything below; safety-pinned"
+  },
+  {
+    "title": "Secure long-term disability insurance (own-occupation if available)",
+    "band": "high",
+    "match": "exact",
+    "basis": "90+ day disability ~3x more likely than death pre-retirement; catastrophic income loss; safety"
+  },
+  {
+    "title": "Get term life insurance (10\u201312\u00d7 annual income)",
+    "band": "high",
+    "match": "exact",
+    "basis": "dependents' financial stability; among the highest return-on-premium products; safety"
+  },
+  {
+    "title": "Close the disability gap before adding term-life coverage",
+    "band": "high",
+    "match": "exact",
+    "basis": "unreplaced DI gap PV commonly >$1M for high-earner households; safety"
+  },
+  {
+    "title": "Build a comprehensive budget and start tracking cash flow",
+    "band": "med",
+    "match": "exact",
+    "basis": "visibility precondition; usually surfaces $200\u2013$500/mo, but high friction"
+  },
+  {
+    "title": "Tighten your cash-flow tracking into a real budget",
+    "band": "med",
+    "match": "exact",
+    "basis": "$200\u2013$500/mo recoverable; high friction"
+  },
+  {
+    "title": "Set up quarterly estimated tax payments and a tax reserve",
+    "band": "med",
+    "match": "exact",
+    "basis": "avoids automatic underpayment penalties on SE income"
+  },
+  {
+    "title": "Get appropriate business insurance (liability, E&O, cyber)",
+    "band": "med",
+    "match": "exact",
+    "basis": "risk transfer; increasingly required by larger clients"
+  },
+  {
+    "title": "Establish or update baseline estate documents",
+    "band": "med",
+    "match": "exact",
+    "basis": "$100\u2013$300 cost; prevents large downstream probate/intestacy cost; not a recurring $ gain"
+  },
+  {
+    "title": "Max your HSA contribution ($4,400 self / $8,750 family for 2026)",
+    "band": "med",
+    "match": "exact",
+    "basis": "triple-tax-advantaged but the v1 reason states no annual dollar figure; ~$2.8K/yr direct benefit at high bracket is MED-range (long-run compounding case is the HIGH-leaning argument, deferred to profile-relative scaling)"
+  },
+  {
+    "title": "Roll any existing Traditional IRA balances into your 401(k) first",
+    "band": "med",
+    "match": "exact",
+    "basis": "enabler that unblocks a clean backdoor Roth"
+  },
+  {
+    "title": "Execute the Backdoor Roth IRA ($7,500 for 2026)",
+    "band": "med",
+    "match": "prefix",
+    "basis": "$7,500/yr tax-advantaged space; meaningful but bounded"
+  },
+  {
+    "title": "Max your IRA ($7,500 for 2026, Roth or Traditional based on your bracket)",
+    "band": "med",
+    "match": "prefix",
+    "basis": "$7,500/yr tax-advantaged space"
+  },
+  {
+    "title": "File IRS Form 8880 to claim the Saver's Credit (IRC \u00a725B)",
+    "band": "med",
+    "match": "exact",
+    "basis": "$200\u2013$1,000 federal credit; one form; high value for low-bracket households (absolute band = med)"
+  },
+  {
+    "title": "Check EITC eligibility + use free VITA preparation (do NOT use storefront preparers)",
+    "band": "high",
+    "match": "exact",
+    "basis": "largest single anti-poverty transfer; up to ~$7,830; one missed year can exceed every other optimization combined"
+  },
+  {
+    "title": "Apply for ACA Premium Tax Credit via healthcare.gov / state marketplace",
+    "band": "high",
+    "match": "exact",
+    "basis": "$5,000\u2013$20,000/yr typical advance PTC; among the highest-dollar transfers available"
+  },
+  {
+    "title": "Run safety-net program eligibility checks (SNAP / Medicaid / Lifeline / LIHEAP)",
+    "band": "med",
+    "match": "exact",
+    "basis": "cumulative $200\u2013$1,200/yr+ across four programs for the eligible cohort"
+  },
+  {
+    "title": "Opt out of debit-card overdraft (Reg E) + move to a no-overdraft-fee bank account",
+    "band": "med",
+    "match": "exact",
+    "basis": "$250\u2013$400/yr typical overdraft extraction; recurring, compounding for thin-buffer households"
+  },
+  {
+    "title": "Address moderate-interest debt (rates above HYSA yield, below ~7%)",
+    "band": "med",
+    "match": "exact",
+    "basis": "above HYSA yield but below expected investment return; allocation-dependent"
+  },
+  {
+    "title": "Increase your 401(k) contribution toward the $24,500 employee max",
+    "band": "high",
+    "match": "exact",
+    "basis": "the next large tax-advantaged space after match + IRA; deduction worth 32\u201337c/$ at high bracket"
+  },
+  {
+    "title": "Verify your 401(k) plan supports Roth catch-up contributions",
+    "band": "med",
+    "match": "exact",
+    "basis": "gating check; without Roth option, high earners can't make catch-up at all"
+  },
+  {
+    "title": "Maximize your Solo 401(k) / business 401(k) (employee + employer side)",
+    "band": "high",
+    "match": "exact",
+    "basis": "up to $72,000 total tax-advantaged space; Mega Backdoor Roth potential"
+  },
+  {
+    "title": "Build your full emergency fund",
+    "band": "med",
+    "match": "prefix",
+    "basis": "operational reserve; larger horizon than the starter firebreak, lower acute urgency"
+  },
+  {
+    "title": "Plan for the Section 199A QBI deduction",
+    "band": "high",
+    "match": "exact",
+    "basis": "permanent 20% pass-through deduction; large for SE income inside the phase-in band"
+  },
+  {
+    "title": "Analyze whether to elect S-corp status",
+    "band": "high",
+    "match": "exact",
+    "basis": "saves thousands in SE tax above ~$50\u201380K net profit via reasonable-salary structure"
+  },
+  {
+    "title": "Check whether your 401(k) supports the Mega Backdoor Roth",
+    "band": "high",
+    "match": "exact",
+    "basis": "~$37\u201347K additional tax-free growth space annually"
+  },
+  {
+    "title": "Open a taxable brokerage with asset-location-optimized holdings",
+    "band": "low",
+    "match": "exact",
+    "basis": "the unlimited next bucket once tax-advantaged space is maxed; no specific near-term $ gain"
+  },
+  {
+    "title": "Use tax-loss harvesting in your taxable account",
+    "band": "med",
+    "match": "exact",
+    "basis": "0.2\u20131.0%/yr after-tax for higher-bracket investors with taxable accounts"
+  },
+  {
+    "title": "Open a 529 plan for education funding",
+    "band": "med",
+    "match": "exact",
+    "basis": "tax-free growth + state deductions + $35K Roth-rollover option after 15y aging"
+  },
+  {
+    "title": "Start formal decumulation planning (Roth conversions, withdrawal sequencing)",
+    "band": "med",
+    "match": "exact",
+    "basis": "structural planning within 10y of retirement; enables large later moves"
+  },
+  {
+    "title": "Set a glide path more conservative than your horizon alone would prescribe",
+    "band": "med",
+    "match": "exact",
+    "basis": "sequence-risk mitigation calibrated to revealed risk behavior"
+  },
+  {
+    "title": "Use the ",
+    "band": "med",
+    "match": "prefix",
+    "basis": "decumulation strategy-class selection gated by essential-fraction (Bengen / Guyton-Klinger / Vanguard-dynamic)"
+  },
+  {
+    "title": "Build aging-parent financial support into your cash-flow and savings-rate planning",
+    "band": "med",
+    "match": "exact",
+    "basis": "$50K\u2013$200K per parent in adult-child contribution; material planning line item"
+  },
+  {
+    "title": "Execute Roth conversion ladder during the tax-valley years \u2014 size to IRMAA tier, not federal bracket",
+    "band": "high",
+    "match": "exact",
+    "basis": "$30K\u2013$60K lifetime federal tax saved on a typical $300K\u2013$500K ladder"
+  },
+  {
+    "title": "Pursue partial Roth conversions in any remaining lower-income years; coordinate with QCD planning",
+    "band": "med",
+    "match": "exact",
+    "basis": "partial-window conversions; smaller than a full ladder"
+  },
+  {
+    "title": "Inventory your Traditional / pre-tax retirement balances and evaluate ladder candidacy",
+    "band": "med",
+    "match": "exact",
+    "basis": "diagnostic precursor to the high-impact conversion ladder"
+  },
+  {
+    "title": "Plan your Social Security claiming strategy",
+    "band": "med",
+    "match": "exact",
+    "basis": "claiming timing + survivor-benefit optimization; large but long-horizon"
+  },
+  {
+    "title": "Plan for Medicaid-path long-term care, not LTC insurance",
+    "band": "med",
+    "match": "exact",
+    "basis": "LTC averages ~$127K/yr; Medicaid-path planning for lower-net-worth households"
+  },
+  {
+    "title": "You are in the LTC insurance / hybrid-policy sweet spot \u2014 get quotes this year",
+    "band": "med",
+    "match": "prefix",
+    "basis": "sweet-spot net-worth band where LTC insurance pencils; time-sensitive when in-window"
+  },
+  {
+    "title": "Self-insurance feasible; review whether LTC insurance still pencils for legacy preservation",
+    "band": "low",
+    "match": "prefix",
+    "basis": "self-insurance already feasible at $2M+; optional legacy-preservation review"
+  },
+  {
+    "title": "Engage advanced estate planning (GRATs, SLATs, dynasty trusts)",
+    "band": "med",
+    "match": "exact",
+    "basis": "high absolute dollars but niche (ultra-HNW); med as an absolute band across the population"
+  },
+  {
+    "title": "Evaluate Section 1202 QSBS positioning",
+    "band": "med",
+    "match": "exact",
+    "basis": "up to $15M/$75M gain exclusion; niche to C-corp founders"
+  },
+  {
+    "title": "Begin business succession or sale preparation",
+    "band": "med",
+    "match": "exact",
+    "basis": "exit-value preservation; planning horizon"
+  },
+  {
+    "title": "Evaluate the Cash Balance DB plan + full \u00a7415 stack (Phase 7)",
+    "band": "high",
+    "match": "exact",
+    "basis": "$200K\u2013$300K/yr additional tax-deferred space for high-income SE"
+  },
+  {
+    "title": "Read the family-wealth strategies catalog (Phase 7)",
+    "band": "low",
+    "match": "exact",
+    "basis": "informational routing pointer into the AdvStrat view"
+  },
+  {
+    "title": "Evaluate state-domicile change ahead of any major liquidity event (Phase 7)",
+    "band": "high",
+    "match": "exact",
+    "basis": "CA 13.3% top rate on a $5M business-sale gain \u2248 $665K state-tax exposure"
+  },
+  {
+    "title": "Before any cost-seg-firm sales call: read AdvStrat \u00a74 + \u00a78 first (defensive routing)",
+    "band": "med",
+    "match": "exact",
+    "basis": "defensive-reading routing; protects against commission-driven cost-seg/STR sales"
+  },
+  {
+    "title": "Read the adjacent-vehicles catalog (Phase 7)",
+    "band": "low",
+    "match": "exact",
+    "basis": "informational routing pointer into the AdvStrat view"
+  },
+  {
+    "title": "Set up your self-employed retirement plan (Solo 401(k) preferred)",
+    "band": "high",
+    "match": "exact",
+    "basis": "higher-limit tax-advantaged vehicle than W-2 employees have; up to $72K with Mega Backdoor"
+  }
+]

@@ -16,10 +16,13 @@ node tools/verify-questions-equivalence.mjs >/dev/null
 echo "→ [4/6] plan engine parity (v2 vs v1 golden, 3030 fixtures)…"
 node tools/verify-plan-parity.mjs >/dev/null
 
-echo "→ [5/6] rule build-time invariants (dead values / reachability / contradiction / showIf DAG)…"
+echo "→ [5/7] rule build-time invariants (dead values / reachability / contradiction / showIf DAG)…"
 node tools/verify-rules.mjs >/dev/null
 
-echo "→ [6/6] lossless round-trip (extract → build → byte-exact gate)…"
+echo "→ [6/7] priority model (hybrid invariant: same actions+stages, within-stage sorted, overrides float, all banded)…"
+node tools/verify-priority.mjs >/dev/null
+
+echo "→ [7/7] lossless round-trip (extract → build → byte-exact gate)…"
 node tools/extract.mjs >/dev/null && node tools/build.mjs >/dev/null && node tools/gate.mjs >/dev/null
 
 echo ""
