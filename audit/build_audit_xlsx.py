@@ -2759,6 +2759,35 @@ CLAIMS = [
      "TAX-FIGURE", "CON", "PASS", "A",
      "IRS Rev. Proc. 2025-32 / IRS newsroom IR-2025-103 (2026 single standard deduction $16,100, MFJ $32,200); IRC §63(c)(5) dependent-SD limitation", "",
      "Added 2026-06-15 via the v2 figures-layer verification workflow (the figures audit's payoff — a NEW live-staleness find the Phase 0 sprint had not touched). The example stated 'the child's standard deduction of $15,000 for 2026' — $15,000 is the pre-OBBBA-bump figure (2025 single SD was $15,750; 2026 is $16,100). Corrected to '$16,100 single-filer cap' and reworded to state the dependent-SD-tracks-earned-income mechanism accurately; downstream family-savings rounded $5,000 -> $5,500 ($15K x 37% = $5,550). This figure is now stamped in src/data/figures.json (key std_deduction_single) on the v2 branch so the class of error becomes a build failure post-re-platform."),
+
+    # ============================================================
+    # 2026-06-15 audit sprint — 5-lens adversarial audit findings
+    # (mechanical sim: 0 structural bugs across 20,194 plan evals)
+    # ============================================================
+
+    ("CL484", "Plan view (EITC Plan action reason — CL448)",
+     "2026 maximum EITC amounts: 1 child up to $4,427, 2 children up to $7,316, 3+ up to $8,231, childless up to $664 (Rev. Proc. 2025-32)",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "IRS Rev. Proc. 2025-32 / IRS newsroom; Tax Foundation 2026 EITC table; Kiplinger 2026 family credits", "",
+     "Audit 2026-06-15 (Lens-2 content). The critical-tagged EITC action stated stale 2024-era maxima ('~$4,200 / ~$7,000 / ~$7,830 / ~$600-650') labeled 'For 2026'. The 3+-child '$7,830' is exactly the 2024 max; 2026 is $8,231. Corrected all four to the 2026 Rev. Proc. 2025-32 amounts. Consumer-facing action aimed at the lowest-income cohort, so the understatement was the most user-impactful figure error found."),
+
+    ("CL485", "AdvStrat (Cash Balance DB / §415 stack)",
+     "2026 §415(b) defined-benefit annual benefit limit is $290,000 (not $275,000)",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "IRS Notice 2025-67 ($280,000 2025 → $290,000 2026, §415(b)(1)(A))", "",
+     "Audit 2026-06-15 (Lens-2). Stated '$275,000 (2026; the §415(b) limit)' — that is the 2024 value (2025 was $280,000). Corrected to $290,000. Note the adjacent §415(c) DC cap ($72,000) was already correct."),
+
+    ("CL486", "AdvStrat:2 (family-employment / kiddie-tax callout)",
+     "2026 kiddie-tax unearned-income threshold is $2,700 (= 2 × $1,350), not $2,600",
+     "TAX-FIGURE", "CON", "PASS", "A",
+     "IRS Rev. Proc. 2025-32 (§1(g); 2026 dependent SD $1,350, threshold $2,700, unchanged from 2025)", "",
+     "Audit 2026-06-15 (Lens-2). Stated '$2,600 threshold (2026)' — the 2024 value; 2026 (and 2025) is $2,700. Corrected."),
+
+    ("CL487", "Welcome view (diagnostic start CTA); termLifeInPlace help",
+     "Diagnostic length/time disclosure must be honest: 53 questions defined, 31 ungated (seen by all), typical 36-47; not 'about 25 / 5-8 minutes'",
+     "UX", "CON", "CORRECTED", "B",
+     "Engine showIf walk: ungated floor 31, W-2 single 36, MFJ full 47, max 53", "",
+     "Audit 2026-06-15 (Lens-3 + B2). The start CTA promised 'Takes 5-8 minutes. About 25 questions' but no path yields ~25 (floor is 31). Corrected to 'Takes 10-20 minutes. About 30-50 questions, depending on your situation.' Also fixed a user-visible help-text typo (\"youre\" -> \"you're\") in the term-life question (N3)."),
 ]
 
 # Build Excel workbook

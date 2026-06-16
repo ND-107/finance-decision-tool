@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-06-15 — System audit fixes (live factual errors)
+
+Live-content corrections from a 5-lens adversarial audit (plan soundness / content / diagnostic-UX / code / edge-cases) plus a 20,194-evaluation mechanical simulation (which found zero structural bugs). The mechanical pass confirmed: no empty plans, every action `nodeKey` resolves, no income-type inconsistencies, no earned-income advice for income-less households, all `showIf` satisfiable.
+
+Confirmed factual errors fixed (each re-verified against IRS primary sources before changing):
+- **EITC maxima** (critical low-income action): stale 2024-era "$4,200 / $7,000 / $7,830 / $600-650" → 2026 **$4,427 / $7,316 / $8,231 / $664** (Rev. Proc. 2025-32). [CL484]
+- **§415(b) DB cap**: "$275,000 (2026)" → **$290,000** (Notice 2025-67; $275K was the 2024 value). [CL485]
+- **Kiddie-tax threshold**: "$2,600 (2026)" → **$2,700** (Rev. Proc. 2025-32). [CL486]
+- **Diagnostic honesty**: start CTA "Takes 5-8 minutes. About 25 questions" → **"Takes 10-20 minutes. About 30-50 questions"** — no answer path yields ~25 (ungated floor is 31; typical 36-47). [CL487]
+- **Help-text typo**: "youre" → "you're" (term-life question).
+
+Two auditor flags **dismissed as false positives** after verification: the IDR-example FPL ($15,960 is the correct 2026 HHS guideline; the apparent ACA-cliff "contradiction" is legitimate — IDR uses current-year FPL, ACA coverage-year-2026 uses prior-year, per CL480); and the §199A single threshold ($201,775/$276,775 are confirmed correct for 2026 — single = "all other returns").
+
+Audit CL484-CL487 added; xlsx regenerated. (Logic/design findings — e.g. earned-income guard on the IRA action, safety-net targeting, SS-claiming for already-retired — are tracked separately for review since they change recommendations; the v2 rebuild's priority model already addresses several.)
+
 ## 2026-06-15 — Standard-deduction correction (surfaced by the v2 figures-layer audit)
 
 A follow-on single-figure hotfix to `main`, found while building the v2 figures data layer (`src/data/figures.json` on the `v2` branch) — a workflow that live-verified all 46 indexed statutory figures in the artifact against 2026 primary sources. 45/46 confirmed correct (including every Phase 0 fix); this was the one new staleness.
