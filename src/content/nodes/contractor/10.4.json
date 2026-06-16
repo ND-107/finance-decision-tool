@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "decumul",
+  "marker": "10.4",
+  "title": "Long-term care",
+  "summary": "Same logic as W-2.",
+  "badges": [],
+  "detailsHtml": "<p>See W-2 node 10.4. The contractor consideration: business sale proceeds (if applicable) often arrive in your 60s, providing a discrete capital event that can fund LTC self-insurance or hybrid policy premiums.</p>",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.4', title: 'Long-term care',\n    summary: 'Same logic as W-2.',\n    details: `<p>See W-2 node 10.4. The contractor consideration: business sale proceeds (if applicable) often arrive in your 60s, providing a discrete capital event that can fund LTC self-insurance or hybrid policy premiums.</p>`\n  }",
+  "lead": ",\n  "
+}

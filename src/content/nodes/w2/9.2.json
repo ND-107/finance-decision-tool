@@ -1,0 +1,13 @@
+{
+  "income": "w2",
+  "phase": "advanced",
+  "marker": "9.2",
+  "title": "Open a taxable brokerage with tax-efficient holdings",
+  "summary": "Once tax-advantaged space is exhausted, the taxable account is the unlimited next bucket. Hold tax-efficient assets here.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Asset location strategy</h4>\n      <p>Different assets generate different types of taxable income. Optimizing where you hold which asset can add 0.2–0.5% per year in after-tax returns — meaningful over decades.</p>\n      <ul>\n        <li><strong>Taxable account:</strong> Broad-market equity index funds and ETFs. They generate mostly long-term capital gains and qualified dividends, taxed at preferential rates (0–20% plus 3.8% NIIT for higher earners). Municipal bonds also belong here if you're in a high bracket.</li>\n        <li><strong>Tax-deferred (Traditional 401(k), Traditional IRA):</strong> Bonds and other ordinary-income generators. Their interest would otherwise be taxed at marginal rates of up to 37%; shielding them is high-value.</li>\n        <li><strong>Roth (Roth IRA, Roth 401(k)):</strong> Highest-expected-growth assets — small-cap, emerging markets, growth equities. Tax-free growth is most valuable on the assets that grow the most.</li>\n      </ul>\n    ",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.2', title: 'Open a taxable brokerage with tax-efficient holdings',\n    summary: 'Once tax-advantaged space is exhausted, the taxable account is the unlimited next bucket. Hold tax-efficient assets here.',\n    badges: ['new'],\n    details: `\n      <h4>Asset location strategy</h4>\n      <p>Different assets generate different types of taxable income. Optimizing where you hold which asset can add 0.2–0.5% per year in after-tax returns — meaningful over decades.</p>\n      <ul>\n        <li><strong>Taxable account:</strong> Broad-market equity index funds and ETFs. They generate mostly long-term capital gains and qualified dividends, taxed at preferential rates (0–20% plus 3.8% NIIT for higher earners). Municipal bonds also belong here if you're in a high bracket.</li>\n        <li><strong>Tax-deferred (Traditional 401(k), Traditional IRA):</strong> Bonds and other ordinary-income generators. Their interest would otherwise be taxed at marginal rates of up to 37%; shielding them is high-value.</li>\n        <li><strong>Roth (Roth IRA, Roth 401(k)):</strong> Highest-expected-growth assets — small-cap, emerging markets, growth equities. Tax-free growth is most valuable on the assets that grow the most.</li>\n      </ul>\n    `\n  }",
+  "lead": ",\n  "
+}

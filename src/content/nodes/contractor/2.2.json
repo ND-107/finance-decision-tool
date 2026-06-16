@@ -1,0 +1,14 @@
+{
+  "income": "contractor",
+  "phase": "safety",
+  "marker": "2.2",
+  "title": "Mandatory: long-term disability insurance",
+  "summary": "No employer means no group disability coverage. The single most important insurance for working-age contractors.",
+  "badges": [
+    "critical",
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Why this is non-negotiable</h4>\n      <p>A W-2 employee usually has at least basic short-term disability through their employer. A contractor has nothing. For someone whose income depends entirely on their ability to work, a disabling injury or illness is an extinction-level financial event without insurance. Long-term disability premiums run 1–3% of income — high relative to other insurance, low relative to what they protect.</p>\n      <h4>Own-occupation coverage</h4>\n      <p>The critical clause for skilled contractors is \"own-occupation\" coverage — meaning benefits pay if you can't perform <em>your specific occupation</em>, not just any occupation. A surgeon who can answer phones at a call center is not disabled under \"any-occupation\" definitions but is clearly disabled in any meaningful sense. Own-occupation is more expensive but worth the difference for specialized professionals.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.2', title: 'Mandatory: long-term disability insurance',\n    summary: 'No employer means no group disability coverage. The single most important insurance for working-age contractors.',\n    badges: ['critical', 'new'],\n    details: `\n      <h4>Why this is non-negotiable</h4>\n      <p>A W-2 employee usually has at least basic short-term disability through their employer. A contractor has nothing. For someone whose income depends entirely on their ability to work, a disabling injury or illness is an extinction-level financial event without insurance. Long-term disability premiums run 1–3% of income — high relative to other insurance, low relative to what they protect.</p>\n      <h4>Own-occupation coverage</h4>\n      <p>The critical clause for skilled contractors is \"own-occupation\" coverage — meaning benefits pay if you can't perform <em>your specific occupation</em>, not just any occupation. A surgeon who can answer phones at a call center is not disabled under \"any-occupation\" definitions but is clearly disabled in any meaningful sense. Own-occupation is more expensive but worth the difference for specialized professionals.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

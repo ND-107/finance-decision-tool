@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "foundation",
+  "marker": "0.3",
+  "title": "Quarterly tax planning meetings with your CPA",
+  "summary": "Not just at tax time. Real-time tax planning is the difference between owing $50K and owing $150K on the same business profit.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>What gets decided in these meetings</h4>\n      <p>Estimated tax payments. Retirement plan contributions and their timing. Equipment purchases and Section 179 / bonus depreciation. Salary vs. distribution mix for S-corp owners. Reasonable salary documentation. QBI deduction optimization. State tax planning (PTET elections, multi-state apportionment). Year-end tax moves before December 31.</p>\n      <h4>What it costs</h4>\n      <p>A small-business CPA who does meaningful planning typically charges $3,000–$15,000/year depending on complexity. For most businesses generating $300K+ in profit, the tax savings vastly exceed the fees. The CPA who only files your return at year-end is providing a different (and lower-value) service.</p>\n    ",
+  "rawSource": "{\n    phase: 'foundation', marker: '0.3', title: 'Quarterly tax planning meetings with your CPA',\n    summary: 'Not just at tax time. Real-time tax planning is the difference between owing $50K and owing $150K on the same business profit.',\n    badges: ['new'],\n    details: `\n      <h4>What gets decided in these meetings</h4>\n      <p>Estimated tax payments. Retirement plan contributions and their timing. Equipment purchases and Section 179 / bonus depreciation. Salary vs. distribution mix for S-corp owners. Reasonable salary documentation. QBI deduction optimization. State tax planning (PTET elections, multi-state apportionment). Year-end tax moves before December 31.</p>\n      <h4>What it costs</h4>\n      <p>A small-business CPA who does meaningful planning typically charges $3,000–$15,000/year depending on complexity. For most businesses generating $300K+ in profit, the tax savings vastly exceed the fees. The CPA who only files your return at year-end is providing a different (and lower-value) service.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

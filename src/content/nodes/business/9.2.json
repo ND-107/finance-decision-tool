@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "advanced",
+  "marker": "9.2",
+  "title": "Mega Backdoor Roth via business 401(k)",
+  "summary": "If your 401(k) plan allows after-tax contributions plus in-plan Roth conversions, fill the after-tax space.",
+  "badges": [],
+  "detailsHtml": "<p>Setting up Mega Backdoor Roth capability in your own business 401(k) is one of the highest-leverage plan-design decisions you can make. Adds significant cost (custom plan document, more administration), but for high-income owners typically pays for itself in 1–2 years of conversions.</p>\n      <div class=\"warning\"><strong>Configure automatic in-plan Roth conversion per IRS Notice 2014-54.</strong> Earnings on after-tax contributions are ordinary-income taxable at conversion. When you're designing the plan document for the first time, spec <em>same-payroll automatic in-plan Roth conversion</em> as the default — quarterly or annual manual conversion leaks earnings to ordinary rates. The plan-document line item costs nothing extra; getting it wrong costs every participant 3–4 figures per year in unnecessary tax for the full duration the plan operates.</div>",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.2', title: 'Mega Backdoor Roth via business 401(k)',\n    summary: 'If your 401(k) plan allows after-tax contributions plus in-plan Roth conversions, fill the after-tax space.',\n    details: `<p>Setting up Mega Backdoor Roth capability in your own business 401(k) is one of the highest-leverage plan-design decisions you can make. Adds significant cost (custom plan document, more administration), but for high-income owners typically pays for itself in 1–2 years of conversions.</p>\n      <div class=\"warning\"><strong>Configure automatic in-plan Roth conversion per IRS Notice 2014-54.</strong> Earnings on after-tax contributions are ordinary-income taxable at conversion. When you're designing the plan document for the first time, spec <em>same-payroll automatic in-plan Roth conversion</em> as the default — quarterly or annual manual conversion leaks earnings to ordinary rates. The plan-document line item costs nothing extra; getting it wrong costs every participant 3–4 figures per year in unnecessary tax for the full duration the plan operates.</div>`\n  }",
+  "lead": ",\n  "
+}

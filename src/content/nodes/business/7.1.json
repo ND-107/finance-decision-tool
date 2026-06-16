@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "goals",
+  "marker": "7.1",
+  "title": "Save for near-term goals",
+  "summary": "Personal goals plus business capital needs (equipment, expansion, acquisitions).",
+  "badges": [],
+  "detailsHtml": "",
+  "rawSource": "{\n    phase: 'goals', marker: '7.1', title: 'Save for near-term goals',\n    summary: 'Personal goals plus business capital needs (equipment, expansion, acquisitions).',\n    details: ''\n  }",
+  "lead": ",\n\n  // ─── PHASE: GOALS ───\n  "
+}

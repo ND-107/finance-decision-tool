@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "advanced",
+  "marker": "9.4",
+  "title": "Tax-loss harvesting",
+  "summary": "Same mechanics as W-2. Wash sale rules apply across all account types.",
+  "badges": [],
+  "detailsHtml": "\n      <p>Contractors should be especially attentive to the wash sale rule because they often have multiple accounts (Solo 401(k), Traditional IRA used for backdoor Roth conversions, taxable brokerage, possibly a separate spousal account). The rule applies across all of them, including spousal accounts.</p>\n    ",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.4', title: 'Tax-loss harvesting',\n    summary: 'Same mechanics as W-2. Wash sale rules apply across all account types.',\n    details: `\n      <p>Contractors should be especially attentive to the wash sale rule because they often have multiple accounts (Solo 401(k), Traditional IRA used for backdoor Roth conversions, taxable brokerage, possibly a separate spousal account). The rule applies across all of them, including spousal accounts.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

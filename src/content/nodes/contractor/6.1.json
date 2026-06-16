@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "taxcore",
+  "marker": "6.1",
+  "title": "Max your HSA if eligible",
+  "summary": "Triple-tax-advantaged. Even more valuable for self-employed than W-2 because your tax burden is higher.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <p>The HSA reduces both income tax and self-employment tax (when the HSA contribution is made through an employer cafeteria plan — for sole proprietors, contributions reduce income tax but not SE tax). For a contractor in the 24% federal + 15.3% SE + 5% state bracket, an HSA contribution saves ~44 cents per dollar if structured through an S-corp; ~29 cents per dollar as a sole proprietor.</p>\n      <div class=\"math\">2026 HSA limits unchanged from W-2 path:\n  $4,400 self-only\n  $8,750 family\n  +$1,000 catch-up at 55+</div>\n    ",
+  "rawSource": "{\n    phase: 'taxcore', marker: '6.1', title: 'Max your HSA if eligible',\n    summary: 'Triple-tax-advantaged. Even more valuable for self-employed than W-2 because your tax burden is higher.',\n    badges: ['new'],\n    details: `\n      <p>The HSA reduces both income tax and self-employment tax (when the HSA contribution is made through an employer cafeteria plan — for sole proprietors, contributions reduce income tax but not SE tax). For a contractor in the 24% federal + 15.3% SE + 5% state bracket, an HSA contribution saves ~44 cents per dollar if structured through an S-corp; ~29 cents per dollar as a sole proprietor.</p>\n      <div class=\"math\">2026 HSA limits unchanged from W-2 path:\n  $4,400 self-only\n  $8,750 family\n  +$1,000 catch-up at 55+</div>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: TAX-ADV CORE ───\n  "
+}

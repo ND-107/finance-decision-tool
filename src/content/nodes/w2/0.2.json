@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "foundation",
+  "marker": "0.2",
+  "title": "Calculate your net worth",
+  "summary": "Assets minus liabilities. Updated quarterly, this is the only number that measures real progress.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Why it matters</h4>\n      <p>Income measures flow; net worth measures stock. You can earn a high income and have a negative net worth (high earners with consumer debt and no savings). You can earn modestly and accumulate substantial wealth (the millionaire-next-door pattern). Net worth is the lagging indicator that captures whether all the other decisions are working.</p>\n      <h4>What to include</h4>\n      <p>Assets: cash and equivalents, taxable brokerage balances, retirement account balances, home equity (current market value minus mortgage balance), other real estate, business interests, vehicles at realistic resale value. Liabilities: all mortgages, student loans, auto loans, credit card balances, any private debt. The remainder is your net worth. Update quarterly; the trend line matters more than the absolute number.</p>\n    ",
+  "rawSource": "{\n    phase: 'foundation', marker: '0.2', title: 'Calculate your net worth',\n    summary: 'Assets minus liabilities. Updated quarterly, this is the only number that measures real progress.',\n    details: `\n      <h4>Why it matters</h4>\n      <p>Income measures flow; net worth measures stock. You can earn a high income and have a negative net worth (high earners with consumer debt and no savings). You can earn modestly and accumulate substantial wealth (the millionaire-next-door pattern). Net worth is the lagging indicator that captures whether all the other decisions are working.</p>\n      <h4>What to include</h4>\n      <p>Assets: cash and equivalents, taxable brokerage balances, retirement account balances, home equity (current market value minus mortgage balance), other real estate, business interests, vehicles at realistic resale value. Liabilities: all mortgages, student loans, auto loans, credit card balances, any private debt. The remainder is your net worth. Update quarterly; the trend line matters more than the absolute number.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

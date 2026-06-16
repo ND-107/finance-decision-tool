@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "decumul",
+  "marker": "10.2",
+  "title": "Roth conversion ladder + 4% rule",
+  "summary": "Same as W-2 once portfolio liquid.",
+  "badges": [],
+  "detailsHtml": "<p>Business owners often have large Traditional balances (high contribution limits over decades) plus a discrete capital event from business sale. The years between business sale and Social Security claim are typically optimal for aggressive Roth conversions in low-income brackets.</p>",
+  "rawSource": "{\n    phase: 'decumul', marker: '10.2', title: 'Roth conversion ladder + 4% rule',\n    summary: 'Same as W-2 once portfolio liquid.',\n    details: `<p>Business owners often have large Traditional balances (high contribution limits over decades) plus a discrete capital event from business sale. The years between business sale and Social Security claim are typically optimal for aggressive Roth conversions in low-income brackets.</p>`\n  }",
+  "lead": ",\n  "
+}

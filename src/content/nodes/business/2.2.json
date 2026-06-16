@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "safety",
+  "marker": "2.2",
+  "title": "Business operating reserve: 3–6 months of expenses",
+  "summary": "Held in the business, separate from personal EF. Covers payroll, rent, and core operations through a revenue disruption.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <p>The business reserve is what lets you make rational decisions during a downturn rather than panic decisions. Without it, owners often slash investment, lay off productive staff, or take predatory loans at the first sign of trouble. With it, you can ride out a quarter or two of weak revenue and make better long-term choices.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.2', title: 'Business operating reserve: 3–6 months of expenses',\n    summary: 'Held in the business, separate from personal EF. Covers payroll, rent, and core operations through a revenue disruption.',\n    badges: ['new'],\n    details: `\n      <p>The business reserve is what lets you make rational decisions during a downturn rather than panic decisions. Without it, owners often slash investment, lay off productive staff, or take predatory loans at the first sign of trouble. With it, you can ride out a quarter or two of weak revenue and make better long-term choices.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

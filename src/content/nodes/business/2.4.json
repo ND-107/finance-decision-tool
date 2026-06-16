@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "safety",
+  "marker": "2.4",
+  "title": "Key person insurance and buy-sell agreements",
+  "summary": "For partnerships and multi-owner businesses, what happens if a partner dies, becomes disabled, or wants out?",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Buy-sell agreements</h4>\n      <p>A buy-sell agreement specifies what happens to ownership interests on triggering events (death, disability, voluntary exit, divorce, bankruptcy). Without one, a deceased partner's spouse may inherit the equity and become your business partner — typically a poor outcome for everyone. The agreement is typically funded by life insurance owned by the company on each owner, with proceeds used to buy out the deceased's interest.</p>\n      <h4>Key person insurance</h4>\n      <p>Separately, a business may carry life insurance on critical employees (founders, top revenue producers, irreplaceable technical talent) where the business is the beneficiary. Proceeds give the business time and capital to find a replacement without forced selling or distress.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.4', title: 'Key person insurance and buy-sell agreements',\n    summary: 'For partnerships and multi-owner businesses, what happens if a partner dies, becomes disabled, or wants out?',\n    badges: ['new'],\n    details: `\n      <h4>Buy-sell agreements</h4>\n      <p>A buy-sell agreement specifies what happens to ownership interests on triggering events (death, disability, voluntary exit, divorce, bankruptcy). Without one, a deceased partner's spouse may inherit the equity and become your business partner — typically a poor outcome for everyone. The agreement is typically funded by life insurance owned by the company on each owner, with proceeds used to buy out the deceased's interest.</p>\n      <h4>Key person insurance</h4>\n      <p>Separately, a business may carry life insurance on critical employees (founders, top revenue producers, irreplaceable technical talent) where the business is the beneficiary. Proceeds give the business time and capital to find a replacement without forced selling or distress.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

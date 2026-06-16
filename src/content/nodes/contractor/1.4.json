@@ -1,0 +1,11 @@
+{
+  "income": "contractor",
+  "phase": "essentials",
+  "marker": "1.4",
+  "title": "Minimum payments on all debts",
+  "summary": "Same as W-2 — minimum payments are sacred until you are deliberately accelerating.",
+  "badges": [],
+  "detailsHtml": "\n      <p>The contractor twist: business debt (line of credit, equipment loans) and personal debt should be tracked separately because business debt interest is typically deductible as a business expense, lowering its effective cost. A 9% business line of credit at the 24% bracket has an after-tax cost closer to 6.8% — still high, but less brutal than the headline rate.</p>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.4', title: 'Minimum payments on all debts',\n    summary: 'Same as W-2 — minimum payments are sacred until you are deliberately accelerating.',\n    details: `\n      <p>The contractor twist: business debt (line of credit, equipment loans) and personal debt should be tracked separately because business debt interest is typically deductible as a business expense, lowering its effective cost. A 9% business line of credit at the 24% bracket has an after-tax cost closer to 6.8% — still high, but less brutal than the headline rate.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

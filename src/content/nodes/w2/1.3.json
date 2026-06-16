@@ -1,0 +1,11 @@
+{
+  "income": "w2",
+  "phase": "essentials",
+  "marker": "1.3",
+  "title": "Cover health insurance and recurring healthcare",
+  "summary": "Premiums, copays, prescriptions. The \"I'll just be careful\" plan is not insurance.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>The math of going uninsured</h4>\n      <p>A single emergency department visit averages $2,500–$5,000; a non-trivial inpatient stay can run $30,000–$100,000+. Going uninsured to save $400/month exposes you to a tail risk that single-handedly negates a decade of careful saving. This is not where the optimization happens.</p>\n      <div class=\"callout\"><strong>HDHP consideration:</strong> If your employer offers a high-deductible health plan paired with an HSA, the math often favors choosing it — you get access to the most tax-advantaged account in the U.S. system. We'll address HSA prioritization in Phase 6.</div>\n    ",
+  "rawSource": "{\n    phase: 'essentials', marker: '1.3', title: 'Cover health insurance and recurring healthcare',\n    summary: 'Premiums, copays, prescriptions. The \"I\\'ll just be careful\" plan is not insurance.',\n    details: `\n      <h4>The math of going uninsured</h4>\n      <p>A single emergency department visit averages $2,500–$5,000; a non-trivial inpatient stay can run $30,000–$100,000+. Going uninsured to save $400/month exposes you to a tail risk that single-handedly negates a decade of careful saving. This is not where the optimization happens.</p>\n      <div class=\"callout\"><strong>HDHP consideration:</strong> If your employer offers a high-deductible health plan paired with an HSA, the math often favors choosing it — you get access to the most tax-advantaged account in the U.S. system. We'll address HSA prioritization in Phase 6.</div>\n    `\n  }",
+  "lead": ",\n  "
+}

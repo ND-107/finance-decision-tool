@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "safety",
+  "marker": "2.5",
+  "title": "Personal disability and life insurance",
+  "summary": "Same logic as W-2 and contractor — but with even higher stakes given multiple dependencies on owner income.",
+  "badges": [
+    "critical"
+  ],
+  "detailsHtml": "<p>Business owners often understand business insurance well and personal insurance poorly. Your family depends on you; your employees depend on you; your business value depends on you. Personal disability and life insurance at appropriate coverage levels are foundational, not optional.</p>",
+  "rawSource": "{\n    phase: 'safety', marker: '2.5', title: 'Personal disability and life insurance',\n    summary: 'Same logic as W-2 and contractor — but with even higher stakes given multiple dependencies on owner income.',\n    badges: ['critical'],\n    details: `<p>Business owners often understand business insurance well and personal insurance poorly. Your family depends on you; your employees depend on you; your business value depends on you. Personal disability and life insurance at appropriate coverage levels are foundational, not optional.</p>`\n  }",
+  "lead": ",\n  "
+}

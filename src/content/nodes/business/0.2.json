@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "foundation",
+  "marker": "0.2",
+  "title": "Set up proper bookkeeping and financial reporting",
+  "summary": "GAAP-or-near-GAAP financials reviewed monthly. P&L, balance sheet, cash flow statement.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Beyond the contractor bookkeeping</h4>\n      <p>A contractor needs to track income and expenses. A multi-employee business needs to monitor margins by service line, customer profitability, working capital ratios, employee productivity, and cash conversion cycles. The required granularity scales with complexity.</p>\n      <h4>The minimum reporting stack</h4>\n      <p>Monthly P&L compared to budget and prior year. Monthly balance sheet with notable changes flagged. Weekly cash flow forecast looking 13 weeks out. Quarterly review of customer concentration, AR aging, and key metric trends. This is bookkeeping graduating into management accounting.</p>\n      <div class=\"callout\"><strong>The fractional CFO inflection point:</strong> Around $1M revenue or 5–10 employees, most owners benefit from engaging a fractional CFO (15–30 hours/month at $150–$350/hour). Earlier than that and the cost outweighs the benefit; later and you've usually accumulated bad habits that take years to correct.</div>\n    ",
+  "rawSource": "{\n    phase: 'foundation', marker: '0.2', title: 'Set up proper bookkeeping and financial reporting',\n    summary: 'GAAP-or-near-GAAP financials reviewed monthly. P&L, balance sheet, cash flow statement.',\n    badges: ['new'],\n    details: `\n      <h4>Beyond the contractor bookkeeping</h4>\n      <p>A contractor needs to track income and expenses. A multi-employee business needs to monitor margins by service line, customer profitability, working capital ratios, employee productivity, and cash conversion cycles. The required granularity scales with complexity.</p>\n      <h4>The minimum reporting stack</h4>\n      <p>Monthly P&L compared to budget and prior year. Monthly balance sheet with notable changes flagged. Weekly cash flow forecast looking 13 weeks out. Quarterly review of customer concentration, AR aging, and key metric trends. This is bookkeeping graduating into management accounting.</p>\n      <div class=\"callout\"><strong>The fractional CFO inflection point:</strong> Around $1M revenue or 5–10 employees, most owners benefit from engaging a fractional CFO (15–30 hours/month at $150–$350/hour). Earlier than that and the cost outweighs the benefit; later and you've usually accumulated bad habits that take years to correct.</div>\n    `\n  }",
+  "lead": ",\n  "
+}

@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "safety",
+  "marker": "2.3",
+  "title": "Term life insurance if anyone depends on your income",
+  "summary": "Spouse, children, aging parents — anyone whose financial stability depends on your earning continuation.",
+  "badges": [
+    "critical"
+  ],
+  "detailsHtml": "\n      <h4>Same logic as W-2, sharper consequences</h4>\n      <p>The contractor's family has no employer life insurance to fall back on. If you have dependents, term life coverage at 10–12x annual income is a baseline. Premiums for healthy 30–40 year-olds run $20–$50/month for a $1M 20-year term policy — among the highest return-on-premium products in personal finance, hopefully unused.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.3', title: 'Term life insurance if anyone depends on your income',\n    summary: 'Spouse, children, aging parents — anyone whose financial stability depends on your earning continuation.',\n    badges: ['critical'],\n    details: `\n      <h4>Same logic as W-2, sharper consequences</h4>\n      <p>The contractor's family has no employer life insurance to fall back on. If you have dependents, term life coverage at 10–12x annual income is a baseline. Premiums for healthy 30–40 year-olds run $20–$50/month for a $1M 20-year term policy — among the highest return-on-premium products in personal finance, hopefully unused.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

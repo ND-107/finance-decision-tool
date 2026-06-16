@@ -1,0 +1,11 @@
+{
+  "income": "business",
+  "phase": "advanced",
+  "marker": "9.4",
+  "title": "Charitable strategies: DAFs, CRTs, charitable LLCs",
+  "summary": "Donor-advised funds, charitable remainder trusts, qualified charitable distributions from IRAs. Tax-advantaged philanthropy.",
+  "badges": [],
+  "detailsHtml": "\n      <h4>Donor-Advised Funds</h4>\n      <p>Contribute appreciated securities (avoiding capital gains), take an immediate full-value charitable deduction, then distribute to charities over time. Effective for \"bunching\" deductions in high-income years to clear the standard deduction threshold.</p>\n      <h4>Charitable Remainder Trusts</h4>\n      <p>Transfer appreciated assets into a CRT, receive income for life (or term of years), with remainder going to charity. Immediate partial deduction, deferral of capital gains, lifetime income stream. Useful for business owners selling a business with low basis.</p>\n    ",
+  "rawSource": "{\n    phase: 'advanced', marker: '9.4', title: 'Charitable strategies: DAFs, CRTs, charitable LLCs',\n    summary: 'Donor-advised funds, charitable remainder trusts, qualified charitable distributions from IRAs. Tax-advantaged philanthropy.',\n    details: `\n      <h4>Donor-Advised Funds</h4>\n      <p>Contribute appreciated securities (avoiding capital gains), take an immediate full-value charitable deduction, then distribute to charities over time. Effective for \"bunching\" deductions in high-income years to clear the standard deduction threshold.</p>\n      <h4>Charitable Remainder Trusts</h4>\n      <p>Transfer appreciated assets into a CRT, receive income for life (or term of years), with remainder going to charity. Immediate partial deduction, deferral of capital gains, lifetime income stream. Useful for business owners selling a business with low basis.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

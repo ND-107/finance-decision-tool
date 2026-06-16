@@ -1,0 +1,13 @@
+{
+  "income": "business",
+  "phase": "highdebt",
+  "marker": "4.2",
+  "title": "Business debt strategy depends on growth ROI",
+  "summary": "Business debt isn't automatically \"high interest\" — if reinvested capital returns more than the debt cost, leverage can be wealth-creating.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>The leverage decision</h4>\n      <p>For business debt, the right comparison isn't \"rate vs. expected investment return\" — it's \"rate vs. marginal return on capital deployed in the business.\" A 10% business loan funding a marketing campaign that returns 40% on invested capital is wealth-creating, even at a \"high\" headline rate. A 6% loan funding equipment that returns 4% is wealth-destroying.</p>\n      <h4>The owner-personal-guarantee issue</h4>\n      <p>Most small-business debt requires owner personal guarantees, meaning the business debt is also functionally personal debt. This shifts the calculus — you're not just risking the business if it fails, you're risking your personal assets. Personal guarantees should be reviewed and renegotiated as the business builds credit history.</p>\n    ",
+  "rawSource": "{\n    phase: 'highdebt', marker: '4.2', title: 'Business debt strategy depends on growth ROI',\n    summary: 'Business debt isn\\'t automatically \"high interest\" — if reinvested capital returns more than the debt cost, leverage can be wealth-creating.',\n    badges: ['new'],\n    details: `\n      <h4>The leverage decision</h4>\n      <p>For business debt, the right comparison isn't \"rate vs. expected investment return\" — it's \"rate vs. marginal return on capital deployed in the business.\" A 10% business loan funding a marketing campaign that returns 40% on invested capital is wealth-creating, even at a \"high\" headline rate. A 6% loan funding equipment that returns 4% is wealth-destroying.</p>\n      <h4>The owner-personal-guarantee issue</h4>\n      <p>Most small-business debt requires owner personal guarantees, meaning the business debt is also functionally personal debt. This shifts the calculus — you're not just risking the business if it fails, you're risking your personal assets. Personal guarantees should be reviewed and renegotiated as the business builds credit history.</p>\n    `\n  }",
+  "lead": ",\n  "
+}

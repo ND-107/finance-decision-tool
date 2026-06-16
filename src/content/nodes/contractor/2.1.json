@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "safety",
+  "marker": "2.1",
+  "title": "Build a starter emergency fund — three months for contractors",
+  "summary": "Larger than the W-2 starter EF because contractor income is lumpy from day one.",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>Why bigger</h4>\n      <p>The starter EF for a W-2 worker is $1,000 or one month because their next paycheck is largely predictable. The contractor's \"next paycheck\" may not arrive for 60–90 days if a client delays, drops out, or fails to pay. Three months of essential personal expenses is the floor; six months is reasonable.</p>\n      <h4>Personal vs. business EF</h4>\n      <p>You actually need two reserves. The personal EF covers personal essentials if business income dries up. The business EF covers business operating expenses (software, contractor labor, professional dues) for 2–3 months. They serve different functions and should be funded separately.</p>\n    ",
+  "rawSource": "{\n    phase: 'safety', marker: '2.1', title: 'Build a starter emergency fund — three months for contractors',\n    summary: 'Larger than the W-2 starter EF because contractor income is lumpy from day one.',\n    badges: ['new'],\n    details: `\n      <h4>Why bigger</h4>\n      <p>The starter EF for a W-2 worker is $1,000 or one month because their next paycheck is largely predictable. The contractor's \"next paycheck\" may not arrive for 60–90 days if a client delays, drops out, or fails to pay. Three months of essential personal expenses is the floor; six months is reasonable.</p>\n      <h4>Personal vs. business EF</h4>\n      <p>You actually need two reserves. The personal EF covers personal essentials if business income dries up. The business EF covers business operating expenses (software, contractor labor, professional dues) for 2–3 months. They serve different functions and should be funded separately.</p>\n    `\n  }",
+  "lead": ",\n\n  // ─── PHASE: SAFETY ───\n  "
+}

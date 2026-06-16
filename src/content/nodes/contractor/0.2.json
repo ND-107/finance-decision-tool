@@ -1,0 +1,13 @@
+{
+  "income": "contractor",
+  "phase": "foundation",
+  "marker": "0.2",
+  "title": "Build a bookkeeping system before you need one",
+  "summary": "QuickBooks Self-Employed, Wave (free), or a well-structured spreadsheet. The trap is \"I'll set it up later.\"",
+  "badges": [
+    "new"
+  ],
+  "detailsHtml": "\n      <h4>What needs to be tracked</h4>\n      <p>Income by client and date. Expenses by category (the IRS Schedule C categories: advertising, car/truck, contract labor, supplies, travel, meals, home office, software, professional services, etc.). Mileage if you drive for business. Receipts retained for any expense over $75 (IRS substantiation threshold) and ideally for everything.</p>\n      <h4>The home office deduction</h4>\n      <p>If you have a space used regularly and exclusively for business, you can deduct a proportional share of rent/mortgage interest, utilities, insurance, and depreciation. The simplified method is $5/sq ft up to 300 sq ft ($1,500 max); the actual method requires more documentation but often produces a larger deduction. Track this from day one if applicable.</p>\n    ",
+  "rawSource": "{\n    phase: 'foundation', marker: '0.2', title: 'Build a bookkeeping system before you need one',\n    summary: 'QuickBooks Self-Employed, Wave (free), or a well-structured spreadsheet. The trap is \"I\\'ll set it up later.\"',\n    badges: ['new'],\n    details: `\n      <h4>What needs to be tracked</h4>\n      <p>Income by client and date. Expenses by category (the IRS Schedule C categories: advertising, car/truck, contract labor, supplies, travel, meals, home office, software, professional services, etc.). Mileage if you drive for business. Receipts retained for any expense over $75 (IRS substantiation threshold) and ideally for everything.</p>\n      <h4>The home office deduction</h4>\n      <p>If you have a space used regularly and exclusively for business, you can deduct a proportional share of rent/mortgage interest, utilities, insurance, and depreciation. The simplified method is $5/sq ft up to 300 sq ft ($1,500 max); the actual method requires more documentation but often produces a larger deduction. Track this from day one if applicable.</p>\n    `\n  }",
+  "lead": ",\n  "
+}
