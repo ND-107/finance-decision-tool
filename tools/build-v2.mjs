@@ -58,6 +58,7 @@ const QUESTIONS = ${JSON.stringify(json('src', 'content', 'questions.json'))};
 const questions = QUESTIONS;
 const DEADLINES = ${JSON.stringify(json('src', 'data', 'deadlines.json'))};
 const IMPACT = ${JSON.stringify(json('src', 'data', 'impact.json'))};
+const FIGURES = ${JSON.stringify(json('src', 'data', 'figures.json'))};
 const NODES = ${JSON.stringify(buildNodes())};
 const TODAY = ${JSON.stringify(new Date().toISOString().slice(0, 10))};
 `;

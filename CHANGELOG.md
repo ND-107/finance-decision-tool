@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 5 (trust + export surfaces) [branch `v2`, local-only]
+
+The trust-and-utility core of Phase 5 — making the plan shareable and the numbers' provenance visible. Three self-contained surfaces, all client-side (single-file invariant holds):
+
+- **Figures banner + sources panel** — a freshness line in the plan ("TY2026 figures · verified Jun 15, 2026 · 46 values, none expired", green/red dot) that expands to every indexed dollar figure with its primary source, verified date, and expiry. Surfaces the vintage-stamped figures layer (`src/data/figures.json`, now inlined into the bundle) — the audited source-of-truth that was previously invisible to users.
+- **Plan export** — *Copy as Markdown* (Tier-1 + stages with `because` + skip ledger, as a checklist for a spouse/CPA/future-you) and *Print one-pager* (a print stylesheet that strips the diagnostic, tools, toggles, and sensitivity, leaving a clean plan — masthead, figures trust line, Tier-1, stages).
+- **Calendar export (.ics)** — for any action carrying a concrete deadline (e.g., Parent PLUS consolidation @ 2026-07-01), a button downloads an RFC-5545 VCALENDAR (all-day VEVENTs, escaped + 75-char line-folded); the button only appears when dated deadlines exist.
+
+`src/ui/app.mjs` adds the surfaces; `src/ui/styles.css` adds their styles + the `@media print` one-pager rules; `tools/build-v2.mjs` inlines `FIGURES`. `dist/v2.html` 313 KB → 330 KB.
+
+**Verification (real headless Chrome, two pre-seeded profiles):** banner shows 46 source rows; Copy-as-Markdown produces well-formed checklist markdown; `.ics` is a valid VCALENDAR (canonical profile → 0 VEVENTs + button hidden; federal-loans profile → 1 VEVENT, Parent PLUS @ 2026-07-01, DATE-valued DTSTART); print-to-PDF yields a clean plan-only one-pager. All 8 core gates still green.
+
+Remaining Phase 5 items (deferred): the 447-claim `<cl>` sources toggle, `#deep/links` hash routing, client-side search index, and mid-bracket scenario toggles over the sensitivity machinery.
+
 ## 2026-06-15 — v2 Phase 4: action prose ("why this / why now") on the cards [branch `v2`, local-only]
 
 v2 cards now justify themselves. v1's computePlan builds each action's `reason` (why it matters) and `because` (the personalized "why now / why you") inline — often via ternaries / conditional assignment over the answers. The v2 rule engine reproduced the *decisions* but had dropped the prose (`reason:''`). Phase 4 recovers it, byte-for-byte.

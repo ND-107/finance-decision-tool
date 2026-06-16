@@ -93,3 +93,33 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .sens-bar { width: 90px; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
 .sens-fill { display: block; height: 100%; background: var(--accent); }
 .sens-n { width: 22px; text-align: right; color: var(--muted); }
+
+/* Phase 5 — trust + utility surfaces */
+.plan-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tool-btn { font: inherit; font-size: 12.5px; padding: 6px 12px; border: 1px solid var(--line); background: var(--panel); border-radius: 999px; cursor: pointer; color: var(--ink); min-height: 32px; }
+.tool-btn:hover { border-color: var(--accent); color: var(--accent); }
+.figures { margin-bottom: 18px; font-size: 12.5px; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; background: var(--panel); }
+.figures > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; }
+.figures > summary::-webkit-details-marker { display: none; }
+.fig-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.fig-dot.ok { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.fig-dot.stale { background: var(--crit); box-shadow: 0 0 0 3px var(--crit-soft); }
+.fig-note { color: var(--muted); margin: 10px 0 8px; line-height: 1.5; }
+.fig-row { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 5px 0; border-top: 1px solid var(--line); }
+.fig-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.fig-src { color: var(--muted); }
+.flash { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 9px 16px; border-radius: 999px; font-size: 13px; z-index: 50; box-shadow: 0 6px 22px rgba(0,0,0,.22); }
+.sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+@media print {
+  :root { --bg: #fff; }
+  .diagnostic, .masthead .ghost, .plan-tools, .sensitivity, .detail, .detail-toggle, .skip-reason, .fig-note, .fig-row, .skip-item { display: none !important; }
+  .layout { display: block; }
+  .plan { position: static; }
+  .figures { border: none; padding: 0; margin: 6px 0 0; }
+  .figures > summary { font-weight: 400; color: var(--muted); font-size: 11px; }
+  .action { break-inside: avoid; border-color: #ccc; }
+  .tier1 { border-color: #999; }
+  body { font-size: 11.5px; }
+  .masthead h1 { font-size: 22px; }
+}

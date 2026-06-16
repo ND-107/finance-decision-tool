@@ -9,7 +9,7 @@
 // core-8 answers and sharpens as more are answered. Completion loop: marking an
 // action done recomputes the plan and migrates it to the skip ledger.
 
-/* global QUESTIONS, NODES, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity */
+/* global QUESTIONS, NODES, FIGURES, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity */
 
 const LS_KEY = 'fdt2:state';
 const CORE8 = ['incomeTypes', 'filingStatus', 'ageBracket', 'taxBracket', 'emergencyFund', 'highInterestDebt', 'healthInsurance', 'employerMatch'];
@@ -129,6 +129,113 @@ function buildPlan() {
 
 const STAGE_LABEL = { now: 'Do now', 'next-quarter': 'Next quarter', 'this-year': 'This year', eventually: 'Eventually' };
 const STAGE_SUB = { now: 'This week or month', 'next-quarter': 'Within 3 months', 'this-year': 'Within 12 months', eventually: 'Plan for, optimize over time' };
+const STAGE_ORDER = ['now', 'next-quarter', 'this-year', 'eventually'];
+
+// =================== Phase 5: trust + utility surfaces ===================
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const fmtDate = (iso) => { const [y, m, d] = (iso || '').split('-'); return m ? `${MONTHS[+m - 1]} ${+d}, ${y}` : iso; };
+const stripHtml = (s) => (s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
+function figuresSummary() {
+  const ids = Object.keys(FIGURES);
+  let verified = '', expired = 0, taxYear = null;
+  for (const k of ids) {
+    const f = FIGURES[k];
+    if (f.verified > verified) verified = f.verified;
+    if (f.expires && f.expires < TODAY) expired++;
+    if (taxYear == null) taxYear = f.taxYear;
+  }
+  return { count: ids.length, verified, expired, taxYear };
+}
+
+// "TY2026 figures · verified Jun 15, 2026 · 46 values, none expired" + expandable source list.
+function figuresBanner() {
+  const s = figuresSummary();
+  const fresh = s.expired === 0;
+  const summary = el('summary', { class: 'fig-summary' }, [
+    el('span', { class: `fig-dot ${fresh ? 'ok' : 'stale'}`, 'aria-hidden': 'true' }),
+    el('span', {}, `TY${s.taxYear} figures · verified ${fmtDate(s.verified)} · ${s.count} values${fresh ? ', none expired' : `, ${s.expired} expired`}`),
+  ]);
+  const rows = Object.keys(FIGURES).sort().map((k) => el('div', { class: 'fig-row' }, [
+    el('span', { class: 'fig-val' }, FIGURES[k].display),
+    el('span', { class: 'fig-src' }, `${FIGURES[k].source} · verified ${fmtDate(FIGURES[k].verified)} · expires ${fmtDate(FIGURES[k].expires)}`),
+  ]));
+  return el('details', { class: 'figures' }, [
+    summary,
+    el('p', { class: 'fig-note' }, 'Every indexed dollar figure this tool relies on, each live-verified against its primary source on the date shown — never carried over from memory. Not financial or tax advice.'),
+    ...rows,
+  ]);
+}
+
+// Export row: copy-as-markdown, print one-pager, .ics for any dated deadlines.
+function planTools(plan) {
+  const dated = plan.actions.filter((a) => a.deadline && a.deadline.dueDate);
+  return el('div', { class: 'plan-tools' }, [
+    el('button', { class: 'tool-btn', type: 'button', onclick: () => copyText(planToMarkdown(plan)) }, '⧉ Copy as Markdown'),
+    el('button', { class: 'tool-btn', type: 'button', onclick: () => window.print() }, '🖶 Print one-pager'),
+    dated.length ? el('button', { class: 'tool-btn', type: 'button', onclick: () => download('finance-plan-deadlines.ics', planToICS(plan), 'text/calendar') }, `📅 ${dated.length} deadline${dated.length === 1 ? '' : 's'} → calendar`) : null,
+  ]);
+}
+
+function mdItem(a) {
+  let s = `- [ ] **${a.title}**`;
+  if (a.because) s += ` — ${stripHtml(a.because)}`;
+  if (a.deadline && a.deadline.dueDate) s += `  ⏰ due ${a.deadline.dueDate}`;
+  else if ((a.tags || []).includes('critical')) s += '  ⚑ critical';
+  return s;
+}
+function planToMarkdown(plan) {
+  const s = figuresSummary();
+  const L = ['# Your prioritized personal-finance plan', '',
+    `_Personal Finance Decision Tool · TY${s.taxYear} figures, verified ${fmtDate(s.verified)} · not financial or tax advice._`, ''];
+  const t1 = plan.actions.filter((a) => a.tier1);
+  if (t1.length) { L.push('## Start here — this week'); t1.forEach((a) => L.push(mdItem(a))); L.push(''); }
+  for (const st of STAGE_ORDER) {
+    const acts = plan.actions.filter((a) => a.stage === st);
+    if (!acts.length) continue;
+    L.push(`## ${STAGE_LABEL[st]} — ${STAGE_SUB[st]}`);
+    acts.forEach((a) => L.push(mdItem(a)));
+    L.push('');
+  }
+  if (plan.skipped.length) { L.push("## Doesn't apply to you"); plan.skipped.forEach((x) => L.push(`- ${x.title}`)); L.push(''); }
+  return L.join('\n');
+}
+
+const icsEscape = (s) => stripHtml(s).replace(/[\\,;]/g, (m) => '\\' + m).replace(/\n/g, '\\n');
+// RFC 5545 §3.1 content-line folding: split >75 chars, continuation lines start
+// with a space. Char-based (never splits a codepoint) — within tolerance for all
+// real calendar clients.
+function icsFold(line) {
+  if (line.length <= 75) return line;
+  const out = [line.slice(0, 75)];
+  for (let i = 75; i < line.length; i += 74) out.push(' ' + line.slice(i, i + 74));
+  return out.join('\r\n');
+}
+function planToICS(plan) {
+  const stamp = TODAY.replace(/-/g, '') + 'T000000Z';
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//finance-decision-tool//v2//EN', 'CALSCALE:GREGORIAN'];
+  for (const a of plan.actions.filter((x) => x.deadline && x.deadline.dueDate)) {
+    lines.push('BEGIN:VEVENT', `UID:${a.key}@finance-decision-tool`, `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${a.deadline.dueDate.replace(/-/g, '')}`,
+      `SUMMARY:${icsEscape(a.title)}`, `DESCRIPTION:${icsEscape(a.because || '')}`, 'END:VEVENT');
+  }
+  lines.push('END:VCALENDAR');
+  return lines.map(icsFold).join('\r\n');
+}
+
+function flash(msg) { const n = el('div', { class: 'flash' }, msg); document.body.append(n); setTimeout(() => n.remove(), 1800); }
+function fallbackCopy(text, cb) { const ta = el('textarea', { class: 'sr-only' }, text); document.body.append(ta); ta.select(); try { document.execCommand('copy'); cb(); } catch { /* noop */ } ta.remove(); }
+function copyText(text) {
+  const ok = () => flash('Copied to clipboard');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, () => fallbackCopy(text, ok));
+  else fallbackCopy(text, ok);
+}
+function download(name, text, mime) {
+  const url = URL.createObjectURL(new Blob([text], { type: mime }));
+  const a = el('a', { href: url, download: name }); document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  flash('Downloaded ' + name);
+}
 
 function planPanel() {
   const wrap = el('aside', { class: 'plan' });
@@ -145,6 +252,8 @@ function planPanel() {
     el('h3', {}, 'Your prioritized plan'),
     el('p', {}, `${plan.actions.length} action${plan.actions.length === 1 ? '' : 's'} · ${answeredCount()} answers · sequenced by impact × ease, with deadlines & safety pinned.`),
   ]));
+  wrap.append(planTools(plan));
+  wrap.append(figuresBanner());
 
   // Tier-1 "Start here"
   const t1 = plan.actions.filter((a) => a.tier1);
