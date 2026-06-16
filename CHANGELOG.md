@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (start): calculator kernel — closed-form math calcs, byte-exact [branch `v2`, local-only]
+
+Begins closing the biggest cutover gap (the ~80 interactive calculators v2 lacked). Establishes the calculator kernel + a golden-master oracle, and ports the **closed-form math tier** (5 of the math view's 8 calculators): compound interest, rule of 72, savings-rate→FI, real-vs-nominal (Fisher), and muni taxable-equivalent yield.
+
+**Approach — verbatim extraction under a DOM-input shim** (the plan-prose pattern). `tools/extract-calculators.mjs` lifts each v1 calc fn (`calcCompound`, …) **verbatim** — plus its helpers (`$val`/`fmtMoney`/`fmtMoneyFull`) and each input's `min`/`max`/`value`/`step` attributes — into `src/core/calculators/calculators.mjs`, hosting them under a shim where `document.getElementById` reads a provided inputs map and captures the result HTML, and chart side-effects are stubbed. Result: a pure, self-contained `runCalculator(name, inputs) → { id, html }` (+ `INPUT_ATTRS`, `CALCULATORS`). Zero math retyped → faithful by construction. `$val`'s clamp-to-attribute behavior is reproduced exactly (verified: `ci-rate` 999 → 30).
+
+**Verification.**
+- New 9th gate `tools/verify-calculators.mjs`: drives the **real v1 calculators in headless Chrome** (real DOM, real `$val`, real min/max attrs, select reads), capturing the *raw assigned* `innerHTML` (overriding the setter to bypass browser re-serialization), and compares to v2 across **59 input vectors / 5 calculators — byte-for-byte identical**. Non-circular (exercises v1's actual input handling vs v2's shim). Added to `verify-v2.sh` as `[9/9]`, Chrome-guarded (skips gracefully where Chrome is absent). Caught a real bug: an early re-indentation pass had corrupted the template-literal whitespace that *is* the output → fixed by emitting verbatim.
+- `src/core/calculators.test.mjs`: 9 sanity tests asserting **independently-computed** values ($500/mo·7%·30y = $609,985; Fisher 10%/3% = 6.80%; 72/8 = 9.0y; 50%-savings FI = 16.6y) — catch a wrong extraction even if v1 drifted. Surfaced that `rule72`'s "rate must be positive" guard is dead (min-clamp fires first) — faithful to v1.
+
+**Deferred (Phase 7 cont.):** the 3 chart-drawing simulators (`calcSequence`/`calcAssetLocation`/`calcHistoricalCycles`), the spending/portfolio/zeitgeist calcs, and the calculator UI component + the views/nav that host them.
+
 ## 2026-06-16 — v2 Phase 6: cutover-readiness audit + accessibility pass [branch `v2`, local-only]
 
 A 5-lens cutover audit (1 parity + 4 accessibility), then fixes for everything fixable in the UI that exists.
