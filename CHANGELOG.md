@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 5: scenario toggles ("what if you'd answered differently?") [branch `v2`, local-only]
+
+The sensitivity panel becomes interactive. It already ranked the load-bearing answers (those whose change moves the most actions); now each driver expands into **counterfactual previews** — "If you were *mid-bracket* instead → + these actions, − these" — reading the `swings` the `sensitivity()` machinery already computes (`{to, added[], removed[], delta}`, pre-sorted by delta). A pure preview: the real answers don't change.
+
+`src/ui/app.mjs` reworks `sensitivityPanel` into expandable `scenarioRow`s (added/removed action titles, green `+` / red struck-through `−`); helpers `valueLabel`/`shortLabel` turn option values into readable labels. `src/ui/styles.css` adds `.scenario`/`.swing` styles. No core change — UI-only over existing `sensitivity.mjs`.
+
+**Verified in real Chrome:** 5 drivers render and expand (15 swings); and a correctness spot-check confirms the displayed diff for the top driver's top swing **exactly matches an independent `computePlan` override + diff** (`counterfactualMatchesDirectRecompute: true`). All 8 v2 gates green.
+
 ## 2026-06-16 — v2 Phase 5 (trust + export surfaces) [branch `v2`, local-only]
 
 The trust-and-utility core of Phase 5 — making the plan shareable and the numbers' provenance visible. Three self-contained surfaces, all client-side (single-file invariant holds):

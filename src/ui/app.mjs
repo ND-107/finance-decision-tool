@@ -328,15 +328,43 @@ function toggleDone(title) {
   render();
 }
 
+// ---- sensitivity drivers, each expandable into "what if" scenario previews ----
+const questionFor = (id) => { for (const s of QUESTIONS.sections) for (const q of s.questions) if (q.id === id) return q; return null; };
+const shortLabel = (l) => (l || '').split(/—|\(/)[0].trim();
+const optLabel = (q, v) => { const o = ((q && q.options) || []).find((x) => x.v === v); return o ? o.l : String(v); };
+function valueLabel(field, value) {
+  const q = questionFor(field);
+  if (Array.isArray(value)) return value.length ? value.map((v) => shortLabel(optLabel(q, v))).join(' + ') : 'no earned income';
+  return shortLabel(optLabel(q, value));
+}
+const swingDelta = (s) => `${s.added.length ? `+${s.added.length}` : ''}${s.added.length && s.removed.length ? ' / ' : ''}${s.removed.length ? `−${s.removed.length}` : ''}`;
+
+function scenarioRow(f) {
+  const q = questionFor(f.field);
+  const swings = f.swings.filter((s) => s.delta > 0).slice(0, 4); // already delta-sorted
+  const head = el('summary', { class: 'sens-row' }, [
+    el('span', { class: 'sens-field' }, q ? q.label : f.field),
+    el('span', { class: 'sens-bar' }, el('span', { class: 'sens-fill', style: `width:${Math.min(100, f.impact * 6)}%` })),
+    el('span', { class: 'sens-n' }, `${f.impact}`),
+  ]);
+  const body = swings.length
+    ? swings.map((s) => el('div', { class: 'swing' }, [
+      el('div', { class: 'swing-q' }, [el('strong', {}, `If ${valueLabel(f.field, s.to)} instead`), el('span', { class: 'swing-delta' }, swingDelta(s))]),
+      ...s.added.map((t) => el('div', { class: 'swing-line add' }, `+ ${t}`)),
+      ...s.removed.map((t) => el('div', { class: 'swing-line rm' }, `− ${t}`)),
+    ]))
+    : [el('div', { class: 'fine' }, 'Changing this answer would not change your action set.')];
+  return el('details', { class: 'scenario' }, [head, el('div', { class: 'swings' }, body)]);
+}
+
 function sensitivityPanel() {
   let ranked;
   try { ranked = sensitivity(effectiveAnswers()).filter((f) => f.impact > 0).slice(0, 5); } catch { ranked = []; }
   if (!ranked.length) return el('div');
-  const labelFor = (id) => { for (const s of QUESTIONS.sections) for (const q of s.questions) if (q.id === id) return q.label; return id; };
   return el('details', { class: 'sensitivity' }, [
-    el('summary', {}, 'Which of your answers drive this plan?'),
-    el('p', { class: 'fine' }, 'Changing these would change the most actions — the load-bearing inputs to revisit if any are uncertain.'),
-    ...ranked.map((f) => el('div', { class: 'sens-row' }, [el('span', { class: 'sens-field' }, labelFor(f.field)), el('span', { class: 'sens-bar' }, el('span', { class: 'sens-fill', style: `width:${Math.min(100, f.impact * 6)}%` })), el('span', { class: 'sens-n' }, `${f.impact}`)])),
+    el('summary', {}, 'What drives your plan — and what if you answered differently?'),
+    el('p', { class: 'fine' }, 'These answers change the most actions. Expand one to preview the plan under a different answer — a counterfactual; your real answers don’t change.'),
+    ...ranked.map((f) => scenarioRow(f)),
   ]);
 }
 

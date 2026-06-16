@@ -93,6 +93,18 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .sens-bar { width: 90px; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
 .sens-fill { display: block; height: 100%; background: var(--accent); }
 .sens-n { width: 22px; text-align: right; color: var(--muted); }
+.scenario > summary { list-style: none; cursor: pointer; }
+.scenario > summary::-webkit-details-marker { display: none; }
+.scenario > summary .sens-field { position: relative; padding-left: 14px; }
+.scenario > summary .sens-field::before { content: '▸'; position: absolute; left: 0; color: var(--muted); font-size: 11px; }
+.scenario[open] > summary .sens-field::before { content: '▾'; }
+.swings { padding: 4px 0 10px 14px; }
+.swing { margin: 6px 0; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+.swing-q { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 4px; }
+.swing-delta { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.swing-line { font-size: 12.5px; padding: 2px 0 2px 4px; line-height: 1.4; }
+.swing-line.add { color: var(--accent); }
+.swing-line.rm { color: var(--crit); text-decoration: line-through; text-decoration-color: rgba(154,51,40,.4); }
 
 /* Phase 5 — trust + utility surfaces */
 .plan-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
