@@ -28,8 +28,11 @@ src/
 | Extraction harness + round-trip gate (§1.4) | ✅ keystone proven — `tools/{extract,build,gate}.mjs` + `roundtrip.sh`; 12-segment partition round-trips **byte-exact**; gate fails on 1 corrupted byte; extract aborts on missing anchor |
 | **Phase 2** — diagnostic schema → declarative data | 🟢 `core/predicates.mjs` (evaluator + 9 tests) · `content/questions.json` (7 sections / 53 Qs / 21 `showIf` → predicates) · behavior-equivalence proven vs live closures across 4.2M comparisons |
 | **Phase 2** — computePlan golden master (engine parity gate) | 🟢 live `computePlan` headless · 15 archetypes + 3000-vector corpus · `verify-plan-parity.mjs` |
-| **Phase 2** — data-driven plan engine | 🟢 `core/{plan-rules,derive,plan-engine}.mjs` — 660-line imperative engine → 55 declarative rule groups; **3030/3030 parity** with v1 + structurally exact (63 adds / 24 skips); 7 unit tests; `analyze-rules.mjs` static analysis (field-dependency graph, 11 plan-irrelevant fields surfaced) |
-| Remaining Phase 2 (graph projections, derived staging, explicit priority) · diagnostic v2 (Phase 3) · content (Phase 4) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued — the engine is now data, so derived staging + priority scoring (§2.2) build on top of the rule set |
+| **Phase 2** — data-driven plan engine | 🟢 `core/{plan-rules,derive,plan-engine}.mjs` — 660-line imperative engine → 55 declarative rule groups; **3030/3030 parity** + structurally exact (63 adds / 24 skips); `analyze-rules.mjs` + `verify-rules.mjs` (found/removed 2 latent v1 dead branches; proved `cascadeClear` terminates) |
+| **Phase 2/3** — deadlines as first-class | 🟢 `core/deadlines.mjs` + `data/deadlines.json` — statutory-deadline overlay (Parent PLUS 2026-07-01, §83(b) grant+30d, legacy-IDR 2028-07-01) with urgency tiers; the category v1 couldn't represent |
+| **Phase 3** — diagnostic core primitives | 🟢 `core/sensitivity.mjs` (which answers drive the plan) + `core/completion.mjs` (done/dismissed → recompute → migrate to skip ledger) — pure, tested. *UX + priority redesign deferred (needs design input).* |
+| **Phase 1.4 / 4** — node content extracted | 🟢 `content/nodes/<income>/<marker>.json` — all **93 reference nodes** as structured files; build regenerates the arrays **byte-exact** (`extract-nodes.mjs` + `build.mjs` generators), round-trip gate still green |
+| Graph projections + derived staging + explicit priority (§2.2) · rest of diagnostic v2 (Phase 3) · trust surfaces (Phase 5) · cutover (Phase 6) | ⬜ queued |
 
 ## Why figures.json first
 

@@ -4,8 +4,8 @@
 set -e
 cd "$(dirname "$0")/.."
 
-echo "→ [1/6] unit tests (predicates + plan engine)…"
-node --test src/core/predicates.test.mjs src/core/plan-engine.test.mjs >/dev/null
+echo "→ [1/6] unit tests (all src/core: predicates, engine, deadlines, sensitivity, completion)…"
+node --test src/core/*.test.mjs >/dev/null
 
 echo "→ [2/6] figures layer (vintage stamps + expiry)…"
 node tools/validate-figures.mjs >/dev/null
