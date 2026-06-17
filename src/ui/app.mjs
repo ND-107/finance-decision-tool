@@ -56,9 +56,19 @@ function render() {
   else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   // calculators run LIVE against the now-in-DOM view (text results + inline charts)
-  if (view !== 'plan') { try { wireSectionCalculators(root); } catch { /* noop */ } }
+  if (view !== 'plan') { try { wireSectionCalculators(root); associateLabels(root); } catch { /* noop */ } }
   save();
   restoreFocus(root, fk);
+}
+
+// v1's verbatim calc markup uses bare <label>X</label><input> (no for=). Associate
+// each unwrapped label with the control that follows it (WCAG 1.3.1 / 4.1.2).
+function associateLabels(root) {
+  root.querySelectorAll('label:not([for])').forEach((lab) => {
+    if (lab.querySelector('input, select, textarea')) return; // wrapping label — already named
+    const ctrl = lab.nextElementSibling;
+    if (ctrl && /^(INPUT|SELECT|TEXTAREA)$/.test(ctrl.tagName) && ctrl.id) lab.htmlFor = ctrl.id;
+  });
 }
 
 const VIEWS = [
@@ -92,9 +102,10 @@ function flowchartHTML(income, personal) {
     if (!byPhase[pk]) return '';
     const phase = PHASES[pk];
     const phaseNodes = byPhase[pk].map((n) => {
-      let cls = '', extra = '';
+      let cls = '', extra = '', interactive = true;
       if (personal) {
         const isActive = personal.activeKeys.has(`${income}:${n.marker}`);
+        interactive = isActive;
         if (!isActive) {
           cls = ' skipped';
           const nt = normTitle(n.title);
@@ -103,14 +114,17 @@ function flowchartHTML(income, personal) {
           extra = `<div class="node-skip-tag">Skipped</div><div class="node-skip-reason">${reason}</div>`;
         }
       }
+      // Interactive nodes get a real disclosure on the head (keyboard-operable, WCAG 2.1.1/4.1.2).
+      const detId = `nd-${income}-${n.marker}`;
+      const headAttrs = interactive ? ` role="button" tabindex="0" aria-expanded="false" aria-controls="${detId}"` : '';
       return `
       <div class="node ${phase.tag}${cls}" data-node-idx="${n.idx}">
-        <div class="node-head">
+        <div class="node-head"${headAttrs}>
           <div class="node-marker">${n.marker}</div>
           <div class="node-body"><div class="node-title">${n.title}</div><div class="node-summary">${n.summary}</div>${extra}</div>
-          <div class="node-toggle">+</div>
+          <div class="node-toggle" aria-hidden="true">+</div>
         </div>
-        <div class="node-details"><div class="node-details-inner">${n.details || ''}</div></div>
+        <div class="node-details" id="${detId}"><div class="node-details-inner">${n.details || ''}</div></div>
       </div>`;
     }).join('');
     return `<section class="phase"><div class="phase-header"><span class="phase-number">Phase ${String(pi).padStart(2, '0')}</span><h2 class="phase-title">${phase.name}</h2><span class="phase-rule"></span><span class="phase-color-tag ${phase.color}"></span></div><p class="phase-desc">${phase.desc}</p><div class="nodes">${phaseNodes}</div></section>`;
@@ -118,6 +132,16 @@ function flowchartHTML(income, personal) {
 }
 
 const legendHTML = () => Object.entries(PHASES).map(([, p], i) => `<div class="legend-item"><span class="legend-dot ${p.color}"></span><span class="legend-label">${String(i).padStart(2, '0')} · ${p.name}</span></div>`).join('');
+
+// Node disclosure: operable by mouse AND keyboard (Enter/Space), with aria-expanded.
+function wireNodes(flow) {
+  flow.querySelectorAll('.node-head[role="button"]').forEach((head) => {
+    const node = head.closest('.node');
+    const toggle = () => { const open = node.classList.toggle('open'); head.setAttribute('aria-expanded', String(open)); };
+    head.addEventListener('click', toggle);
+    head.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+}
 
 function personalChartView() {
   const a = state.answers || {};
@@ -144,7 +168,7 @@ function personalChartView() {
   flow.innerHTML = flowchartHTML(inc, { activeKeys, skippedMap });
   const applyBracket = () => flow.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
   applyBracket();
-  flow.querySelectorAll('.node:not(.skipped)').forEach((node) => node.addEventListener('click', () => node.classList.toggle('open')));
+  wireNodes(flow);
   wrap.querySelectorAll('#bracket-selector button').forEach((b) => b.addEventListener('click', () => {
     state.fullChartBracket = b.dataset.bracket; save();
     wrap.querySelectorAll('#bracket-selector button').forEach((x) => x.classList.toggle('active', x === b));
@@ -174,7 +198,7 @@ function fullChartView() {
   const renderChart = () => {
     flow.innerHTML = flowchartHTML(state.fullChartIncome || 'w2');
     applyBracket();
-    flow.querySelectorAll('.node').forEach((node) => node.addEventListener('click', () => node.classList.toggle('open')));
+    wireNodes(flow);
   };
   const applyBracket = () => flow.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
   const setActive = (sel, match) => wrap.querySelectorAll(sel).forEach((x) => x.classList.toggle('active', match(x)));
