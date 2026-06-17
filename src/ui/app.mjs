@@ -52,6 +52,7 @@ function render() {
   root.append(viewNav());
   const view = state.view || 'plan';
   if (view === 'full-chart') root.append(fullChartView());
+  else if (view === 'personal-chart') root.append(personalChartView());
   else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   save();
@@ -60,6 +61,7 @@ function render() {
 
 const VIEWS = [
   { id: 'plan', label: 'Your plan' },
+  { id: 'personal-chart', label: 'Your chart' },
   { id: 'full-chart', label: 'Full chart' },
   { id: 'math', label: 'The math' },
   { id: 'spending-essentials', label: 'Spending · essentials' },
@@ -78,25 +80,76 @@ function sectionView(name) {
   wireSectionCalcs(sec);
   return sec;
 }
-// ---- full framework chart (browse mode) — port of v1 renderFullChart ----
-function flowchartHTML(income) {
+// ---- framework chart — port of v1 renderFullChart / renderPersonalChart ----
+// `personal` (optional) = { activeKeys:Set, skippedMap:{} } → fade non-plan nodes.
+const normTitle = (s) => s.toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+function flowchartHTML(income, personal) {
   const nodes = FLOWCHARTS[income].nodes;
   const byPhase = {};
   nodes.forEach((n, idx) => { (byPhase[n.phase] = byPhase[n.phase] || []).push({ ...n, idx }); });
   return Object.keys(PHASES).map((pk, pi) => {
     if (!byPhase[pk]) return '';
     const phase = PHASES[pk];
-    const phaseNodes = byPhase[pk].map((n) => `
-      <div class="node ${phase.tag}" data-node-idx="${n.idx}">
+    const phaseNodes = byPhase[pk].map((n) => {
+      let cls = '', extra = '';
+      if (personal) {
+        const isActive = personal.activeKeys.has(`${income}:${n.marker}`);
+        if (!isActive) {
+          cls = ' skipped';
+          const nt = normTitle(n.title);
+          const hit = Object.keys(personal.skippedMap).find((t) => { const k = normTitle(t).slice(0, 16); return k && nt.includes(k); });
+          const reason = (hit && personal.skippedMap[hit]) ? personal.skippedMap[hit] : 'Not in your prioritized plan based on diagnostic answers.';
+          extra = `<div class="node-skip-tag">Skipped</div><div class="node-skip-reason">${reason}</div>`;
+        }
+      }
+      return `
+      <div class="node ${phase.tag}${cls}" data-node-idx="${n.idx}">
         <div class="node-head">
           <div class="node-marker">${n.marker}</div>
-          <div class="node-body"><div class="node-title">${n.title}</div><div class="node-summary">${n.summary}</div></div>
+          <div class="node-body"><div class="node-title">${n.title}</div><div class="node-summary">${n.summary}</div>${extra}</div>
           <div class="node-toggle">+</div>
         </div>
         <div class="node-details"><div class="node-details-inner">${n.details || ''}</div></div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     return `<section class="phase"><div class="phase-header"><span class="phase-number">Phase ${String(pi).padStart(2, '0')}</span><h2 class="phase-title">${phase.name}</h2><span class="phase-rule"></span><span class="phase-color-tag ${phase.color}"></span></div><p class="phase-desc">${phase.desc}</p><div class="nodes">${phaseNodes}</div></section>`;
   }).join('');
+}
+
+const legendHTML = () => Object.entries(PHASES).map(([, p], i) => `<div class="legend-item"><span class="legend-dot ${p.color}"></span><span class="legend-label">${String(i).padStart(2, '0')} · ${p.name}</span></div>`).join('');
+
+function personalChartView() {
+  const a = state.answers || {};
+  const inc = (a.incomeTypes || []).includes('business') ? 'business' : (a.incomeTypes || []).includes('contractor') ? 'contractor' : 'w2';
+  const wrap = el('section', { class: 'sectionview fullchart', 'aria-label': 'Personalized chart' });
+  if (!core8Done()) {
+    wrap.innerHTML = `<div class="plan-header"><div class="eyebrow">Personalized framework</div><h2>Your <em>filtered</em> view of the full chart.</h2><p>Answer the first few diagnostic questions (on “Your plan”), then this shows every framework step — with the ones that don't apply to you faded and labeled.</p></div>`;
+    return wrap;
+  }
+  const plan = computePlan(effectiveAnswers());
+  const activeKeys = new Set(plan.actions.map((x) => x.nodeKey));
+  const skippedMap = {};
+  plan.skipped.forEach((s) => { skippedMap[s.title] = s.reason || ''; });
+  const brk = state.fullChartBracket || 'mid';
+  const seg = BRACKET_OPTS.map(([v, l]) => `<button type="button" data-bracket="${v}"${v === brk ? ' class="active"' : ''}>${l}</button>`).join('');
+  wrap.innerHTML = `
+    <div class="plan-header"><div class="eyebrow">Personalized framework</div>
+      <h2>Your <em>filtered</em> view of the full chart.</h2>
+      <p>Every framework step for ${({ w2: 'W-2', contractor: '1099 / self-employed', business: 'business-owner' }[inc])} income; steps that don't apply to you are faded with a note.</p></div>
+    <div class="chart-controls"><div class="segmented" id="bracket-selector" role="group">${seg}</div></div>
+    <div class="legend">${legendHTML()}</div>
+    <div id="flowchart-personal"></div>`;
+  const flow = wrap.querySelector('#flowchart-personal');
+  flow.innerHTML = flowchartHTML(inc, { activeKeys, skippedMap });
+  const applyBracket = () => flow.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
+  applyBracket();
+  flow.querySelectorAll('.node:not(.skipped)').forEach((node) => node.addEventListener('click', () => node.classList.toggle('open')));
+  wrap.querySelectorAll('#bracket-selector button').forEach((b) => b.addEventListener('click', () => {
+    state.fullChartBracket = b.dataset.bracket; save();
+    wrap.querySelectorAll('#bracket-selector button').forEach((x) => x.classList.toggle('active', x === b));
+    applyBracket();
+  }));
+  return wrap;
 }
 
 const INCOME_OPTS = [['w2', 'W-2 employee'], ['contractor', '1099 / self-employed'], ['business', 'Business owner']];

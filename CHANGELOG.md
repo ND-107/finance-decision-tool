@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (cont.): personalized chart — all 14 v1 views now present [branch `v2`, local-only]
+
+The answer-filtered chart, the last missing view. `personalChartView` (port of v1 `renderPersonalChart`) renders the framework for the user's primary income type, fading every node **not in their `computePlan` result** and labeling it "Skipped". `flowchartHTML` generalized with an optional `personal` = `{activeKeys, skippedMap}` mode shared with the full chart.
+
+**Verified in real Chrome (low-bracket W-2 profile):** 28 nodes → **9 active + 19 skipped = 28**, and the 9 active nodes exactly match the 9 distinct nodeKeys `computePlan` produces (filtering is engine-correct). Bracket selector + active-node toggles work. All 10 gates green.
+
+**This completes view parity — all 14 of v1's views are in v2:** welcome · diagnostic · plan · personal-chart · full-chart · math · spending-essentials · spending-lifestyle · portfolio-bogleheads · portfolio-theory · zeitgeist-investing · zeitgeist-lifestyle · advanced-strategies. **Remaining (visual/cosmetic, no data loss):** the calculators' charts (`renderCompoundChart`/`renderSequenceChart`/`renderHistoricalFanChart` — stubbed; all numeric results are live) incl. `calcHistoricalCycles` (chart-only sim), and personal-chart skip-*reason* prose (the generic fallback shows; v2 skip items carry no reason text). Then the deploy.
+
 ## 2026-06-16 — v2 Phase 7 (cont.): full framework chart + income/bracket selectors [branch `v2`, local-only]
 
 The single biggest remaining view — v1's browsable master chart (~62% of v1) — is now in v2. It renders every node of the framework grouped by phase, with income-type and tax-bracket selectors and click-to-expand nodes.
