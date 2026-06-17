@@ -9,7 +9,7 @@
 // core-8 answers and sharpens as more are answered. Completion loop: marking an
 // action done recomputes the plan and migrates it to the skip ledger.
 
-/* global QUESTIONS, NODES, FIGURES, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, runCalculator, CALCULATORS, INPUT_ATTRS */
+/* global QUESTIONS, NODES, FIGURES, SECTIONS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, runCalculator, CALCULATORS, INPUT_ATTRS */
 
 const LS_KEY = 'fdt2:state';
 const CORE8 = ['incomeTypes', 'filingStatus', 'ageBracket', 'taxBracket', 'emergencyFund', 'highInterestDebt', 'healthInsurance', 'employerMatch'];
@@ -51,13 +51,47 @@ function render() {
   if (!state.started) { root.append(welcome()); restoreFocus(root, fk); return; }
   root.append(viewNav());
   const view = state.view || 'plan';
-  if (view === 'math') root.append(mathView());
+  if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   save();
   restoreFocus(root, fk);
 }
 
-const VIEWS = [{ id: 'plan', label: 'Your plan' }, { id: 'math', label: 'The math' }];
+const VIEWS = [
+  { id: 'plan', label: 'Your plan' },
+  { id: 'math', label: 'The math' },
+  { id: 'spending-essentials', label: 'Spending · essentials' },
+  { id: 'spending-lifestyle', label: 'Spending · lifestyle' },
+  { id: 'portfolio-bogleheads', label: 'Portfolio · Bogleheads' },
+  { id: 'portfolio-theory', label: 'Portfolio · theory' },
+  { id: 'zeitgeist-investing', label: 'Zeitgeist · investing' },
+  { id: 'zeitgeist-lifestyle', label: 'Zeitgeist · lifestyle' },
+  { id: 'advanced-strategies', label: 'Advanced' },
+];
+
+// ---- reference sections: render v1's verbatim view HTML, then wire its calculators ----
+function sectionView(name) {
+  const sec = el('section', { class: 'sectionview', 'aria-label': (VIEWS.find((v) => v.id === name) || {}).label || name });
+  sec.innerHTML = SECTIONS[name];
+  wireSectionCalcs(sec);
+  return sec;
+}
+function wireSectionCalcs(container) {
+  const byResult = {};
+  for (const c of CALCULATORS) byResult[c.resultId] = c;
+  container.querySelectorAll('[id$="-result"]').forEach((resEl) => {
+    const c = byResult[resEl.id];
+    if (!c) return; // e.g. hc-result (historical-cycles fan chart, deferred)
+    const find = (id) => container.querySelector('[id="' + id + '"]');
+    const update = () => {
+      const vals = {};
+      for (const id of c.inputs) { const e = find(id); if (e) vals[id] = e.value; }
+      resEl.innerHTML = runCalculator(c.name, vals).html;
+    };
+    for (const id of c.inputs) { const e = find(id); if (e) { e.addEventListener('input', update); e.addEventListener('change', update); } }
+    update();
+  });
+}
 function viewNav() {
   const cur = state.view || 'plan';
   return el('nav', { class: 'viewnav', 'aria-label': 'Sections' }, VIEWS.map((v) => el('button', {
@@ -403,64 +437,6 @@ function sensitivityPanel() {
     el('p', { class: 'fine' }, 'These answers change the most actions. Expand one to preview the plan under a different answer — a counterfactual; your real answers don’t change.'),
     ...ranked.map((f) => scenarioRow(f)),
   ]);
-}
-
-// =================== Phase 7: calculators ("The math" view) ===================
-// Compute is the verified-verbatim kernel (runCalculator); presentation metadata
-// (titles, input labels) is authored here. Inputs seed from INPUT_ATTRS defaults.
-const CALC_META = {
-  compound: { title: 'Compound interest', intro: 'The engine. Future value of a starting balance plus monthly contributions, compounded monthly.', inputs: [
-    { id: 'ci-pv', label: 'Starting amount ($)' }, { id: 'ci-pmt', label: 'Monthly contribution ($)' },
-    { id: 'ci-rate', label: 'Annual return (%)' }, { id: 'ci-years', label: 'Years' }] },
-  rule72: { title: 'Rule of 72 — doubling time', intro: 'How long money takes to double, triple, and quadruple at a real return — mental-math estimate vs exact.', inputs: [
-    { id: 'r72-rate', label: 'Annual real return (%)' }] },
-  savingsRate: { title: 'Savings rate → years to FI', intro: 'Your savings rate is the dominant variable. Years to financial independence from a zero balance, with an optional Social Security offset.', inputs: [
-    { id: 'sr-rate', label: 'Savings rate (%)' }, { id: 'sr-return', label: 'Real return (%)' }, { id: 'sr-wr', label: 'Withdrawal rate (%)' },
-    { id: 'sr-ss', label: 'Expected Social Security ($/yr, today’s dollars)' }, { id: 'sr-expenses', label: 'Annual expenses ($, for SS offset)' }] },
-  realNominal: { title: 'Real vs nominal return (Fisher)', intro: 'Inflation is a tax on returns. Exact Fisher equation vs the linear approximation.', inputs: [
-    { id: 'rn-nominal', label: 'Nominal return (%)' }, { id: 'rn-inflation', label: 'Inflation (%)' }] },
-  muniTEY: { title: 'Muni taxable-equivalent yield', intro: 'When municipal bonds in a taxable account beat Treasuries in tax-deferred, by combined marginal rate.', inputs: [
-    { id: 'muni-yield', label: 'Muni bond yield (%)' }, { id: 'muni-treasury', label: 'Treasury yield (%)' },
-    { id: 'muni-fed', label: 'Federal marginal rate (%)' }, { id: 'muni-state', label: 'State marginal rate (%; 0 if none)' },
-    { id: 'muni-instate', label: 'In-state muni?', options: [{ v: 'yes', l: 'Yes — fed & state exempt' }, { v: 'no', l: 'No — fed exempt only' }] },
-    { id: 'muni-niit', label: 'NIIT applies (high income)?', options: [{ v: 'no', l: 'No' }, { v: 'yes', l: 'Yes — add 3.8%' }] }] },
-};
-
-function renderCalculator(name) {
-  const meta = CALC_META[name];
-  const inputs = {};
-  const out = el('div', { class: 'calc-out', role: 'status', 'aria-live': 'polite' });
-  const recompute = () => { out.innerHTML = runCalculator(name, inputs).html; };
-  const rows = meta.inputs.map((inp) => {
-    const attrs = INPUT_ATTRS[inp.id] || {};
-    const controlId = 'calc-' + inp.id;
-    let control;
-    if (inp.options) {
-      inputs[inp.id] = inp.options[0].v;
-      control = el('select', { id: controlId, 'data-fk': `calc:${inp.id}`, onchange: (e) => { inputs[inp.id] = e.target.value; recompute(); } },
-        inp.options.map((o) => el('option', o.v === inputs[inp.id] ? { value: o.v, selected: 'selected' } : { value: o.v }, o.l)));
-    } else {
-      inputs[inp.id] = attrs.value;
-      control = el('input', { id: controlId, type: 'number', value: attrs.value, min: attrs.min, max: attrs.max, step: attrs.step, 'data-fk': `calc:${inp.id}`,
-        oninput: (e) => { inputs[inp.id] = e.target.value; recompute(); } });
-    }
-    return el('div', { class: 'calc-row' }, [el('label', { for: controlId }, inp.label), control]);
-  });
-  recompute();
-  return el('div', { class: 'calc' }, [
-    el('h3', {}, meta.title),
-    meta.intro ? el('p', { class: 'calc-intro' }, meta.intro) : null,
-    el('div', { class: 'calc-inputs' }, rows),
-    out,
-  ]);
-}
-
-function mathView() {
-  const sec = el('section', { class: 'mathview', 'aria-label': 'The math' });
-  sec.append(el('h2', {}, 'The math'));
-  sec.append(el('p', { class: 'fine' }, 'Interactive versions of the core formulas behind the plan — adjust the inputs and the result updates live. More calculators (sequence-of-returns, asset location, historical cycles) and the reference sections are being ported.'));
-  for (const c of CALCULATORS) sec.append(renderCalculator(c.name));
-  return sec;
 }
 
 function reset() {

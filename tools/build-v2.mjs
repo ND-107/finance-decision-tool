@@ -52,6 +52,14 @@ function buildNodes() {
   return nodes;
 }
 
+// ---- build the reference-section content map (view name -> verbatim v1 inner HTML) ----
+function buildSections() {
+  const dir = join(ROOT, 'src', 'content', 'sections');
+  const out = {};
+  for (const f of readdirSync(dir)) if (f.endsWith('.html')) out[f.replace(/\.html$/, '')] = read('src', 'content', 'sections', f);
+  return out;
+}
+
 // ---- assemble ----
 const inject = `// ===== inlined content/data =====
 const QUESTIONS = ${JSON.stringify(json('src', 'content', 'questions.json'))};
@@ -60,6 +68,7 @@ const DEADLINES = ${JSON.stringify(json('src', 'data', 'deadlines.json'))};
 const IMPACT = ${JSON.stringify(json('src', 'data', 'impact.json'))};
 const FIGURES = ${JSON.stringify(json('src', 'data', 'figures.json'))};
 const NODES = ${JSON.stringify(buildNodes())};
+const SECTIONS = ${JSON.stringify(buildSections())};
 const TODAY = ${JSON.stringify(new Date().toISOString().slice(0, 10))};
 `;
 
@@ -71,7 +80,7 @@ const calcMod = `// ===== src/core/calculators/calculators.mjs =====\n${strip(re
 const uiApp = `// ===== src/ui/app.mjs =====\n${strip(read('src', 'ui', 'app.mjs'))}`;
 
 const bundle = [inject, ...coreParts, planLogic, ...afterPlan, calcMod, uiApp].join('\n\n');
-const css = read('src', 'ui', 'styles.css');
+const css = read('src', 'ui', 'styles.css') + '\n\n/* ===== reference-section styles (from v1, scoped to .sectionview) ===== */\n' + read('src', 'content', 'sections', 'sections.css');
 
 const html = `<!doctype html>
 <html lang="en">

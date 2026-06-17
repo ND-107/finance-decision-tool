@@ -25,10 +25,13 @@ node tools/verify-priority.mjs >/dev/null
 echo "→ [7/9] prose parity (v2 reason/because ≡ v1-live, 3030 fixtures · ~48K actions)…"
 node tools/verify-prose-parity.mjs >/dev/null
 
-echo "→ [8/9] lossless round-trip (extract → build → byte-exact gate)…"
+echo "→ [8/10] lossless round-trip (extract → build → byte-exact gate)…"
 node tools/extract.mjs >/dev/null && node tools/build.mjs >/dev/null && node tools/gate.mjs >/dev/null
 
-echo "→ [9/9] calculator parity (v1-live Chrome vs v2 runCalculator, ~59 vectors)…"
+echo "→ [9/10] reference sections ≡ v1 (no drift; every result-id maps to a calculator)…"
+node tools/extract-sections.mjs --check >/dev/null
+
+echo "→ [10/10] calculator parity (v1-live Chrome vs v2 runCalculator, 245 vectors)…"
 if [ -x "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then
   node tools/verify-calculators.mjs >/dev/null
 else

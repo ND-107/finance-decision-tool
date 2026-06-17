@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (cont.): 8 reference views (verbatim sections + wired calculators + 9-tab nav) [branch `v2`, local-only]
+
+Closes the largest remaining parity gap after the chart views: v1's **reference encyclopedia**. The 8 reference views — The math, Spending essentials/lifestyle, Portfolio Bogleheads/theory, Zeitgeist investing/lifestyle, Advanced strategies — are now in v2.
+
+- **`tools/extract-sections.mjs`** lifts each `#view-<name>` element's inner HTML **verbatim** → `src/content/sections/<name>.html` (8 files, 358K chars of prose + calculator markup), plus the CSS rules those views need → `sections.css`. v1's palette/fonts (warm gold/cream — and `--accent`/`--bg`/`--ink` collide *by name* with v2's green/white) are **scoped to `.sectionview`** so the reference views render in v1's design without touching the v2 shell. `--check` mode is a drift gate.
+- **`app.mjs`**: `viewNav` now spans all 9 views; `sectionView` inlines a section's verbatim HTML and **auto-wires its calculators** — finds every `[id$="-result"]`, maps it to a kernel calculator, and attaches `runCalculator` recompute to its inputs. The hand-authored math component (`CALC_META`/`renderCalculator`) is **removed** in favor of v1's complete, faithful math view (7 calcs + the equation prose). `build-v2.mjs` inlines `SECTIONS` + appends `sections.css`; `dist/v2.html` 420K → **789K** (≈ v1's 826K — it now carries v1's reference content).
+
+**Verification (real Chrome):** the Math section renders (7 equation sections, 36 paragraphs); its auto-wired compound calc shows $609,985 and recomputes to $1,747,482 at 12% — **matches the kernel exactly**; switching to the Bogleheads tab renders. New gate `[9/10]`: sections re-extract identically to v1 (no drift) and every section result-id maps to a kernel calculator (or the deferred `hc-result`). All 10 gates green.
+
+**Still deferred:** `calcHistoricalCycles` (the `hc-result` fan-chart simulator), the calculators' charts (stubbed — numeric results are live), and the chart views (full-chart + bracket-selector, personal-chart).
+
 ## 2026-06-16 — v2 Phase 7 (cont.): all 21 calculators extracted + verified [branch `v2`, local-only]
 
 Scales the calculator kernel from 5 to **every closed-form calculator in v1 (21)** — compound, rule72, savings-rate, real-vs-nominal, muni-TEY, asset-location, sequence-of-returns, disability (DI), life-insurance (DIME), HSA-vs-PPO, rent-vs-buy, vehicle-TCO, dependent-care-FSA, expense-ratio, lifestyle-creep, subscription, coast-FIRE, dividend, Sharpe, efficient-frontier, die-with-zero. (Only `calcHistoricalCycles` — chart-primary, no text result — remains, pending the chart port.)

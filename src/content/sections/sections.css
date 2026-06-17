@@ -1,0 +1,210 @@
+/* v1 reference-view palette/fonts, SCOPED so they don't override the v2 shell */
+.sectionview {
+  --accent: #B8893E;
+  --accent-dark: #8B6520;
+  --bg: #F4EFE6;
+  --border: #D6CFC2;
+  --border-soft: #E5DFD2;
+  --surface: #FEFCF7;
+  --ink: #1C2128;
+  --ink-soft: #2D3540;
+  --muted: #5A6470;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  background: var(--bg); color: var(--ink); border-radius: var(--radius, 10px); padding: 8px 4px;
+  font-family: var(--font-body);
+}
+.sectionview h2, .sectionview h3, .sectionview h4 { font-family: var(--font-display); color: var(--ink); }
+
+/* ============================================================
+   MATH VIEW — Phase 2: bedrock equations + inline calculators
+   ============================================================ */
+.math-section { background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 28px; }
+.math-section-header { display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border); }
+.math-section-number { font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 — passes large-text + body */
+  font-style: italic;
+  line-height: 1; }
+.math-section-header h3 { font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2; }
+.math-section h3 em { font-style: italic;
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 */ }
+.math-content p { font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 14px 0; }
+.math-content p em { color: var(--ink); font-style: italic; }
+.math-content code,
+.math-formula code { font-family: var(--font-mono); font-size: 13.5px; }
+.math-formula { background: var(--bg);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-family: var(--font-mono);
+  font-size: 14.5px;
+  color: var(--ink);
+  letter-spacing: 0.1px;
+  overflow-x: auto; }
+.math-formula sup { font-size: 10px; vertical-align: super; }
+.math-callout { background: rgba(184, 137, 62, 0.06);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  font-style: italic; }
+.math-callout strong { color: var(--ink); font-style: normal; }
+.math-callout code { font-style: normal; }
+.model-limits { margin-top: 18px;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.025);
+  border-left: 2px solid var(--muted);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.55;
+  font-family: var(--font-body); }
+.model-limits strong { color: var(--muted); font-weight: 600; font-style: normal; }
+.calculator { background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin-top: 22px; }
+.calculator h4 { font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--ink);
+  margin: 0 0 14px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border); }
+.calc-grid { display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px; }
+.calc-row { display: flex;
+  flex-direction: column;
+  gap: 4px; }
+.calc-row label { font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+  text-transform: uppercase; }
+.calc-row input,
+.calc-row select { font-family: var(--font-mono);
+  font-size: 15px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink); }
+.calc-row input:focus,
+.calc-row select:focus { outline: none;
+  border-color: var(--accent); }
+/* Restore an outline on calc inputs (which override the default :focus) */
+.calc-row input:focus-visible,
+.calc-row select:focus-visible { outline: 2px solid var(--ink);
+  outline-offset: 1px;
+  border-color: var(--ink); }
+.calc-result { background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 18px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink); }
+.calc-result-headline { font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent-dark);  /* 2.74:1 → 4.61:1 */
+  display: block;
+  margin-bottom: 6px; }
+.calc-result-detail { color: var(--ink-soft);
+  font-size: 13.5px; }
+.calc-chart { margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px 12px; }
+.calc-chart svg { display: block; width: 100%; height: auto; }
+.calc-chart .axis-line { stroke: var(--border); stroke-width: 1; }
+.calc-chart .grid-line { stroke: var(--border-soft); stroke-width: 1; stroke-dasharray: 2 3; }
+.calc-chart .axis-label { font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--muted); }
+.calc-chart .chart-title { font-family: var(--font-body);
+  font-size: 12.5px;
+  fill: var(--ink-soft);
+  font-weight: 500; }
+.calc-chart .legend-text { font-family: var(--font-body);
+  font-size: 11.5px;
+  fill: var(--ink-soft); }
+.calc-table { width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  margin-top: 12px; }
+.calc-table th,
+.calc-table td { text-align: right;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border); }
+.calc-table th:first-child,
+.calc-table td:first-child { text-align: left; }
+.calc-table th { font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: var(--muted); }
+.calc-table tr.highlight td { background: rgba(184, 137, 62, 0.08); color: var(--ink); font-weight: 500; }
+.math-intro { background: var(--surface);
+  border-radius: 10px;
+  padding: 32px 36px;
+  margin-bottom: 32px;
+  border-left: 4px solid var(--accent); }
+.math-intro h2 { font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0 0 12px 0;
+  color: var(--ink);
+  line-height: 1.15; }
+.math-intro h2 em { font-style: italic; color: var(--accent-dark); }
+.math-intro p { font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 8px 0; }
+/* Inline calculator embedded in node details */
+.node-details-inner .calculator,
+.action-detail-inner .calculator { margin-top: 14px;
+  padding: 16px 18px; }
+.node-details-inner .calculator h4,
+.action-detail-inner .calculator h4 { font-size: 15px; }
+@media (max-width: 640px) {
+.math-section { padding: 22px 18px; }
+.math-section-header h3 { font-size: 20px; }
+.math-section-number { font-size: 28px; }
+.math-intro { padding: 22px 18px; }
+.math-intro h2 { font-size: 26px; }
+.calc-grid { grid-template-columns: 1fr 1fr; }
+}
