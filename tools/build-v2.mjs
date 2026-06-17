@@ -60,6 +60,19 @@ function buildSections() {
   return out;
 }
 
+// ---- reconstruct FLOWCHARTS (per-income ordered node arrays) for the chart views ----
+function buildFlowcharts() {
+  const fc = {};
+  for (const inc of ['w2', 'contractor', 'business']) {
+    const arr = json('src', 'content', 'nodes', inc, '_array.json');
+    fc[inc] = { nodes: arr.order.map((marker) => {
+      const rec = json('src', 'content', 'nodes', inc, `${marker}.json`);
+      return { marker: rec.marker, phase: rec.phase, title: rec.title, summary: rec.summary, details: rec.detailsHtml, badges: rec.badges || [] };
+    }) };
+  }
+  return fc;
+}
+
 // ---- assemble ----
 const inject = `// ===== inlined content/data =====
 const QUESTIONS = ${JSON.stringify(json('src', 'content', 'questions.json'))};
@@ -69,6 +82,8 @@ const IMPACT = ${JSON.stringify(json('src', 'data', 'impact.json'))};
 const FIGURES = ${JSON.stringify(json('src', 'data', 'figures.json'))};
 const NODES = ${JSON.stringify(buildNodes())};
 const SECTIONS = ${JSON.stringify(buildSections())};
+const PHASES = ${JSON.stringify(json('src', 'data', 'phases.json'))};
+const FLOWCHARTS = ${JSON.stringify(buildFlowcharts())};
 const TODAY = ${JSON.stringify(new Date().toISOString().slice(0, 10))};
 `;
 

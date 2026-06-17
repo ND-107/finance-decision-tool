@@ -1,0 +1,68 @@
+{
+  "foundation": {
+    "name": "Foundation",
+    "tag": "p-foundation",
+    "color": "tag-foundation",
+    "desc": "Know what you earn, what you spend, and what you owe. Without this layer, everything below is guessing."
+  },
+  "essentials": {
+    "name": "Essentials",
+    "tag": "p-essentials",
+    "color": "tag-essentials",
+    "desc": "Cover the costs that produce or preserve income — these come before discretionary spending, savings, or debt acceleration."
+  },
+  "safety": {
+    "name": "Initial Safety",
+    "tag": "p-safety",
+    "color": "tag-safety",
+    "desc": "A small cash buffer plus baseline insurance prevents predictable shocks from becoming financial catastrophes."
+  },
+  "match": {
+    "name": "Free Money",
+    "tag": "p-match",
+    "color": "tag-match",
+    "desc": "Capture any employer retirement match — an immediate 50–100% return that no investment can rival."
+  },
+  "highdebt": {
+    "name": "High-Interest Debt",
+    "tag": "p-highdebt",
+    "color": "tag-highdebt",
+    "desc": "Eliminate debt whose interest rate exceeds your expected real return on investments. This is a guaranteed return equal to the rate."
+  },
+  "fullef": {
+    "name": "Full Emergency Fund",
+    "tag": "p-fullef",
+    "color": "tag-fullef",
+    "desc": "Build the operational reserve sized to your income stability so you can ride out genuine disruptions without forced selling or new debt."
+  },
+  "taxcore": {
+    "name": "Tax-Advantaged Core",
+    "tag": "p-taxcore",
+    "color": "tag-taxcore",
+    "desc": "Fill the highest-leverage retirement vehicles in order of tax efficiency. The HSA is best where eligible."
+  },
+  "goals": {
+    "name": "Goals & Moderate Debt",
+    "tag": "p-goals",
+    "color": "tag-goals",
+    "desc": "Fund medium-term goals and address moderate-interest debt where prepayment beats expected after-tax returns."
+  },
+  "maxtax": {
+    "name": "Maximize Tax-Advantaged Space",
+    "tag": "p-maxtax",
+    "color": "tag-maxtax",
+    "desc": "Push toward the legal limits of tax-advantaged contributions before moving to taxable accounts."
+  },
+  "advanced": {
+    "name": "Advanced Optimization",
+    "tag": "p-advanced",
+    "color": "tag-advanced",
+    "desc": "Backdoor Roth, asset location, tax-loss harvesting, 529s, I-bonds. Compounding small edges over decades."
+  },
+  "decumul": {
+    "name": "Decumulation Planning",
+    "tag": "p-decumul",
+    "color": "tag-decumul",
+    "desc": "The withdrawal phase has different math than accumulation. Plan the exit before you need it."
+  }
+}

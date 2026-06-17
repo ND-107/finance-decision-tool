@@ -9,7 +9,7 @@
 // core-8 answers and sharpens as more are answered. Completion loop: marking an
 // action done recomputes the plan and migrates it to the skip ledger.
 
-/* global QUESTIONS, NODES, FIGURES, SECTIONS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, runCalculator, CALCULATORS, INPUT_ATTRS */
+/* global QUESTIONS, NODES, FIGURES, SECTIONS, PHASES, FLOWCHARTS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, runCalculator, CALCULATORS, INPUT_ATTRS */
 
 const LS_KEY = 'fdt2:state';
 const CORE8 = ['incomeTypes', 'filingStatus', 'ageBracket', 'taxBracket', 'emergencyFund', 'highInterestDebt', 'healthInsurance', 'employerMatch'];
@@ -51,7 +51,8 @@ function render() {
   if (!state.started) { root.append(welcome()); restoreFocus(root, fk); return; }
   root.append(viewNav());
   const view = state.view || 'plan';
-  if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
+  if (view === 'full-chart') root.append(fullChartView());
+  else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   save();
   restoreFocus(root, fk);
@@ -59,6 +60,7 @@ function render() {
 
 const VIEWS = [
   { id: 'plan', label: 'Your plan' },
+  { id: 'full-chart', label: 'Full chart' },
   { id: 'math', label: 'The math' },
   { id: 'spending-essentials', label: 'Spending · essentials' },
   { id: 'spending-lifestyle', label: 'Spending · lifestyle' },
@@ -76,6 +78,62 @@ function sectionView(name) {
   wireSectionCalcs(sec);
   return sec;
 }
+// ---- full framework chart (browse mode) — port of v1 renderFullChart ----
+function flowchartHTML(income) {
+  const nodes = FLOWCHARTS[income].nodes;
+  const byPhase = {};
+  nodes.forEach((n, idx) => { (byPhase[n.phase] = byPhase[n.phase] || []).push({ ...n, idx }); });
+  return Object.keys(PHASES).map((pk, pi) => {
+    if (!byPhase[pk]) return '';
+    const phase = PHASES[pk];
+    const phaseNodes = byPhase[pk].map((n) => `
+      <div class="node ${phase.tag}" data-node-idx="${n.idx}">
+        <div class="node-head">
+          <div class="node-marker">${n.marker}</div>
+          <div class="node-body"><div class="node-title">${n.title}</div><div class="node-summary">${n.summary}</div></div>
+          <div class="node-toggle">+</div>
+        </div>
+        <div class="node-details"><div class="node-details-inner">${n.details || ''}</div></div>
+      </div>`).join('');
+    return `<section class="phase"><div class="phase-header"><span class="phase-number">Phase ${String(pi).padStart(2, '0')}</span><h2 class="phase-title">${phase.name}</h2><span class="phase-rule"></span><span class="phase-color-tag ${phase.color}"></span></div><p class="phase-desc">${phase.desc}</p><div class="nodes">${phaseNodes}</div></section>`;
+  }).join('');
+}
+
+const INCOME_OPTS = [['w2', 'W-2 employee'], ['contractor', '1099 / self-employed'], ['business', 'Business owner']];
+const BRACKET_OPTS = [['low', 'Low · 10–12%'], ['mid', 'Middle · 22–24%'], ['high', 'High · 32%+']];
+
+function fullChartView() {
+  const inc = state.fullChartIncome || 'w2';
+  const brk = state.fullChartBracket || 'mid';
+  const seg = (id, opts, cur, attr) => `<div class="segmented" id="${id}" role="group">${opts.map(([v, l]) => `<button type="button" data-${attr}="${v}"${v === cur ? ' class="active"' : ''}>${l}</button>`).join('')}</div>`;
+  const wrap = el('section', { class: 'sectionview fullchart', 'aria-label': 'Full framework chart' });
+  wrap.innerHTML = `
+    <div class="plan-header"><div class="eyebrow">The complete framework</div>
+      <h2>Every decision, every <em>income type</em>.</h2>
+      <p>The full reference chart, independent of your diagnostic answers. Browse by income type and tax bracket; click any node to expand it.</p></div>
+    <div class="chart-controls">${seg('income-selector', INCOME_OPTS, inc, 'income')}${seg('bracket-selector', BRACKET_OPTS, brk, 'bracket')}</div>
+    <div class="legend" id="legend-full"></div>
+    <div id="flowchart-full"></div>`;
+  wrap.querySelector('#legend-full').innerHTML = Object.entries(PHASES).map(([, p], i) =>
+    `<div class="legend-item"><span class="legend-dot ${p.color}"></span><span class="legend-label">${String(i).padStart(2, '0')} · ${p.name}</span></div>`).join('');
+  const flow = wrap.querySelector('#flowchart-full');
+  const renderChart = () => {
+    flow.innerHTML = flowchartHTML(state.fullChartIncome || 'w2');
+    applyBracket();
+    flow.querySelectorAll('.node').forEach((node) => node.addEventListener('click', () => node.classList.toggle('open')));
+  };
+  const applyBracket = () => flow.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
+  const setActive = (sel, match) => wrap.querySelectorAll(sel).forEach((x) => x.classList.toggle('active', match(x)));
+  renderChart();
+  wrap.querySelectorAll('#income-selector button').forEach((b) => b.addEventListener('click', () => {
+    state.fullChartIncome = b.dataset.income; save(); setActive('#income-selector button', (x) => x === b); renderChart();
+  }));
+  wrap.querySelectorAll('#bracket-selector button').forEach((b) => b.addEventListener('click', () => {
+    state.fullChartBracket = b.dataset.bracket; save(); setActive('#bracket-selector button', (x) => x === b); applyBracket();
+  }));
+  return wrap;
+}
+
 function wireSectionCalcs(container) {
   const byResult = {};
   for (const c of CALCULATORS) byResult[c.resultId] = c;

@@ -40,7 +40,7 @@ function extractViewInner(name) {
 // ---- CSS: keep rules whose selector references a content class we use ----
 const styleOpen = src.indexOf('<style>');
 const styleSrc = src.slice(styleOpen + 7, src.indexOf('</style>', styleOpen));
-const KEEP = /\b(calc-row|calc-grid|calc-result|calculator|calc-chart|calc-table|calc-result-headline|calc-result-detail|math-callout|math-section|math-section-header|math-section-number|math-content|math-formula|math-intro|model-limits)\b/;
+const KEEP = /\b(calc-row|calc-grid|calc-result|calculator|calc-chart|calc-table|calc-result-headline|calc-result-detail|math-callout|math-section|math-section-header|math-section-number|math-content|math-formula|math-intro|model-limits|node|node-head|node-marker|node-body|node-title|node-summary|node-toggle|node-details|node-details-inner|node-skip-tag|node-skip-reason|nodes|phase|phase-header|phase-number|phase-title|phase-rule|phase-desc|phase-color-tag|legend|legend-item|legend-dot|legend-label|legend-full|segmented|bracket-block|flowchart|plan-header)\b|\b(tag|p)-(foundation|essentials|safety|match|highdebt|fullef|taxcore|goals|maxtax|advanced|decumul)\b/;
 // naive top-level rule splitter (the section styles are not nested in @media)
 function extractCss(css) {
   const rules = [];

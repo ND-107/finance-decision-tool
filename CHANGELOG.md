@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (cont.): full framework chart + income/bracket selectors [branch `v2`, local-only]
+
+The single biggest remaining view — v1's browsable master chart (~62% of v1) — is now in v2. It renders every node of the framework grouped by phase, with income-type and tax-bracket selectors and click-to-expand nodes.
+
+- **Data, reconstructed (not duplicated wholesale):** `build-v2.mjs` rebuilds `FLOWCHARTS` (per-income ordered node arrays) from the existing 93 node files using each `_array.json`'s `order`, and inlines `PHASES` (extracted verbatim to `src/data/phases.json`). So the chart draws from the same node content the plan/round-trip already own.
+- **`app.mjs`:** `fullChartView` + `flowchartHTML` are a faithful port of v1's `renderFullChart` — the 11-phase legend, phase sections, `.node` cards (marker/title/summary/details/toggle), the `#income-selector` + `#bracket-selector` segmented controls (persisted to `state.fullChartIncome`/`fullChartBracket`), node click-to-expand, and the `.bracket-block.active` filter. Added to the nav as "Full chart".
+- **CSS:** `extract-sections.mjs`'s keep-list extended to the node/phase/legend/segmented/bracket/tag classes (still scoped to `.sectionview` so v1's palette doesn't leak). `dist/v2.html` 789K → 934K.
+
+**Verified in real Chrome:** 11 phases / 11 legend items / 28 W-2 nodes render; node-toggle expands; switching income → business shows 36 nodes; the bracket filter toggles `.bracket-block.active` correctly. All 10 gates green.
+
+**Remaining for full cutover:** the **personal-chart** (answer-filtered chart — needs plan→node mapping), `calcHistoricalCycles` (fan-chart sim), and the calculators' charts (stubbed; numbers live). Then the deploy.
+
 ## 2026-06-16 — v2 Phase 7 (cont.): 8 reference views (verbatim sections + wired calculators + 9-tab nav) [branch `v2`, local-only]
 
 Closes the largest remaining parity gap after the chart views: v1's **reference encyclopedia**. The 8 reference views — The math, Spending essentials/lifestyle, Portfolio Bogleheads/theory, Zeitgeist investing/lifestyle, Advanced strategies — are now in v2.
