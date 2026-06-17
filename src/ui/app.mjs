@@ -9,7 +9,7 @@
 // core-8 answers and sharpens as more are answered. Completion loop: marking an
 // action done recomputes the plan and migrates it to the skip ledger.
 
-/* global QUESTIONS, NODES, FIGURES, SECTIONS, PHASES, FLOWCHARTS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, runCalculator, CALCULATORS, INPUT_ATTRS */
+/* global QUESTIONS, NODES, FIGURES, SECTIONS, PHASES, FLOWCHARTS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, wireSectionCalculators */
 
 const LS_KEY = 'fdt2:state';
 const CORE8 = ['incomeTypes', 'filingStatus', 'ageBracket', 'taxBracket', 'emergencyFund', 'highInterestDebt', 'healthInsurance', 'employerMatch'];
@@ -55,6 +55,8 @@ function render() {
   else if (view === 'personal-chart') root.append(personalChartView());
   else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
+  // calculators run LIVE against the now-in-DOM view (text results + inline charts)
+  if (view !== 'plan') { try { wireSectionCalculators(root); } catch { /* noop */ } }
   save();
   restoreFocus(root, fk);
 }
@@ -77,8 +79,7 @@ const VIEWS = [
 function sectionView(name) {
   const sec = el('section', { class: 'sectionview', 'aria-label': (VIEWS.find((v) => v.id === name) || {}).label || name });
   sec.innerHTML = SECTIONS[name];
-  wireSectionCalcs(sec);
-  return sec;
+  return sec; // calculators wired by render() (after the view is attached to the DOM)
 }
 // ---- framework chart — port of v1 renderFullChart / renderPersonalChart ----
 // `personal` (optional) = { activeKeys:Set, skippedMap:{} } → fade non-plan nodes.
@@ -187,22 +188,6 @@ function fullChartView() {
   return wrap;
 }
 
-function wireSectionCalcs(container) {
-  const byResult = {};
-  for (const c of CALCULATORS) byResult[c.resultId] = c;
-  container.querySelectorAll('[id$="-result"]').forEach((resEl) => {
-    const c = byResult[resEl.id];
-    if (!c) return; // e.g. hc-result (historical-cycles fan chart, deferred)
-    const find = (id) => container.querySelector('[id="' + id + '"]');
-    const update = () => {
-      const vals = {};
-      for (const id of c.inputs) { const e = find(id); if (e) vals[id] = e.value; }
-      resEl.innerHTML = runCalculator(c.name, vals).html;
-    };
-    for (const id of c.inputs) { const e = find(id); if (e) { e.addEventListener('input', update); e.addEventListener('change', update); } }
-    update();
-  });
-}
 function viewNav() {
   const cur = state.view || 'plan';
   return el('nav', { class: 'viewnav', 'aria-label': 'Sections' }, VIEWS.map((v) => el('button', {

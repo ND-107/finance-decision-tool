@@ -91,7 +91,10 @@ const coreOrder = ['predicates', 'derive', 'plan-rules', 'plan-prose', 'deadline
 const coreParts = coreOrder.map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
 const planLogic = `// ===== planLogic (from tools/lib/plan-fingerprint.mjs) =====\n${strip(extractPlanLogic())}`;
 const afterPlan = ['completion', 'sensitivity'].map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
-const calcMod = `// ===== src/core/calculators/calculators.mjs =====\n${strip(read('src', 'core', 'calculators', 'calculators.mjs'))}`;
+// The UI runs v1's calculator subsystem LIVE (real DOM → inline charts render).
+// The pure kernel (src/core/calculators/calculators.mjs) is the byte-exact
+// verification gate (node-only), not bundled.
+const calcMod = `// ===== src/ui/calculators-live.mjs =====\n${strip(read('src', 'ui', 'calculators-live.mjs'))}`;
 const uiApp = `// ===== src/ui/app.mjs =====\n${strip(read('src', 'ui', 'app.mjs'))}`;
 
 const bundle = [inject, ...coreParts, planLogic, ...afterPlan, calcMod, uiApp].join('\n\n');
