@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (cont.): all 21 calculators extracted + verified [branch `v2`, local-only]
+
+Scales the calculator kernel from 5 to **every closed-form calculator in v1 (21)** — compound, rule72, savings-rate, real-vs-nominal, muni-TEY, asset-location, sequence-of-returns, disability (DI), life-insurance (DIME), HSA-vs-PPO, rent-vs-buy, vehicle-TCO, dependent-care-FSA, expense-ratio, lifestyle-creep, subscription, coast-FIRE, dividend, Sharpe, efficient-frontier, die-with-zero. (Only `calcHistoricalCycles` — chart-primary, no text result — remains, pending the chart port.)
+
+**`tools/extract-calculators.mjs` rewritten** to auto-resolve dependencies: a transitive closure over v1's *top-level* functions pulls each calc fn + its helpers verbatim, **stubs the chart-draws** (`renderCompoundChart`/`renderSequenceChart`), and hosts them under the DOM-input shim (now also shimming `state`/`textContent`/`createElement` for the calcs that read them). Two bugs the build surfaced and fixed: (1) the brace scanner over-ran on **template-literal `${…}` interpolations** (the result-HTML templates) → made it template-aware; (2) `DEFINED`/`pullDef` matched **indented local declarations** as top-level → restricted to column-0, so nested helpers like `simulate` and locals like `bal`/`expenses` no longer leak out. Result: 21 calcs, 23 fns pulled, 2 chart-stubs. New exports `SELECT_OPTIONS` (for select inputs).
+
+**Verification.** `verify-calculators.mjs` now auto-generates vectors from the registry (each input's HTML default + min + max, or select options) and drives all 21 against v1-live in Chrome: **245 vectors — byte-for-byte identical** (raw HTML, incl. `$val` clamping & selects). The unit smoke test asserts all 21 produce non-empty, `undefined`-free output at defaults. All 9 gates green. (The math view still surfaces 5; the rest are surfaced as their views land. `dist/v2.html` 358K → 420K — unused calcs are bundled ahead of their views.)
+
 ## 2026-06-16 — v2 Phase 7 (cont.): calculator UI + nav router + "The math" view [branch `v2`, local-only]
 
 Turns the proven calculator kernel into something clickable, and stands up the navigation a cutover blocker called for.

@@ -9,9 +9,15 @@ import { runCalculator, CALCULATORS, INPUT_ATTRS } from './calculators/calculato
 
 const headline = (r) => (r.html.match(/calc-result-headline">([^<]+)/) || [])[1];
 
-test('registry exposes the closed-form calculators', () => {
-  assert.deepEqual(CALCULATORS.map((c) => c.name).sort(), ['compound', 'muniTEY', 'realNominal', 'rule72', 'savingsRate']);
+test('registry covers all 21 closed-form calculators + every one produces output', () => {
+  assert.equal(CALCULATORS.length, 21);
   assert.equal(INPUT_ATTRS['ci-rate'].max, '30'); // attrs extracted for clamping
+  for (const c of CALCULATORS) {
+    const r = runCalculator(c.name, {}); // default inputs
+    assert.equal(r.id, c.resultId);
+    assert.ok(r.html && r.html.length > 0, `${c.name} produced no output`);
+    assert.ok(!r.html.includes('undefined'), `${c.name} output contains "undefined"`);
+  }
 });
 
 test('compound interest — FV of $500/mo at 7% for 30y from $0', () => {
