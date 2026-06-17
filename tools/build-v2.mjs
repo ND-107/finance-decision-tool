@@ -67,9 +67,10 @@ const coreOrder = ['predicates', 'derive', 'plan-rules', 'plan-prose', 'deadline
 const coreParts = coreOrder.map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
 const planLogic = `// ===== planLogic (from tools/lib/plan-fingerprint.mjs) =====\n${strip(extractPlanLogic())}`;
 const afterPlan = ['completion', 'sensitivity'].map((m) => `// ===== src/core/${m}.mjs =====\n${strip(read('src', 'core', `${m}.mjs`))}`);
+const calcMod = `// ===== src/core/calculators/calculators.mjs =====\n${strip(read('src', 'core', 'calculators', 'calculators.mjs'))}`;
 const uiApp = `// ===== src/ui/app.mjs =====\n${strip(read('src', 'ui', 'app.mjs'))}`;
 
-const bundle = [inject, ...coreParts, planLogic, ...afterPlan, uiApp].join('\n\n');
+const bundle = [inject, ...coreParts, planLogic, ...afterPlan, calcMod, uiApp].join('\n\n');
 const css = read('src', 'ui', 'styles.css');
 
 const html = `<!doctype html>

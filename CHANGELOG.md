@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-06-16 — v2 Phase 7 (cont.): calculator UI + nav router + "The math" view [branch `v2`, local-only]
+
+Turns the proven calculator kernel into something clickable, and stands up the navigation a cutover blocker called for.
+
+- **Calculator UI component** (`renderCalculator` in `app.mjs`): renders each calculator's inputs (number fields + selects, seeded from `INPUT_ATTRS` defaults, with `<label for>` association) and a live result region (`role=status`/`aria-live`). On every edit it calls the verified `runCalculator` and writes the result HTML. Compute is the byte-exact kernel; only the input labels/titles are authored here (`CALC_META`, faithful to v1's labels).
+- **View nav router** (`viewNav`): a tab bar (`Your plan` / `The math`) over `state.view`, with `aria-current="page"`, focus-key restoration, and a live "Now viewing…" announcement — the nav the cutover audit flagged as missing, now in place and extensible to the remaining views.
+- **"The math" view** hosts the 5 closed-form calculators. `build-v2.mjs` now bundles `calculators.mjs`; `dist/v2.html` 337K → 358K.
+
+**Verified in real Chrome:** Math view renders all 5 calculators; the compound result is $609,985 at defaults and recomputes to $1,130,244 when the rate is set to 10% — **matching `runCalculator` exactly** (`recomputeMatches: true`); muni selects populate; switching tabs returns to the diagnostic→plan layout. All 9 v2 gates green.
+
 ## 2026-06-16 — v2 Phase 7 (start): calculator kernel — closed-form math calcs, byte-exact [branch `v2`, local-only]
 
 Begins closing the biggest cutover gap (the ~80 interactive calculators v2 lacked). Establishes the calculator kernel + a golden-master oracle, and ports the **closed-form math tier** (5 of the math view's 8 calculators): compound interest, rule of 72, savings-rate→FI, real-vs-nominal (Fisher), and muni taxable-equivalent yield.

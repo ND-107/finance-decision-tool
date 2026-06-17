@@ -36,6 +36,31 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
 @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
 
+/* view nav (Phase 7) */
+.viewnav { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.viewtab { font: inherit; background: none; border: none; border-bottom: 2px solid transparent; padding: 8px 14px; margin-bottom: -1px; cursor: pointer; color: var(--muted-strong); min-height: 38px; }
+.viewtab:hover { color: var(--ink); }
+.viewtab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+/* calculators (Phase 7) */
+.mathview { max-width: 760px; }
+.mathview > h2 { font-family: var(--font-head); font-weight: 600; margin: 0 0 4px; }
+.calc { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin: 16px 0; background: var(--panel); }
+.calc h3 { font-family: var(--font-head); margin: 0 0 4px; font-size: 18px; }
+.calc-intro { font-size: 13px; color: var(--muted-strong); margin: 0 0 14px; line-height: 1.5; }
+.calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 14px; }
+@media (max-width: 600px) { .calc-inputs { grid-template-columns: 1fr; } }
+.calc-row { display: flex; flex-direction: column; gap: 3px; }
+.calc-row label { font-size: 12px; color: var(--muted-strong); }
+.calc-row input, .calc-row select { font: inherit; font-size: 14px; padding: 7px 9px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--bg); min-height: 38px; }
+.calc-out { background: var(--accent-soft); border-radius: 8px; padding: 12px 14px; }
+.calc-result-headline { display: block; font-size: 24px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.calc-result-detail { display: block; font-size: 12.5px; color: #333; margin-top: 4px; line-height: 1.5; }
+.calc-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 6px; }
+.calc-table th, .calc-table td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); }
+.calc-table th { color: var(--muted-strong); font-weight: 600; }
+.calc-table tr.highlight { background: var(--accent-soft); font-weight: 600; }
+
 /* diagnostic */
 .diagnostic { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
 .diag-head { display: flex; justify-content: space-between; align-items: baseline; }
