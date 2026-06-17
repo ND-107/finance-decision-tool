@@ -1,9 +1,31 @@
 # v2 Cutover Readiness (Phase 6)
 
-Status as of 2026-06-16, branch `v2`. **Verdict: NOT cutover-ready.** `dist/v2.html`
+> **UPDATE 2026-06-16 (end of Phase 7 build):** the gaps below are now **closed**.
+> All **14 of v1's views** render in v2 (diagnostic · plan · personal-chart · full-chart
+> + the 8 reference views), and **all 21 closed-form calculators** are extracted and
+> **byte-exact verified** against v1-live in Chrome (245-vector gate). `dist/v2.html` is
+> ~938 KB (v1 was 826 KB). The original audit (preserved below for the record) was taken
+> when only 3 views existed.
+>
+> **Only two things remain before a straight cutover:**
+> 1. **Visual charts** (cosmetic — *no data loss*): the 3 SVG charts inside calculators
+>    (`renderCompoundChart`/`renderSequenceChart`/`renderHistoricalFanChart`) are stubbed,
+>    and `calcHistoricalCycles` (chart-only fan sim) is deferred. Every numeric result is
+>    live and verified; only the accompanying graphs are absent. (Also: personal-chart
+>    shows generic skip-*reason* text since v2 skip items carry no reason prose.)
+> 2. **Deploy** (Phase 6, outward-facing — needs sign-off): final a11y AT pass (axe +
+>    VoiceOver/NVDA), then ship `dist/v2.html` → GitHub Pages, archive v1 at `/v1/`.
+>
+> The accessibility findings in the lower section were **fixed** in commit `dbd906f`.
+
+---
+
+## Original audit (2026-06-16, when only the diagnostic→plan core existed)
+
+**Verdict at the time: NOT cutover-ready.** `dist/v2.html`
 faithfully reproduces v1's *diagnostic → prioritized plan* core (and improves on it),
 but v1 is far more than that — it is also a browsable reference encyclopedia with ~80
-interactive calculators. Those are not yet built in v2. This doc is the gap list and
+interactive calculators. Those were not yet built in v2. This doc is the gap list and
 the accessibility status, from the 5-lens cutover audit.
 
 ## Parity matrix — v1's 14 views vs v2
