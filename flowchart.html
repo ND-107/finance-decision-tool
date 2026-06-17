@@ -3766,7 +3766,18 @@ const el = (tag, attrs = {}, kids = []) => {
 const activeSections = () => QUESTIONS.sections.filter((s) => !s.showIf || evalPredicate(s.showIf, state.answers));
 const activeQuestions = (sec) => sec.questions.filter((q) => !q.showIf || evalPredicate(q.showIf, state.answers));
 const answeredCount = () => activeSections().reduce((n, s) => n + activeQuestions(s).filter((q) => state.answers[q.id] != null).length, 0);
-const core8Done = () => CORE8.every((f) => state.answers[f] != null && (f !== 'incomeTypes' || state.answers[f].length));
+// ids of questions currently SHOWN (their showIf passes). A core field that isn't
+// shown (e.g. employerMatch, which is W-2-only) can't be answered, so it must not
+// block the plan — else non-W-2 (business/contractor/retired) users never get one.
+const activeQuestionIds = () => { const set = new Set(); for (const s of activeSections()) for (const q of activeQuestions(s)) set.add(q.id); return set; };
+const core8Done = () => {
+  const shown = activeQuestionIds();
+  return CORE8.every((f) => {
+    if (!shown.has(f)) return true; // not applicable to this user → not required
+    const v = state.answers[f];
+    return v != null && (f !== 'incomeTypes' || v.length);
+  });
+};
 
 // =================== render ===================
 // The app re-renders by wiping #app; to keep keyboard/SR users in place we capture
