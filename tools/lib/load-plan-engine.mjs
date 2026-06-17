@@ -1,4 +1,4 @@
-// load-plan-engine.mjs — load the LIVE computePlan() from main:flowchart.html as
+// load-plan-engine.mjs — load the LIVE computePlan() from main:v1/flowchart.html as
 // a callable, isolated from the DOM. Extracts the pure-logic slice (hashKey …
 // computePlan, ~1090 lines incl. all helpers computePlan transitively needs)
 // and evals it in a Function sandbox with a fresh `state`. The slice also
@@ -19,7 +19,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 export function loadPlanEngine() {
   let src;
-  try { src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+  try { src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
   catch { src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
 
   const start = src.indexOf('function hashKey(s) {');

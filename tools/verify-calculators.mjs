@@ -2,7 +2,7 @@
 // verify-calculators.mjs — calculator parity gate (Phase 7).
 //
 // Proves v2's pure runCalculator() reproduces v1's real calculators byte-for-byte.
-// Oracle: load main:flowchart.html in headless Chrome, and for each calculator +
+// Oracle: load main:v1/flowchart.html in headless Chrome, and for each calculator +
 // auto-generated input vector, set the real inputs, OVERRIDE the result element's
 // innerHTML/textContent setter to capture the RAW assigned string (bypassing the
 // browser's DOM re-serialization), call v1's global calc fn, and read it back.
@@ -66,7 +66,7 @@ const driver = `
 })();`;
 
 let v1src;
-try { v1src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+try { v1src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
 catch { v1src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
 const dir = mkdtempSync(join(tmpdir(), 'calc-oracle-'));
 const file = join(dir, 'v1.html');

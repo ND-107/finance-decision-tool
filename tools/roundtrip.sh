@@ -3,9 +3,9 @@
 # Mirrors verify.sh in spirit: a single command that must exit 0 before any
 # semantic restructuring (V2_REBUILD_PLAN.md §1.4). Chains extract → build → gate.
 #
-#   extract  main:flowchart.html  → build/segments/* + build/manifest.json
+#   extract  main:v1/flowchart.html  → build/segments/* + build/manifest.json
 #   build    segments             → dist/flowchart.html
-#   gate     dist == main:flowchart.html  (byte-exact at stage 1)
+#   gate     dist == main:v1/flowchart.html  (byte-exact at stage 1)
 set -e
 cd "$(dirname "$0")/.."
 echo "→ [1/3] extract …"

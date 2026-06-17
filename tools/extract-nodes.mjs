@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // extract-nodes.mjs — Phase 2 content extraction: lift the three reference-node
-// arrays (W2_NODES, CONTRACTOR_NODES, BUSINESS_NODES) out of main:flowchart.html
+// arrays (W2_NODES, CONTRACTOR_NODES, BUSINESS_NODES) out of main:v1/flowchart.html
 // into structured per-node JSON, WITHOUT breaking the byte-exact round-trip.
 //
 // Each node array is build segment 05/06/07 (run `node tools/extract.mjs`). A
@@ -37,7 +37,7 @@ export const NODE_ARRAYS = [
 ];
 
 function readSource() {
-  try { return execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+  try { return execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
   catch { return readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
 }
 
@@ -293,7 +293,7 @@ export function renderSegment(income, contentRoot = join(ROOT, 'src', 'content',
 }
 
 // ── Coverage check (INDEPENDENT of the splitter above) ───────────────────────
-// Evals the LIVE node arrays from main:flowchart.html (with bracketBlock stubbed
+// Evals the LIVE node arrays from main:v1/flowchart.html (with bracketBlock stubbed
 // to '') and asserts every live node has a written content file whose structured
 // parse is non-empty AND matches the live node's marker/phase/title/badges. A
 // second, structurally-different oracle than `parseNode`, so a bug in one is

@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let src;
-try { src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+try { src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
 catch { src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
 
 const VIEWS = ['math', 'spending-essentials', 'spending-lifestyle', 'portfolio-bogleheads', 'portfolio-theory', 'zeitgeist-investing', 'zeitgeist-lifestyle', 'advanced-strategies'];

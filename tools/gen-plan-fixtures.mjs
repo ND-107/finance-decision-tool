@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // gen-plan-fixtures.mjs — capture the computePlan GOLDEN MASTER from
-// main:flowchart.html. Output: tests/fixtures/plan-golden.json — a corpus of
+// main:v1/flowchart.html. Output: tests/fixtures/plan-golden.json — a corpus of
 // answer vectors, each with the live engine's behavior fingerprint. This is the
 // parity gate (V2_REBUILD_PLAN.md §2.3): the v2 rule engine must reproduce these
 // fingerprints exactly. Characterize-before-refactor — capture v1 now, check v2
@@ -30,7 +30,7 @@ const engine = loadPlanEngine();
 // computePlan body); domains = each field's option values from questions.json.
 function inputDomains() {
   let src;
-  try { src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+  try { src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
   catch { src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
   const s = src.indexOf('function computePlan() {');
   const e = src.indexOf('return { actions, skipped, tier1 };', s);
@@ -111,7 +111,7 @@ for (let i = 0; i < N_RANDOM; i++) record(`random-${String(i).padStart(5, '0')}`
 const fixtures = [...archetypeFixtures, ...randomFixtures];
 
 const meta = {
-  generatedFrom: 'main:flowchart.html computePlan()',
+  generatedFrom: 'main:v1/flowchart.html computePlan()',
   generatedNote: 'GOLDEN MASTER — the v2 rule engine must reproduce every fixture\'s logicHash. Regenerate only when v1 behavior intentionally changes.',
   fields: FIELDS,
   archetypeCount: Object.keys(ARCHETYPES).length,

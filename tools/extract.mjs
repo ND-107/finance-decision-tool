@@ -55,7 +55,7 @@ function readSource() {
     // On the v2 branch flowchart.html may be the frozen copy; prefer main's live artifact
     // so extraction always targets the source of truth. Fall back to local.
     try {
-      return execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
+      return execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
     } catch {
       return readFileSync(local, 'utf8');
     }
@@ -94,7 +94,7 @@ for (let i = 0; i < ANCHORS.length; i++) {
 }
 
 const manifest = {
-  generatedFrom: 'main:flowchart.html (live artifact)',
+  generatedFrom: 'main:v1/flowchart.html (live artifact)',
   sourceBytes: Buffer.byteLength(src, 'utf8'),
   sourceSha256: sha(src),
   segmentCount: segments.length,

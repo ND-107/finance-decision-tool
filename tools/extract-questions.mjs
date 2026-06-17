@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // extract-questions.mjs — Phase 2 first content extraction: lift the diagnostic
-// schema (the QUESTIONS array) out of main:flowchart.html into structured data
+// schema (the QUESTIONS array) out of main:v1/flowchart.html into structured data
 // (src/content/questions.json), converting every `showIf` closure into a
 // declarative predicate (src/core/predicates.mjs grammar). This is the crux of
 // the rebuild per V2_REBUILD_PLAN.md §2/§3 — closures become serializable data.
@@ -24,7 +24,7 @@ const args = new Set(process.argv.slice(2));
 // on nothing but the literal — closures reference only their param `a`).
 export function loadLiveQuestions() {
   let src;
-  try { src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
+  try { src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8'); }
   catch { src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8'); }
   const start = src.indexOf('const QUESTIONS = [');
   if (start === -1) throw new Error('QUESTIONS array not found');

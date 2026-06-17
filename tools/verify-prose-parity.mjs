@@ -2,7 +2,7 @@
 // verify-prose-parity.mjs — the PROSE parity gate (Phase 4).
 //
 // Proves v2 reproduces v1's per-action reason/because prose byte-for-byte. Runs
-// the LIVE v1 computePlan (loadPlanEngine, from main:flowchart.html) and the v2
+// the LIVE v1 computePlan (loadPlanEngine, from main:v1/flowchart.html) and the v2
 // engine (src/core/plan-engine.mjs, now prose-attached via plan-prose.mjs) over
 // the full golden fixture corpus + archetypes, and asserts that for every fixture
 // each action's {title, stage, tags, incomeType, nodeKey, reason, because} matches

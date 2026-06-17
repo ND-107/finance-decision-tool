@@ -35,7 +35,7 @@ const dist = readFileSync(distPath, 'utf8');
 // Source of truth: main's live artifact (the v2 working copy may be frozen).
 let src;
 try {
-  src = execSync('git show main:flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
+  src = execSync('git show main:v1/flowchart.html', { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }).toString('utf8');
 } catch {
   src = readFileSync(join(ROOT, 'flowchart.html'), 'utf8');
 }

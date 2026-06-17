@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // verify-questions-equivalence.mjs — PROVE the declarative showIf predicates in
 // src/content/questions.json are behavior-identical to the live `showIf`
-// closures in main:flowchart.html. This is the round-trip gate for Phase 2's
+// closures in main:v1/flowchart.html. This is the round-trip gate for Phase 2's
 // first content extraction: the structured form must not change diagnostic
 // behavior (V2_REBUILD_PLAN.md §2 — "make showIf serializable … verified").
 //
