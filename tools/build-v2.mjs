@@ -38,6 +38,23 @@ function extractPlanLogic() {
   return src.slice(start, end).replace(/^export\s+/, '');
 }
 
+// v1's bracket-conditional content helper. Node detailsHtml were template literals
+// containing `${bracketBlock(low, mid, high)}`; extraction captured the SOURCE, so the
+// raw interpolation leaked into the rendered output. Expand it at build time (also
+// makes the chart bracket selector functional — it had no .bracket-block to act on).
+function bracketBlock(low, mid, high) {
+  return `\n    <div class="bracket-block" data-bracket="low"><h5>If you are Low bracket (10–12%)</h5><p>${low}</p></div>\n    <div class="bracket-block" data-bracket="mid"><h5>If you are Middle bracket (22–24%)</h5><p>${mid}</p></div>\n    <div class="bracket-block" data-bracket="high"><h5>If you are High bracket (32%+)</h5><p>${high}</p></div>\n  `;
+}
+function expandDetails(html) {
+  if (!html || !html.includes('${bracketBlock')) return html;
+  // The only ${...} in node details is bracketBlock(...) (audited). Eval as a template
+  // literal with bracketBlock in scope; escape only backticks.
+  // eslint-disable-next-line no-new-func
+  const out = new Function('bracketBlock', 'return `' + html.replace(/`/g, '\\`') + '`;')(bracketBlock);
+  if (out.includes('${')) throw new Error('unexpanded interpolation remains after bracketBlock expand');
+  return out;
+}
+
 // ---- build the node-content lookup (nodeKey "income:marker" -> node record) ----
 function buildNodes() {
   const nodes = {};
@@ -46,7 +63,7 @@ function buildNodes() {
     for (const f of readdirSync(dir)) {
       if (!f.endsWith('.json') || f === '_array.json') continue;
       const rec = json('src', 'content', 'nodes', inc, f);
-      nodes[`${inc}:${rec.marker}`] = { title: rec.title, summary: rec.summary, detailsHtml: rec.detailsHtml, badges: rec.badges || [] };
+      nodes[`${inc}:${rec.marker}`] = { title: rec.title, summary: rec.summary, detailsHtml: expandDetails(rec.detailsHtml), badges: rec.badges || [] };
     }
   }
   return nodes;
@@ -67,7 +84,7 @@ function buildFlowcharts() {
     const arr = json('src', 'content', 'nodes', inc, '_array.json');
     fc[inc] = { nodes: arr.order.map((marker) => {
       const rec = json('src', 'content', 'nodes', inc, `${marker}.json`);
-      return { marker: rec.marker, phase: rec.phase, title: rec.title, summary: rec.summary, details: rec.detailsHtml, badges: rec.badges || [] };
+      return { marker: rec.marker, phase: rec.phase, title: rec.title, summary: rec.summary, details: expandDetails(rec.detailsHtml), badges: rec.badges || [] };
     }) };
   }
   return fc;

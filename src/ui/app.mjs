@@ -114,31 +114,36 @@ function flowchartHTML(income, personal) {
     if (!byPhase[pk]) return '';
     const phase = PHASES[pk];
     const phaseNodes = byPhase[pk].map((n) => {
-      let cls = '', extra = '', interactive = true;
-      if (personal) {
-        const isActive = personal.activeKeys.has(`${income}:${n.marker}`);
-        interactive = isActive;
-        if (!isActive) {
-          cls = ' skipped';
-          const nt = normTitle(n.title);
-          const hit = Object.keys(personal.skippedMap).find((t) => { const k = normTitle(t).slice(0, 16); return k && nt.includes(k); });
-          const reason = (hit && personal.skippedMap[hit]) ? personal.skippedMap[hit] : 'Not in your prioritized plan based on diagnostic answers.';
-          extra = `<div class="node-skip-tag">Skipped</div><div class="node-skip-reason">${reason}</div>`;
-        }
+      const isActive = !personal || personal.activeKeys.has(`${income}:${n.marker}`);
+      // activeOnly mode (a secondary income track on the personal chart): render ONLY
+      // the nodes the plan actually pulled in from this track — drop the rest entirely.
+      if (personal && personal.activeOnly && !isActive) return '';
+      let cls = '', extra = '';
+      const interactive = isActive;
+      if (personal && !isActive) {
+        cls = ' skipped';
+        const nt = normTitle(n.title);
+        const hit = Object.keys(personal.skippedMap).find((t) => { const k = normTitle(t).slice(0, 16); return k && nt.includes(k); });
+        const reason = (hit && personal.skippedMap[hit]) ? personal.skippedMap[hit] : 'Not in your prioritized plan based on diagnostic answers.';
+        extra = `<div class="node-skip-tag">Skipped</div><div class="node-skip-reason">${reason}</div>`;
       }
       // Interactive nodes get a real disclosure on the head (keyboard-operable, WCAG 2.1.1/4.1.2).
       const detId = `nd-${income}-${n.marker}`;
       const headAttrs = interactive ? ` role="button" tabindex="0" aria-expanded="false" aria-controls="${detId}"` : '';
+      // Only interactive nodes get the "+" affordance. A skipped node's "+" had no
+      // disclosure wired to it — a dead control — so omit it there (WCAG 4.1.2).
+      const toggle = interactive ? '<div class="node-toggle" aria-hidden="true">+</div>' : '';
       return `
       <div class="node ${phase.tag}${cls}" data-node-idx="${n.idx}">
         <div class="node-head"${headAttrs}>
           <div class="node-marker">${n.marker}</div>
           <div class="node-body"><div class="node-title">${n.title}</div><div class="node-summary">${n.summary}</div>${extra}</div>
-          <div class="node-toggle" aria-hidden="true">+</div>
+          ${toggle}
         </div>
         <div class="node-details" id="${detId}"><div class="node-details-inner">${n.details || ''}</div></div>
       </div>`;
-    }).join('');
+    }).filter(Boolean).join('');
+    if (!phaseNodes) return ''; // activeOnly track with nothing active in this phase
     return `<section class="phase"><div class="phase-header"><span class="phase-number">Phase ${String(pi).padStart(2, '0')}</span><h2 class="phase-title">${phase.name}</h2><span class="phase-rule"></span><span class="phase-color-tag ${phase.color}"></span></div><p class="phase-desc">${phase.desc}</p><div class="nodes">${phaseNodes}</div></section>`;
   }).join('');
 }
@@ -167,20 +172,38 @@ function personalChartView() {
   const activeKeys = new Set(plan.actions.map((x) => x.nodeKey));
   const skippedMap = {};
   plan.skipped.forEach((s) => { skippedMap[s.title] = s.reason || ''; });
+  // The plan assigns canonical nodeKeys that span income namespaces — a contractor's
+  // plan pulls in shared `w2:` steps (often tier-1, e.g. health insurance, starter EF).
+  // Render the user's primary track in full (non-plan steps faded) PLUS every OTHER
+  // track the plan touches as an active-only addendum, or those actions are invisible.
+  const touched = [...new Set(plan.actions.map((x) => (x.nodeKey || '').split(':')[0]))].filter((k) => FLOWCHARTS[k]);
+  const secondary = touched.filter((k) => k !== inc);
   const brk = state.fullChartBracket || 'mid';
   const seg = BRACKET_OPTS.map(([v, l]) => `<button type="button" data-bracket="${v}"${v === brk ? ' class="active"' : ''}>${l}</button>`).join('');
+  const secHTML = secondary.map((k) => {
+    const track = flowchartHTML(k, { activeKeys, skippedMap, activeOnly: true });
+    if (!track) return '';
+    return `
+    <section class="track-extra">
+      <h3 class="track-label">Also on your plan — from the ${TRACK_LABEL[k]} track</h3>
+      <p class="track-note fine">Shared framework actions your plan pulled in. They live on the ${TRACK_LABEL[k]} path; only the ones that apply to you are shown.</p>
+      <div class="flowtrack" data-track="${k}">${track}</div>
+    </section>`;
+  }).join('');
   wrap.innerHTML = `
     <div class="plan-header"><div class="eyebrow">Personalized framework</div>
       <h2>Your <em>filtered</em> view of the full chart.</h2>
-      <p>Every framework step for ${({ w2: 'W-2', contractor: '1099 / self-employed', business: 'business-owner' }[inc])} income; steps that don't apply to you are faded with a note.</p></div>
+      <p>Every framework step for ${TRACK_LABEL[inc]} income; steps that don't apply to you are faded with a note.${secHTML ? ' Shared steps your plan pulled in from other tracks follow below.' : ''}</p></div>
     <div class="chart-controls"><div class="segmented" id="bracket-selector" role="group">${seg}</div></div>
     <div class="legend">${legendHTML()}</div>
-    <div id="flowchart-personal"></div>`;
+    <div id="flowchart-personal" data-track="${inc}"></div>
+    ${secHTML}`;
   const flow = wrap.querySelector('#flowchart-personal');
   flow.innerHTML = flowchartHTML(inc, { activeKeys, skippedMap });
-  const applyBracket = () => flow.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
+  // bracket-block visibility spans the primary chart AND every secondary track.
+  const applyBracket = () => wrap.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
   applyBracket();
-  wireNodes(flow);
+  wireNodes(wrap); // wire disclosures across primary + all secondary tracks
   wrap.querySelectorAll('#bracket-selector button').forEach((b) => b.addEventListener('click', () => {
     state.fullChartBracket = b.dataset.bracket; save();
     wrap.querySelectorAll('#bracket-selector button').forEach((x) => x.classList.toggle('active', x === b));
@@ -191,6 +214,7 @@ function personalChartView() {
 
 const INCOME_OPTS = [['w2', 'W-2 employee'], ['contractor', '1099 / self-employed'], ['business', 'Business owner']];
 const BRACKET_OPTS = [['low', 'Low · 10–12%'], ['mid', 'Middle · 22–24%'], ['high', 'High · 32%+']];
+const TRACK_LABEL = { w2: 'W-2 employee', contractor: '1099 / self-employed', business: 'business-owner' };
 
 function fullChartView() {
   const inc = state.fullChartIncome || 'w2';
@@ -279,7 +303,11 @@ function diagnostic() {
 
   const isLast = idx === secs.length - 1;
   const nav = el('div', { class: 'diag-nav' }, [
-    el('button', { class: 'btn', type: 'button', 'data-fk': 'nav:back', onclick: () => { state.sectionIdx = Math.max(0, idx - 1); render(); } }, 'Back'),
+    // On the first section "Back" is a no-op (nowhere to go) — omit it, but keep a
+    // spacer so "Next" stays right-aligned. (Was a dead control on section 1.)
+    idx > 0
+      ? el('button', { class: 'btn', type: 'button', 'data-fk': 'nav:back', onclick: () => { state.sectionIdx = Math.max(0, idx - 1); render(); } }, 'Back')
+      : el('span', { class: 'diag-nav-spacer', 'aria-hidden': 'true' }),
     el('button', { class: 'btn primary', type: 'button', 'data-fk': 'nav:next', onclick: () => { if (isLast) { state.reviewing = true; } else { state.sectionIdx = idx + 1; } render(); } }, isLast ? 'See my plan →' : 'Next'),
   ]);
   wrap.append(nav);
@@ -493,6 +521,27 @@ function planPanel() {
     ]);
     wrap.append(det);
   }
+  // Completed actions whose completion patched a diagnostic answer (e.g. capturing the
+  // match → matchCaptured:'yes') drop OUT of the recomputed plan — leaving no card to
+  // untick. Re-surface them here with a working uncheck so marking done is reversible.
+  const planTitles = new Set(plan.actions.map((a) => a.title));
+  const closed = Object.keys(state.completions).filter((t) => state.completions[t] === 'done' && !planTitles.has(t));
+  if (closed.length) {
+    wrap.append(el('div', { class: 'completed-ledger' }, [
+      el('div', { class: 'stage-head' }, [
+        el('span', { class: 'stage-label' }, 'Completed'),
+        el('span', { class: 'stage-sub' }, 'Marked done — untick to restore to your plan'),
+        el('span', { class: 'stage-count' }, String(closed.length)),
+      ]),
+      ...closed.map((t) => el('div', { class: 'action done completed' }, [
+        el('label', { class: 'action-check' }, [
+          el('input', { type: 'checkbox', checked: 'checked', 'aria-label': `Mark not done: ${t}`, 'data-fk': `done:${t}`, onchange: () => toggleDone(t) }),
+          el('span', { class: 'check-box', 'aria-hidden': 'true' }),
+        ]),
+        el('div', { class: 'action-body' }, [el('div', { class: 'action-title' }, t)]),
+      ])),
+    ]));
+  }
   // Sensitivity
   wrap.append(sensitivityPanel());
   return wrap;
@@ -508,31 +557,35 @@ function actionCard(a, isTier1) {
     const lbl = a.deadline.dueDate ? `⏰ ${word} — due ${a.deadline.dueDate}` : `⏰ ${word} — time-critical`;
     tags.push(el('span', { class: `tag deadline ${a.deadline.urgency}` }, lbl));
   }
-  if (a.incomeType) tags.push(el('span', { class: 'tag inc' }, { w2: 'W-2', contractor: '1099/SE', business: 'Business' }[a.incomeType]));
+  const incLabel = { w2: 'W-2', contractor: '1099/SE', business: 'Business' }[a.incomeType];
+  if (incLabel) tags.push(el('span', { class: 'tag inc' }, incLabel)); // guard: unmapped → no empty pill
   const done = !!state.completions[a.title];
+  // A tier-1 action also renders in its stage block below, so the two copies must not
+  // collide on data-fk (focus restoration) or element id (detailToggle aria-controls).
+  const fkPrefix = isTier1 ? 'done:t1:' : 'done:';
   const card = el('div', { class: `action${isTier1 ? ' t1' : ''}${done ? ' done' : ''}` }, [
     el('label', { class: 'action-check' }, [
-      el('input', { type: 'checkbox', 'aria-label': `Mark done: ${a.title}`, 'data-fk': `done:${a.title}`, checked: done ? 'checked' : null, onchange: () => toggleDone(a.title) }),
+      el('input', { type: 'checkbox', 'aria-label': `Mark done: ${a.title}`, 'data-fk': `${fkPrefix}${a.title}`, checked: done ? 'checked' : null, onchange: () => toggleDone(a.title) }),
       el('span', { class: 'check-box', 'aria-hidden': 'true' }),
     ]),
     el('div', { class: 'action-body' }, [
       el('div', { class: 'action-title' }, a.title),
       a.because ? el('div', { class: 'action-because', html: a.because }) : null,
       tags.length ? el('div', { class: 'action-tags' }, tags) : null,
-      (a.reason || (node && node.detailsHtml)) ? detailToggle(a, node) : null,
+      (a.reason || (node && node.detailsHtml)) ? detailToggle(a, node, isTier1) : null,
     ]),
   ]);
   return card;
 }
 
-function detailToggle(a, node) {
-  const id = 'd-' + a.key;
+function detailToggle(a, node, isTier1) {
+  const id = 'd-' + (isTier1 ? 't1-' : '') + a.key;
   const bodyId = id + '-body';
   const isOpen = !!state.open[id];
   const label = (open) => (open ? '− Hide why & reference' : '+ Why this matters & reference');
   const inner = (a.reason ? `<div class="why-reason">${a.reason}</div>` : '')
     + (node && node.detailsHtml ? node.detailsHtml : '');
-  const btn = el('button', { class: 'detail-toggle', type: 'button', 'aria-expanded': String(isOpen), 'aria-controls': bodyId, 'data-fk': `det:${a.key}`, onclick: (e) => { state.open[id] = !state.open[id]; const open = state.open[id]; e.currentTarget.nextSibling.style.display = open ? 'block' : 'none'; e.currentTarget.setAttribute('aria-expanded', String(open)); e.currentTarget.textContent = label(open); save(); } }, label(isOpen));
+  const btn = el('button', { class: 'detail-toggle', type: 'button', 'aria-expanded': String(isOpen), 'aria-controls': bodyId, 'data-fk': `det:${isTier1 ? 't1:' : ''}${a.key}`, onclick: (e) => { state.open[id] = !state.open[id]; const open = state.open[id]; e.currentTarget.nextSibling.style.display = open ? 'block' : 'none'; e.currentTarget.setAttribute('aria-expanded', String(open)); e.currentTarget.textContent = label(open); save(); } }, label(isOpen));
   const body = el('div', { class: 'detail', id: bodyId, html: inner });
   body.style.display = isOpen ? 'block' : 'none';
   return el('div', {}, [btn, body]);

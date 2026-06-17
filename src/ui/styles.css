@@ -137,6 +137,16 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .sens-bar { width: 90px; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
 .sens-fill { display: block; height: 100%; background: var(--accent); }
 .sens-n { width: 22px; text-align: right; color: var(--muted); }
+
+/* completed ledger — actions whose completion patched an answer (so they left the plan);
+   re-surfaced with a working uncheck so marking done is reversible. */
+.completed-ledger { margin-top: 18px; }
+
+/* secondary income tracks on the personalized chart — shared cross-namespace plan
+   actions (e.g. a contractor's plan pulling in w2: steps) shown active-only. */
+.track-extra { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+.track-label { font-size: 14px; font-weight: 700; margin: 0 0 2px; }
+.track-note { margin: 0 0 14px; }
 .scenario > summary { list-style: none; cursor: pointer; }
 .scenario > summary::-webkit-details-marker { display: none; }
 .scenario > summary .sens-field { position: relative; padding-left: 14px; }
