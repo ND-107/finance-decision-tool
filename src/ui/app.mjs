@@ -54,6 +54,7 @@ function render() {
   if (view === 'full-chart') root.append(fullChartView());
   else if (view === 'personal-chart') root.append(personalChartView());
   else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
+  else if (state.reviewing && core8Done()) root.append(reviewView());
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   // calculators run LIVE against the now-in-DOM view (text results + inline charts)
   if (view !== 'plan') { try { wireSectionCalculators(root); associateLabels(root); } catch { /* noop */ } }
@@ -265,11 +266,24 @@ function diagnostic() {
 
   for (const q of qs) wrap.append(question(q));
 
+  const isLast = idx === secs.length - 1;
   const nav = el('div', { class: 'diag-nav' }, [
     el('button', { class: 'btn', type: 'button', 'data-fk': 'nav:back', onclick: () => { state.sectionIdx = Math.max(0, idx - 1); render(); } }, 'Back'),
-    el('button', { class: 'btn primary', type: 'button', 'data-fk': 'nav:next', onclick: () => { state.sectionIdx = Math.min(secs.length - 1, idx + 1); render(); } }, idx === secs.length - 1 ? 'Done' : 'Next'),
+    el('button', { class: 'btn primary', type: 'button', 'data-fk': 'nav:next', onclick: () => { if (isLast) { state.reviewing = true; } else { state.sectionIdx = idx + 1; } render(); } }, isLast ? 'See my plan →' : 'Next'),
   ]);
   wrap.append(nav);
+  return wrap;
+}
+
+// After the last section, "See my plan →" shows the plan full-width with a way back
+// to editing (fixes the dead end on narrow screens where the plan is below the fold).
+function reviewView() {
+  const wrap = el('div', { class: 'review' });
+  wrap.append(el('div', { class: 'review-bar' }, [
+    el('button', { class: 'btn', type: 'button', 'data-fk': 'nav:edit', onclick: () => { state.reviewing = false; render(); } }, '← Edit answers'),
+    el('span', { class: 'fine' }, 'Diagnostic complete — edit answers any time and the plan updates instantly.'),
+  ]));
+  wrap.append(planPanel());
   return wrap;
 }
 

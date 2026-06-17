@@ -84,6 +84,9 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 
 /* plan */
 .plan { position: sticky; top: 20px; }
+.review { max-width: 720px; margin: 0 auto; }
+.review-bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.review .plan { position: static; }
 .plan-pending { background: var(--accent-soft); border: 1px dashed var(--accent); border-radius: var(--radius); padding: 20px; }
 .plan-pending h3 { margin-top: 0; font-family: var(--font-head); }
 .pending-count { font-size: 13px; color: var(--accent); font-weight: 600; }
