@@ -263,6 +263,18 @@ New CL claims throughout; checkpoint persona review (consumer-finance advocate +
 
 **Estimated effort:** 3–4 sessions including persona pass.
 
+### 4.5 Plain-English rewrite layer (absorbed 2026-08-04 from the 2026-05-19 thread)
+
+The 2026-05-19 session designed and calibrated a **Layer 1/2/3 rewrite method** for per-container plain-English variants of flowchart prose (L1 framing: rewrite type + audience model + attribution disclaimer · L2 augmented writing rules: 10 accuracy + 3 fluency · L3 proposition-map verification artifact). Calibration on the v1 asset-location intro produced a 174-word rewrite (63% of source), a 33-proposition map, and 7 drift flags — none hallucinations; L3 caught 7 of 11 drifts the L2 rules alone missed. The vault-wide generalization (`SOURCE-GROUNDING-RULES.md`) already shipped and binds this work.
+
+**v2 shape (this is why the thread folds here instead of retrofitting v1):** with content-as-markdown (Phase 1, governing decision #2), a plain-English variant becomes a per-content-file field (`plain:` block or sibling file) generated under the L1/2/3 method, with the **L3 proposition map emitted as a build artifact** next to the generated audit DB — drift between canonical and plain variants becomes build-time-checkable, the same way claim-to-content drift dies in Phase 1. The per-container toggle is then a trivial UI affordance of the new build, not a CSS/JS retrofit.
+
+Carried-in decisions to resolve during the first real batch:
+- **7 calibration flags** (accept/reject each): REIT "mostly" loss · NIIT scope drift · step-up-basis term drop · modal "expected" dropped ×2 · three-account-matrix statement dropped · optimization criterion lost · cross-ref mechanism dropped.
+- **3 rule candidates** (promote into L2 or drop): mechanism-vs-outcome preservation · cross-ref convention · structural-meta carve-out.
+
+**Estimated effort:** +1 session folded into the Phase 4 persona pass (the persona reviewers double as plain-variant readers).
+
 ---
 
 ## Phase 5 — Trust & utility surfaces
