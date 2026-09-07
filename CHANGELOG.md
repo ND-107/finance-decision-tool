@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-06-17 — Program-wide sweep: 8 same-class bugs fixed + deployed [branch `v2` → deployed `main` a5e5655]
+
+Follow-up to the two reported production bugs (dead-end "Done"; `core8Done` requiring a W-2-only field). Each was one instance of a broader class, so I hunted both classes across the whole tool — a 2-phase adversarial sweep + empirical reproduction across every income type surfaced **8 same-class issues**. All fixed, verified in headless Chrome, 10/10 gates green, deployed.
+
+**Done:**
+- **Fix 1 (leak):** raw `${bracketBlock(...)}` template source leaked into 7 nodes' detail panels (extraction captured the source, not its output). Expand at build (`tools/build-v2.mjs`) — also revives the chart's dead tax-bracket selector (no `.bracket-block` to filter before).
+- **Fix 2 (cross-namespace):** the personal chart rendered a single income namespace, hiding plan actions assigned canonical cross-namespace nodeKeys (a contractor's plan pulls in shared `w2:` steps, often tier-1 — health insurance, starter EF) and false-flagging their primary-track equivalents "Skipped." Now renders the primary track in full + every other track the plan touches as an active-only addendum (`flowchartHTML` gains `activeOnly`; `personalChartView` union render). Verified: contractor 11/11 & business 8/8 nodeKeys visible.
+- **Fix 3 (completion trap):** ticking an effect-bearing action (capture match → `matchCaptured:'yes'`) dropped it from the recomputed plan with no card left to untick — irreversible. Re-surface closed actions in a "Completed" ledger with a working uncheck.
+- **Fix 4 (dup ids):** tier-1 actions render twice (Start-here + stage), colliding on element id + `data-fk` (checkbox and detail-toggle) → focus restore / `aria-controls` breakage. Made distinct per copy.
+- **Fix 5 (debounce TypeError):** calc views left dangling 80ms debounce timers from the initial-paint nudge; a fast tab-switch fired them after `#app` was wiped → `null.innerHTML`. Replaced the event-dispatch nudge with a synchronous, guarded initial compute (`tools/extract-calc-live.mjs`). Verified: 0 pending timers, 0 errors on nav-away.
+- **Fix 6/7/8 (minor):** dead "Back" on diagnostic section 1 (omit + spacer keeps Next right-aligned); non-clickable "+" on skipped chart nodes (omit the affordance); empty `incomeType` pill for unmapped values (guard on the label).
+- Verified every fix in headless Chrome (reproduce → fix → confirm); full-chart + W-2 + welcome→diagnostic paths regression-checked. **10/10 v2 gates green** (incl. 245-vector calc parity in real Chrome). Committed `a3b8453` (v2); deployed `a5e5655` (main `flowchart.html` cutover, 964,766 bytes) + pushed.
+
+**Open:**
+- None — thread closed. v2 fully live; rollback remains at `v1/flowchart.html` (unchanged).
+
+**Notes:**
+- The sweep's verify phase **refuted** a tempting marker-only personal-chart fix — markers don't align cross-namespace (`business:9.2` "Mega Backdoor via business 401k" ≠ `w2:9.2` "Open taxable brokerage"). The union-of-namespaces render is the correct fix.
+- `dist/v2.html` ≈ 965 KB.
+
 ## 2026-06-16 — v2 Phase 7 (complete): calculator charts live — full build parity [branch `v2`, local-only]
 
 The last build item — the inline calculator charts (stubbed in the pure kernel) — now render. This **completes build parity with v1**: every view, every calculator, every chart.
