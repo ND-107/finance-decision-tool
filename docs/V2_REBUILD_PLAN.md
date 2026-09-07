@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-10
 **Provenance:** Synthesized from the 2026-06-10 review session: full-system architecture review, 447-claim content audit with live web verification, diagnostic/engine design analysis, and additions survey. This document supersedes nothing — HANDOFF.md remains the v1 orientation doc. This is the forward plan.
-**Status:** PROPOSED — Phase 0 is urgent (statutory deadline 2026-07-01); Phases 1–6 await go decision.
+**Status (updated 2026-09-07):** Phase 0 shipped 2026-06-11 (v1 hotfix, deployed). Phases 1–3 shipped on `v2` 2026-06-15/16 (extraction, kernel, diagnostic v2). Phase 5 partial: figures banner, Markdown/print export, `.ics`, scenario toggles shipped 2026-06-16; **sources toggle, deep links, search index not built.** Phase 6 cutover shipped 2026-06-17 (`main` a5e5655; v1 archived at `/v1/`); the maintenance-ritual doc and the MC-backend type are not written. **Phase 4 (life-events view, protection module, annual review checklist, plain-English layer §4.5) not started.** Original status line: PROPOSED — Phase 0 is urgent (statutory deadline 2026-07-01); Phases 1–6 await go decision.
 
 ---
 
