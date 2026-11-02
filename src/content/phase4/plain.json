@@ -1,0 +1,1742 @@
+{
+ "le:job-loss:coverage": {
+  "hash": "bc3d74fb0d96",
+  "plain": "When job-based health coverage ends, two clocks start. COBRA lets you stay on the same employer plan, generally for up to 18 months after a job loss. You get at least 60 days to sign up. It can cost up to 102% of the full premium, because your employer stops paying its share. Losing coverage also lets you sign up on the Marketplace within 60 days. There, help with premiums is based on what you expect to earn this year, which may now be less. If your spouse has a job-based plan, it must give you at least 30 days to join. Compare all three by total cost, not just the monthly premium.",
+  "props": [
+   [
+    "P1",
+    "Losing job-based coverage starts two time windows",
+    "kept",
+    "two clocks start"
+   ],
+   [
+    "P2",
+    "COBRA keeps the same employer plan, generally up to 18 months after job loss",
+    "kept",
+    "generally for up to 18 months"
+   ],
+   [
+    "P3",
+    "COBRA election window is at least 60 days",
+    "kept",
+    "at least 60 days to sign up"
+   ],
+   [
+    "P4",
+    "COBRA premium can be up to 102% of full cost",
+    "kept",
+    "up to 102%"
+   ],
+   [
+    "P5",
+    "because the employer subsidy ends (mechanism)",
+    "kept",
+    "stops paying its share"
+   ],
+   [
+    "P6",
+    "Loss of coverage triggers a 60-day Marketplace special enrollment period",
+    "kept",
+    "Marketplace within 60 days"
+   ],
+   [
+    "P7",
+    "Premium tax credits are based on expected income for the year, which may be lower",
+    "kept",
+    "what you expect to earn this year"
+   ],
+   [
+    "P8",
+    "A spouse's employer plan must offer at least 30 days to enroll",
+    "kept",
+    "at least 30 days to join"
+   ],
+   [
+    "P9",
+    "Compare on total cost, not premium alone",
+    "kept",
+    "by total cost"
+   ]
+  ]
+ },
+ "le:job-loss:runway": {
+  "hash": "0f3b11f410a6",
+  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, keep making the minimum payment on every debt before anything else.",
+  "props": [
+   [
+    "P1",
+    "Runway = liquid savings / essential monthly spending",
+    "kept",
+    "divide your cash savings by what you must spend each month"
+   ],
+   [
+    "P2",
+    "Unemployment insurance is state-run; file promptly with the state",
+    "kept",
+    "run by your state"
+   ],
+   [
+    "P3",
+    "UI benefits are federally taxable; consider voluntary withholding",
+    "kept",
+    "income for federal tax"
+   ],
+   [
+    "P4",
+    "Severance is taxable wages, normally withheld",
+    "kept",
+    "severance is taxed like pay"
+   ],
+   [
+    "P5",
+    "Minimum payments on every debt come before other goals when cash is tight",
+    "kept",
+    "minimum payment on every debt"
+   ]
+  ]
+ },
+ "le:job-loss:old-401k": {
+  "hash": "cdaf50f8d6ef",
+  "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment.",
+  "props": [
+   [
+    "P1",
+    "Options: leave, roll to new plan, roll to IRA",
+    "kept",
+    "leave it in the old plan"
+   ],
+   [
+    "P2",
+    "Cash-out triggers income tax plus 10% additional tax before 59½ absent an exception",
+    "kept",
+    "extra 10% tax before age 59½"
+   ],
+   [
+    "P3",
+    "A check paid to you carries 20% mandatory withholding",
+    "kept",
+    "20% held back"
+   ],
+   [
+    "P4",
+    "A direct trustee-to-trustee rollover avoids both",
+    "kept",
+    "direct rollover"
+   ],
+   [
+    "P5",
+    "Separation in/after the year you turn 55: that plan (not an IRA) pays without the 10% tax",
+    "kept",
+    "not an ira"
+   ],
+   [
+    "P6",
+    "This argues for leaving it in place if you may need it",
+    "kept",
+    "leave it where it is"
+   ],
+   [
+    "P7",
+    "Check NUA before rolling employer stock; rolling shares to an IRA forfeits it",
+    "kept",
+    "net unrealized appreciation"
+   ]
+  ]
+ },
+ "le:job-loss:equity": {
+  "hash": "d2806e484233",
+  "plain": "Stock options that have vested often expire a set time after you leave. Incentive stock options lose their special tax treatment if you don't exercise them within three months after your job ends. Your grant agreement has the exact deadline — read it before it passes.",
+  "props": [
+   [
+    "P1",
+    "Vested options often expire a fixed period after leaving",
+    "kept",
+    "expire a set time after you leave"
+   ],
+   [
+    "P2",
+    "ISOs lose favorable treatment if not exercised within three months of termination",
+    "kept",
+    "within three months"
+   ],
+   [
+    "P3",
+    "The exact window is in the grant agreement; read it before it closes",
+    "kept",
+    "grant agreement"
+   ]
+  ]
+ },
+ "le:job-loss:withholding": {
+  "hash": "91f509e25b34",
+  "plain": "A year with a gap, severance and two employers often ends with too much or too little tax taken out. Use the IRS Tax Withholding Estimator and give your new employer a new Form W-4. Each employer's payroll only tracks its own 401(k). But the yearly limit on what you put in ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so add up both jobs' contributions yourself.",
+  "props": [
+   [
+    "P1",
+    "Gap + severance + two employers is the classic mis-withholding year",
+    "kept",
+    "too much or too little tax"
+   ],
+   [
+    "P2",
+    "Run the IRS Tax Withholding Estimator and file a new W-4",
+    "kept",
+    "tax withholding estimator"
+   ],
+   [
+    "P3",
+    "Each employer's payroll tracks the limit separately",
+    "kept",
+    "only tracks its own 401(k)"
+   ],
+   [
+    "P4",
+    "The employee deferral limit (2026 figure) applies across all plans; total both yourself",
+    "kept",
+    "across all plans"
+   ]
+  ]
+ },
+ "le:new-baby:enroll": {
+  "hash": "6d4a9d345ee3",
+  "plain": "A birth or adoption gives you a special window to add your child to health coverage: at least 30 days for a job-based plan and 60 days on the Marketplace. Miss it and you may have to wait for the next open enrollment.",
+  "props": [
+   [
+    "P1",
+    "Birth/adoption triggers special enrollment",
+    "kept",
+    "special window"
+   ],
+   [
+    "P2",
+    "At least 30 days for employer group plans",
+    "kept",
+    "at least 30 days"
+   ],
+   [
+    "P3",
+    "60 days on the Marketplace",
+    "kept",
+    "60 days on the marketplace"
+   ],
+   [
+    "P4",
+    "Missing it can mean waiting for the next open enrollment",
+    "kept",
+    "next open enrollment"
+   ]
+  ]
+ },
+ "le:new-baby:ssn": {
+  "hash": "6d89c5cf2592",
+  "plain": "To claim the Child Tax Credit (amount: {{verify:2026 Child Tax Credit per child — IRC §24 as amended by P.L. 119-21; IRS Rev. Proc. 2025-32}}), your child needs a Social Security number. You can usually ask for one at the hospital when you register the birth.",
+  "props": [
+   [
+    "P1",
+    "The child's SSN is needed to claim the CTC",
+    "kept",
+    "needs a social security number"
+   ],
+   [
+    "P2",
+    "It is usually requested at the hospital with birth registration",
+    "kept",
+    "at the hospital"
+   ]
+  ]
+ },
+ "le:new-baby:protection": {
+  "hash": "e0aa7777dac2",
+  "plain": "A child who depends on you is the main reason to have term life insurance. A common rule of thumb is 10–12 times the main earner's income; the DIME method gives a number that fits your household. A will is where you name a guardian for a young child — without one, a court chooses. Update the beneficiaries on your accounts at the same time.",
+  "props": [
+   [
+    "P1",
+    "A dependent is the main reason to own term life",
+    "kept",
+    "main reason to have term life"
+   ],
+   [
+    "P2",
+    "Heuristic: 10–12× primary earner's income",
+    "kept",
+    "10–12 times"
+   ],
+   [
+    "P3",
+    "DIME gives a more specific number",
+    "kept",
+    "dime method"
+   ],
+   [
+    "P4",
+    "A will names a guardian for a minor child; without one a court decides",
+    "kept",
+    "a court chooses"
+   ],
+   [
+    "P5",
+    "Update beneficiary designations at the same time",
+    "kept",
+    "update the beneficiaries"
+   ]
+  ]
+ },
+ "le:new-baby:childcare": {
+  "hash": "578ab64b3ee0",
+  "plain": "A dependent-care FSA lets you pay for childcare with money that skips income and payroll tax (2026 limit: {{verify:§129 dependent-care exclusion for 2026 — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}). Costs you pay through the FSA can't also count toward the child and dependent care credit. So plan the two together instead of trying to max both.",
+  "props": [
+   [
+    "P1",
+    "A DCFSA shelters childcare costs from income and payroll tax",
+    "kept",
+    "skips income and payroll tax"
+   ],
+   [
+    "P2",
+    "FSA-reimbursed expenses cannot also count for the credit",
+    "kept",
+    "can't also count"
+   ],
+   [
+    "P3",
+    "The two must be coordinated, not both maxed",
+    "kept",
+    "plan the two together"
+   ]
+  ]
+ },
+ "le:new-baby:529": {
+  "hash": "b320bf119282",
+  "plain": "A 529 plan grows tax-free when used for school costs, and about 30 states give a state tax deduction for putting money in. This tool puts education saving after your own retirement accounts, because a student can borrow for college but a retiree can't borrow for retirement.",
+  "props": [
+   [
+    "P1",
+    "529s grow tax-free for qualified education costs",
+    "kept",
+    "grows tax-free"
+   ],
+   [
+    "P2",
+    "About 30 states offer a state income tax deduction",
+    "kept",
+    "about 30 states"
+   ],
+   [
+    "P3",
+    "The framework sequences education after tax-advantaged retirement steps",
+    "kept",
+    "after your own retirement accounts"
+   ],
+   [
+    "P4",
+    "because students can borrow, retirees cannot (mechanism)",
+    "kept",
+    "can't borrow for retirement"
+   ]
+  ]
+ },
+ "le:marriage:enroll": {
+  "hash": "2bdc38486c41",
+  "plain": "Getting married opens a special window to change health plans: at least 30 days for job-based plans and 60 days on the Marketplace. Compare both employers' plans by premium plus the costs you expect to pay yourself, including any extra charge for covering a spouse.",
+  "props": [
+   [
+    "P1",
+    "Marriage triggers special enrollment",
+    "kept",
+    "special window"
+   ],
+   [
+    "P2",
+    "At least 30 days employer / 60 days Marketplace",
+    "kept",
+    "at least 30 days"
+   ],
+   [
+    "P3",
+    "Compare on premium plus expected out-of-pocket, incl. spousal surcharge",
+    "kept",
+    "extra charge for covering a spouse"
+   ]
+  ]
+ },
+ "le:marriage:names": {
+  "hash": "8a987d37325a",
+  "plain": "If either of you changes your name, update it with Social Security before you file taxes. If your tax return and Social Security's records don't match, your return can be delayed.",
+  "props": [
+   [
+    "P1",
+    "Update the name with SSA before filing",
+    "kept",
+    "before you file taxes"
+   ],
+   [
+    "P2",
+    "A mismatch with SSA records can delay processing",
+    "kept",
+    "can be delayed"
+   ]
+  ]
+ },
+ "le:marriage:filing": {
+  "hash": "8d6db3968ff2",
+  "plain": "Whether you count as married for taxes depends on December 31. So a December wedding counts for the whole year. Two paychecks each taxed as if single often don't have enough tax taken out once you're combined. Use the IRS Tax Withholding Estimator together and file new W-4s.",
+  "props": [
+   [
+    "P1",
+    "Filing status is set by marital status on December 31",
+    "kept",
+    "december 31"
+   ],
+   [
+    "P2",
+    "A December wedding counts for the whole year",
+    "kept",
+    "december wedding"
+   ],
+   [
+    "P3",
+    "Two incomes withheld as single often under-withhold combined",
+    "kept",
+    "don't have enough tax taken out"
+   ],
+   [
+    "P4",
+    "Run the estimator together and file new W-4s",
+    "kept",
+    "new w-4s"
+   ]
+  ]
+ },
+ "le:marriage:beneficiaries": {
+  "hash": "6c0607b454a9",
+  "plain": "Retirement accounts and life insurance go to whoever is named on the beneficiary form, not to whoever is named in a will. In a 401(k), federal law generally makes your spouse the default beneficiary unless they give that up in writing. IRAs go to whoever the form names. Read every form instead of assuming.",
+  "props": [
+   [
+    "P1",
+    "Retirement accounts and life insurance pass by beneficiary form, not will",
+    "kept",
+    "not to whoever is named in a will"
+   ],
+   [
+    "P2",
+    "401(k): spouse is generally default beneficiary unless they waive in writing",
+    "kept",
+    "give that up in writing"
+   ],
+   [
+    "P3",
+    "IRAs follow the form",
+    "kept",
+    "iras go to whoever the form names"
+   ],
+   [
+    "P4",
+    "Read each form",
+    "kept",
+    "read every form"
+   ]
+  ]
+ },
+ "le:marriage:align": {
+  "hash": "ab99d1c6bbe5",
+  "plain": "Take the diagnostic together. Its questions about whether you agree exist because couples who disagree on risk or goals tend to get stuck on every other step. Export the plan as Markdown so you both work from the same list.",
+  "props": [
+   [
+    "P1",
+    "Run the diagnostic together",
+    "kept",
+    "take the diagnostic together"
+   ],
+   [
+    "P2",
+    "Spousal-alignment questions exist because disagreeing couples stall",
+    "kept",
+    "get stuck"
+   ],
+   [
+    "P3",
+    "Export as Markdown to share one list",
+    "kept",
+    "export the plan as markdown"
+   ]
+  ]
+ },
+ "le:divorce:counsel": {
+  "hash": "db8044f81d9c",
+  "plain": "Divorce is the one event on this list where a lawyer is close to a must: your state's property law decides what counts as shared, and a signed agreement is hard to undo. First, list every account, debt and insurance policy. That list is also the start of your own net-worth snapshot.",
+  "props": [
+   [
+    "P1",
+    "Professional counsel is close to mandatory for divorce",
+    "kept",
+    "close to a must"
+   ],
+   [
+    "P2",
+    "State property law decides what is marital",
+    "kept",
+    "property law decides"
+   ],
+   [
+    "P3",
+    "Agreements are hard to reopen",
+    "kept",
+    "hard to undo"
+   ],
+   [
+    "P4",
+    "Build a complete inventory of accounts, debts, policies first",
+    "kept",
+    "list every account, debt and insurance policy"
+   ],
+   [
+    "P5",
+    "The inventory starts your own net-worth snapshot",
+    "kept",
+    "net-worth snapshot"
+   ]
+  ]
+ },
+ "le:divorce:qdro": {
+  "hash": "7d7095cb649c",
+  "plain": "A job-based plan can only pay a former spouse under a court order called a qualified domestic relations order (QDRO). Money paid to the former spouse under a QDRO skips the extra 10% tax. An IRA is split by a transfer made as part of the divorce, which isn't taxed as a withdrawal. Cashing out instead of using these routes can turn the split into a tax bill.",
+  "props": [
+   [
+    "P1",
+    "Employer plans pay a former spouse only under a QDRO",
+    "kept",
+    "qualified domestic relations order"
+   ],
+   [
+    "P2",
+    "QDRO distributions to the alternate payee are exempt from the 10% additional tax",
+    "kept",
+    "skips the extra 10% tax"
+   ],
+   [
+    "P3",
+    "IRAs are divided by transfer incident to divorce, not taxable",
+    "kept",
+    "transfer made as part of the divorce"
+   ],
+   [
+    "P4",
+    "Cashing out instead can create a tax bill",
+    "kept",
+    "tax bill"
+   ]
+  ]
+ },
+ "le:divorce:beneficiaries": {
+  "hash": "14c25ad35da9",
+  "plain": "Many states automatically remove an ex-spouse as beneficiary on some accounts. But for job-based plans covered by ERISA, the Supreme Court ruled that the plan's own papers win (Egelhoff v. Egelhoff, 2001). Don't count on state law: file new beneficiary forms on every account and policy.",
+  "props": [
+   [
+    "P1",
+    "Many states auto-revoke an ex-spouse on some non-probate assets",
+    "kept",
+    "automatically remove an ex-spouse"
+   ],
+   [
+    "P2",
+    "For ERISA plans, plan documents control (Egelhoff, 2001)",
+    "kept",
+    "egelhoff v. egelhoff, 2001"
+   ],
+   [
+    "P3",
+    "File new forms everywhere rather than relying on state law",
+    "kept",
+    "file new beneficiary forms"
+   ]
+  ]
+ },
+ "le:divorce:filing": {
+  "hash": "8c61a1bddd22",
+  "plain": "Whether you're married on December 31 sets your filing status for the year. Losing coverage under a spouse's plan lets you use COBRA (up to 36 months for a former spouse) and opens a Marketplace special enrollment window.",
+  "props": [
+   [
+    "P1",
+    "Marital status on Dec 31 sets filing status",
+    "kept",
+    "december 31"
+   ],
+   [
+    "P2",
+    "Losing spouse-plan coverage is a COBRA qualifying event, up to 36 months for a former spouse",
+    "kept",
+    "up to 36 months"
+   ],
+   [
+    "P3",
+    "It is also a Marketplace special enrollment trigger",
+    "kept",
+    "marketplace special enrollment"
+   ]
+  ]
+ },
+ "le:divorce:rebuild": {
+  "hash": "7e7e5be4f381",
+  "plain": "A home that ran on two incomes now runs on one. That usually means a bigger emergency fund target, and taking the diagnostic again with your new answers.",
+  "props": [
+   [
+    "P1",
+    "Two incomes become one",
+    "kept",
+    "now runs on one"
+   ],
+   [
+    "P2",
+    "Usually means a larger emergency-fund target",
+    "kept",
+    "bigger emergency fund"
+   ],
+   [
+    "P3",
+    "Re-run the diagnostic",
+    "kept",
+    "taking the diagnostic again"
+   ]
+  ]
+ },
+ "le:home-purchase:afford": {
+  "hash": "6174d0e0be21",
+  "plain": "Your down payment is a short-term goal kept in safe places. Your emergency fund is separate money, and it should still be full after closing — as an owner, you now pay for repairs a landlord used to cover.",
+  "props": [
+   [
+    "P1",
+    "The down payment is a near-term goal in safe assets",
+    "kept",
+    "short-term goal"
+   ],
+   [
+    "P2",
+    "The emergency fund is a separate pool, whole after closing",
+    "kept",
+    "still be full after closing"
+   ],
+   [
+    "P3",
+    "because owners take on repairs (mechanism)",
+    "kept",
+    "repairs a landlord used to cover"
+   ]
+  ]
+ },
+ "le:home-purchase:insure": {
+  "hash": "e25e713cef26",
+  "plain": "Lenders require homeowners insurance. A standard homeowners policy does not cover flood damage. Flood insurance is a separate policy (from NFIP or a private insurer), and there is usually a waiting period before it starts.",
+  "props": [
+   [
+    "P1",
+    "Lenders require homeowners insurance",
+    "kept",
+    "lenders require"
+   ],
+   [
+    "P2",
+    "Standard policies exclude flood",
+    "kept",
+    "does not cover flood"
+   ],
+   [
+    "P3",
+    "Flood is a separate NFIP or private policy",
+    "kept",
+    "separate policy"
+   ],
+   [
+    "P4",
+    "Usually a waiting period before it takes effect",
+    "kept",
+    "waiting period"
+   ]
+  ]
+ },
+ "le:home-purchase:pmi": {
+  "hash": "eda8acf6d18a",
+  "plain": "With a conventional loan, the lender must drop private mortgage insurance on its own once your balance is scheduled to reach 78% of the home's original value. You can ask for it to be removed at 80%. Write down the date.",
+  "props": [
+   [
+    "P1",
+    "PMI terminates automatically at scheduled 78% of original value (conventional loans)",
+    "kept",
+    "78%"
+   ],
+   [
+    "P2",
+    "Borrower can request removal at 80%",
+    "kept",
+    "80%"
+   ],
+   [
+    "P3",
+    "Note the date",
+    "kept",
+    "write down the date"
+   ]
+  ]
+ },
+ "le:home-purchase:umbrella": {
+  "hash": "617968e46a4e",
+  "plain": "Owning a home raises what you could lose if someone sues you. An umbrella policy adds coverage on top of your home and auto liability, and it costs little for the amount of coverage you get.",
+  "props": [
+   [
+    "P1",
+    "Owning a home raises lawsuit exposure",
+    "kept",
+    "if someone sues you"
+   ],
+   [
+    "P2",
+    "Umbrella sits on top of homeowners and auto liability",
+    "kept",
+    "on top of your home and auto liability"
+   ],
+   [
+    "P3",
+    "It is inexpensive per dollar of coverage",
+    "kept",
+    "costs little"
+   ]
+  ]
+ },
+ "le:home-purchase:sale-later": {
+  "hash": "087baa9a6ac9",
+  "plain": "When you sell your main home, you can leave out up to {{verify:IRC §121(b) exclusion amounts (single / married filing jointly) — 26 U.S.C. §121; IRS Publication 523}} of profit from tax if you owned it and lived in it for two of the five years before selling. Money spent on improvements raises your cost basis, so keep the receipts.",
+  "props": [
+   [
+    "P1",
+    "Gain on a main home can be excluded up to the §121 amount",
+    "kept",
+    "leave out up to"
+   ],
+   [
+    "P2",
+    "Requires owning and living there 2 of the 5 years before sale",
+    "kept",
+    "two of the five years"
+   ],
+   [
+    "P3",
+    "Capital improvements add to basis; keep receipts",
+    "kept",
+    "keep the receipts"
+   ]
+  ]
+ },
+ "le:relocation:residency": {
+  "hash": "3aec51978ca2",
+  "plain": "Each state decides for itself who counts as a resident. The year you move, you usually file a part-year resident return in each state. If you're leaving a high-tax state, you often have to prove you left, so keep proof of the move — a lease or deed, driver's license, voter registration.",
+  "props": [
+   [
+    "P1",
+    "States define residency independently",
+    "kept",
+    "decides for itself"
+   ],
+   [
+    "P2",
+    "A move year usually means part-year returns in each state",
+    "kept",
+    "part-year resident return"
+   ],
+   [
+    "P3",
+    "Leaving a high-tax state, the burden of proof often falls on you",
+    "kept",
+    "prove you left"
+   ],
+   [
+    "P4",
+    "Keep evidence: lease/deed, license, voter registration",
+    "kept",
+    "voter registration"
+   ]
+  ]
+ },
+ "le:relocation:coverage": {
+  "hash": "2722366d5e2d",
+  "plain": "A permanent move to an area where your plan isn't offered lets you sign up for a new Marketplace plan within 60 days. Job-based plans may have a different network of doctors in the new state.",
+  "props": [
+   [
+    "P1",
+    "A permanent move out of the plan's area triggers a 60-day Marketplace SEP",
+    "kept",
+    "within 60 days"
+   ],
+   [
+    "P2",
+    "Employer plans may have different networks in the new state",
+    "kept",
+    "different network"
+   ]
+  ]
+ },
+ "le:relocation:insurance": {
+  "hash": "a6843e9b6efe",
+  "plain": "Each state sets its own auto insurance rules and prices, so your policy must be rewritten for the new state. Make sure your liability limits still fit what you own, not just the new state's minimum.",
+  "props": [
+   [
+    "P1",
+    "Auto requirements and prices are state-by-state; policy must be rewritten",
+    "kept",
+    "rewritten for the new state"
+   ],
+   [
+    "P2",
+    "Liability limits should match assets, not the state minimum",
+    "kept",
+    "not just the new state's minimum"
+   ]
+  ]
+ },
+ "le:relocation:expenses": {
+  "hash": "929c3768d30c",
+  "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can). If your employer pays for your move, that counts as taxable pay.",
+  "props": [
+   [
+    "P1",
+    "The federal moving-expense deduction is unavailable to most taxpayers",
+    "kept",
+    "can't deduct moving costs"
+   ],
+   [
+    "P2",
+    "Exception: active-duty military under orders",
+    "kept",
+    "active-duty military"
+   ],
+   [
+    "P3",
+    "Employer-paid moving costs are taxable wages",
+    "kept",
+    "taxable pay"
+   ]
+  ]
+ },
+ "le:relocation:estate": {
+  "hash": "583594f3b401",
+  "plain": "Wills, powers of attorney and healthcare directives follow state law. Papers that were valid where you signed them usually still count, but having them reviewed in your new state catches differences in signing rules and in how agents are named.",
+  "props": [
+   [
+    "P1",
+    "Estate documents are governed by state law",
+    "kept",
+    "follow state law"
+   ],
+   [
+    "P2",
+    "Documents valid where signed are usually honored",
+    "kept",
+    "usually still count"
+   ],
+   [
+    "P3",
+    "A review in the new state catches execution and agent-designation differences",
+    "kept",
+    "signing rules"
+   ]
+  ]
+ },
+ "le:windfall:park": {
+  "hash": "7e6deb767662",
+  "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people.",
+  "props": [
+   [
+    "P1",
+    "Planners commonly advise a cooling-off period",
+    "kept",
+    "often suggest waiting a few months"
+   ],
+   [
+    "P2",
+    "Park in insured savings or T-bills",
+    "kept",
+    "treasury bills"
+   ],
+   [
+    "P3",
+    "Purpose is behavioral: rushed purchases and pressure from others",
+    "kept",
+    "pressure from other people"
+   ]
+  ]
+ },
+ "le:windfall:character": {
+  "hash": "4915338217c4",
+  "plain": "Cash, a brokerage account, an inherited IRA and a house are taxed in different ways. Inherited things usually get a new cost basis equal to their value on the day of death (a \"step-up\"), so selling soon after you inherit often creates little taxable gain. Most people who inherit an IRA from someone other than a spouse must empty it within 10 years. If the original owner had already started required withdrawals, you must also take yearly withdrawals during those years.",
+  "props": [
+   [
+    "P1",
+    "Different asset types are taxed differently",
+    "kept",
+    "taxed in different ways"
+   ],
+   [
+    "P2",
+    "Inherited assets generally get basis stepped up to date-of-death value",
+    "kept",
+    "step-up"
+   ],
+   [
+    "P3",
+    "So selling soon after inheriting often produces little gain",
+    "kept",
+    "little taxable gain"
+   ],
+   [
+    "P4",
+    "Most non-spouse IRA beneficiaries must empty it within 10 years",
+    "kept",
+    "within 10 years"
+   ],
+   [
+    "P5",
+    "If the owner had begun RMDs, annual distributions are required too",
+    "kept",
+    "yearly withdrawals"
+   ]
+  ]
+ },
+ "le:windfall:sequence": {
+  "hash": "2a08014c329f",
+  "plain": "A windfall doesn't need a new plan — it speeds up the one you have. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged accounts before investing in a regular taxable account.",
+  "props": [
+   [
+    "P1",
+    "A windfall accelerates the existing plan rather than needing a new one",
+    "kept",
+    "speeds up the one you have"
+   ],
+   [
+    "P2",
+    "Order: high-interest debt, emergency fund, tax-advantaged space, then taxable",
+    "kept",
+    "fill tax-advantaged accounts"
+   ]
+  ]
+ },
+ "le:windfall:lump-sum": {
+  "hash": "45664958723e",
+  "plain": "Vanguard looked at past market history and found that investing a lump sum right away beat spreading it out over time in about two-thirds of the periods it studied, because markets go up more often than they go down. Spreading it out protects you from regret if the market falls right after you invest. Both are reasonable; choose the one you'll stick with.",
+  "props": [
+   [
+    "P1",
+    "Vanguard's historical study: lump sum beat DCA in about two-thirds of rolling periods",
+    "kept",
+    "about two-thirds"
+   ],
+   [
+    "P2",
+    "because markets rise more often than fall (mechanism)",
+    "kept",
+    "go up more often"
+   ],
+   [
+    "P3",
+    "DCA buys protection against regret after an early drop",
+    "kept",
+    "protects you from regret"
+   ],
+   [
+    "P4",
+    "Both defensible; pick the one you will stick with",
+    "kept",
+    "stick with"
+   ]
+  ]
+ },
+ "le:windfall:gift": {
+  "hash": "6bcd4cfc5394",
+  "plain": "If you give someone more than the yearly exclusion ({{fig:gift_annual_exclusion}} per person for 2026), you have to file a gift-tax return, but you rarely owe tax, because it counts against your lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+  "props": [
+   [
+    "P1",
+    "Gifts above the annual exclusion require a gift-tax return",
+    "kept",
+    "file a gift-tax return"
+   ],
+   [
+    "P2",
+    "Rarely any tax, because they count against the lifetime exemption",
+    "kept",
+    "lifetime exemption"
+   ]
+  ]
+ },
+ "le:retirement:medicare": {
+  "hash": "f28b5f84b431",
+  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+  "props": [
+   [
+    "P1",
+    "Initial enrollment period is seven months around the 65th birthday",
+    "kept",
+    "seven months"
+   ],
+   [
+    "P2",
+    "Three before, the birthday month, three after",
+    "kept",
+    "three months before"
+   ],
+   [
+    "P3",
+    "Late Part B without other qualifying coverage → lifetime premium penalty",
+    "kept",
+    "higher premium for life"
+   ],
+   [
+    "P4",
+    "Retirement income drives IRMAA with a two-year lookback",
+    "kept",
+    "two years earlier"
+   ]
+  ]
+ },
+ "le:retirement:social-security": {
+  "hash": "67f9f6c45d8c",
+  "plain": "Whether you claim at 62, at full retirement age, or at 70 is one of the biggest money choices most retirees make. For a married person who earned more, waiting also raises what the surviving spouse would get.",
+  "props": [
+   [
+    "P1",
+    "Claiming at 62 / FRA / 70 is among the largest retiree decisions",
+    "kept",
+    "one of the biggest money choices"
+   ],
+   [
+    "P2",
+    "For a married higher earner, delay also raises the survivor benefit",
+    "kept",
+    "surviving spouse would get"
+   ]
+  ]
+ },
+ "le:retirement:withdrawals": {
+  "hash": "09990886bed4",
+  "plain": "Which accounts you take money from first, and how much you take, shapes the taxes you pay over your life and how exposed you are to a bad run of early market returns.",
+  "props": [
+   [
+    "P1",
+    "Withdrawal order and rate set lifetime tax",
+    "kept",
+    "taxes you pay over your life"
+   ],
+   [
+    "P2",
+    "…and sequence-of-returns exposure",
+    "kept",
+    "bad run of early market returns"
+   ]
+  ]
+ },
+ "le:retirement:rmd": {
+  "hash": "5ef7bc443ba4",
+  "plain": "Required minimum distributions from traditional accounts start at age 73. Giving straight from an IRA to charity (a qualified charitable distribution, allowed from age 70½) can count toward them without adding to your income.",
+  "props": [
+   [
+    "P1",
+    "RMDs start at 73",
+    "kept",
+    "age 73"
+   ],
+   [
+    "P2",
+    "QCDs from age 70½ can satisfy RMDs without adding to income",
+    "kept",
+    "without adding to your income"
+   ]
+  ]
+ },
+ "le:retirement:ltc": {
+  "hash": "524a24c2dc08",
+  "plain": "About 70% of Americans turning 65 will need some long-term care. The choice is between buying insurance, paying for it yourself, or a mix.",
+  "props": [
+   [
+    "P1",
+    "About 70% of those turning 65 will need some LTC",
+    "kept",
+    "about 70%"
+   ],
+   [
+    "P2",
+    "Choice: insure, self-fund, or hybrid",
+    "kept",
+    "or a mix"
+   ]
+  ]
+ },
+ "le:death-of-spouse:pause": {
+  "hash": "52279da644cf",
+  "plain": "Very few money deadlines fall in the first weeks. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
+  "props": [
+   [
+    "P1",
+    "Few financial deadlines in the first weeks",
+    "kept",
+    "very few money deadlines"
+   ],
+   [
+    "P2",
+    "Irreversible moves (sell house, move, lump sum) can wait",
+    "kept",
+    "can wait"
+   ],
+   [
+    "P3",
+    "Locate will, policies, statements",
+    "kept",
+    "find the will"
+   ],
+   [
+    "P4",
+    "Get several certified death certificates; most institutions ask for one",
+    "kept",
+    "certified copies"
+   ]
+  ]
+ },
+ "le:death-of-spouse:notify": {
+  "hash": "caff58430fe2",
+  "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60, and it can be worth comparing switching between your own benefit and the survivor benefit later.",
+  "props": [
+   [
+    "P1",
+    "Report the death to SSA; funeral homes often do",
+    "kept",
+    "funeral home often does this"
+   ],
+   [
+    "P2",
+    "Survivor benefits available from age 60",
+    "kept",
+    "as early as age 60"
+   ],
+   [
+    "P3",
+    "Switching between own and survivor benefit later is worth comparing",
+    "kept",
+    "worth comparing"
+   ]
+  ]
+ },
+ "le:death-of-spouse:claims": {
+  "hash": "99db022e6980",
+  "plain": "Life insurance and retirement accounts pay the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA. The choice matters if the surviving spouse is under 59½.",
+  "props": [
+   [
+    "P1",
+    "Life insurance and retirement accounts pay the named beneficiary directly",
+    "kept",
+    "pay the named beneficiary directly"
+   ],
+   [
+    "P2",
+    "A spouse can treat an inherited IRA as own, roll it over, or keep it inherited",
+    "kept",
+    "treat it as their own"
+   ],
+   [
+    "P3",
+    "The choice matters if under 59½",
+    "kept",
+    "under 59½"
+   ]
+  ]
+ },
+ "le:death-of-spouse:taxes": {
+  "hash": "d21df9a6c068",
+  "plain": "You can still file a joint return for the year your spouse died. After that, if you have a dependent child, you can file as a qualifying surviving spouse for two more years. Otherwise you file as single — often with about the same income but narrower tax brackets. Inherited assets usually get a stepped-up cost basis, and in community-property states both halves of shared property can.",
+  "props": [
+   [
+    "P1",
+    "Joint filing allowed for the year of death",
+    "kept",
+    "year your spouse died"
+   ],
+   [
+    "P2",
+    "QSS status for two more years with a dependent child",
+    "kept",
+    "two more years"
+   ],
+   [
+    "P3",
+    "Otherwise single, often similar income with narrower brackets",
+    "kept",
+    "narrower tax brackets"
+   ],
+   [
+    "P4",
+    "Inherited assets generally get a stepped-up basis; community property both halves",
+    "kept",
+    "both halves"
+   ]
+  ]
+ },
+ "le:death-of-spouse:update": {
+  "hash": "8cc1b1377fd2",
+  "plain": "Your own will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and take the diagnostic again as a one-person household.",
+  "props": [
+   [
+    "P1",
+    "Own documents probably name the spouse",
+    "kept",
+    "probably name your spouse"
+   ],
+   [
+    "P2",
+    "Replace them",
+    "kept",
+    "replace them"
+   ],
+   [
+    "P3",
+    "Re-run the diagnostic for one person",
+    "kept",
+    "one-person household"
+   ]
+  ]
+ },
+ "pr:emergency-fund": {
+  "hash": "eab7aeafcccc",
+  "plain": "The usual target is three to six months of essential costs — not of income — kept in an insured account you can reach quickly. Start with a small fund of $1,000 or one month of costs, so a small surprise doesn't become new debt. Then build to the full target after getting your employer match and paying off high-interest debt. Aim higher, or beyond the range, if your income goes up and down, if one person supports the household, if you have dependents, or if finding a new job in your field takes a long time.",
+  "props": [
+   [
+    "P1",
+    "Target 3–6 months of essential expenses, not income",
+    "kept",
+    "not of income"
+   ],
+   [
+    "P2",
+    "Held in an insured, liquid account",
+    "kept",
+    "insured account"
+   ],
+   [
+    "P3",
+    "Starter fund of $1,000 or one month first",
+    "kept",
+    "$1,000"
+   ],
+   [
+    "P4",
+    "Full target after match and high-interest debt",
+    "kept",
+    "employer match"
+   ],
+   [
+    "P5",
+    "Size higher for variable income, single earner, dependents, slow re-employment",
+    "kept",
+    "aim higher"
+   ]
+  ]
+ },
+ "pr:health": {
+  "hash": "a6eee4263826",
+  "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: a hospital stay without insurance is the most common way a steady budget turns into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{verify:ACA maximum out-of-pocket for 2026 — HHS Notice of Benefit and Payment Parameters for 2026; HealthCare.gov}}). That limit, not the premium, is the amount your savings should be able to cover.",
+  "props": [
+   [
+    "P1",
+    "Health coverage is Tier-1 for a reason",
+    "kept",
+    "tier-1 (top-priority) step"
+   ],
+   [
+    "P2",
+    "An uninsured hospital stay is the most common route to unpayable debt",
+    "kept",
+    "most common way"
+   ],
+   [
+    "P3",
+    "ACA plans cap annual in-network out-of-pocket",
+    "kept",
+    "limit what you pay in-network"
+   ],
+   [
+    "P4",
+    "Reserves should cover that cap, not the premium",
+    "kept",
+    "not the premium"
+   ]
+  ]
+ },
+ "pr:disability": {
+  "hash": "a6cc5c2def70",
+  "plain": "For someone who works, becoming disabled is more likely than dying early, and your future pay is usually your biggest asset. Group long-term disability insurance often replaces about 60% of base pay. If your employer pays the premium, the benefit is taxed, so you really get less. The policy details that decide whether a claim pays — whether \"disabled\" means unable to do your own job or any job, how long you wait before benefits start, how long benefits last — matter as much as the percentage.",
+  "props": [
+   [
+    "P1",
+    "Disability is more likely than early death for working adults",
+    "kept",
+    "more likely than dying early"
+   ],
+   [
+    "P2",
+    "Future income is usually the largest asset",
+    "kept",
+    "biggest asset"
+   ],
+   [
+    "P3",
+    "Group LTD commonly replaces ~60% of base salary",
+    "kept",
+    "about 60%"
+   ],
+   [
+    "P4",
+    "Employer-paid premium → taxable benefit → lower real replacement",
+    "kept",
+    "benefit is taxed"
+   ],
+   [
+    "P5",
+    "Own-occ vs any-occ, elimination period, benefit period matter as much",
+    "kept",
+    "own job or any job"
+   ]
+  ]
+ },
+ "pr:term-life": {
+  "hash": "906e2cc9bdbb",
+  "plain": "Life insurance replaces income for people who rely on it. If no one depends on you, you rarely need it. A common rule of thumb for a main earner with dependents is 10–12 times yearly income; the DIME method (debt + income for the years needed + mortgage + education) gives a number for your household. Term insurance is the standard choice for this job. Whole-life policies bundle insurance with a savings part that earns little.",
+  "props": [
+   [
+    "P1",
+    "Life insurance replaces income for dependents",
+    "kept",
+    "people who rely on it"
+   ],
+   [
+    "P2",
+    "Without dependents it is rarely needed",
+    "kept",
+    "rarely need it"
+   ],
+   [
+    "P3",
+    "Heuristic 10–12× income for a primary earner with dependents",
+    "kept",
+    "10–12 times"
+   ],
+   [
+    "P4",
+    "DIME = debt + income + mortgage + education",
+    "kept",
+    "dime method"
+   ],
+   [
+    "P5",
+    "Term is the default; whole life bundles a low-return savings part",
+    "kept",
+    "earns little"
+   ]
+  ]
+ },
+ "pr:property": {
+  "hash": "a3de478c12d9",
+  "plain": "A landlord's policy covers the building, not a renter's belongings or a renter's liability. Renters insurance covers both. Homeowners should insure for what it would cost to rebuild, not what the home would sell for, and should know that standard policies don't cover flood.",
+  "props": [
+   [
+    "P1",
+    "Landlord's policy does not cover tenant property or liability",
+    "kept",
+    "not a renter's belongings"
+   ],
+   [
+    "P2",
+    "Renters insurance covers both",
+    "kept",
+    "covers both"
+   ],
+   [
+    "P3",
+    "Insure to rebuild cost, not market value",
+    "kept",
+    "cost to rebuild"
+   ],
+   [
+    "P4",
+    "Standard policies exclude flood",
+    "kept",
+    "don't cover flood"
+   ]
+  ]
+ },
+ "pr:auto": {
+  "hash": "affd1c4908f5",
+  "plain": "The minimum liability coverage states require is low, and it can leave your savings at risk after a bad accident. Consumer guides often suggest at least $100,000 per person, $300,000 per accident and $100,000 for property damage. Umbrella insurers usually require higher limits underneath before they will sell you a policy.",
+  "props": [
+   [
+    "P1",
+    "State minimum liability limits are low and can expose savings",
+    "kept",
+    "leave your savings at risk"
+   ],
+   [
+    "P2",
+    "Guidance commonly suggests 100/300/100",
+    "kept",
+    "$300,000 per accident"
+   ],
+   [
+    "P3",
+    "Umbrella carriers require higher underlying limits",
+    "kept",
+    "higher limits underneath"
+   ]
+  ]
+ },
+ "pr:umbrella": {
+  "hash": "76e5df098dcd",
+  "plain": "An umbrella policy adds liability coverage on top of your auto and home policies. It costs little for the coverage you get — industry price surveys put $1 million at roughly $200–400 a year — and people often buy at least as much as their net worth.",
+  "props": [
+   [
+    "P1",
+    "Umbrella adds liability on top of auto and homeowners",
+    "kept",
+    "on top of your auto and home"
+   ],
+   [
+    "P2",
+    "Inexpensive: $1 million ≈ $200–400/year per pricing surveys",
+    "kept",
+    "$200–400 a year"
+   ],
+   [
+    "P3",
+    "Commonly sized to at least net worth",
+    "kept",
+    "at least as much as their net worth"
+   ]
+  ]
+ },
+ "pr:estate": {
+  "hash": "f6d25be1ace7",
+  "plain": "<strong>Beneficiary forms</strong> on retirement accounts and life insurance send that money straight to the people named, and they usually win over a will — so check them first. <strong>A will</strong> covers everything else, and it is where parents name a guardian for young children; without one, your state's law decides who gets what. <strong>A durable financial power of attorney</strong> lets a person you choose handle your money if you can't; without one, your family may need a court to appoint someone. <strong>A healthcare directive</strong> (a living will plus a healthcare proxy) records the care you want and who decides for you, and a HIPAA authorization lets people you name get your medical information. State law governs each of these.",
+  "props": [
+   [
+    "P1",
+    "Beneficiary designations pass assets directly and generally override a will; check first",
+    "kept",
+    "usually win over a will"
+   ],
+   [
+    "P2",
+    "A will directs everything else and names a guardian for minors",
+    "kept",
+    "name a guardian"
+   ],
+   [
+    "P3",
+    "Without a will, state intestacy law decides",
+    "kept",
+    "your state's law decides"
+   ],
+   [
+    "P4",
+    "Durable POA lets a chosen person manage finances on incapacity",
+    "kept",
+    "durable financial power of attorney"
+   ],
+   [
+    "P5",
+    "Without one, a court-appointed guardian/conservator may be needed",
+    "kept",
+    "court to appoint someone"
+   ],
+   [
+    "P6",
+    "Healthcare directive = living will + proxy: wishes and decision-maker",
+    "kept",
+    "living will plus a healthcare proxy"
+   ],
+   [
+    "P7",
+    "A HIPAA authorization lets named people get medical information",
+    "kept",
+    "hipaa authorization"
+   ],
+   [
+    "P8",
+    "Each is governed by state law",
+    "kept",
+    "state law governs"
+   ]
+  ]
+ },
+ "pr:identity": {
+  "hash": "6995a4010672",
+  "plain": "A security freeze stops anyone from opening new credit in your name. It's free by federal law at Equifax, Experian and TransUnion, it doesn't change your credit score, and you can lift it for a while when you apply for credit. You can check your own credit reports for free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov makes a recovery plan for you, and telling your bank about money taken without permission quickly limits how much you can lose.",
+  "props": [
+   [
+    "P1",
+    "A freeze stops new credit in your name",
+    "kept",
+    "stops anyone from opening new credit"
+   ],
+   [
+    "P2",
+    "Free by federal law at all three bureaus",
+    "kept",
+    "free by federal law"
+   ],
+   [
+    "P3",
+    "Does not affect your score",
+    "kept",
+    "doesn't change your credit score"
+   ],
+   [
+    "P4",
+    "Can be lifted temporarily to apply",
+    "kept",
+    "lift it for a while"
+   ],
+   [
+    "P5",
+    "Free weekly reports at AnnualCreditReport.com",
+    "kept",
+    "every week"
+   ],
+   [
+    "P6",
+    "IdentityTheft.gov builds the recovery plan",
+    "kept",
+    "identitytheft.gov"
+   ],
+   [
+    "P7",
+    "Prompt reporting of unauthorized transfers limits liability",
+    "kept",
+    "quickly limits how much you can lose"
+   ]
+  ]
+ },
+ "ar:limits": {
+  "hash": "a11c8b163224",
+  "plain": "Contribution limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (extra catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise your payroll elections so the money goes in evenly through the year. You choose your health FSA ({{verify:2026 health FSA salary-reduction limit — IRS Rev. Proc. 2025-32}}) and dependent-care FSA ({{verify:2026 §129 limit — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}) amounts at open enrollment.",
+  "props": [
+   [
+    "P1",
+    "Indexed limits change every January",
+    "kept",
+    "change every january"
+   ],
+   [
+    "P2",
+    "2026 limits for 401(k), catch-ups, IRA, HSA (figures layer)",
+    "kept",
+    "for 2026"
+   ],
+   [
+    "P3",
+    "Raise payroll elections to spread the deferral across the year",
+    "kept",
+    "evenly through the year"
+   ],
+   [
+    "P4",
+    "FSA elections are made at open enrollment",
+    "kept",
+    "at open enrollment"
+   ]
+  ]
+ },
+ "ar:credit": {
+  "hash": "5491ced389b1",
+  "plain": "Look at all three credit reports at AnnualCreditReport.com for accounts you don't recognize, and make sure a security freeze is on at each bureau.",
+  "props": [
+   [
+    "P1",
+    "Check all three reports for unrecognized accounts",
+    "kept",
+    "accounts you don't recognize"
+   ],
+   [
+    "P2",
+    "Confirm a freeze at each bureau",
+    "kept",
+    "freeze is on at each bureau"
+   ]
+  ]
+ },
+ "ar:withholding": {
+  "hash": "d1d79b19d5c7",
+  "plain": "After you file last year's return, use the IRS Tax Withholding Estimator with a recent pay stub. File a new W-4 if it shows you'll owe or get back a lot — especially after a raise, a second job, a marriage or a new child.",
+  "props": [
+   [
+    "P1",
+    "Run the estimator after filing, with a current pay stub",
+    "kept",
+    "recent pay stub"
+   ],
+   [
+    "P2",
+    "File a new W-4 if the projection is far from zero",
+    "kept",
+    "file a new w-4"
+   ],
+   [
+    "P3",
+    "Especially after raise, second job, marriage, new child",
+    "kept",
+    "a second job"
+   ]
+  ]
+ },
+ "ar:net-worth": {
+  "hash": "fdcce9f19b44",
+  "plain": "Add up what you own and subtract what you owe, on the same date each year. The change from year to year is the only number that shows real progress. The list itself is what your family would need in an emergency.",
+  "props": [
+   [
+    "P1",
+    "Net worth = assets minus liabilities, same date each year",
+    "kept",
+    "subtract what you owe"
+   ],
+   [
+    "P2",
+    "Year-over-year change is the only real progress measure",
+    "kept",
+    "only number that shows real progress"
+   ],
+   [
+    "P3",
+    "The list doubles as the family's emergency inventory",
+    "kept",
+    "family would need"
+   ]
+  ]
+ },
+ "ar:subscriptions": {
+  "hash": "d1cae7210b49",
+  "plain": "Look through a few months of statements for charges that repeat. Bank fees — overdraft, ATM, monthly service fees — often cost more than any one subscription and deserve the same look.",
+  "props": [
+   [
+    "P1",
+    "Review statements for recurring charges",
+    "kept",
+    "charges that repeat"
+   ],
+   [
+    "P2",
+    "Bank fees often cost more than any single subscription",
+    "kept",
+    "bank fees"
+   ]
+  ]
+ },
+ "ar:rebalance": {
+  "hash": "1e9ddfaba782",
+  "plain": "Compare your current mix of investments to your target. If any part has drifted outside its allowed range, rebalance — using new contributions first, so you don't have to sell at a gain.",
+  "props": [
+   [
+    "P1",
+    "Compare current mix to target",
+    "kept",
+    "compare your current mix"
+   ],
+   [
+    "P2",
+    "Rebalance if outside its band",
+    "kept",
+    "outside its allowed range"
+   ],
+   [
+    "P3",
+    "Use new contributions first to avoid realizing gains",
+    "kept",
+    "new contributions first"
+   ]
+  ]
+ },
+ "ar:insurance": {
+  "hash": "0ab55fa33090",
+  "plain": "Most employers hold open enrollment in the fall. Check your health plan choice, your disability coverage, your term life against who depends on you and what you owe, and whether your home, auto and umbrella liability limits still fit your net worth.",
+  "props": [
+   [
+    "P1",
+    "Open enrollment is usually in the fall",
+    "kept",
+    "in the fall"
+   ],
+   [
+    "P2",
+    "Re-check health plan and disability",
+    "kept",
+    "disability coverage"
+   ],
+   [
+    "P3",
+    "Term life vs current dependents and debts",
+    "kept",
+    "who depends on you"
+   ],
+   [
+    "P4",
+    "Property/auto/umbrella limits vs net worth",
+    "kept",
+    "still fit your net worth"
+   ]
+  ]
+ },
+ "ar:beneficiaries": {
+  "hash": "e401c692b781",
+  "plain": "Open every retirement account, life insurance policy and transfer-on-death registration and check who is named. Make sure your will, power of attorney and healthcare directive still name the right people.",
+  "props": [
+   [
+    "P1",
+    "Confirm beneficiaries on every account, policy, TOD registration",
+    "kept",
+    "transfer-on-death"
+   ],
+   [
+    "P2",
+    "Check will, POA and directive still name the right people",
+    "kept",
+    "still name the right people"
+   ]
+  ]
+ },
+ "ar:year-end": {
+  "hash": "94a7fb95711e",
+  "plain": "Before December 31: sell investments at a loss in taxable accounts if it helps, take any required minimum distribution, make planned gifts to charity or qualified charitable distributions, and use the yearly gift exclusion ({{fig:gift_annual_exclusion}} per person for 2026) if you're giving to family.",
+  "props": [
+   [
+    "P1",
+    "Deadline: before December 31",
+    "kept",
+    "before december 31"
+   ],
+   [
+    "P2",
+    "Harvest losses if useful",
+    "kept",
+    "sell investments at a loss"
+   ],
+   [
+    "P3",
+    "Take any RMD",
+    "kept",
+    "required minimum distribution"
+   ],
+   [
+    "P4",
+    "Charitable gifts / QCDs",
+    "kept",
+    "qualified charitable distributions"
+   ],
+   [
+    "P5",
+    "Use the annual gift exclusion if gifting",
+    "kept",
+    "yearly gift exclusion"
+   ]
+  ]
+ }
+}

@@ -275,6 +275,44 @@ Carried-in decisions to resolve during the first real batch:
 
 **Estimated effort:** +1 session folded into the Phase 4 persona pass (the persona reviewers double as plain-variant readers).
 
+#### 4.5.1 Resolution — first content batch (2026-11-02)
+
+**What shipped.** Every Phase 4 prose block (45 life-event steps, 9 protection sections, 9 annual-review items = 63 blocks) has a plain-English variant and an L3 proposition map in `src/content/phase4/plain.json` (227 propositions, 0 dropped, 0 meta). `tools/build-v2.mjs` emits the maps as the build artifact `dist/plain-propositions.json`; `tools/verify-phase4.mjs` (gate 12 of `verify-v2.sh`) is the build-time drift check. Per-container "Plain English" toggles (plus a view-level "All in plain English") render the variants; the original wording governs if the two ever seem to differ (stated on every page).
+
+**Provenance caveat.** The full text of the 2026-05-19 L2 rule set (10 accuracy + 3 fluency) is not in this repo or the vault — only its lineage list survives (SOURCE-GROUNDING-RULES.md "Lineage"). The rules below are reconstructed from that list plus the flag/candidate decisions; treat them as the operative v2 rule set, not a verbatim copy of the 05-19 text.
+
+**L2 as enforced (machine-checked items marked ✓):**
+1. Zero new claims — ✓ no number may appear in the plain variant that is absent from the canonical.
+2. Numbers verbatim — ✓ every canonical number appears unchanged in the plain variant.
+3. Figures stay figures — ✓ the `{{fig}}` / `{{verify}}` token set is identical in both variants (no figure is ever re-typed).
+4. Quantifier / modal / frequency preservation ("generally", "about", "usually", "can", "often") — enforced through the L3 map: each such qualifier is part of a proposition whose anchor phrase must appear in the plain text.
+5. Causal vs correlational wording preserved — reviewed per proposition.
+6. Source-quality inheritance (a convention stays a convention, an estimate stays an estimate) — reviewed per proposition.
+7. Traceability — ✓ every block's map is stamped with the canonical text's hash; changing canonical prose without re-verifying the map fails the build.
+8. Mechanism-vs-outcome preservation (promoted, rule candidate 1) — when the canonical text says *why*, the plain variant keeps the mechanism, recorded as its own "(mechanism)" proposition.
+9. Fluency: short sentences, everyday words, defined terms kept once (e.g. "(a direct rollover)", "(QDRO)") so the reader can cross-reference the original.
+10. Fluency / cross-ref convention (promoted, rule candidate 2) — cross-references are carried by the block's deep links, so prose "see X" may be simplified only where a link to X exists in the block.
+11. Structural-meta carve-out (promoted, rule candidate 3) — a proposition that describes the text's own layout may be dropped, but must be listed with status `meta` and a reason; it is never silently absent.
+
+**The 7 calibration flags (from the v1 asset-location calibration):**
+
+| Flag | Decision | Reason |
+|---|---|---|
+| REIT "mostly" loss | **Reject** the drop | A quantifier is part of the claim; dropping "mostly" turns a tendency into a universal (rule 4). |
+| NIIT scope drift | **Reject** | A change of scope is a different claim, not a simplification (SOURCE-GROUNDING §4.2). |
+| Step-up-basis term drop | **Accept with condition** | Replacing jargon with its meaning is the point of the rewrite, but the term stays once in parentheses so the plain text still maps onto the original (rule 9; applied in `le:windfall:character`). |
+| Modal "expected" dropped (1st) | **Reject** | Modals carry the claim's epistemic status; "expected return" ≠ "return" (rule 4). |
+| Modal "expected" dropped (2nd) | **Reject** | Same reason as the first instance; the calibration showed the drift recurs, which is why it is now a map-level check. |
+| Three-account-matrix statement dropped | **Accept** | It described the section's structure, not a financial fact — the case the structural-meta carve-out (rule 11) now covers, with a `meta` entry required. |
+| Optimization criterion lost | **Reject** | The criterion is the mechanism; an outcome without its criterion cannot be checked (rule 8). |
+| Cross-ref mechanism dropped | **Accept with condition** | Acceptable only when the cross-reference survives as a link (rule 10); prose "see Math §6" mentions are now rendered as live links in the reference views. |
+
+(The calibration counted seven flags; "modal expected ×2" is one flag with two instances, so the table has eight rows.)
+
+**The 3 rule candidates:** mechanism-vs-outcome preservation → **promoted** to L2 rule 8 (the calibration's most consequential miss); cross-ref convention → **promoted** to rule 10 (v2 deep links make it cheap to honour); structural-meta carve-out → **promoted** to rule 11 with the `meta` status (keeps drops visible per SOURCE-GROUNDING §5.4).
+
+**Not done:** the v1-prose rewrite (reference sections, nodes) is not started — this batch covers only the Phase 4 pages. The persona pass that doubles as plain-variant reading (§4.4) has not been run; the 46 new claims (CL483–CL528) are `PENDING` until it and a live-source re-read happen.
+
 ---
 
 ## Phase 5 — Trust & utility surfaces
