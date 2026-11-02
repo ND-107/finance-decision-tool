@@ -1,0 +1,785 @@
+{
+  "intro": "The framework is built for steady state; most consequential money decisions cluster around transitions. Pick the event you are in. Each playbook is an ordered checklist: the time-critical steps come first, and every step routes into the part of the framework that already covers it in depth. Educational only, not financial, tax or legal advice; statutory windows are named with their source, and any dollar figure not yet in the verified figures layer is shown as a [VERIFY] placeholder rather than guessed.",
+  "events": [
+    {
+      "id": "job-loss",
+      "title": "Job loss or layoff",
+      "summary": "Health coverage and cash runway first; retirement-account decisions can wait for a calm week.",
+      "steps": [
+        {
+          "id": "coverage",
+          "when": "Within days",
+          "title": "Decide how you will stay insured: COBRA, a spouse's plan, or the Marketplace",
+          "body": "Losing job-based coverage opens two clocks. COBRA lets you keep the same employer plan, generally for up to 18 months after a job loss, and you have at least 60 days to elect it; the premium can be up to 102% of the full cost, because the employer subsidy ends. Losing coverage is also a qualifying event for a 60-day Marketplace special enrollment period, where premium tax credits are based on your expected income for the year, which may now be lower. A spouse's employer plan must offer at least a 30-day special enrollment window. Compare all three on total cost, not premium alone.",
+          "links": [
+            {
+              "to": "full-chart/w2/1.3",
+              "label": "Cover health insurance (framework 1.3)"
+            },
+            {
+              "to": "spending-essentials/3",
+              "label": "Spending · Healthcare"
+            }
+          ],
+          "claims": [
+            "CL483",
+            "CL484",
+            "CL485"
+          ]
+        },
+        {
+          "id": "runway",
+          "when": "First week",
+          "title": "Count your runway and file for unemployment insurance",
+          "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, minimum payments on every debt still come before any other goal.",
+          "links": [
+            {
+              "to": "protection/emergency-fund",
+              "label": "Size your emergency fund"
+            },
+            {
+              "to": "full-chart/w2/1.4",
+              "label": "Make all minimum payments (framework 1.4)"
+            },
+            {
+              "to": "full-chart/w2/2.2",
+              "label": "Cut non-essential expenses (framework 2.2)"
+            }
+          ],
+          "claims": [
+            "CL489",
+            "CL490"
+          ]
+        },
+        {
+          "id": "old-401k",
+          "when": "Within 1–3 months",
+          "title": "Decide what to do with the old employer's 401(k) — but do not cash it out by default",
+          "body": "The usual options are to leave it in the old plan, roll it to a new employer's plan, or roll it to an IRA. Cashing out triggers income tax, plus a 10% additional tax before age 59½ unless an exception applies, and a check paid to you carries 20% mandatory withholding; a direct trustee-to-trustee rollover avoids both. If you separated from service in or after the year you turn 55, that plan (not an IRA) can pay out without the 10% additional tax, which argues for leaving it in place if you may need it. If the plan holds your employer's stock, check net unrealized appreciation before rolling it, because rolling the shares into an IRA gives up that treatment.",
+          "links": [
+            {
+              "to": "full-chart/w2/3.1",
+              "label": "Employer match (framework 3.1)"
+            },
+            {
+              "to": "full-chart/w2/10.1",
+              "label": "Early-access strategies (framework 10.1)"
+            }
+          ],
+          "claims": [
+            "CL486",
+            "CL487",
+            "CL488"
+          ]
+        },
+        {
+          "id": "equity",
+          "when": "Check the grant documents now",
+          "title": "Check deadlines on stock options and other equity",
+          "body": "Vested stock options often expire a fixed period after you leave, and incentive stock options lose their favorable treatment if not exercised within three months of termination of employment. The exact window is in your grant agreement; read it before it closes.",
+          "links": [
+            {
+              "to": "advanced-strategies/1",
+              "label": "Advanced · Equity compensation"
+            }
+          ],
+          "claims": [
+            "CL491"
+          ]
+        },
+        {
+          "id": "withholding",
+          "when": "When the next job starts",
+          "title": "Re-check tax withholding and restart contributions",
+          "body": "A year with a gap, severance and two employers is the classic under- or over-withholding year. Run the IRS Tax Withholding Estimator and file a new Form W-4 with the new employer. Each employer's payroll tracks the 401(k) limit separately, but the employee deferral limit ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so total both years' contributions yourself.",
+          "links": [
+            {
+              "to": "annual-review",
+              "label": "Annual review · withholding check"
+            },
+            {
+              "to": "full-chart/w2/8.1",
+              "label": "Max your 401(k) (framework 8.1)"
+            }
+          ],
+          "claims": [
+            "CL001",
+            "CL492",
+            "CL493"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "new-baby",
+      "title": "New baby or adoption",
+      "summary": "Insurance enrollment windows are short; the tax and savings steps can follow.",
+      "steps": [
+        {
+          "id": "enroll",
+          "when": "Within 30 days",
+          "title": "Add the child to your health plan",
+          "body": "Birth and adoption trigger a special enrollment period: at least 30 days for an employer group plan and 60 days on the Marketplace. Missing it can mean waiting for the next open enrollment.",
+          "links": [
+            {
+              "to": "full-chart/w2/1.3",
+              "label": "Cover health insurance (framework 1.3)"
+            }
+          ],
+          "claims": [
+            "CL484",
+            "CL485"
+          ]
+        },
+        {
+          "id": "ssn",
+          "when": "First weeks",
+          "title": "Get the child a Social Security number",
+          "body": "You need the child's Social Security number to claim the Child Tax Credit (amount: {{verify:2026 Child Tax Credit per child — IRC §24 as amended by P.L. 119-21; IRS Rev. Proc. 2025-32}}). It is usually requested at the hospital with the birth registration.",
+          "links": [],
+          "claims": [
+            "CL494"
+          ]
+        },
+        {
+          "id": "protection",
+          "when": "First 3 months",
+          "title": "Resize term life and disability coverage, and write or update a will",
+          "body": "A dependent is the main reason to own term life insurance; the common heuristic is 10–12 times the primary earner's income, and the DIME method gives a more specific number. A will is where you name a guardian for a minor child; without one, a court decides. Update beneficiary designations at the same time.",
+          "links": [
+            {
+              "to": "protection/term-life",
+              "label": "Protection · term life"
+            },
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            },
+            {
+              "to": "spending-essentials/4",
+              "label": "Spending · Insurance (DIME calculator)"
+            }
+          ],
+          "claims": [
+            "CL061",
+            "CL181",
+            "CL519"
+          ]
+        },
+        {
+          "id": "childcare",
+          "when": "Before open enrollment",
+          "title": "Coordinate a dependent-care FSA with the child and dependent care credit",
+          "body": "A dependent-care FSA shelters childcare costs from income and payroll tax (2026 limit: {{verify:§129 dependent-care exclusion for 2026 — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}). Expenses reimbursed through the FSA cannot also be counted for the child and dependent care credit, so the two have to be coordinated rather than both maxed.",
+          "links": [
+            {
+              "to": "spending-lifestyle/6",
+              "label": "Spending · Childcare (dependent-care FSA calculator)"
+            }
+          ],
+          "claims": [
+            "CL186",
+            "CL495"
+          ]
+        },
+        {
+          "id": "529",
+          "when": "When cash flow allows",
+          "title": "Consider a 529 plan — after your own retirement saving is on track",
+          "body": "529 plans grow tax-free for qualified education costs, and about 30 states offer a state income tax deduction for contributions. The framework places education saving after the tax-advantaged retirement steps, because a student can borrow for college and a retiree cannot borrow for retirement.",
+          "links": [
+            {
+              "to": "full-chart/w2/9.4",
+              "label": "529 plans (framework 9.4)"
+            }
+          ],
+          "claims": [
+            "CL044"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marriage",
+      "title": "Marriage",
+      "summary": "One enrollment window, a new filing status, and every beneficiary form to re-read.",
+      "steps": [
+        {
+          "id": "enroll",
+          "when": "Within 30 days",
+          "title": "Choose which health plan covers whom",
+          "body": "Marriage opens a special enrollment period (at least 30 days for employer plans, 60 days on the Marketplace). Compare both employers' plans on premium plus expected out-of-pocket cost, including any spousal surcharge.",
+          "links": [
+            {
+              "to": "spending-essentials/3",
+              "label": "Spending · Healthcare"
+            }
+          ],
+          "claims": [
+            "CL484",
+            "CL485"
+          ]
+        },
+        {
+          "id": "names",
+          "when": "Before filing taxes",
+          "title": "Update your name with Social Security first, then everywhere else",
+          "body": "If either spouse changes their name, update it with the Social Security Administration before filing; a mismatch between the return and SSA records can delay processing.",
+          "links": [],
+          "claims": [
+            "CL496"
+          ]
+        },
+        {
+          "id": "filing",
+          "when": "Before year-end",
+          "title": "Re-run withholding under your new filing status",
+          "body": "Your filing status is set by whether you are married on December 31, so a December wedding counts for the whole year. Two incomes withheld as if each were single often under-withhold once combined; run the IRS Tax Withholding Estimator together and file new W-4s.",
+          "links": [
+            {
+              "to": "annual-review",
+              "label": "Annual review · withholding check"
+            }
+          ],
+          "claims": [
+            "CL492",
+            "CL497"
+          ]
+        },
+        {
+          "id": "beneficiaries",
+          "when": "First 3 months",
+          "title": "Re-audit every beneficiary designation",
+          "body": "Retirement accounts and life insurance pass by beneficiary form, not by will. In a 401(k), federal law generally makes a spouse the default beneficiary unless they waive in writing; IRAs follow whatever the form says. Read each form rather than assuming.",
+          "links": [
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            }
+          ],
+          "claims": [
+            "CL498",
+            "CL499"
+          ]
+        },
+        {
+          "id": "align",
+          "when": "Ongoing",
+          "title": "Agree on the shared plan",
+          "body": "Run the diagnostic together — its spousal-alignment questions exist because couples who disagree on risk or goals tend to stall on every other step. Export the plan as Markdown so both of you work from the same list.",
+          "links": [
+            {
+              "to": "plan",
+              "label": "Your plan (diagnostic)"
+            }
+          ],
+          "claims": []
+        }
+      ]
+    },
+    {
+      "id": "divorce",
+      "title": "Divorce or separation",
+      "summary": "Retirement-account splits need the right paperwork; beneficiary forms do not update themselves.",
+      "steps": [
+        {
+          "id": "counsel",
+          "when": "Before signing anything",
+          "title": "Get an attorney and inventory every account",
+          "body": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot.",
+          "links": [
+            {
+              "to": "full-chart/w2/0.2",
+              "label": "Calculate your net worth (framework 0.2)"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "qdro",
+          "when": "In the settlement",
+          "title": "Split a 401(k) or pension with a QDRO; split an IRA by transfer",
+          "body": "An employer plan can only pay a former spouse under a qualified domestic relations order (QDRO); distributions to the alternate payee under a QDRO are exempt from the 10% additional tax. IRAs are divided by a transfer incident to divorce, which is not a taxable distribution. Cashing out instead of using these routes can turn a split into a tax bill.",
+          "links": [],
+          "claims": [
+            "CL500"
+          ]
+        },
+        {
+          "id": "beneficiaries",
+          "when": "Immediately after the decree",
+          "title": "Change beneficiary designations yourself",
+          "body": "Many states automatically revoke an ex-spouse as beneficiary of some non-probate assets, but for employer plans governed by ERISA the Supreme Court held that the plan documents control (Egelhoff v. Egelhoff, 2001). Do not rely on state law: file new forms on every account and policy.",
+          "links": [
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            }
+          ],
+          "claims": [
+            "CL501"
+          ]
+        },
+        {
+          "id": "filing",
+          "when": "Before year-end",
+          "title": "Re-check filing status, withholding and health coverage",
+          "body": "Marital status on December 31 sets filing status for the year. Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse) and a Marketplace special enrollment trigger.",
+          "links": [
+            {
+              "to": "annual-review",
+              "label": "Annual review · withholding check"
+            }
+          ],
+          "claims": [
+            "CL497",
+            "CL483",
+            "CL484"
+          ]
+        },
+        {
+          "id": "rebuild",
+          "when": "First year",
+          "title": "Rebuild the emergency fund and the single-income plan",
+          "body": "A household that had two incomes now has one, which usually means a larger emergency fund target and a re-run of the diagnostic with your new answers.",
+          "links": [
+            {
+              "to": "protection/emergency-fund",
+              "label": "Size your emergency fund"
+            },
+            {
+              "to": "plan",
+              "label": "Re-run the diagnostic"
+            }
+          ],
+          "claims": [
+            "CL502"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home-purchase",
+      "title": "Buying a home",
+      "summary": "Keep the emergency fund intact after closing, and insure the new risks.",
+      "steps": [
+        {
+          "id": "afford",
+          "when": "Before house-hunting",
+          "title": "Run rent-vs-buy and keep the down payment separate from the emergency fund",
+          "body": "The down payment is a near-term goal saved in safe assets; the emergency fund is a different pool and should still be whole after closing, because new owners take on repairs a landlord used to pay for.",
+          "links": [
+            {
+              "to": "spending-essentials/1",
+              "label": "Spending · Housing (rent-vs-buy calculator)"
+            },
+            {
+              "to": "full-chart/w2/7.1",
+              "label": "Near-term goals (framework 7.1)"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "insure",
+          "when": "Before closing",
+          "title": "Buy homeowners insurance — and check flood separately",
+          "body": "Lenders require homeowners insurance. Standard homeowners policies do not cover flood damage; flood coverage is a separate policy (NFIP or private), usually with a waiting period before it takes effect.",
+          "links": [
+            {
+              "to": "protection/property",
+              "label": "Protection · renters / homeowners"
+            }
+          ],
+          "claims": [
+            "CL503"
+          ]
+        },
+        {
+          "id": "pmi",
+          "when": "After closing",
+          "title": "Track when private mortgage insurance can come off",
+          "body": "On a conventional loan, the lender must drop PMI automatically when the balance is scheduled to reach 78% of the original value, and you can request removal at 80%. Note the date.",
+          "links": [],
+          "claims": [
+            "CL504"
+          ]
+        },
+        {
+          "id": "umbrella",
+          "when": "First year",
+          "title": "Re-check liability coverage now that you own an asset",
+          "body": "Owning a home raises what you can lose in a lawsuit. An umbrella policy sits on top of homeowners and auto liability and is inexpensive per dollar of coverage.",
+          "links": [
+            {
+              "to": "protection/umbrella",
+              "label": "Protection · umbrella"
+            }
+          ],
+          "claims": [
+            "CL182"
+          ]
+        },
+        {
+          "id": "sale-later",
+          "when": "Keep records",
+          "title": "Keep improvement receipts for the eventual sale",
+          "body": "Gain on selling a main home can be excluded up to {{verify:IRC §121(b) exclusion amounts (single / married filing jointly) — 26 U.S.C. §121; IRS Publication 523}} if you owned and lived in it for two of the five years before the sale. Capital improvements add to your basis, so keep the receipts.",
+          "links": [
+            {
+              "to": "spending-essentials/1",
+              "label": "Spending · Housing"
+            }
+          ],
+          "claims": [
+            "CL505"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relocation",
+      "title": "Moving to another state",
+      "summary": "Two state tax returns, new insurance, and proof of where you now live.",
+      "steps": [
+        {
+          "id": "residency",
+          "when": "Before the move",
+          "title": "Understand both states' residency rules",
+          "body": "Each state decides for itself who is a resident, and a move year usually means a part-year resident return in each state. If you are leaving a high-tax state, the burden of proving you left often falls on you, so keep evidence of the move (lease or deed, driver's license, voter registration).",
+          "links": [
+            {
+              "to": "advanced-strategies/5",
+              "label": "Advanced · state-domicile playbook"
+            }
+          ],
+          "claims": [
+            "CL506",
+            "CL369"
+          ]
+        },
+        {
+          "id": "coverage",
+          "when": "Within 60 days of the move",
+          "title": "Re-shop health coverage if your plan does not travel",
+          "body": "A permanent move to a new area where your plan is not offered is a Marketplace special enrollment trigger (60 days). Employer plans may have different networks in the new state.",
+          "links": [
+            {
+              "to": "full-chart/w2/1.3",
+              "label": "Cover health insurance (framework 1.3)"
+            }
+          ],
+          "claims": [
+            "CL484"
+          ]
+        },
+        {
+          "id": "insurance",
+          "when": "At the move",
+          "title": "Re-register the car and re-quote auto and renters/home insurance",
+          "body": "Auto insurance requirements and prices are set state by state, so the policy has to be re-written for the new state. Check that liability limits still match your assets rather than the new state's minimum.",
+          "links": [
+            {
+              "to": "protection/auto",
+              "label": "Protection · auto"
+            },
+            {
+              "to": "protection/property",
+              "label": "Protection · renters / homeowners"
+            }
+          ],
+          "claims": [
+            "CL507"
+          ]
+        },
+        {
+          "id": "expenses",
+          "when": "Tax time",
+          "title": "Do not count on deducting moving costs",
+          "body": "The federal moving-expense deduction is not available to most taxpayers (it remains for active-duty military moving under orders). Employer-paid moving costs are taxable wages.",
+          "links": [],
+          "claims": [
+            "CL508"
+          ]
+        },
+        {
+          "id": "estate",
+          "when": "First year",
+          "title": "Have estate documents reviewed under the new state's law",
+          "body": "Wills, powers of attorney and healthcare directives are governed by state law. Documents valid where they were signed are usually honored, but a review in the new state catches execution formalities and agent-designation differences.",
+          "links": [
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            }
+          ],
+          "claims": [
+            "CL509"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "windfall",
+      "title": "Inheritance or windfall",
+      "summary": "Park it, learn the tax character of what you received, then fold it into the existing plan.",
+      "steps": [
+        {
+          "id": "park",
+          "when": "First 90 days",
+          "title": "Park the money somewhere safe and boring before deciding anything",
+          "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others.",
+          "links": [
+            {
+              "to": "full-chart/w2/5.1",
+              "label": "Full emergency fund (framework 5.1)"
+            }
+          ],
+          "claims": [
+            "CL510"
+          ]
+        },
+        {
+          "id": "character",
+          "when": "Before spending or investing",
+          "title": "Identify what kind of asset you received",
+          "body": "Cash, a brokerage account, an inherited IRA and a house are taxed differently. Inherited assets generally get a basis stepped up to value at the date of death, so selling soon after inheriting often produces little gain. Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years, and if the original owner had started required distributions, annual distributions are required during those years too.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.2",
+              "label": "Withdrawal sequencing (framework 10.2)"
+            }
+          ],
+          "claims": [
+            "CL511",
+            "CL363"
+          ]
+        },
+        {
+          "id": "sequence",
+          "when": "After the cooling-off period",
+          "title": "Run the money through the framework's existing order",
+          "body": "A windfall does not need a new plan; it accelerates the existing one. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged space before taxable investing.",
+          "links": [
+            {
+              "to": "full-chart/w2/4.1",
+              "label": "High-interest debt (framework 4.1)"
+            },
+            {
+              "to": "full-chart/w2/6.2",
+              "label": "Max your IRA (framework 6.2)"
+            },
+            {
+              "to": "full-chart/w2/9.2",
+              "label": "Taxable brokerage (framework 9.2)"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "lump-sum",
+          "when": "When investing",
+          "title": "Lump sum or dollar-cost averaging — know the trade-off",
+          "body": "Vanguard's historical study found that investing a lump sum immediately beat spreading it out over time in about two-thirds of rolling periods, because markets rise more often than they fall. Spreading it out buys protection against regret if the market drops soon after. Both are defensible; pick the one you will stick with.",
+          "links": [
+            {
+              "to": "math/1",
+              "label": "The math · compound interest"
+            }
+          ],
+          "claims": [
+            "CL512"
+          ]
+        },
+        {
+          "id": "gift",
+          "when": "If sharing it",
+          "title": "Know the gift-tax reporting line before giving to family",
+          "body": "Gifts above the annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) require a gift-tax return but rarely any tax, because they count against the lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+          "links": [
+            {
+              "to": "advanced-strategies/2",
+              "label": "Advanced · family wealth"
+            }
+          ],
+          "claims": [
+            "CL513"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "retirement",
+      "title": "Retiring",
+      "summary": "Medicare timing, the withdrawal order and the Social Security claim are the three big decisions.",
+      "steps": [
+        {
+          "id": "medicare",
+          "when": "Months before 65",
+          "title": "Enroll in Medicare during your initial enrollment period",
+          "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.1",
+              "label": "Roth conversions & IRMAA (framework 10.1)"
+            }
+          ],
+          "claims": [
+            "CL514",
+            "CL362"
+          ]
+        },
+        {
+          "id": "social-security",
+          "when": "Before claiming",
+          "title": "Decide when to claim Social Security",
+          "body": "Claiming at 62, full retirement age or 70 is one of the largest decisions most retirees make; for a married higher earner, delaying also raises the survivor benefit.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.3",
+              "label": "Social Security claiming (framework 10.3)"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "withdrawals",
+          "when": "Year one",
+          "title": "Set a withdrawal order and a spending rate",
+          "body": "Which accounts you draw first, and how much, sets your lifetime tax bill and your sequence-of-returns exposure.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.2",
+              "label": "Withdrawal sequencing (framework 10.2)"
+            },
+            {
+              "to": "math/5",
+              "label": "The math · sequence risk"
+            },
+            {
+              "to": "math/7",
+              "label": "The math · historical-cycles simulator"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "rmd",
+          "when": "Age 73",
+          "title": "Calendar required minimum distributions",
+          "body": "Required minimum distributions from traditional accounts start at age 73. Qualified charitable distributions from an IRA (from age 70½) can satisfy them without adding to income.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.5",
+              "label": "QCDs (framework 10.5)"
+            }
+          ],
+          "claims": [
+            "CL051",
+            "CL364"
+          ]
+        },
+        {
+          "id": "ltc",
+          "when": "Before 70",
+          "title": "Decide how long-term care would be paid for",
+          "body": "About 70% of Americans turning 65 will need some long-term care; the decision is between insuring, self-funding, or a hybrid.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.4",
+              "label": "Long-term care (framework 10.4)"
+            }
+          ],
+          "claims": [
+            "CL066"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "death-of-spouse",
+      "title": "Death of a spouse",
+      "summary": "Nothing irreversible in the first weeks; notify, gather, and protect the surviving household's cash flow.",
+      "steps": [
+        {
+          "id": "pause",
+          "when": "First weeks",
+          "title": "Make no irreversible decisions; secure cash for the next few months",
+          "body": "Very few financial deadlines fall in the first weeks. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
+          "links": [
+            {
+              "to": "protection/emergency-fund",
+              "label": "Emergency fund"
+            }
+          ],
+          "claims": []
+        },
+        {
+          "id": "notify",
+          "when": "First month",
+          "title": "Notify Social Security and claim survivor benefits",
+          "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60, and switching between your own and the survivor benefit later can be worth comparing.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.3",
+              "label": "Social Security claiming (framework 10.3)"
+            }
+          ],
+          "claims": [
+            "CL515"
+          ]
+        },
+        {
+          "id": "claims",
+          "when": "First months",
+          "title": "File life-insurance claims and re-title accounts",
+          "body": "Life insurance and retirement accounts pay to the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA — the choice matters if the survivor is under 59½.",
+          "links": [
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            }
+          ],
+          "claims": [
+            "CL516"
+          ]
+        },
+        {
+          "id": "taxes",
+          "when": "Next tax season",
+          "title": "Plan for the widow's tax trap",
+          "body": "You can still file jointly for the year of death. After that, a survivor with a dependent child can file as a qualifying surviving spouse for two more years; otherwise the survivor files single — often with similar income but narrower brackets. Inherited assets generally receive a stepped-up basis, and in community-property states both halves of community property can.",
+          "links": [
+            {
+              "to": "full-chart/w2/10.1",
+              "label": "Roth conversions (framework 10.1)"
+            }
+          ],
+          "claims": [
+            "CL517",
+            "CL511"
+          ]
+        },
+        {
+          "id": "update",
+          "when": "First year",
+          "title": "Update your own estate documents and beneficiaries",
+          "body": "Your will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and re-run the diagnostic for a one-person household.",
+          "links": [
+            {
+              "to": "protection/estate",
+              "label": "Protection · estate basics"
+            },
+            {
+              "to": "plan",
+              "label": "Re-run the diagnostic"
+            }
+          ],
+          "claims": [
+            "CL498"
+          ]
+        }
+      ]
+    }
+  ]
+}

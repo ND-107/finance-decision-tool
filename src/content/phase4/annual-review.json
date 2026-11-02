@@ -1,0 +1,100 @@
+{
+  "intro": "Once a year, the plan needs maintenance more than it needs new ideas. This checklist is dated: pick the review year, tick items as you go (progress stays in this browser), and export it as Markdown or print it. Each item carries a suggested month; the 2026 figures shown come from the verified figures layer and are replaced each January (see the maintenance ritual in the repository docs). Educational only, not financial or tax advice.",
+  "items": [
+    {
+      "id": "limits",
+      "month": 1,
+      "title": "Reset contributions to this year's limits",
+      "body": "Indexed limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise payroll elections so the deferral is spread across the year; health FSA ({{verify:2026 health FSA salary-reduction limit — IRS Rev. Proc. 2025-32}}) and dependent-care FSA ({{verify:2026 §129 limit — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}) elections are made at open enrollment.",
+      "links": [
+        { "to": "full-chart/w2/8.1", "label": "Max your 401(k) (framework 8.1)" },
+        { "to": "full-chart/w2/6.2", "label": "Max your IRA (framework 6.2)" },
+        { "to": "full-chart/w2/6.1", "label": "Max your HSA (framework 6.1)" }
+      ],
+      "claims": ["CL001", "CL002", "CL003", "CL004", "CL005", "CL006"]
+    },
+    {
+      "id": "credit",
+      "month": 2,
+      "title": "Pull your credit reports and confirm the freezes are on",
+      "body": "Check all three reports at AnnualCreditReport.com for accounts you do not recognize, and confirm a security freeze is in place at each bureau.",
+      "links": [
+        { "to": "protection/identity", "label": "Protection · credit freeze" }
+      ],
+      "claims": ["CL526", "CL527"]
+    },
+    {
+      "id": "withholding",
+      "month": 3,
+      "title": "Run a withholding check",
+      "body": "After filing last year's return, run the IRS Tax Withholding Estimator with a current pay stub and file a new W-4 if the projection is far from zero — especially after a raise, a second job, a marriage or a new child.",
+      "links": [
+        { "to": "life-events/job-loss", "label": "Life events · job change" }
+      ],
+      "claims": ["CL492"]
+    },
+    {
+      "id": "net-worth",
+      "month": 4,
+      "title": "Take a net-worth snapshot",
+      "body": "Assets minus liabilities, recorded on the same date each year. The year-over-year change is the only number that measures real progress, and the list itself is the inventory your family would need in an emergency.",
+      "links": [
+        { "to": "full-chart/w2/0.2", "label": "Calculate your net worth (framework 0.2)" }
+      ],
+      "claims": []
+    },
+    {
+      "id": "subscriptions",
+      "month": 5,
+      "title": "Audit subscriptions and recurring charges",
+      "body": "Go through a few months of statements for recurring charges. Bank fees — overdraft, ATM, monthly maintenance — often cost more than any single subscription and are worth the same scrutiny.",
+      "links": [
+        { "to": "spending-lifestyle/7", "label": "Spending · Subscriptions (calculator)" }
+      ],
+      "claims": ["CL192", "CL394"]
+    },
+    {
+      "id": "rebalance",
+      "month": 6,
+      "title": "Check the allocation against its rebalancing bands",
+      "body": "Compare the current mix to your target and rebalance if any asset class has drifted outside its band; use new contributions first to avoid realizing gains.",
+      "links": [
+        { "to": "portfolio-bogleheads/4", "label": "Portfolio · Rebalancing" }
+      ],
+      "claims": []
+    },
+    {
+      "id": "insurance",
+      "month": 10,
+      "title": "Review insurance at open enrollment",
+      "body": "Most employers hold open enrollment in the fall. Re-check health plan choice, disability coverage, term life against current dependents and debts, and whether property, auto and umbrella liability limits still match your net worth.",
+      "links": [
+        { "to": "protection/disability", "label": "Protection · disability" },
+        { "to": "protection/term-life", "label": "Protection · term life" },
+        { "to": "protection/umbrella", "label": "Protection · umbrella" }
+      ],
+      "claims": ["CL061", "CL182"]
+    },
+    {
+      "id": "beneficiaries",
+      "month": 11,
+      "title": "Review beneficiary designations and estate documents",
+      "body": "Open every retirement account, life policy and transfer-on-death registration and confirm the named beneficiaries; check that the will, power of attorney and healthcare directive still name the right people.",
+      "links": [
+        { "to": "protection/estate", "label": "Protection · estate basics" }
+      ],
+      "claims": ["CL498"]
+    },
+    {
+      "id": "year-end",
+      "month": 12,
+      "title": "Year-end tax moves",
+      "body": "Before December 31: harvest tax losses in taxable accounts if useful, take any required minimum distribution, make planned charitable gifts or qualified charitable distributions, and use the gift annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) if gifting.",
+      "links": [
+        { "to": "full-chart/w2/9.3", "label": "Tax-loss harvesting (framework 9.3)" },
+        { "to": "full-chart/w2/10.5", "label": "QCDs (framework 10.5)" }
+      ],
+      "claims": ["CL051", "CL364"]
+    }
+  ]
+}

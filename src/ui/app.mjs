@@ -9,7 +9,7 @@
 // core-8 answers and sharpens as more are answered. Completion loop: marking an
 // action done recomputes the plan and migrates it to the skip ledger.
 
-/* global QUESTIONS, NODES, FIGURES, SECTIONS, PHASES, FLOWCHARTS, TODAY, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, wireSectionCalculators */
+/* global QUESTIONS, NODES, FIGURES, SECTIONS, PHASES, FLOWCHARTS, TODAY, lifeEventsView, protectionView, annualReviewView, decorateSectionView, decorateChartNodes, focusPending, parseRoute, applyRoute, go, sourcesToggle, sourcesBox, claimsFor, computePlan, reorderPlan, annotateDeadlines, applyCompletions, diffPlans, sensitivity, wireSectionCalculators */
 
 const LS_KEY = 'fdt2:state';
 const CORE8 = ['incomeTypes', 'filingStatus', 'ageBracket', 'taxBracket', 'emergencyFund', 'highInterestDebt', 'healthInsurance', 'employerMatch'];
@@ -63,14 +63,18 @@ function render() {
   root.append(viewNav());
   const view = state.view || 'plan';
   if (view === 'full-chart') root.append(fullChartView());
+  else if (view === 'life-events') root.append(lifeEventsView());
+  else if (view === 'protection') root.append(protectionView());
+  else if (view === 'annual-review') root.append(annualReviewView());
   else if (view === 'personal-chart') root.append(personalChartView());
   else if (view !== 'plan' && SECTIONS[view]) root.append(sectionView(view));
   else if (state.reviewing && core8Done()) root.append(reviewView());
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   // calculators run LIVE against the now-in-DOM view (text results + inline charts)
-  if (view !== 'plan') { try { wireSectionCalculators(root); associateLabels(root); } catch { /* noop */ } }
+  if (view !== 'plan' && !['life-events', 'protection', 'annual-review'].includes(view)) { try { wireSectionCalculators(root); associateLabels(root); } catch { /* noop */ } }
   save();
   restoreFocus(root, fk);
+  focusPending(root); // deep-link target (#math/5, #full-chart/w2/2.1, …) wins over focus restore
 }
 
 // v1's verbatim calc markup uses bare <label>X</label><input> (no for=). Associate
@@ -95,12 +99,16 @@ const VIEWS = [
   { id: 'zeitgeist-investing', label: 'Zeitgeist · investing' },
   { id: 'zeitgeist-lifestyle', label: 'Zeitgeist · lifestyle' },
   { id: 'advanced-strategies', label: 'Advanced' },
+  { id: 'life-events', label: 'Life events' },
+  { id: 'protection', label: 'Protection' },
+  { id: 'annual-review', label: 'Annual review' },
 ];
 
 // ---- reference sections: render v1's verbatim view HTML, then wire its calculators ----
 function sectionView(name) {
   const sec = el('section', { class: 'sectionview', 'aria-label': (VIEWS.find((v) => v.id === name) || {}).label || name });
   sec.innerHTML = SECTIONS[name];
+  decorateSectionView(sec, name); // section ids + permalinks + cross-ref links + (optional) sources
   return sec; // calculators wired by render() (after the view is attached to the DOM)
 }
 // ---- framework chart — port of v1 renderFullChart / renderPersonalChart ----
@@ -200,6 +208,7 @@ function personalChartView() {
     ${secHTML}`;
   const flow = wrap.querySelector('#flowchart-personal');
   flow.innerHTML = flowchartHTML(inc, { activeKeys, skippedMap });
+  decorateChartNodes(wrap, inc);
   // bracket-block visibility spans the primary chart AND every secondary track.
   const applyBracket = () => wrap.querySelectorAll('.bracket-block').forEach((b) => b.classList.toggle('active', b.dataset.bracket === (state.fullChartBracket || 'mid')));
   applyBracket();
@@ -225,14 +234,16 @@ function fullChartView() {
     <div class="plan-header"><div class="eyebrow">The complete framework</div>
       <h2>Every decision, every <em>income type</em>.</h2>
       <p>The full reference chart, independent of your diagnostic answers. Browse by income type and tax bracket; click any node to expand it.</p></div>
-    <div class="chart-controls">${seg('income-selector', INCOME_OPTS, inc, 'income')}${seg('bracket-selector', BRACKET_OPTS, brk, 'bracket')}</div>
+    <div class="chart-controls">${seg('income-selector', INCOME_OPTS, inc, 'income')}${seg('bracket-selector', BRACKET_OPTS, brk, 'bracket')}<span class="src-slot"></span></div>
     <div class="legend" id="legend-full"></div>
     <div id="flowchart-full"></div>`;
+  wrap.querySelector('.src-slot').append(sourcesToggle());
   wrap.querySelector('#legend-full').innerHTML = Object.entries(PHASES).map(([, p], i) =>
     `<div class="legend-item"><span class="legend-dot ${p.color}"></span><span class="legend-label">${String(i).padStart(2, '0')} · ${p.name}</span></div>`).join('');
   const flow = wrap.querySelector('#flowchart-full');
   const renderChart = () => {
     flow.innerHTML = flowchartHTML(state.fullChartIncome || 'w2');
+    decorateChartNodes(flow, state.fullChartIncome || 'w2');
     applyBracket();
     wireNodes(flow);
   };
@@ -241,6 +252,7 @@ function fullChartView() {
   renderChart();
   wrap.querySelectorAll('#income-selector button').forEach((b) => b.addEventListener('click', () => {
     state.fullChartIncome = b.dataset.income; save(); setActive('#income-selector button', (x) => x === b); renderChart();
+    if (location.hash.startsWith('#full-chart')) history.replaceState(null, '', '#full-chart');
   }));
   wrap.querySelectorAll('#bracket-selector button').forEach((b) => b.addEventListener('click', () => {
     state.fullChartBracket = b.dataset.bracket; save(); setActive('#bracket-selector button', (x) => x === b); applyBracket();
@@ -253,7 +265,7 @@ function viewNav() {
   return el('nav', { class: 'viewnav', 'aria-label': 'Sections' }, VIEWS.map((v) => el('button', {
     class: `viewtab${v.id === cur ? ' active' : ''}`, type: 'button', 'data-fk': `view:${v.id}`,
     'aria-current': v.id === cur ? 'page' : null,
-    onclick: () => { if ((state.view || 'plan') !== v.id) { state.view = v.id; announce(`Now viewing: ${v.label}`); render(); } },
+    onclick: () => { if ((state.view || 'plan') !== v.id || location.hash !== `#${v.id}`) go(v.id); },
   }, v.label)));
 }
 function restoreFocus(root, fk) {
@@ -412,6 +424,7 @@ function planTools(plan) {
   return el('div', { class: 'plan-tools' }, [
     el('button', { class: 'tool-btn', type: 'button', html: '<span aria-hidden="true">⧉</span> Copy as Markdown', onclick: () => copyText(planToMarkdown(plan)) }),
     el('button', { class: 'tool-btn', type: 'button', html: '<span aria-hidden="true">🖶</span> Print one-pager', onclick: () => window.print() }),
+    sourcesToggle(),
     dated.length ? el('button', { class: 'tool-btn', type: 'button', html: `<span aria-hidden="true">📅</span> ${dated.length} deadline${dated.length === 1 ? '' : 's'} → calendar`, onclick: () => download('finance-plan-deadlines.ics', planToICS(plan), 'text/calendar') }) : null,
   ]);
 }
@@ -585,8 +598,10 @@ function detailToggle(a, node, isTier1) {
   const label = (open) => (open ? '− Hide why & reference' : '+ Why this matters & reference');
   const inner = (a.reason ? `<div class="why-reason">${a.reason}</div>` : '')
     + (node && node.detailsHtml ? node.detailsHtml : '');
+  const srcBox = state.showSources && a.nodeKey ? sourcesBox(claimsFor(`node:${a.nodeKey}`), 'step') : null;
   const btn = el('button', { class: 'detail-toggle', type: 'button', 'aria-expanded': String(isOpen), 'aria-controls': bodyId, 'data-fk': `det:${isTier1 ? 't1:' : ''}${a.key}`, onclick: (e) => { state.open[id] = !state.open[id]; const open = state.open[id]; e.currentTarget.nextSibling.style.display = open ? 'block' : 'none'; e.currentTarget.setAttribute('aria-expanded', String(open)); e.currentTarget.textContent = label(open); save(); } }, label(isOpen));
   const body = el('div', { class: 'detail', id: bodyId, html: inner });
+  if (srcBox) body.append(srcBox);
   body.style.display = isOpen ? 'block' : 'none';
   return el('div', {}, [btn, body]);
 }
@@ -643,4 +658,8 @@ function reset() {
   location.reload();
 }
 
+// Deep links: a #route on load (or back/forward) selects the view + target.
+applyRoute(parseRoute(location.hash));
+window.addEventListener('popstate', () => { if (applyRoute(parseRoute(location.hash))) render(); });
+window.addEventListener('hashchange', () => { if (applyRoute(parseRoute(location.hash))) render(); });
 render();

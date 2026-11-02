@@ -1,0 +1,109 @@
+{
+  "intro": "Protection is the part of a plan that does nothing until the day it is the only thing that matters. This module collects the checks in one place: how big the emergency fund should be, which insurance lines to verify and the rule-of-thumb sizes practitioners use, and the four estate documents almost every adult should have. The rules of thumb are conventions, not statutes — each one names its source and its tier in the audit, so you can see how much weight it bears. Educational only, not insurance, legal or financial advice.",
+  "sections": [
+    {
+      "id": "emergency-fund",
+      "group": "Cash",
+      "title": "Emergency fund sizing",
+      "rule": "3–6 months of essential expenses; more when income is variable or single-source.",
+      "body": "The conventional target is three to six months of essential expenses — not of income — held in an insured, liquid account. Start with a starter fund of $1,000 or one month of expenses so a small surprise does not become new debt, then build to the full target after the employer match and high-interest debt. Size toward the high end, or beyond it, when income is variable, when one earner supports the household, when there are dependents, or when re-employment in your field is slow.",
+      "calculator": true,
+      "links": [
+        { "to": "full-chart/w2/2.1", "label": "Starter emergency fund (framework 2.1)" },
+        { "to": "full-chart/w2/5.1", "label": "Full emergency fund (framework 5.1)" }
+      ],
+      "claims": ["CL518", "CL502"]
+    },
+    {
+      "id": "health",
+      "group": "Insurance",
+      "title": "Health insurance",
+      "rule": "Always covered; know your plan's out-of-pocket maximum and keep that much reachable.",
+      "body": "Health coverage is a Tier-1 item in the plan for a reason: an uninsured hospital stay is the most common route from a stable budget to unpayable debt. ACA-compliant plans cap in-network out-of-pocket spending each year (2026 cap: {{verify:ACA maximum out-of-pocket for 2026 — HHS Notice of Benefit and Payment Parameters for 2026; HealthCare.gov}}); that cap, not the premium, is the number your cash reserves should be able to cover.",
+      "links": [
+        { "to": "full-chart/w2/1.3", "label": "Cover health insurance (framework 1.3)" },
+        { "to": "spending-essentials/3", "label": "Spending · Healthcare (HDHP vs PPO calculator)" }
+      ],
+      "claims": ["CL525"]
+    },
+    {
+      "id": "disability",
+      "group": "Insurance",
+      "title": "Disability insurance",
+      "rule": "Replace roughly 60% of income; check the definition of disability and the elimination period.",
+      "body": "For a working adult, disability is more likely than early death, and an earner's future income is usually their largest asset. Group long-term disability commonly replaces about 60% of base salary; if your employer pays the premium, the benefit is taxable, which lowers the real replacement rate. The policy features that decide whether a claim pays — own-occupation versus any-occupation definition, the elimination period, the benefit period — matter as much as the percentage.",
+      "links": [
+        { "to": "full-chart/w2/2.3", "label": "Verify essential insurance (framework 2.3)" },
+        { "to": "spending-essentials/4", "label": "Spending · Insurance (disability calculator)" }
+      ],
+      "claims": ["CL180", "CL221", "CL522"]
+    },
+    {
+      "id": "term-life",
+      "group": "Insurance",
+      "title": "Term life insurance",
+      "rule": "Only if someone depends on your income: 10–12× income, or size it with DIME.",
+      "body": "Life insurance replaces income for people who depend on it; with no dependents it is rarely needed. The common heuristic for a primary earner with dependents is 10–12 times annual income; the DIME method (debt + income for the years needed + mortgage + education) gives a household-specific number. Term coverage is the default for this job; whole-life policies bundle insurance with a low-return savings component.",
+      "links": [
+        { "to": "full-chart/w2/6.3", "label": "Term life, disability, umbrella (framework 6.3)" },
+        { "to": "spending-essentials/4", "label": "Spending · Insurance (DIME calculator)" }
+      ],
+      "claims": ["CL061", "CL181", "CL183"]
+    },
+    {
+      "id": "property",
+      "group": "Insurance",
+      "title": "Renters or homeowners insurance",
+      "rule": "Renters: always — it is cheap and includes liability. Owners: insure to rebuild cost; flood is separate.",
+      "body": "A landlord's policy covers the building, not the tenant's belongings or the tenant's liability; renters insurance covers both. Homeowners should insure to the cost of rebuilding rather than market value, and should know that standard policies exclude flood damage.",
+      "links": [
+        { "to": "full-chart/w2/2.3", "label": "Verify essential insurance (framework 2.3)" }
+      ],
+      "claims": ["CL523", "CL503"]
+    },
+    {
+      "id": "auto",
+      "group": "Insurance",
+      "title": "Auto insurance",
+      "rule": "Liability well above the state minimum — consumer guidance often cites 100/300/100.",
+      "body": "State minimum liability limits are set low and can leave your savings exposed after a serious accident. Consumer guidance commonly suggests at least $100,000 per person, $300,000 per accident and $100,000 property damage; umbrella carriers usually require higher underlying limits before they will write a policy.",
+      "links": [
+        { "to": "spending-essentials/2", "label": "Spending · Transportation" }
+      ],
+      "claims": ["CL524", "CL223"]
+    },
+    {
+      "id": "umbrella",
+      "group": "Insurance",
+      "title": "Umbrella liability",
+      "rule": "Once net worth or income makes you a lawsuit target, roughly match coverage to net worth.",
+      "body": "An umbrella policy adds liability coverage on top of auto and homeowners policies. It is inexpensive per dollar of coverage — industry pricing surveys put $1 million at roughly $200–400 a year — and is commonly sized to at least your net worth.",
+      "links": [
+        { "to": "spending-essentials/4", "label": "Spending · Insurance" }
+      ],
+      "claims": ["CL182", "CL223"]
+    },
+    {
+      "id": "estate",
+      "group": "Estate basics",
+      "title": "Beneficiaries, will, power of attorney, healthcare directive",
+      "rule": "Four documents; review them at every life event and at least every few years.",
+      "body": "<strong>Beneficiary designations</strong> on retirement accounts and life insurance pass those assets directly and generally override a will, so they are the first thing to check. <strong>A will</strong> directs everything else and is where parents name a guardian for minor children; without one, state intestacy law decides. <strong>A durable financial power of attorney</strong> lets someone you choose manage your finances if you cannot; without one, a family may need a court-appointed guardian or conservator. <strong>A healthcare directive</strong> (living will plus a healthcare proxy) records your medical wishes and who decides, and a HIPAA authorization lets named people get your medical information. Each is governed by state law.",
+      "links": [
+        { "to": "advanced-strategies/2", "label": "Advanced · family wealth (estate tools)" }
+      ],
+      "claims": ["CL498", "CL519", "CL520", "CL521"]
+    },
+    {
+      "id": "identity",
+      "group": "Fraud & identity",
+      "title": "Credit freeze and fraud recovery",
+      "rule": "Freeze your credit at all three bureaus; it is free and the highest-value free protection.",
+      "body": "A security freeze stops new credit being opened in your name and is free by federal law at Equifax, Experian and TransUnion; it does not affect your credit score, and you can lift it temporarily when you apply for credit. You can pull your own reports free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov builds the recovery plan, and reporting unauthorized electronic transfers to your bank quickly limits your liability.",
+      "links": [
+        { "to": "annual-review", "label": "Annual review · credit freeze and report pull" }
+      ],
+      "claims": ["CL526", "CL527", "CL528"]
+    }
+  ]
+}
