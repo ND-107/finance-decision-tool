@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-11-02 — v2 Phase 4 (life events · protection · annual review · plain-English layer) + Phase 5 leftovers + axe pass [branch `v2`, local-only, not deployed]
+
+**Done:**
+- **4a Life events** (`#life-events/<event>`): 9 playbooks — job loss, new baby/adoption, marriage, divorce, home purchase, interstate move, inheritance/windfall, retirement, death of a spouse — 45 ordered, tickable steps, each deep-linking into framework nodes / reference sections; copy-as-Markdown + print. Content: `src/content/phase4/life-events.json`.
+- **4b Protection** (`#protection/<section>`): emergency-fund sizing (transparent 3-month-plus-risk-factors heuristic, capped at 12, with a model-limits note); health, disability, term life, renters/home, auto, umbrella checks with the rule-of-thumb figure, its audited source and tier; estate basics (beneficiaries, will, durable POA, healthcare directive + HIPAA authorization); credit freeze + fraud recovery.
+- **4c Annual review** (`#annual-review`): dated checklist by month for a chosen year, done-dates persisted locally, exported through the existing Markdown / print path plus `.ics`.
+- **Figures discipline:** indexed figures only through `{{fig:key}}` → `figures.json`; figures the content needs but the layer lacks render as visible `[VERIFY: <official source>]` placeholders (CTC per child, §129 DCFSA limit, health-FSA limit, ACA OOP max, §121 amounts). No new figures were added to `figures.json`.
+- **Audit:** 46 new claims **CL483–CL528**, all `PENDING` (named primary source; not re-read live this session). `audit/export_claims_json.py` → `src/data/claims.json` with content anchors for 462 of 504 claims.
+- **4d Plain-English layer:** 63 blocks × plain variant + L3 proposition map (227 propositions, 0 dropped) in `src/content/phase4/plain.json`; build emits `dist/plain-propositions.json`; per-block and per-view toggles. §4.5.1 of the plan records the enforced L2 rules and a decision + reason for each calibration flag and rule candidate.
+- **Phase 5:** "Show sources" toggle (claims + tier + status + citation under each reference section, chart node, plan action and Phase 4 step); hash deep links for every view, numbered section, chart node, playbook and protection section, with focus management and back/forward; permalinks; prose cross-refs ("Math §6") are live links.
+- **`docs/MAINTENANCE.md`:** the January figures-refresh ritual + June/July/FPL checkpoints and what "verified" means.
+- **Accessibility:** `tools/a11y-axe.mjs` (axe-core 4.10.2, headless, 18 view states): 12 violation groups → **0**. Checklist ticked.
+- **Gates:** `verify-v2.sh` grows from 10 to **12** gates (11: claims export in sync; 12: Phase 4 links / figures / citations / plain-layer drift — negative-tested). Unit tests 60/60. `dist/v2.html` 964,766 → ~1.31 MB (the audit export for the sources toggle is ~260 KB of that).
+
+**Open:**
+- **Possible stale figure in existing content:** CL186 / Spending:Lifestyle §6 say the 2026 dependent-care FSA limit is $5,000. Secondary sources read today (citing P.L. 119-21 §70404 and IRS Pub. 15-B (2026)) report $7,500 ($3,750 MFS) from 2026. Not changed — needs a primary-source read, then a content fix in v1-verbatim prose.
+- CL483–CL528 need live-source verification + the consumer-advocate/CFP persona pass (§4.4) before flipping from `PENDING`.
+- Manual screen-reader pass (VoiceOver/NVDA); search index (Phase 5); MC-backend TS type (Phase 6); deploy to `main` (owner sign-off).
+- Plain-English variants for the v1 reference prose (only the Phase 4 batch is done).
+
 ## 2026-06-17 — Program-wide sweep: 8 same-class bugs fixed + deployed [branch `v2` → deployed `main` a5e5655]
 
 Follow-up to the two reported production bugs (dead-end "Done"; `core8Done` requiring a W-2-only field). Each was one instance of a broader class, so I hunted both classes across the whole tool — a 2-phase adversarial sweep + empirical reproduction across every income type surfaced **8 same-class issues**. All fixed, verified in headless Chrome, 10/10 gates green, deployed.
