@@ -71,7 +71,8 @@ function render() {
   else if (state.reviewing && core8Done()) root.append(reviewView());
   else root.append(el('div', { class: 'layout' }, [diagnostic(), planPanel()]));
   // calculators run LIVE against the now-in-DOM view (text results + inline charts)
-  if (view !== 'plan' && !['life-events', 'protection', 'annual-review'].includes(view)) { try { wireSectionCalculators(root); associateLabels(root); } catch { /* noop */ } }
+  if (view !== 'plan' && !['life-events', 'protection', 'annual-review'].includes(view)) { try { wireSectionCalculators(root); } catch { /* noop */ } }
+  associateLabels(root); fixInheritedHeadings(root); // plan details embed node HTML too
   save();
   restoreFocus(root, fk);
   focusPending(root); // deep-link target (#math/5, #full-chart/w2/2.1, …) wins over focus restore
@@ -83,8 +84,20 @@ function associateLabels(root) {
   root.querySelectorAll('label:not([for])').forEach((lab) => {
     if (lab.querySelector('input, select, textarea')) return; // wrapping label — already named
     const ctrl = lab.nextElementSibling;
-    if (ctrl && /^(INPUT|SELECT|TEXTAREA)$/.test(ctrl.tagName) && ctrl.id) lab.htmlFor = ctrl.id;
+    if (!ctrl || !/^(INPUT|SELECT|TEXTAREA)$/.test(ctrl.tagName)) return;
+    // node-detail inline calcs use data-calc and no id — give them a stable one (axe: label)
+    if (!ctrl.id) ctrl.id = `lbl-${(ctrl.getAttribute('data-calc') || 'ctl').replace(/[^a-z0-9-]/gi, '')}-${++AUTO_ID}`;
+    lab.htmlFor = ctrl.id;
   });
+}
+let AUTO_ID = 0;
+// v1's verbatim node-detail prose uses <h4>/<h5> inside disclosures whose nearest
+// heading is an <h2> (phase / plan title) — a skipped level (WCAG 1.3.1, axe
+// heading-order). Re-level them semantically without touching the verbatim markup
+// or its styling: h4 → aria-level 3, h5 → aria-level 4.
+function fixInheritedHeadings(root) {
+  root.querySelectorAll('.node-details-inner h4, .detail h4').forEach((h) => { h.setAttribute('role', 'heading'); h.setAttribute('aria-level', '3'); });
+  root.querySelectorAll('.node-details-inner h5, .detail h5').forEach((h) => { h.setAttribute('role', 'heading'); h.setAttribute('aria-level', '4'); });
 }
 
 const VIEWS = [
@@ -306,7 +319,7 @@ function diagnostic() {
     el('span', { class: 'diag-step' }, `Section ${idx + 1} of ${secs.length}`),
     el('h2', { class: 'diag-title' }, sec.section),
   ]));
-  const bar = el('div', { class: 'progress', role: 'progressbar', 'aria-valuemin': '1', 'aria-valuemax': String(secs.length), 'aria-valuenow': String(idx + 1), 'aria-valuetext': `Section ${idx + 1} of ${secs.length}` }, el('div', { class: 'progress-fill', 'aria-hidden': 'true' }));
+  const bar = el('div', { class: 'progress', role: 'progressbar', 'aria-label': 'Diagnostic progress', 'aria-valuemin': '1', 'aria-valuemax': String(secs.length), 'aria-valuenow': String(idx + 1), 'aria-valuetext': `Section ${idx + 1} of ${secs.length}` }, el('div', { class: 'progress-fill', 'aria-hidden': 'true' }));
   bar.firstChild.style.width = `${((idx + 1) / secs.length) * 100}%`;
   wrap.append(bar);
   announce(`Section ${idx + 1} of ${secs.length}: ${sec.section}`);

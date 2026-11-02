@@ -381,7 +381,7 @@ function annualReviewView() {
         ]),
         el('div', {}, [
           el('span', { class: 'step-when' }, `${MONTH_NAMES[it.month - 1]} ${y}${when ? ` · done ${fmtDate(when)}` : ''}`),
-          el('h4', { class: 'step-title' }, it.title),
+          el('h3', { class: 'step-title' }, it.title),
         ]),
       ]),
       proseBlock(bid, it.body),

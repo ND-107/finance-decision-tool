@@ -20,6 +20,16 @@ run before flipping v2 live.
 - Section/chart views are landmarked (`<section aria-label="…">`); nav is `<nav aria-label>`.
 - **Cross-view smoke: all 11 views render, 0 JS console errors.**
 
+**Phase 4/5 surface** (life events, protection, annual review, sources toggle, deep links, plain-English toggles), 2026-11-02:
+- [x] **axe-core 4.10.2 automated scan — done headless** (`tools/a11y-axe.mjs`, puppeteer-core + a local `axe.min.js`; tags wcag2a/aa, wcag21a/aa, wcag22aa, best-practice). 18 scans: welcome, diagnostic+plan (seeded profile), all 11 reference/chart views, the 3 new views, and sources-on / plain-on / deep-linked-node variants. **First run: 12 violation groups (9 serious/critical). After fixes: 0 violations in all 18 scans.**
+  - fixed `aria-progressbar-name` (serious): diagnostic progress bar now `aria-label="Diagnostic progress"`.
+  - fixed `label` (critical): node-detail inline calculators (`data-calc` inputs, no id) — `associateLabels()` now assigns a stable id and runs on every view incl. the plan (whose details embed node HTML).
+  - fixed `color-contrast` (serious): the new deep links inside v1's warm-palette views inherited gold `#B8893E` (2.89:1) → `#7a5818` (5.97:1) + underline. The inherited v1 gold small text in the table below did **not** fire in these scans.
+  - fixed `heading-order` (moderate): v1 node-detail `<h4>`/`<h5>` under an `<h2>` are re-levelled semantically (`role=heading aria-level=3/4`) at render — verbatim markup and styling untouched; annual-review step titles are `<h3>`.
+- [x] New controls: per-block "Plain English" toggles and "Show sources" are `aria-pressed` buttons; plain toggles `aria-controls` their block; step checkboxes `aria-label="Mark done: …"`; event picker is a labelled group of links with `aria-current`; EF calculator inputs have `<label for>` and its result is a polite live region; every new view carries a `model-limits` note.
+- [x] Deep links move focus to the routed target (section/card heading gets `tabindex=-1`; chart node head is focused and expanded); nav changes are announced through `#sr-live`; back/forward re-route (`popstate`).
+- [x] 375px viewport: no horizontal overflow on the 3 new views; print stylesheet hides nav/toggles/sources for the checklist one-pager (verified via headless print-to-PDF).
+
 ## Open items — decide before launch
 
 These are **inherited from v1's design** (the reference views reproduce v1's markup + warm palette verbatim). Reproducing v1 faithfully means reproducing these; "fixing" them deviates from v1's brand. Your call per item.
@@ -28,11 +38,11 @@ These are **inherited from v1's design** (the reference views reproduce v1's mar
 |---|---|---|---|
 | `--accent` gold `#B8893E` as **small** text on cream | 2.74–3.06:1 | 1.4.3 AA (4.5) | Keep (v1 fidelity) · or darken scoped `--accent`→`#8B6520` (4.61:1) in `.sectionview`. The big `.calc-result-headline` is large text → passes 3:1. |
 | `.segmented` **active** button: white on gold | 3.14:1 | 1.4.3 AA | Keep (it's a UI element / large-ish) · or darken active bg to `--accent-dark`. |
-| Heading skips **h2→h4** inside node-detail / reference prose | — | 1.3.1 (A) | Inherited from v1's detail HTML (93 node files + section prose). Low priority; would require editing content. |
+| Heading skips **h2→h4** inside node-detail / reference prose | — | 1.3.1 (A) | ✅ Resolved 2026-11-02 without editing content: re-levelled via `role=heading aria-level` at render (axe heading-order clean). |
 
 ## The pre-launch AT pass (needs a network / a human)
 
-**1. `axe-core` automated scan** (needs network to fetch axe, or a local copy):
+**1. `axe-core` automated scan** — ✅ done 2026-11-02 headless (see above; re-run with `AXE_JS=… PUPPETEER_CORE=… node tools/a11y-axe.mjs`). Manual per-view axe DevTools runs remain optional:
 ```bash
 # from a machine with network + npx:
 npx -y @axe-core/cli "file:///ABS/PATH/dist/v2.html" --exit

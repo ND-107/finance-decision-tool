@@ -212,7 +212,11 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .step-head { display: flex; gap: 12px; align-items: flex-start; }
 .step-when { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
 .steps:not(.review-list) .step-when::before { content: 'Step ' counter(step) ' · '; color: var(--muted-strong); }
-.step-title { margin: 2px 0 6px; font-size: 15.5px; }
+.step-title { margin: 2px 0 6px; font-size: 15.5px; font-family: var(--font-body); font-weight: 700; }
+/* links added inside v1's warm-palette reference views: v1 gold #B8893E is 2.9:1 on cream —
+   use a darkened gold (5.97:1 on #faf5ec) + underline for the new deep links (WCAG 1.4.3 / 1.4.1) */
+.sectionview .deeplink, .sectionview .permalink { color: #7a5818; text-decoration: underline; }
+.sectionview .permalink { text-decoration: none; }
 .prose-wrap { position: relative; }
 .p4-body { font-size: 14px; line-height: 1.6; color: #2a2a2a; }
 .p4-body.is-plain { border-left: 3px solid var(--accent); padding-left: 10px; }
@@ -250,7 +254,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 .src-slot { display: inline-flex; align-items: center; }
 @media (max-width: 600px) { .plain-toggle { float: none; display: inline-block; margin: 0 0 6px; } }
 @media print {
-  .viewnav, .p4-tools, .plain-toggle, .event-picker, .p4-toc, .ar-bar select, .permalink, .sources-box, .cite-line { display: none !important; }
+  .viewnav, .p4-tools, .plain-toggle, .event-picker, .p4-toc, .ar-bar select, .ar-bar label, .plain-note, .permalink, .sources-box, .cite-line { display: none !important; }
   .step, .p4-card { break-inside: avoid; border-color: #bbb; }
   .p4view { max-width: none; }
 }
