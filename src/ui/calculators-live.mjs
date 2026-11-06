@@ -874,7 +874,7 @@ function calcDI() {
 }
 
 function calcDCFSA() {
-  const amount = $val('dc-amount', 5000);
+  const amount = $val('dc-amount', 7500);
   const fed = $val('dc-fed', 24) / 100;
   const state = $val('dc-state', 5) / 100;
   const fica = $val('dc-fica', 7.65) / 100;
@@ -882,7 +882,7 @@ function calcDCFSA() {
   const savings = amount * totalRate;
   document.getElementById('dc-result').innerHTML = `
     <span class="calc-result-headline">${fmtMoneyFull(savings)}</span>
-    <span class="calc-result-detail">Annual tax savings from a fully-funded DCFSA at your combined marginal rate of ${(totalRate * 100).toFixed(1)}%. The DCFSA effectively converts $${amount.toLocaleString()} of childcare cost from after-tax to pre-tax dollars. Note: 2026 limit is $5,000 per household regardless of filing status (not per parent). The Child and Dependent Care Tax Credit is also available but phases down at higher incomes — high earners should use DCFSA exclusively.</span>
+    <span class="calc-result-detail">Annual tax savings from a fully-funded DCFSA at your combined marginal rate of ${(totalRate * 100).toFixed(1)}%. The DCFSA effectively converts $${amount.toLocaleString()} of childcare cost from after-tax to pre-tax dollars. Note: 2026 limit is $7,500 per household ($3,750 if married filing separately; not per parent). The Child and Dependent Care Tax Credit is also available but phases down at higher incomes — high earners should use DCFSA exclusively.</span>
   `;
 }
 
