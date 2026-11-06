@@ -2475,14 +2475,14 @@ FV<sub>withdrawal</sub> = depends on sequence — early losses compound against 
     </div>
     <div class="math-content">
       <p>This category swings from zero to 25%+ of after-tax income depending on family stage. Full-time daycare in most metros runs $15,000–$28,000 per child per year, with HCOL areas (Bay Area, NYC, Boston, DC) often exceeding $30,000. A full-time nanny runs $40,000–$70,000+ depending on geography and experience. Nanny-share arrangements split the cost between two families and can be a strong middle ground. The relevant decision framework for dual-income households: if childcare cost exceeds the second income net of additional taxes, the second income is contributing nothing financially — and possibly less than nothing once commuting, work clothing, and meal costs are factored in.</p>
-      <p>The Dependent Care FSA is the single biggest tax-advantaged play in this category. The 2026 limit is $5,000 per household (regardless of filing status; not per parent), funded with pre-tax dollars. For a family in the 24% federal bracket plus 5% state and 7.65% FICA, a fully-funded DCFSA saves roughly $1,830/year in taxes — small relative to total childcare cost but free if both parents work. The Child and Dependent Care Tax Credit (CDCTC) is also available but phases down with income; high earners get little credit and should use the DCFSA exclusively.</p>
+      <p>The Dependent Care FSA is the single biggest tax-advantaged play in this category. The 2026 limit is $7,500 per household ($3,750 if married filing separately; not per parent), funded with pre-tax dollars. For a family in the 24% federal bracket plus 5% state and 7.65% FICA, a fully-funded DCFSA saves roughly $2,750/year in taxes — small relative to total childcare cost but free if both parents work. The Child and Dependent Care Tax Credit (CDCTC) is also available but phases down with income; high earners get little credit and should use the DCFSA exclusively.</p>
       <div class="math-callout"><strong>K-12 private vs public.</strong> Private school costs $10,000–$35,000+ per year per child. Over 13 years (K-12), that's $130,000–$455,000 per child in nominal dollars — without the investment growth that money would otherwise produce. The economic case for private rarely pencils out compared to choosing a strong public school district via housing decisions. The exceptions are children with specific learning needs, families with strong religious or cultural educational priorities, or districts where the public option is genuinely inadequate and relocating is not feasible.</p></div>
       <p>College cost optimization is where the largest dollar amounts and the most preventable mistakes occur. The cost landscape: in-state public flagship typically $25,000–$35,000 per year all-in (tuition, room, board, books); out-of-state public $40,000–$55,000; private $75,000–$95,000+. Over four years that's $100K to $380K+. The single highest-leverage strategy is aiming for the top of the admitted class at a school — merit aid is dramatically more generous when you're in the top quartile of accepted applicants. Honors programs at flagship state universities frequently deliver something close to the private school experience at the public price.</p>
       <p>Other paths worth considering. <em>Community college transfer pathway</em> (2 years CC + 2 years 4-year): saves $40,000–$80,000 with no compromise on the final degree credential, since transcripts show the bachelor's institution. <em>Trade schools</em> for skilled trades (electrician, plumber, HVAC, dental hygienist, RN) often have better ROI than middling four-year liberal arts degrees — median earnings in skilled trades frequently exceed median earnings for non-STEM bachelor's holders, with two-year programs costing under $20,000 instead of $120,000+. <em>The student loan boundary</em>: undergraduate debt of $30,000 total is generally manageable on most starting salaries. Above that, the math gets harder. Graduate school should pay for itself in expected post-degree earnings or it shouldn't be taken on debt.</p>
       <div class="calculator">
         <h4>Dependent Care FSA tax savings</h4>
         <div class="calc-grid">
-          <div class="calc-row"><label>DCFSA contribution ($)</label><input type="number" id="dc-amount" value="5000" min="0" max="5000" step="100"></div>
+          <div class="calc-row"><label>DCFSA contribution ($)</label><input type="number" id="dc-amount" value="7500" min="0" max="7500" step="100"></div>
           <div class="calc-row"><label>Federal marginal rate (%)</label><input type="number" id="dc-fed" value="24" min="0" max="40" step="1"></div>
           <div class="calc-row"><label>State marginal rate (%)</label><input type="number" id="dc-state" value="5" min="0" max="15" step="0.5"></div>
           <div class="calc-row"><label>FICA rate (%)</label><input type="number" id="dc-fica" value="7.65" min="0" max="15" step="0.05"></div>
@@ -7726,7 +7726,7 @@ function renderSpendingLifestyle() {
 
 // 6. Dependent Care FSA tax savings
 function calcDCFSA() {
-  const amount = $val('dc-amount', 5000);
+  const amount = $val('dc-amount', 7500);
   const fed = $val('dc-fed', 24) / 100;
   const state = $val('dc-state', 5) / 100;
   const fica = $val('dc-fica', 7.65) / 100;
@@ -7734,7 +7734,7 @@ function calcDCFSA() {
   const savings = amount * totalRate;
   document.getElementById('dc-result').innerHTML = `
     <span class="calc-result-headline">${fmtMoneyFull(savings)}</span>
-    <span class="calc-result-detail">Annual tax savings from a fully-funded DCFSA at your combined marginal rate of ${(totalRate * 100).toFixed(1)}%. The DCFSA effectively converts $${amount.toLocaleString()} of childcare cost from after-tax to pre-tax dollars. Note: 2026 limit is $5,000 per household regardless of filing status (not per parent). The Child and Dependent Care Tax Credit is also available but phases down at higher incomes — high earners should use DCFSA exclusively.</span>
+    <span class="calc-result-detail">Annual tax savings from a fully-funded DCFSA at your combined marginal rate of ${(totalRate * 100).toFixed(1)}%. The DCFSA effectively converts $${amount.toLocaleString()} of childcare cost from after-tax to pre-tax dollars. Note: 2026 limit is $7,500 per household ($3,750 if married filing separately; not per parent). The Child and Dependent Care Tax Credit is also available but phases down at higher incomes — high earners should use DCFSA exclusively.</span>
   `;
 }
 
