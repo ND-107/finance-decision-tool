@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-06 — DEPLOYED: v2 → `main` edb4b3e; archived v1 figure corrected; verbatim sources regenerated [branch `v2` and `main`]
+
+**Done:**
+- **Deployed.** `main`'s `flowchart.html` is `dist/v2.html` built from `v2` 6a3fcf9 (1,320,109 bytes): Phase 4 (life events, protection, annual review, plain-English layer), Phase 5 leftovers (sources toggle, deep links), axe pass, figures refresh, 46 claims verified. GitHub Pages serves `main` at the root.
+- **Archived v1 corrected** (owner's decision 2026-11-06): the dependent-care FSA figure in `main:v1/flowchart.html` is now $7,500 ($3,750 MFS), with the worked example ($2,750), the calculator default/ceiling and its note. Nothing else in v1 changed.
+- **Verbatim sources regenerated** from the corrected v1 (`extract-sections`, `extract-calc-live`, `extract-calculators`), so `src/content/sections/spending-lifestyle.html`, `src/ui/calculators-live.mjs` and the kernel now carry $7,500 themselves. **COR-001…005 retired**; `src/content/corrections.json` keeps the mechanism with an empty list and a `_retired` note. 13/13 gates green; the rebuilt `dist/v2.html` is byte-identical to the deployed file (v2 2bfe845).
+
+**Open:**
+- §4.4 persona pass; manual screen-reader pass; search index; MC-backend type.
+
 ## 2026-11-06 (later) — CL483–CL528 live-source verification: 42 PASS · 3 PARTIAL · 1 CORRECTED [branch `v2`, pushed, not deployed]
 
 **Done:**

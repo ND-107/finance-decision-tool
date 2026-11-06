@@ -1031,11 +1031,11 @@ CLAIMS = [
      "Range covers ingredient quality and meal complexity. Restaurant figure includes tax/tip; takeout typically 15-20% lower than dine-in."),
 
     # --- Childcare/Education ---
-    ("CL186", "Spend:Life:6", "Dependent Care FSA 2026 limit: $7,500 per household (joint/HoH/single); $3,750 if married filing separately",
-     "STATUTORY", "CON", "CORRECTED", "A",
-     "IRC §129(a)(2)(A) as amended by P.L. 119-21 §70404 (139 Stat. 214; taxable years beginning after 2025-12-31); IRS Publication 15-B (2026). No annual inflation adjustment in statute",
-     "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
-     "CORRECTED 2026-11-06. The row passed at $5,000 ($2,500 MFS), the pre-OBBBA figure; §70404 struck '$5,000 ($2,500' and inserted '$7,500 ($3,750' for taxable years beginning after 2025-12-31. Both primary documents read in full text on 2026-11-06 (statute text on GovInfo; Pub. 15-B (2026) 'What's New' and the dependent care assistance section). v1 prose and the DCFSA calculator are verbatim v1 content, so the fix is applied through the v2 corrections layer (src/content/corrections.json COR-001..005, gate 13); main:v1/flowchart.html still shows $5,000. Derived worked example re-computed: $7,500 × 36.65% = $2,748.75 (~$2,750). CDCTC also available but phases down at higher incomes."),
+    ('CL186', 'Spend:Life:6', 'Dependent Care FSA 2026 limit: $7,500 per household (joint/HoH/single); $3,750 if married filing separately',
+     'STATUTORY', 'CON', 'CORRECTED', 'A',
+     'IRC §129(a)(2)(A) as amended by P.L. 119-21 §70404 (139 Stat. 214; taxable years beginning after 2025-12-31); IRS Publication 15-B (2026). No annual inflation adjustment in statute',
+     'https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm',
+     "CORRECTED 2026-11-06. The row passed at $5,000 ($2,500 MFS), the pre-OBBBA figure; §70404 struck '$5,000 ($2,500' and inserted '$7,500 ($3,750' for taxable years beginning after 2025-12-31. Both primary documents read in full text on 2026-11-06 (statute text on GovInfo; Pub. 15-B (2026) 'What's New' and the dependent care assistance section). v1 prose and the DCFSA calculator are verbatim v1 content, so the fix is applied through the v2 corrections layer (src/content/corrections.json COR-001..005, gate 13); main:v1/flowchart.html still shows $5,000. Derived worked example re-computed: $7,500 × 36.65% = $2,748.75 (~$2,750). CDCTC also available but phases down at higher incomes. Update later on 2026-11-06: the archived main:v1/flowchart.html was corrected too (main edb4b3e, owner's decision), the verbatim sources were regenerated from it, and COR-001..005 were retired; the corrections layer is now empty."),
 
     ("CL187", "Spend:Life:6", "Full-time daycare typical cost $15,000-$28,000/child/year; HCOL metros $30,000+; nanny $40,000-$70,000+",
      "EMPIRICAL", "SOFT", "PASS", "B",
