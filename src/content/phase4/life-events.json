@@ -31,7 +31,7 @@
           "id": "runway",
           "when": "First week",
           "title": "Count your runway and file for unemployment insurance",
-          "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, minimum payments on every debt still come before any other goal.",
+          "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, cover housing, utilities, food, insurance and the transportation that keeps you working first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed.",
           "links": [
             {
               "to": "protection/emergency-fund",
@@ -48,14 +48,15 @@
           ],
           "claims": [
             "CL489",
-            "CL490"
+            "CL490",
+            "CL529"
           ]
         },
         {
           "id": "old-401k",
           "when": "Within 1–3 months",
           "title": "Decide what to do with the old employer's 401(k) — but do not cash it out by default",
-          "body": "The usual options are to leave it in the old plan, roll it to a new employer's plan, or roll it to an IRA. Cashing out triggers income tax, plus a 10% additional tax before age 59½ unless an exception applies, and a check paid to you carries 20% mandatory withholding; a direct trustee-to-trustee rollover avoids both. If you separated from service in or after the year you turn 55, that plan (not an IRA) can pay out without the 10% additional tax, which argues for leaving it in place if you may need it. If the plan holds your employer's stock, check net unrealized appreciation before rolling it, because rolling the shares into an IRA gives up that treatment.",
+          "body": "The usual options are to leave it in the old plan, roll it to a new employer's plan, or roll it to an IRA. Cashing out triggers income tax, plus a 10% additional tax before age 59½ unless an exception applies, and a check paid to you carries 20% mandatory withholding; a direct trustee-to-trustee rollover avoids both. If you separated from service in or after the year you turn 55, that plan (not an IRA) can pay out without the 10% additional tax, which argues for leaving it in place if you may need it. If the plan holds your employer's stock, check net unrealized appreciation before rolling it, because rolling the shares into an IRA gives up that treatment. If you have an outstanding 401(k) loan, find out when it comes due: an unpaid balance is treated as a distribution (taxable, plus the 10% additional tax before 59½), though a plan-loan offset after leaving the job can still be rolled over until your tax-filing deadline, including extensions, for that year.",
           "links": [
             {
               "to": "full-chart/w2/3.1",
@@ -69,7 +70,8 @@
           "claims": [
             "CL486",
             "CL487",
-            "CL488"
+            "CL488",
+            "CL530"
           ]
         },
         {
@@ -324,7 +326,7 @@
           "id": "filing",
           "when": "Before year-end",
           "title": "Re-check filing status, withholding and health coverage",
-          "body": "Marital status on December 31 sets filing status for the year. Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse) and a Marketplace special enrollment trigger.",
+          "body": "Marital status on December 31 sets filing status for the year. Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse) and a Marketplace special enrollment trigger. For a divorce or legal separation the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or the COBRA right can be lost.",
           "links": [
             {
               "to": "annual-review",
@@ -334,7 +336,8 @@
           "claims": [
             "CL497",
             "CL483",
-            "CL484"
+            "CL484",
+            "CL531"
           ]
         },
         {
@@ -528,7 +531,7 @@
           "id": "park",
           "when": "First 90 days",
           "title": "Park the money somewhere safe and boring before deciding anything",
-          "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others.",
+          "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others. Two things cannot wait for the cooling-off period: if anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility (SSI's resource limit is {{fig:ssi_resource_limit_individual}} for an individual), so report it and ask before moving the money; and taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside.",
           "links": [
             {
               "to": "full-chart/w2/5.1",
@@ -536,7 +539,9 @@
             }
           ],
           "claims": [
-            "CL510"
+            "CL510",
+            "CL535",
+            "CL536"
           ]
         },
         {
@@ -617,7 +622,7 @@
           "id": "medicare",
           "when": "Months before 65",
           "title": "Enroll in Medicare during your initial enrollment period",
-          "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
+          "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty, and COBRA or retiree coverage does not count: only coverage from your own or your spouse's current employment lets you delay Part B without it. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
           "links": [
             {
               "to": "full-chart/w2/10.1",
@@ -626,7 +631,8 @@
           ],
           "claims": [
             "CL514",
-            "CL362"
+            "CL362",
+            "CL532"
           ]
         },
         {
@@ -705,20 +711,24 @@
           "id": "pause",
           "when": "First weeks",
           "title": "Make no irreversible decisions; secure cash for the next few months",
-          "body": "Very few financial deadlines fall in the first weeks. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
+          "body": "A few clocks start now, and the rest can wait. If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act), and a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
           "links": [
             {
               "to": "protection/emergency-fund",
               "label": "Emergency fund"
             }
           ],
-          "claims": []
+          "claims": [
+            "CL483",
+            "CL484",
+            "CL533"
+          ]
         },
         {
           "id": "notify",
           "when": "First month",
           "title": "Notify Social Security and claim survivor benefits",
-          "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60, and switching between your own and the survivor benefit later can be worth comparing.",
+          "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60 (50 if disabled), and at any age while caring for the deceased's child who is entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment. Switching between your own and the survivor benefit later can be worth comparing.",
           "links": [
             {
               "to": "full-chart/w2/10.3",
@@ -726,7 +736,8 @@
             }
           ],
           "claims": [
-            "CL515"
+            "CL515",
+            "CL534"
           ]
         },
         {

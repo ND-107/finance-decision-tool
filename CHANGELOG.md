@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-06 — Persona-pass fixes applied: the seven items both reviewers rated HIGH [branch `v2`; deploy to `main` pending]
+
+**Done (owner's go 2026-11-06, each rule read at its statute the same day; new audit rows CL529–CL536):**
+- `le:job-loss:runway`: essentials before unsecured-debt minimums; call lenders about hardship plans (CL529, convention, PENDING a CFPB/NFCC read).
+- `le:job-loss:old-401k`: outstanding 401(k) loan → deemed distribution; plan-loan offset rollover until the filing deadline with extensions (CL530: IRC §72(p)(1)(A), §402(c)(3)(C)).
+- `le:divorce:filing`: the 60-day notice duty after divorce or legal separation (CL531: 29 U.S.C. §1166(a)(3)).
+- `le:retirement:medicare`: COBRA and retiree coverage do not count toward delaying Part B (CL532: 42 U.S.C. §1395p(i)(1)(A)).
+- `le:death-of-spouse:pause`: the clocks that do start (COBRA/Marketplace windows; 9-month disclaimer, CL533: 26 U.S.C. §2518(b)).
+- `le:death-of-spouse:notify`: survivor benefits at any age with a child in care, children's benefits under 18/19, lump-sum death payment (CL534: 42 U.S.C. §402(g)(1)(E), (d)(1)(B), (i)).
+- `le:windfall:park`: means-tested benefits (SSI resource limit, new figure `ssi_resource_limit_individual`, CL535: 42 U.S.C. §1382(a)(3)(B)) and taxable windfalls (CL536: IRC §61(a), §104(a)(2)).
+- Plain variants rewritten in step; proposition maps extended (244 propositions); 13/13 gates green.
+
+**Open:** the remaining 110 findings in `docs/reviews/` (none applied); CL529 needs its source read.
+
 ## 2026-11-06 — §4.4 persona pass run on the deployed Phase 4 content (findings only) [branch `v2`]
 
 **Done:**

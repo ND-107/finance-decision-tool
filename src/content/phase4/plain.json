@@ -60,8 +60,8 @@
   ]
  },
  "le:job-loss:runway": {
-  "hash": "0f3b11f410a6",
-  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, keep making the minimum payment on every debt before anything else.",
+  "hash": "5942d7d9e962",
+  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance and the transportation that gets you to work first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment.",
   "props": [
    [
     "P1",
@@ -89,15 +89,21 @@
    ],
    [
     "P5",
-    "Minimum payments on every debt come before other goals when cash is tight",
+    "When cash is tight, essentials first, then minimum payments on every debt kept current",
     "kept",
     "minimum payment on every debt"
+   ],
+   [
+    "P6",
+    "Hardship plans: call lenders before a payment is missed",
+    "kept",
+    "hardship plans"
    ]
   ]
  },
  "le:job-loss:old-401k": {
-  "hash": "cdaf50f8d6ef",
-  "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment.",
+  "hash": "b274293f49c8",
+  "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment. If you still owe on a 401(k) loan, find out when it comes due: an unpaid balance counts as a withdrawal (taxed, plus the extra 10% tax before 59½), but if the plan takes the loan out of your balance after you leave, you can still roll that amount over until your tax-filing deadline, including extensions, for that year.",
   "props": [
    [
     "P1",
@@ -140,6 +146,18 @@
     "Check NUA before rolling employer stock; rolling shares to an IRA forfeits it",
     "kept",
     "net unrealized appreciation"
+   ],
+   [
+    "P8",
+    "An unpaid 401(k) loan balance is treated as a taxable distribution (plus 10% before 59½)",
+    "kept",
+    "counts as a withdrawal"
+   ],
+   [
+    "P9",
+    "A plan-loan offset can be rolled over until the tax-filing deadline (with extensions)",
+    "kept",
+    "tax-filing deadline"
    ]
   ]
  },
@@ -564,8 +582,8 @@
   ]
  },
  "le:divorce:filing": {
-  "hash": "8c61a1bddd22",
-  "plain": "Whether you're married on December 31 sets your filing status for the year. Losing coverage under a spouse's plan lets you use COBRA (up to 36 months for a former spouse) and opens a Marketplace special enrollment window.",
+  "hash": "b63a477d8570",
+  "plain": "Whether you're married on December 31 sets your filing status for the year. Losing coverage under a spouse's plan lets you use COBRA (up to 36 months for a former spouse) and opens a Marketplace special enrollment window. For a divorce or legal separation, the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or you can lose the COBRA right.",
   "props": [
    [
     "P1",
@@ -584,6 +602,12 @@
     "It is also a Marketplace special enrollment trigger",
     "kept",
     "marketplace special enrollment"
+   ],
+   [
+    "P4",
+    "After divorce or legal separation, the employee or former spouse must notify the plan within 60 days or the COBRA right can be lost",
+    "kept",
+    "within 60 days"
    ]
   ]
  },
@@ -864,8 +888,8 @@
   ]
  },
  "le:windfall:park": {
-  "hash": "7e6deb767662",
-  "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people.",
+  "hash": "de0b04b5b89a",
+  "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people. Two things can't wait for that pause: if anyone in your household gets SSI, Medicaid, SNAP or housing help, a lump sum can end that help (SSI's limit on what you can own is {{fig:ssi_resource_limit_individual}} for one person), so report it and ask before you move the money; and windfalls that are taxable — lottery or gambling wins, back pay, most legal settlements that are not for a physical injury or sickness — count as income for the year, so set the tax money aside.",
   "props": [
    [
     "P1",
@@ -884,6 +908,18 @@
     "Purpose is behavioral: rushed purchases and pressure from others",
     "kept",
     "pressure from other people"
+   ],
+   [
+    "P4",
+    "A windfall can end SSI, Medicaid, SNAP or housing help; SSI resource limit for an individual",
+    "kept",
+    "report it and ask"
+   ],
+   [
+    "P5",
+    "Taxable windfalls (lottery, gambling, back pay, non-physical-injury settlements) are income; set tax aside",
+    "kept",
+    "set the tax money aside"
    ]
   ]
  },
@@ -990,8 +1026,8 @@
   ]
  },
  "le:retirement:medicare": {
-  "hash": "f28b5f84b431",
-  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+  "hash": "434f7d5f82b0",
+  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: only coverage from your own or your spouse's current job lets you delay Part B without that penalty. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
   "props": [
    [
     "P1",
@@ -1016,6 +1052,12 @@
     "Retirement income drives IRMAA with a two-year lookback",
     "kept",
     "two years earlier"
+   ],
+   [
+    "P5",
+    "COBRA and retiree coverage do not count; only current-employment coverage allows delaying Part B",
+    "kept",
+    "does not count"
    ]
   ]
  },
@@ -1092,14 +1134,14 @@
   ]
  },
  "le:death-of-spouse:pause": {
-  "hash": "52279da644cf",
-  "plain": "Very few money deadlines fall in the first weeks. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
+  "hash": "856ab7d5a818",
+  "plain": "A few clocks start now, and the rest can wait. If your health insurance came through your spouse's job, the COBRA and Marketplace windows start when that coverage ends (you have 60 days to act), and if you want to turn down an inheritance you generally must do it within 9 months and before you accept it. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
   "props": [
    [
     "P1",
-    "Few financial deadlines in the first weeks",
+    "A few deadlines start now; the rest can wait",
     "kept",
-    "very few money deadlines"
+    "a few clocks start now"
    ],
    [
     "P2",
@@ -1118,12 +1160,24 @@
     "Get several certified death certificates; most institutions ask for one",
     "kept",
     "certified copies"
+   ],
+   [
+    "P5",
+    "COBRA and Marketplace windows start at loss of spouse-employer coverage; 60 days",
+    "kept",
+    "60 days to act"
+   ],
+   [
+    "P6",
+    "A disclaimer must generally be made within 9 months and before accepting the asset",
+    "kept",
+    "9 months"
    ]
   ]
  },
  "le:death-of-spouse:notify": {
-  "hash": "caff58430fe2",
-  "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60, and it can be worth comparing switching between your own benefit and the survivor benefit later.",
+  "hash": "0fa694635c49",
+  "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60 (50 if disabled), and at any age while caring for the deceased's child who qualifies for child's benefits. The children can get benefits of their own while under 18 (19 if still in high school), and there is a one-time lump-sum death payment. Later, you may be able to switch between the survivor benefit and your own; compare which pays more and when.",
   "props": [
    [
     "P1",
@@ -1141,7 +1195,25 @@
     "P3",
     "Switching between own and survivor benefit later is worth comparing",
     "kept",
-    "worth comparing"
+    "compare which pays more"
+   ],
+   [
+    "P4",
+    "Age 50 if disabled; any age while caring for the deceased's entitled child",
+    "kept",
+    "any age while caring"
+   ],
+   [
+    "P5",
+    "Children receive benefits under 18 (19 if a secondary-school student)",
+    "kept",
+    "under 18"
+   ],
+   [
+    "P6",
+    "There is a one-time lump-sum death payment",
+    "kept",
+    "lump-sum death payment"
    ]
   ]
  },

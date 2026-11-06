@@ -6538,5 +6538,109 @@
   "anchors": [
    "p4:protection:identity"
   ]
+ },
+ {
+  "id": "CL529",
+  "loc": "P4:life-events:job-loss",
+  "claim": "When cash is short, essentials (housing, utilities, food, insurance, transportation to work) come before unsecured-debt minimums; call lenders about hardship plans before a payment is missed",
+  "type": "CONVENTION",
+  "status": "PENDING",
+  "tier": "D",
+  "source": "Standard nonprofit credit-counseling and CFPB hardship guidance (practitioner convention)",
+  "url": "",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL530",
+  "loc": "P4:life-events:job-loss",
+  "claim": "An outstanding 401(k) loan balance that is not repaid is treated as a distribution (taxable, plus the 10% additional tax before 59½); a qualified plan loan offset amount can be rolled over until the due date, including extensions, of the return for the year of the offset",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §72(p)(1)(A); §402(c)(3)(C); §72(t)(1)",
+  "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL531",
+  "loc": "P4:life-events:divorce",
+  "claim": "After a divorce or legal separation, the covered employee or qualified beneficiary is responsible for notifying the plan administrator within 60 days of the event; without that notice the COBRA right can be lost",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "29 U.S.C. §1166(a)(3) (notice of qualifying events under §1163(3) and (5) within 60 days)",
+  "url": "https://www.govinfo.gov/link/uscode/29/1166?link-type=html",
+  "anchors": [
+   "p4:life-events:divorce"
+  ]
+ },
+ {
+  "id": "CL532",
+  "loc": "P4:life-events:retirement",
+  "claim": "The Medicare Part B special enrollment period (which avoids the late-enrollment penalty) requires group health plan coverage by reason of the individual's or spouse's current employment; COBRA and retiree coverage do not qualify",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 U.S.C. §1395p(i)(1)(A); §1395r(b)",
+  "url": "https://www.govinfo.gov/link/uscode/42/1395p?link-type=html",
+  "anchors": [
+   "p4:life-events:retirement"
+  ]
+ },
+ {
+  "id": "CL533",
+  "loc": "P4:life-events:death-of-spouse",
+  "claim": "A qualified disclaimer of an inheritance must be an irrevocable written refusal received within 9 months of the transfer (or of turning 21) and made before accepting the interest or any of its benefits",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §2518(b)",
+  "url": "https://www.govinfo.gov/link/uscode/26/2518?link-type=html",
+  "anchors": [
+   "p4:life-events:death-of-spouse"
+  ]
+ },
+ {
+  "id": "CL534",
+  "loc": "P4:life-events:death-of-spouse",
+  "claim": "A surviving spouse caring for the deceased's child entitled to child's benefits can receive a mother's or father's benefit at any age; children receive child's benefits while unmarried and under 18 (under 19 if a full-time elementary or secondary student); a lump-sum death payment is also payable",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 U.S.C. §402(g)(1)(E); §402(d)(1)(B); §402(i)",
+  "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+  "anchors": [
+   "p4:life-events:death-of-spouse"
+  ]
+ },
+ {
+  "id": "CL535",
+  "loc": "P4:life-events:windfall",
+  "claim": "SSI eligibility is subject to a resource limit of $2,000 for an individual; a lump sum can end eligibility for SSI and can affect other means-tested programs",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 U.S.C. §1382(a)(3)(B)",
+  "url": "https://www.govinfo.gov/link/uscode/42/1382?link-type=html",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL536",
+  "loc": "P4:life-events:windfall",
+  "claim": "Gross income includes income from whatever source derived, so lottery and gambling winnings, back pay and most legal settlements are taxable; damages received on account of personal physical injuries or physical sickness are excluded",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §61(a); §104(a)(2)",
+  "url": "https://www.govinfo.gov/link/uscode/26/61?link-type=html",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
  }
 ]
