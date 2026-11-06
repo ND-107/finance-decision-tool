@@ -496,7 +496,7 @@
           "id": "expenses",
           "when": "Tax time",
           "title": "Do not count on deducting moving costs",
-          "body": "The federal moving-expense deduction is not available to most taxpayers (it remains for active-duty military moving under orders). Employer-paid moving costs are taxable wages.",
+          "body": "The federal moving-expense deduction is not available to most taxpayers (it remains for active-duty military moving under orders and, from 2026, for intelligence-community employees relocating on a change of assignment). Employer-paid moving costs are taxable wages.",
           "links": [],
           "claims": [
             "CL508"

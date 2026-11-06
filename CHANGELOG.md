@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-11-06 (later) — CL483–CL528 live-source verification: 42 PASS · 3 PARTIAL · 1 CORRECTED [branch `v2`, pushed, not deployed]
+
+**Done:**
+- Every one of the 46 Phase 4 claims was checked against its named source, read the same day: 38 U.S. Code sections (GovInfo, 2024 edition, plus P.L. 119-21 text for the 2025 amendments), 7 CFR sections (eCFR as of 2026-11-01), IRS publications and pages, Egelhoff v. Egelhoff (CourtListener), and the agency / industry pages (FINRA, FloodSmart, Triple-I, FDIC, Consumer Reports, Vanguard Research, CFP Board, ULC acts, CDIA, NY Tax Dept., FTC). Each audit row's `notes` names the exact provision or sentence relied on; `url` points at the document read.
+- **CORRECTED — CL508 (moving expenses).** P.L. 119-21 §70113 made the §217 / §132(g) suspension permanent and added an exception for intelligence-community employees relocating on a change of assignment (tax years beginning after 2025). The relocation step and its plain variant now name both exceptions; proposition map gained P4.
+- **PARTIAL — CL489, CL502, CL507.** The statutory or Triple-I parts hold; one clause of each (state administration of UI; the high-end emergency-fund sizing rule; "policy must be re-written" on a move) is practitioner convention not stated on the page read. Content unchanged (already hedged).
+- **Source fields updated** where the document read differs from the one first named: CL494 (§70104(b)), CL498 (FINRA pages), CL506 (NY audit guidelines + IT-203-I + CA 540NR), CL508, CL510 (CFP Board article), CL518 (FDIC), CL522 (CDIA).
+- **Not read:** DOL EBSA COBRA guide and SSA survivor pages (both refuse automated fetches; the statutes carry those claims), CareerOneStop (HTTP 502), the 2012 Vanguard paper, LIMRA data, NEFE material. Each is named in the affected row.
+- 13/13 gates green; `dist/v2.html` 1,320,109 bytes.
+
+**Open:**
+- The §4.4 consumer-advocate / CFP persona pass over the Phase 4 content has still not run; it is a content review, separate from this fact-check.
+- `main:v1/flowchart.html` still carries the pre-OBBBA dependent-care figure (owner: correct it with the v2 deploy).
+- Deploy v2 → main (owner's go).
+
 ## 2026-11-06 — Dependent-care FSA figure corrected ($5,000 → $7,500), five `[VERIFY]` placeholders resolved, corrections layer + gate 13 [branch `v2`, local commit, not pushed, not deployed]
 
 **Done:**

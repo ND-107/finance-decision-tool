@@ -5926,10 +5926,10 @@
   "loc": "P4:life-events:job-loss; P4:life-events:divorce",
   "claim": "COBRA continuation: election period of at least 60 days; coverage generally up to 18 months after job loss/hours reduction (36 months for a former spouse after divorce); premium may be up to 102% of plan cost",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "ERISA §§601-608 (29 U.S.C. §§1161-1168); DOL EBSA 'An Employee's Guide to Health Benefits Under COBRA'",
-  "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/an-employees-guide-to-health-benefits-under-cobra",
+  "url": "https://www.govinfo.gov/link/uscode/29/1162?link-type=html",
   "anchors": [
    "p4:life-events:job-loss",
    "p4:life-events:divorce"
@@ -5940,10 +5940,10 @@
   "loc": "P4:life-events:job-loss; P4:life-events:new-baby; P4:life-events:marriage; P4:life-events:relocation; P4:life-events:divorce",
   "claim": "Marketplace special enrollment period of 60 days follows loss of minimum essential coverage, birth/adoption, marriage, and a permanent move to an area with new plan options",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "45 CFR §155.420(b)(2), (d)(1), (d)(2), (d)(7); HealthCare.gov special enrollment page",
-  "url": "https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/",
+  "url": "https://www.ecfr.gov/current/title-45/section-155.420",
   "anchors": [
    "p4:life-events:job-loss",
    "p4:life-events:new-baby",
@@ -5957,10 +5957,10 @@
   "loc": "P4:life-events:job-loss; P4:life-events:new-baby; P4:life-events:marriage",
   "claim": "Employer group health plans must offer at least a 30-day HIPAA special enrollment window after loss of other coverage, marriage, birth or adoption",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "29 CFR §2590.701-6; 26 CFR §54.9801-6",
-  "url": "",
+  "url": "https://www.ecfr.gov/current/title-29/section-2590.701-6",
   "anchors": [
    "p4:life-events:job-loss",
    "p4:life-events:new-baby",
@@ -5972,10 +5972,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Cashing out a 401(k) is taxable plus a 10% additional tax before 59½ absent an exception; eligible rollover distributions paid to the participant carry 20% mandatory withholding; a direct rollover avoids both",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §72(t), §402(c), §3405(c); IRS 'Rollovers of Retirement Plan and IRA Distributions'",
-  "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+  "url": "https://www.govinfo.gov/link/uscode/26/3405?link-type=html",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -5985,7 +5985,7 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Separation from service in or after the year the employee turns 55 exempts distributions from that employer's plan (not IRAs) from the 10% additional tax",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §72(t)(2)(A)(v); IRS 'Retirement topics — exceptions to tax on early distributions'",
   "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions",
@@ -5998,10 +5998,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Net unrealized appreciation on employer securities distributed in-kind in a lump-sum distribution is taxed as long-term capital gain on later sale; rolling the shares into an IRA forfeits NUA treatment",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §402(e)(4); IRS Publication 575",
-  "url": "",
+  "url": "https://www.irs.gov/pub/irs-pdf/p575.pdf",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -6011,10 +6011,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Unemployment insurance is administered by each state; benefits are federally taxable income and voluntary withholding can be elected",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PARTIAL",
   "tier": "A",
   "source": "IRC §85; IRS Form W-4V; DOL CareerOneStop state UI finder",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/85?link-type=html",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -6024,10 +6024,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Severance pay is taxable wages, generally withheld as supplemental wages",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRS Publication 15 (supplemental wages); Treas. Reg. §31.3402(g)-1",
-  "url": "",
+  "url": "https://www.irs.gov/pub/irs-pdf/p15.pdf",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -6037,10 +6037,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "ISO favorable treatment requires exercise no later than three months after termination of employment (one year for disability); vested-option post-termination windows are set by the grant agreement",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §422(a)(2), §422(c)(6)",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/422?link-type=html",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -6050,10 +6050,10 @@
   "loc": "P4:life-events:job-loss; P4:life-events:marriage; P4:annual-review:withholding",
   "claim": "The IRS Tax Withholding Estimator plus a new Form W-4 is the IRS-recommended withholding check after life events",
   "type": "UX",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "IRS Tax Withholding Estimator; IRS Form W-4 instructions",
-  "url": "https://www.irs.gov/individuals/tax-withholding-estimator",
+  "url": "https://www.irs.gov/pub/irs-pdf/fw4.pdf",
   "anchors": [
    "p4:life-events:job-loss",
    "p4:life-events:marriage",
@@ -6065,10 +6065,10 @@
   "loc": "P4:life-events:job-loss",
   "claim": "The §402(g) elective-deferral limit applies per individual across all employers' plans in the year; each payroll tracks only its own plan",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §402(g)(1); IRS 'Consequences to a participant who makes excess deferrals'",
-  "url": "",
+  "url": "https://www.irs.gov/retirement-plans/consequences-to-a-participant-who-makes-excess-annual-salary-deferrals",
   "anchors": [
    "p4:life-events:job-loss"
   ]
@@ -6078,10 +6078,10 @@
   "loc": "P4:life-events:new-baby",
   "claim": "A qualifying child must have a Social Security number (issued before the return due date) for the Child Tax Credit",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
-  "source": "IRC §24(h)(7) as amended by P.L. 119-21; IRS Child Tax Credit page",
-  "url": "",
+  "source": "IRC §24(h)(7) as amended by P.L. 119-21 §70104(b); IRS Child Tax Credit page",
+  "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
   "anchors": [
    "p4:life-events:new-baby"
   ]
@@ -6091,10 +6091,10 @@
   "loc": "P4:life-events:new-baby",
   "claim": "Dependent-care FSA (§129) exclusions reduce the expenses eligible for the child and dependent care credit; the same dollar cannot be used for both. 2026 §129 limit: $7,500 per household ($3,750 if married filing separately), from the figures layer (limit_dcfsa, limit_dcfsa_mfs)",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §21(c), §129(a)(2)(A) as amended by P.L. 119-21 §70404; IRS Publication 15-B (2026)",
-  "url": "",
+  "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
   "anchors": [
    "p4:life-events:new-baby"
   ]
@@ -6104,10 +6104,10 @@
   "loc": "P4:life-events:marriage",
   "claim": "After a name change, update SSA records before filing; a name/SSN mismatch with SSA records can delay processing",
   "type": "UX",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "IRS 'Name changes and Social Security number matching issues'",
-  "url": "",
+  "url": "https://www.irs.gov/faqs/irs-procedures/name-changes-social-security-number-matching-issues",
   "anchors": [
    "p4:life-events:marriage"
   ]
@@ -6117,10 +6117,10 @@
   "loc": "P4:life-events:marriage; P4:life-events:divorce",
   "claim": "Marital status for filing is determined on the last day of the tax year",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §7703(a)(1)",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/7703?link-type=html",
   "anchors": [
    "p4:life-events:marriage",
    "p4:life-events:divorce"
@@ -6131,10 +6131,10 @@
   "loc": "P4:life-events:marriage; P4:life-events:death-of-spouse; P4:protection:estate; P4:annual-review:beneficiaries",
   "claim": "Retirement accounts and life insurance pass by beneficiary designation outside probate and generally are not controlled by a will",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
-  "source": "FINRA investor insight on beneficiary designations; standard estate-planning practice (state nonprobate-transfer law)",
-  "url": "",
+  "source": "FINRA investor pages: Investment Accounts; Retirement Accounts",
+  "url": "https://www.finra.org/investors/investing/investment-accounts",
   "anchors": [
    "p4:life-events:marriage",
    "p4:life-events:death-of-spouse",
@@ -6147,10 +6147,10 @@
   "loc": "P4:life-events:marriage",
   "claim": "In a 401(k) and other ERISA plans subject to the survivor rules, the spouse is the default beneficiary unless the spouse consents in writing to another designation",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §401(a)(11), §417(a)(2); ERISA §205",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/417?link-type=html",
   "anchors": [
    "p4:life-events:marriage"
   ]
@@ -6160,10 +6160,10 @@
   "loc": "P4:life-events:divorce",
   "claim": "Employer plans can pay an alternate payee only under a QDRO; QDRO distributions to an alternate payee are exempt from the 10% additional tax; IRA division by transfer incident to divorce is not a taxable distribution",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §414(p), §72(t)(2)(C), §408(d)(6)",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
   "anchors": [
    "p4:life-events:divorce"
   ]
@@ -6173,10 +6173,10 @@
   "loc": "P4:life-events:divorce",
   "claim": "For ERISA-governed plans, plan documents control the beneficiary and preempt state revocation-on-divorce statutes",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "Egelhoff v. Egelhoff, 532 U.S. 141 (2001)",
-  "url": "",
+  "url": "https://www.courtlistener.com/opinion/118416/egelhoff-v-egelhoff-ex-rel-breiner/",
   "anchors": [
    "p4:life-events:divorce"
   ]
@@ -6186,10 +6186,10 @@
   "loc": "P4:life-events:divorce; P4:protection:emergency-fund",
   "claim": "Emergency-fund targets should be sized toward the high end (or beyond) for single-income, variable-income or dependent-bearing households",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PARTIAL",
   "tier": "D",
   "source": "CFPB emergency-savings guidance; framework node W2:5.1 sizing language",
-  "url": "",
+  "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
   "anchors": [
    "p4:life-events:divorce",
    "p4:protection:emergency-fund"
@@ -6200,10 +6200,10 @@
   "loc": "P4:life-events:home-purchase; P4:protection:property",
   "claim": "Standard homeowners policies exclude flood; flood coverage is a separate NFIP or private policy, NFIP generally with a 30-day waiting period",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "FEMA FloodSmart / NFIP; 42 U.S.C. §4013(c)",
-  "url": "https://www.floodsmart.gov/",
+  "url": "https://www.floodsmart.gov/get-insured/buy-a-policy",
   "anchors": [
    "p4:life-events:home-purchase",
    "p4:protection:property"
@@ -6214,10 +6214,10 @@
   "loc": "P4:life-events:home-purchase",
   "claim": "Homeowners Protection Act: PMI on conventional loans terminates automatically at a scheduled 78% LTV; borrowers may request cancellation at 80%",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "12 U.S.C. §§4901-4910 (Homeowners Protection Act of 1998); CFPB",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/12/4902?link-type=html",
   "anchors": [
    "p4:life-events:home-purchase"
   ]
@@ -6227,10 +6227,10 @@
   "loc": "P4:life-events:home-purchase",
   "claim": "§121 home-sale exclusion requires ownership and use as a principal residence for 2 of the 5 years before sale; capital improvements increase basis. Exclusion up to $250,000 ($500,000 on a qualifying joint return), from the figures layer (sec121_exclusion_single, sec121_exclusion_mfj)",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §121(a)-(b), §1016; IRS Publication 523",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/121?link-type=html",
   "anchors": [
    "p4:life-events:home-purchase"
   ]
@@ -6240,10 +6240,10 @@
   "loc": "P4:life-events:relocation",
   "claim": "States define residency independently; a move year commonly requires part-year resident returns in both states, and departing-state audits put the burden of proof on the taxpayer",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
-  "source": "State DOR part-year resident instructions (e.g., NY IT-203, CA 540NR); framework CL369/CL424 state-domicile content",
-  "url": "",
+  "source": "NY Form IT-203-I; CA 540NR booklet (2025); NY Dept. of Taxation Nonresident Audit Guidelines (2021)",
+  "url": "https://www.tax.ny.gov/pdf/2021/misc/nonresident-audit-guidelines-2021.pdf",
   "anchors": [
    "p4:life-events:relocation"
   ]
@@ -6253,10 +6253,10 @@
   "loc": "P4:life-events:relocation",
   "claim": "Auto insurance minimums are set by each state and policies must be re-written on a change of state",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PARTIAL",
   "tier": "B",
   "source": "Insurance Information Institute state auto-insurance requirements",
-  "url": "",
+  "url": "https://www.iii.org/article/background-on-compulsory-auto-uninsured-motorists",
   "anchors": [
    "p4:life-events:relocation"
   ]
@@ -6264,12 +6264,12 @@
  {
   "id": "CL508",
   "loc": "P4:life-events:relocation",
-  "claim": "The moving-expense deduction and exclusion of employer reimbursements are unavailable except for active-duty military moving under orders",
+  "claim": "The moving-expense deduction and exclusion of employer reimbursements are unavailable except for active-duty military moving under orders and, for tax years beginning after 2025, intelligence-community employees relocating on a change of assignment",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "IRC §217(g), §217(k), §132(g) (TCJA suspension; OBBBA made permanent — verify)",
-  "url": "",
+  "source": "IRC §217(g), §217(k), §132(g) as amended by P.L. 119-21 §70113",
+  "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
   "anchors": [
    "p4:life-events:relocation"
   ]
@@ -6279,10 +6279,10 @@
   "loc": "P4:life-events:relocation",
   "claim": "Wills, powers of attorney and healthcare directives are governed by state law; documents validly executed elsewhere are usually honored but should be reviewed after a move",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "Uniform Probate Code §2-506 (choice of law as to execution); ABA estate-planning guidance",
-  "url": "",
+  "url": "https://www.flprobatelitigation.com/wp-content/uploads/sites/837/2023/08/UPC_Final-Act_2023feb27.pdf",
   "anchors": [
    "p4:life-events:relocation"
   ]
@@ -6292,10 +6292,10 @@
   "loc": "P4:life-events:windfall",
   "claim": "Planners commonly recommend a cooling-off period (parking a windfall in insured savings or T-bills) before major decisions",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "D",
-  "source": "CFP Board / NEFE sudden-money guidance (practitioner convention)",
-  "url": "",
+  "source": "CFP Board, Let's Make a Plan (sudden-wealth articles); practitioner convention",
+  "url": "https://www.letsmakeaplan.org/financial-topics/articles/sudden-wealth/tips-for-managing-an-inheritance-when-planning-retirement",
   "anchors": [
    "p4:life-events:windfall"
   ]
@@ -6305,10 +6305,10 @@
   "loc": "P4:life-events:windfall; P4:life-events:death-of-spouse",
   "claim": "Inherited property generally takes a basis equal to fair market value at death; in community-property states both halves of community property receive the adjustment",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §1014(a), §1014(b)(6)",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/1014?link-type=html",
   "anchors": [
    "p4:life-events:windfall",
    "p4:life-events:death-of-spouse"
@@ -6319,10 +6319,10 @@
   "loc": "P4:life-events:windfall",
   "claim": "Vanguard's historical analysis found immediate lump-sum investing outperformed dollar-cost averaging in about two-thirds of rolling periods",
   "type": "EMPIRICAL",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "C",
   "source": "Vanguard Research, 'Dollar-cost averaging just means taking risk later' (2012); Vanguard 'Cost averaging: invest now or temporarily hold your cash?' (2023)",
-  "url": "",
+  "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf",
   "anchors": [
    "p4:life-events:windfall"
   ]
@@ -6332,10 +6332,10 @@
   "loc": "P4:life-events:windfall; P4:annual-review:year-end",
   "claim": "Gifts above the annual exclusion require Form 709 but generally owe no tax until the lifetime exemption is used",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §2503(b), §6019, §2010; IRS 'Frequently asked questions on gift taxes'",
-  "url": "",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-gift-taxes",
   "anchors": [
    "p4:life-events:windfall",
    "p4:annual-review:year-end"
@@ -6346,10 +6346,10 @@
   "loc": "P4:life-events:retirement",
   "claim": "Medicare initial enrollment period is seven months around the 65th birthday; late Part B enrollment without qualifying coverage carries a lifetime premium penalty",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "42 U.S.C. §1395p, §1395r(b); Medicare.gov 'When can I sign up'",
-  "url": "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-can-i-sign-up-for-medicare",
+  "url": "https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties",
   "anchors": [
    "p4:life-events:retirement"
   ]
@@ -6359,10 +6359,10 @@
   "loc": "P4:life-events:death-of-spouse",
   "claim": "A surviving spouse can receive reduced survivor benefits from age 60 (50 if disabled)",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "42 U.S.C. §402(e); SSA 'Survivors benefits'",
-  "url": "https://www.ssa.gov/survivors",
+  "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
   "anchors": [
    "p4:life-events:death-of-spouse"
   ]
@@ -6372,10 +6372,10 @@
   "loc": "P4:life-events:death-of-spouse",
   "claim": "A surviving spouse who is sole beneficiary may treat an inherited IRA as their own, roll it over, or keep it as an inherited IRA",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "Treas. Reg. §1.408-8(c); IRS Publication 590-B",
-  "url": "",
+  "url": "https://www.ecfr.gov/current/title-26/section-1.408-8",
   "anchors": [
    "p4:life-events:death-of-spouse"
   ]
@@ -6385,10 +6385,10 @@
   "loc": "P4:life-events:death-of-spouse",
   "claim": "A survivor may file jointly for the year of death and as a qualifying surviving spouse for the two following years if maintaining a home for a dependent child",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "IRC §6013(a)(2), §2(a)",
-  "url": "",
+  "url": "https://www.govinfo.gov/link/uscode/26/2?link-type=html",
   "anchors": [
    "p4:life-events:death-of-spouse"
   ]
@@ -6398,10 +6398,10 @@
   "loc": "P4:protection:emergency-fund",
   "claim": "Conventional emergency-fund target is 3-6 months of essential expenses in liquid, insured savings",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "D",
-  "source": "CFPB emergency-savings resources; framework node W2:5.1",
-  "url": "",
+  "source": "FDIC Consumer News (three to six months rule of thumb); framework node W2:5.1",
+  "url": "https://www.fdic.gov/consumer-resource-center/2025-02/preparing-tax-season",
   "anchors": [
    "p4:protection:emergency-fund"
   ]
@@ -6411,10 +6411,10 @@
   "loc": "P4:life-events:new-baby; P4:protection:estate",
   "claim": "Without a will, state intestacy law distributes probate assets; a will is where parents nominate a guardian for minor children",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "Uniform Probate Code Art. II Part 1 (intestacy), §5-202 (parental appointment of guardian); ABA",
-  "url": "",
+  "url": "https://www.flprobatelitigation.com/wp-content/uploads/sites/837/2023/08/UPC_Final-Act_2023feb27.pdf",
   "anchors": [
    "p4:life-events:new-baby",
    "p4:protection:estate"
@@ -6425,10 +6425,10 @@
   "loc": "P4:protection:estate",
   "claim": "A durable power of attorney survives the principal's incapacity; without one, a court-appointed guardian/conservator may be needed",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "Uniform Power of Attorney Act §104; state law",
-  "url": "",
+  "url": "https://www.uniformlaws.org/HigherLogic/System/DownloadDocumentFile.ashx?DocumentFileKey=97b8e123-d225-0b61-e115-d3358fca22ec&forceDialog=0",
   "anchors": [
    "p4:protection:estate"
   ]
@@ -6438,10 +6438,10 @@
   "loc": "P4:protection:estate",
   "claim": "A healthcare directive (living will + healthcare proxy) records treatment wishes and a decision-maker; a HIPAA authorization lets named people receive protected health information",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "45 CFR §164.508; state advance-directive statutes",
-  "url": "",
+  "url": "https://www.ecfr.gov/current/title-45/section-164.508",
   "anchors": [
    "p4:protection:estate"
   ]
@@ -6451,10 +6451,10 @@
   "loc": "P4:protection:disability",
   "claim": "Group long-term disability commonly replaces about 60% of base salary; benefits are taxable when the employer pays the premium",
   "type": "EMPIRICAL",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
-  "source": "IRC §104(a)(3), §105(a); Council for Disability Awareness / LIMRA group LTD plan-design data",
-  "url": "",
+  "source": "IRC §104(a)(3), §105(a); Council for Disability Income Awareness (thecdia.org)",
+  "url": "https://thecdia.org/disability-may-be-more-expensive-than-you-think/",
   "anchors": [
    "p4:protection:disability"
   ]
@@ -6464,7 +6464,7 @@
   "loc": "P4:protection:property",
   "claim": "A landlord's policy does not cover a tenant's belongings or liability; renters insurance covers personal property and personal liability",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "Insurance Information Institute renters-insurance guidance",
   "url": "https://www.iii.org/article/renters-insurance",
@@ -6477,10 +6477,10 @@
   "loc": "P4:protection:auto",
   "claim": "Consumer guidance commonly recommends auto liability of at least 100/300/100, well above most state minimums",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "D",
   "source": "Insurance Information Institute; Consumer Reports auto-insurance guidance",
-  "url": "",
+  "url": "https://www.consumerreports.org/money/car-insurance/how-much-car-insurance-do-you-need-a1487104747/",
   "anchors": [
    "p4:protection:auto"
   ]
@@ -6490,7 +6490,7 @@
   "loc": "P4:protection:health",
   "claim": "ACA-compliant plans cap annual in-network out-of-pocket costs; 2026 Marketplace cap: $10,600 for an individual, $21,200 for a family, from the figures layer (aca_oop_max_self, aca_oop_max_family)",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "42 U.S.C. §18022(c); HealthCare.gov glossary, Out-of-pocket maximum/limit (CMS), plan year 2026",
   "url": "https://www.healthcare.gov/glossary/out-of-pocket-maximum-limit/",
@@ -6503,10 +6503,10 @@
   "loc": "P4:protection:identity; P4:annual-review:credit",
   "claim": "Security freezes are free at each nationwide consumer reporting agency and do not affect credit scores",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "15 U.S.C. §1681c-1(i) (Economic Growth, Regulatory Relief, and Consumer Protection Act of 2018 §301); FTC 'Credit freezes and fraud alerts'",
-  "url": "https://consumer.ftc.gov/articles/what-know-about-credit-freezes-and-fraud-alerts",
+  "url": "https://consumer.ftc.gov/articles/credit-freezes-and-fraud-alerts",
   "anchors": [
    "p4:protection:identity",
    "p4:annual-review:credit"
@@ -6517,10 +6517,10 @@
   "loc": "P4:protection:identity; P4:annual-review:credit",
   "claim": "Free credit reports from all three bureaus are available weekly at AnnualCreditReport.com",
   "type": "REGULATORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "B",
   "source": "FTC / CFPB announcement making weekly free reports permanent (2023)",
-  "url": "https://www.annualcreditreport.com/",
+  "url": "https://consumer.ftc.gov/consumer-alerts/2023/10/you-now-have-permanent-access-free-weekly-credit-reports",
   "anchors": [
    "p4:protection:identity",
    "p4:annual-review:credit"
@@ -6531,10 +6531,10 @@
   "loc": "P4:protection:identity",
   "claim": "IdentityTheft.gov produces a recovery plan; consumer liability for unauthorized electronic fund transfers rises the later the bank is notified",
   "type": "STATUTORY",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "A",
   "source": "15 U.S.C. §1693g; Regulation E 12 CFR §1005.6; FTC IdentityTheft.gov",
-  "url": "https://www.identitytheft.gov/",
+  "url": "https://consumer.ftc.gov/stolen-identity-get-help-identitytheftgov",
   "anchors": [
    "p4:protection:identity"
   ]

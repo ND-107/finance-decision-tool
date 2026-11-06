@@ -810,8 +810,8 @@
   ]
  },
  "le:relocation:expenses": {
-  "hash": "929c3768d30c",
-  "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can). If your employer pays for your move, that counts as taxable pay.",
+  "hash": "35352c47687e",
+  "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can, and from 2026 so can intelligence-community employees who relocate for a new assignment). If your employer pays for your move, that counts as taxable pay.",
   "props": [
    [
     "P1",
@@ -830,6 +830,12 @@
     "Employer-paid moving costs are taxable wages",
     "kept",
     "taxable pay"
+   ],
+   [
+    "P4",
+    "Exception from 2026: intelligence-community employees relocating on assignment",
+    "kept",
+    "intelligence-community employees"
    ]
   ]
  },
