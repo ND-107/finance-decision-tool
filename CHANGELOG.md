@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-06 — §4.4 persona pass run on the deployed Phase 4 content (findings only) [branch `v2`]
+
+**Done:**
+- Two reviewer subagents (Claude Opus, medium effort), read-only over the four Phase 4 content files as deployed in `main` edb4b3e: a consumer-finance advocate (52 findings: 15 HIGH, 29 MED, 8 LOW) and a fee-only fiduciary CFP (65 findings, three self-marked `[VERIFY]`). Reports filed verbatim in `docs/reviews/`, with a README that lists where the two agree.
+- **Nothing applied.** Every rewrite is a proposal; statutory assertions inside the reports are unaudited until they get a CL row.
+
+**Open:**
+- Owner decides which findings to apply. Both reviewers' HIGH overlap is the natural first batch (seven items, all deadline- or penalty-shaped).
+- Reviewer-flagged structural point: the plain-layer gate checks anchor substrings, so a strengthened absolute ("before anything else") passes; consider a hedge-word comparison in `tools/verify-phase4.mjs`.
+
 ## 2026-11-06 — DEPLOYED: v2 → `main` edb4b3e; archived v1 figure corrected; verbatim sources regenerated [branch `v2` and `main`]
 
 **Done:**
