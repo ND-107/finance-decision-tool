@@ -83,3 +83,15 @@ Build-time gate for [`src/data/figures.json`](../src/data/figures.json): enforce
 node tools/validate-figures.mjs                 # validate against today
 node tools/validate-figures.mjs --today=2027-01-15   # prove the expiry gate fires
 ```
+
+## Corrections layer (`corrections.mjs`, `verify-corrections.mjs`) — gate 13
+
+The reference sections and the live calculator subsystem are verbatim v1 and gated byte-identical to `main:v1/flowchart.html` (gates 9 and 10). When a figure in that text goes stale, the fix is an entry in [`src/content/corrections.json`](../src/content/corrections.json), not an edit to the generated files.
+
+| Tool | Does |
+|---|---|
+| `corrections.mjs` | Loads the entries and applies them to a target (`section:<view>` or `calculators-live`). Throws unless each `find` matches exactly `count` times. `{{fig:key}}` → display string, `{{figval:key}}` → raw number. Called by `build-v2.mjs`. |
+| `verify-corrections.mjs` | **Gate 13.** Required fields and unique ids; each `find` matches the verbatim source exactly `count` times; figure keys resolve; the named claim exists and is not a stale `PASS`; no `find` survives applying. |
+
+First use (2026-11-06): COR-001…005, the dependent-care FSA limit $5,000 → $7,500 under P.L. 119-21 §70404 (claim CL186).
+

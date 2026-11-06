@@ -19,7 +19,7 @@
       "group": "Insurance",
       "title": "Health insurance",
       "rule": "Always covered; know your plan's out-of-pocket maximum and keep that much reachable.",
-      "body": "Health coverage is a Tier-1 item in the plan for a reason: an uninsured hospital stay is the most common route from a stable budget to unpayable debt. ACA-compliant plans cap in-network out-of-pocket spending each year (2026 cap: {{verify:ACA maximum out-of-pocket for 2026 — HHS Notice of Benefit and Payment Parameters for 2026; HealthCare.gov}}); that cap, not the premium, is the number your cash reserves should be able to cover.",
+      "body": "Health coverage is a Tier-1 item in the plan for a reason: an uninsured hospital stay is the most common route from a stable budget to unpayable debt. ACA-compliant plans cap in-network out-of-pocket spending each year (2026 cap: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family); that cap, not the premium, is the number your cash reserves should be able to cover.",
       "links": [
         { "to": "full-chart/w2/1.3", "label": "Cover health insurance (framework 1.3)" },
         { "to": "spending-essentials/3", "label": "Spending · Healthcare (HDHP vs PPO calculator)" }

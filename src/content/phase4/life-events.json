@@ -135,7 +135,7 @@
           "id": "ssn",
           "when": "First weeks",
           "title": "Get the child a Social Security number",
-          "body": "You need the child's Social Security number to claim the Child Tax Credit (amount: {{verify:2026 Child Tax Credit per child — IRC §24 as amended by P.L. 119-21; IRS Rev. Proc. 2025-32}}). It is usually requested at the hospital with the birth registration.",
+          "body": "You need the child's Social Security number to claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child). It is usually requested at the hospital with the birth registration.",
           "links": [],
           "claims": [
             "CL494"
@@ -170,7 +170,7 @@
           "id": "childcare",
           "when": "Before open enrollment",
           "title": "Coordinate a dependent-care FSA with the child and dependent care credit",
-          "body": "A dependent-care FSA shelters childcare costs from income and payroll tax (2026 limit: {{verify:§129 dependent-care exclusion for 2026 — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}). Expenses reimbursed through the FSA cannot also be counted for the child and dependent care credit, so the two have to be coordinated rather than both maxed.",
+          "body": "A dependent-care FSA shelters childcare costs from income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Expenses reimbursed through the FSA cannot also be counted for the child and dependent care credit, so the two have to be coordinated rather than both maxed.",
           "links": [
             {
               "to": "spending-lifestyle/6",
@@ -424,7 +424,7 @@
           "id": "sale-later",
           "when": "Keep records",
           "title": "Keep improvement receipts for the eventual sale",
-          "body": "Gain on selling a main home can be excluded up to {{verify:IRC §121(b) exclusion amounts (single / married filing jointly) — 26 U.S.C. §121; IRS Publication 523}} if you owned and lived in it for two of the five years before the sale. Capital improvements add to your basis, so keep the receipts.",
+          "body": "Gain on selling a main home can be excluded up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) if you owned and lived in it for two of the five years before the sale. Capital improvements add to your basis, so keep the receipts.",
           "links": [
             {
               "to": "spending-essentials/1",

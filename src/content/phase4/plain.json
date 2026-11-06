@@ -228,8 +228,8 @@
   ]
  },
  "le:new-baby:ssn": {
-  "hash": "6d89c5cf2592",
-  "plain": "To claim the Child Tax Credit (amount: {{verify:2026 Child Tax Credit per child — IRC §24 as amended by P.L. 119-21; IRS Rev. Proc. 2025-32}}), your child needs a Social Security number. You can usually ask for one at the hospital when you register the birth.",
+  "hash": "24da0446ff4a",
+  "plain": "To claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child), your child needs a Social Security number. You can usually ask for one at the hospital when you register the birth.",
   "props": [
    [
     "P1",
@@ -242,6 +242,12 @@
     "It is usually requested at the hospital with birth registration",
     "kept",
     "at the hospital"
+   ],
+   [
+    "P3",
+    "The credit is up to the figures-layer amount per child",
+    "kept",
+    "per child"
    ]
   ]
  },
@@ -282,8 +288,8 @@
   ]
  },
  "le:new-baby:childcare": {
-  "hash": "578ab64b3ee0",
-  "plain": "A dependent-care FSA lets you pay for childcare with money that skips income and payroll tax (2026 limit: {{verify:§129 dependent-care exclusion for 2026 — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}). Costs you pay through the FSA can't also count toward the child and dependent care credit. So plan the two together instead of trying to max both.",
+  "hash": "e52eb73e4fe8",
+  "plain": "A dependent-care FSA lets you pay for childcare with money that skips income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Costs you pay through the FSA can't also count toward the child and dependent care credit. So plan the two together instead of trying to max both.",
   "props": [
    [
     "P1",
@@ -302,6 +308,12 @@
     "The two must be coordinated, not both maxed",
     "kept",
     "plan the two together"
+   ],
+   [
+    "P4",
+    "The 2026 limit is per household, with a lower amount for married filing separately",
+    "kept",
+    "if married filing separately"
    ]
   ]
  },
@@ -702,8 +714,8 @@
   ]
  },
  "le:home-purchase:sale-later": {
-  "hash": "087baa9a6ac9",
-  "plain": "When you sell your main home, you can leave out up to {{verify:IRC §121(b) exclusion amounts (single / married filing jointly) — 26 U.S.C. §121; IRS Publication 523}} of profit from tax if you owned it and lived in it for two of the five years before selling. Money spent on improvements raises your cost basis, so keep the receipts.",
+  "hash": "31cd0d1c98bc",
+  "plain": "When you sell your main home, you can leave out up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) of profit from tax if you owned it and lived in it for two of the five years before selling. Money spent on improvements raises your cost basis, so keep the receipts.",
   "props": [
    [
     "P1",
@@ -722,6 +734,12 @@
     "Capital improvements add to basis; keep receipts",
     "kept",
     "keep the receipts"
+   ],
+   [
+    "P4",
+    "A qualifying joint return gets the higher exclusion amount",
+    "kept",
+    "on a qualifying joint return"
    ]
   ]
  },
@@ -1236,8 +1254,8 @@
   ]
  },
  "pr:health": {
-  "hash": "a6eee4263826",
-  "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: a hospital stay without insurance is the most common way a steady budget turns into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{verify:ACA maximum out-of-pocket for 2026 — HHS Notice of Benefit and Payment Parameters for 2026; HealthCare.gov}}). That limit, not the premium, is the amount your savings should be able to cover.",
+  "hash": "c9921a738810",
+  "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: a hospital stay without insurance is the most common way a steady budget turns into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family). That limit, not the premium, is the amount your savings should be able to cover.",
   "props": [
    [
     "P1",
@@ -1262,6 +1280,12 @@
     "Reserves should cover that cap, not the premium",
     "kept",
     "not the premium"
+   ],
+   [
+    "P5",
+    "The cap has a one-person amount and a family amount",
+    "kept",
+    "for a family"
    ]
   ]
  },
@@ -1518,8 +1542,8 @@
   ]
  },
  "ar:limits": {
-  "hash": "a11c8b163224",
-  "plain": "Contribution limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (extra catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise your payroll elections so the money goes in evenly through the year. You choose your health FSA ({{verify:2026 health FSA salary-reduction limit — IRS Rev. Proc. 2025-32}}) and dependent-care FSA ({{verify:2026 §129 limit — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}) amounts at open enrollment.",
+  "hash": "35cd8929c891",
+  "plain": "Contribution limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (extra catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise your payroll elections so the money goes in evenly through the year. You choose your health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) amounts at open enrollment.",
   "props": [
    [
     "P1",

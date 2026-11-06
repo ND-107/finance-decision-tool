@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-11-06 — Dependent-care FSA figure corrected ($5,000 → $7,500), five `[VERIFY]` placeholders resolved, corrections layer + gate 13 [branch `v2`, local commit, not pushed, not deployed]
+
+**Done:**
+- **Primary-source read of the dependent-care FSA limit.** P.L. 119-21 §70404 (139 Stat. 214) strikes "$5,000 ($2,500" in IRC §129(a)(2)(A) and inserts "$7,500 ($3,750", for taxable years beginning after 2025-12-31. IRS Publication 15-B (2026) states the same in "What's New" and in the dependent care assistance section. The tool's "2026 limit is $5,000" (CL186, Spending:Lifestyle §6 prose, the DCFSA calculator) was stale.
+- **Figures layer: 8 new entries**, each read in its primary document on 2026-11-06 (46 → 54):
+
+  | key | value | source read |
+  |---|---|---|
+  | `limit_dcfsa` / `limit_dcfsa_mfs` | $7,500 / $3,750 | P.L. 119-21 §70404; IRS Pub. 15-B (2026) |
+  | `limit_health_fsa` | $3,400 | Rev. Proc. 2025-32 §4.15 |
+  | `ctc_per_child` | $2,200 | Rev. Proc. 2025-32 §4.05(1) |
+  | `aca_oop_max_self` / `aca_oop_max_family` | $10,600 / $21,200 | HealthCare.gov glossary, plan year 2026 |
+  | `sec121_exclusion_single` / `sec121_exclusion_mfj` | $250,000 / $500,000 | 26 U.S.C. §121(b)(1), (b)(2)(A); IRS Pub. 523 |
+
+- **All `{{verify:…}}` placeholders replaced with `{{fig:…}}`** (12 tokens in 5 blocks: `le:new-baby:ssn`, `le:new-baby:childcare`, `le:home-purchase:sale-later`, `pr:health`, `ar:limits`), canonical and plain variants together. The five plain variants were re-read against the new canonical text, four proposition maps gained one row each for the added qualifier (per child / married filing separately / joint return / family), then stamped. `grep -rn "{{verify:" src/content` → none.
+- **Corrections layer (new).** The stale $5,000 lives in verbatim v1 content that gates 9 and 10 hold byte-identical to `main:v1/flowchart.html`, so it cannot be edited in place. `src/content/corrections.json` (COR-001…005) lists each intentional divergence with its claim, reason, source and date; `tools/corrections.mjs` applies them in `build-v2.mjs` to the reference sections and the live calculator bundle; `tools/verify-corrections.mjs` is **gate 13** (each `find` must match the verbatim source exactly `count` times, figure keys resolve, the named claim is not a stale PASS, nothing survives applying). Negative-tested: it failed while CL186 was still PASS.
+- **Audit:** CL186 PASS → **CORRECTED** (new text, source, note). CL495, CL505, CL525 keep `PENDING` with notes saying exactly which part was read at the source today (the dollar figure) and which was not (the rule text).
+- **Verified:** 13/13 gates green; `dist/v2.html` 1,317,595 bytes; no stale string and no `[VERIFY:` in the bundle; in headless Chrome the DCFSA calculator defaults to $7,500 and shows $2,749 at the default rates.
+
+**Open:**
+- `main:v1/flowchart.html` (the archived v1 served at `/v1/`) still says $5,000. Changing it is a commit on the deployed branch — owner's call.
+- CL483–CL528: 43 rows untouched and 3 partly verified; all 46 still `PENDING` (live-source check of the rule text + the §4.4 persona pass).
+- `audit/phase1_factcheck_audit.xlsx` was not regenerated (`openpyxl` is not installed for the system python3); the file is git-ignored and `src/data/claims.json` is in sync (gate 11).
+- Not pushed (public repo) and not deployed: both wait for the owner.
+
 ## 2026-11-02 — v2 Phase 4 (life events · protection · annual review · plain-English layer) + Phase 5 leftovers + axe pass [branch `v2`, local-only, not deployed]
 
 **Done:**

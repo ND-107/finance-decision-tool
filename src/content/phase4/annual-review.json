@@ -5,7 +5,7 @@
       "id": "limits",
       "month": 1,
       "title": "Reset contributions to this year's limits",
-      "body": "Indexed limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise payroll elections so the deferral is spread across the year; health FSA ({{verify:2026 health FSA salary-reduction limit — IRS Rev. Proc. 2025-32}}) and dependent-care FSA ({{verify:2026 §129 limit — P.L. 119-21 §70404; IRS Publication 15-B (2026)}}) elections are made at open enrollment.",
+      "body": "Indexed limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise payroll elections so the deferral is spread across the year; health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) elections are made at open enrollment.",
       "links": [
         { "to": "full-chart/w2/8.1", "label": "Max your 401(k) (framework 8.1)" },
         { "to": "full-chart/w2/6.2", "label": "Max your IRA (framework 6.2)" },

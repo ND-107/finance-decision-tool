@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadPhase4, loadPlain, resolveTokens } from './phase4-content.mjs';
+import { applyCorrections } from './corrections.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (...p) => readFileSync(join(ROOT, ...p), 'utf8');
@@ -71,11 +72,14 @@ function buildNodes() {
   return nodes;
 }
 
-// ---- build the reference-section content map (view name -> verbatim v1 inner HTML) ----
+// ---- build the reference-section content map (view name -> v1 inner HTML) ----
+// The files are verbatim v1 (gate 9). Audited corrections (src/content/corrections.json,
+// gate 13) are applied on top here, so a stale v1 figure is fixed without editing them.
+const CORR_FIGS = json('src', 'data', 'figures.json');
 function buildSections() {
   const dir = join(ROOT, 'src', 'content', 'sections');
   const out = {};
-  for (const f of readdirSync(dir)) if (f.endsWith('.html')) out[f.replace(/\.html$/, '')] = read('src', 'content', 'sections', f);
+  for (const f of readdirSync(dir)) if (f.endsWith('.html')) { const view = f.replace(/\.html$/, ''); out[view] = applyCorrections(`section:${view}`, read('src', 'content', 'sections', f), CORR_FIGS); }
   return out;
 }
 
@@ -138,7 +142,7 @@ const afterPlan = ['completion', 'sensitivity'].map((m) => `// ===== src/core/${
 // The UI runs v1's calculator subsystem LIVE (real DOM → inline charts render).
 // The pure kernel (src/core/calculators/calculators.mjs) is the byte-exact
 // verification gate (node-only), not bundled.
-const calcMod = `// ===== src/ui/calculators-live.mjs =====\n${strip(read('src', 'ui', 'calculators-live.mjs'))}`;
+const calcMod = `// ===== src/ui/calculators-live.mjs (+ audited corrections) =====\n${strip(applyCorrections('calculators-live', read('src', 'ui', 'calculators-live.mjs'), CORR_FIGS))}`;
 const uiP4 = `// ===== src/ui/phase4.mjs =====\n${strip(read('src', 'ui', 'phase4.mjs'))}`;
 const uiApp = `// ===== src/ui/app.mjs =====\n${strip(read('src', 'ui', 'app.mjs'))}`;
 

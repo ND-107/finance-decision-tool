@@ -1031,11 +1031,11 @@ CLAIMS = [
      "Range covers ingredient quality and meal complexity. Restaurant figure includes tax/tip; takeout typically 15-20% lower than dine-in."),
 
     # --- Childcare/Education ---
-    ("CL186", "Spend:Life:6", "Dependent Care FSA 2026 limit: $5,000 per household (joint/HoH/single); $2,500 if married filing separately",
-     "STATUTORY", "CON", "PASS", "A",
-     "IRC §129(a)(2)(A); no annual inflation adjustment in statute. ARP $10,500 expansion expired after 2021",
-     "",
-     "Verified. Limit unchanged since 1986. CDCTC also available but phases down at higher incomes."),
+    ("CL186", "Spend:Life:6", "Dependent Care FSA 2026 limit: $7,500 per household (joint/HoH/single); $3,750 if married filing separately",
+     "STATUTORY", "CON", "CORRECTED", "A",
+     "IRC §129(a)(2)(A) as amended by P.L. 119-21 §70404 (139 Stat. 214; taxable years beginning after 2025-12-31); IRS Publication 15-B (2026). No annual inflation adjustment in statute",
+     "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+     "CORRECTED 2026-11-06. The row passed at $5,000 ($2,500 MFS), the pre-OBBBA figure; §70404 struck '$5,000 ($2,500' and inserted '$7,500 ($3,750' for taxable years beginning after 2025-12-31. Both primary documents read in full text on 2026-11-06 (statute text on GovInfo; Pub. 15-B (2026) 'What's New' and the dependent care assistance section). v1 prose and the DCFSA calculator are verbatim v1 content, so the fix is applied through the v2 corrections layer (src/content/corrections.json COR-001..005, gate 13); main:v1/flowchart.html still shows $5,000. Derived worked example re-computed: $7,500 × 36.65% = $2,748.75 (~$2,750). CDCTC also available but phases down at higher incomes."),
 
     ("CL187", "Spend:Life:6", "Full-time daycare typical cost $15,000-$28,000/child/year; HCOL metros $30,000+; nanny $40,000-$70,000+",
      "EMPIRICAL", "SOFT", "PASS", "B",
@@ -2828,10 +2828,10 @@ CLAIMS = [
      'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL495', 'P4:life-events:new-baby',
-     'Dependent-care FSA (§129) exclusions reduce the expenses eligible for the child and dependent care credit; the same dollar cannot be used for both. 2026 §129 limit left as [VERIFY] placeholder: secondary sources read 2026-11-02 (CPA/benefits sites citing P.L. 119-21 §70404 and IRS Pub. 15-B (2026)) report $7,500 ($3,750 MFS) — primary source not yet read',
+     'Dependent-care FSA (§129) exclusions reduce the expenses eligible for the child and dependent care credit; the same dollar cannot be used for both. 2026 §129 limit: $7,500 per household ($3,750 if married filing separately), from the figures layer (limit_dcfsa, limit_dcfsa_mfs)',
      'STATUTORY', 'CON', 'PENDING', 'A',
-     'IRC §21(c), §129; P.L. 119-21 §70404 (secondary description only)', '',
-     'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
+     'IRC §21(c), §129(a)(2)(A) as amended by P.L. 119-21 §70404; IRS Publication 15-B (2026)', '',
+     'Authored 2026-11-02 for v2 Phase 4. PARTLY VERIFIED 2026-11-06: the dollar limit was read in the primary documents (P.L. 119-21 §70404 statute text; IRS Pub. 15-B (2026)) and moved into the figures layer. The coordination rule (§21(c): excluded §129 benefits reduce credit-eligible expenses) was NOT re-read at its source, so the row stays PENDING. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL496', 'P4:life-events:marriage',
      'After a name change, update SSA records before filing; a name/SSN mismatch with SSA records can delay processing',
@@ -2888,10 +2888,10 @@ CLAIMS = [
      'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL505', 'P4:life-events:home-purchase',
-     '§121 home-sale exclusion requires ownership and use as a principal residence for 2 of the 5 years before sale; capital improvements increase basis. Dollar amounts left as [VERIFY] placeholder (not in figures layer)',
+     '§121 home-sale exclusion requires ownership and use as a principal residence for 2 of the 5 years before sale; capital improvements increase basis. Exclusion up to $250,000 ($500,000 on a qualifying joint return), from the figures layer (sec121_exclusion_single, sec121_exclusion_mfj)',
      'STATUTORY', 'CON', 'PENDING', 'A',
      'IRC §121(a)-(b), §1016; IRS Publication 523', '',
-     'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
+     'Authored 2026-11-02 for v2 Phase 4. PARTLY VERIFIED 2026-11-06: the dollar amounts were read in 26 U.S.C. §121(b)(1) and (b)(2)(A) (U.S. Code 2023 edition on GovInfo) and in IRS Publication 523, and moved into the figures layer. The 2-of-5-year test (§121(a)) and the basis rule (§1016) were NOT re-read at their source, so the row stays PENDING. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL506', 'P4:life-events:relocation',
      'States define residency independently; a move year commonly requires part-year resident returns in both states, and departing-state audits put the burden of proof on the taxpayer',
@@ -3008,10 +3008,10 @@ CLAIMS = [
      'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL525', 'P4:protection:health',
-     'ACA-compliant plans cap annual in-network out-of-pocket costs; 2026 cap left as [VERIFY] placeholder (not in figures layer)',
+     'ACA-compliant plans cap annual in-network out-of-pocket costs; 2026 Marketplace cap: $10,600 for an individual, $21,200 for a family, from the figures layer (aca_oop_max_self, aca_oop_max_family)',
      'REGULATORY', 'CON', 'PENDING', 'A',
-     '42 U.S.C. §18022(c); HHS Notice of Benefit and Payment Parameters for 2026', '',
-     'Authored 2026-11-02 for v2 Phase 4 from general statutory/practitioner knowledge; the named source was NOT re-read live this session (reading depth: none) — verify against it before flipping to PASS. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
+     '42 U.S.C. §18022(c); HealthCare.gov glossary, Out-of-pocket maximum/limit (CMS), plan year 2026', 'https://www.healthcare.gov/glossary/out-of-pocket-maximum-limit/',
+     'Authored 2026-11-02 for v2 Phase 4. PARTLY VERIFIED 2026-11-06: the 2026 dollar caps were read on the HealthCare.gov glossary page (the agency page; it also lists 2027 as $12,000 / $24,000) and moved into the figures layer. The HHS payment-parameters rule that sets the figure and 42 U.S.C. §18022(c) were NOT read, so the row stays PENDING and the source field names only the page actually read for the figure. Consumer-advocate + CFP persona pass pending (V2 plan §4.4).'),
 
     ('CL526', 'P4:protection:identity; P4:annual-review:credit',
      'Security freezes are free at each nationwide consumer reporting agency and do not affect credit scores',

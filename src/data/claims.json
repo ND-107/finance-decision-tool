@@ -2432,12 +2432,12 @@
  {
   "id": "CL186",
   "loc": "Spend:Life:6",
-  "claim": "Dependent Care FSA 2026 limit: $5,000 per household (joint/HoH/single); $2,500 if married filing separately",
+  "claim": "Dependent Care FSA 2026 limit: $7,500 per household (joint/HoH/single); $3,750 if married filing separately",
   "type": "STATUTORY",
-  "status": "PASS",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "IRC §129(a)(2)(A); no annual inflation adjustment in statute. ARP $10,500 expansion expired after 2021",
-  "url": "",
+  "source": "IRC §129(a)(2)(A) as amended by P.L. 119-21 §70404 (139 Stat. 214; taxable years beginning after 2025-12-31); IRS Publication 15-B (2026). No annual inflation adjustment in statute",
+  "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
   "anchors": [
    "sec:spending-lifestyle:6"
   ]
@@ -6089,11 +6089,11 @@
  {
   "id": "CL495",
   "loc": "P4:life-events:new-baby",
-  "claim": "Dependent-care FSA (§129) exclusions reduce the expenses eligible for the child and dependent care credit; the same dollar cannot be used for both. 2026 §129 limit left as [VERIFY] placeholder: secondary sources read 2026-11-02 (CPA/benefits sites citing P.L. 119-21 §70404 and IRS Pub. 15-B (2026)) report $7,500 ($3,750 MFS) — primary source not yet read",
+  "claim": "Dependent-care FSA (§129) exclusions reduce the expenses eligible for the child and dependent care credit; the same dollar cannot be used for both. 2026 §129 limit: $7,500 per household ($3,750 if married filing separately), from the figures layer (limit_dcfsa, limit_dcfsa_mfs)",
   "type": "STATUTORY",
   "status": "PENDING",
   "tier": "A",
-  "source": "IRC §21(c), §129; P.L. 119-21 §70404 (secondary description only)",
+  "source": "IRC §21(c), §129(a)(2)(A) as amended by P.L. 119-21 §70404; IRS Publication 15-B (2026)",
   "url": "",
   "anchors": [
    "p4:life-events:new-baby"
@@ -6225,7 +6225,7 @@
  {
   "id": "CL505",
   "loc": "P4:life-events:home-purchase",
-  "claim": "§121 home-sale exclusion requires ownership and use as a principal residence for 2 of the 5 years before sale; capital improvements increase basis. Dollar amounts left as [VERIFY] placeholder (not in figures layer)",
+  "claim": "§121 home-sale exclusion requires ownership and use as a principal residence for 2 of the 5 years before sale; capital improvements increase basis. Exclusion up to $250,000 ($500,000 on a qualifying joint return), from the figures layer (sec121_exclusion_single, sec121_exclusion_mfj)",
   "type": "STATUTORY",
   "status": "PENDING",
   "tier": "A",
@@ -6488,12 +6488,12 @@
  {
   "id": "CL525",
   "loc": "P4:protection:health",
-  "claim": "ACA-compliant plans cap annual in-network out-of-pocket costs; 2026 cap left as [VERIFY] placeholder (not in figures layer)",
+  "claim": "ACA-compliant plans cap annual in-network out-of-pocket costs; 2026 Marketplace cap: $10,600 for an individual, $21,200 for a family, from the figures layer (aca_oop_max_self, aca_oop_max_family)",
   "type": "REGULATORY",
   "status": "PENDING",
   "tier": "A",
-  "source": "42 U.S.C. §18022(c); HHS Notice of Benefit and Payment Parameters for 2026",
-  "url": "",
+  "source": "42 U.S.C. §18022(c); HealthCare.gov glossary, Out-of-pocket maximum/limit (CMS), plan year 2026",
+  "url": "https://www.healthcare.gov/glossary/out-of-pocket-maximum-limit/",
   "anchors": [
    "p4:protection:health"
   ]

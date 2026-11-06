@@ -1,0 +1,60 @@
+{
+  "_about": "Intentional, audited divergences from the verbatim v1 content. The reference sections (src/content/sections/*.html) and the live calculator subsystem (src/ui/calculators-live.mjs) are generated from main:v1/flowchart.html and are held byte-identical to it by gates 9 and 10, so a figure that goes stale there cannot be fixed by editing those files. Each entry below is applied by tools/build-v2.mjs on top of the verbatim text at build time; tools/verify-corrections.mjs (gate 13) proves every 'find' still matches the verbatim source exactly 'count' times, so a v1 change or a silent drift fails the build. Tokens in 'replace': {{fig:key}} -> the figure's display string, {{figval:key}} -> its raw number. Hand-typed derived numbers carry the derivation in 'reason'. Every entry names the audit claim it corrects and the primary source read on 'verified'.",
+  "corrections": [
+    {
+      "id": "COR-001",
+      "claim": "CL186",
+      "target": "section:spending-lifestyle",
+      "find": "The 2026 limit is $5,000 per household (regardless of filing status; not per parent)",
+      "replace": "The 2026 limit is {{fig:limit_dcfsa}} per household ({{fig:limit_dcfsa_mfs}} if married filing separately; not per parent)",
+      "count": 1,
+      "reason": "P.L. 119-21 §70404 raised the §129(a)(2)(A) exclusion from $5,000 ($2,500 MFS) to $7,500 ($3,750 MFS) for taxable years beginning after 2025-12-31; the v1 text predates it. 'Regardless of filing status' was also wrong for married filing separately.",
+      "source": "P.L. 119-21 §70404 (139 Stat. 214); IRS Publication 15-B (2026)",
+      "verified": "2026-11-06"
+    },
+    {
+      "id": "COR-002",
+      "claim": "CL186",
+      "target": "section:spending-lifestyle",
+      "find": "a fully-funded DCFSA saves roughly $1,830/year in taxes",
+      "replace": "a fully-funded DCFSA saves roughly $2,750/year in taxes",
+      "count": 1,
+      "reason": "Derived: $7,500 × (24% + 5% + 7.65%) = $2,748.75, rounded as the v1 sentence rounded $5,000 × 36.65% = $1,832.50.",
+      "source": "Derived from limit_dcfsa (figures.json) and the rates stated in the same sentence",
+      "verified": "2026-11-06"
+    },
+    {
+      "id": "COR-003",
+      "claim": "CL186",
+      "target": "section:spending-lifestyle",
+      "find": "id=\"dc-amount\" value=\"5000\" min=\"0\" max=\"5000\"",
+      "replace": "id=\"dc-amount\" value=\"{{figval:limit_dcfsa}}\" min=\"0\" max=\"{{figval:limit_dcfsa}}\"",
+      "count": 1,
+      "reason": "The calculator's default and ceiling were the old limit; a user could not enter the 2026 amount.",
+      "source": "P.L. 119-21 §70404 (139 Stat. 214); IRS Publication 15-B (2026)",
+      "verified": "2026-11-06"
+    },
+    {
+      "id": "COR-004",
+      "claim": "CL186",
+      "target": "calculators-live",
+      "find": "$val('dc-amount', 5000)",
+      "replace": "$val('dc-amount', {{figval:limit_dcfsa}})",
+      "count": 1,
+      "reason": "Fallback default of the DCFSA calculator tracks the corrected input default (COR-003).",
+      "source": "P.L. 119-21 §70404 (139 Stat. 214); IRS Publication 15-B (2026)",
+      "verified": "2026-11-06"
+    },
+    {
+      "id": "COR-005",
+      "claim": "CL186",
+      "target": "calculators-live",
+      "find": "Note: 2026 limit is $5,000 per household regardless of filing status (not per parent).",
+      "replace": "Note: 2026 limit is {{fig:limit_dcfsa}} per household ({{fig:limit_dcfsa_mfs}} if married filing separately; not per parent).",
+      "count": 1,
+      "reason": "Same correction as COR-001, in the calculator's result note.",
+      "source": "P.L. 119-21 §70404 (139 Stat. 214); IRS Publication 15-B (2026)",
+      "verified": "2026-11-06"
+    }
+  ]
+}

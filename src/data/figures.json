@@ -366,5 +366,69 @@
     "source": "IRS newsroom IR-2025-111 + Notice 2025-67 IRC \u00a725B(b)(1)",
     "verified": "2026-06-15",
     "expires": "2026-12-31"
+  },
+  "limit_dcfsa": {
+    "value": 7500,
+    "display": "$7,500",
+    "taxYear": 2026,
+    "source": "IRC \u00a7129(a)(2)(A) as amended by P.L. 119-21 \u00a770404 (taxable years beginning after 2025-12-31); IRS Publication 15-B (2026)",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "limit_dcfsa_mfs": {
+    "value": 3750,
+    "display": "$3,750",
+    "taxYear": 2026,
+    "source": "IRC \u00a7129(a)(2)(A) as amended by P.L. 119-21 \u00a770404 (taxable years beginning after 2025-12-31); IRS Publication 15-B (2026)",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "limit_health_fsa": {
+    "value": 3400,
+    "display": "$3,400",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-32 \u00a74.15 (\u00a7125(i) limit, taxable years beginning in 2026)",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "ctc_per_child": {
+    "value": 2200,
+    "display": "$2,200",
+    "taxYear": 2026,
+    "source": "IRS Rev. Proc. 2025-32 \u00a74.05(1) (\u00a724(a) maximum credit, taxable years beginning in 2026); IRC \u00a724(h)(2) as amended by P.L. 119-21",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "aca_oop_max_self": {
+    "value": 10600,
+    "display": "$10,600",
+    "taxYear": 2026,
+    "source": "HealthCare.gov glossary, 'Out-of-pocket maximum/limit' (CMS), Marketplace plan year 2026",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "aca_oop_max_family": {
+    "value": 21200,
+    "display": "$21,200",
+    "taxYear": 2026,
+    "source": "HealthCare.gov glossary, 'Out-of-pocket maximum/limit' (CMS), Marketplace plan year 2026",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "sec121_exclusion_single": {
+    "value": 250000,
+    "display": "$250,000",
+    "taxYear": 2026,
+    "source": "26 U.S.C. \u00a7121(b)(1) (not inflation-indexed); IRS Publication 523",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
+  },
+  "sec121_exclusion_mfj": {
+    "value": 500000,
+    "display": "$500,000",
+    "taxYear": 2026,
+    "source": "26 U.S.C. \u00a7121(b)(2)(A) (not inflation-indexed); IRS Publication 523",
+    "verified": "2026-11-06",
+    "expires": "2026-12-31"
   }
 }
