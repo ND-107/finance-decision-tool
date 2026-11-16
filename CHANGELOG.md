@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-11-16 — Second-read verification: nine corrections [branch `fix/verification-2026-11-16`; not merged into `v2` or `main`, not deployed]
+
+Each item was read at its primary source on 2026-11-16 by a second, independent reader before it was applied. Owner review pending.
+
+- **Corrections layer extended:** `src/content/corrections.json` now accepts `node:<income>/<marker>` targets (applied to the node's `detailsHtml`; `rawSource` stays verbatim v1 for gate 8). Gate 13 checks them.
+- **QBI SSTB thresholds (CL056, CL360):** `qbi_sstb_phasein_start` $201,775 / $403,550 → $201,750 single / $403,500 MFJ; `qbi_sstb_phasein_complete` $276,775 / $553,550 → $276,750 / $553,500. Contractor 8.2 prose via COR-006 (now drawn from the figures). Source: Rev. Proc. 2025-32 §4.26; range from P.L. 119-21 §70105(a).
+- **SALT cap, Business 8.4 (CL369):** "OBBBA made the $10K SALT cap permanent…" → $40,400 for 2026, +1%/yr through 2029, $10,000 from 2030, reduced by 30% of MAGI above $505,000 but not below $10,000 (COR-007). Source: P.L. 119-21 §70120. The $400K PTET example is unchanged and flagged for the owner.
+- **529 K-12, W2 9.4 (CL040):** $10K/year → $20K/year from 2026 (COR-008). Source: P.L. 119-21 §70413(b).
+- **`ss_oasi_depletion`:** "OASI 2033 / combined OASDI 2034" (2025 report) → "OASI Q4 2032 / combined OASDI Q3 2034". Source: SSA, A Summary of the 2026 Annual Reports.
+- **Survivor benefits, `le:death-of-spouse:notify` (CL534):** the any-age benefit now requires the survivor not remarried and the child under 16 or disabled. Source: 42 U.S.C. §402(g)(1)(A), (E), §402(s)(1).
+- **401(k) loan offset, `le:job-loss:old-401k` (CL530):** offset "within 12 months after leaving the job". Source: 26 U.S.C. §402(c)(3)(C); Treas. Reg. §1.402(c)-2(g)(4)(ii)(B).
+- **Medicare Part B, `le:retirement:medicare` (CL532):** "only" → "generally only". Source: 42 U.S.C. §1395r(b), §1395p(l), (m).
+- **Moving costs, `le:relocation:expenses` (CL508):** "For everyone else, employer-paid moving costs are taxable wages." Source: 26 U.S.C. §132(g)(2) as amended by P.L. 119-21 §70113.
+- **Audit nits:** CL531 note no longer credits 29 CFR §2590.606-3 with forfeiture; CL529 gets the archived CFPB blog URL; CL489 PARTIAL → PASS (dol.gov read). CL502 and CL529 statuses unchanged.
+- Plain variants and proposition maps updated and re-stamped; `audit/export_claims_json.py` re-run; 13/13 gates green.
+
 ## 2026-11-16 — CL529 source read and step corrected: PENDING → PASS [branch `v2`; deploy to `main` pending]
 
 - CL529 (`le:job-loss:runway`, essentials before unsecured-debt minimums) now cites the CFPB "Prioritizing bills" tool (Your Money, Your Goals) and the archived CFPB blog "Behind on bills", both read 2026-11-16. They support protecting housing, income, insurance and necessities first and calling the creditor before a payment is missed.
