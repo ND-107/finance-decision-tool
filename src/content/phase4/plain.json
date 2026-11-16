@@ -1,7 +1,7 @@
 {
  "le:job-loss:coverage": {
-  "hash": "bc3d74fb0d96",
-  "plain": "When job-based health coverage ends, two clocks start. COBRA lets you stay on the same employer plan, generally for up to 18 months after a job loss. You get at least 60 days to sign up. It can cost up to 102% of the full premium, because your employer stops paying its share. Losing coverage also lets you sign up on the Marketplace within 60 days. There, help with premiums is based on what you expect to earn this year, which may now be less. If your spouse has a job-based plan, it must give you at least 30 days to join. Compare all three by total cost, not just the monthly premium.",
+  "hash": "04ab1291b75f",
+  "plain": "When job-based health coverage ends, two clocks start. COBRA lets you stay on the same employer plan, generally for up to 18 months after a job loss. You get at least 60 days to sign up. If you sign up in that time, coverage reaches back to the day your job coverage ended, and you pay the premiums for that time. It can cost up to 102% of the full premium, because your employer stops paying its share. Losing coverage also lets you sign up on the Marketplace within 60 days. There, help with premiums is based on what you expect to earn this year, which may now be less. Count severance, unemployment pay, any 401(k) money you take out and pay from a new job. Tell the Marketplace about income changes right away. Starting with 2026, if you got more help than you qualify for, you must pay all of it back at tax time, and household income above 400% of the poverty line generally gets no federal help. Medicaid, and CHIP for children, take applications any time of year and look at what you earn each month now. If your spouse has a job-based plan, it must give you at least 30 days to join. If you choose COBRA and later drop it or stop paying, the Marketplace does not open again for you: once 60 days have passed since your job coverage ended, you usually have to wait for open enrollment, unless COBRA runs out, your old employer stops paying part of it, or you have another life event. Compare every option by total cost, not just the monthly premium.",
   "props": [
    [
     "P1",
@@ -23,45 +23,87 @@
    ],
    [
     "P4",
+    "An election made within the window covers you back to when job coverage ended, and the premiums for that time are owed",
+    "kept",
+    "coverage reaches back to the day"
+   ],
+   [
+    "P5",
     "COBRA premium can be up to 102% of full cost",
     "kept",
     "up to 102%"
    ],
    [
-    "P5",
+    "P6",
     "because the employer subsidy ends (mechanism)",
     "kept",
     "stops paying its share"
    ],
    [
-    "P6",
+    "P7",
     "Loss of coverage triggers a 60-day Marketplace special enrollment period",
     "kept",
     "Marketplace within 60 days"
    ],
    [
-    "P7",
+    "P8",
     "Premium tax credits are based on expected income for the year, which may be lower",
     "kept",
     "what you expect to earn this year"
    ],
    [
-    "P8",
+    "P9",
+    "Count severance, unemployment pay, any 401(k) withdrawal and new-job wages in the income estimate",
+    "kept",
+    "count severance, unemployment pay"
+   ],
+   [
+    "P10",
+    "Report income changes to the Marketplace as they happen",
+    "kept",
+    "tell the marketplace about income changes right away"
+   ],
+   [
+    "P11",
+    "Starting with 2026, excess advance credits must be repaid in full",
+    "kept",
+    "pay all of it back at tax time"
+   ],
+   [
+    "P12",
+    "Household income above 400% of the poverty line generally gets no credit",
+    "kept",
+    "above 400% of the poverty line"
+   ],
+   [
+    "P13",
+    "Medicaid and CHIP accept applications any time of year and judge eligibility on current monthly income",
+    "kept",
+    "take applications any time of year"
+   ],
+   [
+    "P14",
     "A spouse's employer plan must offer at least 30 days to enroll",
     "kept",
     "at least 30 days to join"
    ],
    [
-    "P9",
-    "Compare on total cost, not premium alone",
+    "P15",
+    "Dropping COBRA or stopping payment does not reopen the Marketplace; once 60 days have passed since job coverage ended, generally wait for open enrollment unless COBRA runs out, an employer subsidy ends, or another life event occurs",
+    "kept",
+    "usually have to wait for open enrollment"
+   ],
+   [
+    "P16",
+    "Compare all options on total cost, not premium alone",
     "kept",
     "by total cost"
    ]
   ]
  },
  "le:job-loss:runway": {
-  "hash": "30634ad155fa",
-  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance, the transportation that gets you to work and any payments a court has ordered, such as child support, first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment.",
+  "hash": "becc9c8dd12a",
+  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance, the transportation that gets you to work and any payments a court has ordered, such as child support, first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment. For federal student loans, ask your loan servicer about an income-driven plan, where the payment can be as low as $0 in some cases, or an unemployment deferment. Keep paying until a deferment is approved.",
   "props": [
    [
     "P1",
@@ -98,6 +140,18 @@
     "Hardship plans: call lenders before a payment is missed",
     "kept",
     "hardship plans"
+   ],
+   [
+    "P7",
+    "Federal student loans: ask about an income-driven plan (payment can be as low as $0) or an unemployment deferment",
+    "kept",
+    "income-driven plan"
+   ],
+   [
+    "P8",
+    "Keep paying until a deferment is granted",
+    "kept",
+    "keep paying until a deferment is approved"
    ]
   ]
  },
@@ -276,8 +330,8 @@
   ]
  },
  "le:new-baby:protection": {
-  "hash": "e0aa7777dac2",
-  "plain": "A child who depends on you is the main reason to have term life insurance. A common rule of thumb is 10–12 times the main earner's income; the DIME method gives a number that fits your household. A will is where you name a guardian for a young child — without one, a court chooses. Update the beneficiaries on your accounts at the same time.",
+  "hash": "a9980b8e22a5",
+  "plain": "A child who depends on you is the main reason to have term life insurance. A common rule of thumb is 10–12 times the main earner's income; the DIME method gives a number that fits your household. A will is where you name a guardian for a young child — without one, a court chooses. Update the beneficiaries on your accounts at the same time. Don't name a young child as a beneficiary directly: a court may have to appoint someone to hold the money. Name a trust, or a custodian under your state's law for gifts to minors, instead.",
   "props": [
    [
     "P1",
@@ -308,6 +362,18 @@
     "Update beneficiary designations at the same time",
     "kept",
     "update the beneficiaries"
+   ],
+   [
+    "P6",
+    "Do not name a minor directly: the money can end up with a court-appointed guardian",
+    "kept",
+    "a court may have to appoint someone"
+   ],
+   [
+    "P7",
+    "Name a trust or a custodian under the state's transfers-to-minors act instead",
+    "kept",
+    "name a trust"
    ]
   ]
  },
@@ -498,8 +564,8 @@
   ]
  },
  "le:divorce:counsel": {
-  "hash": "db8044f81d9c",
-  "plain": "Divorce is the one event on this list where a lawyer is close to a must: your state's property law decides what counts as shared, and a signed agreement is hard to undo. First, list every account, debt and insurance policy. That list is also the start of your own net-worth snapshot.",
+  "hash": "5d6bfa2b7f1e",
+  "plain": "Divorce is the one event on this list where a lawyer is close to a must: your state's property law decides what counts as shared, and a signed agreement is hard to undo. If you can't pay a lawyer for the whole case, look for legal aid or ask whether a lawyer will help with just part of it. First, list every account, debt and insurance policy. That list is also the start of your own net-worth snapshot. The divorce papers don't bind your lenders: until a shared debt is paid off, refinanced without your name, or the lender lets you off it, the lender can usually still make you pay.",
   "props": [
    [
     "P1",
@@ -521,21 +587,33 @@
    ],
    [
     "P4",
+    "If a full-service lawyer is unaffordable, look for legal aid or ask about a lawyer for only part of the case",
+    "kept",
+    "legal aid"
+   ],
+   [
+    "P5",
     "Build a complete inventory of accounts, debts, policies first",
     "kept",
     "list every account, debt and insurance policy"
    ],
    [
-    "P5",
+    "P6",
     "The inventory starts your own net-worth snapshot",
     "kept",
     "net-worth snapshot"
+   ],
+   [
+    "P7",
+    "A decree does not bind lenders; a creditor can generally collect on a joint debt until it is paid off, refinanced without your name, or you are released",
+    "kept",
+    "don't bind your lenders"
    ]
   ]
  },
  "le:divorce:qdro": {
-  "hash": "7d7095cb649c",
-  "plain": "A job-based plan can only pay a former spouse under a court order called a qualified domestic relations order (QDRO). Money paid to the former spouse under a QDRO skips the extra 10% tax. An IRA is split by a transfer made as part of the divorce, which isn't taxed as a withdrawal. Cashing out instead of using these routes can turn the split into a tax bill.",
+  "hash": "94455eba61ac",
+  "plain": "A job-based plan can only pay a former spouse under a court order called a qualified domestic relations order (QDRO). Money paid to the former spouse under a QDRO skips the extra 10% tax, but that break does not apply to withdrawals from an IRA, so it is lost if the money is moved into an IRA first. An IRA is split by a transfer made as part of the divorce, which isn't taxed as a withdrawal. Cashing out instead of using these routes can turn the split into a tax bill. Compare what each share is worth after tax: pre-tax retirement money is taxed when you take it out, qualified Roth withdrawals are not, and stock you receive keeps your spouse's old tax cost, so a dollar of each is not worth the same.",
   "props": [
    [
     "P1",
@@ -551,15 +629,27 @@
    ],
    [
     "P3",
+    "The exemption does not apply to IRA withdrawals, so rolling the money into an IRA first loses it",
+    "kept",
+    "withdrawals from an ira"
+   ],
+   [
+    "P4",
     "IRAs are divided by transfer incident to divorce, not taxable",
     "kept",
     "transfer made as part of the divorce"
    ],
    [
-    "P4",
+    "P5",
     "Cashing out instead can create a tax bill",
     "kept",
     "tax bill"
+   ],
+   [
+    "P6",
+    "Compare shares after tax: pre-tax money is taxed on withdrawal, qualified Roth withdrawals are not, received stock keeps the old basis",
+    "kept",
+    "worth after tax"
    ]
   ]
  },
@@ -696,8 +786,8 @@
   ]
  },
  "le:home-purchase:pmi": {
-  "hash": "eda8acf6d18a",
-  "plain": "With a conventional loan, the lender must drop private mortgage insurance on its own once your balance is scheduled to reach 78% of the home's original value. You can ask for it to be removed at 80%. Write down the date.",
+  "hash": "743b11ae1c02",
+  "plain": "With a conventional loan, the lender must drop private mortgage insurance on its own once your balance is scheduled to reach 78% of the home's original value and you are up to date on payments. You can ask for it to be removed at 80%. Write down the date. FHA loans follow HUD's rules instead. On FHA loans started after mid-2013, if you borrowed more than 90% of the home's value, the yearly premium lasts for the whole loan (up to 30 years). If you borrowed 90% or less, it lasts up to 11 years. Your Closing Disclosure shows which loan type you have.",
   "props": [
    [
     "P1",
@@ -707,15 +797,51 @@
    ],
    [
     "P2",
+    "Automatic termination happens once you are current on payments",
+    "kept",
+    "up to date on payments"
+   ],
+   [
+    "P3",
     "Borrower can request removal at 80%",
     "kept",
     "80%"
    ],
    [
-    "P3",
+    "P4",
     "Note the date",
     "kept",
     "write down the date"
+   ],
+   [
+    "P5",
+    "FHA mortgage insurance follows HUD's rules, not these",
+    "kept",
+    "follow hud's rules instead"
+   ],
+   [
+    "P6",
+    "Scope: FHA loans started after mid-2013",
+    "kept",
+    "started after mid-2013"
+   ],
+   [
+    "P7",
+    "Borrowed more than 90%: annual premium lasts the whole loan term, up to 30 years",
+    "kept",
+    "lasts for the whole loan"
+   ],
+   [
+    "P8",
+    "Otherwise up to 11 years",
+    "kept",
+    "up to 11 years"
+   ],
+   [
+    "P9",
+    "The Closing Disclosure names the loan type",
+    "kept",
+    "shows which loan type you have"
    ]
   ]
  },
@@ -894,8 +1020,8 @@
   ]
  },
  "le:windfall:park": {
-  "hash": "de0b04b5b89a",
-  "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people. Two things can't wait for that pause: if anyone in your household gets SSI, Medicaid, SNAP or housing help, a lump sum can end that help (SSI's limit on what you can own is {{fig:ssi_resource_limit_individual}} for one person), so report it and ask before you move the money; and windfalls that are taxable — lottery or gambling wins, back pay, most legal settlements that are not for a physical injury or sickness — count as income for the year, so set the tax money aside.",
+  "hash": "a11a7f336e0c",
+  "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people. Deposit insurance covers {{fig:fdic_standard_max_deposit}} for each depositor at each bank, for each type of account ownership, so split a larger amount across banks or buy Treasury bills. Three things can't wait for that pause. If anyone in your household gets SSI, Medicaid, SNAP or housing help, a lump sum can end that help (SSI's limit on what you can own is {{fig:ssi_resource_limit_individual}} for one person), so report it and ask before you move the money; an ABLE account or a special-needs trust can sometimes keep a person with a disability eligible. Windfalls that are taxable — lottery or gambling wins, back pay, most legal settlements that are not for a physical injury or sickness — count as income for the year, so set the tax money aside; if not enough tax was withheld, paying estimated tax can help you avoid a penalty. And if you inherited the money and might turn it down (a \"disclaimer\"), you generally must do that in writing within 9 months and before you accept it; using the money or telling others what to do with it can count as accepting.",
   "props": [
    [
     "P1",
@@ -917,21 +1043,57 @@
    ],
    [
     "P4",
-    "A windfall can end SSI, Medicaid, SNAP or housing help; SSI resource limit for an individual",
+    "Deposit insurance limit per depositor, per bank, per ownership category",
+    "kept",
+    "deposit insurance covers"
+   ],
+   [
+    "P5",
+    "Spread a larger sum across banks or hold T-bills",
+    "kept",
+    "split a larger amount across banks"
+   ],
+   [
+    "P6",
+    "A windfall can end SSI, Medicaid, SNAP or housing help; SSI resource limit for an individual; report and ask",
     "kept",
     "report it and ask"
    ],
    [
-    "P5",
+    "P7",
+    "An ABLE account or special-needs trust can sometimes preserve eligibility for a person with a disability",
+    "kept",
+    "special-needs trust"
+   ],
+   [
+    "P8",
     "Taxable windfalls (lottery, gambling, back pay, non-physical-injury settlements) are income; set tax aside",
     "kept",
     "set the tax money aside"
+   ],
+   [
+    "P9",
+    "If withholding is short, an estimated payment can help avoid an underpayment penalty",
+    "kept",
+    "paying estimated tax"
+   ],
+   [
+    "P10",
+    "A disclaimer must generally be written, within 9 months, before acceptance",
+    "kept",
+    "within 9 months"
+   ],
+   [
+    "P11",
+    "Using the asset or directing what happens to it can count as acceptance",
+    "kept",
+    "can count as accepting"
    ]
   ]
  },
  "le:windfall:character": {
-  "hash": "4915338217c4",
-  "plain": "Cash, a brokerage account, an inherited IRA and a house are taxed in different ways. Inherited things usually get a new cost basis equal to their value on the day of death (a \"step-up\"), so selling soon after you inherit often creates little taxable gain. Most people who inherit an IRA from someone other than a spouse must empty it within 10 years. If the original owner had already started required withdrawals, you must also take yearly withdrawals during those years.",
+  "hash": "7b5f8cdabdd2",
+  "plain": "Cash, a brokerage account, an inherited IRA and a house are taxed in different ways. Inherited things usually get a new cost basis equal to their value on the day of death (a \"step-up\"), so selling soon after you inherit often creates little taxable gain. Most people who inherit an IRA from someone other than a spouse must empty it within 10 years. If the original owner had already started required withdrawals, you must also take yearly withdrawals during those years. If you inherit an IRA from someone other than a spouse, you can't roll it into your own IRA. Move it only by a direct transfer from one company to the other, into an account labeled as inherited; a check made out to you counts as a withdrawal and can't be put back.",
   "props": [
    [
     "P1",
@@ -962,6 +1124,24 @@
     "If the owner had begun RMDs, annual distributions are required too",
     "kept",
     "yearly withdrawals"
+   ],
+   [
+    "P6",
+    "A non-spouse beneficiary cannot roll an inherited IRA into their own",
+    "kept",
+    "can't roll it into your own ira"
+   ],
+   [
+    "P7",
+    "Move it only by trustee-to-trustee transfer into an inherited-titled account",
+    "kept",
+    "labeled as inherited"
+   ],
+   [
+    "P8",
+    "A check paid to the beneficiary counts as a withdrawal and cannot be put back",
+    "kept",
+    "can't be put back"
    ]
   ]
  },
@@ -1032,8 +1212,8 @@
   ]
  },
  "le:retirement:medicare": {
-  "hash": "001f7f0ba7bf",
-  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current job lets you delay Part B without that penalty. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+  "hash": "6cc15fceb52d",
+  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current job lets you delay Part B without that penalty. If you keep putting money in an HSA after 65, stop six months before you apply for Medicare or Social Security, because Part A can start up to six months back. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
   "props": [
    [
     "P1",
@@ -1054,16 +1234,28 @@
     "higher premium for life"
    ],
    [
-    "P4",
-    "Retirement income drives IRMAA with a two-year lookback",
-    "kept",
-    "two years earlier"
-   ],
-   [
     "P5",
     "COBRA and retiree coverage do not count; generally only current-employment coverage allows delaying Part B",
     "kept",
     "generally only coverage"
+   ],
+   [
+    "P8",
+    "If contributing to an HSA after 65, stop six months before applying for Medicare or Social Security",
+    "kept",
+    "stop six months before"
+   ],
+   [
+    "P9",
+    "Part A coverage reaches back up to six months",
+    "kept",
+    "up to six months back"
+   ],
+   [
+    "P4",
+    "Retirement income drives IRMAA with a two-year lookback",
+    "kept",
+    "two years earlier"
    ]
   ]
  },
@@ -1104,14 +1296,38 @@
   ]
  },
  "le:retirement:rmd": {
-  "hash": "5ef7bc443ba4",
-  "plain": "Required minimum distributions from traditional accounts start at age 73. Giving straight from an IRA to charity (a qualified charitable distribution, allowed from age 70½) can count toward them without adding to your income.",
+  "hash": "ff481a28f650",
+  "plain": "Required minimum distributions from traditional accounts start at age 73, or at age 75 if you were born in 1960 or later. You can wait until April 1 of the next year for the first one, but then you take two in the same tax year. If you still work, you can usually wait on your current employer's plan until you retire. Giving straight from an IRA to charity (a qualified charitable distribution, allowed from age 70½) can count toward them without adding to your income.",
   "props": [
    [
     "P1",
     "RMDs start at 73",
     "kept",
     "age 73"
+   ],
+   [
+    "P3",
+    "75 if born in 1960 or later",
+    "kept",
+    "age 75 if you were born in 1960"
+   ],
+   [
+    "P4",
+    "First RMD can wait until April 1 of the next year",
+    "kept",
+    "april 1 of the next year"
+   ],
+   [
+    "P5",
+    "…at the cost of two RMDs in one tax year",
+    "kept",
+    "two in the same tax year"
+   ],
+   [
+    "P6",
+    "Current employer's plan can usually wait until retirement",
+    "kept",
+    "until you retire"
    ],
    [
     "P2",
@@ -1122,8 +1338,8 @@
   ]
  },
  "le:retirement:ltc": {
-  "hash": "524a24c2dc08",
-  "plain": "About 70% of Americans turning 65 will need some long-term care. The choice is between buying insurance, paying for it yourself, or a mix.",
+  "hash": "05b672cd466b",
+  "plain": "About 70% of Americans turning 65 will need some long-term care. More people get this care at home than in a facility, and much of it is unpaid help. Medicare and Medigap do not pay for this kind of care. Medicaid does if you meet your state's rules on income, savings and how much care you need. Otherwise the choice is between buying insurance, paying for it yourself, or a mix. For long-term care insurance, the premium can go up after you buy.",
   "props": [
    [
     "P1",
@@ -1132,16 +1348,46 @@
     "about 70%"
    ],
    [
+    "P3",
+    "More people get care at home than in facilities",
+    "kept",
+    "at home than in a facility"
+   ],
+   [
+    "P4",
+    "Much of it is unpaid",
+    "kept",
+    "unpaid help"
+   ],
+   [
+    "P5",
+    "Medicare and Medigap do not pay for long-term care",
+    "kept",
+    "do not pay for this kind of care"
+   ],
+   [
+    "P6",
+    "Medicaid pays if you meet the state's income, asset and care-need rules",
+    "kept",
+    "your state's rules"
+   ],
+   [
     "P2",
     "Choice: insure, self-fund, or hybrid",
     "kept",
     "or a mix"
+   ],
+   [
+    "P8",
+    "Premiums can rise after purchase",
+    "kept",
+    "premium can go up"
    ]
   ]
  },
  "le:death-of-spouse:pause": {
-  "hash": "856ab7d5a818",
-  "plain": "A few clocks start now, and the rest can wait. If your health insurance came through your spouse's job, the COBRA and Marketplace windows start when that coverage ends (you have 60 days to act), and if you want to turn down an inheritance you generally must do it within 9 months and before you accept it. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
+  "hash": "441b2c6f2855",
+  "plain": "A few clocks start now, and the rest can wait. If your health insurance came through your spouse's job, the COBRA and Marketplace windows start when that coverage ends (you have 60 days to act), and if you want to turn down an inheritance you generally must do it within 9 months and before you accept it. Ask a tax preparer or estate lawyer whether to file an estate tax return for your spouse (usually due in 9 months). It can pass your spouse's unused exemption to you even when no tax is owed. If a debt collector asks you to pay your spouse's debts, don't use your own money until you check. The estate usually pays them. You usually owe only debts that were joint or that you co-signed (being an authorized user on a card is not joint), or debts your state's law makes a surviving spouse pay. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
   "props": [
    [
     "P1",
@@ -1178,6 +1424,24 @@
     "A disclaimer must generally be made within 9 months and before accepting the asset",
     "kept",
     "9 months"
+   ],
+   [
+    "P7",
+    "Ask whether to file an estate-tax return for the spouse (generally due in 9 months); it can pass the unused exemption even when no tax is owed",
+    "kept",
+    "unused exemption"
+   ],
+   [
+    "P8",
+    "If a collector asks you to pay the spouse's debts, do not use your own money until you have checked",
+    "kept",
+    "your own money"
+   ],
+   [
+    "P9",
+    "The estate generally pays the debts; you usually owe only joint or co-signed debts (an authorized user is not joint) or ones state law puts on a surviving spouse",
+    "kept",
+    "co-signed"
    ]
   ]
  },
@@ -1205,7 +1469,7 @@
    ],
    [
     "P4",
-    "Age 50 if disabled; any age while caring for the deceased's entitled child who is under 16 or disabled",
+    "Age 50 if disabled; any age while caring for the deceased's child who is under 16 or disabled and entitled to child's benefits",
     "kept",
     "under 16 or disabled"
    ],
@@ -1344,8 +1608,8 @@
   ]
  },
  "pr:health": {
-  "hash": "c9921a738810",
-  "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: a hospital stay without insurance is the most common way a steady budget turns into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family). That limit, not the premium, is the amount your savings should be able to cover.",
+  "hash": "a0cb7109caeb",
+  "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: one hospital stay without insurance can turn a steady budget into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family). That limit, not the premium, is the amount your savings should aim to cover. If that is out of reach, check whether you qualify for Medicaid (the rules differ by state) or for cost-sharing reductions, which lower the limit on a Marketplace silver plan. Nonprofit hospitals must have a written financial assistance policy. Ask for it before you pay a large bill.",
   "props": [
    [
     "P1",
@@ -1355,9 +1619,9 @@
    ],
    [
     "P2",
-    "An uninsured hospital stay is the most common route to unpayable debt",
+    "One uninsured hospital stay can turn a stable budget into unpayable debt",
     "kept",
-    "most common way"
+    "debt you can't pay"
    ],
    [
     "P3",
@@ -1367,7 +1631,7 @@
    ],
    [
     "P4",
-    "Reserves should cover that cap, not the premium",
+    "Reserves should aim to cover that cap, not the premium",
     "kept",
     "not the premium"
    ],
@@ -1376,6 +1640,30 @@
     "The cap has a one-person amount and a family amount",
     "kept",
     "for a family"
+   ],
+   [
+    "P6",
+    "If the cap is out of reach, check Medicaid; its rules vary by state",
+    "kept",
+    "the rules differ by state"
+   ],
+   [
+    "P7",
+    "Cost-sharing reductions lower the cap on a Marketplace silver plan",
+    "kept",
+    "cost-sharing reductions"
+   ],
+   [
+    "P8",
+    "Nonprofit hospitals must have a written financial assistance policy",
+    "kept",
+    "written financial assistance policy"
+   ],
+   [
+    "P9",
+    "Ask for it before paying a large bill",
+    "kept",
+    "before you pay a large bill"
    ]
   ]
  },
@@ -1585,7 +1873,7 @@
  },
  "pr:identity": {
   "hash": "6995a4010672",
-  "plain": "A security freeze stops anyone from opening new credit in your name. It's free by federal law at Equifax, Experian and TransUnion, it doesn't change your credit score, and you can lift it for a while when you apply for credit. You can check your own credit reports for free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov makes a recovery plan for you, and telling your bank about money taken without permission quickly limits how much you can lose.",
+  "plain": "A security freeze stops anyone from opening new credit in your name. It's free by federal law at Equifax, Experian and TransUnion, it doesn't change your credit score, and you can lift it for a while when you apply for credit. You can check your own credit reports for free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov makes a recovery plan for you, and telling your bank quickly about electronic transfers you didn't make limits how much you can lose.",
   "props": [
    [
     "P1",
@@ -1625,9 +1913,9 @@
    ],
    [
     "P7",
-    "Prompt reporting of unauthorized transfers limits liability",
+    "Prompt reporting of unauthorized electronic transfers limits liability",
     "kept",
-    "quickly limits how much you can lose"
+    "electronic transfers you didn't make"
    ]
   ]
  },
@@ -1680,26 +1968,50 @@
   ]
  },
  "ar:withholding": {
-  "hash": "d1d79b19d5c7",
-  "plain": "After you file last year's return, use the IRS Tax Withholding Estimator with a recent pay stub. File a new W-4 if it shows you'll owe or get back a lot — especially after a raise, a second job, a marriage or a new child.",
+  "hash": "4ad446d0f697",
+  "plain": "File last year's tax return by the April deadline. You can still put money into an IRA or HSA for last year until that deadline. An extension does not give you more time for this. Then use the IRS Tax Withholding Estimator with a recent pay stub. File a new W-4 if it shows you'll owe or get back a lot — especially after a raise, a second job, a marriage or a new child. If you pay estimated tax, mark the four due dates on your calendar: April 15, June 15, September 15 and January 15.",
   "props": [
    [
     "P1",
+    "File last year's return by the April deadline",
+    "kept",
+    "by the april deadline"
+   ],
+   [
+    "P2",
+    "A prior-year IRA or HSA contribution can be made until the filing deadline",
+    "kept",
+    "ira or hsa for last year"
+   ],
+   [
+    "P3",
+    "Extensions do not extend that contribution deadline",
+    "kept",
+    "extension does not give you more time"
+   ],
+   [
+    "P4",
     "Run the estimator after filing, with a current pay stub",
     "kept",
     "recent pay stub"
    ],
    [
-    "P2",
+    "P5",
     "File a new W-4 if the projection is far from zero",
     "kept",
     "file a new w-4"
    ],
    [
-    "P3",
+    "P6",
     "Especially after raise, second job, marriage, new child",
     "kept",
     "a second job"
+   ],
+   [
+    "P7",
+    "Estimated-tax payers: the four due dates April 15, June 15, September 15, January 15",
+    "kept",
+    "four due dates"
    ]
   ]
  },
@@ -1746,8 +2058,8 @@
   ]
  },
  "ar:rebalance": {
-  "hash": "1e9ddfaba782",
-  "plain": "Compare your current mix of investments to your target. If any part has drifted outside its allowed range, rebalance — using new contributions first, so you don't have to sell at a gain.",
+  "hash": "356eda9b3745",
+  "plain": "Compare your current mix of investments to your target. If any part has drifted outside its allowed range, rebalance. Buying and selling inside an IRA or 401(k) is not taxed, so make the changes there first. In taxable accounts, put new contributions into whatever is short, so you don't have to sell at a gain.",
   "props": [
    [
     "P1",
@@ -1763,15 +2075,21 @@
    ],
    [
     "P3",
-    "Use new contributions first to avoid realizing gains",
+    "Trades inside an IRA or 401(k) are not taxed, so rebalance there first",
     "kept",
-    "new contributions first"
+    "make the changes there first"
+   ],
+   [
+    "P4",
+    "In taxable accounts, steer new contributions to avoid realizing gains",
+    "kept",
+    "put new contributions into whatever is short"
    ]
   ]
  },
  "ar:insurance": {
-  "hash": "0ab55fa33090",
-  "plain": "Most employers hold open enrollment in the fall. Check your health plan choice, your disability coverage, your term life against who depends on you and what you owe, and whether your home, auto and umbrella liability limits still fit your net worth.",
+  "hash": "698415c1c3d6",
+  "plain": "Most employers hold open enrollment in the fall. Check your health plan choice, your disability coverage, your term life against who depends on you and what you owe, and whether your home, auto and umbrella liability limits still fit your net worth. If you have Medicare, compare Part D and Medicare Advantage plans during open enrollment, October 15 to December 7. Costs, benefits and providers can change each year.",
   "props": [
    [
     "P1",
@@ -1796,6 +2114,18 @@
     "Property/auto/umbrella limits vs net worth",
     "kept",
     "still fit your net worth"
+   ],
+   [
+    "P5",
+    "On Medicare: compare Part D and Medicare Advantage plans October 15 to December 7",
+    "kept",
+    "october 15 to december 7"
+   ],
+   [
+    "P6",
+    "Medicare plan costs, benefits and providers can change each year",
+    "kept",
+    "can change each year"
    ]
   ]
  },
@@ -1819,7 +2149,7 @@
  },
  "ar:year-end": {
   "hash": "94a7fb95711e",
-  "plain": "Before December 31: sell investments at a loss in taxable accounts if it helps, take any required minimum distribution, make planned gifts to charity or qualified charitable distributions, and use the yearly gift exclusion ({{fig:gift_annual_exclusion}} per person for 2026) if you're giving to family.",
+  "plain": "Before December 31: sell investments at a loss in taxable accounts if it helps, take any required minimum distribution, make planned gifts to charity or qualified charitable distributions, and use the yearly gift exclusion ({{fig:gift_annual_exclusion}} per person for 2026) if you're giving to anyone.",
   "props": [
    [
     "P1",

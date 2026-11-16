@@ -438,5 +438,13 @@
     "source": "42 U.S.C. \u00a71382(a)(3)(B) (fixed at $2,000 from 1989-01-01; not indexed)",
     "verified": "2026-11-06",
     "expires": "2026-12-31"
+  },
+  "fdic_standard_max_deposit": {
+    "value": 250000,
+    "display": "$250,000",
+    "taxYear": 2026,
+    "source": "12 U.S.C. \u00a71821(a)(1)(E) (standard maximum deposit insurance amount $250,000, adjustable under (F)); FDIC 'Understanding Deposit Insurance' (per depositor, per insured bank, per ownership category)",
+    "verified": "2026-11-16",
+    "expires": "2026-12-31"
   }
 }

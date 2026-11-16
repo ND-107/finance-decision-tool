@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-16 — DRAFT, not approved: persona-pass proposals applied (HIGH findings only, 19 blocks) [branch draft only; owner's go/no-go pending]
+
+- Applied by `tools/apply-persona-proposals.py` from `docs/reviews/proposals-2026-11-16/`; see `docs/reviews/2026-11-16-persona-findings-triage.md` for the method, the verdicts and the sources.
+- This branch exists to show that the set passes every gate. It is not merged into `v2` and not deployed. (7 files changed, 1039 insertions(+), 96 deletions(-))
+
 ## 2026-11-16 — Second-read verification: nine corrections [branch `fix/verification-2026-11-16`; not merged into `v2` or `main`, not deployed]
 
 Each item was read at its primary source on 2026-11-16 by a second, independent reader before it was applied. Owner review pending.

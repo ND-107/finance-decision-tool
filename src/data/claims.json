@@ -6642,5 +6642,421 @@
   "anchors": [
    "p4:life-events:windfall"
   ]
+ },
+ {
+  "id": "CL537",
+  "loc": "P4:annual-review:withholding",
+  "claim": "A contribution to an IRA or HSA for the prior year can be made until the due date of that year's return, not including extensions",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §219(f)(3); §223(d)(4)(B)",
+  "url": "https://www.govinfo.gov/link/uscode/26/219?link-type=html",
+  "anchors": [
+   "p4:annual-review:withholding"
+  ]
+ },
+ {
+  "id": "CL538",
+  "loc": "P4:annual-review:withholding",
+  "claim": "Individual estimated tax installments are due April 15, June 15, September 15 and January 15 of the following year",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §6654(c)(2); IRS 'Estimated taxes'",
+  "url": "https://www.govinfo.gov/link/uscode/26/6654?link-type=html",
+  "anchors": [
+   "p4:annual-review:withholding"
+  ]
+ },
+ {
+  "id": "CL539",
+  "loc": "P4:annual-review:rebalance",
+  "claim": "Trades inside an IRA or a qualified plan such as a 401(k) are not taxed: an IRA is exempt from taxation and a §401(a) trust is exempt under §501(a)",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §408(e)(1); §501(a)",
+  "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+  "anchors": [
+   "p4:annual-review:rebalance"
+  ]
+ },
+ {
+  "id": "CL540",
+  "loc": "P4:annual-review:insurance",
+  "claim": "The Medicare Advantage and Part D annual coordinated election period for the following calendar year runs October 15 through December 7; plan costs, benefits and providers can change each year",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 CFR §423.38(b)(3); §422.62(a)(2)(iii); Medicare.gov 'Your Yearly Medicare Review' (CMS Product No. 11220)",
+  "url": "https://www.ecfr.gov/current/title-42/section-423.38",
+  "anchors": [
+   "p4:annual-review:insurance"
+  ]
+ },
+ {
+  "id": "CL541",
+  "loc": "P4:life-events:death-of-spouse",
+  "claim": "A deceased spouse's unused estate-tax exclusion (DSUE) can be used by the surviving spouse only if the executor elects portability on a timely filed estate-tax return (due 9 months after death, plus extensions); a return is required to elect regardless of the size of the estate",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §2010(c)(4)-(5)(A); §6075(a); IRS Instructions for Form 706",
+  "url": "https://www.govinfo.gov/link/uscode/26/2010?link-type=html",
+  "anchors": [
+   "p4:life-events:death-of-spouse"
+  ]
+ },
+ {
+  "id": "CL542",
+  "loc": "P4:life-events:death-of-spouse",
+  "claim": "A deceased person's debts are generally paid from the estate; a surviving spouse is not personally responsible unless a co-signer, a joint account holder (not an authorized user), or obligated by state law, including community-property states that require jointly held property to be used",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "B",
+  "source": "CFPB 'A debt collector is trying to collect a debt of a deceased relative. What can I do?' (last reviewed Oct 15, 2026)",
+  "url": "https://www.consumerfinance.gov/ask-cfpb/a-debt-collector-is-trying-to-collect-a-debt-of-a-deceased-relative-what-can-i-do-en-1463/",
+  "anchors": [
+   "p4:life-events:death-of-spouse"
+  ]
+ },
+ {
+  "id": "CL543",
+  "loc": "P4:life-events:death-of-spouse",
+  "claim": "For the mother's or father's benefit, a child in care who is 16 or older and not disabled is treated as not entitled to child's benefits, so the any-age survivor benefit requires a child under 16 or disabled",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 U.S.C. §402(s)(1), §402(g)(1)",
+  "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+  "anchors": [
+   "p4:life-events:death-of-spouse"
+  ]
+ },
+ {
+  "id": "CL544",
+  "loc": "P4:life-events:divorce",
+  "claim": "People who cannot afford a full-service lawyer can look to legal aid (Congress established the Legal Services Corporation to fund legal assistance in noncriminal matters for people financially unable to afford it); limited-scope help, where a lawyer handles only part of the case, exists in at least some states",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "B",
+  "source": "42 U.S.C. §2996b(a); California Courts Self-Help Guide, 'Limited-scope representation'",
+  "url": "https://www.govinfo.gov/link/uscode/42/2996b?link-type=html",
+  "anchors": [
+   "p4:life-events:divorce"
+  ]
+ },
+ {
+  "id": "CL545",
+  "loc": "P4:life-events:divorce",
+  "claim": "A divorce decree that assigns a joint debt to one spouse does not bind the creditor; the creditor can still collect from anyone named as a borrower unless that person was released by the creditor or the loan was refinanced to remove them",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "CFPB, 'Can a debt collector contact me about a debt after a divorce?'",
+  "url": "https://www.consumerfinance.gov/ask-cfpb/can-a-debt-collector-contact-me-about-a-debt-after-a-divorce-en-1413/",
+  "anchors": [
+   "p4:life-events:divorce"
+  ]
+ },
+ {
+  "id": "CL546",
+  "loc": "P4:life-events:divorce",
+  "claim": "QDRO distributions to a spouse or former spouse alternate payee are generally taxable to the alternate payee; the QDRO exception to the 10% additional tax does not apply to distributions from an IRA, so it is lost once the money is rolled into one",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §402(e)(1)(A); §72(t)(2)(C), (t)(3)(A); IRS Pub. 504 (2025)",
+  "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+  "anchors": [
+   "p4:life-events:divorce"
+  ]
+ },
+ {
+  "id": "CL547",
+  "loc": "P4:life-events:divorce",
+  "claim": "Assets split in a divorce differ in after-tax value: pre-tax plan money is taxable when paid out, qualified Roth IRA distributions are excluded from income, and property transferred incident to divorce keeps the transferor's adjusted basis",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §1041(b); §408A(d)(1); IRS Pub. 504 (2025)",
+  "url": "https://www.govinfo.gov/link/uscode/26/1041?link-type=html",
+  "anchors": [
+   "p4:life-events:divorce"
+  ]
+ },
+ {
+  "id": "CL548",
+  "loc": "P4:life-events:home-purchase",
+  "claim": "The Homeowners Protection Act's PMI rules do not apply to FHA (National Housing Act), VA or USDA mortgage insurance; automatic termination occurs at the scheduled 78% date if the borrower is current, otherwise once the borrower becomes current",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "12 U.S.C. §4901(13); §4902(b); Ask CFPB en-202",
+  "url": "https://www.govinfo.gov/link/uscode/12/4901?link-type=html",
+  "anchors": [
+   "p4:life-events:home-purchase"
+  ]
+ },
+ {
+  "id": "CL549",
+  "loc": "P4:life-events:home-purchase",
+  "claim": "For FHA case numbers assigned on or after June 3, 2013, annual MIP is collected for the loan term (or 30 years, whichever is first) when original LTV is above 90%, and for the loan term or 11 years, whichever is first, when LTV is 90% or less; borrowers may not cancel early by prepaying",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "B",
+  "source": "HUD FHA Resource Center answer (published 5/15/2026), citing Handbook 4000.1 Appendix 1.0; HUD Model Informed Consumer Choice Disclosure Notice",
+  "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+  "anchors": [
+   "p4:life-events:home-purchase"
+  ]
+ },
+ {
+  "id": "CL550",
+  "loc": "P4:life-events:home-purchase",
+  "claim": "The Closing Disclosure states the loan type (Conventional, FHA, VA or other)",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "12 CFR §1026.38(a)(5)(iv); §1026.37(a)(11)",
+  "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-12.xml?part=1026&section=1026.38",
+  "anchors": [
+   "p4:life-events:home-purchase"
+  ]
+ },
+ {
+  "id": "CL551",
+  "loc": "P4:life-events:job-loss",
+  "claim": "A COBRA election made during the election period gives coverage from the date coverage would otherwise have been lost, and the plan may charge the premium for that period (first payment not due before 45 days after the election)",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 CFR 54.4980B-6 Q&A-3; 29 U.S.C. 1162(3)",
+  "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=54&section=54.4980B-6",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL552",
+  "loc": "P4:life-events:job-loss",
+  "claim": "Voluntarily dropping COBRA, or stopping premium payments before it runs out, is not a loss of coverage for a Marketplace special enrollment period; outside open enrollment a switch is allowed within 60 days of losing job-based coverage, when COBRA runs out, when the former employer stops contributing to COBRA, or after another qualifying life event",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "45 CFR 155.420(e)(1); HealthCare.gov 'COBRA coverage when you're unemployed'; DOL EBSA COBRA guide",
+  "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL553",
+  "loc": "P4:life-events:job-loss",
+  "claim": "The Marketplace income estimate counts wages, unemployment compensation and most 401(k) withdrawals; changes should be reported as they happen; for tax years after 2025 excess advance premium tax credit is repaid in full, and the federal credit is generally limited to household income of no more than 400% of the federal poverty line",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §36B as amended by P.L. 119-21 (repayment limitation removed for tax years after 2025); IRS 'Questions and answers on the Premium Tax Credit' (Q7, Q31); IRS 'Repayment caps eliminated for excess advance payments of the Premium Tax Credit'; HealthCare.gov 'What to include as income'",
+  "url": "https://www.irs.gov/tax-professionals/eitc-central/repayment-caps-eliminated-for-excess-advance-payments-of-the-premium-tax-credit",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL554",
+  "loc": "P4:life-events:job-loss",
+  "claim": "Medicaid and CHIP accept applications any time of year; financial eligibility for Medicaid applicants is based on current monthly household income, and CHIP applies the same methodology",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "42 CFR 435.603(h)(1); 42 CFR 457.315(a); HealthCare.gov 'Medicaid & CHIP coverage'",
+  "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-42.xml?part=435&section=435.603",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL555",
+  "loc": "P4:life-events:job-loss",
+  "claim": "Federal student loan income-driven plans base the payment on income and family size, and in some cases it can be as low as $0; an unemployment deferment is available to borrowers receiving unemployment benefits or unable to find full-time work (not for loans made on or after July 1, 2027); payments must continue until a deferment is granted",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "Federal Student Aid, 'Student Loan Deferment' (studentaid.gov)",
+  "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+  "anchors": [
+   "p4:life-events:job-loss"
+  ]
+ },
+ {
+  "id": "CL556",
+  "loc": "P4:life-events:new-baby",
+  "claim": "A death benefit payable to a minor beneficiary can be paid to a court-appointed guardian; naming a trust, or a custodian under the state's Uniform Transfers to Minors Act, avoids that",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "B",
+  "source": "New York State Comptroller (NYSLRS), 'Life Changes: Why Should I Designate a Beneficiary?'; Alaska Court System, 'Surviving Minor Children'; U.S. Department of Veterans Affairs, 'Naming Beneficiaries - Life Insurance'",
+  "url": "https://www.osc.ny.gov/retirement/publications/life-changes-why-should-i-designate-beneficiary",
+  "anchors": [
+   "p4:life-events:new-baby"
+  ]
+ },
+ {
+  "id": "CL557",
+  "loc": "P4:life-events:retirement",
+  "claim": "Premium-free Part A coverage begins up to 6 months before the application for Medicare or Social Security, but no earlier than the first month of Medicare eligibility; HSA contributions are not allowed for months of Medicare entitlement, so a person contributing after 65 should stop 6 months before applying",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §223(b)(7); Medicare.gov 'Enrolling in Part A & Part B' (CMS 11036); CMS employer fact sheet FS4",
+  "url": "https://www.medicare.gov/publications/11036-enrolling-part-a-part-b.pdf",
+  "anchors": [
+   "p4:life-events:retirement"
+  ]
+ },
+ {
+  "id": "CL558",
+  "loc": "P4:life-events:retirement",
+  "claim": "RMDs begin at applicable age 73 for those attaining 72 after 2022 and 73 before 2033, and 75 for those attaining 74 after 2032 (everyone born in 1960 or later); the first RMD may be delayed to April 1 of the following year, putting two RMDs in that year; workplace-plan participants (not 5% owners) can delay until the year they retire; Roth IRAs and designated Roth accounts have no RMDs during the owner's life",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §401(a)(9)(C)(i), (ii), (v); §408A(c)(4); IRS 'Retirement plan and IRA RMD FAQs'",
+  "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+  "anchors": [
+   "p4:life-events:retirement"
+  ]
+ },
+ {
+  "id": "CL559",
+  "loc": "P4:life-events:retirement",
+  "claim": "Medicare and Medigap do not pay for long-term (custodial) care; Medicaid pays for custodial care in nursing homes and at home for people who meet their state's income and asset limits and its separate determination of need for long-term care services",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "Medicare.gov 'Long-term care' coverage page (CMS); ACL/HHS LongTermCare.gov 'Medicaid'",
+  "url": "https://www.medicare.gov/coverage/long-term-care",
+  "anchors": [
+   "p4:life-events:retirement"
+  ]
+ },
+ {
+  "id": "CL560",
+  "loc": "P4:life-events:retirement",
+  "claim": "More people use long-term care at home than in facilities, and unpaid-only care at home is the most common form; long-term care insurance cost depends on age at purchase, and the insurer can raise premiums beyond the pre-set amount",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "B",
+  "source": "ACL/HHS LongTermCare.gov 'How much care will you need?' and 'Long-term care insurance costs'",
+  "url": "https://acl.gov/ltc/basic-needs/how-much-care-will-you-need",
+  "anchors": [
+   "p4:life-events:retirement"
+  ]
+ },
+ {
+  "id": "CL561",
+  "loc": "P4:life-events:windfall",
+  "claim": "FDIC deposit insurance covers the standard maximum deposit insurance amount per depositor, per insured bank, for each account ownership category",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "12 U.S.C. §1821(a)(1)(B), (E); FDIC 'Understanding Deposit Insurance'",
+  "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL562",
+  "loc": "P4:life-events:windfall",
+  "claim": "Funds in an ABLE account (for eligible individuals with a disability) and trusts described in 42 U.S.C. §1396p(d)(4)(A) or (C) can preserve SSI and Medicaid eligibility",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "SSA 'Spotlight on ABLE Accounts' (2026 ed.); 26 U.S.C. §529A(e); 42 U.S.C. §1382b(e)(5); 42 U.S.C. §1396p(d)(4)(A)",
+  "url": "https://www.ssa.gov/ssi/spotlights/spot-able.html",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL563",
+  "loc": "P4:life-events:windfall",
+  "claim": "Taxpayers who do not pay enough tax through withholding and estimated tax payments may owe an underpayment penalty",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §6654; IRS 'Estimated taxes'",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL564",
+  "loc": "P4:life-events:windfall",
+  "claim": "For a qualified disclaimer, acceptance of the interest is shown by an affirmative act consistent with ownership, including using the property or directing others to act with respect to it",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "Treas. Reg. §25.2518-2(d)(1); IRC §2518(b)(3)",
+  "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-26.xml?part=25&section=25.2518-2",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL565",
+  "loc": "P4:life-events:windfall",
+  "claim": "A non-spouse beneficiary cannot roll over amounts into or out of an inherited IRA; assets can move only by trustee-to-trustee transfer to an IRA maintained in the decedent's name for the beneficiary",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "IRC §408(d)(3)(C); IRS Publication 590-B",
+  "url": "https://www.irs.gov/publications/p590b",
+  "anchors": [
+   "p4:life-events:windfall"
+  ]
+ },
+ {
+  "id": "CL566",
+  "loc": "P4:protection:health",
+  "claim": "Cost-sharing reductions, available only on a Marketplace Silver plan to enrollees whose income qualifies, lower the plan's out-of-pocket maximum",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "HealthCare.gov 'Cost-sharing reductions' (CMS); 42 U.S.C. §18071",
+  "url": "https://www.healthcare.gov/lower-costs/save-on-out-of-pocket-costs/",
+  "anchors": [
+   "p4:protection:health"
+  ]
+ },
+ {
+  "id": "CL567",
+  "loc": "P4:protection:health",
+  "claim": "A tax-exempt hospital organization must establish a written financial assistance policy stating eligibility criteria and how to apply",
+  "type": "STATUTORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "26 U.S.C. §501(r)(1)(B), (r)(4)(A)",
+  "url": "https://www.govinfo.gov/link/uscode/26/501?link-type=html",
+  "anchors": [
+   "p4:protection:health"
+  ]
+ },
+ {
+  "id": "CL568",
+  "loc": "P4:protection:health",
+  "claim": "Medicaid is a joint federal-state program whose covered groups and options vary by state",
+  "type": "REGULATORY",
+  "status": "PASS",
+  "tier": "A",
+  "source": "Medicaid.gov 'Eligibility Policy' (CMS)",
+  "url": "https://www.medicaid.gov/medicaid/eligibility-policy",
+  "anchors": [
+   "p4:protection:health"
+  ]
  }
 ]

@@ -27,11 +27,12 @@
       "id": "withholding",
       "month": 3,
       "title": "Run a withholding check",
-      "body": "After filing last year's return, run the IRS Tax Withholding Estimator with a current pay stub and file a new W-4 if the projection is far from zero — especially after a raise, a second job, a marriage or a new child.",
+      "body": "File last year's return by the April deadline. Until that deadline, not counting extensions, you can still make an IRA or HSA contribution for last year. Then run the IRS Tax Withholding Estimator with a current pay stub and file a new W-4 if the projection is far from zero — especially after a raise, a second job, a marriage or a new child. If you pay estimated tax, put the four due dates on the calendar: April 15, June 15, September 15 and January 15.",
       "links": [
-        { "to": "life-events/job-loss", "label": "Life events · job change" }
+        { "to": "life-events/job-loss", "label": "Life events · job change" },
+        { "to": "full-chart/contractor/0.3", "label": "Set up quarterly estimated tax payments (contractor framework 0.3)" }
       ],
-      "claims": ["CL492"]
+      "claims": ["CL492", "CL537", "CL538"]
     },
     {
       "id": "net-worth",
@@ -57,23 +58,24 @@
       "id": "rebalance",
       "month": 6,
       "title": "Check the allocation against its rebalancing bands",
-      "body": "Compare the current mix to your target and rebalance if any asset class has drifted outside its band; use new contributions first to avoid realizing gains.",
+      "body": "Compare the current mix to your target and rebalance if any asset class has drifted outside its band. Trades inside an IRA or 401(k) are not taxed, so rebalance there first; in taxable accounts, steer new contributions toward what is underweight to avoid realizing gains.",
       "links": [
         { "to": "portfolio-bogleheads/4", "label": "Portfolio · Rebalancing" }
       ],
-      "claims": []
+      "claims": ["CL539"]
     },
     {
       "id": "insurance",
       "month": 10,
       "title": "Review insurance at open enrollment",
-      "body": "Most employers hold open enrollment in the fall. Re-check health plan choice, disability coverage, term life against current dependents and debts, and whether property, auto and umbrella liability limits still match your net worth.",
+      "body": "Most employers hold open enrollment in the fall. Re-check health plan choice, disability coverage, term life against current dependents and debts, and whether property, auto and umbrella liability limits still match your net worth. On Medicare, compare Part D and Medicare Advantage plans during open enrollment, October 15 to December 7, because costs, benefits and providers can change each year.",
       "links": [
         { "to": "protection/disability", "label": "Protection · disability" },
         { "to": "protection/term-life", "label": "Protection · term life" },
-        { "to": "protection/umbrella", "label": "Protection · umbrella" }
+        { "to": "protection/umbrella", "label": "Protection · umbrella" },
+        { "to": "life-events/retirement", "label": "Life events · retirement (Medicare)" }
       ],
-      "claims": ["CL061", "CL182"]
+      "claims": ["CL061", "CL182", "CL540"]
     },
     {
       "id": "beneficiaries",

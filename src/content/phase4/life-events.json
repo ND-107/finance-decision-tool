@@ -10,7 +10,7 @@
           "id": "coverage",
           "when": "Within days",
           "title": "Decide how you will stay insured: COBRA, a spouse's plan, or the Marketplace",
-          "body": "Losing job-based coverage opens two clocks. COBRA lets you keep the same employer plan, generally for up to 18 months after a job loss, and you have at least 60 days to elect it; the premium can be up to 102% of the full cost, because the employer subsidy ends. Losing coverage is also a qualifying event for a 60-day Marketplace special enrollment period, where premium tax credits are based on your expected income for the year, which may now be lower. A spouse's employer plan must offer at least a 30-day special enrollment window. Compare all three on total cost, not premium alone.",
+          "body": "Losing job-based coverage opens two clocks. COBRA lets you keep the same employer plan, generally for up to 18 months after a job loss, and you have at least 60 days to elect it; an election made in that window covers you back to the day job coverage ended, and you owe the premiums for that time. The premium can be up to 102% of the full cost, because the employer subsidy ends. Losing coverage is also a qualifying event for a 60-day Marketplace special enrollment period, where premium tax credits are based on your expected income for the year, which may now be lower. Count severance, unemployment pay, any 401(k) withdrawal and wages from a new job in that estimate, and report income changes as they happen: starting with 2026, advance credits above what you qualify for must be repaid in full, and household income above 400% of the poverty line generally gets no federal credit. Medicaid, and CHIP for children, accept applications any time of year and judge eligibility on current monthly income. A spouse's employer plan must offer at least a 30-day special enrollment window. Choosing COBRA and later dropping it, or stopping payment, does not reopen the Marketplace: once 60 days have passed since job coverage ended, you generally must wait for open enrollment unless COBRA runs out, an employer subsidy for it ends, or you have another life event. Compare every option on total cost, not premium alone.",
           "links": [
             {
               "to": "full-chart/w2/1.3",
@@ -24,14 +24,18 @@
           "claims": [
             "CL483",
             "CL484",
-            "CL485"
+            "CL485",
+            "CL551",
+            "CL552",
+            "CL553",
+            "CL554"
           ]
         },
         {
           "id": "runway",
           "when": "First week",
           "title": "Count your runway and file for unemployment insurance",
-          "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, cover housing, utilities, food, insurance, the transportation that keeps you working and any court-ordered payments such as child support first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed.",
+          "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, cover housing, utilities, food, insurance, the transportation that keeps you working and any court-ordered payments such as child support first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed. For federal student loans, ask your servicer about an income-driven plan, where the payment can be as low as $0 in some cases, or an unemployment deferment, and keep paying until a deferment is granted.",
           "links": [
             {
               "to": "protection/emergency-fund",
@@ -49,7 +53,8 @@
           "claims": [
             "CL489",
             "CL490",
-            "CL529"
+            "CL529",
+            "CL555"
           ]
         },
         {
@@ -147,7 +152,7 @@
           "id": "protection",
           "when": "First 3 months",
           "title": "Resize term life and disability coverage, and write or update a will",
-          "body": "A dependent is the main reason to own term life insurance; the common heuristic is 10–12 times the primary earner's income, and the DIME method gives a more specific number. A will is where you name a guardian for a minor child; without one, a court decides. Update beneficiary designations at the same time.",
+          "body": "A dependent is the main reason to own term life insurance; the common heuristic is 10–12 times the primary earner's income, and the DIME method gives a more specific number. A will is where you name a guardian for a minor child; without one, a court decides. Update beneficiary designations at the same time, and do not name a minor child directly: money left to a minor can end up with a court-appointed guardian, so name a trust or a custodian under your state's transfers-to-minors law.",
           "links": [
             {
               "to": "protection/term-life",
@@ -165,7 +170,8 @@
           "claims": [
             "CL061",
             "CL181",
-            "CL519"
+            "CL519",
+            "CL556"
           ]
         },
         {
@@ -288,23 +294,28 @@
           "id": "counsel",
           "when": "Before signing anything",
           "title": "Get an attorney and inventory every account",
-          "body": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot.",
+          "body": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. If a full-service lawyer is out of reach, look for legal aid or ask whether a lawyer will help with only part of the case. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot. A decree does not bind your lenders: until a joint debt is paid off, refinanced without your name or released by the lender, the lender can generally still collect from you.",
           "links": [
             {
               "to": "full-chart/w2/0.2",
               "label": "Calculate your net worth (framework 0.2)"
             }
           ],
-          "claims": []
+          "claims": [
+            "CL544",
+            "CL545"
+          ]
         },
         {
           "id": "qdro",
           "when": "In the settlement",
           "title": "Split a 401(k) or pension with a QDRO; split an IRA by transfer",
-          "body": "An employer plan can only pay a former spouse under a qualified domestic relations order (QDRO); distributions to the alternate payee under a QDRO are exempt from the 10% additional tax. IRAs are divided by a transfer incident to divorce, which is not a taxable distribution. Cashing out instead of using these routes can turn a split into a tax bill.",
+          "body": "An employer plan can only pay a former spouse under a qualified domestic relations order (QDRO); distributions to the alternate payee under a QDRO are exempt from the 10% additional tax, but the exemption does not apply to withdrawals from an IRA, so it is lost if the money is rolled into one first. IRAs are divided by a transfer incident to divorce, which is not a taxable distribution. Cashing out instead of using these routes can turn a split into a tax bill. Compare shares after tax: pre-tax retirement money is taxed when withdrawn, qualified Roth withdrawals are not, and stock you receive keeps your spouse's old tax basis, so a dollar in each is not worth the same.",
           "links": [],
           "claims": [
-            "CL500"
+            "CL500",
+            "CL546",
+            "CL547"
           ]
         },
         {
@@ -402,10 +413,13 @@
           "id": "pmi",
           "when": "After closing",
           "title": "Track when private mortgage insurance can come off",
-          "body": "On a conventional loan, the lender must drop PMI automatically when the balance is scheduled to reach 78% of the original value, and you can request removal at 80%. Note the date.",
+          "body": "On a conventional loan, the lender must drop PMI automatically when the balance is scheduled to reach 78% of the original value and you are current on payments, and you can request removal at 80%. Note the date. FHA mortgage insurance follows HUD's rules instead: on FHA loans started after mid-2013, the annual premium lasts the whole loan term (up to 30 years) if you borrowed more than 90% of the home's value, and up to 11 years otherwise. Your Closing Disclosure names the loan type.",
           "links": [],
           "claims": [
-            "CL504"
+            "CL504",
+            "CL548",
+            "CL549",
+            "CL550"
           ]
         },
         {
@@ -531,7 +545,7 @@
           "id": "park",
           "when": "First 90 days",
           "title": "Park the money somewhere safe and boring before deciding anything",
-          "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others. Two things cannot wait for the cooling-off period: if anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility (SSI's resource limit is {{fig:ssi_resource_limit_individual}} for an individual), so report it and ask before moving the money; and taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside.",
+          "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others. Deposit insurance covers {{fig:fdic_standard_max_deposit}} per depositor, per bank, for each ownership category, so spread a larger sum across banks or hold Treasury bills. Three things cannot wait for the cooling-off period. If anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility (SSI's resource limit is {{fig:ssi_resource_limit_individual}} for an individual), so report it and ask before moving the money; an ABLE account or a special-needs trust can sometimes keep a person with a disability eligible. Taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside; if too little was withheld, an estimated tax payment can help avoid an underpayment penalty. And a decision to disclaim an inheritance must generally be made in writing within 9 months and before you accept the asset; using it or directing what happens to it can count as accepting.",
           "links": [
             {
               "to": "full-chart/w2/5.1",
@@ -541,14 +555,19 @@
           "claims": [
             "CL510",
             "CL535",
-            "CL536"
+            "CL536",
+            "CL533",
+            "CL561",
+            "CL562",
+            "CL563",
+            "CL564"
           ]
         },
         {
           "id": "character",
           "when": "Before spending or investing",
           "title": "Identify what kind of asset you received",
-          "body": "Cash, a brokerage account, an inherited IRA and a house are taxed differently. Inherited assets generally get a basis stepped up to value at the date of death, so selling soon after inheriting often produces little gain. Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years, and if the original owner had started required distributions, annual distributions are required during those years too.",
+          "body": "Cash, a brokerage account, an inherited IRA and a house are taxed differently. Inherited assets generally get a basis stepped up to value at the date of death, so selling soon after inheriting often produces little gain. Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years, and if the original owner had started required distributions, annual distributions are required during those years too. A non-spouse beneficiary cannot roll an inherited IRA into their own; move it only by direct trustee-to-trustee transfer into an account titled as inherited, because a check made out to you counts as a withdrawal and cannot be put back.",
           "links": [
             {
               "to": "full-chart/w2/10.2",
@@ -557,7 +576,8 @@
           ],
           "claims": [
             "CL511",
-            "CL363"
+            "CL363",
+            "CL565"
           ]
         },
         {
@@ -622,7 +642,7 @@
           "id": "medicare",
           "when": "Months before 65",
           "title": "Enroll in Medicare during your initial enrollment period",
-          "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty, and COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current employment lets you delay Part B without it. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
+          "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty, and COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current employment lets you delay Part B without it. If you keep contributing to an HSA after 65, stop six months before you apply for Medicare or Social Security, because Part A coverage can reach back up to six months. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
           "links": [
             {
               "to": "full-chart/w2/10.1",
@@ -632,7 +652,8 @@
           "claims": [
             "CL514",
             "CL362",
-            "CL532"
+            "CL532",
+            "CL557"
           ]
         },
         {
@@ -673,7 +694,7 @@
           "id": "rmd",
           "when": "Age 73",
           "title": "Calendar required minimum distributions",
-          "body": "Required minimum distributions from traditional accounts start at age 73. Qualified charitable distributions from an IRA (from age 70½) can satisfy them without adding to income.",
+          "body": "Required minimum distributions from traditional accounts start at age 73, or at 75 if you were born in 1960 or later. The first one can wait until April 1 of the next year, but then two fall in the same tax year; while you still work, a current employer's plan can usually wait until you retire. Qualified charitable distributions from an IRA (from age 70½) can satisfy RMDs without adding to income.",
           "links": [
             {
               "to": "full-chart/w2/10.5",
@@ -682,14 +703,15 @@
           ],
           "claims": [
             "CL051",
-            "CL364"
+            "CL364",
+            "CL558"
           ]
         },
         {
           "id": "ltc",
           "when": "Before 70",
           "title": "Decide how long-term care would be paid for",
-          "body": "About 70% of Americans turning 65 will need some long-term care; the decision is between insuring, self-funding, or a hybrid.",
+          "body": "About 70% of Americans turning 65 will need some long-term care, but more people get it at home than in facilities, and much of it is unpaid. Medicare and Medigap do not pay for this kind of care; Medicaid does if you meet your state's income, asset and care-need rules. Otherwise the decision is between insuring, self-funding, or a hybrid. Long-term care insurance premiums can rise after you buy.",
           "links": [
             {
               "to": "full-chart/w2/10.4",
@@ -697,7 +719,9 @@
             }
           ],
           "claims": [
-            "CL066"
+            "CL066",
+            "CL559",
+            "CL560"
           ]
         }
       ]
@@ -711,7 +735,7 @@
           "id": "pause",
           "when": "First weeks",
           "title": "Make no irreversible decisions; secure cash for the next few months",
-          "body": "A few clocks start now, and the rest can wait. If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act), and a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
+          "body": "A few clocks start now, and the rest can wait. If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act), and a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset. Ask a tax preparer or estate attorney whether to file an estate-tax return for your spouse (generally due in 9 months); it can pass their unused exemption to you even when no tax is owed. If a collector asks you to pay your spouse's debts, don't use your own money until you check: the estate generally pays them, and you usually owe only debts you co-signed or held jointly (being an authorized user is not joint) or ones your state's law puts on a surviving spouse. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
           "links": [
             {
               "to": "protection/emergency-fund",
@@ -721,7 +745,9 @@
           "claims": [
             "CL483",
             "CL484",
-            "CL533"
+            "CL533",
+            "CL541",
+            "CL542"
           ]
         },
         {
@@ -737,7 +763,8 @@
           ],
           "claims": [
             "CL515",
-            "CL534"
+            "CL534",
+            "CL543"
           ]
         },
         {
