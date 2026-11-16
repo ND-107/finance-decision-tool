@@ -1,5 +1,17 @@
 {
   "_about": "Intentional, audited divergences from the verbatim v1 content. The reference sections (src/content/sections/*.html), the live calculator subsystem (src/ui/calculators-live.mjs) and the framework-chart node files (src/content/nodes/<income>/<marker>.json) are generated from main:v1/flowchart.html and are held byte-identical to it by gates 9, 10 and 8, so a figure that goes stale there cannot be fixed by editing those files. Targets: 'section:<view>', 'calculators-live', 'node:<income>/<marker>' (a node correction applies to its detailsHtml only). Each entry below is applied by tools/build-v2.mjs on top of the verbatim text at build time; tools/verify-corrections.mjs (gate 13) proves every 'find' still matches the verbatim source exactly 'count' times, so a v1 change or a silent drift fails the build. Tokens in 'replace': {{fig:key}} -> the figure's display string, {{figval:key}} -> its raw number. Hand-typed derived numbers carry the derivation in 'reason'. Every entry names the audit claim it corrects and the primary source read on 'verified'.",
-  "corrections": [],
+  "corrections": [
+    {
+      "id": "COR-006",
+      "claim": "CL056",
+      "target": "node:contractor/8.2",
+      "find": "For 2026, the phase-out begins at $201,775 single / $403,550 MFJ and completes at $276,775 single / $553,550 MFJ (Rev. Proc. 2025-32)",
+      "replace": "For 2026, the phase-out begins at {{fig:qbi_sstb_phasein_start}} and completes at {{fig:qbi_sstb_phasein_complete}} (Rev. Proc. 2025-32 §4.26)",
+      "count": 1,
+      "reason": "The verbatim v1 node gave $201,775 / $403,550 and $276,775 / $553,550. Rev. Proc. 2025-32 §4.26 gives threshold $201,750 (all other returns) / $403,500 (MFJ) and phase-in range amount $276,750 / $553,500; $201,775 / $276,775 are the married-filing-separately figures and $403,550 / $553,550 appear nowhere in the table. Re-derived: the upper end is the threshold plus the phase-in range of $75,000 ($150,000 joint) that P.L. 119-21 §70105(a) wrote into §199A(b)(3)(B) and (d)(3): 201,750 + 75,000 = 276,750; 403,500 + 150,000 = 553,500. The rest of the sentence (the $50K/$100K to $75K/$150K expansion) matches §70105(a). Also claim CL360.",
+      "source": "Rev. Proc. 2025-32 §4.26 (https://www.irs.gov/pub/irs-drop/rp-25-32.pdf); P.L. 119-21 §70105(a) (https://www.govinfo.gov/link/plaw/119/public/21?link-type=html)",
+      "verified": "2026-11-16"
+    }
+  ],
   "_retired": "COR-001..005 (the dependent-care FSA $5,000 → $7,500 correction, claim CL186) were applied here from 2026-11-06 until main:v1/flowchart.html itself was corrected on the owner's decision the same day (main edb4b3e). After that the verbatim sources carry $7,500 and the entries were removed; the mechanism stays for the next stale figure."
 }

@@ -128,19 +128,19 @@
     "expires": "2026-12-31"
   },
   "qbi_sstb_phasein_start": {
-    "value": 201775,
-    "display": "$201,775 single / $403,550 MFJ",
+    "value": 201750,
+    "display": "$201,750 single / $403,500 MFJ",
     "taxYear": 2026,
-    "source": "IRS Newsroom IR-2025-103 / Rev. Proc. 2025-32 \u00a74.26 (IRC \u00a7199A(e)(2) threshold amount); Tax Foundation Table 7 confirms $201,775 single / $403,550 MFJ",
-    "verified": "2026-06-15",
+    "source": "Rev. Proc. 2025-32 \u00a74.26 (IRC \u00a7199A(e)(2) threshold amount): $403,500 married filing jointly, $201,775 married filing separately, $201,750 all other returns",
+    "verified": "2026-11-16",
     "expires": "2026-12-31"
   },
   "qbi_sstb_phasein_complete": {
-    "value": 276775,
-    "display": "$276,775 single / $553,550 MFJ",
+    "value": 276750,
+    "display": "$276,750 single / $553,500 MFJ",
     "taxYear": 2026,
-    "source": "Rev. Proc. 2025-32 \u00a74.26 \u2014 threshold ($201,775/$403,550) plus OBBBA-expanded phase-in range of $75,000 single / $150,000 MFJ (IRC \u00a7199A(b)(3)(B)) = $276,775 single / $553,550 MFJ",
-    "verified": "2026-06-15",
+    "source": "Rev. Proc. 2025-32 \u00a74.26 (phase-in range amounts under IRC \u00a7199A(b)(3)(B) and (d)(3)(A)): $553,500 married filing jointly, $276,775 married filing separately, $276,750 all other returns; = threshold + $75,000 ($150,000 joint), the range set by P.L. 119-21 \u00a770105(a)",
+    "verified": "2026-11-16",
     "expires": "2026-12-31"
   },
   "irmaa_tier1_single": {
