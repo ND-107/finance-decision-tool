@@ -59,6 +59,8 @@ function expandDetails(html) {
 }
 
 // ---- build the node-content lookup (nodeKey "income:marker" -> node record) ----
+// Node files are verbatim v1 (gate 8 rebuilds v1 from their rawSource); audited corrections
+// (src/content/corrections.json, target node:<income>/<marker>) apply to detailsHtml here.
 function buildNodes() {
   const nodes = {};
   for (const inc of ['w2', 'contractor', 'business']) {
@@ -66,7 +68,7 @@ function buildNodes() {
     for (const f of readdirSync(dir)) {
       if (!f.endsWith('.json') || f === '_array.json') continue;
       const rec = json('src', 'content', 'nodes', inc, f);
-      nodes[`${inc}:${rec.marker}`] = { title: rec.title, summary: rec.summary, detailsHtml: expandDetails(rec.detailsHtml), badges: rec.badges || [] };
+      nodes[`${inc}:${rec.marker}`] = { title: rec.title, summary: rec.summary, detailsHtml: expandDetails(applyCorrections(`node:${inc}/${rec.marker}`, rec.detailsHtml, CORR_FIGS)), badges: rec.badges || [] };
     }
   }
   return nodes;
@@ -90,7 +92,7 @@ function buildFlowcharts() {
     const arr = json('src', 'content', 'nodes', inc, '_array.json');
     fc[inc] = { nodes: arr.order.map((marker) => {
       const rec = json('src', 'content', 'nodes', inc, `${marker}.json`);
-      return { marker: rec.marker, phase: rec.phase, title: rec.title, summary: rec.summary, details: expandDetails(rec.detailsHtml), badges: rec.badges || [] };
+      return { marker: rec.marker, phase: rec.phase, title: rec.title, summary: rec.summary, details: expandDetails(applyCorrections(`node:${inc}/${rec.marker}`, rec.detailsHtml, CORR_FIGS)), badges: rec.badges || [] };
     }) };
   }
   return fc;

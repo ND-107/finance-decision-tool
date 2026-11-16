@@ -10,7 +10,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { loadCorrections, targetPath, resolveReplace, applyCorrections, occurrences, REQUIRED } from './corrections.mjs';
+import { loadCorrections, targetPath, targetText, resolveReplace, applyCorrections, occurrences, REQUIRED } from './corrections.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const figures = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'figures.json'), 'utf8'));
@@ -29,7 +29,7 @@ for (const c of corrections) {
   let path;
   try { path = targetPath(c.target); } catch (e) { errs.push(`${tag}: ${e.message}`); continue; }
   if (!existsSync(path)) { errs.push(`${tag}: target file missing (${path})`); continue; }
-  const n = occurrences(readFileSync(path, 'utf8'), c.find);
+  const n = occurrences(targetText(c.target), c.find);
   if (n !== c.count) errs.push(`${tag}: 'find' occurs ${n}× in ${c.target}, expected ${c.count} — the verbatim source drifted or v1 changed; re-check the correction`);
   try { if (resolveReplace(c.replace, figures).includes(c.find)) errs.push(`${tag}: replacement still contains its own 'find'`); }
   catch (e) { errs.push(`${tag}: ${e.message}`); }
@@ -40,7 +40,7 @@ for (const c of corrections) {
 
 if (!errs.length) {
   for (const target of new Set(corrections.map((c) => c.target))) {
-    const out = applyCorrections(target, readFileSync(targetPath(target), 'utf8'), figures, corrections);
+    const out = applyCorrections(target, targetText(target), figures, corrections);
     for (const c of corrections.filter((x) => x.target === target)) if (out.includes(c.find)) errs.push(`${c.id}: 'find' survives in ${target} after applying`);
   }
 }

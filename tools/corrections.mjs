@@ -18,11 +18,23 @@ export function loadCorrections() {
 }
 
 // 'section:<view>' → src/content/sections/<view>.html · 'calculators-live' → src/ui/calculators-live.mjs
+// 'node:<income>/<marker>' → src/content/nodes/<income>/<marker>.json (the correction applies to
+// the node's detailsHtml field only; its rawSource stays verbatim v1 for the round-trip gate 8)
+const NODE_RE = /^node:(w2|contractor|business)\/(\d+\.\d+)$/;
 export function targetPath(target) {
   if (target === 'calculators-live') return join(ROOT, 'src', 'ui', 'calculators-live.mjs');
   const m = /^section:([a-z0-9-]+)$/.exec(target);
   if (m) return join(ROOT, 'src', 'content', 'sections', `${m[1]}.html`);
+  const n = NODE_RE.exec(target);
+  if (n) return join(ROOT, 'src', 'content', 'nodes', n[1], `${n[2]}.json`);
   throw new Error(`corrections: unknown target "${target}"`);
+}
+
+// The verbatim text a correction's 'find' is matched against: the whole file for a section
+// or the calculator module, the parsed detailsHtml string for a node.
+export function targetText(target) {
+  const raw = readFileSync(targetPath(target), 'utf8');
+  return NODE_RE.test(target) ? JSON.parse(raw).detailsHtml : raw;
 }
 
 const TOKEN_RE = /\{\{(fig|figval):([^}]+)\}\}/g;
