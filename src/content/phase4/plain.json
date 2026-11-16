@@ -102,8 +102,8 @@
   ]
  },
  "le:job-loss:old-401k": {
-  "hash": "b274293f49c8",
-  "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment. If you still owe on a 401(k) loan, find out when it comes due: an unpaid balance counts as a withdrawal (taxed, plus the extra 10% tax before 59½), but if the plan takes the loan out of your balance after you leave, you can still roll that amount over until your tax-filing deadline, including extensions, for that year.",
+  "hash": "3bfc8c8a8830",
+  "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment. If you still owe on a 401(k) loan, find out when it comes due: an unpaid balance counts as a withdrawal (taxed, plus the extra 10% tax before 59½), but if the plan takes the loan out of your balance within 12 months after you leave, you can still roll that amount over until your tax-filing deadline, including extensions, for that year.",
   "props": [
    [
     "P1",
@@ -155,9 +155,15 @@
    ],
    [
     "P9",
-    "A plan-loan offset can be rolled over until the tax-filing deadline (with extensions)",
+    "A plan-loan offset within 12 months after leaving can be rolled over until the tax-filing deadline (with extensions)",
     "kept",
     "tax-filing deadline"
+   ],
+   [
+    "P10",
+    "The offset must occur within 12 months after leaving the job",
+    "kept",
+    "within 12 months after you leave"
    ]
   ]
  },
@@ -834,8 +840,8 @@
   ]
  },
  "le:relocation:expenses": {
-  "hash": "35352c47687e",
-  "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can, and from 2026 so can intelligence-community employees who relocate for a new assignment). If your employer pays for your move, that counts as taxable pay.",
+  "hash": "ea278f5324f1",
+  "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can, and from 2026 so can intelligence-community employees who relocate for a new assignment). For everyone else, if your employer pays for your move, that counts as taxable pay.",
   "props": [
    [
     "P1",
@@ -851,9 +857,9 @@
    ],
    [
     "P3",
-    "Employer-paid moving costs are taxable wages",
+    "For everyone else, employer-paid moving costs are taxable wages",
     "kept",
-    "taxable pay"
+    "for everyone else"
    ],
    [
     "P4",
@@ -1026,8 +1032,8 @@
   ]
  },
  "le:retirement:medicare": {
-  "hash": "434f7d5f82b0",
-  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: only coverage from your own or your spouse's current job lets you delay Part B without that penalty. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+  "hash": "001f7f0ba7bf",
+  "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current job lets you delay Part B without that penalty. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
   "props": [
    [
     "P1",
@@ -1055,9 +1061,9 @@
    ],
    [
     "P5",
-    "COBRA and retiree coverage do not count; only current-employment coverage allows delaying Part B",
+    "COBRA and retiree coverage do not count; generally only current-employment coverage allows delaying Part B",
     "kept",
-    "does not count"
+    "generally only coverage"
    ]
   ]
  },

@@ -6555,11 +6555,11 @@
  {
   "id": "CL530",
   "loc": "P4:life-events:job-loss",
-  "claim": "An outstanding 401(k) loan balance that is not repaid is treated as a distribution (taxable, plus the 10% additional tax before 59½); a qualified plan loan offset amount can be rolled over until the due date, including extensions, of the return for the year of the offset",
+  "claim": "An outstanding 401(k) loan balance that is not repaid is treated as a distribution (taxable, plus the 10% additional tax before 59½); a qualified plan loan offset amount (on severance, the offset must occur within 12 months after severance from employment) can be rolled over until the due date, including extensions, of the return for the year of the offset",
   "type": "STATUTORY",
-  "status": "PASS",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "IRC §72(p)(1)(A); §402(c)(3)(C); §72(t)(1)",
+  "source": "IRC §72(p)(1)(A); §402(c)(3)(C); §72(t)(1); Treas. Reg. §1.402(c)-2(g)(3)(ii), (g)(4)(ii)",
   "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
   "anchors": [
    "p4:life-events:job-loss"
@@ -6581,11 +6581,11 @@
  {
   "id": "CL532",
   "loc": "P4:life-events:retirement",
-  "claim": "The Medicare Part B special enrollment period (which avoids the late-enrollment penalty) requires group health plan coverage by reason of the individual's or spouse's current employment; COBRA and retiree coverage do not qualify",
+  "claim": "A Medicare Part B special enrollment period based on group health plan coverage (which avoids the late-enrollment penalty) requires coverage by reason of the individual's or spouse's current employment; COBRA and retiree coverage do not qualify (the TRICARE and exceptional-circumstances special enrollment periods also avoid the penalty)",
   "type": "STATUTORY",
-  "status": "PASS",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "42 U.S.C. §1395p(i)(1)(A); §1395r(b)",
+  "source": "42 U.S.C. §1395p(i)(1)(A), (l), (m); §1395r(b)",
   "url": "https://www.govinfo.gov/link/uscode/42/1395p?link-type=html",
   "anchors": [
    "p4:life-events:retirement"
