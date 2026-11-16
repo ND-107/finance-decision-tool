@@ -6011,9 +6011,9 @@
   "loc": "P4:life-events:job-loss",
   "claim": "Unemployment insurance is administered by each state; benefits are federally taxable income and voluntary withholding can be elected",
   "type": "STATUTORY",
-  "status": "PARTIAL",
+  "status": "PASS",
   "tier": "A",
-  "source": "IRC §85; IRS Form W-4V; DOL CareerOneStop state UI finder",
+  "source": "IRC §85; IRS Form W-4V; U.S. Department of Labor, How Do I File for Unemployment Insurance? (dol.gov/general/topic/unemployment-insurance)",
   "url": "https://www.govinfo.gov/link/uscode/26/85?link-type=html",
   "anchors": [
    "p4:life-events:job-loss"
