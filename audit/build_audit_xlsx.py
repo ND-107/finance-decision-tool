@@ -188,9 +188,9 @@ CLAIMS = [
      "31 U.S.C. §3124", "", "Verified."),
 
     # === 529 PLANS ===
-    ("CL040", "W2:9.4", "529 K-12 tuition: up to $10,000/year qualified",
-     "STATUTORY", "CON", "PASS", "A",
-     "IRC §529(c)(7) (TCJA expansion)", "", "Verified."),
+    ("CL040", "W2:9.4", '529 K-12 expenses: up to $20,000/year for taxable years beginning after 2025 ($10,000 before)',
+     "STATUTORY", "CON", 'CORRECTED', "A",
+     'IRC §529(c)(7), §529(e)(3) as amended by P.L. 119-21 §70413', 'https://www.govinfo.gov/link/plaw/119/public/21?link-type=html', "Verified. Corrected 2026-11-16: the $10,000/year K-12 limit was raised to $20,000 for taxable years beginning after 2025; the W2 9.4 node now says '$20K/year from 2026' (corrections.json COR-008). Read at P.L. 119-21 on GovInfo and 26 U.S.C. §529 on GovInfo: P.L. 119-21 §70413(b): 'The last sentence of section 529(e)(3) is amended by striking ``$10,000'' and inserting ``$20,000''. ... The amendment made by this subsection shall apply to taxable years beginning after December 31, 2025.'; 26 U.S.C. §529(e)(3) (2024 edition): 'shall, in the aggregate, include not more than $10,000 in expenses described in subsection (c)(7) incurred during the taxable year.'"),
 
     ("CL041", "W2:9.4", "529 student loan repayment: up to $10,000 lifetime",
      "STATUTORY", "CON", "PASS", "A",

@@ -510,12 +510,12 @@
  {
   "id": "CL040",
   "loc": "W2:9.4",
-  "claim": "529 K-12 tuition: up to $10,000/year qualified",
+  "claim": "529 K-12 expenses: up to $20,000/year for taxable years beginning after 2025 ($10,000 before)",
   "type": "STATUTORY",
-  "status": "PASS",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "IRC §529(c)(7) (TCJA expansion)",
-  "url": "",
+  "source": "IRC §529(c)(7), §529(e)(3) as amended by P.L. 119-21 §70413",
+  "url": "https://www.govinfo.gov/link/plaw/119/public/21?link-type=html",
   "anchors": [
    "node:w2:9.4"
   ]

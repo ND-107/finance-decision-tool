@@ -22,6 +22,17 @@
       "reason": "The verbatim v1 node said OBBBA made the $10K SALT cap permanent. P.L. 119-21 §70120 (new 26 U.S.C. §164(b)(7)) sets the cap at $40,400 for 2026, 101% of the prior year's amount for 2027-2029 and $10,000 from 2030, reduced by 30% of modified AGI above $505,000 (2026) but not below $10,000 (half amounts for married filing separately, not stated on the page). Every number in the replacement is read from the statute; none is derived. The same paragraph's $400K PTET worked example (approximately $13K recovered) is NOT changed: it rests on unstated assumptions (state tax rate, other SALT paid, filing status, modified AGI), so it is flagged to the owner rather than recomputed.",
       "source": "P.L. 119-21 §70120 (26 U.S.C. §164(b)(6)-(7) as amended), https://www.govinfo.gov/link/plaw/119/public/21?link-type=html",
       "verified": "2026-11-16"
+    },
+    {
+      "id": "COR-008",
+      "claim": "CL040",
+      "target": "node:w2/9.4",
+      "find": "K-12 tuition up to $10K/year",
+      "replace": "K-12 tuition up to $20K/year from 2026",
+      "count": 1,
+      "reason": "P.L. 119-21 §70413(b) struck $10,000 and inserted $20,000 in the last sentence of 26 U.S.C. §529(e)(3) for taxable years beginning after 2025-12-31. Only the figure is changed. Not added (new content, owner's call): §70413(a) also widened the K-12 expenses that count beyond tuition (curriculum, books, online materials, outside tutoring, test fees, dual enrollment, certain therapies) for distributions after enactment.",
+      "source": "P.L. 119-21 §70413(b) (https://www.govinfo.gov/link/plaw/119/public/21?link-type=html); 26 U.S.C. §529(e)(3) (https://www.govinfo.gov/link/uscode/26/529?link-type=html, 2024 edition, pre-amendment $10,000)",
+      "verified": "2026-11-16"
     }
   ],
   "_retired": "COR-001..005 (the dependent-care FSA $5,000 → $7,500 correction, claim CL186) were applied here from 2026-11-06 until main:v1/flowchart.html itself was corrected on the owner's decision the same day (main edb4b3e). After that the verbatim sources carry $7,500 and the entries were removed; the mechanism stays for the next stale figure."
