@@ -728,7 +728,7 @@
           "id": "notify",
           "when": "First month",
           "title": "Notify Social Security and claim survivor benefits",
-          "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60 (50 if disabled), and at any age while caring for the deceased's child who is entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment. Switching between your own and the survivor benefit later can be worth comparing.",
+          "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60 (50 if disabled), and at any age while not remarried and caring for the deceased's child who is under 16 or disabled and entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment. Switching between your own and the survivor benefit later can be worth comparing.",
           "links": [
             {
               "to": "full-chart/w2/10.3",

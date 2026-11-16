@@ -1176,8 +1176,8 @@
   ]
  },
  "le:death-of-spouse:notify": {
-  "hash": "0fa694635c49",
-  "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60 (50 if disabled), and at any age while caring for the deceased's child who qualifies for child's benefits. The children can get benefits of their own while under 18 (19 if still in high school), and there is a one-time lump-sum death payment. Later, you may be able to switch between the survivor benefit and your own; compare which pays more and when.",
+  "hash": "e4f2488bb5f3",
+  "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60 (50 if disabled), and at any age if they have not remarried and are caring for the deceased's child who is under 16 or disabled and qualifies for child's benefits. The children can get benefits of their own while under 18 (19 if still in high school), and there is a one-time lump-sum death payment. Later, you may be able to switch between the survivor benefit and your own; compare which pays more and when.",
   "props": [
    [
     "P1",
@@ -1199,9 +1199,9 @@
    ],
    [
     "P4",
-    "Age 50 if disabled; any age while caring for the deceased's entitled child",
+    "Age 50 if disabled; any age while caring for the deceased's entitled child who is under 16 or disabled",
     "kept",
-    "any age while caring"
+    "under 16 or disabled"
    ],
    [
     "P5",
@@ -1214,6 +1214,12 @@
     "There is a one-time lump-sum death payment",
     "kept",
     "lump-sum death payment"
+   ],
+   [
+    "P7",
+    "The any-age benefit requires that the surviving spouse has not remarried",
+    "kept",
+    "not remarried"
    ]
   ]
  },
