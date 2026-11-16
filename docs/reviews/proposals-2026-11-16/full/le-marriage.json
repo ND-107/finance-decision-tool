@@ -1,0 +1,543 @@
+{
+ "group": "le-marriage",
+ "findings": [
+  {
+   "id": "ADV-15",
+   "block": "le:marriage:filing",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Correct and missing: the filing step only covers withholding. Merged with CFP-17 into one sentence listing the programs that count a spouse's income (EITC, Marketplace premium credits, Medicaid, SSI, income-driven student-loan payments, Roth IRA eligibility) plus one sentence on the joint-vs-separate trade-off. Modified: Medicaid and SSI turn on marriage and living together, not on joint filing (42 CFR 435.603(f)(4) counts a spouse 'regardless of whether they expect to file a joint tax return'), so the sentence says 'marriage can also change', not 'filing jointly changes'. Each program checked at its primary source today.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/32?link-type=html",
+     "quote": "In the case of an individual who is married, this section shall apply only if a joint return is filed for the taxable year under section 6013.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/36B?link-type=html",
+     "quote": "If the taxpayer is married (within the meaning of section 7703) at the close of the taxable year, the taxpayer shall be treated as an applicable taxpayer only if the taxpayer and the taxpayer's spouse file a joint return",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-435.603",
+     "quote": "In the case of a married couple living together, each spouse will be included in the household of the other spouse, regardless of whether they expect to file a joint tax return",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1382c?link-type=html",
+     "quote": "any individual who is married and whose spouse is living with him in the same household but is not an eligible spouse, such individual's income and resources shall be deemed to include any income and resources of such spouse",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-34/section-685.209",
+     "quote": "For a married borrower filing a joint Federal income tax return, except as provided in paragraph (e)(1)(i)(A) of this section, the combined income of the borrower and spouse is used in the calculation.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:marriage:filing"
+  },
+  {
+   "id": "CFP-17",
+   "block": "le:marriage:filing",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct. Merged with ADV-15. Roth IRA: the applicable dollar amount for a married person filing separately is zero (26 U.S.C. 408A(c)(3)(B)(ii)(III)), so 'Roth IRA eligibility' is in the list. Income-driven loans: under 34 CFR 685.209(e)(1) as in force 2026-11-01 (which covers the new Repayment Assistance Plan as well as IBR/PAYE/REPAYE/ICR), a married borrower filing separately is assessed on own income only, so filing separately can lower the payment; that is stated. The trade-off (separate returns generally lose the EITC and the premium tax credit, 26 U.S.C. 32(d)(1) and 36B(c)(1)(C), with narrow separated-spouse and domestic-abuse exceptions) is stated with 'generally'. P.L. 119-21 was grepped for amendments to 32(d), 36B(c)(1)(C) and 408A(c)(3); none found.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+     "quote": "the applicable dollar amount is— (I) in the case of a taxpayer filing a joint return, $150,000, ... (III) in the case of a married individual filing a separate return, zero.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-34/section-685.209",
+     "quote": "For an unmarried borrower, a married borrower filing a separate Federal income tax return, ... only the borrower's income is used in the calculation.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/32?link-type=html",
+     "quote": "In the case of an individual who is married, this section shall apply only if a joint return is filed for the taxable year under section 6013.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/36B?link-type=html",
+     "quote": "If the taxpayer is married (within the meaning of section 7703) at the close of the taxable year, the taxpayer shall be treated as an applicable taxpayer only if the taxpayer and the taxpayer's spouse file a joint return",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-26/section-1.36B-2",
+     "quote": "Except as provided in paragraph (b)(2)(ii) of this section, a taxpayer who is married ... is an applicable taxpayer only if the taxpayer and the taxpayer's spouse file a joint return",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:marriage:filing"
+  },
+  {
+   "id": "CFP-16",
+   "block": "le:marriage:enroll",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct trap, and it bites exactly at this step, when spouses pick plans. 26 U.S.C. 223(c)(1)(A)(ii) bars HSA eligibility while covered by another non-HDHP health plan; Rev. Rul. 2004-45 applies that to a health FSA sponsored by the spouse's employer; Pub. 969 confirms a limited-purpose FSA does not disqualify. The P.L. 119-21 amendments to 223(c)(1) (telehealth, direct primary care) do not touch FSAs. Wording adds the limited-purpose exception so the reader has the fix, not only the trap.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+     "quote": "such individual is not, while covered under a high deductible health plan, covered under any health plan— (I) which is not a high deductible health plan",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/irb/2004-22_IRB",
+     "quote": "This result is the same if the individual is covered by a health FSA or HRA sponsored by the employer of the individual's spouse.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p969",
+     "quote": "An employee covered by an HDHP and a health FSA or an HRA that pays or reimburses qualified medical expenses can't generally make contributions to an HSA.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p969",
+     "quote": "However, an employee can make contributions to an HSA while covered under an HDHP and one or more of the following arrangements. Limited-purpose health FSA or HRA.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:marriage:enroll"
+  },
+  {
+   "id": "CFP-18",
+   "block": "le:marriage:beneficiaries",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Prenup point verified and added: 26 CFR 1.401(a)-20 Q&A-28 says a pre-marriage agreement does not satisfy the spousal consent requirements of 401(a)(11) and 417. Modified: the reviewer's claim that 'marriage alone does not' update a will is state law and varies by state (not read today), so the text only tells the reader to review the will, power of attorney and healthcare directive at the same time, and the existing link to Protection, estate basics carries the detail. No new estate step proposed; the existing link covers it.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-26/section-1.401(a)-20",
+     "quote": "A-28: No. An agreement entered into prior to marriage does not satisfy the applicable consent requirements, even if the agreement is executed within the applicable election period.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:marriage:beneficiaries"
+  },
+  {
+   "id": "ADV-16",
+   "block": "le:marriage:align",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Three parts. (1) 'tend to stall' is an unsourced generalisation: softened to 'can stall' (design rationale, no audit row needed). (2) 'Markdown' is jargon, but the reviewer's 'a shareable file' is inaccurate: the plan view offers 'Copy as Markdown' and 'Print one-pager' (src/ui/app.mjs export row), not a file download, so the text says 'Copy or print the plan'. (3) Keeping an account and some credit in your own name is kept as advice; the financial-abuse rationale is not asserted as fact (no primary agency page read today states it). It is paired with a fact read at Regulation B: a creditor may not refuse a creditworthy applicant an individual account on the basis of marital status. Also replaced the em dash with a semicolon (house style).",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-12/section-1002.7",
+     "quote": "A creditor shall not refuse to grant an individual account to a creditworthy applicant on the basis of sex, marital status, or any other prohibited basis.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:marriage:align"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:marriage:enroll",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-16"
+   ],
+   "body": "Marriage opens a special enrollment period (at least 30 days for employer plans, 60 days on the Marketplace). Compare both employers' plans on premium plus expected out-of-pocket cost, including any spousal surcharge. If one of you contributes to an HSA, a general-purpose health FSA at the other's job that can pay your expenses makes you ineligible to contribute; a limited-purpose FSA does not, so check before electing.",
+   "plain": "Getting married opens a special window to change health plans: at least 30 days for job-based plans and 60 days on the Marketplace. Compare both employers' plans by premium plus the costs you expect to pay yourself, including any extra charge for covering a spouse. If one of you puts money in an HSA (health savings account), a regular health FSA (flexible spending account) at the other spouse's job that can pay your bills means you can't add to the HSA. A limited-purpose FSA does not cause this problem, so check before you sign up.",
+   "props": [
+    [
+     "P1",
+     "Marriage triggers special enrollment",
+     "kept",
+     "special window"
+    ],
+    [
+     "P2",
+     "At least 30 days employer / 60 days Marketplace",
+     "kept",
+     "at least 30 days"
+    ],
+    [
+     "P3",
+     "Compare on premium plus expected out-of-pocket, incl. spousal surcharge",
+     "kept",
+     "extra charge for covering a spouse"
+    ],
+    [
+     "P4",
+     "A general-purpose health FSA at the other spouse's job that can pay your expenses ends HSA contribution eligibility",
+     "kept",
+     "can't add to the hsa"
+    ],
+    [
+     "P5",
+     "A limited-purpose FSA does not; check before electing",
+     "kept",
+     "limited-purpose fsa does not cause this problem"
+    ]
+   ],
+   "claims": [
+    "CL484",
+    "CL485",
+    "NEW-le-marriage-1"
+   ],
+   "links": [
+    {
+     "to": "spending-essentials/3",
+     "label": "Spending · Healthcare"
+    }
+   ],
+   "words_before": 32,
+   "words_after": 67,
+   "notes": "Grows from 32 to 67 words (about +109%), over the 70% guide, because the block was very short. The trap only matters to couples with an HSA; owner may prefer to keep it. Plain uses 'regular health FSA' for 'general-purpose'."
+  },
+  {
+   "id": "le:marriage:names",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "If either spouse changes their name, update it with the Social Security Administration before filing; a mismatch between the return and SSA records can delay processing.",
+   "plain": "If either of you changes your name, update it with Social Security before you file taxes. If your tax return and Social Security's records don't match, your return can be delayed.",
+   "props": [
+    [
+     "P1",
+     "Update the name with SSA before filing",
+     "kept",
+     "before you file taxes"
+    ],
+    [
+     "P2",
+     "A mismatch with SSA records can delay processing",
+     "kept",
+     "can be delayed"
+    ]
+   ],
+   "claims": [
+    "CL496"
+   ],
+   "links": [],
+   "words_before": 26,
+   "words_after": 26,
+   "notes": "No findings."
+  },
+  {
+   "id": "le:marriage:filing",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-15",
+    "CFP-17"
+   ],
+   "body": "Your filing status is set by whether you are married on December 31, so a December wedding counts for the whole year. Two incomes withheld as if each were single often under-withhold once combined; run the IRS Tax Withholding Estimator together and file new W-4s. Marriage can also change the EITC, Marketplace premium credits, Medicaid, SSI, income-driven student-loan payments and Roth IRA eligibility. Filing separately keeps a spouse's income out of an income-driven loan payment but generally rules out the EITC and premium credits, so compare both returns before choosing.",
+   "plain": "Whether you count as married for taxes depends on December 31. So a December wedding counts for the whole year. Two paychecks each taxed as if single often don't have enough tax taken out once you're combined. Use the IRS Tax Withholding Estimator together and file new W-4s. Getting married can also change the Earned Income Tax Credit (EITC), help paying for Marketplace health insurance, Medicaid, SSI, income-driven student loan payments, and whether you can put money in a Roth IRA. Filing separate tax returns keeps your spouse's income out of an income-driven loan payment. But it usually means no EITC and no help with Marketplace premiums, so compare both ways before you choose.",
+   "props": [
+    [
+     "P1",
+     "Filing status is set by marital status on December 31",
+     "kept",
+     "december 31"
+    ],
+    [
+     "P2",
+     "A December wedding counts for the whole year",
+     "kept",
+     "december wedding"
+    ],
+    [
+     "P3",
+     "Two incomes withheld as single often under-withhold combined",
+     "kept",
+     "don't have enough tax taken out"
+    ],
+    [
+     "P4",
+     "Run the estimator together and file new W-4s",
+     "kept",
+     "new w-4s"
+    ],
+    [
+     "P5",
+     "Marriage can change the EITC, Marketplace premium credits, Medicaid, SSI, income-driven student-loan payments and Roth IRA eligibility",
+     "kept",
+     "can also change the earned income tax credit"
+    ],
+    [
+     "P6",
+     "Filing separately keeps a spouse's income out of an income-driven loan payment",
+     "kept",
+     "keeps your spouse's income out"
+    ],
+    [
+     "P7",
+     "Filing separately generally rules out the EITC and premium credits; compare both returns",
+     "kept",
+     "compare both ways"
+    ]
+   ],
+   "claims": [
+    "CL492",
+    "CL497",
+    "NEW-le-marriage-2",
+    "NEW-le-marriage-3",
+    "NEW-le-marriage-4"
+   ],
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    }
+   ],
+   "words_before": 45,
+   "words_after": 90,
+   "notes": "Grows from 45 to 90 words (about +100%), over the 70% guide; two findings merged into two sentences. A shorter fallback is to keep only the list sentence (P5) and cut P6/P7, but P6/P7 carry the actual decision (joint vs separate). Title 'Re-run withholding under your new filing status' no longer covers the whole block; owner may retitle (for example 'Re-run withholding and choose joint or separate'), not changed here since titles are outside this draft. Medicaid and SSI depend on marriage and living together, not on the filing choice, which is why the list sentence says 'Marriage can also change'."
+  },
+  {
+   "id": "le:marriage:beneficiaries",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-18"
+   ],
+   "body": "Retirement accounts and life insurance pass by beneficiary form, not by will. In a 401(k), federal law generally makes a spouse the default beneficiary unless they waive in writing; a waiver in a prenuptial agreement does not count, so the spouse has to consent after the wedding. IRAs follow whatever the form says. Read each form rather than assuming, and review your will, power of attorney and healthcare directive at the same time.",
+   "plain": "Retirement accounts and life insurance go to whoever is named on the beneficiary form, not to whoever is named in a will. In a 401(k), federal law generally makes your spouse the default beneficiary unless they give that up in writing. Giving it up in a prenup does not count, so your spouse has to sign after the wedding. IRAs go to whoever the form names. Read every form instead of assuming, and look over your will, power of attorney and healthcare directive at the same time.",
+   "props": [
+    [
+     "P1",
+     "Retirement accounts and life insurance pass by beneficiary form, not will",
+     "kept",
+     "not to whoever is named in a will"
+    ],
+    [
+     "P2",
+     "401(k): spouse is generally default beneficiary unless they waive in writing",
+     "kept",
+     "give that up in writing"
+    ],
+    [
+     "P3",
+     "A prenuptial waiver does not count; the spouse consents after the wedding",
+     "kept",
+     "prenup does not count"
+    ],
+    [
+     "P4",
+     "IRAs follow the form",
+     "kept",
+     "iras go to whoever the form names"
+    ],
+    [
+     "P5",
+     "Read each form",
+     "kept",
+     "read every form"
+    ],
+    [
+     "P6",
+     "Review the will, power of attorney and healthcare directive at the same time",
+     "kept",
+     "look over your will"
+    ]
+   ],
+   "claims": [
+    "CL498",
+    "CL499",
+    "NEW-le-marriage-5"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "words_before": 41,
+   "words_after": 73,
+   "notes": "Grows from 41 to 73 words (about +78%), slightly over the 70% guide; the prenup clause is the load-bearing addition and the review sentence could be cut if the owner wants it shorter. P6 is an instruction, not a factual claim, and points to the linked Protection, estate basics section (CL519-CL521), so no new audit row for it."
+  },
+  {
+   "id": "le:marriage:align",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-16"
+   ],
+   "body": "Run the diagnostic together; its spousal-alignment questions are there because couples who disagree on risk or goals can stall on every other step. Copy or print the plan so both of you work from the same list. Each of you should also keep at least one account and some credit in your own name; a lender cannot refuse a creditworthy applicant an individual credit account because of marital status.",
+   "plain": "Take the diagnostic together. Its questions about whether you agree are there because couples who disagree on risk or goals can get stuck on every other step. Copy or print the plan so you both work from the same list. Each of you should also keep at least one account and some credit in your own name. A lender can't turn down someone with good enough credit for a credit account in their own name just because they are married.",
+   "props": [
+    [
+     "P1",
+     "Run the diagnostic together",
+     "kept",
+     "take the diagnostic together"
+    ],
+    [
+     "P2",
+     "Spousal-alignment questions exist because disagreeing couples can stall",
+     "kept",
+     "can get stuck"
+    ],
+    [
+     "P3",
+     "Copy or print the plan to share one list",
+     "kept",
+     "copy or print the plan"
+    ],
+    [
+     "P4",
+     "Each spouse keeps at least one account and some credit in their own name",
+     "kept",
+     "some credit in your own name"
+    ],
+    [
+     "P5",
+     "A lender cannot refuse a creditworthy applicant an individual credit account because of marital status",
+     "kept",
+     "just because they are married"
+    ]
+   ],
+   "claims": [
+    "NEW-le-marriage-6"
+   ],
+   "links": [
+    {
+     "to": "plan",
+     "label": "Your plan (diagnostic)"
+    }
+   ],
+   "words_before": 38,
+   "words_after": 69,
+   "notes": "Grows from 38 to 69 words (about +82%), over the 70% guide; the Reg B clause (P5) can be cut to save 16 words if the owner keeps P4 as plain advice. 'Copy or print' matches the plan view's actual buttons ('Copy as Markdown', 'Print one-pager', src/ui/app.mjs lines 438-439). The block previously cited no claims; it now cites one new Reg B row for P5. P4 is advice; owner decides whether it belongs in this step. Checker: 'credit account' replaces 'account' in the Reg B clause because Regulation B governs credit, not deposit accounts."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-marriage-1",
+   "loc": "P4:life-events:marriage",
+   "claim": "An individual covered by a general-purpose health FSA (including one sponsored by a spouse's employer) that pays or reimburses medical expenses is not an HSA-eligible individual; a limited-purpose health FSA does not disqualify",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §223(c)(1)(A)(ii); Rev. Rul. 2004-45 (I.R.B. 2004-22); IRS Publication 969 (2025), 'Other employee health plans'",
+   "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. §223(c)(1)(A)(ii) (not eligible while covered by any other health plan that is not an HDHP); Rev. Rul. 2004-45: 'This result is the same if the individual is covered by a health FSA or HRA sponsored by the employer of the individual's spouse'; Pub. 969 lists the limited-purpose health FSA as permitted. P.L. 119-21 §§71306, 71308 amended §223(c)(1) only for telehealth and direct primary care. Added from the §4.4 persona pass (CFP-16)."
+  },
+  {
+   "temp_id": "NEW-le-marriage-2",
+   "loc": "P4:life-events:marriage",
+   "claim": "A married taxpayer can claim the EITC or the premium tax credit generally only on a joint return; a married individual filing separately has a Roth IRA applicable dollar amount of zero",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §32(d)(1)-(2); §36B(c)(1)(C); 26 CFR §1.36B-2(b)(2); §408A(c)(3)(B)(ii)(III)",
+   "url": "https://www.govinfo.gov/link/uscode/26/32?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §32(d)(1) ('In the case of an individual who is married, this section shall apply only if a joint return is filed'), with the §32(d)(2)(B) separated-spouse exception; §36B(c)(1)(C) (applicable taxpayer only if the spouses file a joint return) and 26 CFR §1.36B-2(b)(2)(ii) (domestic abuse and abandonment exception); §408A(c)(3)(B)(ii)(III) (applicable dollar amount zero for a married individual filing a separate return). Exceptions are why the content says 'generally'. govinfo text is the 2024 edition; P.L. 119-21 was searched and does not amend these provisions. Added from the §4.4 persona pass (ADV-15, CFP-17). Checker 2026-11-16: §408A(c)(3)(C) applies §219(g)(4), so a married individual who files separately and lives apart from the spouse all year is not treated as married for the Roth limit; another reason the content says 'can change' rather than stating a bar."
+  },
+  {
+   "temp_id": "NEW-le-marriage-3",
+   "loc": "P4:life-events:marriage",
+   "claim": "Medicaid MAGI rules place a spouse living with the applicant in the same household regardless of tax filing; SSI deems the income and resources of an ineligible spouse living in the same household to the applicant",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 CFR §435.603(f)(4); 42 U.S.C. §1382c(f)(1)",
+   "url": "https://www.govinfo.gov/link/uscode/42/1382c?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 42 CFR §435.603(f)(4) ('In the case of a married couple living together, each spouse will be included in the household of the other spouse, regardless of whether they expect to file a joint tax return'); 42 U.S.C. §1382c(f)(1) (income and resources 'shall be deemed to include any income and resources of such spouse'). The content says only that marriage 'can change' these; state Medicaid thresholds were not read. Added from the §4.4 persona pass (ADV-15)."
+  },
+  {
+   "temp_id": "NEW-le-marriage-4",
+   "loc": "P4:life-events:marriage",
+   "claim": "For income-driven Direct Loan repayment (RAP, REPAYE, IBR, PAYE and ICR), a married borrower filing a separate federal return is assessed on the borrower's income only; on a joint return the combined income of borrower and spouse is used",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "34 CFR §685.209(e)(1)(i)-(ii) (eCFR, as in force 2026-11-01)",
+   "url": "https://www.ecfr.gov/current/title-34/section-685.209",
+   "note": "Verified 2026-11-16 at the primary source: 34 CFR §685.209(e)(1)(i)(A) ('a married borrower filing a separate Federal income tax return ... only the borrower's income is used in the calculation') and (e)(1)(i)(B) ('the combined income of the borrower and spouse is used'); (e)(1)(ii) applies the same rule to ICR except joint ICR repayment. FFEL-only IBR borrowers were not separately checked. Added from the §4.4 persona pass (CFP-17)."
+  },
+  {
+   "temp_id": "NEW-le-marriage-5",
+   "loc": "P4:life-events:marriage",
+   "claim": "Spousal consent contained in a prenuptial (antenuptial) agreement does not satisfy the spousal consent requirements of IRC §401(a)(11) and §417",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 CFR §1.401(a)-20, Q&A-28",
+   "url": "https://www.ecfr.gov/current/title-26/section-1.401(a)-20",
+   "note": "Verified 2026-11-16 at the primary source: 26 CFR §1.401(a)-20 A-28: 'An agreement entered into prior to marriage does not satisfy the applicable consent requirements, even if the agreement is executed within the applicable election period.' Added from the §4.4 persona pass (CFP-18)."
+  },
+  {
+   "temp_id": "NEW-le-marriage-6",
+   "loc": "P4:life-events:marriage",
+   "claim": "A creditor may not refuse to grant an individual account to a creditworthy applicant on the basis of marital status",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Regulation B, 12 CFR §1002.7(a) (ECOA, 15 U.S.C. §1691)",
+   "url": "https://www.ecfr.gov/current/title-12/section-1002.7",
+   "note": "Verified 2026-11-16 at the primary source: 12 CFR §1002.7(a): 'A creditor shall not refuse to grant an individual account to a creditworthy applicant on the basis of sex, marital status, or any other prohibited basis.' The accompanying advice (keep an account and some credit in your own name) is a convention, not a legal requirement. Added from the §4.4 persona pass (ADV-16)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [],
+ "unverified": [
+  {
+   "finding": "CFP-18",
+   "assertion": "Marriage alone does not update a will, power of attorney or healthcare proxy.",
+   "why": "How marriage affects an existing will is set by state law and varies by state; no state statute was read today, so the proposed text only says to review the documents and leans on the linked Protection, estate basics section."
+  },
+  {
+   "finding": "ADV-16",
+   "assertion": "Keeping an account and credit in your own name protects a spouse from financial abuse.",
+   "why": "No primary agency page read today states this rationale; the advice is kept, the abuse rationale is not asserted."
+  },
+  {
+   "finding": "ADV-16",
+   "assertion": "Couples who disagree on risk or goals tend to stall on every other step.",
+   "why": "Unsourced generalisation in the current text; softened to 'can stall' as design rationale rather than verified."
+  },
+  {
+   "finding": "ADV-15",
+   "assertion": "Marriage can reduce the EITC for lower-income couples.",
+   "why": "Direction depends on the couple (combined income can lower or raise the credit); the text says only that marriage 'can change' the EITC and that a married couple generally must file jointly to claim it."
+  }
+ ],
+ "review": [
+  {
+   "target": "le:marriage:align",
+   "change": "Body: 'an individual account' -> 'an individual credit account'; plain: 'an account' -> 'a credit account'; props P5 text updated.",
+   "why": "The clause sits right after advice to keep 'at least one account' (which reads as a bank account); Regulation B governs credit only, so the unqualified wording went further than the source.",
+   "source": {
+    "url": "https://www.ecfr.gov/current/title-12/section-1002.7",
+    "quote": "A creditor shall not refuse to grant an individual account to a creditworthy applicant on the basis of sex, marital status, or any other prohibited basis."
+   }
+  },
+  {
+   "target": "le:marriage:filing",
+   "change": "Plain only: spelled out 'Earned Income Tax Credit (EITC)' and replaced 'Marketplace premium credits' with 'help paying for Marketplace health insurance' / 'help with Marketplace premiums'; P5 anchor updated to 'can also change the earned income tax credit'.",
+   "why": "Acronym and term of art were undefined in a 6th-8th grade variant. No numbers or tokens changed; gate re-run passes.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/32?link-type=html",
+    "quote": "In the case of an individual who is married, this section shall apply only if a joint return is filed for the taxable year under section 6013."
+   }
+  },
+  {
+   "target": "le:marriage:enroll",
+   "change": "Plain only: expanded HSA and FSA on first use ('health savings account', 'flexible spending account').",
+   "why": "Undefined acronyms in the plain variant. Anchors unchanged and still present.",
+   "source": {
+    "url": "https://www.irs.gov/publications/p969",
+    "quote": "An employee covered by an HDHP and a health FSA or an HRA that pays or reimburses qualified medical expenses can't generally make contributions to an HSA."
+   }
+  },
+  {
+   "target": "CFP-18",
+   "change": "Removed the unsourced assertion that 'many states give a spouse omitted from a pre-marriage will a share' from the finding reason and the unverified entry; now says only that it is state law and varies.",
+   "why": "A factual statement about state law with no source read today, even in reasoning, breaks the grounding rule.",
+   "source": {
+    "url": "https://www.ecfr.gov/current/title-26/section-1.401(a)-20",
+    "quote": "A-28: No. An agreement entered into prior to marriage does not satisfy the applicable consent requirements, even if the agreement is executed within the applicable election period."
+   }
+  },
+  {
+   "target": "NEW-le-marriage-2",
+   "change": "Note extended with the §408A(c)(3)(C) / §219(g)(4) lived-apart rule.",
+   "why": "The Roth 'zero' amount for separate filers has an exception the row did not mention; content wording ('can change') is unaffected.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+    "quote": "(C) Marital status Section 219(g)(4) shall apply for purposes of this paragraph."
+   }
+  }
+ ]
+}

@@ -1,0 +1,651 @@
+{
+ "group": "le-windfall",
+ "findings": [
+  {
+   "id": "ADV-31",
+   "block": "le:windfall:park",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The core point is already in park: 'if anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility ... so report it and ask before moving the money' (CL535). What was missing is the reviewer's second sentence; added as one clause: 'an ABLE account or a special-needs trust can sometimes keep a person with a disability eligible.' Kept to 'sometimes' and 'a person with a disability' because ABLE eligibility needs disability onset before age 46 (from 1/1/2026) and has an annual contribution cap, and the (d)(4)(A) trust is for a disabled person under 65.",
+   "sources": [
+    {
+     "url": "https://www.ssa.gov/ssi/spotlights/spot-able.html",
+     "quote": "The law makes tax free saving accounts available to cover qualified disability expenses related to transportation, health care, housing, education, and more without affecting their SSI eligibility.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1382b?link-type=html",
+     "quote": "(5) This subsection shall not apply to a trust described in subparagraph (A) or (C) of section 1396p(d)(4) of this title.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1396p?link-type=html",
+     "quote": "(A) A trust containing the assets of an individual under age 65 who is disabled ... if the State will receive all amounts remaining in the trust upon the death of such individual",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:park",
+   "lean": "included"
+  },
+  {
+   "id": "ADV-32",
+   "block": "le:windfall:park",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Both halves stand. Commission: folded into the existing 'pressure from others' sentence as 'so ask anyone advising you how they are paid, for example by commission' (SEC Investor.gov pages on adviser pay and fees). The draft's factual clause 'including salespeople paid by commission' was cut by the checker: no primary source read says commission sellers are the ones applying pressure. The reviewer's 'wants a decision quickly' is already carried by the cooling-off framing. Deposit insurance: the limit is per depositor, per bank, for each ownership category, not simply per bank; written with a new figure token (fdic_standard_max_deposit) instead of a literal.",
+   "sources": [
+    {
+     "url": "https://www.investor.gov/introduction-investing/getting-started/working-investment-professional",
+     "quote": "in all cases, you should always feel free to ask questions about how and how much your adviser is being paid.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance",
+     "quote": "FDIC deposit insurance covers $250,000 per depositor, per FDIC-insured bank, for each account ownership category.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/12/1821?link-type=html",
+     "quote": "the term \"standard maximum deposit insurance amount\" means $250,000, adjusted as provided under subparagraph (F) after March 31, 2010.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.investor.gov/introduction-investing/getting-started/understanding-fees",
+     "quote": "For the investment professional: How do you get paid? By commission? By the amount of assets you manage? By another method?",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:park",
+   "lean": "excluded-not-high",
+   "lean_note": "Deposit-insurance half kept in the lean text because CFP-34 (HIGH) raised the same FDIC point; commission half excluded."
+  },
+  {
+   "id": "ADV-33",
+   "block": "le:windfall:character",
+   "severity": "MED",
+   "verdict": "already-addressed",
+   "reason": "The applied 2026-11-06 fix put this in park, the first step: 'taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside' (CL536). Repeating it in character would duplicate it.",
+   "sources": [],
+   "addressed_in": "le:windfall:park",
+   "lean": "n/a"
+  },
+  {
+   "id": "ADV-34",
+   "block": "le:windfall:sequence",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "(b) accepted with the CFPB's wording: 'a partial payment, or even admitting the debt, may restart that clock' ('may', not 'can'; CFPB also names acknowledgment). (a) needs no words: 'high-interest debt' links to framework 4.1, whose summary defines it ('anything above ~6-7% after-tax'). (c) not added: 'setting aside a small share to enjoy is reasonable' is a tone judgment with no primary source and costs words in a block that is already growing.",
+   "sources": [
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/can-debt-collectors-collect-a-debt-thats-several-years-old-en-1423/",
+     "quote": "Keep in mind that making a partial payment or acknowledging you owe an old debt, even after the statute of limitations expired, may restart the time period.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:sequence",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-35",
+   "block": "le:windfall:lump-sum",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The scope point stands; added 'This choice applies only to money you are investing for the long term, after the debt and emergency-fund steps.' The reviewer's 'at least five years' was dropped: no primary source gives that horizon, and pointing to the framework order says the same thing without a new number.",
+   "sources": [],
+   "addressed_in": "le:windfall:lump-sum",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-36",
+   "block": "le:windfall:gift",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Both effects verified and added in one sentence. SSI: gifts are unearned income to the recipient (42 U.S.C. 1382a(a)(2)(E)), so 'counts as their income and can reduce or end their benefit'. Medicaid look-back: 60 months for transfers on or after Feb. 8, 2006 (42 U.S.C. 1396p(c)(1)(B)(i)), written as 'within five years ... Medicaid long-term care, such as a nursing home', because the penalty also reaches home- and community-based care. The reviewer's 'or Medicaid' on the recipient's side was not added: recipient Medicaid income rules are set per state and were not read (listed under unverified). Checker change: 'counts as their income' now reads 'generally counts as their income' because 1382a(b) excludes some gifts.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1382a?link-type=html",
+     "quote": "(E) support and alimony payments, and (subject to the provisions of subparagraph (D) ...) gifts (cash or otherwise) and inheritances;",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1396p?link-type=html",
+     "quote": "The look-back date ... is a date that is 36 months (or, ... in the case of any other disposal of assets made on or after February 8, 2006, 60 months) before the date specified in clause (ii).",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:gift",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-37",
+   "block": "le:windfall:gift",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Correct: the exclusion is per donee ('gifts ... made to any person by the donor ... the first $10,000 of such gifts to such person', now indexed) and the exemption is per giver. Plain now reads 'per person you give to' and 'for each giver'. The same fix for ar:year-end belongs to the annual-review module and is not drafted here.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2503?link-type=html",
+     "quote": "In the case of gifts (other than gifts of future interests in property) made to any person by the donor during the calendar year, the first $10,000 of such gifts to such person shall not ... be included",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:gift",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-32",
+   "block": "le:windfall:character",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Correct on rollover and transfer (IRC 408(d)(3)(C); Pub. 590-B). 'Taxed in full' was changed to 'counts as a withdrawal and cannot be put back', because an inherited IRA withdrawal is taxable only up to the decedent's taxable balance (basis is excluded, per Pub. 559) and an inherited Roth IRA distribution can be tax-free.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+     "quote": "In the case of an inherited individual retirement account or individual retirement annuity— (I) this paragraph shall not apply to any amount received by an individual from such an account or annuity",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p590b",
+     "quote": "you can't roll over any amounts into or out of the inherited IRA. However, you can make a trustee-to-trustee transfer as long as the IRA ... is set up and maintained in the name of the deceased IRA owner",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p559",
+     "quote": "If a beneficiary receives a lump-sum distribution from a traditional IRA the beneficiary inherited, all or some of it may be taxable. The distribution is taxable in the year received as income in respect of a decedent",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:character",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-33",
+   "block": "le:windfall:character",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted for retirement accounts: IRC 1014(c) excludes income in respect of a decedent from the step-up, and Pub. 559 treats an inherited traditional IRA distribution as IRD. Placed immediately after the step-up sentence, as asked. Annuities and savings bonds were left out: savings-bond treatment depends on whether the decedent reported the interest each year, and annuity IRD rules were not read to a one-line rule (listed under unverified).",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/1014?link-type=html",
+     "quote": "(c) Property representing income in respect of a decedent. This section shall not apply to property which constitutes a right to receive an item of income in respect of a decedent under section 691.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p559",
+     "quote": "If a beneficiary receives a lump-sum distribution from a traditional IRA the beneficiary inherited, all or some of it may be taxable. The distribution is taxable in the year received as income in respect of a decedent",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:character",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-34",
+   "block": "le:windfall:park",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Disclaimer: verified (IRC 2518(b): written, within 9 months, no acceptance; Treas. Reg. 25.2518-2(d)(1): using the property or directing others counts as acceptance), reusing the death-of-spouse wording and CL533. Estimated tax: the reviewer's 'pay estimated tax that same quarter' overstates it, since withholding and safe harbors can make a payment unnecessary; written as 'if too little was withheld, an estimated tax payment can help avoid an underpayment penalty.' FDIC: merged with ADV-32.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2518?link-type=html",
+     "quote": "such writing is received by the transferor ... not later than the date which is 9 months after the later of— (A) the day on which the transfer creating the interest in such person is made",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-26.xml?part=25&section=25.2518-2",
+     "quote": "Acts indicative of acceptance include using the property or the interest in property; accepting dividends, interest, or rents from the property; and directing others to act with respect to the property or interest in property.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+     "quote": "If you don't pay enough tax through withholding and estimated tax payments, you may have to pay a penalty.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance",
+     "quote": "FDIC deposit insurance covers $250,000 per depositor, per FDIC-insured bank, for each account ownership category.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:park",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-35",
+   "block": "le:windfall:sequence",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The SSI/Medicaid half is already in park ('report it and ask before moving the money'). The income-timing half was verified and added: PTC uses household income (MAGI) for the year (IRC 36B(d)(2)); IRMAA uses MAGI from the second preceding year (42 U.S.C. 1395r(i)(4)(B)); FAFSA total income uses the second preceding tax year (20 U.S.C. 1087vv(a)). The sentence names no PTC cliff or percentage, so it holds whether or not the enhanced credits lapsed after 2025. Checker changes: the income sentence is scoped to taxable withdrawals (an inherited Roth or the basis portion is not income), and one sentence was added from HealthCare.gov: anyone taking advance credits should report the higher income or may repay the difference at filing.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/36B?link-type=html",
+     "quote": "\"household income\" means, with respect to any taxpayer, an amount equal to the sum of— (i) the modified adjusted gross income of the taxpayer, plus ...",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1395r?link-type=html",
+     "quote": "the individual's modified adjusted gross income shall be such income determined for the individual's last taxable year beginning in the second calendar year preceding the year involved.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/20/1087vv?link-type=html",
+     "quote": "The term \"total income\" means the amount equal to adjusted gross income for the second preceding tax year plus untaxed income and benefits for the second preceding tax year minus excludable income",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/reporting-changes/",
+     "quote": "If you don't report the change and use the advance premium tax credit ... you'll have to pay the difference back between the amount you used and the amount you actually qualify for when you file your federal tax return.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:sequence",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-36",
+   "block": "le:windfall:sequence",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Corrected the mechanism. The employee's own 401(k) deferrals can only come out of wages through payroll, so the windfall's role is to replace the smaller paychecks: 'Your own 401(k) contributions can come only out of pay, so one route is to raise your deferral and cover the smaller paychecks from the windfall.' Checker change: the draft's added clause 'IRA contributions cannot exceed your earned income' was cut (spousal IRAs are an exception and the statute says compensation, not earned income), and 'a common route' became 'one route' (no source for frequency).",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/retirement-plans/plan-sponsor/401k-plan-overview",
+     "quote": "A traditional 401(k) plan allows eligible employees (i.e., employees eligible to participate in the plan) to make pre-tax elective deferrals through payroll deductions.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:windfall:sequence",
+   "lean": "excluded-not-high"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:windfall:park",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-31",
+    "CFP-34"
+   ],
+   "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others. Deposit insurance covers {{fig:fdic_standard_max_deposit}} per depositor, per bank, for each ownership category, so spread a larger sum across banks or hold Treasury bills. Three things cannot wait for the cooling-off period. If anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility (SSI's resource limit is {{fig:ssi_resource_limit_individual}} for an individual), so report it and ask before moving the money; an ABLE account or a special-needs trust can sometimes keep a person with a disability eligible. Taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside; if too little was withheld, an estimated tax payment can help avoid an underpayment penalty. And a decision to disclaim an inheritance must generally be made in writing within 9 months and before you accept the asset; using it or directing what happens to it can count as accepting.",
+   "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people. Deposit insurance covers {{fig:fdic_standard_max_deposit}} for each depositor at each bank, for each type of account ownership, so split a larger amount across banks or buy Treasury bills. Three things can't wait for that pause. If anyone in your household gets SSI, Medicaid, SNAP or housing help, a lump sum can end that help (SSI's limit on what you can own is {{fig:ssi_resource_limit_individual}} for one person), so report it and ask before you move the money; an ABLE account or a special-needs trust can sometimes keep a person with a disability eligible. Windfalls that are taxable — lottery or gambling wins, back pay, most legal settlements that are not for a physical injury or sickness — count as income for the year, so set the tax money aside; if not enough tax was withheld, paying estimated tax can help you avoid a penalty. And if you inherited the money and might turn it down (a \"disclaimer\"), you generally must do that in writing within 9 months and before you accept it; using the money or telling others what to do with it can count as accepting.",
+   "props": [
+    [
+     "P1",
+     "Planners commonly advise a cooling-off period",
+     "kept",
+     "often suggest waiting a few months"
+    ],
+    [
+     "P2",
+     "Park in insured savings or T-bills",
+     "kept",
+     "treasury bills"
+    ],
+    [
+     "P3",
+     "Purpose is behavioral: rushed purchases and pressure from others",
+     "kept",
+     "pressure from other people"
+    ],
+    [
+     "P4",
+     "Deposit insurance limit per depositor, per bank, per ownership category",
+     "kept",
+     "deposit insurance covers"
+    ],
+    [
+     "P5",
+     "Spread a larger sum across banks or hold T-bills",
+     "kept",
+     "split a larger amount across banks"
+    ],
+    [
+     "P6",
+     "A windfall can end SSI, Medicaid, SNAP or housing help; SSI resource limit for an individual; report and ask",
+     "kept",
+     "report it and ask"
+    ],
+    [
+     "P7",
+     "An ABLE account or special-needs trust can sometimes preserve eligibility for a person with a disability",
+     "kept",
+     "special-needs trust"
+    ],
+    [
+     "P8",
+     "Taxable windfalls (lottery, gambling, back pay, non-physical-injury settlements) are income; set tax aside",
+     "kept",
+     "set the tax money aside"
+    ],
+    [
+     "P9",
+     "If withholding is short, an estimated payment can help avoid an underpayment penalty",
+     "kept",
+     "paying estimated tax"
+    ],
+    [
+     "P10",
+     "A disclaimer must generally be written, within 9 months, before acceptance",
+     "kept",
+     "within 9 months"
+    ],
+    [
+     "P11",
+     "Using the asset or directing what happens to it can count as acceptance",
+     "kept",
+     "can count as accepting"
+    ]
+   ],
+   "claims": [
+    "CL510",
+    "CL535",
+    "CL536",
+    "CL533",
+    "NEW-le-windfall-1",
+    "NEW-le-windfall-3",
+    "NEW-le-windfall-4",
+    "NEW-le-windfall-5"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/5.1",
+     "label": "Full emergency fund (framework 5.1)"
+    }
+   ],
+   "words_before": 109,
+   "words_after": 196,
+   "notes": "Lean = the full proposal's park text minus ADV-32's commission clause (MED, excluded). Kept for ADV-31: the ABLE / special-needs-trust clause. Kept for CFP-34 (all three of its parts): the deposit-insurance sentence (needs new figure fdic_standard_max_deposit; this sentence also carries the FDIC half of ADV-32, which CFP-34 raised too), the estimated-tax clause, and the disclaimer sentence. If the owner wants it shorter still, the estimated-tax clause is the cheapest further cut, then the deposit-insurance sentence (which would drop the new figure and NEW-le-windfall-1). CL533 is reused here; its loc/anchors list only death-of-spouse, so on apply add P4:life-events:windfall / p4:life-events:windfall to that row."
+  },
+  {
+   "id": "le:windfall:character",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-32"
+   ],
+   "body": "Cash, a brokerage account, an inherited IRA and a house are taxed differently. Inherited assets generally get a basis stepped up to value at the date of death, so selling soon after inheriting often produces little gain. Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years, and if the original owner had started required distributions, annual distributions are required during those years too. A non-spouse beneficiary cannot roll an inherited IRA into their own; move it only by direct trustee-to-trustee transfer into an account titled as inherited, because a check made out to you counts as a withdrawal and cannot be put back.",
+   "plain": "Cash, a brokerage account, an inherited IRA and a house are taxed in different ways. Inherited things usually get a new cost basis equal to their value on the day of death (a \"step-up\"), so selling soon after you inherit often creates little taxable gain. Most people who inherit an IRA from someone other than a spouse must empty it within 10 years. If the original owner had already started required withdrawals, you must also take yearly withdrawals during those years. If you inherit an IRA from someone other than a spouse, you can't roll it into your own IRA. Move it only by a direct transfer from one company to the other, into an account labeled as inherited; a check made out to you counts as a withdrawal and can't be put back.",
+   "props": [
+    [
+     "P1",
+     "Different asset types are taxed differently",
+     "kept",
+     "taxed in different ways"
+    ],
+    [
+     "P2",
+     "Inherited assets generally get basis stepped up to date-of-death value",
+     "kept",
+     "step-up"
+    ],
+    [
+     "P3",
+     "So selling soon after inheriting often produces little gain",
+     "kept",
+     "little taxable gain"
+    ],
+    [
+     "P4",
+     "Most non-spouse IRA beneficiaries must empty it within 10 years",
+     "kept",
+     "within 10 years"
+    ],
+    [
+     "P5",
+     "If the owner had begun RMDs, annual distributions are required too",
+     "kept",
+     "yearly withdrawals"
+    ],
+    [
+     "P6",
+     "A non-spouse beneficiary cannot roll an inherited IRA into their own",
+     "kept",
+     "can't roll it into your own ira"
+    ],
+    [
+     "P7",
+     "Move it only by trustee-to-trustee transfer into an inherited-titled account",
+     "kept",
+     "labeled as inherited"
+    ],
+    [
+     "P8",
+     "A check paid to the beneficiary counts as a withdrawal and cannot be put back",
+     "kept",
+     "can't be put back"
+    ]
+   ],
+   "claims": [
+    "CL511",
+    "CL363",
+    "NEW-le-windfall-7"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.2",
+     "label": "Withdrawal sequencing (framework 10.2)"
+    }
+   ],
+   "words_before": 67,
+   "words_after": 107,
+   "notes": "Adds only the CFP-32 sentence (rollover ban, trustee-to-trustee transfer, check cannot be put back), verbatim from the full proposal, including its corrected wording 'counts as a withdrawal' instead of the reviewer's 'taxed in full'. CFP-33 (MED, no step-up for pre-tax retirement accounts) is left out: the final file accepts it as a reading risk from sentence order, not as a statement that the current text is wrong. It is the strongest MED candidate to add back (one sentence, NEW-le-windfall-6), since a reader could still take the step-up sentence to cover the inherited IRA."
+  },
+  {
+   "id": "le:windfall:sequence",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "A windfall does not need a new plan; it accelerates the existing one. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged space before taxable investing.",
+   "plain": "A windfall doesn't need a new plan — it speeds up the one you have. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged accounts before investing in a regular taxable account.",
+   "props": [
+    [
+     "P1",
+     "A windfall accelerates the existing plan rather than needing a new one",
+     "kept",
+     "speeds up the one you have"
+    ],
+    [
+     "P2",
+     "Order: high-interest debt, emergency fund, tax-advantaged space, then taxable",
+     "kept",
+     "fill tax-advantaged accounts"
+    ]
+   ],
+   "claims": [],
+   "links": [
+    {
+     "to": "full-chart/w2/4.1",
+     "label": "High-interest debt (framework 4.1)"
+    },
+    {
+     "to": "full-chart/w2/6.2",
+     "label": "Max your IRA (framework 6.2)"
+    },
+    {
+     "to": "full-chart/w2/9.2",
+     "label": "Taxable brokerage (framework 9.2)"
+    }
+   ],
+   "words_before": 28,
+   "words_after": 28,
+   "notes": "No HIGH finding. ADV-34, CFP-35 (MED) and CFP-36 (LOW) left out; none corrects an error in the current text."
+  },
+  {
+   "id": "le:windfall:lump-sum",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Vanguard's historical study found that investing a lump sum immediately beat spreading it out over time in about two-thirds of rolling periods, because markets rise more often than they fall. Spreading it out buys protection against regret if the market drops soon after. Both are defensible; pick the one you will stick with.",
+   "plain": "Vanguard looked at past market history and found that investing a lump sum right away beat spreading it out over time in about two-thirds of the periods it studied, because markets go up more often than they go down. Spreading it out protects you from regret if the market falls right after you invest. Both are reasonable; choose the one you'll stick with.",
+   "props": [
+    [
+     "P1",
+     "Vanguard's historical study: lump sum beat DCA in about two-thirds of rolling periods",
+     "kept",
+     "about two-thirds"
+    ],
+    [
+     "P2",
+     "because markets rise more often than fall (mechanism)",
+     "kept",
+     "go up more often"
+    ],
+    [
+     "P3",
+     "DCA buys protection against regret after an early drop",
+     "kept",
+     "protects you from regret"
+    ],
+    [
+     "P4",
+     "Both defensible; pick the one you will stick with",
+     "kept",
+     "stick with"
+    ]
+   ],
+   "claims": [
+    "CL512"
+   ],
+   "links": [
+    {
+     "to": "math/1",
+     "label": "The math · compound interest"
+    }
+   ],
+   "words_before": 53,
+   "words_after": 53,
+   "notes": "No HIGH finding. ADV-35 (MED, scope sentence) left out; it adds a condition, it does not correct the current text."
+  },
+  {
+   "id": "le:windfall:gift",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Gifts above the annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) require a gift-tax return but rarely any tax, because they count against the lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+   "plain": "If you give someone more than the yearly exclusion ({{fig:gift_annual_exclusion}} per person for 2026), you have to file a gift-tax return, but you rarely owe tax, because it counts against your lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+   "props": [
+    [
+     "P1",
+     "Gifts above the annual exclusion require a gift-tax return",
+     "kept",
+     "file a gift-tax return"
+    ],
+    [
+     "P2",
+     "Rarely any tax, because they count against the lifetime exemption",
+     "kept",
+     "lifetime exemption"
+    ]
+   ],
+   "claims": [
+    "CL513"
+   ],
+   "links": [
+    {
+     "to": "advanced-strategies/2",
+     "label": "Advanced · family wealth"
+    }
+   ],
+   "words_before": 30,
+   "words_after": 30,
+   "notes": "No HIGH finding. ADV-36 (MED) and ADV-37 (LOW, plain 'per person' wording) left out. ADV-37 is a plain-variant precision fix on a LOW finding; the canonical body already says 'per recipient'."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-windfall-1",
+   "loc": "P4:life-events:windfall",
+   "claim": "FDIC deposit insurance covers the standard maximum deposit insurance amount per depositor, per insured bank, for each account ownership category",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "12 U.S.C. §1821(a)(1)(B), (E); FDIC 'Understanding Deposit Insurance'",
+   "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance",
+   "note": "Verified 2026-11-16 at the primary source: 12 U.S.C. §1821(a)(1)(E) ('standard maximum deposit insurance amount' means $250,000, adjustable under (F)); FDIC: 'covers $250,000 per depositor, per FDIC-insured bank, for each account ownership category.' Added from the §4.4 persona pass (ADV-32, CFP-34)."
+  },
+  {
+   "temp_id": "NEW-le-windfall-3",
+   "loc": "P4:life-events:windfall",
+   "claim": "Funds in an ABLE account (for eligible individuals with a disability) and trusts described in 42 U.S.C. §1396p(d)(4)(A) or (C) can preserve SSI and Medicaid eligibility",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "SSA 'Spotlight on ABLE Accounts' (2026 ed.); 26 U.S.C. §529A(e); 42 U.S.C. §1382b(e)(5); 42 U.S.C. §1396p(d)(4)(A)",
+   "url": "https://www.ssa.gov/ssi/spotlights/spot-able.html",
+   "note": "Verified 2026-11-16 at the primary source: SSA ABLE spotlight (2026 edition): ABLE accounts cover qualified disability expenses 'without affecting their SSI eligibility'; onset before age 46 from 1/1/2026 per the SSA spotlight (the govinfo text of 26 U.S.C. §529A(e) read today still shows age 26, so the SSA page is the source for the age); 42 U.S.C. §1382b(e)(5) exempts (d)(4)(A)/(C) trusts from the SSI trust rules; §1396p(d)(4)(A) (disabled individual under 65, Medicaid payback). Stated as 'can sometimes'. Added from the §4.4 persona pass (ADV-31)."
+  },
+  {
+   "temp_id": "NEW-le-windfall-4",
+   "loc": "P4:life-events:windfall",
+   "claim": "Taxpayers who do not pay enough tax through withholding and estimated tax payments may owe an underpayment penalty",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §6654; IRS 'Estimated taxes'",
+   "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+   "note": "Verified 2026-11-16 at the primary source: IRS Estimated taxes: 'If you don't pay enough tax through withholding and estimated tax payments, you may have to pay a penalty.' Safe harbors (IRS FAQ: 90% current / 100% or 110% prior year) mean a payment is not always required; text says 'can help avoid'. Added from the §4.4 persona pass (CFP-34)."
+  },
+  {
+   "temp_id": "NEW-le-windfall-5",
+   "loc": "P4:life-events:windfall",
+   "claim": "For a qualified disclaimer, acceptance of the interest is shown by an affirmative act consistent with ownership, including using the property or directing others to act with respect to it",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Treas. Reg. §25.2518-2(d)(1); IRC §2518(b)(3)",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-26.xml?part=25&section=25.2518-2",
+   "note": "Verified 2026-11-16 at the primary source: 26 CFR 25.2518-2(d)(1) (eCFR 2026-11-01): 'Acts indicative of acceptance include using the property ...; accepting dividends, interest, or rents ...; and directing others to act with respect to the property.' Companion to CL533 (9-month written disclaimer, read again today at 26 U.S.C. §2518(b)). Added from the §4.4 persona pass (CFP-34)."
+  },
+  {
+   "temp_id": "NEW-le-windfall-7",
+   "loc": "P4:life-events:windfall",
+   "claim": "A non-spouse beneficiary cannot roll over amounts into or out of an inherited IRA; assets can move only by trustee-to-trustee transfer to an IRA maintained in the decedent's name for the beneficiary",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §408(d)(3)(C); IRS Publication 590-B",
+   "url": "https://www.irs.gov/publications/p590b",
+   "note": "Verified 2026-11-16 at the primary source: IRC §408(d)(3)(C)(i) (rollover rule does not apply to an inherited IRA); Pub. 590-B: 'you can't roll over any amounts into or out of the inherited IRA. However, you can make a trustee-to-trustee transfer as long as the IRA ... is set up and maintained in the name of the deceased IRA owner for the benefit of you as beneficiary.' Added from the §4.4 persona pass (CFP-32)."
+  }
+ ],
+ "new_figures": [
+  {
+   "key": "fdic_standard_max_deposit",
+   "value": 250000,
+   "display": "$250,000",
+   "taxYear": 2026,
+   "source": "12 U.S.C. §1821(a)(1)(E) (standard maximum deposit insurance amount $250,000, adjustable under (F)); FDIC 'Understanding Deposit Insurance' (per depositor, per insured bank, per ownership category)",
+   "verified": "2026-11-16",
+   "expires": "2026-12-31"
+  }
+ ],
+ "owner_decisions": [],
+ "unverified": [
+  {
+   "finding": "ADV-36",
+   "assertion": "A gift can cost a recipient their Medicaid.",
+   "why": "Recipient-side Medicaid income and asset rules vary by state and eligibility group; no primary source was read that supports a general sentence. Only the SSI effect (42 U.S.C. 1382a(a)(2)(E)) went into the text."
+  },
+  {
+   "finding": "CFP-33",
+   "assertion": "Annuity gains and savings-bond interest get no step-up and are taxed as income to the heir.",
+   "why": "Pub. 559 makes savings-bond treatment depend on whether the decedent reported the interest each year; the annuity IRD rule was not read to a one-line rule. Left out of the text."
+  },
+  {
+   "finding": "CFP-34",
+   "assertion": "Taxable windfalls need estimated tax payments that same quarter.",
+   "why": "IRS safe harbors (90% of current-year or 100%/110% of prior-year tax through withholding and payments) can make a payment unnecessary. Text says an estimated payment 'can avoid' a penalty."
+  },
+  {
+   "finding": "ADV-35",
+   "assertion": "Lump-sum investing applies only to money not needed for at least five years.",
+   "why": "No primary source gives a five-year horizon. The added sentence points to the framework order instead."
+  },
+  {
+   "finding": "ADV-34",
+   "assertion": "Setting aside a small share of a windfall to enjoy is reasonable.",
+   "why": "A tone judgment with no primary source. Not added."
+  },
+  {
+   "finding": "CFP-35",
+   "assertion": "After 2025 a windfall can cost the whole Marketplace credit (400% FPL cliff) and excess advance credits must be repaid without a cap (P.L. 119-21).",
+   "why": "Not a reviewer statement but the obvious follow-up. The govinfo 26 U.S.C. 36B text read 2026-11-16 does not yet show P.L. 119-21 amendments and still prints the repayment limitation table; no current primary text was read, so no cliff or cap is stated."
+  }
+ ]
+}

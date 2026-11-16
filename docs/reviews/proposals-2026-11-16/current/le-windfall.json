@@ -1,0 +1,293 @@
+{
+ "group": "le-windfall",
+ "findings": [
+  {
+   "id": "ADV-31",
+   "head": "le:windfall:park | HIGH | omission: means-tested benefits",
+   "text": "Why: a windfall can immediately end eligibility for SSI or Medicaid, and SSI's resource limit is very low. Failing to report it can lead to repayment demands. For lower-income readers this is the most consequential missing fact in the whole module.\nFix: \"If you or your household get SSI, Medicaid, SNAP or housing help, report the money and ask before you spend or move it. Tools such as ABLE accounts or special-needs trusts can sometimes preserve eligibility.\"",
+   "block": "le:windfall:park",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-32",
+   "head": "le:windfall:park | MED | \"Planners commonly advise a cooling-off period...\"",
+   "text": "Why: the people most eager to \"help\" a new windfall are often commission sellers of annuities, whole life and indexed products. Also, \"insured savings\" is only insured up to the per-bank limit.\nFix: \"Be wary of anyone who wants a decision quickly or is paid by commission; ask how they are paid. Deposit insurance has a per-bank limit, so a large sum may need to be spread across banks or held in Treasury bills.\"",
+   "block": "le:windfall:park",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-33",
+   "head": "le:windfall:character | MED | \"Cash, a brokerage account, an inherited IRA and a house are taxed differently.\"",
+   "text": "Why: the playbook covers windfalls generally, but the tax step covers only inheritances. Lottery winnings, many legal settlements and back pay are taxable income, and too little is often withheld. The reader can be hit with a bill the next April.\nFix: \"Non-inherited windfalls (lottery or gambling wins, back pay, many legal settlements) are usually taxable income. Set aside enough for the tax before you spend.\"",
+   "block": "le:windfall:character",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-34",
+   "head": "le:windfall:sequence | MED | \"Pay off high-interest debt, finish the emergency fund...\"",
+   "text": "Why: (a) \"high-interest\" is undefined. (b) Paying part of an old debt in collections can restart the statute of limitations in some states. (c) There is no permission to spend a little, so the advice reads as austere.\nFix: \"Before paying old collection accounts, check whether the debt is past your state's time limit; a partial payment can restart it. Setting aside a small share to enjoy is reasonable.\"",
+   "block": "le:windfall:sequence",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-35",
+   "head": "le:windfall:lump-sum | MED | \"investing a lump sum immediately beat spreading it out...\"",
+   "text": "Why: this only applies to money with a long horizon, after the emergency fund and debts are handled. A reader might invest money they will need soon.\nFix: open with \"This applies only to money you won't need for at least five years.\"",
+   "block": "le:windfall:lump-sum",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-36",
+   "head": "le:windfall:gift | MED | omission: how gifts affect benefits",
+   "text": "Why: gifts can disqualify relatives who get SSI or Medicaid. Gifts the giver makes within five years before applying for long-term-care Medicaid can delay the giver's own eligibility.\nFix: \"If the person you're giving to gets SSI or Medicaid, a gift can cost them benefits. Gifts you make within five years before you need nursing-home Medicaid can delay your own coverage.\"",
+   "block": "le:windfall:gift",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-37",
+   "head": "le:windfall:gift (plain) and ar:year-end (plain) | LOW | \"{{fig:gift_annual_exclusion}} per person\" ... \"{{fig:estate_exemption_individual}} per person\"",
+   "text": "Why: the canonical text says \"per recipient\" for the exclusion. The plain version says \"per person\" for both numbers, even though one is per recipient and the other is per giver.\nFix: plain should read \"per person you give to\" for the exclusion and \"for each giver\" for the lifetime exemption.",
+   "block": "le:windfall:gift",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-32",
+   "head": "le:windfall:character — HIGH",
+   "text": "Phrase: \"Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years\"\nWhy: The step leaves out the irreversible mistake. A non-spouse beneficiary cannot roll an inherited IRA into their own IRA. It has to move by trustee-to-trustee transfer into an account titled as an inherited IRA. A check paid to the beneficiary is fully taxable and cannot be put back.\nAddition: \"Move an inherited IRA only by direct transfer into an account titled as inherited; a check made out to you cannot be redeposited and is taxed in full.\"",
+   "block": "le:windfall:character",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-33",
+   "head": "le:windfall:character — MED",
+   "text": "Phrase: \"Inherited assets generally get a basis stepped up...\"\nWhy: Placed right before the IRA sentence, this reads as if IRAs get a step-up too. Traditional IRAs, 401(k)s, annuity gains and savings-bond interest are income in respect of a decedent and get no step-up.\nRewrite: \"...but retirement accounts, annuities and savings bonds do not get a step-up; withdrawals from them are taxed as income.\"",
+   "block": "le:windfall:character",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-34",
+   "head": "le:windfall:park — HIGH (interaction)",
+   "text": "Phrase: \"Park the money somewhere safe and boring before deciding anything\"\nWhy: Disclaiming an inheritance is a decision that has to be made inside the cooling-off period. A qualified disclaimer must generally be made within 9 months and before you accept the asset; moving inherited money into your own account can count as acceptance. Taxable windfalls (lottery, bonus, settlement, business sale) also need estimated tax payments that same quarter. And a large sum can exceed FDIC coverage at one bank.\nAddition: \"Before moving inherited assets, ask whether disclaiming them (generally within 9 months, before you accept them) would serve the family better; set aside and pay estimated tax on a taxable windfall; and keep each bank deposit within FDIC limits.\"",
+   "block": "le:windfall:park",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-35",
+   "head": "le:windfall:sequence — MED (benefits cliffs)",
+   "text": "Missing: inherited IRA withdrawals and taxable windfalls raise income. That can cost Marketplace credits, raise Medicare IRMAA two years later and lower financial aid. A windfall can also disqualify a recipient of SSI or Medicaid outright.\nAddition: \"Time taxable withdrawals with the income-based benefits they affect: Marketplace credits, Medicare surcharges two years later and college aid. Anyone on SSI or Medicaid should get advice before accepting.\"",
+   "block": "le:windfall:sequence",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-36",
+   "head": "le:windfall:sequence — LOW",
+   "text": "Phrase: \"then fill tax-advantaged space\"\nWhy: Most tax-advantaged space needs earned income. The practical route is raising payroll deferrals and living on the windfall.\nAddition: \"Since contributions come from pay, a common route is raising your 401(k) deferral and spending from the windfall.\"",
+   "block": "le:windfall:sequence",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "le:windfall:park": {
+   "title": "Park the money somewhere safe and boring before deciding anything",
+   "when": "First 90 days",
+   "body": "Planners commonly advise a cooling-off period — a few months in an insured savings account or Treasury bills — before large decisions. Its purpose is behavioral: sudden money invites rushed purchases and pressure from others. Two things cannot wait for the cooling-off period: if anyone in the household gets SSI, Medicaid, SNAP or housing help, a lump sum can end eligibility (SSI's resource limit is {{fig:ssi_resource_limit_individual}} for an individual), so report it and ask before moving the money; and taxable windfalls — lottery or gambling wins, back pay, most legal settlements other than for physical injury or sickness — are income for the year, so set the tax aside.",
+   "links": [
+    {
+     "to": "full-chart/w2/5.1",
+     "label": "Full emergency fund (framework 5.1)"
+    }
+   ],
+   "claims": [
+    "CL510",
+    "CL535",
+    "CL536"
+   ],
+   "plain": "Financial planners often suggest waiting a few months — with the money in an insured savings account or Treasury bills — before making big decisions. The point is about behavior: sudden money invites rushed purchases and pressure from other people. Two things can't wait for that pause: if anyone in your household gets SSI, Medicaid, SNAP or housing help, a lump sum can end that help (SSI's limit on what you can own is {{fig:ssi_resource_limit_individual}} for one person), so report it and ask before you move the money; and windfalls that are taxable — lottery or gambling wins, back pay, most legal settlements that are not for a physical injury or sickness — count as income for the year, so set the tax money aside.",
+   "props": [
+    [
+     "P1",
+     "Planners commonly advise a cooling-off period",
+     "kept",
+     "often suggest waiting a few months"
+    ],
+    [
+     "P2",
+     "Park in insured savings or T-bills",
+     "kept",
+     "treasury bills"
+    ],
+    [
+     "P3",
+     "Purpose is behavioral: rushed purchases and pressure from others",
+     "kept",
+     "pressure from other people"
+    ],
+    [
+     "P4",
+     "A windfall can end SSI, Medicaid, SNAP or housing help; SSI resource limit for an individual",
+     "kept",
+     "report it and ask"
+    ],
+    [
+     "P5",
+     "Taxable windfalls (lottery, gambling, back pay, non-physical-injury settlements) are income; set tax aside",
+     "kept",
+     "set the tax money aside"
+    ]
+   ]
+  },
+  "le:windfall:character": {
+   "title": "Identify what kind of asset you received",
+   "when": "Before spending or investing",
+   "body": "Cash, a brokerage account, an inherited IRA and a house are taxed differently. Inherited assets generally get a basis stepped up to value at the date of death, so selling soon after inheriting often produces little gain. Most non-spouse beneficiaries of an inherited IRA must empty it within 10 years, and if the original owner had started required distributions, annual distributions are required during those years too.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.2",
+     "label": "Withdrawal sequencing (framework 10.2)"
+    }
+   ],
+   "claims": [
+    "CL511",
+    "CL363"
+   ],
+   "plain": "Cash, a brokerage account, an inherited IRA and a house are taxed in different ways. Inherited things usually get a new cost basis equal to their value on the day of death (a \"step-up\"), so selling soon after you inherit often creates little taxable gain. Most people who inherit an IRA from someone other than a spouse must empty it within 10 years. If the original owner had already started required withdrawals, you must also take yearly withdrawals during those years.",
+   "props": [
+    [
+     "P1",
+     "Different asset types are taxed differently",
+     "kept",
+     "taxed in different ways"
+    ],
+    [
+     "P2",
+     "Inherited assets generally get basis stepped up to date-of-death value",
+     "kept",
+     "step-up"
+    ],
+    [
+     "P3",
+     "So selling soon after inheriting often produces little gain",
+     "kept",
+     "little taxable gain"
+    ],
+    [
+     "P4",
+     "Most non-spouse IRA beneficiaries must empty it within 10 years",
+     "kept",
+     "within 10 years"
+    ],
+    [
+     "P5",
+     "If the owner had begun RMDs, annual distributions are required too",
+     "kept",
+     "yearly withdrawals"
+    ]
+   ]
+  },
+  "le:windfall:sequence": {
+   "title": "Run the money through the framework's existing order",
+   "when": "After the cooling-off period",
+   "body": "A windfall does not need a new plan; it accelerates the existing one. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged space before taxable investing.",
+   "links": [
+    {
+     "to": "full-chart/w2/4.1",
+     "label": "High-interest debt (framework 4.1)"
+    },
+    {
+     "to": "full-chart/w2/6.2",
+     "label": "Max your IRA (framework 6.2)"
+    },
+    {
+     "to": "full-chart/w2/9.2",
+     "label": "Taxable brokerage (framework 9.2)"
+    }
+   ],
+   "claims": [],
+   "plain": "A windfall doesn't need a new plan — it speeds up the one you have. Pay off high-interest debt, finish the emergency fund, then fill tax-advantaged accounts before investing in a regular taxable account.",
+   "props": [
+    [
+     "P1",
+     "A windfall accelerates the existing plan rather than needing a new one",
+     "kept",
+     "speeds up the one you have"
+    ],
+    [
+     "P2",
+     "Order: high-interest debt, emergency fund, tax-advantaged space, then taxable",
+     "kept",
+     "fill tax-advantaged accounts"
+    ]
+   ]
+  },
+  "le:windfall:lump-sum": {
+   "title": "Lump sum or dollar-cost averaging — know the trade-off",
+   "when": "When investing",
+   "body": "Vanguard's historical study found that investing a lump sum immediately beat spreading it out over time in about two-thirds of rolling periods, because markets rise more often than they fall. Spreading it out buys protection against regret if the market drops soon after. Both are defensible; pick the one you will stick with.",
+   "links": [
+    {
+     "to": "math/1",
+     "label": "The math · compound interest"
+    }
+   ],
+   "claims": [
+    "CL512"
+   ],
+   "plain": "Vanguard looked at past market history and found that investing a lump sum right away beat spreading it out over time in about two-thirds of the periods it studied, because markets go up more often than they go down. Spreading it out protects you from regret if the market falls right after you invest. Both are reasonable; choose the one you'll stick with.",
+   "props": [
+    [
+     "P1",
+     "Vanguard's historical study: lump sum beat DCA in about two-thirds of rolling periods",
+     "kept",
+     "about two-thirds"
+    ],
+    [
+     "P2",
+     "because markets rise more often than fall (mechanism)",
+     "kept",
+     "go up more often"
+    ],
+    [
+     "P3",
+     "DCA buys protection against regret after an early drop",
+     "kept",
+     "protects you from regret"
+    ],
+    [
+     "P4",
+     "Both defensible; pick the one you will stick with",
+     "kept",
+     "stick with"
+    ]
+   ]
+  },
+  "le:windfall:gift": {
+   "title": "Know the gift-tax reporting line before giving to family",
+   "when": "If sharing it",
+   "body": "Gifts above the annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) require a gift-tax return but rarely any tax, because they count against the lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+   "links": [
+    {
+     "to": "advanced-strategies/2",
+     "label": "Advanced · family wealth"
+    }
+   ],
+   "claims": [
+    "CL513"
+   ],
+   "plain": "If you give someone more than the yearly exclusion ({{fig:gift_annual_exclusion}} per person for 2026), you have to file a gift-tax return, but you rarely owe tax, because it counts against your lifetime exemption ({{fig:estate_exemption_individual}} per person for 2026).",
+   "props": [
+    [
+     "P1",
+     "Gifts above the annual exclusion require a gift-tax return",
+     "kept",
+     "file a gift-tax return"
+    ],
+    [
+     "P2",
+     "Rarely any tax, because they count against the lifetime exemption",
+     "kept",
+     "lifetime exemption"
+    ]
+   ]
+  }
+ }
+}

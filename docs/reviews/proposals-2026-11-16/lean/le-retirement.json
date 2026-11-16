@@ -1,0 +1,954 @@
+{
+ "group": "le-retirement",
+ "findings": [
+  {
+   "id": "ADV-38",
+   "block": "le:retirement:medicare",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "The current medicare block already says it: \"COBRA or retiree coverage does not count: only coverage from your own or your spouse's current employment lets you delay Part B without it\" (cited to CL532). The proposed text keeps that sentence and adds Marketplace coverage to it.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1395p?link-type=html",
+     "quote": "is enrolled in a group health plan described in section 1395y(b)(1)(A)(v) of this title by reason of the individual's (or the individual's spouse's) current employment status",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:medicare",
+   "lean": "n/a"
+  },
+  {
+   "id": "ADV-39",
+   "block": "le:retirement:medicare",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Medicare Savings Programs and Extra Help are accepted. 'Switch at 65' is changed. HealthCare.gov ties the end of Marketplace savings to having Part A, not to turning 65, and warns that the Marketplace plan does not end automatically. Marketplace coverage also does not let you delay Part B: the special enrollment period needs group coverage through current employment. So 'Marketplace' is added to the existing COBRA/retiree clause. Checker: 'so cancel it' became 'so end it when Medicare starts', to avoid a coverage gap.",
+   "sources": [
+    {
+     "url": "https://www.medicare.gov/basics/costs/help/medicare-savings-programs",
+     "quote": "Get help from your state paying your Medicare Part A (Hospital Insurance) and Part B (Medical Insurance) premiums through a Medicare Savings Program.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/basics/costs/help/drug-costs",
+     "quote": "\"Extra Help\" is a Medicare program to help people with limited income and resources pay Medicare drug coverage (Part D) premiums, deductibles, coinsurance, and other costs.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/medicare/medicare-and-the-marketplace/",
+     "quote": "Once you have Medicare Part A (Hospital Insurance) or Part C (Medicare Advantage), you won’t qualify for any savings to help lower your costs in a Marketplace plan.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/medicare/medicare-and-the-marketplace/",
+     "quote": "Notice: Marketplace coverage doesn’t end automatically when Medicare starts. Update your Marketplace application to end Marketplace coverage for those starting Medicare.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/medicare/medicare-and-the-marketplace/",
+     "quote": "Marketplace coverage doesn’t lower your Medicare out-of-pocket costs and isn’t used in place of Medicare Part B (Medical Insurance).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1395p?link-type=html",
+     "quote": "is enrolled in a group health plan described in section 1395y(b)(1)(A)(v) of this title by reason of the individual's (or the individual's spouse's) current employment status",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:medicare",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-40",
+   "block": "le:retirement:social-security",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted, merged with CFP-43. The reviewer's 'don't expect a long retirement' is softened to 'your health suggests a shorter retirement', in line with SSA's own framing that there is no best age and that life expectancy drives the choice. The earnings-test sentence adds SSA's recalculation at full retirement age, so withheld benefits are not read as lost. Two new claim rows give the block its first citations.",
+   "sources": [
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/otherthings.html",
+     "quote": "There is no \"best age\" for everyone. Ultimately, it is your choice. You should make an informed decision about when to apply for benefits based on your personal situation.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/otherthings.html",
+     "quote": "Your life expectancy affects your retirement planning decisions. Knowing this helps you determine whether you should start receiving your benefits at age 62 or wait until age 70 to receive a higher payment.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/otherthings.html",
+     "quote": "Before your full retirement age, your benefit will be smaller, but you will receive it for a longer period. At your full retirement age or later, you will receive a larger monthly benefit for a shorter period. The benefit amount you first receive sets the base",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/delayret.html",
+     "quote": "Social Security retirement benefits are increased by a certain percentage for each month you delay starting your benefits beyond full retirement age. The benefit increase stops when you reach age 70.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+     "quote": "If such deceased individual was (or upon application would have been) entitled to an old-age insurance benefit which was increased (or subject to being increased) on account of delayed retirement under the provisions of subsection (w)",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
+     "quote": "If you are younger than full retirement age and earn more than the yearly earnings limit, we may reduce your benefit amount.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
+     "quote": "We will recalculate your benefit amount to give you credit for the months we reduced or withheld benefits due to your excess earnings.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/403?link-type=html",
+     "quote": "Deductions, in such amounts and at such time or times as the Commissioner of Social Security shall determine, shall be made from any payment or payments under this subchapter to which an individual is entitled",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:social-security",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-41",
+   "block": "le:retirement:withdrawals",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "'Sets' becomes 'shapes', which matches the plain text already. 'If Social Security is your main income, this step matters less' is added as a scope note. It is a convention with nothing to cite and makes no factual claim.",
+   "sources": [],
+   "addressed_in": "le:retirement:withdrawals",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-42",
+   "block": "le:retirement:rmd",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted, with the vague 'later for people born in 1960 or after' made specific from the statute: 75 for anyone who attains 74 after 2032, which is everyone born in 1960 or later. The Roth point is verified and widened to designated Roth accounts in workplace plans, per the IRS FAQ.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+     "quote": "(I) In the case of an individual who attains age 72 after December 31, 2022, and age 73 before January 1, 2033, the applicable age is 73. (II) In the case of an individual who attains age 74 after December 31, 2032, the applicable age is 75.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+     "quote": "Withdrawals from Roth IRAs and Designated Roth accounts (401(k) or 403(b)) are not required until after the death of the account owner.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+     "quote": "Notwithstanding subsections (a)(6) and (b)(3) of section 408 (relating to required distributions), the following provisions shall not apply to any Roth IRA: (A) Section 401(a)(9)(A).",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:rmd",
+   "lean": "excluded-not-high",
+   "lean_note": "Its age-75 point is covered by the CFP-41 sentence; its Roth sentence is left out."
+  },
+  {
+   "id": "ADV-43",
+   "block": "le:retirement:ltc",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Accepted in substance. Medicare and Medigap do not pay for long-term care (Medicare.gov). Medicaid pays for custodial care for people who meet state income and asset limits and a separate care-need determination (ACL/HHS). More people get care at home than in facilities, and unpaid-only care is the most common kind (ACL). Premiums can rise after purchase (ACL). Not used: 'Medicaid pays for most long-term care' and 'family often provides much of it', neither read at a primary source; the text says 'much of it is unpaid' instead. The 70% figure stays (CL066; ACL says 'almost a 70% chance').",
+   "sources": [
+    {
+     "url": "https://www.medicare.gov/coverage/long-term-care",
+     "quote": "Since most long-term care is non-medical, Medicare and most health insurance, including Medicare Supplement Insurance (Medigap), don’t pay for long-term care services, including care in a nursing home or in the community.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/medicare-medicaid-and-more/medicaid",
+     "quote": "Unlike Medicare, Medicaid does pay for custodial care in nursing homes and at home.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/medicare-medicaid-and-more/medicaid",
+     "quote": "To be eligible for Medicaid you must meet certain requirements, including having income and assets that do not exceed the levels used by your state.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/basic-needs/how-much-care-will-you-need",
+     "quote": "The table below shows that, overall, more people use long-term care services at home (and for longer) than in facilities.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/basic-needs/how-much-care-will-you-need",
+     "quote": "Unpaid care only | 1 year | 59",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/costs-and-who-pays/what-is-long-term-care-insurance/long-term-care-insurance-costs",
+     "quote": "On occasion, if the assumptions used to price the policy prove wrong, the insurance company can increase your premiums beyond the pre-set amount.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/basic-needs/how-much-care-will-you-need",
+     "quote": "Someone turning age 65 today has almost a 70% chance of needing some type of long-term care services and supports in their remaining years",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acl.gov/ltc/medicare-medicaid-and-more/medicaid",
+     "quote": "Once your state determines that you are eligible for Medicaid, the state will make an additional determination of whether you qualify for long-term care services.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:ltc",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-37",
+   "block": "le:retirement:medicare",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The COBRA/retiree half is already in the block (see ADV-38). The HSA half is accepted and verified: premium-free Part A is retroactive up to six months, but not before the month you turn 65, and the HSA limit is zero from the first month of Medicare entitlement. The reviewer's wording is changed to 'apply for Medicare or Social Security', because applying for Social Security also starts Part A. Checker: the body sentence is now scoped to people who keep contributing after 65, because CMS says retroactive Part A starts no earlier than the first month of eligibility.",
+   "sources": [
+    {
+     "url": "https://www.medicare.gov/publications/11036-enrolling-part-a-part-b.pdf",
+     "quote": "Because your enrollment date for Medicare (i.e., when your coverage starts will generally be 6 months before your application date, you must stop contributing to your HSA 6 months before applying for Medicare.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.cms.gov/outreach-and-education/find-your-provider-type/employers-and-unions/fs4-medicare-for-people-over-65-nearing-retirment.pdf",
+     "quote": "If you are eligible for premium-free Part A, your coverage starts retroactively 6 months back, so it’s important to stop contributing to an HSA 6 months before applying for Medicare or Social Security benefits.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+     "quote": "The limitation under this subsection for any month with respect to an individual shall be zero for the first month such individual is entitled to benefits under title XVIII of the Social Security Act and for each month thereafter.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/publications/11036-enrolling-part-a-part-b.pdf",
+     "quote": "Premium-free Part A coverage begins 6 months back from the date you apply for Medicare (or Social Security/RRB benefits), but no earlier than the first month you were eligible for Medicare.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:medicare",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-38",
+   "block": "le:retirement:medicare",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Both points accepted. 'The only time insurers cannot turn you down in most states' is changed: federal law has other guaranteed-issue rights (42 U.S.C. 1395ss(s)(3)) and Medicare.gov says some states add open-enrollment rights. The text says insurers are 'generally allowed' to refuse or charge more afterward, 'apart from certain protected cases and any extra state rights' (checker: the draft named only state rights). The IRMAA point is verified: stopping or cutting work is a life-changing event (20 CFR 418.1205(d)) and SSA takes the request on Form SSA-44. The form number is left out of the body.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1395ss?link-type=html",
+     "quote": "may not deny or condition the issuance or effectiveness of a medicare supplemental policy, or discriminate in the pricing of the policy, because of health status ... during the 6 month period beginning with the first month as of the first day on which the individual is 65 years of age or older and is enrolled for benefits under part B",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy",
+     "quote": "Outside of your Medigap Open Enrollment Period: You may have to pay more for a policy. Fewer policy options may be available to you. The insurance company is allowed to deny you a policy if you don’t meet their medical underwriting requirements.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf",
+     "quote": "During this period, you can’t be denied a Medigap policy or charged more due to past or present health problems. Some states may have additional Open Enrollment rights under state law.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/medicare/lower-irmaa",
+     "quote": "If you've had a life-changing event that reduced your household income, you can ask to lower the additional amount you'll pay for Medicare Part B and Part D.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-20/chapter-III/part-418/subpart-B/section-418.1205",
+     "quote": "we will consider the following to be major life-changing events: ... (d) You or your spouse stop working or reduce the hours you work;",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy",
+     "quote": "There are certain situations where you may be able to buy a Medigap policy outside of your Medigap Open Enrollment Period.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:medicare",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-39",
+   "block": null,
+   "severity": "HIGH",
+   "verdict": "owner-decision",
+   "reason": "A pension payout election is a missing step, and adding a step changes the playbook's shape. A full draft is under owner_decisions. Verified: the default for a married participant is a QJSA, and a waiver needs the spouse's written consent, witnessed by a notary or plan representative (29 U.S.C. 1055(c)(2)). PBGC says its own plans' choice cannot change after the first payment. Not verified: that every private plan's election is permanent, so the draft says 'ask the plan'. Checker: the draft now says 'in most private-employer pensions' and 'government plans set their own rules', because ERISA's Title I, which holds the spousal-consent rule, does not apply to governmental plans. The DOL FAQ was re-read as a full page.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1055?link-type=html",
+     "quote": "an election under paragraph (1)(A)(i) shall not take effect unless— (A)(i) the spouse of the participant consents in writing to such election ... and (iii) the spouse's consent acknowledges the effect of such election and is witnessed by a plan representative or a notary",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/ssa-potential-private-benefit-information-notice",
+     "quote": "In a defined benefit or money purchase plan, unless you and your spouse choose otherwise, the form of payment will include a survivor’s benefit. This survivor’s benefit, called a qualified joint and survivor annuity (QJSA)",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.pbgc.gov/workers-retirees/learn/pension-benefits-overview",
+     "quote": "You may change your selection by filing a new application before the date of your first payment. After the date of your first payment, you cannot change your selection.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1003?link-type=html",
+     "quote": "The provisions of this subchapter shall not apply to any employee benefit plan if— (1) such plan is a governmental plan",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": null,
+   "lean": "n/a"
+  },
+  {
+   "id": "CFP-40",
+   "block": null,
+   "severity": "HIGH",
+   "verdict": "owner-decision",
+   "reason": "Coverage before Medicare for early retirees is a missing step, so the full draft is under owner_decisions. Verified: losing coverage opens a Marketplace special enrollment period (45 CFR 155.420(d)(1)(i)), the credit runs on MAGI, and conversions and capital gains are gross income. The reviewer's 'same cliff as finding 2' is not used: the 2024 U.S. Code edition shows the no-400%-cap rule ending for years beginning before 2026, but post-2025 law was not read today.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-E/section-155.420",
+     "quote": "the Exchange must allow a qualified individual or enrollee ... to enroll in or change from one QHP to another if one of the triggering events occur: (1) The qualified individual or his or her dependent either: (i) Loses minimum essential coverage.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/36B?link-type=html",
+     "quote": "The term \"modified adjusted gross income\" means adjusted gross income increased by— (i) any amount excluded from gross income under section 911, (ii) any amount of interest ... exempt from tax, and (iii) ... social security benefits ... not included in gross income",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+     "quote": "there shall be included in gross income any amount which would be includible were it not part of a qualified rollover contribution",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/61?link-type=html",
+     "quote": "(1) Compensation for services, including fees, commissions, fringe benefits, and similar items; (2) Gross income derived from business; (3) Gains derived from dealings in property;",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": null,
+   "lean": "n/a"
+  },
+  {
+   "id": "CFP-41",
+   "block": "le:retirement:rmd",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The 75 rule for people born in 1960 or later, the April 1 required beginning date and the still-working exception are all verified. The reviewer's '73 if you were born 1951-1959' is dropped. The statute's two clauses overlap for 1959 births (clause I gives 73, clause II gives 75), and the IRS FAQ read today says only 'age 73', so the text names a birth year only for the unambiguous 75 rule. 'Usually' covers the 5-percent-owner exception.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+     "quote": "(I) In the case of an individual who attains age 72 after December 31, 2022, and age 73 before January 1, 2033, the applicable age is 73. (II) In the case of an individual who attains age 74 after December 31, 2032, the applicable age is 75.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+     "quote": "The term \"required beginning date\" means April 1 of the calendar year following the later of— (I) the calendar year in which the employee attains the applicable age, or (II) the calendar year in which the employee retires.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+     "quote": "you can delay taking the first RMD until April 1 of the following year. If you reach age 73 in 2024, you must take your first RMD by April 1, 2025, and the second RMD by Dec. 31, 2025.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+     "quote": "Participants in a workplace retirement plan (for example, 401(k) or profit-sharing plan) can delay taking their RMDs until the year they retire, unless they're a 5% owner of the business sponsoring the plan.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:rmd",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-42",
+   "block": "le:retirement:withdrawals",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted as a planning convention. 'Lowest-tax years' is softened to 'often the cheapest years'. The interaction is grounded in the mechanics, each verified: a conversion is gross income (26 U.S.C. 408A(d)(3)), and the premium tax credit uses MAGI that adds back nontaxable Social Security (36B(d)(2)(B)). IRMAA's MAGI link is already CL362. The text says only that all three change the income that sets these amounts. It states no thresholds.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+     "quote": "there shall be included in gross income any amount which would be includible were it not part of a qualified rollover contribution",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/36B?link-type=html",
+     "quote": "The term \"modified adjusted gross income\" means adjusted gross income increased by— (i) any amount excluded from gross income under section 911, (ii) any amount of interest ... exempt from tax, and (iii) ... social security benefits ... not included in gross income",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:withdrawals",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-43",
+   "block": "le:retirement:social-security",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Earnings test verified at SSA and 42 U.S.C. 403(b). Merged into the ADV-40 rewrite as one sentence.",
+   "sources": [
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
+     "quote": "If you are younger than full retirement age and earn more than the yearly earnings limit, we may reduce your benefit amount.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
+     "quote": "We will recalculate your benefit amount to give you credit for the months we reduced or withheld benefits due to your excess earnings.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/403?link-type=html",
+     "quote": "Deductions, in such amounts and at such time or times as the Commissioner of Social Security shall determine, shall be made from any payment or payments under this subchapter to which an individual is entitled",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:social-security",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-44",
+   "block": "le:retirement:ltc",
+   "severity": "MED",
+   "verdict": "owner-decision",
+   "reason": "Moving the step ahead of Social Security and relabeling 'when' changes the playbook's order, which is the owner's call. The price-depends-on-age half is folded into the ltc text (ACL: cost varies by 'your age at the time of purchase'). 'The chance of being declined rises with age' was not read at a primary source; see unverified.",
+   "sources": [
+    {
+     "url": "https://acl.gov/ltc/costs-and-who-pays/what-is-long-term-care-insurance/long-term-care-insurance-costs",
+     "quote": "The cost of a long-term care policy varies greatly based on: The coverage you select; The policy type; Your age at the time of purchase",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:retirement:ltc",
+   "lean": "n/a",
+   "lean_note": "Owner-decision; the age-at-purchase clause the final proposal folded into the ltc text is left out of the lean text."
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:retirement:medicare",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-37"
+   ],
+   "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty, and COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current employment lets you delay Part B without it. If you keep contributing to an HSA after 65, stop six months before you apply for Medicare or Social Security, because Part A coverage can reach back up to six months. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
+   "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current job lets you delay Part B without that penalty. If you keep putting money in an HSA after 65, stop six months before you apply for Medicare or Social Security, because Part A can start up to six months back. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+   "props": [
+    [
+     "P1",
+     "Initial enrollment period is seven months around the 65th birthday",
+     "kept",
+     "seven months"
+    ],
+    [
+     "P2",
+     "Three before, the birthday month, three after",
+     "kept",
+     "three months before"
+    ],
+    [
+     "P3",
+     "Late Part B without other qualifying coverage → lifetime premium penalty",
+     "kept",
+     "higher premium for life"
+    ],
+    [
+     "P5",
+     "COBRA and retiree coverage do not count; generally only current-employment coverage allows delaying Part B",
+     "kept",
+     "generally only coverage"
+    ],
+    [
+     "P8",
+     "If contributing to an HSA after 65, stop six months before applying for Medicare or Social Security",
+     "kept",
+     "stop six months before"
+    ],
+    [
+     "P9",
+     "Part A coverage reaches back up to six months",
+     "kept",
+     "up to six months back"
+    ],
+    [
+     "P4",
+     "Retirement income drives IRMAA with a two-year lookback",
+     "kept",
+     "two years earlier"
+    ]
+   ],
+   "claims": [
+    "CL514",
+    "CL362",
+    "CL532",
+    "NEW-le-retirement-2"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Roth conversions & IRMAA (framework 10.1)"
+    }
+   ],
+   "words_before": 72,
+   "words_after": 103,
+   "notes": "CFP-37 (HIGH): the HSA sentence is taken verbatim from the final proposal (scoped to contributions after 65, per the checker). Its COBRA/retiree half was already in the current text (ADV-38). Left out: Marketplace clause and Marketplace-plan ending (ADV-39, MED), Medigap open enrollment and the IRMAA life-event appeal (CFP-38, MED), Medicare Savings Programs and Extra Help (ADV-39, MED). None of these corrects a wrong statement in the current text. Reconciled 2026-11-16 with the factual corrections on branch fix/verification-2026-11-16."
+  },
+  {
+   "id": "le:retirement:social-security",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Claiming at 62, full retirement age or 70 is one of the largest decisions most retirees make; for a married higher earner, delaying also raises the survivor benefit.",
+   "plain": "Whether you claim at 62, at full retirement age, or at 70 is one of the biggest money choices most retirees make. For a married person who earned more, waiting also raises what the surviving spouse would get.",
+   "props": [
+    [
+     "P1",
+     "Claiming at 62 / FRA / 70 is among the largest retiree decisions",
+     "kept",
+     "one of the biggest money choices"
+    ],
+    [
+     "P2",
+     "For a married higher earner, delay also raises the survivor benefit",
+     "kept",
+     "surviving spouse would get"
+    ]
+   ],
+   "claims": [],
+   "links": [
+    {
+     "to": "full-chart/w2/10.3",
+     "label": "Social Security claiming (framework 10.3)"
+    }
+   ],
+   "words_before": 28,
+   "words_after": 28,
+   "notes": "Unchanged: ADV-40 (MED) and CFP-43 (LOW) are additions, not corrections of a wrong statement."
+  },
+  {
+   "id": "le:retirement:withdrawals",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Which accounts you draw first, and how much, sets your lifetime tax bill and your sequence-of-returns exposure.",
+   "plain": "Which accounts you take money from first, and how much you take, shapes the taxes you pay over your life and how exposed you are to a bad run of early market returns.",
+   "props": [
+    [
+     "P1",
+     "Withdrawal order and rate set lifetime tax",
+     "kept",
+     "taxes you pay over your life"
+    ],
+    [
+     "P2",
+     "…and sequence-of-returns exposure",
+     "kept",
+     "bad run of early market returns"
+    ]
+   ],
+   "claims": [],
+   "links": [
+    {
+     "to": "full-chart/w2/10.2",
+     "label": "Withdrawal sequencing (framework 10.2)"
+    },
+    {
+     "to": "math/5",
+     "label": "The math · sequence risk"
+    },
+    {
+     "to": "math/7",
+     "label": "The math · historical-cycles simulator"
+    }
+   ],
+   "words_before": 17,
+   "words_after": 17,
+   "notes": "Unchanged: ADV-41 (LOW) and CFP-42 (MED) excluded. ADV-41's 'sets' to 'shapes' is a one-word softening of an overclaim; the final file does not call the current text wrong, so it is left for the full option."
+  },
+  {
+   "id": "le:retirement:rmd",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-41"
+   ],
+   "body": "Required minimum distributions from traditional accounts start at age 73, or at 75 if you were born in 1960 or later. The first one can wait until April 1 of the next year, but then two fall in the same tax year; while you still work, a current employer's plan can usually wait until you retire. Qualified charitable distributions from an IRA (from age 70½) can satisfy RMDs without adding to income.",
+   "plain": "Required minimum distributions from traditional accounts start at age 73, or at age 75 if you were born in 1960 or later. You can wait until April 1 of the next year for the first one, but then you take two in the same tax year. If you still work, you can usually wait on your current employer's plan until you retire. Giving straight from an IRA to charity (a qualified charitable distribution, allowed from age 70½) can count toward them without adding to your income.",
+   "props": [
+    [
+     "P1",
+     "RMDs start at 73",
+     "kept",
+     "age 73"
+    ],
+    [
+     "P3",
+     "75 if born in 1960 or later",
+     "kept",
+     "age 75 if you were born in 1960"
+    ],
+    [
+     "P4",
+     "First RMD can wait until April 1 of the next year",
+     "kept",
+     "april 1 of the next year"
+    ],
+    [
+     "P5",
+     "…at the cost of two RMDs in one tax year",
+     "kept",
+     "two in the same tax year"
+    ],
+    [
+     "P6",
+     "Current employer's plan can usually wait until retirement",
+     "kept",
+     "until you retire"
+    ],
+    [
+     "P2",
+     "QCDs from age 70½ can satisfy RMDs without adding to income",
+     "kept",
+     "without adding to your income"
+    ]
+   ],
+   "claims": [
+    "CL051",
+    "CL364",
+    "NEW-le-retirement-9"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.5",
+     "label": "QCDs (framework 10.5)"
+    }
+   ],
+   "words_before": 26,
+   "words_after": 72,
+   "notes": "CFP-41 (HIGH) corrects the current text, which says RMDs start at 73 for everyone; the final proposal's corrected sentences are used verbatim. 'satisfy them' became 'satisfy RMDs', as in the final proposal, because a sentence now sits between. Left out: the Roth no-RMD sentence (ADV-42, MED; an addition, not a correction). ADV-42's age-75 point is covered by the CFP-41 sentence. Owner action carried from the final file: the step's 'when' label 'Age 73' should read 'Age 73 (75 if born 1960 or later)'."
+  },
+  {
+   "id": "le:retirement:ltc",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-43"
+   ],
+   "body": "About 70% of Americans turning 65 will need some long-term care, but more people get it at home than in facilities, and much of it is unpaid. Medicare and Medigap do not pay for this kind of care; Medicaid does if you meet your state's income, asset and care-need rules. Otherwise the decision is between insuring, self-funding, or a hybrid. Long-term care insurance premiums can rise after you buy.",
+   "plain": "About 70% of Americans turning 65 will need some long-term care. More people get this care at home than in a facility, and much of it is unpaid help. Medicare and Medigap do not pay for this kind of care. Medicaid does if you meet your state's rules on income, savings and how much care you need. Otherwise the choice is between buying insurance, paying for it yourself, or a mix. For long-term care insurance, the premium can go up after you buy.",
+   "props": [
+    [
+     "P1",
+     "About 70% of those turning 65 will need some LTC",
+     "kept",
+     "about 70%"
+    ],
+    [
+     "P3",
+     "More people get care at home than in facilities",
+     "kept",
+     "at home than in a facility"
+    ],
+    [
+     "P4",
+     "Much of it is unpaid",
+     "kept",
+     "unpaid help"
+    ],
+    [
+     "P5",
+     "Medicare and Medigap do not pay for long-term care",
+     "kept",
+     "do not pay for this kind of care"
+    ],
+    [
+     "P6",
+     "Medicaid pays if you meet the state's income, asset and care-need rules",
+     "kept",
+     "your state's rules"
+    ],
+    [
+     "P2",
+     "Choice: insure, self-fund, or hybrid",
+     "kept",
+     "or a mix"
+    ],
+    [
+     "P8",
+     "Premiums can rise after purchase",
+     "kept",
+     "premium can go up"
+    ]
+   ],
+   "claims": [
+    "CL066",
+    "NEW-le-retirement-10",
+    "NEW-le-retirement-11"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.4",
+     "label": "Long-term care (framework 10.4)"
+    }
+   ],
+   "words_before": 20,
+   "words_after": 69,
+   "notes": "ADV-43 (HIGH): the first three sentences are the final proposal's, verbatim. The last sentence keeps only its premiums-can-rise half, reworded as the smallest edit ('A long-term care policy's price depends on your age when you buy, and premiums can rise after you buy' became 'Long-term care insurance premiums can rise after you buy'); the age-at-purchase clause came from CFP-44 (owner-decision) and is left out. NEW-le-retirement-11 is copied unchanged and still states the age-at-purchase point in its claim text. Step position and 'when' label remain an owner decision (CFP-44)."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-retirement-2",
+   "loc": "P4:life-events:retirement",
+   "claim": "Premium-free Part A coverage begins up to 6 months before the application for Medicare or Social Security, but no earlier than the first month of Medicare eligibility; HSA contributions are not allowed for months of Medicare entitlement, so a person contributing after 65 should stop 6 months before applying",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §223(b)(7); Medicare.gov 'Enrolling in Part A & Part B' (CMS 11036); CMS employer fact sheet FS4",
+   "url": "https://www.medicare.gov/publications/11036-enrolling-part-a-part-b.pdf",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. §223(b)(7) (HSA limitation is zero from the first month the individual is entitled to Medicare); CMS publication 11036 ('you must stop contributing to your HSA 6 months before applying for Medicare'); CMS FS4 ('stop contributing to an HSA 6 months before applying for Medicare or Social Security benefits'). Added 2026-11-16 from the §4.4 persona pass (CFP-37). Checker 2026-11-16: CMS 11036 also says coverage begins 'no earlier than the first month you were eligible for Medicare', so the text scopes the stop-early advice to contributions after 65. 26 U.S.C. 223 read in the 2024 U.S. Code edition."
+  },
+  {
+   "temp_id": "NEW-le-retirement-9",
+   "loc": "P4:life-events:retirement",
+   "claim": "RMDs begin at applicable age 73 for those attaining 72 after 2022 and 73 before 2033, and 75 for those attaining 74 after 2032 (everyone born in 1960 or later); the first RMD may be delayed to April 1 of the following year, putting two RMDs in that year; workplace-plan participants (not 5% owners) can delay until the year they retire; Roth IRAs and designated Roth accounts have no RMDs during the owner's life",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §401(a)(9)(C)(i), (ii), (v); §408A(c)(4); IRS 'Retirement plan and IRA RMD FAQs'",
+   "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §401(a)(9)(C)(v) (applicable age 73 / 75 clauses, quoted), §401(a)(9)(C)(i) (required beginning date April 1 following the later of attaining the applicable age or retiring), (C)(ii) (no still-working delay for 5% owners or IRAs), §408A(c)(4) (lifetime RMD rule does not apply to Roth IRAs); IRS FAQ Q3 (first RMD by April 1, second by Dec. 31 of the same year) and the Roth/designated Roth statement. The clauses overlap for 1959 births; the text names a birth year only for the 75 rule. Added 2026-11-16 (ADV-42, CFP-41)."
+  },
+  {
+   "temp_id": "NEW-le-retirement-10",
+   "loc": "P4:life-events:retirement",
+   "claim": "Medicare and Medigap do not pay for long-term (custodial) care; Medicaid pays for custodial care in nursing homes and at home for people who meet their state's income and asset limits and its separate determination of need for long-term care services",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Medicare.gov 'Long-term care' coverage page (CMS); ACL/HHS LongTermCare.gov 'Medicaid'",
+   "url": "https://www.medicare.gov/coverage/long-term-care",
+   "note": "Verified 2026-11-16 at the primary source: Medicare.gov ('Medicare and most health insurance, including Medicare Supplement Insurance (Medigap), don't pay for long-term care services'); ACL ('Unlike Medicare, Medicaid does pay for custodial care in nursing homes and at home'; eligibility requires 'income and assets that do not exceed the levels used by your state'). Whether Medicaid pays for most long-term care nationally was not read. Added 2026-11-16 (ADV-43). Checker 2026-11-16: ACL also reads 'the state will make an additional determination of whether you qualify for long-term care services'; the text names the care-need test."
+  },
+  {
+   "temp_id": "NEW-le-retirement-11",
+   "loc": "P4:life-events:retirement",
+   "claim": "More people use long-term care at home than in facilities, and unpaid-only care at home is the most common form; long-term care insurance cost depends on age at purchase, and the insurer can raise premiums beyond the pre-set amount",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "ACL/HHS LongTermCare.gov 'How much care will you need?' and 'Long-term care insurance costs'",
+   "url": "https://acl.gov/ltc/basic-needs/how-much-care-will-you-need",
+   "note": "Verified 2026-11-16 at the primary source: ACL ('more people use long-term care services at home (and for longer) than in facilities'; table: unpaid care only, 59% of users); ACL costs page ('the insurance company can increase your premiums beyond the pre-set amount'; cost varies by 'your age at the time of purchase'). ACL pages last modified 2020-02-18; the underlying study is older than CL066's 2022 ASPE source. Added 2026-11-16 (ADV-43, CFP-44)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-39"
+   ],
+   "what": "Add a retirement step on choosing the pension payout form (lump sum or annuity; single-life or joint-and-survivor; spousal consent).",
+   "why_owner": "Adds a new step to the retirement playbook, which changes the product's shape. Many readers have no defined-benefit pension, so the owner should decide whether the step belongs in the main flow or behind a condition.",
+   "draft": {
+    "id": "pension",
+    "title": "Choose how your pension pays out",
+    "when": "Before your pension paperwork is due",
+    "body": "If you have a pension, choose between a lump sum, if the plan offers one, and monthly payments, and between payments for your life only or joint-and-survivor payments. In most private-employer pensions, if you are married, the default is a joint-and-survivor annuity, and choosing anything else generally needs your spouse's written consent, witnessed by a notary or plan representative; government plans set their own rules. Ask the plan whether the choice can change after payments start; in plans PBGC pays, it cannot after the first payment.",
+    "plain": "If you have a pension, you choose how it pays out: one lump sum, if your plan offers it, or monthly checks, paid for your life only or for both your life and your spouse's. In most pensions from private employers, if you are married, the standard choice is payments that keep going to your spouse after you die. To pick anything else, your spouse usually must agree in writing, signed in front of a notary or a plan representative. Government pensions have their own rules. Ask the plan if you can change your mind after payments start. In plans run by PBGC, you cannot change it after the first payment.",
+    "props": [
+     [
+      "P1",
+      "Choose lump sum (if offered) vs annuity, single-life vs joint-and-survivor",
+      "kept",
+      "you choose how it pays out"
+     ],
+     [
+      "P2",
+      "In most private-employer pensions, the married default is a joint-and-survivor annuity",
+      "kept",
+      "keep going to your spouse"
+     ],
+     [
+      "P3",
+      "Any other choice generally needs the spouse's written, witnessed consent",
+      "kept",
+      "your spouse usually must agree in writing"
+     ],
+     [
+      "P4",
+      "Ask whether the choice can change after payments start",
+      "kept",
+      "change your mind after payments start"
+     ],
+     [
+      "P5",
+      "PBGC-paid plans: no change after the first payment",
+      "kept",
+      "after the first payment"
+     ],
+     [
+      "P6",
+      "Government plans set their own rules",
+      "kept",
+      "government pensions have their own rules"
+     ]
+    ],
+    "claims": [
+     "NEW-le-retirement-12"
+    ],
+    "links": [],
+    "new_claim": {
+     "temp_id": "NEW-le-retirement-12",
+     "loc": "P4:life-events:retirement",
+     "claim": "For a married participant in a private-employer defined benefit or money purchase plan covered by ERISA the default payout is a qualified joint and survivor annuity; electing another form requires the spouse's written consent witnessed by a plan representative or notary; ERISA's Title I does not apply to governmental plans; in PBGC-paid plans the benefit form cannot be changed after the first payment",
+     "type": "STATUTORY",
+     "status": "PASS",
+     "tier": "A",
+     "source": "29 U.S.C. §1055(a), (c)(2); §1003(b)(1); DOL/EBSA FAQ; PBGC 'Pension benefits overview'",
+     "url": "https://www.govinfo.gov/link/uscode/29/1055?link-type=html",
+     "note": "Verified 2026-11-16 at the primary source: 29 U.S.C. §1055(c)(2)(A) (spousal written consent, 'witnessed by a plan representative or a notary public'); 29 U.S.C. §1003(b)(1) ('shall not apply to any employee benefit plan if— (1) such plan is a governmental plan'); DOL/EBSA FAQ, full page read by the checker ('In a defined benefit or money purchase plan, unless you and your spouse choose otherwise, the form of payment will include a survivor's benefit'); PBGC ('After the date of your first payment, you cannot change your selection'). Whether private plans generally allow a change after payments start was not read; the draft says 'ask the plan'. Drafted 2026-11-16 (CFP-39)."
+    }
+   }
+  },
+  {
+   "findings": [
+    "CFP-40"
+   ],
+   "what": "Add a first retirement step for people stopping work before 65: plan health coverage until Medicare (COBRA or the Marketplace), noting that the income taken changes Marketplace premium help.",
+   "why_owner": "Adds a new step, and the playbook assumes retirement at 65. The owner should decide whether early retirees get a conditional first step or a pointer to the job-loss coverage step.",
+   "draft": {
+    "id": "bridge-coverage",
+    "title": "If you retire before 65, plan coverage until Medicare",
+    "when": "Before you stop working",
+    "body": "If you stop working before 65, line up health coverage until Medicare starts. Losing job-based coverage opens a Marketplace special enrollment period, and COBRA is another bridge. Marketplace premium help is based on the household income you report, so traditional IRA or 401(k) withdrawals, Roth conversions and capital gains can change what you pay.",
+    "plain": "If you stop working before 65, plan how you will have health insurance until Medicare starts. Losing your job's coverage lets you sign up for a Marketplace plan outside the usual sign-up season, and COBRA is another option. Help with Marketplace premiums depends on the household income you report, so taking money from a traditional IRA or 401(k), Roth conversions and selling investments at a gain can change what you pay.",
+    "props": [
+     [
+      "P1",
+      "Before 65, plan coverage until Medicare",
+      "kept",
+      "plan how you will have health insurance"
+     ],
+     [
+      "P2",
+      "Losing job coverage opens a Marketplace special enrollment period",
+      "kept",
+      "outside the usual sign-up season"
+     ],
+     [
+      "P3",
+      "COBRA is another bridge",
+      "kept",
+      "cobra is another option"
+     ],
+     [
+      "P4",
+      "Marketplace premium help depends on reported household income",
+      "kept",
+      "depends on the household income"
+     ],
+     [
+      "P5",
+      "Withdrawals, conversions and capital gains change the premium",
+      "kept",
+      "change what you pay"
+     ]
+    ],
+    "claims": [
+     "NEW-le-retirement-13"
+    ],
+    "links": [
+     {
+      "to": "life-events/job-loss",
+      "label": "Losing a job · health coverage"
+     },
+     {
+      "to": "full-chart/w2/10.1",
+      "label": "Roth conversions & IRMAA (framework 10.1)"
+     }
+    ],
+    "new_claim": {
+     "temp_id": "NEW-le-retirement-13",
+     "loc": "P4:life-events:retirement",
+     "claim": "Losing minimum essential coverage (for example job-based coverage) triggers a Marketplace special enrollment period; the premium tax credit is based on household modified AGI; traditional retirement-account withdrawals, Roth conversions and capital gains are included in gross income",
+     "type": "STATUTORY",
+     "status": "PASS",
+     "tier": "A",
+     "source": "45 CFR §155.420(d)(1)(i), (c)(1); 26 U.S.C. §36B(d)(2); §408A(d)(3); §61(a)(3)",
+     "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-E/section-155.420",
+     "note": "Verified 2026-11-16 at the primary source: 45 CFR §155.420(d)(1)(i) (triggering event: 'Loses minimum essential coverage'; (c)(1) 60 days to select a plan, not stated in the text); 26 U.S.C. §36B(d)(2) (household income and MAGI); §408A(d)(3)(A)(i) (conversion included in gross income); §61(a)(3) ('Gains derived from dealings in property'). Whether the 400%-of-poverty eligibility cap applies in 2026 was not verified from current law and is not stated. Drafted 2026-11-16 (CFP-40)."
+    }
+   }
+  },
+  {
+   "findings": [
+    "CFP-44"
+   ],
+   "what": "Reorder the retirement steps so long-term care comes before Social Security, and relabel its 'when' from 'Before 70' to something like 'In your 50s or early 60s'.",
+   "why_owner": "Changes the step order and the timing label, which are product structure, not wording. The new ltc text above works in either position.",
+   "draft": {
+    "order": [
+     "medicare",
+     "ltc",
+     "social-security",
+     "withdrawals",
+     "rmd"
+    ],
+    "ltc_when": "In your 50s or early 60s",
+    "note": "The reviewer's claim that 'the chance of being declined' rises with age was not read at a primary source. The ACL page supports only 'cost varies by age at purchase', which is already in the proposed ltc body. If the owner relabels, the label is a timing suggestion, not a factual claim."
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "ADV-43",
+   "assertion": "Medicaid pays for most long-term care",
+   "why": "No primary source read today states Medicaid's national share. Medicaid.gov's LTSS page timed out. The text says only that Medicaid pays within state limits (ACL)."
+  },
+  {
+   "finding": "ADV-43",
+   "assertion": "Family often provides much of the care; the 70% figure includes short stays",
+   "why": "ACL shows unpaid-only care is the most common form, but it does not say 'family'. The text says 'unpaid'. Duration detail (ACL: 20 percent need care more than 5 years) was read but left out to avoid new numbers."
+  },
+  {
+   "finding": "ADV-43",
+   "assertion": "Medicaid is the realistic plan for most low- and moderate-income households",
+   "why": "A judgment with no primary source; left out."
+  },
+  {
+   "finding": "CFP-44",
+   "assertion": "The chance of being declined for long-term care insurance rises with age; the pricing case is strongest in the mid-50s to mid-60s",
+   "why": "Not read at a primary source. ACL says only that cost varies by age at purchase."
+  },
+  {
+   "finding": "CFP-38",
+   "assertion": "The Medigap open enrollment period is the only guaranteed-issue window in most states",
+   "why": "Contradicted in part: federal law has other guaranteed-issue rights (42 U.S.C. 1395ss(s)(3)) and some states add rights. How many states add rights was not read."
+  },
+  {
+   "finding": "CFP-40",
+   "assertion": "Marketplace credits face a cliff ('same cliff as finding 2') in 2026",
+   "why": "The 2024 U.S. Code edition shows the temporary no-400%-cap rule (36B(c)(1)(E)) ends for years beginning before 2026. Whether later law (including P.L. 119-21 or anything after it) extended it was not read today. Not stated in any draft."
+  },
+  {
+   "finding": "CFP-39",
+   "assertion": "A pension payout choice is usually permanent for all plans",
+   "why": "Read only for PBGC-paid plans; the draft says 'ask the plan'."
+  },
+  {
+   "finding": "CFP-41",
+   "assertion": "RMD age is 73 for people born 1951-1959",
+   "why": "The statute's two clauses overlap for 1959 births. IRS's July 2024 proposed regulation reportedly resolves this to 73, but it was not read today; the text does not name 1959."
+  },
+  {
+   "finding": "CFP-40",
+   "assertion": "P.L. 119-21 changed the premium tax credit for 2026 (for example, the cap on repaying excess advance credits); early retirees who underestimate income could owe more at tax time",
+   "why": "The checker read only the 2024 U.S. Code edition of 26 U.S.C. 36B, which predates P.L. 119-21; the law itself was not read. Nothing in the drafts states it, but the owner should check before publishing the bridge-coverage step."
+  },
+  {
+   "finding": "CFP-37",
+   "assertion": "26 U.S.C. 223(b)(7), 401(a)(9) and 36B are unchanged by 2025-2026 law",
+   "why": "Read in the govinfo 2024 U.S. Code edition, which predates P.L. 119-21. No change to these subsections is known to the checker, but none was confirmed from post-2025 text."
+  }
+ ]
+}

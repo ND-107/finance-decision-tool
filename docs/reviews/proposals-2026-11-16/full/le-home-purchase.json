@@ -1,0 +1,794 @@
+{
+ "group": "le-home-purchase",
+ "findings": [
+  {
+   "id": "ADV-25",
+   "block": "le:home-purchase:afford",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Pre-approval is the lender's maximum, not a budget (CFPB), and the full monthly cost includes taxes, insurance, HOA fees and repairs (CFPB). Changed 'free' to 'little or no cost': CFPB and HUD materials say 'free or low-cost' / 'often at little or no cost', not free. Down-payment help via HUD-approved counselors is CFPB's own advice.",
+   "sources": [
+    {
+     "url": "https://www.consumerfinance.gov/about-us/blog/year-you-buy-first-home/",
+     "quote": "A lender's preapproval represents the maximum that they are willing to lend to you. This is not a financial directive—you can always spend less.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-can-i-figure-out-if-i-can-afford-to-buy-a-home-and-take-out-a-mortgage-en-118/",
+     "quote": "Focus on a mortgage that is affordable for you given your other priorities, not how much you qualify for. Lenders will often tell you how much you are qualified to borrow",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-can-i-figure-out-if-i-can-afford-to-buy-a-home-and-take-out-a-mortgage-en-118/",
+     "quote": "Homeowner's insurance, property taxes, and possibly private mortgage insurance or homeowners association fees are typically added to your monthly mortgage payment ... There may also be costs for repairs and maintenance of your home.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/find-a-housing-counselor/",
+     "quote": "The counseling agencies on the searchable list are approved by the U.S. Department of Housing and Urban Development (HUD) and they can offer independent advice, often at little or no cost to you.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit.pdf",
+     "quote": "The U.S. Department of Housing and Urban Development (HUD) sponsors housing counseling agencies throughout the country to provide free or low-cost advice.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/where-can-i-find-information-on-programs-for-first-time-home-buyers-en-2156/",
+     "quote": "Many states and local organizations offer programs to help first-time buyers with a down payment or closing costs. To find programs near you, look up a HUD-approved housing counseling agency in your area.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:home-purchase:afford"
+  },
+  {
+   "id": "CFP-24",
+   "block": "le:home-purchase:afford",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Kept: closing costs are paid on top of the down payment, budget for upkeep, avoid applying for a lot of new credit while preparing for the mortgage (all CFPB; wording narrowed to the source). Dropped: the '2-5%' closing-cost and '1-2% a year' upkeep figures (no primary source states them; never invent a number) and the job-change warning (not read at a primary source).",
+   "sources": [
+    {
+     "url": "https://files.consumerfinance.gov/f/documents/cfpb_your-home-loan-toolkit.pdf",
+     "quote": "Be prepared to bring the full “Cash to Close” amount with you to your closing. This amount includes your down payment and closing costs, minus any deposits and credits.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-can-i-figure-out-if-i-can-afford-to-buy-a-home-and-take-out-a-mortgage-en-118/",
+     "quote": "Homeowner's insurance, property taxes, and possibly private mortgage insurance or homeowners association fees are typically added to your monthly mortgage payment ... There may also be costs for repairs and maintenance of your home.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/",
+     "quote": "Tip: Don't apply for a lot of new credit in a short time, especially if you are getting ready to get a mortgage. Doing so may negatively affect your score.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:home-purchase:afford"
+  },
+  {
+   "id": "CFP-25",
+   "block": "le:home-purchase:insure",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Owner's title policy added as optional; the lender's policy protects the amount the lender lends (CFPB wording). Earthquake exclusion added (Ready.gov/FEMA). Wind and hail are not named: no primary source read today says how standard policies treat them (state- and policy-specific), so the text only tells the reader to read the exclusions and deductibles. 'Bought once at closing' not stated.",
+   "sources": [
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/",
+     "quote": "Most lenders require you to purchase a lender's title insurance policy, which protects the amount they lend. You may want to buy an owner's title insurance policy",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/",
+     "quote": "Title insurance can protect you if someone later sues and says they have a claim against the home from before you purchased it.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ready.gov/earthquakes",
+     "quote": "Consider obtaining an earthquake insurance policy. A standard homeowner's insurance policy does not cover earthquake damage.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:home-purchase:insure"
+  },
+  {
+   "id": "CFP-26",
+   "block": "le:home-purchase",
+   "severity": "MED",
+   "verdict": "owner-decision",
+   "reason": "Needs a new 'First year' step (homestead exemption application and how the deed is titled), which changes the playbook's shape. Both points are state law (homestead exemptions and deadlines are set by state and county; survivorship depends on the form of title under state property law), so no federal primary source covers them; the draft is hedged and its claims are unverified until a state-by-state wording is settled.",
+   "sources": [],
+   "addressed_in": null
+  },
+  {
+   "id": "ADV-26",
+   "block": "le:home-purchase:pmi",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Correct that the 78%/80% rules are conventional-only and need the borrower to be current: the HPA defines PMI to exclude National Housing Act (FHA) insurance and conditions automatic termination on being current. 'Often lasts the life of the loan' replaced with HUD's actual rule for FHA case numbers assigned on or after June 3, 2013 (more than 90% LTV: the loan term, up to 30 years; 90% or less: up to 11 years). 'Closing papers say which you have' made specific: the Closing Disclosure's 'Loan Type' field (Reg. Z). Checker: automatic termination wording follows 12 U.S.C. 4902(b)(1)-(2) (on the termination date if current, otherwise once current).",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/12/4901?link-type=html",
+     "quote": "The term \"private mortgage insurance\" means mortgage insurance other than mortgage insurance made available under the National Housing Act [12 U.S.C. 1701 et seq.], title 38, or title V of the Housing Act of 1949",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/12/4902?link-type=html",
+     "quote": "shall terminate ... (1) on the termination date if, on that date, the mortgagor is current on the payments required by the terms of the residential mortgage transaction",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+     "quote": "Mortgages through the Federal Housing Administration (FHA) or Department of Veterans Affairs (VA) have different requirements. For answers to questions about mortgage insurance on an FHA or VA loan, contact your servicer.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+     "quote": "Loan-to-Value (LTV) greater than 90% at the time the of loan origination: Annual MIP will be collected until the end of the loan term, or 30 years, whichever occurs first.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+     "quote": "LTV less than or equal to 90% at the time of loan origination: Annual MIP will be collected until the end of the loan term, or 11 years, whichever occurs first.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.hud.gov/sites/dfiles/SFH/documents/MODELINFORMEDCONSUMER.pdf",
+     "quote": "the first 30 years of the mortgage term, or the end of the mortgage term, whichever occurs first, for any mortgage involving an original principal obligation (excluding financed UFMIP) with an LTV greater than 90 percent",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-12.xml?part=1026&section=1026.38",
+     "quote": "(iv) Loan type. The information required to be disclosed under § 1026.37(a)(11), labeled “Loan Type.”",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-12.xml?part=1026&section=1026.37",
+     "quote": "The type of loan, labeled “Loan Type,” offered to the consumer using one of the following terms, as applicable: (i) Conventional. ... FHA.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/12/4902?link-type=html",
+     "quote": "(2) if the mortgagor is not current on the termination date, on the first day of the first month beginning after the date that the mortgagor becomes current on the payments",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:home-purchase:pmi"
+  },
+  {
+   "id": "CFP-27",
+   "block": "le:home-purchase:pmi",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Merged with ADV-26 (same point). 'May last the life of the loan' made precise from HUD's rule. 'Refinancing is the usual way out' not included: not read at a primary source.",
+   "sources": [
+    {
+     "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+     "quote": "Loan-to-Value (LTV) greater than 90% at the time the of loan origination: Annual MIP will be collected until the end of the loan term, or 30 years, whichever occurs first.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+     "quote": "LTV less than or equal to 90% at the time of loan origination: Annual MIP will be collected until the end of the loan term, or 11 years, whichever occurs first.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:home-purchase:pmi"
+  },
+  {
+   "id": "ADV-27",
+   "block": "le:home-purchase:umbrella",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The 'inexpensive per dollar of coverage' line is removed and replaced with the reviewer's suggested caution (a convention, consistent with the protection:umbrella rule tying coverage to net worth). The reviewer's homestead-protection aside and 'a few hundred dollars a year' are not used: state-specific and unsourced respectively.",
+   "sources": [],
+   "addressed_in": "le:home-purchase:umbrella"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:home-purchase:afford",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-25",
+    "CFP-24"
+   ],
+   "body": "The down payment is a near-term goal saved in safe assets, and closing costs come on top of it; the emergency fund is a different pool and should still be whole after closing, because new owners take on repairs a landlord used to pay for. A pre-approval is the most a lender will lend, not a budget, so price the full monthly cost, including property taxes, insurance, any HOA fees and upkeep. HUD-approved housing counselors advise at little or no cost and can point you to down-payment help. Avoid applying for a lot of new credit while you prepare for the mortgage.",
+   "plain": "Your down payment is a short-term goal kept in safe places, and you also need money for closing costs. Your emergency fund is separate money, and it should still be full after closing. As an owner, you now pay for repairs a landlord used to cover. A pre-approval shows the most a lender will lend you. It is not your budget. Add up the full monthly cost: property taxes, insurance, any HOA fees, and upkeep. HUD-approved housing counselors give advice for little or no cost and can help you find down-payment help. Try not to apply for a lot of new credit while you get ready for your mortgage.",
+   "props": [
+    [
+     "P1",
+     "The down payment is a near-term goal in safe assets",
+     "kept",
+     "short-term goal"
+    ],
+    [
+     "P2",
+     "Closing costs are paid on top of the down payment",
+     "kept",
+     "money for closing costs"
+    ],
+    [
+     "P3",
+     "The emergency fund is a separate pool, whole after closing",
+     "kept",
+     "still be full after closing"
+    ],
+    [
+     "P4",
+     "because owners take on repairs (mechanism)",
+     "kept",
+     "repairs a landlord used to cover"
+    ],
+    [
+     "P5",
+     "A pre-approval is the most a lender will lend, not a budget",
+     "kept",
+     "not your budget"
+    ],
+    [
+     "P6",
+     "Price the full monthly cost: property taxes, insurance, any HOA fees, upkeep",
+     "kept",
+     "full monthly cost"
+    ],
+    [
+     "P7",
+     "HUD-approved housing counselors advise at little or no cost",
+     "kept",
+     "little or no cost"
+    ],
+    [
+     "P8",
+     "Counselors can point you to down-payment help",
+     "kept",
+     "find down-payment help"
+    ],
+    [
+     "P9",
+     "Avoid applying for a lot of new credit while preparing for the mortgage",
+     "kept",
+     "a lot of new credit"
+    ]
+   ],
+   "claims": [
+    "NEW-le-home-purchase-1",
+    "NEW-le-home-purchase-2",
+    "NEW-le-home-purchase-3"
+   ],
+   "links": [
+    {
+     "to": "spending-essentials/1",
+     "label": "Spending · Housing (rent-vs-buy calculator)"
+    },
+    {
+     "to": "full-chart/w2/7.1",
+     "label": "Near-term goals (framework 7.1)"
+    }
+   ],
+   "words_before": 37,
+   "words_after": 102,
+   "notes": "Grows from 37 to 102 words (over the 70 percent guide): two findings merged into three short sentences. CFP-24's '2-5%' closing-cost and '1-2% of value a year' upkeep figures are left out because no primary source states them (CFPB says closing costs depend on many things); the job-change warning is left out for the same reason. ADV-25's 'free' became 'little or no cost' to match the CFPB and HUD wording. If the owner wants it shorter, the counselor sentence is the one to keep and the new-credit sentence the one to cut. Checker 2026-11-16: the credit sentence now follows the CFPB wording ('a lot of new credit in a short time ... getting ready to get a mortgage'); the draft's flat 'avoid new credit while the mortgage is in process' went further than the source."
+  },
+  {
+   "id": "le:home-purchase:insure",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-25"
+   ],
+   "body": "Lenders require homeowners insurance. Standard homeowners policies do not cover flood damage; flood coverage is a separate policy (NFIP or private), usually with a waiting period before it takes effect. They do not cover earthquake damage either, so read the policy's other exclusions and deductibles. Most lenders also require a lender's title policy, which protects the amount they lend; an owner's title policy is optional and protects you if someone later says they have a claim against the home from before you bought it.",
+   "plain": "Lenders require homeowners insurance. A standard homeowners policy does not cover flood damage. Flood insurance is a separate policy (from NFIP or a private insurer), and there is usually a waiting period before it starts. A standard policy does not cover earthquake damage either. Read what else your policy leaves out and how much you pay first on a claim (the deductible). Most lenders also make you buy a lender's title policy, which protects the amount they lend. An owner's title policy is your choice. It protects you if someone later says they have a claim against the home from before you bought it.",
+   "props": [
+    [
+     "P1",
+     "Lenders require homeowners insurance",
+     "kept",
+     "lenders require"
+    ],
+    [
+     "P2",
+     "Standard policies exclude flood",
+     "kept",
+     "does not cover flood"
+    ],
+    [
+     "P3",
+     "Flood is a separate NFIP or private policy",
+     "kept",
+     "separate policy"
+    ],
+    [
+     "P4",
+     "Usually a waiting period before it takes effect",
+     "kept",
+     "waiting period"
+    ],
+    [
+     "P5",
+     "Standard policies do not cover earthquake damage",
+     "kept",
+     "earthquake damage either"
+    ],
+    [
+     "P6",
+     "Read the policy's other exclusions and deductibles",
+     "kept",
+     "what else your policy leaves out"
+    ],
+    [
+     "P7",
+     "Most lenders require a lender's title policy, which protects the amount they lend",
+     "kept",
+     "protects the amount they lend"
+    ],
+    [
+     "P8",
+     "An owner's title policy is optional",
+     "kept",
+     "owner's title policy is your choice"
+    ],
+    [
+     "P9",
+     "An owner's policy protects you if someone later says they have a claim against the home from before you bought it",
+     "kept",
+     "from before you bought it"
+    ]
+   ],
+   "claims": [
+    "CL503",
+    "NEW-le-home-purchase-4",
+    "NEW-le-home-purchase-5"
+   ],
+   "links": [
+    {
+     "to": "protection/property",
+     "label": "Protection · renters / homeowners"
+    }
+   ],
+   "words_before": 30,
+   "words_after": 84,
+   "notes": "Grows from 30 to 84 words (over the 70 percent guide), for one LOW finding. Checker 2026-11-16: 'protects only the lender' became the CFPB's 'protects the amount they lend' (the page does not say 'only'); 'claims the home' became 'says they have a claim against the home' (CFPB wording, which covers liens, not just ownership claims); the 'such as for wind or hail' example was cut because no primary source read says how standard policies treat wind or hail, and the example implied an exclusion. 'Bought once at closing' is not stated. The step title ('Buy homeowners insurance and check flood separately') may want a matching edit if the owner accepts; titles are not in this schema. The title-insurance sentence could stand alone if the owner wants to drop the earthquake sentence."
+  },
+  {
+   "id": "le:home-purchase:pmi",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-26",
+    "CFP-27"
+   ],
+   "body": "On a conventional loan, the lender must drop PMI automatically when the balance is scheduled to reach 78% of the original value and you are current on payments, and you can request removal at 80%. Note the date. FHA mortgage insurance follows HUD's rules instead: on FHA loans started after mid-2013, the annual premium lasts the whole loan term (up to 30 years) if you borrowed more than 90% of the home's value, and up to 11 years otherwise. Your Closing Disclosure names the loan type.",
+   "plain": "With a conventional loan, the lender must drop private mortgage insurance on its own once your balance is scheduled to reach 78% of the home's original value and you are up to date on payments. You can ask for it to be removed at 80%. Write down the date. FHA loans follow HUD's rules instead. On FHA loans started after mid-2013, if you borrowed more than 90% of the home's value, the yearly premium lasts for the whole loan (up to 30 years). If you borrowed 90% or less, it lasts up to 11 years. Your Closing Disclosure shows which loan type you have.",
+   "props": [
+    [
+     "P1",
+     "PMI terminates automatically at scheduled 78% of original value (conventional loans)",
+     "kept",
+     "78%"
+    ],
+    [
+     "P2",
+     "Automatic termination happens once you are current on payments",
+     "kept",
+     "up to date on payments"
+    ],
+    [
+     "P3",
+     "Borrower can request removal at 80%",
+     "kept",
+     "80%"
+    ],
+    [
+     "P4",
+     "Note the date",
+     "kept",
+     "write down the date"
+    ],
+    [
+     "P5",
+     "FHA mortgage insurance follows HUD's rules, not these",
+     "kept",
+     "follow hud's rules instead"
+    ],
+    [
+     "P6",
+     "Scope: FHA loans started after mid-2013",
+     "kept",
+     "started after mid-2013"
+    ],
+    [
+     "P7",
+     "Borrowed more than 90%: annual premium lasts the whole loan term, up to 30 years",
+     "kept",
+     "lasts for the whole loan"
+    ],
+    [
+     "P8",
+     "Otherwise up to 11 years",
+     "kept",
+     "up to 11 years"
+    ],
+    [
+     "P9",
+     "The Closing Disclosure names the loan type",
+     "kept",
+     "shows which loan type you have"
+    ]
+   ],
+   "claims": [
+    "CL504",
+    "NEW-le-home-purchase-6",
+    "NEW-le-home-purchase-7",
+    "NEW-le-home-purchase-8"
+   ],
+   "links": [],
+   "words_before": 32,
+   "words_after": 86,
+   "notes": "Grows from 32 to 86 words (over the 70 percent guide): ADV-26 (HIGH) and CFP-27 merged. Checker 2026-11-16: 'if you are current' became 'and you are current', because 12 U.S.C. 4902(b)(2) still ends PMI once a late borrower becomes current (the 'if' read as a condition that could forfeit removal); '(up to 30 years)' added because HUD says 'end of the loan term, or 30 years, whichever occurs first'. 'Started after mid-2013' stands for 'FHA case numbers assigned on or after June 3, 2013'; older FHA loans follow other rules. CFP-27's 'refinancing is the usual way out' is not included: not read at a primary source. 'Lender' is kept from the current text, though the statute and CFPB say the servicer does this; the owner may want 'servicer'. Borrower-requested cancellation at 80% also has conditions (written request, good payment history, possibly proof of value; 12 U.S.C. 4902(a)) that the current text does not name; no finding raised it. Numbers set: {78%, 80%, 2013, 30, 90%, 11} in both variants."
+  },
+  {
+   "id": "le:home-purchase:umbrella",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-27"
+   ],
+   "body": "Owning a home raises what you can lose in a lawsuit. An umbrella policy sits on top of homeowners and auto liability. While your equity and savings are still small, it may not be worth the premium yet; revisit it as your net worth grows.",
+   "plain": "Owning a home raises what you could lose if someone sues you. An umbrella policy adds coverage on top of your home and auto liability. If you have little home equity or savings so far, it may not be worth the cost yet. Look at it again as your net worth grows.",
+   "props": [
+    [
+     "P1",
+     "Owning a home raises lawsuit exposure",
+     "kept",
+     "if someone sues you"
+    ],
+    [
+     "P2",
+     "Umbrella sits on top of homeowners and auto liability",
+     "kept",
+     "on top of your home and auto liability"
+    ],
+    [
+     "P3",
+     "With little equity or savings it may not be worth the premium yet",
+     "kept",
+     "may not be worth the cost yet"
+    ],
+    [
+     "P4",
+     "Revisit as net worth grows",
+     "kept",
+     "as your net worth grows"
+    ]
+   ],
+   "claims": [
+    "CL182",
+    "NEW-le-home-purchase-9"
+   ],
+   "links": [
+    {
+     "to": "protection/umbrella",
+     "label": "Protection · umbrella"
+    }
+   ],
+   "words_before": 29,
+   "words_after": 45,
+   "notes": "Removes 'inexpensive per dollar of coverage' (rested on CL182's industry pricing surveys, tier C). The new sentence is a convention consistent with the protection:umbrella rule ('Once net worth or income makes you a lawsuit target, roughly match coverage to net worth'). ADV-27's homestead point (state law protecting some home equity) is not included. The protection:umbrella section still says 'inexpensive per dollar of coverage'; that block is outside this module."
+  },
+  {
+   "id": "le:home-purchase:sale-later",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Gain on selling a main home can be excluded up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) if you owned and lived in it for two of the five years before the sale. Capital improvements add to your basis, so keep the receipts.",
+   "plain": "When you sell your main home, you can leave out up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) of profit from tax if you owned it and lived in it for two of the five years before selling. Money spent on improvements raises your cost basis, so keep the receipts.",
+   "props": [
+    [
+     "P1",
+     "Gain on a main home can be excluded up to the §121 amount",
+     "kept",
+     "leave out up to"
+    ],
+    [
+     "P2",
+     "Requires owning and living there 2 of the 5 years before sale",
+     "kept",
+     "two of the five years"
+    ],
+    [
+     "P3",
+     "Capital improvements add to basis; keep receipts",
+     "kept",
+     "keep the receipts"
+    ],
+    [
+     "P4",
+     "A qualifying joint return gets the higher exclusion amount",
+     "kept",
+     "on a qualifying joint return"
+    ]
+   ],
+   "claims": [
+    "CL505"
+   ],
+   "links": [
+    {
+     "to": "spending-essentials/1",
+     "label": "Spending · Housing"
+    }
+   ],
+   "words_before": 44,
+   "words_after": 44,
+   "notes": "No finding targets this block."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-home-purchase-1",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "A lender's preapproval is the maximum it is willing to lend, not a budget; affordability should count property taxes, insurance, any HOA fees and repairs and maintenance; closing costs are paid in addition to the down payment",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "CFPB blog 'Is this the year you buy your first home?'; Ask CFPB en-118; CFPB Your home loan toolkit",
+   "url": "https://www.consumerfinance.gov/about-us/blog/year-you-buy-first-home/",
+   "note": "Verified 2026-11-16 at the primary source: CFPB blog (\"A lender's preapproval represents the maximum that they are willing to lend to you\"); Ask CFPB en-118 (taxes, insurance, PMI, HOA fees 'typically added to your monthly mortgage payment'; 'costs for repairs and maintenance'); CFPB toolkit ('Cash to Close' 'includes your down payment and closing costs'). No percentage for closing costs or upkeep is stated by the CFPB, so none is used. Added 2026-11-16 from the §4.4 persona pass (ADV-25, CFP-24)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-2",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "HUD-approved housing counseling agencies give advice at little or no cost and can help buyers find state, local or nonprofit down-payment assistance programs",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "CFPB Find a housing counselor; Ask CFPB en-2156; CFPB Your home loan toolkit",
+   "url": "https://www.consumerfinance.gov/find-a-housing-counselor/",
+   "note": "Verified 2026-11-16 at the primary source: CFPB 'Find a housing counselor' ('independent advice, often at little or no cost to you'); CFPB toolkit (HUD 'sponsors housing counseling agencies ... to provide free or low-cost advice'); Ask CFPB en-2156 ('Many states and local organizations offer programs to help first-time buyers with a down payment or closing costs. To find programs near you, look up a HUD-approved housing counseling agency'). Added 2026-11-16 from the §4.4 persona pass (ADV-25)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-3",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "Applying for a lot of new credit in a short time, especially while getting ready for a mortgage, can lower the credit score",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "Ask CFPB en-319",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/",
+   "note": "Verified 2026-11-16 at the primary source: Ask CFPB en-319 (\"Don't apply for a lot of new credit in a short time, especially if you are getting ready to get a mortgage. Doing so may negatively affect your score.\"). The reviewer's job-change warning was not found at a primary source and is not in the content. Added 2026-11-16 from the §4.4 persona pass (CFP-24)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-4",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "A standard homeowners insurance policy does not cover earthquake damage",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "Ready.gov (FEMA) 'Earthquakes'",
+   "url": "https://www.ready.gov/earthquakes",
+   "note": "Verified 2026-11-16 at the primary source: Ready.gov 'Earthquakes' ('A standard homeowner's insurance policy does not cover earthquake damage.'). Wind and hail appear in the content only as examples of exclusions and deductibles to read; no source read today says standard policies exclude them. Added 2026-11-16 from the §4.4 persona pass (CFP-25)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-5",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "Most lenders require a lender's title insurance policy, which protects the amount they lend; an owner's title policy is optional and protects the owner if someone later claims an interest in the home from before the purchase",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "Ask CFPB en-164 'What is owner's title insurance?'",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/",
+   "note": "Verified 2026-11-16 at the primary source: Ask CFPB en-164 (\"Most lenders require you to purchase a lender's title insurance policy, which protects the amount they lend. You may want to buy an owner's title insurance policy\"; 'Title insurance can protect you if someone later sues and says they have a claim against the home from before you purchased it'). Added 2026-11-16 from the §4.4 persona pass (CFP-25)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-6",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "The Homeowners Protection Act's PMI rules do not apply to FHA (National Housing Act), VA or USDA mortgage insurance; automatic termination occurs at the scheduled 78% date if the borrower is current, otherwise once the borrower becomes current",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "12 U.S.C. §4901(13); §4902(b); Ask CFPB en-202",
+   "url": "https://www.govinfo.gov/link/uscode/12/4901?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 12 U.S.C. §4901(13) ('private mortgage insurance' means mortgage insurance other than that made available under the National Housing Act, title 38, or title V of the Housing Act of 1949); §4902(b)(1)-(2) (terminates on the termination date if the mortgagor is current, otherwise once current); Ask CFPB en-202 ('Mortgages through the Federal Housing Administration (FHA) or Department of Veterans Affairs (VA) have different requirements'). Added 2026-11-16 from the §4.4 persona pass (ADV-26, CFP-27)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-7",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "For FHA case numbers assigned on or after June 3, 2013, annual MIP is collected for the loan term (or 30 years, whichever is first) when original LTV is above 90%, and for the loan term or 11 years, whichever is first, when LTV is 90% or less; borrowers may not cancel early by prepaying",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "HUD FHA Resource Center answer (published 5/15/2026), citing Handbook 4000.1 Appendix 1.0; HUD Model Informed Consumer Choice Disclosure Notice",
+   "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+   "note": "Verified 2026-11-16 at the primary source: HUD FHA answers page ('Loan-to-Value (LTV) greater than 90% ... Annual MIP will be collected until the end of the loan term, or 30 years, whichever occurs first'; 'LTV less than or equal to 90% ... until the end of the loan term, or 11 years, whichever occurs first'; 'Borrowers may not request early cancellation of Annual MIP based on prepayment of principal'); HUD model notice (same durations). Handbook 4000.1 itself not read. Content says 'started after mid-2013' for the case-number date. Added 2026-11-16 from the §4.4 persona pass (ADV-26, CFP-27). Re-read by the checker 2026-11-16 via Firecrawl (the page needs JavaScript; curl and Exa returned only the loader)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-8",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "The Closing Disclosure states the loan type (Conventional, FHA, VA or other)",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "12 CFR §1026.38(a)(5)(iv); §1026.37(a)(11)",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-12.xml?part=1026&section=1026.38",
+   "note": "Verified 2026-11-16 at the primary source (eCFR, 2026-11-01 version): 12 CFR §1026.38(a)(5)(iv) ('Loan type. The information required to be disclosed under §1026.37(a)(11), labeled \"Loan Type\"'); §1026.37(a)(11) (terms 'Conventional', 'FHA', 'VA', other). Added 2026-11-16 from the §4.4 persona pass (ADV-26)."
+  },
+  {
+   "temp_id": "NEW-le-home-purchase-9",
+   "loc": "P4:life-events:home-purchase",
+   "claim": "An umbrella policy is worth buying once there is equity, savings or income to protect; with little of either it can wait until net worth grows",
+   "type": "CONVENTION",
+   "status": "PASS",
+   "tier": "D",
+   "source": "Framework convention, consistent with the protection:umbrella rule ('Once net worth or income makes you a lawsuit target, roughly match coverage to net worth')",
+   "url": "",
+   "note": "Authored 2026-11-16 to replace 'inexpensive per dollar of coverage', which the consumer-advocate reviewer flagged as a sales line for a new owner with little equity (ADV-27). A judgment, not a statement of law or price; no primary source applies. Added 2026-11-16 from the §4.4 persona pass (ADV-27)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-26"
+   ],
+   "what": "Add a 'First year' step to the home-purchase playbook: apply for any property-tax homestead exemption by the local deadline, and confirm how the deed is titled.",
+   "why_owner": "It adds a new step to the playbook (changes the product's shape), and both points are state law with no federal primary source, so the wording has to stay hedged and its audit rows cannot reach PASS without a decision on which state sources to cite or whether to leave it as a 'check your state' pointer.",
+   "draft": {
+    "id": "title-homestead",
+    "when": "First year",
+    "title": "Check the property-tax exemption and how the deed is titled",
+    "body": "In many states the county or local tax office offers a homestead or owner-occupant property-tax exemption that you have to apply for, often by a deadline, so check with yours. Also confirm how the deed is titled, because the form of ownership affects who owns the home if one owner dies.",
+    "plain": "In many states, your county or local tax office gives owners who live in their home a lower property tax, but you have to apply, often by a deadline. Check with yours. Also check how your deed names the owners, because that affects who owns the home if one owner dies.",
+    "props": [
+     [
+      "P1",
+      "Many states offer a homestead/owner-occupant property-tax exemption",
+      "kept",
+      "in many states"
+     ],
+     [
+      "P2",
+      "You usually have to apply, often by a deadline",
+      "kept",
+      "you have to apply"
+     ],
+     [
+      "P3",
+      "Check with the local tax office",
+      "kept",
+      "check with yours"
+     ],
+     [
+      "P4",
+      "Confirm how the deed is titled",
+      "kept",
+      "how your deed names the owners"
+     ],
+     [
+      "P5",
+      "Form of ownership affects who owns the home if an owner dies",
+      "kept",
+      "if one owner dies"
+     ]
+    ],
+    "claims": [
+     "NEW-le-home-purchase-10 (UNVERIFIED: homestead exemption application, state law)",
+     "NEW-le-home-purchase-11 (UNVERIFIED: form of title and survivorship, state law)"
+    ],
+    "links": [
+     {
+      "to": "protection/estate",
+      "label": "Protection · estate documents"
+     }
+    ],
+    "notes": "Not source-checked: no federal primary source covers either point. Before applying, read at least one state agency page per point or keep the step as a pure 'check your state' pointer. The link target protection/estate exists. Checker 2026-11-16: one state example was seen (Georgia.gov 'Apply for a Homestead Exemption': 'You must file with the county or city where your home is located' and applications 'are due by April 1'), which fits the hedged 'in many states ... often by a deadline' wording, but one state does not verify a multi-state claim; the rows stay UNVERIFIED."
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "CFP-24",
+   "assertion": "Closing costs are often 2-5% of the price",
+   "why": "Not stated on any CFPB or HUD page read today (CFPB: closing costs 'depend on a lot of things'); left out of the text."
+  },
+  {
+   "finding": "CFP-24",
+   "assertion": "Budget 1-2% of the home's value a year for maintenance",
+   "why": "A rule of thumb with no primary source; CFPB says only to budget and save for maintenance and repairs. Left out."
+  },
+  {
+   "finding": "CFP-24",
+   "assertion": "Do not change jobs between pre-approval and closing",
+   "why": "Not found at a primary source (CFPB, HUD) today; left out."
+  },
+  {
+   "finding": "CFP-25",
+   "assertion": "Standard policies may exclude wind and hail, and an owner's title policy is bought once at closing",
+   "why": "Wind/hail coverage and deductibles are state- and policy-specific and no primary source read today states a general rule; the example was removed from the text. The CFPB title page does not say 'once'."
+  },
+  {
+   "finding": "CFP-27",
+   "assertion": "Refinancing is the usual way out of FHA mortgage insurance",
+   "why": "Not read at a primary source today; left out."
+  },
+  {
+   "finding": "ADV-27",
+   "assertion": "Homestead rules protect some home equity from creditors; an umbrella costs a few hundred dollars a year",
+   "why": "Homestead protection is state law; the price range rests on industry surveys (CL182, tier C), not a primary source. Neither used."
+  },
+  {
+   "finding": "CFP-26",
+   "assertion": "A homestead exemption usually must be applied for by a local deadline; how the deed is titled decides who owns it at death",
+   "why": "State and county law; no federal primary source. Draft under owner_decisions is hedged and its claims are marked unverified."
+  }
+ ],
+ "review": [
+  {
+   "target": "le:home-purchase:afford",
+   "change": "'Avoid new credit while the mortgage is in process' -> 'Avoid applying for a lot of new credit while you prepare for the mortgage' (plain to match); P9 anchor and NEW-le-home-purchase-3 claim text updated.",
+   "why": "The draft went further than the CFPB tip, which warns against a lot of new credit in a short time before a mortgage, not all new credit through closing.",
+   "source": {
+    "url": "https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/",
+    "quote": "Don't apply for a lot of new credit in a short time, especially if you are getting ready to get a mortgage. Doing so may negatively affect your score."
+   }
+  },
+  {
+   "target": "le:home-purchase:insure",
+   "change": "'which protects only the lender' -> 'which protects the amount they lend' (body and plain); P7 updated.",
+   "why": "The CFPB page does not say 'only'.",
+   "source": {
+    "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/",
+    "quote": "Most lenders require you to purchase a lender's title insurance policy, which protects the amount they lend."
+   }
+  },
+  {
+   "target": "le:home-purchase:insure",
+   "change": "'if someone later claims the home' -> 'if someone later says they have a claim against the home'; NEW-le-home-purchase-5 claim text aligned.",
+   "why": "'Claims the home' reads as an ownership claim only; the CFPB wording covers liens such as unpaid taxes or contractors.",
+   "source": {
+    "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/",
+    "quote": "Title insurance can protect you if someone later sues and says they have a claim against the home from before you purchased it."
+   }
+  },
+  {
+   "target": "le:home-purchase:insure",
+   "change": "Removed 'such as for wind or hail' from body and plain; CFP-25 reason and its unverified entry updated.",
+   "why": "No primary source was read on wind or hail; naming them as examples of exclusions implies a general rule that is state- and policy-specific.",
+   "source": {
+    "url": "",
+    "quote": ""
+   }
+  },
+  {
+   "target": "le:home-purchase:pmi",
+   "change": "'if you are current on payments' -> 'and you are current on payments' (plain: 'and you are up to date'); P2 reworded; NEW-le-home-purchase-6 claim text aligned; 4902(b)(2) quote added to ADV-26 sources.",
+   "why": "The statute still ends PMI once a late borrower becomes current; 'if' could read as losing automatic removal.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/12/4902?link-type=html",
+    "quote": "(2) if the mortgagor is not current on the termination date, on the first day of the first month beginning after the date that the mortgagor becomes current on the payments"
+   }
+  },
+  {
+   "target": "le:home-purchase:pmi",
+   "change": "Added '(up to 30 years)' after 'the whole loan term' in body and plain; P7 reworded.",
+   "why": "HUD's rule is the loan term or 30 years, whichever comes first; 'the whole loan term' alone overstates it for a term longer than 30 years.",
+   "source": {
+    "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+    "quote": "Loan-to-Value (LTV) greater than 90% at the time the of loan origination: Annual MIP will be collected until the end of the loan term, or 30 years, whichever occurs first."
+   }
+  },
+  {
+   "target": "ADV-26",
+   "change": "Both answers.hud.gov quotes replaced with the verbatim page text (the draft's version of the first quote was not verbatim); same fix in CFP-27.",
+   "why": "Quotes must be verbatim; the page is JavaScript-rendered and was re-read through Firecrawl.",
+   "source": {
+    "url": "https://answers.hud.gov/FHA/s/article/How-long-is-MIP-collected-for-case-numbers-assigned-on-or-after-June-3-2013",
+    "quote": "LTV less than or equal to 90% at the time of loan origination: Annual MIP will be collected until the end of the loan term, or 11 years, whichever occurs first."
+   }
+  },
+  {
+   "target": "CFP-26",
+   "change": "Owner-decision note: added one state example seen (Georgia.gov); rows remain UNVERIFIED and the draft text is unchanged.",
+   "why": "Tells the owner what a state-source route would look like without treating one state as proof of a multi-state claim.",
+   "source": {
+    "url": "https://georgia.gov/apply-homestead-exemption",
+    "quote": "You must file with the county or city where your home is located."
+   }
+  }
+ ]
+}

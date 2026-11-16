@@ -1,0 +1,301 @@
+{
+ "group": "le-death-of-spouse",
+ "findings": [
+  {
+   "id": "ADV-44",
+   "head": "le:death-of-spouse:pause | HIGH | \"Very few financial deadlines fall in the first weeks.\"",
+   "text": "Why: if health coverage came through the spouse's job, the survivor faces real clocks (COBRA notice, a 60-day Marketplace window). The step says to \"secure cash\" but not how.\nFix: \"One exception: if your health insurance came through your spouse's job, check COBRA, the Marketplace (60 days) or Medicaid now.\"",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-45",
+   "head": "le:death-of-spouse:pause or claims | HIGH | omission: the deceased's debts",
+   "text": "Why: collectors often contact surviving spouses. In most states, outside community-property states, a survivor isn't personally liable for a spouse's individual debts unless they were joint or co-signed. Grieving survivors often pay anyway.\nFix: \"You generally don't owe your spouse's individual debts unless you co-signed or live in a community-property state. Don't pay from your own money until you've checked. The estate handles them.\"",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-46",
+   "head": "le:death-of-spouse:notify | HIGH | \"survivor benefits as early as age 60\"",
+   "text": "Why: a younger widow or widower caring for a child under 16 can get benefits at any age, and the children can get benefits too. A young parent reads \"age 60\" and assumes nothing is available. The one-time death payment isn't mentioned either.\nFix: \"If you're caring for the deceased's child under 16, or if you are disabled, you may get benefits earlier. Children can also get benefits, and there is a one-time death payment.\"",
+   "block": "le:death-of-spouse:notify",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-47",
+   "head": "le:death-of-spouse:claims | MED | \"the choice matters if the survivor is under 59½\"",
+   "text": "Why: it doesn't say which way it matters. A survivor under 59½ who treats the IRA as their own and then withdraws can owe the 10% they would have avoided by keeping it as an inherited IRA.\nFix: \"If you're under 59½ and may need the money, keeping it as an inherited IRA lets you withdraw without the 10% additional tax; treating it as your own does not.\"",
+   "block": "le:death-of-spouse:claims",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-48",
+   "head": "le:death-of-spouse:taxes | LOW | \"the widow's tax trap\"",
+   "text": "Why: the title is gendered and leans on jargon.\nFix: \"Plan for the survivor's tax squeeze\".",
+   "block": "le:death-of-spouse:taxes",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-45",
+   "head": "le:death-of-spouse:pause — HIGH (overgeneralization)",
+   "text": "Phrase: \"Very few financial deadlines fall in the first weeks.\"\nWhy: True for selling assets, but it hides three clocks:\n- If the household was on the deceased spouse's employer plan, COBRA (up to 36 months) and its notice rules start now.\n- A qualified disclaimer must generally be made within 9 months and before accepting the asset.\n- Portability of the deceased spouse's unused estate-tax exemption needs a Form 706, even when no tax is due. This is the item most often missed at this event, and the IRS's simplified relief window is up to 5 years.\nAddition: \"A few clocks start now: health coverage through the late spouse's employer (COBRA), the 9-month limit for disclaiming an inheritance, and the estate-tax return that preserves the unused exemption for you (portability), which is often worth filing even when no tax is owed.\"",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-46",
+   "head": "le:death-of-spouse:notify — MED (overgeneralization)",
+   "text": "Phrase: \"A surviving spouse can receive survivor benefits as early as age 60\"\nWhy: The exception matters most for young widows and widowers. Benefits are available at any age when caring for the deceased's child under 16, and from 50 if disabled. Children under 18 get their own benefits.\nRewrite: \"...as early as 60 (50 if disabled, and at any age while caring for the deceased's child under 16), and unmarried children under 18 can receive benefits of their own.\"",
+   "block": "le:death-of-spouse:notify",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-47",
+   "head": "le:death-of-spouse:taxes — MED (interaction with the pause step)",
+   "text": "Missing:\n- The surviving spouse keeps the full joint home-sale exclusion ({{fig:sec121_exclusion_mfj}}) only if the home is sold within two years of the death, so \"selling the house can wait\" has an expiry.\n- Single-filer brackets also hit Medicare IRMAA tiers.\nAddition: \"A surviving spouse can still exclude up to the joint home-sale amount if the home is sold within two years of the death; single-filer status can also trigger Medicare surcharges, which can be appealed for a death in the family.\"",
+   "block": "le:death-of-spouse:taxes",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-48",
+   "head": "le:death-of-spouse:claims — LOW",
+   "text": "Missing: claiming or re-titling an asset can count as accepting it, which rules out disclaiming it (for example, to a bypass trust or to the children).\nAddition: \"Decide whether to disclaim any account before claiming or re-titling it.\"",
+   "block": "le:death-of-spouse:claims",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "le:death-of-spouse:pause": {
+   "title": "Make no irreversible decisions; secure cash for the next few months",
+   "when": "First weeks",
+   "body": "A few clocks start now, and the rest can wait. If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act), and a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Emergency fund"
+    }
+   ],
+   "claims": [
+    "CL483",
+    "CL484",
+    "CL533"
+   ],
+   "plain": "A few clocks start now, and the rest can wait. If your health insurance came through your spouse's job, the COBRA and Marketplace windows start when that coverage ends (you have 60 days to act), and if you want to turn down an inheritance you generally must do it within 9 months and before you accept it. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
+   "props": [
+    [
+     "P1",
+     "A few deadlines start now; the rest can wait",
+     "kept",
+     "a few clocks start now"
+    ],
+    [
+     "P2",
+     "Irreversible moves (sell house, move, lump sum) can wait",
+     "kept",
+     "can wait"
+    ],
+    [
+     "P3",
+     "Locate will, policies, statements",
+     "kept",
+     "find the will"
+    ],
+    [
+     "P4",
+     "Get several certified death certificates; most institutions ask for one",
+     "kept",
+     "certified copies"
+    ],
+    [
+     "P5",
+     "COBRA and Marketplace windows start at loss of spouse-employer coverage; 60 days",
+     "kept",
+     "60 days to act"
+    ],
+    [
+     "P6",
+     "A disclaimer must generally be made within 9 months and before accepting the asset",
+     "kept",
+     "9 months"
+    ]
+   ]
+  },
+  "le:death-of-spouse:notify": {
+   "title": "Notify Social Security and claim survivor benefits",
+   "when": "First month",
+   "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60 (50 if disabled), and at any age while not remarried and caring for the deceased's child who is under 16 or disabled and entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment. Switching between your own and the survivor benefit later can be worth comparing.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.3",
+     "label": "Social Security claiming (framework 10.3)"
+    }
+   ],
+   "claims": [
+    "CL515",
+    "CL534"
+   ],
+   "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60 (50 if disabled), and at any age if they have not remarried and are caring for the deceased's child who is under 16 or disabled and qualifies for child's benefits. The children can get benefits of their own while under 18 (19 if still in high school), and there is a one-time lump-sum death payment. Later, you may be able to switch between the survivor benefit and your own; compare which pays more and when.",
+   "props": [
+    [
+     "P1",
+     "Report the death to SSA; funeral homes often do",
+     "kept",
+     "funeral home often does this"
+    ],
+    [
+     "P2",
+     "Survivor benefits available from age 60",
+     "kept",
+     "as early as age 60"
+    ],
+    [
+     "P3",
+     "Switching between own and survivor benefit later is worth comparing",
+     "kept",
+     "compare which pays more"
+    ],
+    [
+     "P4",
+     "Age 50 if disabled; any age while caring for the deceased's entitled child who is under 16 or disabled",
+     "kept",
+     "under 16 or disabled"
+    ],
+    [
+     "P5",
+     "Children receive benefits under 18 (19 if a secondary-school student)",
+     "kept",
+     "under 18"
+    ],
+    [
+     "P6",
+     "There is a one-time lump-sum death payment",
+     "kept",
+     "lump-sum death payment"
+    ],
+    [
+     "P7",
+     "The any-age benefit requires that the surviving spouse has not remarried",
+     "kept",
+     "not remarried"
+    ]
+   ]
+  },
+  "le:death-of-spouse:claims": {
+   "title": "File life-insurance claims and re-title accounts",
+   "when": "First months",
+   "body": "Life insurance and retirement accounts pay to the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA — the choice matters if the survivor is under 59½.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "claims": [
+    "CL516"
+   ],
+   "plain": "Life insurance and retirement accounts pay the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA. The choice matters if the surviving spouse is under 59½.",
+   "props": [
+    [
+     "P1",
+     "Life insurance and retirement accounts pay the named beneficiary directly",
+     "kept",
+     "pay the named beneficiary directly"
+    ],
+    [
+     "P2",
+     "A spouse can treat an inherited IRA as own, roll it over, or keep it inherited",
+     "kept",
+     "treat it as their own"
+    ],
+    [
+     "P3",
+     "The choice matters if under 59½",
+     "kept",
+     "under 59½"
+    ]
+   ]
+  },
+  "le:death-of-spouse:taxes": {
+   "title": "Plan for the widow's tax trap",
+   "when": "Next tax season",
+   "body": "You can still file jointly for the year of death. After that, a survivor with a dependent child can file as a qualifying surviving spouse for two more years; otherwise the survivor files single — often with similar income but narrower brackets. Inherited assets generally receive a stepped-up basis, and in community-property states both halves of community property can.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Roth conversions (framework 10.1)"
+    }
+   ],
+   "claims": [
+    "CL517",
+    "CL511"
+   ],
+   "plain": "You can still file a joint return for the year your spouse died. After that, if you have a dependent child, you can file as a qualifying surviving spouse for two more years. Otherwise you file as single — often with about the same income but narrower tax brackets. Inherited assets usually get a stepped-up cost basis, and in community-property states both halves of shared property can.",
+   "props": [
+    [
+     "P1",
+     "Joint filing allowed for the year of death",
+     "kept",
+     "year your spouse died"
+    ],
+    [
+     "P2",
+     "QSS status for two more years with a dependent child",
+     "kept",
+     "two more years"
+    ],
+    [
+     "P3",
+     "Otherwise single, often similar income with narrower brackets",
+     "kept",
+     "narrower tax brackets"
+    ],
+    [
+     "P4",
+     "Inherited assets generally get a stepped-up basis; community property both halves",
+     "kept",
+     "both halves"
+    ]
+   ]
+  },
+  "le:death-of-spouse:update": {
+   "title": "Update your own estate documents and beneficiaries",
+   "when": "First year",
+   "body": "Your will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and re-run the diagnostic for a one-person household.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    },
+    {
+     "to": "plan",
+     "label": "Re-run the diagnostic"
+    }
+   ],
+   "claims": [
+    "CL498"
+   ],
+   "plain": "Your own will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and take the diagnostic again as a one-person household.",
+   "props": [
+    [
+     "P1",
+     "Own documents probably name the spouse",
+     "kept",
+     "probably name your spouse"
+    ],
+    [
+     "P2",
+     "Replace them",
+     "kept",
+     "replace them"
+    ],
+    [
+     "P3",
+     "Re-run the diagnostic for one person",
+     "kept",
+     "one-person household"
+    ]
+   ]
+  }
+ }
+}

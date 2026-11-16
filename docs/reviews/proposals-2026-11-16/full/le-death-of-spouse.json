@@ -1,0 +1,683 @@
+{
+ "group": "le-death-of-spouse",
+ "findings": [
+  {
+   "id": "ADV-44",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "Already addressed. An earlier pass fixed the quoted phrase ('Very few financial deadlines fall in the first weeks'). The pause body now reads: 'If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act)'. Medicaid is not named. It has no enrollment window (HealthCare.gov: apply 'any time of year'), so it adds no clock to this step. Existing rows CL483/CL484 cover the sentence.",
+   "sources": [
+    {
+     "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+     "quote": "You can apply for Medicaid and CHIP any time of year.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:pause"
+  },
+  {
+   "id": "ADV-45",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "A real omission: collectors do contact surviving spouses. Added to the pause step (paying from your own money is the irreversible act). The reviewer's 'outside community-property states' rule was reworded to CFPB's exceptions: co-signer, joint account holder (not an authorized user), and state law that makes a surviving spouse pay, which includes some community-property states. CFPB treats community property as a state-law case, not a blanket rule. Checker: the sentence now opens 'If a collector asks you to pay', following the CFPB page, so a survivor does not read it as advice to stop paying a joint mortgage or loan.",
+   "sources": [
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/a-debt-collector-is-trying-to-collect-a-debt-of-a-deceased-relative-what-can-i-do-en-1463/",
+     "quote": "For survivors of deceased loved ones, including spouses, you're not responsible for their debts unless your situation falls into one of the specific circumstances listed above",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/a-debt-collector-is-trying-to-collect-a-debt-of-a-deceased-relative-what-can-i-do-en-1463/",
+     "quote": "You're a joint account holder on a credit card. Note: this is different from an authorized user You're a surviving spouse and your state law requires spouses to pay a particular type of debt",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:pause"
+  },
+  {
+   "id": "ADV-46",
+   "block": "le:death-of-spouse:notify",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Mostly addressed already. The notify body says survivors can claim benefits 'as early as age 60 (50 if disabled), and at any age while caring for the deceased's child who is entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment'. The point still missing is the reviewer's 'child under 16'. Under §402(s)(1), a child aged 16 or older who is not disabled does not qualify the parent for the benefit, so the clause now says 'under 16 or disabled'.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+     "quote": "a child who is entitled to child's insurance benefits ... and who has attained the age of 16 but is not in such month under a disability ... shall be deemed not entitled to such benefits",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:notify"
+  },
+  {
+   "id": "CFP-46",
+   "block": "le:death-of-spouse:notify",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Same as ADV-46. Age 50 if disabled, children under 18 (19 in secondary school) and the death payment are already in the text (CL515, CL534). Added the under-16-or-disabled limit on the parent's benefit at any age (§402(s)(1)). The reviewer's 'unmarried children under 18' was already covered: the existing text says 'under 18', and CL534 records the unmarried condition.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+     "quote": "a child who is entitled to child's insurance benefits ... and who has attained the age of 16 but is not in such month under a disability ... shall be deemed not entitled to such benefits",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:notify"
+  },
+  {
+   "id": "ADV-47",
+   "block": "le:death-of-spouse:claims",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct. Distributions to a beneficiary after the owner's death are exempt from the 10% additional tax (§72(t)(2)(A)(ii)). Pub. 590-B says that once a spouse treats the IRA as their own, distributions before 59½ may owe it. The vague clause was replaced with the direction it cuts.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+     "quote": "paragraph (1) shall not apply to any of the following distributions: ... (ii) made to a beneficiary (or to the estate of the employee) on or after the death of the employee",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p590b",
+     "quote": "if you inherit a traditional IRA from your deceased spouse and elect to treat it as your own ... any distribution you later receive before you reach age 59½ may be subject to the 10% additional tax.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:claims"
+  },
+  {
+   "id": "ADV-48",
+   "block": "le:death-of-spouse:taxes",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "The title 'widow's tax trap' is gendered jargon. Retitled 'Plan for the survivor's tax squeeze' as suggested. This is a title-only change, outside the body/plain gate.",
+   "sources": [],
+   "addressed_in": "le:death-of-spouse:taxes"
+  },
+  {
+   "id": "CFP-45",
+   "block": "le:death-of-spouse:pause",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Two of the three clocks are already in the pause body ('the COBRA and Marketplace windows begin when that coverage ends' and 'a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset'). Portability was missing and is added. The return must be filed for portability whatever the estate's size (§2010(c)(5)(A); Form 706 instructions), and it is due 9 months after the death (§6075(a)), subject to extension. Not added, to keep the step short: the reviewer's 'up to 5 years' late-election relief and 'COBRA up to 36 months'. The checker read both today and both are correct: the Form 706 instructions give the fifth anniversary for executors with no other filing requirement, and 29 U.S.C. §1162(2)(A)(iv) with §1163(1) gives 36 months after the covered employee's death. Either can be added if the owner wants. The sentence tells the reader to ask a professional rather than setting a size threshold.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2010?link-type=html",
+     "quote": "unless the executor of the estate of the deceased spouse files an estate tax return on which such amount is computed and makes an election on such return that such amount may be so taken into account.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/6075?link-type=html",
+     "quote": "Returns made under section 6018(a) (relating to estate taxes) shall be filed within 9 months after the date of the decedent's death.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/instructions/i706",
+     "quote": "The filing requirement applies to all estates of decedents choosing to elect portability of the DSUE amount, regardless of the size of the estate.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/instructions/i706",
+     "quote": "Executors filing to elect portability may now file Form 706 on or before the fifth anniversary of the decedent's death.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1162?link-type=html",
+     "quote": "In the case of a qualifying event not described in section 1163(2) or 1163(6) of this title, the date which is 36 months after the date of the qualifying event.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1163?link-type=html",
+     "quote": "the term \"qualifying event\" means, with respect to any covered employee, any of the following events ... (1) The death of the covered employee.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:pause"
+  },
+  {
+   "id": "CFP-47",
+   "block": "le:death-of-spouse:taxes",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Home sale: accepted. §121(b)(4) allows the joint exclusion for an unmarried surviving spouse who sells within 2 years of the death, so 'selling the house can wait' has a limit. It uses the existing {{fig:sec121_exclusion_mfj}} token. IRMAA: the single-filer threshold is half the joint one (§1395r(i)(2)). The reviewer's 'can be appealed for a death in the family' was narrowed. Under 20 CFR §418.1201 and §418.1205, a spouse's death is a major life-changing event, and SSA will use a more recent tax year only when that lowers or removes the surcharge. Checker: the IRMAA clause now says 'no longer filing jointly' (a qualifying surviving spouse also uses the single ranges, 20 CFR 418.1115(b)), and relief applies only when the death itself lowers income enough to cut the surcharge (418.1201(b)).",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/121?link-type=html",
+     "quote": "paragraph (1) shall be applied by substituting \"$500,000\" for \"$250,000\" if such sale occurs not later than 2 years after the date of death of such spouse",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1395r?link-type=html",
+     "quote": "(B) in the case of a joint return, twice the amount applicable under subparagraph (A) for the calendar year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1201",
+     "quote": "We will use a more recent tax year than the years described in § 418.1135(a) or (b) to reduce or eliminate your income-related monthly adjustment amount when all of the following occur: (a) You experience a major life-changing event",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1205",
+     "quote": "we will consider the following to be major life-changing events: (a) Your spouse dies;",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1115",
+     "quote": "individuals with a Federal tax filing status of single, head of household, qualifying widow(er) with dependent child, and married filing separately when the individual has lived apart",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:taxes"
+  },
+  {
+   "id": "CFP-48",
+   "block": "le:death-of-spouse:claims",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "The point stands: acceptance bars a qualified disclaimer. But the reviewer's 'claiming or re-titling counts as accepting' overstates it. Treas. Reg. §25.2518-2(d)(1) says merely taking delivery of title does not count. The new sentence uses the regulation's own list of acts that indicate acceptance, and says they 'can count'.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=25&section=25.2518-2",
+     "quote": "Acts indicative of acceptance include using the property or the interest in property; accepting dividends, interest, or rents from the property; and directing others to act with respect to the property or interest in property.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=25&section=25.2518-2",
+     "quote": "However, merely taking delivery of an instrument of title, without more, does not constitute acceptance.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:death-of-spouse:claims"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:death-of-spouse:pause",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-45",
+    "CFP-45"
+   ],
+   "body": "A few clocks start now, and the rest can wait. If your health coverage came through your spouse's employer, the COBRA and Marketplace windows begin when that coverage ends (60 days to act), and a decision to disclaim an inheritance must generally be made within 9 months and before you accept the asset. Ask a tax preparer or estate attorney whether to file an estate-tax return for your spouse (generally due in 9 months); it can pass their unused exemption to you even when no tax is owed. If a collector asks you to pay your spouse's debts, don't use your own money until you check: the estate generally pays them, and you usually owe only debts you co-signed or held jointly (being an authorized user is not joint) or ones your state's law puts on a surviving spouse. Selling the house, moving, or taking a lump sum can wait. Locate the will, policies and account statements, and get several certified copies of the death certificate — most institutions ask for one.",
+   "plain": "A few clocks start now, and the rest can wait. If your health insurance came through your spouse's job, the COBRA and Marketplace windows start when that coverage ends (you have 60 days to act), and if you want to turn down an inheritance you generally must do it within 9 months and before you accept it. Ask a tax preparer or estate lawyer whether to file an estate tax return for your spouse (usually due in 9 months). It can pass your spouse's unused exemption to you even when no tax is owed. If a debt collector asks you to pay your spouse's debts, don't use your own money until you check. The estate usually pays them. You usually owe only debts that were joint or that you co-signed (being an authorized user on a card is not joint), or debts your state's law makes a surviving spouse pay. Selling the house, moving, or taking a lump sum can wait. Find the will, insurance policies and account statements, and get several certified copies of the death certificate — most companies will ask for one.",
+   "props": [
+    [
+     "P1",
+     "A few deadlines start now; the rest can wait",
+     "kept",
+     "a few clocks start now"
+    ],
+    [
+     "P2",
+     "Irreversible moves (sell house, move, lump sum) can wait",
+     "kept",
+     "can wait"
+    ],
+    [
+     "P3",
+     "Locate will, policies, statements",
+     "kept",
+     "find the will"
+    ],
+    [
+     "P4",
+     "Get several certified death certificates; most institutions ask for one",
+     "kept",
+     "certified copies"
+    ],
+    [
+     "P5",
+     "COBRA and Marketplace windows start at loss of spouse-employer coverage; 60 days",
+     "kept",
+     "60 days to act"
+    ],
+    [
+     "P6",
+     "A disclaimer must generally be made within 9 months and before accepting the asset",
+     "kept",
+     "9 months"
+    ],
+    [
+     "P7",
+     "Ask whether to file an estate-tax return for the spouse (generally due in 9 months); it can pass the unused exemption even when no tax is owed",
+     "kept",
+     "unused exemption"
+    ],
+    [
+     "P8",
+     "If a collector asks you to pay the spouse's debts, do not use your own money until you have checked",
+     "kept",
+     "your own money"
+    ],
+    [
+     "P9",
+     "The estate generally pays the debts; you usually owe only joint or co-signed debts (an authorized user is not joint) or ones state law puts on a surviving spouse",
+     "kept",
+     "co-signed"
+    ]
+   ],
+   "claims": [
+    "CL483",
+    "CL484",
+    "CL533",
+    "NEW-le-death-of-spouse-1",
+    "NEW-le-death-of-spouse-2"
+   ],
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Emergency fund"
+    }
+   ],
+   "words_before": 86,
+   "words_after": 172,
+   "notes": "Grows 86 to 172 words (about 100%, over the 70% flag): two HIGH findings, each about 40 words (portability sentence, debts sentence). If the owner wants it shorter, the portability sentence could move to the taxes block, but the return is due 9 months after the death, which can come before 'next tax season'. The 9 months for Form 706 and for a disclaimer are separate statutory clocks (§6075(a), §2518(b)) that happen to be the same length. The body has no threshold for when portability matters, on purpose: it says to ask, rather than inventing a cut-off. Debts sentence follows CFPB's list. The executor-specific exception is left out because the module already sends estate administration to the will and the estate. The existing em-dash before 'most institutions' was left as it was. Checker (2026-11-16): the debts sentence now opens 'If a collector asks you to pay', because the draft's 'Don't pay your spouse's debts ... until you check' could lead a survivor to stop paying a joint mortgage or car loan while checking; the CFPB page the sentence rests on is about collectors. Not added for length, though now verified: Form 706 instructions allow an executor with no other filing requirement to elect portability up to the fifth anniversary of the death (Rev. Proc. 2022-32), and COBRA for a spouse after the covered employee's death runs 36 months (29 U.S.C. 1162(2)(A)(iv), 1163(1)). CL483 is cited here but its loc names only job loss and divorce; the owner may extend it to death of spouse."
+  },
+  {
+   "id": "le:death-of-spouse:notify",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-46",
+    "CFP-46"
+   ],
+   "body": "Report the death to the Social Security Administration (funeral homes often do this). A surviving spouse can receive survivor benefits as early as age 60 (50 if disabled), and at any age while not remarried and caring for the deceased's child who is under 16 or disabled and entitled to child's benefits; the children themselves can receive benefits while under 18 (19 if still in secondary school), and there is a one-time lump-sum death payment. Switching between your own and the survivor benefit later can be worth comparing.",
+   "plain": "Tell the Social Security Administration about the death (the funeral home often does this). A surviving spouse can get survivor benefits as early as age 60 (50 if disabled), and at any age if they have not remarried and are caring for the deceased's child who is under 16 or disabled and qualifies for child's benefits. The children can get benefits of their own while under 18 (19 if still in high school), and there is a one-time lump-sum death payment. Later, you may be able to switch between the survivor benefit and your own; compare which pays more and when.",
+   "props": [
+    [
+     "P1",
+     "Report the death to SSA; funeral homes often do",
+     "kept",
+     "funeral home often does this"
+    ],
+    [
+     "P2",
+     "Survivor benefits available from age 60",
+     "kept",
+     "as early as age 60"
+    ],
+    [
+     "P3",
+     "Switching between own and survivor benefit later is worth comparing",
+     "kept",
+     "compare which pays more"
+    ],
+    [
+     "P4",
+     "Age 50 if disabled; any age while caring for the deceased's child who is under 16 or disabled and entitled to child's benefits",
+     "kept",
+     "under 16 or disabled"
+    ],
+    [
+     "P5",
+     "Children receive benefits under 18 (19 if a secondary-school student)",
+     "kept",
+     "under 18"
+    ],
+    [
+     "P6",
+     "There is a one-time lump-sum death payment",
+     "kept",
+     "lump-sum death payment"
+    ],
+    [
+     "P7",
+     "The any-age benefit requires that the surviving spouse has not remarried",
+     "kept",
+     "not remarried"
+    ]
+   ],
+   "claims": [
+    "CL515",
+    "CL534",
+    "NEW-le-death-of-spouse-3"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.3",
+     "label": "Social Security claiming (framework 10.3)"
+    }
+   ],
+   "words_before": 80,
+   "words_after": 85,
+   "notes": "One-clause correction: the mother's/father's benefit at any age requires the child in care to be under 16 or disabled (42 U.S.C. §402(s)(1)); the current wording 'child who is entitled to child's benefits' would also cover a 16- or 17-year-old, who does not qualify the parent. CL534's claim text should be read with the new row; owner may prefer to amend CL534 instead of adding NEW-3. Reconciled 2026-11-16 with the factual corrections on branch fix/verification-2026-11-16."
+  },
+  {
+   "id": "le:death-of-spouse:claims",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-47",
+    "CFP-48"
+   ],
+   "body": "Life insurance and retirement accounts pay to the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA. If you are under 59½ and may need the money, keeping it as an inherited IRA avoids the 10% additional tax on withdrawals; treating it as your own (or rolling it over) does not. Decide on any disclaimer first: using the account, taking income from it or giving instructions about it can count as accepting it, which rules a disclaimer out.",
+   "plain": "Life insurance and retirement accounts pay the named beneficiary directly. A surviving spouse who inherits an IRA can treat it as their own, roll it over, or keep it as an inherited IRA. If you are under 59½ and may need the money, keeping it as an inherited IRA lets you take money out without the extra 10% tax. Treating it as your own (or rolling it over) does not. If you might turn down (disclaim) an account, decide that first. Using it, taking income from it, or giving instructions about it can count as accepting it, and then you can't turn it down.",
+   "props": [
+    [
+     "P1",
+     "Life insurance and retirement accounts pay the named beneficiary directly",
+     "kept",
+     "pay the named beneficiary directly"
+    ],
+    [
+     "P2",
+     "A spouse can treat an inherited IRA as own, roll it over, or keep it inherited",
+     "kept",
+     "treat it as their own"
+    ],
+    [
+     "P3",
+     "Under 59½ and needing the money: keeping it as an inherited IRA allows withdrawals without the 10% additional tax",
+     "kept",
+     "without the extra 10% tax"
+    ],
+    [
+     "P4",
+     "Treating it as own (or rolling it over) does not avoid the 10% additional tax",
+     "kept",
+     "treating it as your own (or rolling it over) does not"
+    ],
+    [
+     "P5",
+     "Decide on any disclaimer first",
+     "kept",
+     "decide that first"
+    ],
+    [
+     "P6",
+     "Using the account, taking income from it or giving instructions about it can count as accepting it, which rules out a disclaimer",
+     "kept",
+     "can count as accepting it"
+    ]
+   ],
+   "claims": [
+    "CL516",
+    "NEW-le-death-of-spouse-4",
+    "NEW-le-death-of-spouse-5"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "words_before": 44,
+   "words_after": 95,
+   "notes": "Grows 44 to 95 words (about 116%) from a small base. ADV-47 replaces the vague 'the choice matters if the survivor is under 59½' clause with the direction it matters in. CFP-48 is reworded because the reviewer's claim that re-titling counts as accepting is contradicted by Treas. Reg. §25.2518-2(d)(1) ('merely taking delivery of an instrument of title, without more, does not constitute acceptance'). The new text uses the regulation's own list of acts (using, taking income, directing others) and says 'can count'."
+  },
+  {
+   "id": "le:death-of-spouse:taxes",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-48",
+    "CFP-47"
+   ],
+   "title": "Plan for the survivor's tax squeeze",
+   "body": "You can still file jointly for the year of death. After that, a survivor with a dependent child can file as a qualifying surviving spouse for two more years; otherwise the survivor files single — often with similar income but narrower brackets. Inherited assets generally receive a stepped-up basis, and in community-property states both halves of community property can. If you sell the home within two years of the death and have not remarried, you can generally still exclude up to {{fig:sec121_exclusion_mfj}} of gain. On Medicare, no longer filing jointly can also bring the income-related premium surcharge; because a spouse's death is a life-changing event, you can ask Social Security to use a more recent year if the death lowered your income enough to cut the surcharge.",
+   "plain": "You can still file a joint return for the year your spouse died. After that, if you have a dependent child, you can file as a qualifying surviving spouse for two more years. Otherwise you file as single — often with about the same income but narrower tax brackets. Inherited assets usually get a stepped-up cost basis, and in community-property states both halves of shared property can. If you sell your home within two years of the death and have not remarried, you can usually still keep up to {{fig:sec121_exclusion_mfj}} of profit tax-free. If you are on Medicare, no longer filing jointly can also mean an extra Medicare premium for higher incomes. A spouse's death counts as a life-changing event, so if the death lowered your income enough to cut that extra premium, you can ask Social Security to use a more recent year.",
+   "props": [
+    [
+     "P1",
+     "Joint filing allowed for the year of death",
+     "kept",
+     "year your spouse died"
+    ],
+    [
+     "P2",
+     "QSS status for two more years with a dependent child",
+     "kept",
+     "two more years"
+    ],
+    [
+     "P3",
+     "Otherwise single, often similar income with narrower brackets",
+     "kept",
+     "narrower tax brackets"
+    ],
+    [
+     "P4",
+     "Inherited assets generally get a stepped-up basis; community property both halves",
+     "kept",
+     "both halves"
+    ],
+    [
+     "P5",
+     "A home sold within two years of the death, while not remarried, can generally still get the joint exclusion of up to {{fig:sec121_exclusion_mfj}}",
+     "kept",
+     "within two years of the death"
+    ],
+    [
+     "P6",
+     "On Medicare, no longer filing jointly (single or qualifying surviving spouse) can also bring the income-related premium surcharge (IRMAA)",
+     "kept",
+     "extra medicare premium"
+    ],
+    [
+     "P7",
+     "A spouse's death is a life-changing event; if it lowered income enough to cut the surcharge, Social Security can be asked to use a more recent year",
+     "kept",
+     "life-changing event"
+    ]
+   ],
+   "claims": [
+    "CL517",
+    "CL511",
+    "NEW-le-death-of-spouse-6",
+    "NEW-le-death-of-spouse-7"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Roth conversions (framework 10.1)"
+    }
+   ],
+   "words_before": 59,
+   "words_after": 127,
+   "notes": "Grows 59 to 127 words (about 115%). Title changed per ADV-48 (the title is not part of the body/plain gate; it lives in life-events.json). Home-sale sentence writes 'two years' in words, as the block already does for 'two more years', so no number enters the gate. It ties to the pause step's 'Selling the house ... can wait': waiting more than two years loses the joint exclusion. The IRMAA sentence follows 20 CFR §418.1201/.1205: relief means asking SSA to use a more recent year when the death lowered income, not a general appeal of single-filer status. The reviewer's framing ('can be appealed for a death in the family') was narrowed to that. Checker (2026-11-16): 'a single return' became 'no longer filing jointly', because a qualifying surviving spouse also falls in the single IRMAA ranges (20 CFR 418.1115(b)); 'if your income fell' became 'if the death lowered your income enough to cut the surcharge', because 418.1201(b) requires the event itself to reduce MAGI enough to lower or remove the adjustment."
+  },
+  {
+   "id": "le:death-of-spouse:update",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Your will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and re-run the diagnostic for a one-person household.",
+   "plain": "Your own will, powers of attorney and beneficiary forms probably name your spouse. Replace them, and take the diagnostic again as a one-person household.",
+   "props": [
+    [
+     "P1",
+     "Own documents probably name the spouse",
+     "kept",
+     "probably name your spouse"
+    ],
+    [
+     "P2",
+     "Replace them",
+     "kept",
+     "replace them"
+    ],
+    [
+     "P3",
+     "Re-run the diagnostic for one person",
+     "kept",
+     "one-person household"
+    ]
+   ],
+   "claims": [
+    "CL498"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    },
+    {
+     "to": "plan",
+     "label": "Re-run the diagnostic"
+    }
+   ],
+   "words_before": 22,
+   "words_after": 22,
+   "notes": "Unchanged; no finding targets this block."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-death-of-spouse-1",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "A deceased spouse's unused estate-tax exclusion (DSUE) can be used by the surviving spouse only if the executor elects portability on a timely filed estate-tax return (due 9 months after death, plus extensions); a return is required to elect regardless of the size of the estate",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §2010(c)(4)-(5)(A); §6075(a); IRS Instructions for Form 706",
+   "url": "https://www.govinfo.gov/link/uscode/26/2010?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §2010(c)(5)(A) (DSUE amount may not be taken into account 'unless the executor of the estate of the deceased spouse files an estate tax return on which such amount is computed and makes an election'; no election if filed after the time prescribed, including extensions); §6075(a) ('shall be filed within 9 months after the date of the decedent's death'); Form 706 instructions ('The filing requirement applies to all estates of decedents choosing to elect portability of the DSUE amount, regardless of the size of the estate'). Late-election relief read in the Form 706 instructions 2026-11-16 ('Executors filing to elect portability may now file Form 706 on or before the fifth anniversary of the decedent's death', for executors with no filing requirement under §6018(a), per Rev. Proc. 2022-32); not used in block text. Added 2026-11-16 from the §4.4 persona pass (CFP-45)."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-2",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "A deceased person's debts are generally paid from the estate; a surviving spouse is not personally responsible unless a co-signer, a joint account holder (not an authorized user), or obligated by state law, including community-property states that require jointly held property to be used",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "CFPB 'A debt collector is trying to collect a debt of a deceased relative. What can I do?' (last reviewed Oct 15, 2026)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/a-debt-collector-is-trying-to-collect-a-debt-of-a-deceased-relative-what-can-i-do-en-1463/",
+   "note": "Verified 2026-11-16 at the primary source: CFPB lists the exceptions (co-signer; joint account holder on a credit card, 'different from an authorized user'; surviving spouse where state law requires paying a particular type of debt; executor rules; community-property states requiring jointly held property to pay a deceased spouse's debts) and says collectors may not imply a survivor must pay from their own assets. State-specific rules not read; text says 'your state's law'. Added 2026-11-16 from the §4.4 persona pass (ADV-45). Checker 2026-11-16: block text scoped to collectors ('If a collector asks you to pay'), as the CFPB page is."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-3",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "For the mother's or father's benefit, a child in care who is 16 or older and not disabled is treated as not entitled to child's benefits, so the any-age survivor benefit requires a child under 16 or disabled",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 U.S.C. §402(s)(1), §402(g)(1)",
+   "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §402(s)(1) ('For the purposes of subsections (b)(1), (c)(1), (g)(1) ... a child who is entitled to child's insurance benefits ... and who has attained the age of 16 but is not in such month under a disability ... shall be deemed not entitled to such benefits'). Refines CL534. Added 2026-11-16 from the §4.4 persona pass (ADV-46, CFP-46)."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-4",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "Distributions to a beneficiary after the IRA owner's death are exempt from the 10% additional tax; a surviving spouse who treats the inherited IRA as their own may owe it on distributions before age 59½",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §72(t)(2)(A)(ii); IRS Publication 590-B",
+   "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §72(t)(2)(A)(ii) (exception for distributions 'made to a beneficiary (or to the estate of the employee) on or after the death of the employee'); Pub. 590-B ('if you inherit a traditional IRA from your deceased spouse and elect to treat it as your own ... any distribution you later receive before you reach age 59½ may be subject to the 10% additional tax'). Added 2026-11-16 from the §4.4 persona pass (ADV-47)."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-5",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "A qualified disclaimer is barred once the disclaimant has accepted the interest; using the property, accepting its income, or directing others to act with respect to it indicate acceptance, while merely taking delivery of an instrument of title does not",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Treas. Reg. §25.2518-2(d)(1)",
+   "url": "https://www.ecfr.gov/current/title-26/section-25.2518-2",
+   "note": "Verified 2026-11-16 at the primary source (eCFR, title 26 as of 2026-11-12): §25.2518-2(d)(1) ('Acts indicative of acceptance include using the property or the interest in property; accepting dividends, interest, or rents from the property; and directing others to act with respect to the property'; 'merely taking delivery of an instrument of title, without more, does not constitute acceptance'). Added 2026-11-16 from the §4.4 persona pass (CFP-48)."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-6",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "An unmarried surviving spouse who sells the home within 2 years of the death can use the joint-return home-sale exclusion amount if the joint requirements were met immediately before the death",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §121(b)(4)",
+   "url": "https://www.govinfo.gov/link/uscode/26/121?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §121(b)(4) ('In the case of a sale or exchange of property by an unmarried individual whose spouse is deceased on the date of such sale, paragraph (1) shall be applied by substituting \"$500,000\" for \"$250,000\" if such sale occurs not later than 2 years after the date of death of such spouse and the requirements of paragraph (2)(A) were met immediately before such date of death'). Dollar amount rendered via {{fig:sec121_exclusion_mfj}}. Added 2026-11-16 from the §4.4 persona pass (CFP-47)."
+  },
+  {
+   "temp_id": "NEW-le-death-of-spouse-7",
+   "loc": "P4:life-events:death-of-spouse",
+   "claim": "Medicare's income-related premium threshold for a joint return is twice the individual threshold, and a qualifying surviving spouse is in the individual ranges; the death of a spouse is a major life-changing event that lets the beneficiary ask SSA to use a more recent tax year when the event's reduction in income lowers or removes the adjustment",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 U.S.C. §1395r(i)(2); 20 CFR §418.1115(b), §418.1201, §418.1205(a)",
+   "url": "https://www.govinfo.gov/link/uscode/42/1395r?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §1395r(i)(2)(B) ('in the case of a joint return, twice the amount applicable under subparagraph (A)'); 20 CFR §418.1201 (SSA will use a more recent tax year to reduce or eliminate the IRMAA when a major life-changing event significantly reduces MAGI and the beneficiary requests it); §418.1205(a) ('Your spouse dies'). SSA's own IRMAA pages and Form SSA-44 not read. Added 2026-11-16 from the §4.4 persona pass (CFP-47). Checker 2026-11-16: added 20 CFR §418.1115(b) ('single, head of household, qualifying widow(er) with dependent child, and married filing separately when the individual has lived apart') and the causation condition of §418.1201(b)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [],
+ "unverified": [
+  {
+   "finding": "CFP-45",
+   "assertion": "Portability is the item most often missed at this event.",
+   "why": "An empirical claim with no primary source. Not used."
+  }
+ ],
+ "review": [
+  {
+   "target": "le:death-of-spouse:pause",
+   "change": "Debts sentence reworded from \"Don't pay your spouse's debts from your own money until you check\" to \"If a collector asks you to pay your spouse's debts, don't use your own money until you check\"; plain variant and P8 anchor ('your own money') updated to match.",
+   "why": "The unscoped wording could lead a grieving reader to stop paying a joint mortgage or loan they owe while 'checking'. The CFPB source is about collectors, so the narrower wording follows the source and keeps ADV-45's point.",
+   "source": {
+    "url": "https://www.consumerfinance.gov/ask-cfpb/a-debt-collector-is-trying-to-collect-a-debt-of-a-deceased-relative-what-can-i-do-en-1463/",
+    "quote": "it's illegal for debt collectors to suggest you're responsible for paying from your own money"
+   }
+  },
+  {
+   "target": "le:death-of-spouse:claims",
+   "change": "Plain variant: 'telling anyone what to do with it' changed to 'giving instructions about it'.",
+   "why": "The regulation says 'directing others to act with respect to the property'. 'Telling anyone' goes further than the source and could worry a reader who only talked it over with family.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=25&section=25.2518-2",
+    "quote": "Acts indicative of acceptance include using the property or the interest in property; accepting dividends, interest, or rents from the property; and directing others to act with respect to the property"
+   }
+  },
+  {
+   "target": "le:death-of-spouse:taxes",
+   "change": "IRMAA sentence: 'a single return' changed to 'no longer filing jointly'; 'if your income fell' changed to 'if the death lowered your income enough to cut the surcharge'. Plain variant and P6/P7 texts updated to match; anchors unchanged.",
+   "why": "The first sentence of the block lets a survivor with a dependent child file as a qualifying surviving spouse, and that status uses the single IRMAA ranges too, so 'single return' was too narrow. The relief applies only when the life-changing event itself cuts MAGI enough to lower or remove the adjustment.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1115",
+    "quote": "individuals with a Federal tax filing status of single, head of household, qualifying widow(er) with dependent child, and married filing separately when the individual has lived apart"
+   }
+  },
+  {
+   "target": "le:death-of-spouse:taxes",
+   "change": "(same edit) source for the causation condition.",
+   "why": "See above.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1201",
+    "quote": "That major life-changing event results in a significant reduction in your modified adjusted gross income for the year which you request we use"
+   }
+  },
+  {
+   "target": "NEW-le-death-of-spouse-7",
+   "change": "Claim text and source extended with 20 CFR 418.1115(b) (qualifying surviving spouse in the individual ranges) and the 418.1201(b) causation condition.",
+   "why": "Matches the corrected block wording.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-30/title-20.xml?part=418&section=418.1115",
+    "quote": "single, head of household, qualifying widow(er) with dependent child"
+   }
+  },
+  {
+   "target": "NEW-le-death-of-spouse-1",
+   "change": "Note: late portability election relief (up to the fifth anniversary of the death) is now recorded as read, from the Form 706 instructions.",
+   "why": "The draft listed it as unverified. The IRS's own instructions state it.",
+   "source": {
+    "url": "https://www.irs.gov/instructions/i706",
+    "quote": "Executors filing to elect portability may now file Form 706 on or before the fifth anniversary of the decedent's death."
+   }
+  },
+  {
+   "target": "ADV-44",
+   "change": "Added a primary source for the reason's statement that Medicaid has no enrollment clock.",
+   "why": "The draft asserted it unsourced.",
+   "source": {
+    "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+    "quote": "You can apply for Medicaid and CHIP any time of year."
+   }
+  },
+  {
+   "target": "CFP-45",
+   "change": "Removed two items from 'unverified' (the 5-year late portability relief and the 36-month COBRA period for survivors) and added the sources read today to the finding. Neither goes into the block text.",
+   "why": "Both are confirmed at primary sources. They stay out of the body to keep the step short.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/29/1162?link-type=html",
+    "quote": "the date which is 36 months after the date of the qualifying event."
+   }
+  }
+ ]
+}

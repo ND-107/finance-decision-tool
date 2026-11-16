@@ -1,0 +1,289 @@
+{
+ "group": "le-new-baby",
+ "findings": [
+  {
+   "id": "ADV-10",
+   "head": "le:new-baby:enroll | MED | \"at least 30 days for an employer group plan and 60 days on the Marketplace\" (Medicaid/CHIP is missing)",
+   "text": "Why: a baby born to a mother on Medicaid is generally covered automatically for the first year, and CHIP covers many children in working families. Neither is mentioned.\nFix: \"If you or your baby may qualify for Medicaid or CHIP, apply now; there is no enrollment window. Babies born to a mother on Medicaid are generally covered for their first year.\"",
+   "block": "le:new-baby:enroll",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-11",
+   "head": "le:new-baby:ssn | MED | \"claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child)\"",
+   "text": "Why: (a) \"Up to\" hides the fact that families with low earnings may get only part of it as a refund. (b) For these families the Earned Income Tax Credit is often the bigger money, and it isn't mentioned. (c) Adopted children often don't have an SSN yet.\nFix: \"Lower-earning families may get only part of this credit back, so also check the Earned Income Tax Credit. For an adopted child without an SSN yet, ask the IRS for an adoption taxpayer ID (Form W-7A).\" Also check whether CL494 covers the current rule about parents' SSNs. If it does, say who it excludes.",
+   "block": "le:new-baby:ssn",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-12",
+   "head": "le:new-baby:protection | MED | \"10–12 times the primary earner's income\"",
+   "text": "Why: a parent who stays home or earns less also needs coverage, because replacing their childcare and household work costs real money. The title also promises disability coverage, but the body never talks about it.\nFix: \"A parent at home or earning less also needs coverage sized to what replacing their care would cost.\" Add one sentence on disability, or drop it from the title.",
+   "block": "le:new-baby:protection",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-13",
+   "head": "le:new-baby:protection | LOW | \"write or update a will\"",
+   "text": "Why: a reader may assume a will means an expensive lawyer and put it off.\nFix: \"Many states offer simple will forms, and legal aid groups often help parents name a guardian for free.\"",
+   "block": "le:new-baby:protection",
+   "severity": "LOW"
+  },
+  {
+   "id": "ADV-14",
+   "head": "le:new-baby:childcare | MED | \"A dependent-care FSA shelters childcare costs...\"",
+   "text": "Why: (a) it only exists if your employer offers one, and gig and part-time workers usually can't get it. (b) Money you elect but don't spend is generally lost. For someone whose childcare or hours change, that is real money gone.\nFix: \"Only available if your employer offers one. Money you set aside but don't spend is generally lost, so elect only what you are sure to spend.\"",
+   "block": "le:new-baby:childcare",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-11",
+   "head": "le:new-baby:protection — HIGH",
+   "text": "Phrase: \"Update beneficiary designations at the same time.\"\nWhy: The most common error at this life event is naming the minor child directly. A minor cannot take the money: it goes through court-supervised guardianship or reaches the child outright at 18 or 21. The guardian named in the will is for the child, not the money.\nRewrite: \"Do not name a minor child directly as beneficiary; name a trust (often created in the will) or a custodian under your state's transfers-to-minors act, so someone you chose manages the money.\"",
+   "block": "le:new-baby:protection",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-12",
+   "head": "le:new-baby:protection — MED",
+   "text": "Phrase: \"10–12 times the primary earner's income\"\nWhy: This misses the common exception of the non-earning or lower-earning parent, whose death creates large childcare costs. It also misses that group life through an employer usually ends with the job (ties to job loss).\nAddition: \"A stay-at-home or lower-earning parent also needs coverage sized to the childcare and household work that would have to be paid for; employer group life usually ends when the job does.\"",
+   "block": "le:new-baby:protection",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-13",
+   "head": "le:new-baby:childcare — MED (timing)",
+   "text": "Phrase: \"Before open enrollment\"\nWhy: A birth or adoption is a change-in-status event that usually allows a mid-year dependent-care FSA election, often within 30 days. Waiting for open enrollment loses months of pre-tax childcare.\nRewrite: \"A birth or adoption usually lets you start or change a dependent-care FSA mid-year, typically within 30 days of the event; otherwise elect it at open enrollment.\"",
+   "block": "le:new-baby:childcare",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-14",
+   "head": "new-baby (playbook) — MED (missing steps)",
+   "text": "- Paid leave cash flow. Short-term disability, state paid family leave and employer leave claims should be filed before the due date. The pay drop is the first money event.\n- Adoption. The playbook title includes adoption, but the adoption credit and employer adoption assistance are absent.\n- [VERIFY] The OBBBA \"Trump account,\" including the federal pilot deposit for children born 2025–2028, needs the child's SSN and an election.\nAdditions: a \"Before the birth\" step: \"File for short-term disability, state paid leave and employer leave ahead of time so the pay gap is planned.\" A line in ssn: \"The SSN is also needed for dependent-care benefits, a 529 and any child savings account opened in the child's name.\"",
+   "block": null,
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-15",
+   "head": "le:new-baby:enroll — LOW",
+   "text": "Missing: enrolling within the window usually makes the child's coverage retroactive to the date of birth or adoption. Moving to family HDHP coverage also changes the year's HSA limit.\nAddition: \"Enrolling within the window usually covers the child from the date of birth; if you move to family HDHP coverage, your HSA limit for the year changes too.\"",
+   "block": "le:new-baby:enroll",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "le:new-baby:enroll": {
+   "title": "Add the child to your health plan",
+   "when": "Within 30 days",
+   "body": "Birth and adoption trigger a special enrollment period: at least 30 days for an employer group plan and 60 days on the Marketplace. Missing it can mean waiting for the next open enrollment.",
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    }
+   ],
+   "claims": [
+    "CL484",
+    "CL485"
+   ],
+   "plain": "A birth or adoption gives you a special window to add your child to health coverage: at least 30 days for a job-based plan and 60 days on the Marketplace. Miss it and you may have to wait for the next open enrollment.",
+   "props": [
+    [
+     "P1",
+     "Birth/adoption triggers special enrollment",
+     "kept",
+     "special window"
+    ],
+    [
+     "P2",
+     "At least 30 days for employer group plans",
+     "kept",
+     "at least 30 days"
+    ],
+    [
+     "P3",
+     "60 days on the Marketplace",
+     "kept",
+     "60 days on the marketplace"
+    ],
+    [
+     "P4",
+     "Missing it can mean waiting for the next open enrollment",
+     "kept",
+     "next open enrollment"
+    ]
+   ]
+  },
+  "le:new-baby:ssn": {
+   "title": "Get the child a Social Security number",
+   "when": "First weeks",
+   "body": "You need the child's Social Security number to claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child). It is usually requested at the hospital with the birth registration.",
+   "links": [],
+   "claims": [
+    "CL494"
+   ],
+   "plain": "To claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child), your child needs a Social Security number. You can usually ask for one at the hospital when you register the birth.",
+   "props": [
+    [
+     "P1",
+     "The child's SSN is needed to claim the CTC",
+     "kept",
+     "needs a social security number"
+    ],
+    [
+     "P2",
+     "It is usually requested at the hospital with birth registration",
+     "kept",
+     "at the hospital"
+    ],
+    [
+     "P3",
+     "The credit is up to the figures-layer amount per child",
+     "kept",
+     "per child"
+    ]
+   ]
+  },
+  "le:new-baby:protection": {
+   "title": "Resize term life and disability coverage, and write or update a will",
+   "when": "First 3 months",
+   "body": "A dependent is the main reason to own term life insurance; the common heuristic is 10–12 times the primary earner's income, and the DIME method gives a more specific number. A will is where you name a guardian for a minor child; without one, a court decides. Update beneficiary designations at the same time.",
+   "links": [
+    {
+     "to": "protection/term-life",
+     "label": "Protection · term life"
+    },
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    },
+    {
+     "to": "spending-essentials/4",
+     "label": "Spending · Insurance (DIME calculator)"
+    }
+   ],
+   "claims": [
+    "CL061",
+    "CL181",
+    "CL519"
+   ],
+   "plain": "A child who depends on you is the main reason to have term life insurance. A common rule of thumb is 10–12 times the main earner's income; the DIME method gives a number that fits your household. A will is where you name a guardian for a young child — without one, a court chooses. Update the beneficiaries on your accounts at the same time.",
+   "props": [
+    [
+     "P1",
+     "A dependent is the main reason to own term life",
+     "kept",
+     "main reason to have term life"
+    ],
+    [
+     "P2",
+     "Heuristic: 10–12× primary earner's income",
+     "kept",
+     "10–12 times"
+    ],
+    [
+     "P3",
+     "DIME gives a more specific number",
+     "kept",
+     "dime method"
+    ],
+    [
+     "P4",
+     "A will names a guardian for a minor child; without one a court decides",
+     "kept",
+     "a court chooses"
+    ],
+    [
+     "P5",
+     "Update beneficiary designations at the same time",
+     "kept",
+     "update the beneficiaries"
+    ]
+   ]
+  },
+  "le:new-baby:childcare": {
+   "title": "Coordinate a dependent-care FSA with the child and dependent care credit",
+   "when": "Before open enrollment",
+   "body": "A dependent-care FSA shelters childcare costs from income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Expenses reimbursed through the FSA cannot also be counted for the child and dependent care credit, so the two have to be coordinated rather than both maxed.",
+   "links": [
+    {
+     "to": "spending-lifestyle/6",
+     "label": "Spending · Childcare (dependent-care FSA calculator)"
+    }
+   ],
+   "claims": [
+    "CL186",
+    "CL495"
+   ],
+   "plain": "A dependent-care FSA lets you pay for childcare with money that skips income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Costs you pay through the FSA can't also count toward the child and dependent care credit. So plan the two together instead of trying to max both.",
+   "props": [
+    [
+     "P1",
+     "A DCFSA shelters childcare costs from income and payroll tax",
+     "kept",
+     "skips income and payroll tax"
+    ],
+    [
+     "P2",
+     "FSA-reimbursed expenses cannot also count for the credit",
+     "kept",
+     "can't also count"
+    ],
+    [
+     "P3",
+     "The two must be coordinated, not both maxed",
+     "kept",
+     "plan the two together"
+    ],
+    [
+     "P4",
+     "The 2026 limit is per household, with a lower amount for married filing separately",
+     "kept",
+     "if married filing separately"
+    ]
+   ]
+  },
+  "le:new-baby:529": {
+   "title": "Consider a 529 plan — after your own retirement saving is on track",
+   "when": "When cash flow allows",
+   "body": "529 plans grow tax-free for qualified education costs, and about 30 states offer a state income tax deduction for contributions. The framework places education saving after the tax-advantaged retirement steps, because a student can borrow for college and a retiree cannot borrow for retirement.",
+   "links": [
+    {
+     "to": "full-chart/w2/9.4",
+     "label": "529 plans (framework 9.4)"
+    }
+   ],
+   "claims": [
+    "CL044"
+   ],
+   "plain": "A 529 plan grows tax-free when used for school costs, and about 30 states give a state tax deduction for putting money in. This tool puts education saving after your own retirement accounts, because a student can borrow for college but a retiree can't borrow for retirement.",
+   "props": [
+    [
+     "P1",
+     "529s grow tax-free for qualified education costs",
+     "kept",
+     "grows tax-free"
+    ],
+    [
+     "P2",
+     "About 30 states offer a state income tax deduction",
+     "kept",
+     "about 30 states"
+    ],
+    [
+     "P3",
+     "The framework sequences education after tax-advantaged retirement steps",
+     "kept",
+     "after your own retirement accounts"
+    ],
+    [
+     "P4",
+     "because students can borrow, retirees cannot (mechanism)",
+     "kept",
+     "can't borrow for retirement"
+    ]
+   ]
+  }
+ }
+}

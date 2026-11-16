@@ -1,0 +1,707 @@
+{
+ "group": "le-relocation",
+ "findings": [
+  {
+   "id": "ADV-28",
+   "block": "le:relocation:coverage",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct. Medicaid is provided by the state of residence (42 CFR 435.403(a)), a new state cannot impose a waiting period (435.403(j)(1)), and levels differ by state (HealthCare.gov). The move SEP requires coverage on one or more days in the 60 days before the move (45 CFR 155.420(d)(7)(i)), with exceptions in (a)(5), hence 'generally'. Folded in; the prior-coverage clause is shared with CFP-30. Checker: the 'rules may differ' half of the fix was missing from the draft text and is now in ('eligibility rules differ'), sourced to HealthCare.gov.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-435.403",
+     "quote": "The agency must provide Medicaid to eligible residents of the State, including residents who are absent from the State.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-435.403",
+     "quote": "The agency may not deny Medicaid eligibility because an individual has not resided in the State for a specified period.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+     "quote": "Medicaid programs must follow federal guidelines, but eligible income levels, coverage, and costs may be different from state to state.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+     "quote": "gains access to new QHPs as a result of a permanent move and— (i) Had minimum essential coverage as described in 26 CFR 1.5000A-1(b) for one or more days during the 60 days preceding the date of the permanent move.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+     "quote": "lived in a foreign country or in a United States territory for 1 or more days during the 60 days preceding the date of the qualifying event",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:coverage"
+  },
+  {
+   "id": "ADV-29",
+   "block": "le:relocation:insurance",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The point stands. Wording grounded in the California DOI definition (UM/UIM covers you when the other driver has no or too little insurance). 'Some states have low-cost auto programs' kept as 'some states run low-cost auto programs for drivers with low incomes'; verified for California (CLCA) and New Jersey (SAIP, which is limited coverage for Medicaid enrollees). The reviewer's 'higher limits cost money' aside was not added.",
+   "sources": [
+    {
+     "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/auto101.cfm",
+     "quote": "This covers you if you are in an accident with a driver who does not have any liability insurance, or is underinsured.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/",
+     "quote": "a program designed to provide income eligible persons with liability insurance protection at affordable rates as a way to meet California's financial responsibility laws.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.nj.gov/dobi/division_consumers/insurance/saip.htm",
+     "quote": "The SAIP is an initiative to help make auto insurance available to drivers who are likely to go uninsured because of limited financial resources",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:insurance"
+  },
+  {
+   "id": "ADV-30",
+   "block": "le:relocation:estate",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "The point stands (the text assumes a paid review), but 'your new state's free statutory forms' is not universal. Narrowed to 'some states publish official fill-in forms for a simple will' (California Statutory Will and Michigan statutory will read; statutory POA forms not read) and 'legal aid offices may help if your income is low' (LSC funds civil legal aid for low-income Americans; not every office does estate work).",
+   "sources": [
+    {
+     "url": "https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help",
+     "quote": "LSC is an independent nonprofit established by Congress in 1974 to provide financial support for civil legal aid to low-income Americans.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PROB&sectionNum=6240.",
+     "quote": "The following is the California Statutory Will form",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-700-2519",
+     "quote": "A will executed in the form prescribed by subsection (2) and otherwise in compliance with the terms of the Michigan statutory will form is a valid will.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:estate"
+  },
+  {
+   "id": "CFP-28",
+   "block": "le:relocation:residency",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Dual residency and equity sourcing kept, stated as 'keeping a home in the old state and spending many days there ... under some states' rules' (New York's statutory-resident test read: abode plus 184 days, so a home alone is not enough) and 'may still be taxed there when they vest' (California FTB Pub. 1004 RSU rule read). The reviewer's 'deferred pay ... may still be taxed there' was dropped: 4 U.S.C. §114 bars a former state from taxing a nonresident's retirement income from qualified plans, IRAs, 403(b), 457 and governmental plans, and long-installment nonqualified plans, so the clause would mislead most readers. The remote-work point (some states tax remote work for an in-state employer) was not read and is not in the text.",
+   "sources": [
+    {
+     "url": "https://www.tax.ny.gov/pit/file/nonresident-faqs.htm",
+     "quote": "you maintain a permanent place of abode in New York State for substantially all of the taxable year; and you spend 184 days or more in New York State during the taxable year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ftb.ca.gov/forms/misc/1004.html",
+     "quote": "Restricted stock unit (RSU) on the vesting date: California will tax the wage income to the extent services were performed in California from the grant date to the vesting date.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/4/114?link-type=html",
+     "quote": "No State may impose an income tax on any retirement income of an individual who is not a resident or domiciliary of such State (as determined under the laws of such State).",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:residency"
+  },
+  {
+   "id": "CFP-29",
+   "block": null,
+   "severity": "MED",
+   "verdict": "owner-decision",
+   "reason": "A missing step: payroll withholding plus address changes do not fit any existing relocation block, so a complete draft step is under owner_decisions. Checked at the source: the IRS accepts a new address on the next return, by Form 8822 or in writing (Topic 157). SSA updates a mailing address only for people already getting benefits, so the reviewer's 'update your address with ... Social Security' was limited to beneficiaries. A state may use its own withholding certificate (California DE 4 read).",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/taxtopics/tc157",
+     "quote": "If you change your address before filing your return, enter your new address on your return when you file.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/forms-pubs/about-form-8822",
+     "quote": "Use Form 8822 to notify the Internal Revenue Service of a change to your home mailing address.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/personal-record/update-contact-information",
+     "quote": "You can only update your mailing address and phone number if you're already getting benefits.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de4.pdf",
+     "quote": "As of January 1, 2020, the Employee’s Withholding Allowance Certificate (Form W-4) from the Internal Revenue Service (IRS) is used for federal income tax withholding only. You must file the state form DE 4",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": null
+  },
+  {
+   "id": "CFP-30",
+   "block": "le:relocation:coverage",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Prior-coverage condition accepted (45 CFR 155.420(d)(7)(i)), merged with ADV-28. Medicare move SEP accepted (42 CFR 422.62(b)(2), 423.38(c)(7); Medicare.gov). The Medigap underwriting point was not read and is not in the text.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+     "quote": "gains access to new QHPs as a result of a permanent move and— (i) Had minimum essential coverage as described in 26 CFR 1.5000A-1(b) for one or more days during the 60 days preceding the date of the permanent move.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-422.62",
+     "quote": "The individual is not eligible to remain enrolled in the plan because of a change in his or her place of residence to a location out of the service area or continuation area",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-423.38",
+     "quote": "The individual is no longer eligible for the PDP because of a change in his or her place of residence to a location outside of the PDP region(s) in which the PDP is offered",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods",
+     "quote": "I moved to a new address that isn't in my plan's service area. What can I do? Switch to a new Medicare Advantage Plan (with or without drug coverage) or Medicare drug plan.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:coverage"
+  },
+  {
+   "id": "CFP-31",
+   "block": "le:relocation:estate",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct. IRS Pub. 555: the law of the state of domicile determines whether a couple has community property, so a move into or out of a community-property state can change it. Folded in; the reviewer's 'so raise it in the review' was cut as implied by the block's review sentence.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/publications/p555",
+     "quote": "The law of the state, or the law of the foreign country, where you are domiciled will determine if you have community property, community income, or both.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:relocation:estate"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:relocation:residency",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-28"
+   ],
+   "body": "Each state decides for itself who is a resident, and a move year usually means a part-year resident return in each state. If you are leaving a high-tax state, the burden of proving you left often falls on you, so keep evidence of the move (lease or deed, driver's license, voter registration). Keeping a home in the old state and spending many days there can make you a resident of both under some states' rules, and stock awards earned while you worked there may still be taxed there when they vest.",
+   "plain": "Each state decides for itself who counts as a resident. The year you move, you usually file a part-year resident return in each state. If you're leaving a high-tax state, you often have to prove you left, so keep proof of the move — a lease or deed, driver's license, voter registration. In some states, keeping a home in your old state and spending many days there can make you count as a resident of both. Stock awards you earned while working there may still be taxed by that state when they vest.",
+   "props": [
+    [
+     "P1",
+     "States define residency independently",
+     "kept",
+     "decides for itself"
+    ],
+    [
+     "P2",
+     "A move year usually means part-year returns in each state",
+     "kept",
+     "part-year resident return"
+    ],
+    [
+     "P3",
+     "Leaving a high-tax state, the burden of proof often falls on you",
+     "kept",
+     "prove you left"
+    ],
+    [
+     "P4",
+     "Keep evidence: lease/deed, license, voter registration",
+     "kept",
+     "voter registration"
+    ],
+    [
+     "P5",
+     "Keeping a home in the old state and spending many days there can make you a resident of both under some states' rules",
+     "kept",
+     "resident of both"
+    ],
+    [
+     "P6",
+     "Stock awards earned in the old state may be taxed there when they vest",
+     "kept",
+     "when they vest"
+    ]
+   ],
+   "claims": [
+    "CL506",
+    "CL369",
+    "NEW-le-relocation-1"
+   ],
+   "links": [
+    {
+     "to": "advanced-strategies/5",
+     "label": "Advanced · state-domicile playbook"
+    }
+   ],
+   "words_before": 52,
+   "words_after": 91,
+   "notes": "Grows from 52 to 91 words (about 75 percent). The reviewer's 'deferred pay' clause was left out: 4 U.S.C. 114 bars a former state from taxing a nonresident's IRA and qualified-plan income. Optional owner add (sourced, about 15 words): 'A state you have left cannot tax your IRA or workplace retirement-plan payouts.' It would push growth past 70 percent."
+  },
+  {
+   "id": "le:relocation:coverage",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-28",
+    "CFP-30"
+   ],
+   "body": "A permanent move to a new area where your plan is not offered is a Marketplace special enrollment trigger (60 days), but the window generally requires that you had qualifying coverage on at least one day in the 60 days before the move. Employer plans may have different networks in the new state. Medicaid does not transfer between states, and eligibility rules differ, so apply in the new state right away. On Medicare, moving out of your Medicare Advantage or drug plan's area opens a special enrollment period.",
+   "plain": "A permanent move to an area where your plan isn't offered lets you sign up for a new Marketplace plan within 60 days. To use this window, you usually must have had qualifying health coverage on at least one day in the 60 days before you moved. Job-based plans may have a different network of doctors in the new state. Medicaid doesn't carry over to a new state, and the rules for who qualifies can be different there, so apply in your new state right away. If you have Medicare, moving out of your Medicare Advantage or drug plan's area gives you a special window to pick a new plan.",
+   "props": [
+    [
+     "P1",
+     "A permanent move out of the plan's area triggers a 60-day Marketplace SEP",
+     "kept",
+     "within 60 days"
+    ],
+    [
+     "P2",
+     "The move SEP generally requires qualifying coverage on at least one day in the 60 days before the move",
+     "kept",
+     "at least one day"
+    ],
+    [
+     "P3",
+     "Employer plans may have different networks in the new state",
+     "kept",
+     "different network"
+    ],
+    [
+     "P4",
+     "Medicaid does not transfer between states and eligibility rules differ; apply in the new state right away",
+     "kept",
+     "doesn't carry over to a new state"
+    ],
+    [
+     "P5",
+     "On Medicare, moving out of an MA or drug plan's area opens a special enrollment period",
+     "kept",
+     "moving out of your medicare advantage or drug plan's area"
+    ]
+   ],
+   "claims": [
+    "CL484",
+    "NEW-le-relocation-2",
+    "NEW-le-relocation-3",
+    "NEW-le-relocation-4"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    }
+   ],
+   "words_before": 31,
+   "words_after": 88,
+   "notes": "Grows from 31 to 88 words (about 184 percent, well over the 70 percent guide): three findings land on a two-sentence block. ADV-28 and CFP-30 both asked for the prior-coverage rule; merged into one clause. Medigap left out (not read). The 'when' label (Within 60 days of the move) still fits the Marketplace window; the Medicare window runs 2 full months from the move (Medicare.gov), Medicaid is 'right away'."
+  },
+  {
+   "id": "le:relocation:insurance",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-29"
+   ],
+   "body": "Auto insurance requirements and prices are set state by state, so the policy has to be re-written for the new state. Check that liability limits still match your assets rather than the new state's minimum. Also price uninsured and underinsured motorist coverage, which pays for your own injuries when the at-fault driver has no or too little insurance. Some states run low-cost auto programs for drivers with low incomes.",
+   "plain": "Each state sets its own auto insurance rules and prices, so your policy must be rewritten for the new state. Make sure your liability limits still fit what you own, not just the new state's minimum. Also get a price on uninsured and underinsured motorist coverage. It pays for your own injuries when the driver who caused the crash has no insurance or not enough. Some states have low-cost car insurance programs for people with low incomes.",
+   "props": [
+    [
+     "P1",
+     "Auto requirements and prices are state-by-state; policy must be rewritten",
+     "kept",
+     "rewritten for the new state"
+    ],
+    [
+     "P2",
+     "Liability limits should match assets, not the state minimum",
+     "kept",
+     "not just the new state's minimum"
+    ],
+    [
+     "P3",
+     "Price uninsured/underinsured motorist coverage, which pays your own injuries when the at-fault driver is uninsured or underinsured",
+     "kept",
+     "uninsured and underinsured motorist coverage"
+    ],
+    [
+     "P4",
+     "Some states run low-cost auto programs for low-income drivers",
+     "kept",
+     "low-cost car insurance programs"
+    ]
+   ],
+   "claims": [
+    "CL507",
+    "NEW-le-relocation-5"
+   ],
+   "links": [
+    {
+     "to": "protection/auto",
+     "label": "Protection · auto"
+    },
+    {
+     "to": "protection/property",
+     "label": "Protection · renters / homeowners"
+    }
+   ],
+   "words_before": 35,
+   "words_after": 69,
+   "notes": "Grows from 35 to 69 words (about 97 percent, over 70 percent) because the block is short. CL507 is still PARTIAL (Triple-I, a secondary source); unchanged here."
+  },
+  {
+   "id": "le:relocation:expenses",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "The federal moving-expense deduction is not available to most taxpayers (it remains for active-duty military moving under orders and, from 2026, for intelligence-community employees relocating on a change of assignment). For everyone else, employer-paid moving costs are taxable wages.",
+   "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can, and from 2026 so can intelligence-community employees who relocate for a new assignment). For everyone else, if your employer pays for your move, that counts as taxable pay.",
+   "props": [
+    [
+     "P1",
+     "The federal moving-expense deduction is unavailable to most taxpayers",
+     "kept",
+     "can't deduct moving costs"
+    ],
+    [
+     "P2",
+     "Exception: active-duty military under orders",
+     "kept",
+     "active-duty military"
+    ],
+    [
+     "P3",
+     "For everyone else, employer-paid moving costs are taxable wages",
+     "kept",
+     "for everyone else"
+    ],
+    [
+     "P4",
+     "Exception from 2026: intelligence-community employees relocating on assignment",
+     "kept",
+     "intelligence-community employees"
+    ]
+   ],
+   "claims": [
+    "CL508"
+   ],
+   "links": [],
+   "words_before": 36,
+   "words_after": 36,
+   "notes": "No findings on this block."
+  },
+  {
+   "id": "le:relocation:estate",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-31",
+    "ADV-30"
+   ],
+   "body": "Wills, powers of attorney and healthcare directives are governed by state law. Documents valid where they were signed are usually honored, but a review in the new state catches execution formalities and agent-designation differences. A move into or out of a community-property state can also change how a married couple's property is treated. If cost is a barrier, legal aid offices may help if your income is low, and some states publish official fill-in forms for a simple will.",
+   "plain": "Wills, powers of attorney and healthcare directives follow state law. Papers that were valid where you signed them usually still count, but having them reviewed in your new state catches differences in signing rules and in how agents are named. Moving into or out of a community-property state can also change how a married couple's property is treated. If cost is a problem, legal aid offices may help if your income is low, and some states have official fill-in forms for a simple will.",
+   "props": [
+    [
+     "P1",
+     "Estate documents are governed by state law",
+     "kept",
+     "follow state law"
+    ],
+    [
+     "P2",
+     "Documents valid where signed are usually honored",
+     "kept",
+     "usually still count"
+    ],
+    [
+     "P3",
+     "A review in the new state catches execution and agent-designation differences",
+     "kept",
+     "signing rules"
+    ],
+    [
+     "P4",
+     "A move into or out of a community-property state can change how a married couple's property is treated",
+     "kept",
+     "community-property state"
+    ],
+    [
+     "P5",
+     "Legal aid may help lower-income households",
+     "kept",
+     "legal aid"
+    ],
+    [
+     "P6",
+     "Some states publish official fill-in forms for a simple will",
+     "kept",
+     "official fill-in forms"
+    ]
+   ],
+   "claims": [
+    "CL509",
+    "NEW-le-relocation-6",
+    "NEW-le-relocation-7"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "words_before": 34,
+   "words_after": 79,
+   "notes": "Grows from 34 to 79 words (about 132 percent, over 70 percent). 'Raise it in the review' from CFP-31 was cut as implied by the preceding sentence. ADV-30 narrowed to 'legal aid may help' and 'some states ... a simple will' (California and Michigan statutory will forms read)."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-relocation-1",
+   "loc": "P4:life-events:relocation",
+   "claim": "Keeping a home in a former state and spending many days there can leave a mover taxable there as a resident under some states' rules (New York: permanent place of abode for substantially all the year plus 184 days); equity awards earned while working in a state may be taxed by it at vesting after the holder moves away (California: RSU wage income sourced to California workdays from grant to vesting)",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "NY Dept. of Taxation, Nonresident FAQs (statutory residency); CA FTB Publication 1004, Equity-Based Compensation Guidelines",
+   "url": "https://www.tax.ny.gov/pit/file/nonresident-faqs.htm",
+   "note": "Verified 2026-11-16 at the primary source: NY Dept. of Taxation nonresident FAQs (resident if domiciled in NY OR a permanent place of abode for substantially all of the year and 184 days or more in the state); CA FTB Pub. 1004 summary table (RSU on the vesting date: California taxes the wage income to the extent services were performed in California from grant to vesting). Both are state-specific; the block says 'some states' and names neither. Persona finding CFP-28. Note for the checker: 4 U.S.C. §114(a) bars a former state from taxing a nonresident's qualified-plan, IRA, 403(b), 457 and governmental-plan income, so the reviewer's 'deferred pay ... may still be taxed there' was not carried into the text."
+  },
+  {
+   "temp_id": "NEW-le-relocation-2",
+   "loc": "P4:life-events:relocation",
+   "claim": "The Marketplace permanent-move special enrollment period requires minimum essential coverage for one or more days in the 60 days before the move, with exceptions (e.g. moving from abroad or a U.S. territory, Indians, or previously living where no QHP was offered)",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "45 CFR §155.420(d)(7)(i), (a)(5)",
+   "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+   "note": "Verified 2026-11-16 at the primary source: 45 CFR §155.420(d)(7)(i) (minimum essential coverage for one or more days during the 60 days preceding the permanent move); (a)(5) lists the exceptions. Read on eCFR as of 2026-11-01; (d)(7)(ii) is now [Reserved]. The block says 'generally' to cover the exceptions. Persona findings ADV-28, CFP-30."
+  },
+  {
+   "temp_id": "NEW-le-relocation-3",
+   "loc": "P4:life-events:relocation",
+   "claim": "Medicaid is provided by the state of residence; a new state may not impose a durational residency requirement; eligibility levels and coverage differ by state; Medicaid can be applied for any time of year",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 CFR §435.403(a), (h)(1), (j)(1); HealthCare.gov, Getting Medicaid & CHIP",
+   "url": "https://www.ecfr.gov/current/title-42/section-435.403",
+   "note": "Verified 2026-11-16 at the primary source: 42 CFR §435.403(a) (the agency must provide Medicaid to eligible residents of the State), (h)(1) (state of residence is where the individual lives and intends to reside), (j)(1) (no denial because the individual has not resided in the State for a specified period); HealthCare.gov: 'eligible income levels, coverage, and costs may be different from state to state.' Read on eCFR as of 2026-11-01. Persona finding ADV-28. HealthCare.gov same page: 'You can apply for Medicaid and CHIP any time of year.' (read 2026-11-16)."
+  },
+  {
+   "temp_id": "NEW-le-relocation-4",
+   "loc": "P4:life-events:relocation",
+   "claim": "A Medicare beneficiary who moves out of a Medicare Advantage plan's service area or a Part D plan's region (or gains new plan options through a permanent move) gets a special election period to change plans or return to Original Medicare",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 CFR §422.62(b)(2); 42 CFR §423.38(c)(7); Medicare.gov, Special Enrollment Periods",
+   "url": "https://www.ecfr.gov/current/title-42/section-422.62",
+   "note": "Verified 2026-11-16 at the primary source: 42 CFR §422.62(b)(2) (not eligible to remain enrolled because of a change of residence out of the service area; also new MA options after a permanent move); §423.38(c)(7)(i)-(ii) (same for Part D); Medicare.gov SEP page (switch plans or return to Original Medicare; the window runs from the move for 2 full months, earlier if the plan is told in advance). Read on eCFR as of 2026-11-01. Medigap rules were not read and are not in the text. Persona finding CFP-30."
+  },
+  {
+   "temp_id": "NEW-le-relocation-5",
+   "loc": "P4:life-events:relocation",
+   "claim": "Uninsured/underinsured motorist coverage pays the policyholder's own injury costs when the at-fault driver has no or too little liability insurance; some states run low-cost auto insurance programs for low-income drivers (California CLCA; New Jersey SAIP for Medicaid enrollees)",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "California Dept. of Insurance, Automobile Insurance Information Guide and Low Cost Auto Insurance Program page (Ins. Code §11629.7); New Jersey DOBI, Special Automobile Insurance Policy",
+   "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/auto101.cfm",
+   "note": "Verified 2026-11-16 at the primary source: CA DOI auto guide (UM/UIM 'covers you if you are in an accident with a driver who does not have any liability insurance, or is underinsured'); CA DOI CLCA page (income-eligible drivers, liability coverage at affordable rates); NJ DOBI SAIP page (for drivers 'likely to go uninsured because of limited financial resources'; Medicaid-with-hospitalization enrollees). UM/UIM terms vary by state; the definition is stated generically. Persona finding ADV-29."
+  },
+  {
+   "temp_id": "NEW-le-relocation-6",
+   "loc": "P4:life-events:relocation",
+   "claim": "Whether a married couple has community property is determined by the law of the state of domicile, so a move into or out of a community-property state can change how their property is characterized",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS Publication 555, Community Property (Domicile)",
+   "url": "https://www.irs.gov/publications/p555",
+   "note": "Verified 2026-11-16 at the primary source: IRS Pub. 555, Domicile: 'The law of the state ... where you are domiciled will determine if you have community property, community income, or both'; the publication lists Arizona, California, Idaho, Louisiana, Nevada, New Mexico, Texas, Washington and Wisconsin. The 'can change' clause follows from the domicile rule; how each state treats property brought in (e.g. quasi-community property) was not read and is not in the text. Persona finding CFP-31."
+  },
+  {
+   "temp_id": "NEW-le-relocation-7",
+   "loc": "P4:life-events:relocation",
+   "claim": "Civil legal aid is available to low-income people, and some states publish statutory fill-in will forms (California Statutory Will, Prob. Code 6240; Michigan statutory will, MCL 700.2519)",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "B",
+   "source": "Legal Services Corporation, I Need Legal Help; Cal. Prob. Code §6240; Mich. Comp. Laws §700.2519",
+   "url": "https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help",
+   "note": "Verified 2026-11-16 at the primary source: LSC (established by Congress to fund civil legal aid to low-income Americans, with grantees in every state); Cal. Prob. Code §6240 (the California Statutory Will form) and MCL 700.2519(1) (a will in the prescribed form is valid), read at the state legislatures' sites. Two states verified; the block says 'may help' and 'some states ... a simple will'. Persona finding ADV-30."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-29"
+   ],
+   "what": "Add a sixth relocation step 'Update payroll withholding and your address' (proposed id: le:relocation:address), placed after 'insurance' and before 'expenses'.",
+   "why_owner": "It adds a step to the playbook, which changes the product's shape; the content is not covered by any existing relocation block.",
+   "draft": {
+    "id": "le:relocation:address",
+    "title": "Update payroll withholding and your address",
+    "when": "At the move",
+    "body": "Tell payroll the date you move so it can stop withholding for the old state and start withholding for the new one if it has an income tax; the new state may use its own withholding form. Give the IRS your new address on your next return or with Form 8822, and update it with every bank, brokerage and retirement-plan account. If you already get Social Security benefits, update your address with Social Security too.",
+    "plain": "Tell your payroll office the date you move so it can stop taking out tax for your old state and start taking out tax for your new state, if it has an income tax. Your new state may have its own withholding form to fill out. Give the IRS your new address on your next tax return or on Form 8822, and update it with every bank, brokerage and retirement account. If you already get Social Security benefits, update your address with Social Security too.",
+    "props": [
+     [
+      "P1",
+      "Tell payroll the move date so it can stop old-state and start new-state withholding (if the new state has an income tax)",
+      "kept",
+      "start taking out tax for your new state"
+     ],
+     [
+      "P2",
+      "The new state may use its own withholding form",
+      "kept",
+      "own withholding form"
+     ],
+     [
+      "P3",
+      "Give the IRS the new address on the next return or Form 8822",
+      "kept",
+      "form 8822"
+     ],
+     [
+      "P4",
+      "Update the address with every bank, brokerage and retirement-plan account",
+      "kept",
+      "every bank, brokerage and retirement account"
+     ],
+     [
+      "P5",
+      "Beneficiaries should update their address with Social Security",
+      "kept",
+      "already get social security benefits"
+     ]
+    ],
+    "claims": [
+     "NEW-le-relocation-8",
+     "NEW-le-relocation-9"
+    ],
+    "links": [],
+    "claim_rows": [
+     {
+      "temp_id": "NEW-le-relocation-8",
+      "loc": "P4:life-events:relocation",
+      "claim": "The IRS can be given a new address on the next return filed, on Form 8822, or by a signed written statement",
+      "type": "GUIDANCE",
+      "status": "PASS",
+      "tier": "A",
+      "source": "IRS Topic No. 157, Change your address; About Form 8822",
+      "url": "https://www.irs.gov/taxtopics/tc157",
+      "note": "Verified 2026-11-16 at the primary source: IRS Topic 157 (new address on the return, Form 8822, or in writing) and the About Form 8822 page. Persona finding CFP-29. Only if the owner adds the draft step; otherwise this row is not created (the gate fails a P4 row no block cites)."
+     },
+     {
+      "temp_id": "NEW-le-relocation-9",
+      "loc": "P4:life-events:relocation",
+      "claim": "States may require their own withholding certificate separate from the federal Form W-4 (California DE 4); SSA updates a mailing address online or by phone only for people already getting benefits",
+      "type": "GUIDANCE",
+      "status": "PASS",
+      "tier": "B",
+      "source": "California EDD Form DE 4 instructions; SSA, Update contact information",
+      "url": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de4.pdf",
+      "note": "Verified 2026-11-16 at the primary source: CA DE 4 (Form W-4 is used for federal withholding only; 'You must file the state form DE 4' for California withholding); SSA page ('You can only update your mailing address and phone number if you're already getting benefits'). State-specific example for the withholding clause; the draft says 'may'. Persona finding CFP-29. Only if the owner adds the draft step."
+     }
+    ],
+    "words": 75,
+    "notes": "Body and plain share one number (8822). The 'withholds income tax for the new state' clause is advice; whether and when an employer must withhold for a given state is state law and was not read state by state."
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "CFP-30",
+   "assertion": "Medigap underwriting rules vary by state, so a retiree's Medigap options can change on a move.",
+   "why": "Not read at a primary source this session; left out of the text."
+  },
+  {
+   "finding": "CFP-28",
+   "assertion": "Some states tax remote work done for an in-state employer (convenience-of-the-employer rules).",
+   "why": "Not read at a state agency page this session; left out of the text."
+  },
+  {
+   "finding": "CFP-28",
+   "assertion": "Deferred compensation earned in the old state is often taxed there when it pays out.",
+   "why": "Contradicted for most retirement income by 4 U.S.C. §114(a)-(b); for nonqualified plans outside §114(b)(1)(I) state sourcing rules were not read. Not in the text."
+  },
+  {
+   "finding": "CFP-29",
+   "assertion": "Payroll should switch state withholding on the day you move.",
+   "why": "The timing and the employer's obligation are state law and were not read state by state; the draft says to tell payroll the move date without stating a legal deadline."
+  }
+ ],
+ "review": [
+  {
+   "target": "le:relocation:residency",
+   "change": "Dual-residency sentence now conditions on time spent there: 'Keeping a home in the old state and spending many days there can make you a resident of both' (was: keeping a home alone 'can leave you taxed as a resident of both').",
+   "why": "The only rule read (New York statutory residency) needs a permanent place of abode AND 184 or more days in the state; the draft wording implied that owning a home is enough, which goes further than the source.",
+   "source": {
+    "url": "https://www.tax.ny.gov/pit/file/nonresident-faqs.htm",
+    "quote": "you maintain a permanent place of abode in New York State for substantially all of the taxable year; and you spend 184 days or more in New York State during the taxable year."
+   }
+  },
+  {
+   "target": "le:relocation:coverage",
+   "change": "'but it generally requires' -> 'but the window generally requires'; plain 'health coverage' -> 'qualifying health coverage'.",
+   "why": "'it' could be read as the move; and the rule is minimum essential coverage, so plain 'health coverage' over-reached (not every health plan counts).",
+   "source": {
+    "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+    "quote": "Had minimum essential coverage as described in 26 CFR 1.5000A-1(b) for one or more days during the 60 days preceding the date of the permanent move."
+   }
+  },
+  {
+   "target": "ADV-28",
+   "change": "Added 'and eligibility rules differ' to the Medicaid sentence (body and plain).",
+   "why": "The finding was marked accept, but its 'the rules may differ' point was missing from the proposed text; a reader eligible in the old state (e.g. an expansion state) may not qualify in the new one.",
+   "source": {
+    "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+    "quote": "Medicaid programs must follow federal guidelines, but eligible income levels, coverage, and costs may be different from state to state."
+   }
+  },
+  {
+   "target": "le:relocation:estate",
+   "change": "'legal aid offices serve lower-income households' -> 'legal aid offices may help if your income is low'; 'official fill-in forms for simple documents' -> 'official fill-in forms for a simple will'.",
+   "why": "LSC supports that civil legal aid exists for low-income people, not that every office takes estate work; the two statutes read (Cal. Prob. Code 6240, MCL 700.2519) are statutory will forms only, so 'simple documents' went further than the sources.",
+   "source": {
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-700-2519",
+    "quote": "A will executed in the form prescribed by subsection (2) and otherwise in compliance with the terms of the Michigan statutory will form is a valid will."
+   }
+  },
+  {
+   "target": "ADV-30",
+   "change": "Verdict kept (accept-modified); reason updated to the narrower wording.",
+   "why": "Same as the estate block change.",
+   "source": {
+    "url": "https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help",
+    "quote": "LSC is an independent nonprofit established by Congress in 1974 to provide financial support for civil legal aid to low-income Americans."
+   }
+  },
+  {
+   "target": "blocks (notes)",
+   "change": "Corrected the before/after word counts in the notes of residency, coverage, insurance and estate.",
+   "why": "The notes said 58/33/37/36 words before; the current bodies are 52/31/35/34 words (matching words_before).",
+   "source": null
+  },
+  {
+   "target": "owner_decisions[0] (le:relocation:address)",
+   "change": "Withholding sentence now says stop the old state's withholding and start the new state's 'if it has an income tax'.",
+   "why": "As drafted it told every mover that payroll 'withholds income tax for the new state', which is wrong for a move to a state without a wage income tax and omitted the more common trap (old-state withholding continuing). Wording is conditional advice; no state rule is asserted.",
+   "source": {
+    "url": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de4.pdf",
+    "quote": "You must file the state form DE 4 to determine the appropriate California PIT withholding."
+   }
+  }
+ ]
+}

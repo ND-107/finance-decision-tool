@@ -1,0 +1,1325 @@
+{
+ "group": "le-job-loss",
+ "findings": [
+  {
+   "id": "ADV-1",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The core point is already covered: le:job-loss:runway now reads 'cover housing, utilities, food, insurance, the transportation that keeps you working and any court-ordered payments such as child support first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed' (CL529, applied 2026-11-06), and the plain variant says the same. What is new is the federal student loan line. Modified: the reviewer's flat '$0 income-driven payment' becomes 'can be as low as $0 in some cases', which is what studentaid.gov says, and the unemployment deferment is added with the trap that you keep paying until it is granted.",
+   "sources": [
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "Income-driven repayment (IDR) plans base your monthly payments on your income and family size. In some cases, your payment could be as low as $0 per month.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "You may be eligible for this deferment if you receive unemployment benefits or you are seeking and unable to find full-time employment. You can receive this deferment for up to three years.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "You must continue making payments on your student loan(s) until you have been notified that your request for deferment has been granted.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:runway"
+  },
+  {
+   "id": "ADV-2",
+   "block": "le:job-loss:runway",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Severance and unemployment pay now go into the runway arithmetic (merged with CFP-6). SNAP is added with the reason to act at once (benefits count from the application date). Medicaid is handled in le:job-loss:coverage (ADV-4). Dropped: 'local rent or utility help', because no single primary page covers it and it is local; and the 'under a month' trigger is kept as 'if savings will not cover a month' without stating it as a program rule.",
+   "sources": [
+    {
+     "url": "https://www.fns.usda.gov/snap/recipient/eligibility",
+     "quote": "To get SNAP benefits, you must apply in the state in which you currently live ... If you are found eligible, you will receive benefits based on the date you submitted your application.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:runway"
+  },
+  {
+   "id": "ADV-3",
+   "block": "le:job-loss:runway",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted: file even if unsure, the state agency decides, and 1099 income generally does not count toward a regular claim. Modified: the reviewer's 'independent contractors usually are not covered' is narrowed to what DOL says (1099 income is not counted toward a regular claim, and everyone may file), because DOL also says a contractor label does not bar a claim (misclassification). The 'fired for performance' and 'hours cut' specifics are not stated on the DOL pages read and are state law, so they are not in the text.",
+   "sources": [
+    {
+     "url": "https://www.unemployment.gov/",
+     "quote": "All individuals are entitled to apply for UI benefits and the state UI agency will determine your eligibility.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.unemployment.gov/",
+     "quote": "Generally, individuals who receive an IRS form 1099 ... are classified as independent contractors (or self-employed) and income received from this work is not considered when assessing if you meet the work and wage requirements to establish a regular claim.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/general/topic/unemployment-insurance",
+     "quote": "You should contact your state's unemployment insurance program as soon as possible after becoming unemployed.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:runway"
+  },
+  {
+   "id": "ADV-4",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH",
+   "verdict": "accept",
+   "reason": "Medicaid and CHIP added as a fourth option: applications any time of year, eligibility on current monthly income. Read at HealthCare.gov and 42 CFR 435.603(h)(1). The step title still lists three options; a title draft is under owner_decisions. Checker: added 42 CFR 457.315, which carries the current-monthly-income rule over to CHIP; 435.603 alone covered only Medicaid.",
+   "sources": [
+    {
+     "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+     "quote": "You can apply for Medicaid and CHIP any time of year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "If eligible for Medicaid or CHIP, you can enroll in those programs any time and coverage can start immediately.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-42.xml?part=435&section=435.603",
+     "quote": "Financial eligibility for Medicaid for applicants, and other individuals not receiving Medicaid benefits at the point at which eligibility for Medicaid is being determined, must be based on current monthly household income and family size.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-42.xml?part=457&section=457.315",
+     "quote": "the State must apply the financial methodologies set forth in paragraphs (b) through (i) of § 435.603 of this chapter in determining the financial eligibility of all individuals for CHIP.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  },
+  {
+   "id": "ADV-5",
+   "block": "le:job-loss:coverage",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Merged with CFP-1. The trap is real, but the reviewer's wording ('if you elect COBRA and later stop paying, you generally have to wait for open enrollment') misses the exception HealthCare.gov states: within 60 days of losing job coverage you can still switch. Text: once 60 days have passed since job coverage ended, dropping COBRA or stopping payment means waiting for open enrollment unless COBRA runs out, an employer subsidy for it ends, or another life event occurs (both exceptions are on HealthCare.gov and in 45 CFR 155.420(e)).",
+   "sources": [
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "If you choose to end COBRA coverage early, you'll have to wait until next Open Enrollment to get Marketplace coverage (unless you experience another life event",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "Outside Open Enrollment: You can switch from COBRA to a Marketplace plan if: Your COBRA coverage is running out. ... It's still within 60 days of when you lost your job-based coverage.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+     "quote": "Loss of coverage does not include voluntary termination of coverage or other loss due to— (1) Failure to pay premiums on a timely basis, including COBRA continuation coverage premiums prior to expiration of COBRA continuation coverage",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "You have to pay the full cost of COBRA coverage because your former employer stops contributing, or you lose a government subsidy (like COBRA premium assistance).",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  },
+  {
+   "id": "ADV-6",
+   "block": "le:job-loss:old-401k",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "Covered in le:job-loss:old-401k: 'If you have an outstanding 401(k) loan, find out when it comes due: an unpaid balance is treated as a distribution (taxable, plus the 10% additional tax before 59½), though a plan-loan offset after leaving the job can still be rolled over until your tax-filing deadline, including extensions, for that year.' (CL530).",
+   "sources": [],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "ADV-7",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted: small balances can be paid out without consent, usually into an IRA in the participant's name, and the smallest can arrive as a check; a check can still be rolled over within 60 days (merged with CFP-8). Modified: no dollar thresholds in the text. The current law ($7,000 consent limit in 26 U.S.C. 411(a)(11)(A); IRA default over $1,000 in 401(a)(31)(B)) was read, but naming them would need new figure keys for little reader gain. Checker: 'usually into an IRA' became 'unless you choose otherwise, it generally goes into an IRA', which is what 401(a)(31)(B) says.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/411?link-type=html",
+     "quote": "If the present value of any nonforfeitable accrued benefit exceeds $7,000, a plan meets the requirements of this paragraph only if such plan provides that such benefit may not be immediately distributed without the consent of the participant.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+     "quote": "(I) a distribution described in clause (ii) in excess of $1,000 is made, and (II) the distributee does not make an election ... the plan administrator shall make such transfer to an individual retirement plan",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+     "quote": "If you later roll the distribution over within 60 days, you must use other funds to make up for the amount withheld.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "ADV-8",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "(b) Accepted, sourced to the SEC's caution on annuities inside tax-deferred plans; 'high-fee IRA' is not added because no primary page read frames it that way, and 'ask how they are paid' is kept as the framework's convention. (a) Accepted as a body line ('If you truly need some of the money, withdraw only what you need and roll over the rest', supported by the IRS rule that all or a portion can be rolled over). The title softening is a title edit, drafted under owner_decisions. Checker: Investor.gov's note that annuity fees can pay the seller's commission now supports 'ask how they are paid'.",
+   "sources": [
+    {
+     "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/annuities",
+     "quote": "Be cautious if a financial professional suggests you purchase an annuity within a tax-deferred retirement plan, such as a traditional 401(k) or traditional IRA. Ask how the annuity fits into your overall financial situation.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+     "quote": "If a distribution from an IRA or a retirement plan is paid directly to you, you can deposit all or a portion of it in an IRA or a retirement plan within 60 days.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/annuities",
+     "quote": "The profit from this fee sometimes is also used to pay a commission to the financial professional who sold you the annuity.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "ADV-9",
+   "block": "le:job-loss:equity",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Merged with the text part of CFP-9. Modified to state the tax mechanics from IRS Topic 427 (gain on most nonqualified options taxed as income at exercise; ISOs can trigger AMT) instead of a general 'can create a tax bill', and to say 'weigh it against your runway' rather than a flat 'don't'. Checker: 'most nonqualified options' became 'a nonqualified option ... generally', because Topic 427 gives no frequency.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/taxtopics/tc427",
+     "quote": "you generally don't include any amount in your gross income when you receive or exercise the option. However, you may be subject to alternative minimum tax in the year you exercise an ISO.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/taxtopics/tc427",
+     "quote": "For nonstatutory options without a readily determinable fair market value, there's no taxable event when the option is granted but you must include in income the fair market value of the stock received on exercise, less the amount paid",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:equity"
+  },
+  {
+   "id": "CFP-1",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Accepted the facts: an election made within the window covers you from the date coverage would otherwise have been lost (26 CFR 54.4980B-6 Q&A-3), and the premiums for that period are owed (29 U.S.C. 1162(3)); dropping COBRA later does not open a Marketplace window (merged with ADV-5). Modified: the text does not recommend 'wait and see'. The facts let a reader see the option, but recommending it is a planner judgment with real gap risk (unpaid claims during the window, providers told coverage is pending), so the step states the rule, not the tactic.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=54&section=54.4980B-6",
+     "quote": "If the election is made during that period, coverage must be provided from the date that coverage would otherwise have been lost",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1162?link-type=html",
+     "quote": "The plan may require payment of a premium for any period of continuation coverage ... In no event may the plan require the payment of any premium before the day which is 45 days after ... the initial election",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "If you choose to end COBRA coverage early, you'll have to wait until next Open Enrollment to get Marketplace coverage (unless you experience another life event",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+     "quote": "Loss of coverage does not include voluntary termination of coverage or other loss due to— (1) Failure to pay premiums on a timely basis, including COBRA continuation coverage premiums prior to expiration of COBRA continuation coverage",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/publications/an-employees-guide-to-health-benefits-under-cobra.pdf",
+     "quote": "If you choose to terminate your COBRA coverage early with no special enrollment opportunity available at that time, you will have to wait until the next open enrollment period",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  },
+  {
+   "id": "CFP-2",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Verified at IRS pages: for tax years after 2025 the repayment caps are gone and excess advance credit is repaid in full, and the 400%-of-poverty limit is back after the 2021-2025 expansion. HealthCare.gov confirms unemployment pay, wages and most 401(k) withdrawals count in the estimate. Modified: 'a large repayment' is stated as the rule (repaid in full) and the cliff as 'generally gets no credit' (the IRS says 'in general'). Checker: confirmed the enhanced credits remain lapsed for 2026; because some states offer their own help, the 400% line now says 'no federal credit'.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/tax-professionals/eitc-central/repayment-caps-eliminated-for-excess-advance-payments-of-the-premium-tax-credit",
+     "quote": "Beginning with tax year 2026, the taxpayer must repay the full amount of any excess advance payments of the premium tax credit (APTC). The repayment limits that previously capped how much taxpayers had to pay back no longer apply.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit",
+     "quote": "In general, individuals and families may be eligible for the Premium Tax Credit if their household income for the year is at least 100 percent but no more than 400 percent of the federal poverty line for their family size.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit",
+     "quote": "For tax years 2021 through 2025, Congress temporarily expanded eligibility for the Premium Tax Credit by eliminating the requirement that a taxpayer's household income may not be more than 400 percent of the federal poverty line.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/income-and-household-information/income/",
+     "quote": "Federal taxable wages (from your job) ... Retirement or pension income Include most IRA and 401k withdrawals. ... Unemployment compensation Include all unemployment compensation that you get from your state.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/coverage/",
+     "quote": "Report your new job and any income changes right away to get the correct amount of savings. This way, you won't owe money when you file next year's taxes.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  },
+  {
+   "id": "CFP-3",
+   "block": "le:job-loss:coverage",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted the HSA point as written (Pub. 969 lists COBRA premiums and coverage while receiving unemployment as allowed HSA premium uses). Modified the FSA point: Pub. 969 supports the uniform-coverage rule and that a health FSA reimburses only expenses incurred during the period of coverage; it does not say the balance is 'lost at separation' (that depends on the plan and any FSA COBRA right), so the text says 'before coverage ends, use any health FSA balance' without asserting forfeiture. Checker: 'on care you need' added, since the FSA pays only expenses incurred in the coverage period.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+     "quote": "You must be able to receive the maximum amount of reimbursement (the amount you have elected to contribute for the year) at any time during the coverage period, regardless of the amount you have actually contributed.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+     "quote": "Generally, distributions from a health FSA must be paid only to reimburse you for qualified medical expenses you incurred during the period of coverage.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+     "quote": "You may not use HSA funds to pay for insurance, except for the following. ... 2. Health care continuation coverage (such as coverage under COBRA). 3. Health care coverage while receiving unemployment compensation under federal or state law.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  },
+  {
+   "id": "CFP-4",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "The reviewer filed this against runway, but the point is in le:job-loss:old-401k: 'an unpaid balance is treated as a distribution (taxable, plus the 10% additional tax before 59½), though a plan-loan offset after leaving the job can still be rolled over until your tax-filing deadline, including extensions, for that year.' (CL530).",
+   "sources": [],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "CFP-5",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "Same as ADV-1. The essentials-first order and hardship calls are already in le:job-loss:runway (CL529). Added: federal student loans, stated as an income-driven plan 'where the payment can be as low as $0 in some cases' or an unemployment deferment, plus keep paying until granted. 'Recertify' is not used: a reader newly out of work may not be on an IDR plan yet.",
+   "sources": [
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "Income-driven repayment (IDR) plans base your monthly payments on your income and family size. In some cases, your payment could be as low as $0 per month.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "You may be eligible for this deferment if you receive unemployment benefits or you are seeking and unable to find full-time employment. You can receive this deferment for up to three years.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+     "quote": "You must continue making payments on your student loan(s) until you have been notified that your request for deferment has been granted.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:runway"
+  },
+  {
+   "id": "CFP-6",
+   "block": "le:job-loss:runway",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted: add expected severance and unemployment pay before dividing, file right away, and severance can hold back benefits in many states (DOL comparison of state UI laws). Modified: the claim that benefits 'generally start from the claim date' was not found on a primary page read and varies by state, so it is not in the text; 'as soon as you are out of work' carries the urgency on DOL's own words. Checker: severance is now 'after-tax', as the reviewer's 'net severance' asked.",
+   "sources": [
+    {
+     "url": "https://www.dol.gov/general/topic/unemployment-insurance",
+     "quote": "You should contact your state's unemployment insurance program as soon as possible after becoming unemployed.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://oui.doleta.gov/unemploy/pdf/uilawcompar/2023/nonmonetary.pdf",
+     "quote": "Many states consider wages in lieu of notice and dismissal payments to be deductible income ... Individuals receiving such payments may be considered not unemployed, or not totally unemployed, for the weeks concerned.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/general/topic/unemployment-insurance",
+     "quote": "Each state administers a separate unemployment insurance program, but all states follow the same guidelines established by federal law.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:runway"
+  },
+  {
+   "id": "CFP-7",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted the pro-rata point (26 U.S.C. 408(d)(2) treats all IRAs as one contract; Form 8606 line 6 uses the total of all traditional IRAs). Modified: 'rolling into the new employer's plan avoids that' is limited to a plan that accepts rollovers. Dropped: creditor protection differences, not read at a primary source and state-dependent for IRAs. Checker: the fix now reads 'keeping the money in a workplace plan, old or new, avoids that', because leaving it in the old plan avoids the IRA aggregation as well.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+     "quote": "For purposes of applying section 72 to any amount described in paragraph (1)— (A) all individual retirement plans shall be treated as 1 contract",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/instructions/i8606",
+     "quote": "Line 6 Enter the total value of all your traditional IRAs as of December 31, 2025, plus any outstanding rollovers.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "CFP-8",
+   "block": "le:job-loss:old-401k",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Added as suggested: a check already issued can still be rolled over within 60 days, but the withheld 20% must be made up from other money or that part is taxed (IRS rollovers page, including its worked example).",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+     "quote": "If you later roll the distribution over within 60 days, you must use other funds to make up for the amount withheld.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+     "quote": "If Jordan later decides to roll over the $8,000, but not the $2,000 withheld, she will report $2,000 as taxable",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:old-401k"
+  },
+  {
+   "id": "CFP-9",
+   "block": "le:job-loss:equity",
+   "severity": "MED",
+   "verdict": "owner-decision",
+   "reason": "The ordering point is sound: the event summary itself says 'Health coverage and cash runway first; retirement-account decisions can wait for a calm week', while the equity step ('Check the grant documents now') sits after old-401k ('Within 1-3 months'). Moving a step changes the module's shape, so the reorder is drafted under owner_decisions. The text part (cash and tax of exercising, AMT on ISOs, RSU/ESPP/deferred compensation) is folded into le:job-loss:equity with ADV-9.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/taxtopics/tc427",
+     "quote": "you generally don't include any amount in your gross income when you receive or exercise the option. However, you may be subject to alternative minimum tax in the year you exercise an ISO.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:equity"
+  },
+  {
+   "id": "CFP-10",
+   "block": "le:job-loss:withholding",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Accepted both points. Modified: the excess-deferral deadline is stated as April 15 of the next year (26 U.S.C. 402(g)(2)(A)(ii)), and 'not refunded by payroll' is dropped because IRS Topic 608 says only that the two-employer excess may be claimed as a credit on the return. Checker: 402(g)(2)(A)(i) has the individual notify the plan by March 1, before the April 15 distribution, so the text now says 'tell one plan early in the next year so it can return the excess by April 15'; the Social Security credit gained 'generally' (Topic 608: 'may be able to claim').",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+     "quote": "not later than the 1st April 15 following the close of the taxable year, each such plan may distribute to the individual the amount allocated to it under clause (i) (and any income allocable to such amount",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/retirement-plans/consequences-to-a-participant-who-makes-excess-annual-salary-deferrals",
+     "quote": "If the excess is not timely distributed, it is: included in your taxable income for the year contributed, and taxed a second time when the deferrals are ultimately distributed from the plan.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/taxtopics/tc608",
+     "quote": "If you had more than one employer and too much Social Security tax or tier 1 RRTA tax withheld, you may be able to claim the excess as a credit against your income tax on your income tax return.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+     "quote": "not later than the 1st March 1 following the close of the taxable year, the individual may allocate the amount of such excess deferrals among the plans",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:withholding"
+  },
+  {
+   "id": "CFP-65",
+   "block": "le:job-loss:coverage",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Verified: for loss of coverage the Marketplace window is 60 days before and 60 days after (45 CFR 155.420(c)(2); DOL COBRA guide). Changed in both body and plain to 'from 60 days before to 60 days after'.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+     "quote": "A qualified individual or their dependent who is described in paragraph (d)(1) ... has 60 days before and, unless the Exchange exercises the option in paragraph (c)(6) ... 60 days after the triggering event to select a QHP.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/publications/an-employees-guide-to-health-benefits-under-cobra.pdf",
+     "quote": "To special enroll in a Marketplace plan, you must select a plan within 60 days before or after losing your job-based coverage.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:job-loss:coverage"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:job-loss:coverage",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-4",
+    "ADV-5",
+    "CFP-1",
+    "CFP-2",
+    "CFP-3",
+    "CFP-65"
+   ],
+   "body": "Losing job-based coverage opens two clocks. COBRA lets you keep the same employer plan, generally for up to 18 months after a job loss, and you have at least 60 days to elect it; an election made in that window covers you back to the day job coverage ended, and you owe the premiums for that time. The premium can be up to 102% of the full cost, because the employer subsidy ends. Losing coverage is also a qualifying event for a Marketplace special enrollment period that runs from 60 days before to 60 days after the loss, where premium tax credits are based on your expected income for the year, which may now be lower. Count severance, unemployment pay, any 401(k) withdrawal and wages from a new job in that estimate, and report income changes as they happen: starting with 2026, advance credits above what you qualify for must be repaid in full, and household income above 400% of the poverty line generally gets no federal credit. Medicaid, and CHIP for children, accept applications any time of year and judge eligibility on current monthly income. A spouse's employer plan must offer at least a 30-day special enrollment window. Choosing COBRA and later dropping it, or stopping payment, does not reopen the Marketplace: once 60 days have passed since job coverage ended, you generally must wait for open enrollment unless COBRA runs out, an employer subsidy for it ends, or you have another life event. Before coverage ends, use any health FSA balance on care you need, since the full year's election is available to spend; an HSA can pay COBRA premiums, and health premiums while you receive unemployment, tax-free. Compare every option on total cost, not premium alone.",
+   "plain": "When job-based health coverage ends, two clocks start. COBRA lets you stay on the same employer plan, generally for up to 18 months after a job loss. You get at least 60 days to sign up. If you sign up in that time, coverage reaches back to the day your job coverage ended, and you pay the premiums for that time. It can cost up to 102% of the full premium, because your employer stops paying its share. Losing coverage also lets you sign up on the Marketplace from 60 days before to 60 days after the coverage ends. There, help with premiums is based on what you expect to earn this year, which may now be less. Count severance, unemployment pay, any 401(k) money you take out and pay from a new job. Tell the Marketplace about income changes right away. Starting with 2026, if you got more help than you qualify for, you must pay all of it back at tax time, and household income above 400% of the poverty line generally gets no federal help. Medicaid, and CHIP for children, take applications any time of year and look at what you earn each month now. If your spouse has a job-based plan, it must give you at least 30 days to join. If you choose COBRA and later drop it or stop paying, the Marketplace does not open again for you: once 60 days have passed since your job coverage ended, you usually have to wait for open enrollment, unless COBRA runs out, your old employer stops paying part of it, or you have another life event. Before your coverage ends, use any money in a health FSA on care you need, because the whole year's amount is there to spend. An HSA can pay COBRA premiums, and health premiums while you get unemployment, without tax. Compare every option by total cost, not just the monthly premium.",
+   "props": [
+    [
+     "P1",
+     "Losing job-based coverage starts two time windows",
+     "kept",
+     "two clocks start"
+    ],
+    [
+     "P2",
+     "COBRA keeps the same employer plan, generally up to 18 months after job loss",
+     "kept",
+     "generally for up to 18 months"
+    ],
+    [
+     "P3",
+     "COBRA election window is at least 60 days",
+     "kept",
+     "at least 60 days to sign up"
+    ],
+    [
+     "P4",
+     "An election made within the window covers you back to when job coverage ended, and the premiums for that time are owed",
+     "kept",
+     "coverage reaches back to the day"
+    ],
+    [
+     "P5",
+     "COBRA premium can be up to 102% of full cost",
+     "kept",
+     "up to 102%"
+    ],
+    [
+     "P6",
+     "because the employer subsidy ends (mechanism)",
+     "kept",
+     "stops paying its share"
+    ],
+    [
+     "P7",
+     "Loss of coverage triggers a Marketplace special enrollment period from 60 days before to 60 days after the loss",
+     "kept",
+     "from 60 days before to 60 days after"
+    ],
+    [
+     "P8",
+     "Premium tax credits are based on expected income for the year, which may be lower",
+     "kept",
+     "what you expect to earn this year"
+    ],
+    [
+     "P9",
+     "Count severance, unemployment pay, any 401(k) withdrawal and new-job wages in the income estimate",
+     "kept",
+     "count severance, unemployment pay"
+    ],
+    [
+     "P10",
+     "Report income changes to the Marketplace as they happen",
+     "kept",
+     "tell the marketplace about income changes right away"
+    ],
+    [
+     "P11",
+     "Starting with 2026, excess advance credits must be repaid in full",
+     "kept",
+     "pay all of it back at tax time"
+    ],
+    [
+     "P12",
+     "Household income above 400% of the poverty line generally gets no credit",
+     "kept",
+     "above 400% of the poverty line"
+    ],
+    [
+     "P13",
+     "Medicaid and CHIP accept applications any time of year and judge eligibility on current monthly income",
+     "kept",
+     "take applications any time of year"
+    ],
+    [
+     "P14",
+     "A spouse's employer plan must offer at least 30 days to enroll",
+     "kept",
+     "at least 30 days to join"
+    ],
+    [
+     "P15",
+     "Dropping COBRA or stopping payment does not reopen the Marketplace; once 60 days have passed since job coverage ended, generally wait for open enrollment unless COBRA runs out, an employer subsidy ends, or another life event occurs",
+     "kept",
+     "usually have to wait for open enrollment"
+    ],
+    [
+     "P16",
+     "Use any health FSA balance before coverage ends; the full year's election is available",
+     "kept",
+     "money in a health fsa"
+    ],
+    [
+     "P17",
+     "An HSA can pay COBRA premiums, and health premiums while receiving unemployment, tax-free",
+     "kept",
+     "an hsa can pay cobra premiums"
+    ],
+    [
+     "P18",
+     "Compare all options on total cost, not premium alone",
+     "kept",
+     "by total cost"
+    ]
+   ],
+   "claims": [
+    "CL483",
+    "CL484",
+    "CL485",
+    "NEW-le-job-loss-1",
+    "NEW-le-job-loss-2",
+    "NEW-le-job-loss-3",
+    "NEW-le-job-loss-4",
+    "NEW-le-job-loss-5",
+    "NEW-le-job-loss-6"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    },
+    {
+     "to": "spending-essentials/3",
+     "label": "Spending · Healthcare"
+    }
+   ],
+   "words_before": 104,
+   "words_after": 289,
+   "notes": "Grows from 104 to 289 words (about 178 percent), far past the 70 percent guide: six accepted findings land here, four of them HIGH. If the owner wants it shorter, the first cuts are the FSA/HSA sentence (CFP-3, MED) and the 400%/full-repayment clause (could move to protection:health). The title still names three options; with Medicaid added see the title draft under owner_decisions. The 2026 full-repayment rule comes from P.L. 119-21 as stated on IRS pages; the govinfo copy of 26 U.S.C. 36B is the 2024 edition and predates it, so the statute text itself was not read for that point. 'Starting with 2026' was chosen over 'for 2026' to avoid the dated-dollar warning pattern (no dollar amount is in this block anyway). Checker 2026-11-16: the lapse of the enhanced credits is confirmed for 2026 (IRS Q&A updated 2026-02-19; news coverage this month reports no restoration); some states run their own premium help, hence 'federal'."
+  },
+  {
+   "id": "le:job-loss:runway",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-1",
+    "ADV-2",
+    "ADV-3",
+    "CFP-5",
+    "CFP-6"
+   ],
+   "body": "Add expected after-tax severance and unemployment pay to liquid savings, then divide by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency as soon as you are out of work, even if you are not sure you qualify; the state, not your employer, decides. Pay reported on a 1099 generally does not count toward a regular claim, and many states hold back or reduce benefits for the weeks severance covers. Benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, cover housing, utilities, food, insurance, the transportation that keeps you working and any court-ordered payments such as child support first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed. For federal student loans, ask your servicer about an income-driven plan, where the payment can be as low as $0 in some cases, or an unemployment deferment, and keep paying until a deferment is granted. If savings will not cover a month, apply for SNAP food benefits through your state now, because benefits count from the date you apply.",
+   "plain": "Add the severance (after tax) and unemployment pay you expect to your cash savings. Then divide by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state as soon as you are out of work, even if you are not sure you qualify. The state decides, not your employer. Pay reported on a 1099 form usually does not count toward a regular claim, and many states hold back or cut benefits for the weeks your severance covers. Unemployment pay counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance, the transportation that gets you to work and any payments a court has ordered, such as child support, first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment. For federal student loans, ask your loan servicer about an income-driven plan, where the payment can be as low as $0 in some cases, or an unemployment deferment. Keep paying until a deferment is approved. If your savings will not last a month, apply for SNAP food help through your state now, because benefits count from the day you apply.",
+   "props": [
+    [
+     "P1",
+     "Runway = (liquid savings + expected after-tax severance and unemployment pay) / essential monthly spending",
+     "kept",
+     "divide by what you must spend each month"
+    ],
+    [
+     "P2",
+     "Unemployment insurance is state-run; file as soon as you are out of work, even if unsure you qualify",
+     "kept",
+     "as soon as you are out of work"
+    ],
+    [
+     "P3",
+     "The state agency, not the employer, decides eligibility",
+     "kept",
+     "the state decides, not your employer"
+    ],
+    [
+     "P4",
+     "Pay reported on a 1099 generally does not count toward a regular claim",
+     "kept",
+     "pay reported on a 1099"
+    ],
+    [
+     "P5",
+     "Many states hold back or reduce benefits for weeks covered by severance",
+     "kept",
+     "weeks your severance covers"
+    ],
+    [
+     "P6",
+     "UI benefits are federally taxable; consider voluntary withholding",
+     "kept",
+     "income for federal tax"
+    ],
+    [
+     "P7",
+     "Severance is taxable wages, normally withheld",
+     "kept",
+     "severance is taxed like pay"
+    ],
+    [
+     "P8",
+     "When cash is tight, essentials and court-ordered payments (such as child support) first, then minimum payments on every debt kept current",
+     "kept",
+     "minimum payment on every debt"
+    ],
+    [
+     "P9",
+     "Hardship plans: call lenders before a payment is missed",
+     "kept",
+     "hardship plans"
+    ],
+    [
+     "P10",
+     "Federal student loans: ask about an income-driven plan (payment can be as low as $0) or an unemployment deferment",
+     "kept",
+     "income-driven plan"
+    ],
+    [
+     "P11",
+     "Keep paying until a deferment is granted",
+     "kept",
+     "keep paying until a deferment is approved"
+    ],
+    [
+     "P12",
+     "If savings will not cover a month, apply for SNAP now; benefits count from the application date",
+     "kept",
+     "apply for snap"
+    ]
+   ],
+   "claims": [
+    "CL489",
+    "CL490",
+    "CL529",
+    "NEW-le-job-loss-7",
+    "NEW-le-job-loss-8",
+    "NEW-le-job-loss-9"
+   ],
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Size your emergency fund"
+    },
+    {
+     "to": "full-chart/w2/1.4",
+     "label": "Make all minimum payments (framework 1.4)"
+    },
+    {
+     "to": "full-chart/w2/2.2",
+     "label": "Cut non-essential expenses (framework 2.2)"
+    }
+   ],
+   "words_before": 90,
+   "words_after": 205,
+   "notes": "Grows from 90 to 205 words (about 128 percent), over the 70 percent guide. The essentials-first order and hardship calls asked for by ADV-1/CFP-5 were already in the text (CL529); additions are the severance/UI arithmetic, file even if unsure, the 1099 and severance-offset rules, federal student loans and SNAP. NEW-7 reads the state-administration clause at DOL, so CL489 can move from PARTIAL to PASS. The unemployment deferment is gone for loans made on or after July 1, 2027 (studentaid.gov): revisit before then. Local rent/utility help (ADV-2) was left out: no single primary page. The P.L. 119-21 SNAP work-requirement changes (FNS says its page is being updated) and the Repayment Assistance Plan for newer loans are not in the text; 'in some cases' keeps the $0 line within the source."
+  },
+  {
+   "id": "le:job-loss:old-401k",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-7",
+    "ADV-8",
+    "CFP-7",
+    "CFP-8"
+   ],
+   "body": "The usual options are to leave it in the old plan, roll it to a new employer's plan, or roll it to an IRA. Cashing out triggers income tax, plus a 10% additional tax before age 59½ unless an exception applies, and a check paid to you carries 20% mandatory withholding; a direct trustee-to-trustee rollover avoids both. If a check has already been paid to you, you can still roll it over within 60 days, but you must make up the withheld 20% from other money or that part is taxed. If your balance is small, the plan can pay it out without your consent; unless you choose otherwise, it generally goes into an IRA opened in your name, though the smallest balances can arrive as a check, so watch your mail. If you truly need some of the money, withdraw only what you need and roll over the rest. If you separated from service in or after the year you turn 55, that plan (not an IRA) can pay out without the 10% additional tax, which argues for leaving it in place if you may need it. If the plan holds your employer's stock, check net unrealized appreciation before rolling it, because rolling the shares into an IRA gives up that treatment. If you have an outstanding 401(k) loan, find out when it comes due: an unpaid balance is treated as a distribution (taxable, plus the 10% additional tax before 59½), though a plan-loan offset within 12 months after leaving the job can still be rolled over until your tax-filing deadline, including extensions, for that year. If you make backdoor Roth contributions, a pre-tax IRA balance makes later conversions partly taxable, because all your traditional IRAs are counted together; keeping the money in a workplace plan, old or new, avoids that. Be cautious if anyone suggests moving the money into an annuity, and ask how they are paid.",
+   "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If a check was already sent to you, you can still move it into a retirement account within 60 days. But you must add back the 20% that was held back, using other money, or that part gets taxed. If your balance is small, the plan can pay it out without asking you. Unless you choose something else, it generally goes into an IRA opened in your name, but the smallest balances can come as a check, so watch your mail. If you really need some of the money, take out only what you need and move the rest. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment. If you still owe on a 401(k) loan, find out when it comes due: an unpaid balance counts as a withdrawal (taxed, plus the extra 10% tax before 59½), but if the plan takes the loan out of your balance within 12 months after you leave, you can still roll that amount over until your tax-filing deadline, including extensions, for that year. If you put money into a Roth IRA through the backdoor method, having pre-tax money in an IRA makes later conversions partly taxed, because all your traditional IRAs are counted together. Keeping the money in a job's plan, old or new, avoids that. Be careful if anyone suggests putting the money into an annuity, and ask how they get paid.",
+   "props": [
+    [
+     "P1",
+     "Options: leave, roll to new plan, roll to IRA",
+     "kept",
+     "leave it in the old plan"
+    ],
+    [
+     "P2",
+     "Cash-out triggers income tax plus 10% additional tax before 59½ absent an exception",
+     "kept",
+     "extra 10% tax before age 59½"
+    ],
+    [
+     "P3",
+     "A check paid to you carries 20% mandatory withholding",
+     "kept",
+     "20% held back"
+    ],
+    [
+     "P4",
+     "A direct trustee-to-trustee rollover avoids both",
+     "kept",
+     "direct rollover"
+    ],
+    [
+     "P5",
+     "A check already issued can still be rolled over within 60 days, but the withheld 20% must be made up from other money or that part is taxed",
+     "kept",
+     "add back the 20%"
+    ],
+    [
+     "P6",
+     "Small balances can be paid out without consent; absent an election they generally go to an IRA in your name; the smallest can arrive as a check",
+     "kept",
+     "pay it out without asking you"
+    ],
+    [
+     "P7",
+     "If you truly need some of the money, withdraw only what you need and roll over the rest",
+     "kept",
+     "take out only what you need"
+    ],
+    [
+     "P8",
+     "Separation in/after the year you turn 55: that plan (not an IRA) pays without the 10% tax",
+     "kept",
+     "not an ira"
+    ],
+    [
+     "P9",
+     "This argues for leaving it in place if you may need it",
+     "kept",
+     "leave it where it is"
+    ],
+    [
+     "P10",
+     "Check NUA before rolling employer stock; rolling shares to an IRA forfeits it",
+     "kept",
+     "net unrealized appreciation"
+    ],
+    [
+     "P11",
+     "An unpaid 401(k) loan balance is treated as a taxable distribution (plus 10% before 59½)",
+     "kept",
+     "counts as a withdrawal"
+    ],
+    [
+     "P12",
+     "A plan-loan offset within 12 months after leaving can be rolled over until the tax-filing deadline (with extensions)",
+     "kept",
+     "tax-filing deadline"
+    ],
+    [
+     "P13",
+     "Backdoor Roth: a pre-tax IRA balance makes later conversions partly taxable because traditional IRAs are aggregated; keeping the money in a workplace plan (old or new) avoids that",
+     "kept",
+     "all your traditional iras are counted together"
+    ],
+    [
+     "P14",
+     "Be cautious about an annuity pitch for the money; ask how the person is paid",
+     "kept",
+     "ask how they get paid"
+    ],
+    [
+     "P15",
+     "The offset must occur within 12 months after leaving the job",
+     "kept",
+     "within 12 months after you leave"
+    ]
+   ],
+   "claims": [
+    "CL486",
+    "CL487",
+    "CL488",
+    "CL530",
+    "NEW-le-job-loss-10",
+    "NEW-le-job-loss-11",
+    "NEW-le-job-loss-12"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/3.1",
+     "label": "Employer match (framework 3.1)"
+    },
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Early-access strategies (framework 10.1)"
+    }
+   ],
+   "words_before": 171,
+   "words_after": 316,
+   "notes": "Grows from 171 to 316 words (about 85 percent), a little over the guide. The 401(k)-loan point (ADV-6, CFP-4) was already here and is unchanged. Forced cash-out thresholds ($7,000 consent limit, $1,000 default-IRA line; read in 26 U.S.C. 411(a)(11) and 401(a)(31)(B)) are left out of the text on purpose, so no figure keys are needed. If the owner wants it shorter, the backdoor-Roth sentence (CFP-7) is the most specialized addition. ADV-8(a) title softening is drafted under owner_decisions. Reconciled 2026-11-16 with the factual corrections on branch fix/verification-2026-11-16."
+  },
+  {
+   "id": "le:job-loss:equity",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-9",
+    "CFP-9"
+   ],
+   "body": "Vested stock options often expire a fixed period after you leave, and incentive stock options lose their favorable treatment if not exercised within three months of termination of employment. The exact window is in your grant agreement; read it before it closes. Exercising takes cash and can create a tax bill: the gain on a nonqualified option is generally taxed as income when you exercise, and incentive stock options can trigger the alternative minimum tax. Weigh that against your runway before spending your emergency cushion to beat a deadline. Also check what your plan documents say about unvested RSUs, ESPP purchases and any deferred compensation.",
+   "plain": "Stock options that have vested often expire a set time after you leave. Incentive stock options lose their special tax treatment if you don't exercise them within three months after your job ends. Your grant agreement has the exact deadline — read it before it passes. Buying the shares costs cash and can mean a tax bill. With a nonqualified option, the gain is usually taxed as income when you buy. Incentive stock options can set off the alternative minimum tax. Think about how long your money has to last before you use your emergency savings to beat a deadline. Also check what your plan papers say about RSUs that have not vested, ESPP purchases and any deferred pay.",
+   "props": [
+    [
+     "P1",
+     "Vested options often expire a fixed period after leaving",
+     "kept",
+     "expire a set time after you leave"
+    ],
+    [
+     "P2",
+     "ISOs lose favorable treatment if not exercised within three months of termination",
+     "kept",
+     "within three months"
+    ],
+    [
+     "P3",
+     "The exact window is in the grant agreement; read it before it closes",
+     "kept",
+     "grant agreement"
+    ],
+    [
+     "P4",
+     "Exercising takes cash and can create tax: a nonqualified option's gain is generally taxed as income at exercise; ISOs can trigger AMT",
+     "kept",
+     "alternative minimum tax"
+    ],
+    [
+     "P5",
+     "Weigh exercise against runway before spending the emergency cushion",
+     "kept",
+     "emergency savings to beat a deadline"
+    ],
+    [
+     "P6",
+     "Check plan documents for unvested RSUs, ESPP purchases and deferred compensation",
+     "kept",
+     "espp purchases"
+    ]
+   ],
+   "claims": [
+    "CL491",
+    "NEW-le-job-loss-13"
+   ],
+   "links": [
+    {
+     "to": "advanced-strategies/1",
+     "label": "Advanced · Equity compensation"
+    }
+   ],
+   "words_before": 42,
+   "words_after": 105,
+   "notes": "Grows from 42 to 104 words (from a very short base). The text part of CFP-9 is folded in with ADV-9; CFP-9's main ask, moving this step ahead of old-401k, is an owner decision."
+  },
+  {
+   "id": "le:job-loss:withholding",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-10"
+   ],
+   "body": "A year with a gap, severance and two employers is the classic under- or over-withholding year. Run the IRS Tax Withholding Estimator and file a new Form W-4 with the new employer. Each employer's payroll tracks the 401(k) limit separately, but the employee deferral limit ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so total both years' contributions yourself. If your total went over the limit, tell one plan early in the next year so it can return the excess by April 15; otherwise it is taxed twice. Extra Social Security tax withheld because you had two employers generally comes back as a credit on your tax return.",
+   "plain": "A year with a gap, severance and two employers often ends with too much or too little tax taken out. Use the IRS Tax Withholding Estimator and give your new employer a new Form W-4. Each employer's payroll only tracks its own 401(k). But the yearly limit on what you put in ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so add up both jobs' contributions yourself. If you put in too much in total, tell one plan early in the next year so it can give back the extra by April 15. If not, that money is taxed twice. If two employers together took out too much Social Security tax, you can generally get it back as a credit on your tax return.",
+   "props": [
+    [
+     "P1",
+     "Gap + severance + two employers is the classic mis-withholding year",
+     "kept",
+     "too much or too little tax"
+    ],
+    [
+     "P2",
+     "Run the IRS Tax Withholding Estimator and file a new W-4",
+     "kept",
+     "tax withholding estimator"
+    ],
+    [
+     "P3",
+     "Each employer's payroll tracks the limit separately",
+     "kept",
+     "only tracks its own 401(k)"
+    ],
+    [
+     "P4",
+     "The employee deferral limit (2026 figure) applies across all plans; total both yourself",
+     "kept",
+     "across all plans"
+    ],
+    [
+     "P5",
+     "Tell a plan early in the next year so it can return an excess deferral by April 15; otherwise it is taxed twice",
+     "kept",
+     "give back the extra by april 15"
+    ],
+    [
+     "P6",
+     "Excess Social Security tax from two employers is recovered as a credit on the return",
+     "kept",
+     "as a credit on your tax return"
+    ]
+   ],
+   "claims": [
+    "CL001",
+    "CL492",
+    "CL493",
+    "NEW-le-job-loss-14"
+   ],
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    },
+    {
+     "to": "full-chart/w2/8.1",
+     "label": "Max your 401(k) (framework 8.1)"
+    }
+   ],
+   "words_before": 59,
+   "words_after": 108,
+   "notes": "Grows from 59 to 108 words (about 83 percent). April 15 is from 26 U.S.C. 402(g)(2)(A)(ii); the March 1 allocation step in (A)(i) is carried as 'early in the next year' so no new number enters; the IRS consequences page says 'by the due date of your tax return', the same date in an ordinary year. Note 'Form W-4' and '401(k)' put 4 and 401 in the number set; both are unchanged in body and plain."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-job-loss-1",
+   "loc": "P4:life-events:job-loss",
+   "claim": "A COBRA election made during the election period gives coverage from the date coverage would otherwise have been lost, and the plan may charge the premium for that period (first payment not due before 45 days after the election)",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 CFR 54.4980B-6 Q&A-3; 29 U.S.C. 1162(3)",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-26.xml?part=54&section=54.4980B-6",
+   "note": "Verified 2026-11-16 at the primary source: 26 CFR 54.4980B-6 Q&A-3(a) ('If the election is made during that period, coverage must be provided from the date that coverage would otherwise have been lost'), read on eCFR as of 2026-11-12; 29 U.S.C. 1162(3) (premium for any period of continuation coverage; no premium required before 45 days after the initial election), govinfo. Added 2026-11-16 from the §4.4 persona pass (CFP-1)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-2",
+   "loc": "P4:life-events:job-loss",
+   "claim": "For loss of minimum essential coverage, the Marketplace special enrollment window runs from 60 days before to 60 days after the loss",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "45 CFR 155.420(c)(2), (d)(1)(i); DOL EBSA 'An Employee's Guide to Health Benefits Under COBRA'",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+   "note": "Verified 2026-11-16 at the primary source: 45 CFR 155.420(c)(2) (60 days before and, unless the (c)(6) Medicaid/CHIP option applies, 60 days after the triggering event, for individuals in (d)(1)), read on eCFR as of 2026-11-12; the DOL COBRA guide (Sept. 2022, read via a fetch tool) says 'within 60 days before or after losing your job-based coverage'. Narrows CL484 for the job-loss block only. Added from the persona pass (CFP-65)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-3",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Voluntarily dropping COBRA, or stopping premium payments before it runs out, is not a loss of coverage for a Marketplace special enrollment period; outside open enrollment a switch is allowed within 60 days of losing job-based coverage, when COBRA runs out, when the former employer stops contributing to COBRA, or after another qualifying life event",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "45 CFR 155.420(e)(1); HealthCare.gov 'COBRA coverage when you're unemployed'; DOL EBSA COBRA guide",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-45.xml?part=155&section=155.420",
+   "note": "Verified 2026-11-16 at the primary source: 45 CFR 155.420(e) ('Loss of coverage does not include voluntary termination of coverage or other loss due to ... failure to pay premiums ... including COBRA continuation coverage premiums prior to expiration'); HealthCare.gov lists the outside-open-enrollment switches (COBRA running out; employer contribution ends; 'still within 60 days of when you lost your job-based coverage'); the DOL guide: terminating COBRA early with no other event means waiting for open enrollment. The employer-subsidy-ends exception (155.420(e)(1), (d)(15)) is now in the block text. Checker 2026-11-16: 'switch only at open enrollment or when COBRA runs out' corrected to include it and other life events. Added from the persona pass (ADV-5, CFP-1)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-4",
+   "loc": "P4:life-events:job-loss",
+   "claim": "The Marketplace income estimate counts wages, unemployment compensation and most 401(k) withdrawals; changes should be reported as they happen; for tax years after 2025 excess advance premium tax credit is repaid in full, and the federal credit is generally limited to household income of no more than 400% of the federal poverty line",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §36B as amended by P.L. 119-21 (repayment limitation removed for tax years after 2025); IRS 'Questions and answers on the Premium Tax Credit' (Q7, Q31); IRS 'Repayment caps eliminated for excess advance payments of the Premium Tax Credit'; HealthCare.gov 'What to include as income'",
+   "url": "https://www.irs.gov/tax-professionals/eitc-central/repayment-caps-eliminated-for-excess-advance-payments-of-the-premium-tax-credit",
+   "note": "Verified 2026-11-16 at IRS and HealthCare.gov pages: IRS Q&A Q7 (updated 2026-02-19: eligible if household income 'at least 100 percent but no more than 400 percent', with the 2021-2025 expansion now over) and the repayment-caps page ('Beginning with tax year 2026, the taxpayer must repay the full amount'); HealthCare.gov income page (federal taxable wages; 'Include most IRA and 401k withdrawals'; 'Include all unemployment compensation'). The statute text itself was not read for these points: the govinfo copy of 26 U.S.C. 36B is the 2024 edition and still shows the pre-2026 caps and the 2021-2025 rule. Severance counts as federal taxable wages per CL490. Added from the persona pass (CFP-2). Checker 2026-11-16: enhanced credits confirmed still lapsed; some states run their own premium help, so the block says 'no federal credit'."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-5",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Medicaid and CHIP accept applications any time of year; financial eligibility for Medicaid applicants is based on current monthly household income, and CHIP applies the same methodology",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 CFR 435.603(h)(1); 42 CFR 457.315(a); HealthCare.gov 'Medicaid & CHIP coverage'",
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-42.xml?part=435&section=435.603",
+   "note": "Verified 2026-11-16 at the primary source: 42 CFR 435.603(h)(1) ('must be based on current monthly household income and family size'), read on eCFR as of 2026-11-12; HealthCare.gov ('You can apply for Medicaid and CHIP any time of year'). HealthCare.gov also warns of a new monthly Medicaid work requirement in expansion states from 2027-01-01 and narrower immigrant eligibility; neither is in the block text. Added from the persona pass (ADV-4). Checker 2026-11-16: 42 CFR 457.315(a) read on eCFR as of 2026-11-12 ('the State must apply the financial methodologies set forth in paragraphs (b) through (i) of § 435.603 ... for CHIP')."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-6",
+   "loc": "P4:life-events:job-loss",
+   "claim": "A health FSA must make the full annual election available at any time during the coverage period and reimburses only expenses incurred during the period of coverage; HSA funds may pay COBRA premiums and health coverage premiums while receiving unemployment compensation",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS Publication 969 (2025), 'Distributions From an FSA' and HSA 'Insurance premiums'",
+   "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+   "note": "Verified 2026-11-16 at the primary source: IRS Pub. 969 (2025, dated 2026-02-11), FSA ('You must be able to receive the maximum amount of reimbursement ... at any time during the coverage period'; 'incurred during the period of coverage') and HSA premium exceptions (2) COBRA continuation coverage and (3) coverage while receiving unemployment compensation. Pub. 969 does not say an FSA balance is forfeited at separation, so the block does not say so. Added from the persona pass (CFP-3). The block now says 'on care you need'."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-7",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Each state runs its own unemployment insurance program and decides eligibility; file as soon as possible after becoming unemployed; 1099 income generally does not count toward a regular claim; many states treat severance (dismissal pay) as deductible income for the weeks it covers",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "DOL 'How Do I File for Unemployment Insurance?'; Unemployment.gov (DOL); DOL ETA 'Comparison of State Unemployment Insurance Laws' (2023), ch. 5",
+   "url": "https://www.unemployment.gov/",
+   "note": "Verified 2026-11-16 at the primary source: DOL ('Each state administers a separate unemployment insurance program'; 'contact your state's unemployment insurance program as soon as possible after becoming unemployed'), Unemployment.gov ('the state UI agency will determine your eligibility'; 1099 income 'is not considered when assessing if you meet the work and wage requirements to establish a regular claim'), DOL Comparison of State UI Laws 2023, Nonmonetary chapter ('Many states consider wages in lieu of notice and dismissal payments to be deductible income'). DOL pages read via a fetch tool (dol.gov refuses curl); the comparison PDF read directly. This also supplies the source CL489 lacked for its state-administration clause. Added from the persona pass (ADV-3, CFP-6)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-8",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Federal student loan income-driven plans base the payment on income and family size, and in some cases it can be as low as $0; an unemployment deferment is available to borrowers receiving unemployment benefits or unable to find full-time work (not for loans made on or after July 1, 2027); payments must continue until a deferment is granted",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Federal Student Aid, 'Student Loan Deferment' (studentaid.gov)",
+   "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+   "note": "Verified 2026-11-16 at the primary source: studentaid.gov deferment page (read via Firecrawl; the page needs a browser): 'In some cases, your payment could be as low as $0 per month'; unemployment deferment 'up to three years'; 'won't be available for loans made on or after July 1, 2027'; 'You must continue making payments ... until you have been notified that your request for deferment has been granted.' The income-driven plans page itself and the new Repayment Assistance Plan's terms were not read; the block says only 'can be as low as'. Added from the persona pass (ADV-1, CFP-5)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-9",
+   "loc": "P4:life-events:job-loss",
+   "claim": "SNAP is applied for in the state where you live, and benefits for an eligible household count from the date the application was submitted",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "USDA FNS, 'SNAP Eligibility'",
+   "url": "https://www.fns.usda.gov/snap/recipient/eligibility",
+   "note": "Verified 2026-11-16 at the primary source: USDA FNS SNAP eligibility page ('you must apply in the state in which you currently live'; 'you will receive benefits based on the date you submitted your application'). The page notes it is being updated for P.L. 119-21 changes to work requirements and non-citizen eligibility; neither is in the block text. Added from the persona pass (ADV-2)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-10",
+   "loc": "P4:life-events:job-loss",
+   "claim": "A plan may pay out a small vested balance without the participant's consent; a mandatory distribution above a set amount goes to an IRA in the participant's name unless the participant elects otherwise, and smaller ones can be paid in cash; a distribution paid to you can be rolled over in whole or part within 60 days, making up any 20% withheld from other funds or that amount is taxable",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §411(a)(11)(A), §401(a)(31)(B), §402(c)(3); IRS 'Rollovers of Retirement Plan and IRA Distributions'",
+   "url": "https://www.govinfo.gov/link/uscode/26/411?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. 411(a)(11)(A) (consent required only if the present value exceeds $7,000), 401(a)(31)(B) (mandatory distributions in excess of $1,000 transferred to an IRA absent an election), govinfo 2024 edition; IRS rollovers page ('deposit all or a portion of it ... within 60 days'; 'you must use other funds to make up for the amount withheld'; worked example taxing the unrolled $2,000). Dollar thresholds deliberately not in the block text. Added from the persona pass (ADV-7, ADV-8a, CFP-8)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-11",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Be cautious if a financial professional suggests buying an annuity within a tax-deferred retirement plan or IRA; ask how the person recommending a rollover product is paid",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "SEC Investor.gov, 'Annuities'",
+   "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/annuities",
+   "note": "Verified 2026-11-16 at the primary source: Investor.gov ('Be cautious if a financial professional suggests you purchase an annuity within a tax-deferred retirement plan, such as a traditional 401(k) or traditional IRA'; 'The profit from this fee sometimes is also used to pay a commission to the financial professional who sold you the annuity'). 'Ask how they are paid' is the framework's inference from the commission sentence. Added from the persona pass (ADV-8b)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-12",
+   "loc": "P4:life-events:job-loss",
+   "claim": "All of a person's IRAs are treated as one contract for taxing distributions, so a pre-tax IRA balance makes a later Roth conversion of nondeductible contributions partly taxable; money kept in an employer plan, old or new, is not in that total",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §408(d)(2); Instructions for Form 8606 (2025), line 6",
+   "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. 408(d)(2)(A) ('all individual retirement plans shall be treated as 1 contract'); Form 8606 instructions line 6 ('the total value of all your traditional IRAs as of December 31'). That an employer plan balance is excluded is a derivation from line 6 naming only IRAs, not a sentence read. Added from the persona pass (CFP-7)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-13",
+   "loc": "P4:life-events:job-loss",
+   "claim": "Exercising a nonqualified stock option without a readily determinable value puts the gain (fair market value less the amount paid) into income at exercise; exercising an incentive stock option can create alternative minimum tax in that year",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS Topic No. 427, Stock options; IRC §56(b)(3)",
+   "url": "https://www.irs.gov/taxtopics/tc427",
+   "note": "Verified 2026-11-16 at the primary source: IRS Topic 427 (page reviewed 2026-09-24): 'you may be subject to alternative minimum tax in the year you exercise an ISO'; for nonstatutory options without a readily determinable value 'you must include in income the fair market value of the stock received on exercise, less the amount paid'. 26 U.S.C. 56(b)(3) read for the ISO AMT adjustment. RSU/ESPP/deferred-compensation sentence is a pointer to plan documents, not a legal claim. Added from the persona pass (ADV-9, CFP-9)."
+  },
+  {
+   "temp_id": "NEW-le-job-loss-14",
+   "loc": "P4:life-events:job-loss",
+   "claim": "An individual with excess elective deferrals allocates them and notifies the plan by March 1 of the following year, and the plan may distribute the excess by April 15; if not, it is taxed in the year contributed and again when distributed; excess Social Security tax withheld by two or more employers can generally be claimed as a credit on the income tax return",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §402(g)(2)(A); IRS 'Consequences to a participant who makes excess deferrals'; IRS Topic No. 608",
+   "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. 402(g)(2)(A)(ii) ('not later than the 1st April 15 following the close of the taxable year, each such plan may distribute'); IRS consequences page ('taxed a second time when the deferrals are ultimately distributed'); IRS Topic 608 ('If you had more than one employer and too much Social Security tax ... withheld, you may be able to claim the excess as a credit'). Checker 2026-11-16: the March 1 allocation step (402(g)(2)(A)(i)) is now reflected as 'tell one plan early in the next year'. Added from the persona pass (CFP-10)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-9"
+   ],
+   "what": "Move the equity step ahead of the old-401k step, so the job-loss order becomes coverage, runway, equity, old-401k, withholding.",
+   "why_owner": "Reordering steps changes the module's shape. The event summary ('Health coverage and cash runway first; retirement-account decisions can wait for a calm week') and the equity step's own 'Check the grant documents now' both support the move; the old-401k step is 'Within 1-3 months' and is reversible, an expired option window is not.",
+   "draft": {
+    "type": "reorder",
+    "event": "job-loss",
+    "steps_order_before": [
+     "coverage",
+     "runway",
+     "old-401k",
+     "equity",
+     "withholding"
+    ],
+    "steps_order_after": [
+     "coverage",
+     "runway",
+     "equity",
+     "old-401k",
+     "withholding"
+    ],
+    "text_changes": "None beyond those in this file; the equity block's new text already says to weigh exercise against runway."
+   }
+  },
+  {
+   "findings": [
+    "ADV-4",
+    "ADV-8"
+   ],
+   "what": "Two title edits: name Medicaid in the coverage title, and soften the old-401k title so it does not read as a ban.",
+   "why_owner": "The output format carries body text, not titles, and titles are the product's visible step names. Both changes follow accepted findings.",
+   "draft": {
+    "le:job-loss:coverage": {
+     "title_before": "Decide how you will stay insured: COBRA, a spouse's plan, or the Marketplace",
+     "title_after": "Decide how you will stay insured: COBRA, a spouse's plan, the Marketplace or Medicaid"
+    },
+    "le:job-loss:old-401k": {
+     "title_before": "Decide what to do with the old employer's 401(k) — but do not cash it out by default",
+     "title_after": "Decide what to do with the old employer's 401(k) before you cash any of it out"
+    },
+    "note": "Titles carry no plain variant or claims under the current gate; check whether the build renders titles through the plain layer before applying."
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "CFP-6",
+   "assertion": "Unemployment benefits are generally not paid for weeks before the claim date (no retroactive pay).",
+   "why": "Not stated on the DOL pages read; backdating is state law. Left out of the text."
+  },
+  {
+   "finding": "ADV-3",
+   "assertion": "Workers let go for performance, or whose hours were cut, can usually still qualify.",
+   "why": "The DOL and Unemployment.gov pages read say eligibility is set by state law and that anyone may apply; they do not address performance firings or partial benefits. The text says only 'file even if you are not sure you qualify'."
+  },
+  {
+   "finding": "CFP-3",
+   "assertion": "A health FSA balance is generally lost at separation.",
+   "why": "IRS Pub. 969 does not say this; it depends on the plan and on any COBRA right for the FSA. The text avoids the claim."
+  },
+  {
+   "finding": "CFP-7",
+   "assertion": "IRAs and 401(k)s differ on creditor protection.",
+   "why": "No primary source read; IRA protection outside bankruptcy is state law. Dropped."
+  },
+  {
+   "finding": "ADV-2",
+   "assertion": "Local rent or utility assistance is available for this gap.",
+   "why": "Local programs with no single primary federal page; dropped."
+  },
+  {
+   "finding": "ADV-1",
+   "assertion": "Federal student loans can go to a $0 income-driven payment.",
+   "why": "Studentaid.gov says 'could be as low as $0' in some cases; the terms of the new Repayment Assistance Plan under P.L. 119-21 were not read, so a flat $0 is not stated."
+  },
+  {
+   "finding": "CFP-2",
+   "assertion": "The P.L. 119-21 removal of the repayment cap, read at the statute.",
+   "why": "Read on IRS pages (Q&A updated 2026-02-19; repayment-caps page). The govinfo copy of 26 U.S.C. 36B is the 2024 edition and predates the change; the amended statute text was not read. The proposed sentence relies on the IRS pages."
+  }
+ ],
+ "review": [
+  {
+   "target": "le:job-loss:coverage",
+   "change": "COBRA-drop sentence: 'you can switch only at open enrollment or when COBRA runs out' became 'you generally must wait for open enrollment unless COBRA runs out, an employer subsidy for it ends, or you have another life event'; 'after the first 60 days' anchored to 'since job coverage ended'; stopping payment named.",
+   "why": "'only' was wrong: HealthCare.gov and 45 CFR 155.420(e) also allow a switch when the employer stops contributing to COBRA and after another life event. 'The first 60 days' was ambiguous with the COBRA election window.",
+   "source": {
+    "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+    "quote": "You have to pay the full cost of COBRA coverage because your former employer stops contributing, or you lose a government subsidy (like COBRA premium assistance)."
+   }
+  },
+  {
+   "target": "le:job-loss:coverage",
+   "change": "'generally gets no credit / no help' became 'no federal credit / no federal help'.",
+   "why": "The enhanced credits are confirmed still lapsed (IRS Q&A, updated 2026-02-19), but about a dozen states run their own premium help; the plain 'no help' overstated. Reworded to the federal credit the IRS page describes.",
+   "source": {
+    "url": "https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit",
+    "quote": "In general, individuals and families may be eligible for the Premium Tax Credit if their household income for the year is at least 100 percent but no more than 400 percent of the federal poverty line"
+   }
+  },
+  {
+   "target": "le:job-loss:coverage",
+   "change": "FSA sentence now says 'on care you need'.",
+   "why": "A health FSA reimburses only qualified medical expenses incurred during the coverage period; the bare 'use any balance' could read as an instruction to spend for its own sake on a tight budget.",
+   "source": {
+    "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+    "quote": "Generally, distributions from a health FSA must be paid only to reimburse you for qualified medical expenses you incurred during the period of coverage."
+   }
+  },
+  {
+   "target": "le:job-loss:runway",
+   "change": "'expected severance' became 'expected after-tax severance' (plain: 'severance (after tax)').",
+   "why": "CFP-6 asked for net severance; the same block says severance is taxable wages with withholding, so the gross figure overstates runway.",
+   "source": {
+    "url": "https://www.dol.gov/general/topic/unemployment-insurance",
+    "quote": "You should contact your state's unemployment insurance program as soon as possible after becoming unemployed."
+   }
+  },
+  {
+   "target": "le:job-loss:runway",
+   "change": "'can be as low as $0' gained 'in some cases' in body and plain.",
+   "why": "Studentaid.gov says 'In some cases'; without it the sentence goes further than the source, and the new Repayment Assistance Plan for newer loans (P.L. 119-21) was not read.",
+   "source": {
+    "url": "https://studentaid.gov/manage-loans/lower-payments/get-temporary-relief/deferment",
+    "quote": "Income-driven repayment (IDR) plans base your monthly payments on your income and family size. In some cases, your payment could be as low as $0 per month."
+   }
+  },
+  {
+   "target": "le:job-loss:old-401k",
+   "change": "'without asking, usually into an IRA' became 'without your consent; unless you choose otherwise, it generally goes into an IRA'.",
+   "why": "'Usually' is a frequency claim no source makes. The statute makes the IRA the default only when the participant makes no election; the participant can still choose a direct rollover or cash.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/401?link-type=html",
+    "quote": "(II) the distributee does not make an election under subparagraph (A) and does not elect to receive the distribution directly, the plan administrator shall make such transfer to an individual retirement plan"
+   }
+  },
+  {
+   "target": "le:job-loss:old-401k",
+   "change": "'rolling into a new employer's plan that accepts rollovers avoids that' became 'keeping the money in a workplace plan, old or new, avoids that'.",
+   "why": "The aggregation rule counts IRAs only, so leaving the money in the old plan avoids it too; the draft named only one of the two non-IRA options, in a step whose first option is 'leave it in the old plan'.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+    "quote": "For purposes of applying section 72 to any amount described in paragraph (1)— (A) all individual retirement plans shall be treated as 1 contract"
+   }
+  },
+  {
+   "target": "le:job-loss:equity",
+   "change": "'the gain on most nonqualified options is taxed' became 'the gain on a nonqualified option is generally taxed'.",
+   "why": "Topic 427 states the rule for options without a readily determinable value; it does not say 'most'. 'Generally' states the rule without an unsourced frequency.",
+   "source": {
+    "url": "https://www.irs.gov/taxtopics/tc427",
+    "quote": "there's no taxable event when the option is granted but you must include in income the fair market value of the stock received on exercise, less the amount paid, when you exercise the option."
+   }
+  },
+  {
+   "target": "le:job-loss:withholding",
+   "change": "'ask one plan to return the excess by April 15' became 'tell one plan early in the next year so it can return the excess by April 15'; the Social Security credit gained 'generally'.",
+   "why": "Under 402(g)(2)(A) the individual allocates and notifies the plan by March 1 and the plan distributes by April 15; asking near April 15 can be too late. Topic 608 says 'may be able to claim'.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+    "quote": "not later than the 1st March 1 following the close of the taxable year, the individual may allocate the amount of such excess deferrals among the plans ... and may notify each such plan of the portion allocated to it"
+   }
+  },
+  {
+   "target": "ADV-4",
+   "change": "Added 42 CFR 457.315 as a source and to NEW-le-job-loss-5.",
+   "why": "The sentence applies 'current monthly income' to CHIP as well; 42 CFR 435.603(h) covers Medicaid only.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-42.xml?part=457&section=457.315",
+    "quote": "the State must apply the financial methodologies set forth in paragraphs (b) through (i) of § 435.603 of this chapter in determining the financial eligibility of all individuals for CHIP."
+   }
+  },
+  {
+   "target": "ADV-8",
+   "change": "Added the Investor.gov commission sentence as a source; NEW-le-job-loss-11 raised from tier C to B.",
+   "why": "'Ask how they are paid' was recorded as convention only; the same SEC page says annuity fees can pay the seller's commission.",
+   "source": {
+    "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/annuities",
+    "quote": "The profit from this fee sometimes is also used to pay a commission to the financial professional who sold you the annuity."
+   }
+  }
+ ]
+}

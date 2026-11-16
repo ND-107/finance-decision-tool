@@ -1,0 +1,453 @@
+{
+ "group": "le-job-loss",
+ "findings": [
+  {
+   "id": "ADV-1",
+   "head": "le:job-loss:runway | HIGH | \"minimum payments on every debt still come before any other goal\" (plain: \"keep making the minimum payment on every debt before anything else\")",
+   "text": "Why: when cash is short, the essentials have to come first: housing, utilities, food, transportation to work, and insurance. They come before unsecured debt minimums. The plain version turns \"before any other goal\" into \"before anything else\". A reader in crisis could pay a credit card ahead of rent.\nFix: \"If money is tight, cover housing, utilities, food and insurance first. Then make at least the minimum on each debt, and call lenders about hardship plans before you miss a payment. Federal student loans can go to a $0 income-driven payment.\" The plain version should say the same.",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-2",
+   "head": "le:job-loss:runway | MED | \"Divide liquid savings by essential monthly spending to get months of runway.\"",
+   "text": "Why: for a reader with no savings this gives zero and stops there. It also ignores unemployment pay, severance and benefits.\nFix: \"Add any unemployment pay and severance to what you have. If the result is under a month, apply now for SNAP, Medicaid and local rent or utility help. These are built for exactly this gap.\"",
+   "block": "le:job-loss:runway",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-3",
+   "head": "le:job-loss:runway | MED | \"file with the state agency promptly\"",
+   "text": "Why: people who were fired, or whose hours were cut, often assume they can't qualify and don't file. Gig workers and contractors usually can't get regular unemployment pay, and nothing here tells them so.\nFix: \"File even if you were let go for performance or had your hours cut; the state decides eligibility, not your employer. Independent contractors usually are not covered by regular unemployment insurance.\"",
+   "block": "le:job-loss:runway",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-4",
+   "head": "le:job-loss:coverage | HIGH | \"COBRA, a spouse's plan, or the Marketplace\" (Medicaid is missing)",
+   "text": "Why: after an income drop, Medicaid or CHIP is often the cheapest option (often $0). You can enroll any time of year. A low-income reader comparing three paid options may never check it.\nFix: add a fourth option: \"Medicaid (and CHIP for children), which you can apply for any time of year and which looks at your current monthly income, not last year's.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-5",
+   "head": "le:job-loss:coverage | MED | omission: choosing COBRA and then dropping it",
+   "text": "Why: if you choose COBRA and later drop it to save money, that usually does not open a Marketplace enrollment window outside open enrollment. It is a common and costly trap.\nFix: \"Compare before you choose. If you elect COBRA and later stop paying, you generally have to wait for open enrollment to switch to the Marketplace.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-6",
+   "head": "le:job-loss:old-401k | HIGH | omission: an outstanding 401(k) loan",
+   "text": "Why: plan loans are common among lower-income savers. Leaving the job often makes the loan due. If it isn't repaid by the tax-filing deadline, the balance is taxed as a distribution, plus the 10% additional tax if you're under 59½.\nFix: \"If you have a 401(k) loan, find out when it must be repaid after you leave. An unpaid balance becomes a taxable distribution.\"",
+   "block": "le:job-loss:old-401k",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-7",
+   "head": "le:job-loss:old-401k | MED | omission: small-balance cash-outs",
+   "text": "Why: plans can push out small balances without being asked, and very small ones can arrive as a check. This step tells the reader they have time to decide, which isn't true for them.\nFix: \"If your balance is small, the plan may move it to an IRA or send you a check on its own. Watch your mail, and roll a check over within 60 days to avoid the tax.\"",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-8",
+   "head": "le:job-loss:old-401k | MED | title \"do not cash it out by default\", plus no warning about rollover sales pitches",
+   "text": "Why: (a) for someone with no other money, a withdrawal may be the honest last resort, and the title reads as a ban without saying how to do it least badly. (b) Rollover moments are when commission sellers pitch annuities and high-fee IRAs.\nFix: \"If you truly need some of it, take only what you need and leave the rest. Be wary of anyone who is paid to recommend a rollover into an annuity or a high-fee product. Ask how they are paid.\"",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-9",
+   "head": "le:job-loss:equity | LOW | \"read it before it closes\"",
+   "text": "Why: exercising options costs cash and can trigger tax. A reader might use runway money to beat the deadline.\nFix: \"Exercising costs money and can create a tax bill. Don't use your emergency cushion to do it without running the numbers.\"",
+   "block": "le:job-loss:equity",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-1",
+   "head": "le:job-loss:coverage — HIGH",
+   "text": "Phrase: \"Compare all three on total cost, not premium alone.\"\nWhy: The steps are not reversible in the same way, and the text treats them as equal options. Dropping COBRA voluntarily mid-year does not open a Marketplace special enrollment period; only running out of COBRA does. Once the 60-day loss-of-coverage window passes, someone who chose COBRA is locked in until open enrollment. COBRA election is also retroactive: a healthy person can wait most of the 60 days and elect only if a claim comes up. That is the actual planner move here, and it is missing.\nRewrite: \"COBRA can be elected late in the 60-day window and covers you back to the day your coverage ended, so some people wait and see. But choosing COBRA and later dropping it does not reopen the Marketplace before open enrollment, so make the Marketplace comparison before the window closes.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-2",
+   "head": "le:job-loss:coverage — HIGH (benefits cliff) [VERIFY current law]",
+   "text": "Phrase: \"premium tax credits are based on your expected income for the year, which may now be lower\"\nWhy: The text assumes that expected income will be low. Severance, unemployment pay, any 401(k) cash-out and a new job later in the year all count toward annual income. For 2026 the enhanced credits appear to have lapsed, which brings back the 400%-of-poverty cliff where the whole credit is lost. Repayment caps on excess advance credit also appear to be gone from 2026. A mid-year rehire can mean a large repayment at tax time.\nRewrite: \"Count severance, unemployment pay and any new-job wages in the estimate, and report income changes to the Marketplace as they happen; credits paid in advance are reconciled on your return and any excess is paid back.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-3",
+   "head": "le:job-loss:coverage — MED (missing)",
+   "text": "Two items are absent. A health FSA balance is generally lost at separation, and the uniform-coverage rule lets you use the full annual election before your last day. An HSA can pay COBRA premiums, and health premiums while you collect unemployment, tax-free.\nAddition: \"Before your last day, use any health FSA balance; after it, your HSA can pay COBRA premiums, and premiums while you receive unemployment, tax-free.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-4",
+   "head": "le:job-loss:runway — HIGH (missing step)",
+   "text": "A 401(k) loan is the step a planner would never leave out. Leaving a job usually makes an outstanding 401(k) loan due, and an unpaid balance becomes a taxable \"loan offset,\" plus the 10% additional tax before 59½. The offset can be rolled over until the tax-filing deadline (with extensions) for that year.\nAddition: \"If you have a 401(k) loan, find out when it becomes due; an unpaid balance is treated as a distribution, but you can avoid the tax by depositing that amount into an IRA by your tax-filing deadline.\"",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-5",
+   "head": "le:job-loss:runway — HIGH (overgeneralization; the plain variant makes it worse)",
+   "text": "Phrase: \"minimum payments on every debt still come before any other goal\". Plain: \"keep making the minimum payment on every debt before anything else.\"\nWhy: In a real cash crunch, housing, utilities, food, insurance and transportation to work come before minimums on unsecured debt. The plain version reads as \"pay credit-card minimums before rent.\" Lenders' hardship programs and income-driven repayment on federal student loans (often $0 on zero income) are also missing.\nRewrite: \"Cover housing, utilities, food and insurance first, then keep minimum payments current on every debt; call lenders early about hardship programs, and recertify federal student loans on an income-driven plan.\"",
+   "block": "le:job-loss:runway",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-6",
+   "head": "le:job-loss:runway — MED",
+   "text": "Phrase: \"Divide liquid savings by essential monthly spending\"\nWhy: This overstates the shortfall and leaves out timing. Net severance and expected unemployment pay should go into the calculation. Unemployment is usually not paid retroactively before the claim date, and in some states severance delays it.\nRewrite: \"Add expected severance and unemployment pay to liquid savings before dividing; file for unemployment right away, because benefits generally start from the claim date and severance can delay them in some states.\"",
+   "block": "le:job-loss:runway",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-7",
+   "head": "le:job-loss:old-401k — MED",
+   "text": "Missing interaction: rolling pre-tax money into an IRA brings in the pro-rata rule for anyone doing backdoor Roth contributions. IRAs and 401(k)s also differ on creditor protection.\nAddition: \"If you make backdoor Roth contributions, a pre-tax IRA balance makes them partly taxable; rolling into the new employer's plan avoids that.\"",
+   "block": "le:job-loss:old-401k",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-8",
+   "head": "le:job-loss:old-401k — LOW",
+   "text": "Phrase: \"a check paid to you carries 20% mandatory withholding\"\nWhy: The text does not say what to do if a check has already been cut. A 60-day indirect rollover is still possible, but you must make up the withheld 20% from other money.\nAddition: \"If a check was already issued, you can still roll it over within 60 days, but you must make up the withheld 20% from other funds to avoid tax on it.\"",
+   "block": "le:job-loss:old-401k",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-9",
+   "head": "le:job-loss:equity vs le:job-loss:old-401k — MED (ordering)",
+   "text": "Phrase: equity is labeled \"Check the grant documents now\" but sits after the 401(k) step labeled \"Within 1–3 months\".\nWhy: This breaks the intro's own rule that time-critical steps come first. Option exercise windows (often 90 days) are irreversible; the 401(k) decision is not. Exercising also takes cash and can trigger AMT (ISOs), which competes with runway. RSU, ESPP and deferred-compensation payout rules are not mentioned.\nFix: Move equity to position 3, and add: \"Exercising takes cash and can create tax (including AMT for incentive stock options), so weigh it against your runway; also check unvested RSUs, ESPP and any deferred-compensation payout schedule.\"",
+   "block": "le:job-loss:equity",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-10",
+   "head": "le:job-loss:withholding — LOW",
+   "text": "Missing: an excess deferral across two employers has to be withdrawn by April 15, or it is taxed twice. Excess Social Security withholding from two employers is credited on your own return, not refunded by payroll.\nAddition: \"If you went over the limit, ask a plan to return the excess by April 15; extra Social Security tax withheld by two employers comes back as a credit on your return.\"",
+   "block": "le:job-loss:withholding",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-65",
+   "head": "le:job-loss:coverage plain — LOW",
+   "text": "Phrase: \"lets you sign up on the Marketplace within 60 days\"\nWhy: Reads as 60 days after only. The period also opens 60 days before a known loss of coverage, which matters when the layoff date is known in advance.\nRewrite: \"within 60 days before or after the coverage ends.\"",
+   "block": "le:job-loss:coverage",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "le:job-loss:coverage": {
+   "title": "Decide how you will stay insured: COBRA, a spouse's plan, or the Marketplace",
+   "when": "Within days",
+   "body": "Losing job-based coverage opens two clocks. COBRA lets you keep the same employer plan, generally for up to 18 months after a job loss, and you have at least 60 days to elect it; the premium can be up to 102% of the full cost, because the employer subsidy ends. Losing coverage is also a qualifying event for a 60-day Marketplace special enrollment period, where premium tax credits are based on your expected income for the year, which may now be lower. A spouse's employer plan must offer at least a 30-day special enrollment window. Compare all three on total cost, not premium alone.",
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    },
+    {
+     "to": "spending-essentials/3",
+     "label": "Spending · Healthcare"
+    }
+   ],
+   "claims": [
+    "CL483",
+    "CL484",
+    "CL485"
+   ],
+   "plain": "When job-based health coverage ends, two clocks start. COBRA lets you stay on the same employer plan, generally for up to 18 months after a job loss. You get at least 60 days to sign up. It can cost up to 102% of the full premium, because your employer stops paying its share. Losing coverage also lets you sign up on the Marketplace within 60 days. There, help with premiums is based on what you expect to earn this year, which may now be less. If your spouse has a job-based plan, it must give you at least 30 days to join. Compare all three by total cost, not just the monthly premium.",
+   "props": [
+    [
+     "P1",
+     "Losing job-based coverage starts two time windows",
+     "kept",
+     "two clocks start"
+    ],
+    [
+     "P2",
+     "COBRA keeps the same employer plan, generally up to 18 months after job loss",
+     "kept",
+     "generally for up to 18 months"
+    ],
+    [
+     "P3",
+     "COBRA election window is at least 60 days",
+     "kept",
+     "at least 60 days to sign up"
+    ],
+    [
+     "P4",
+     "COBRA premium can be up to 102% of full cost",
+     "kept",
+     "up to 102%"
+    ],
+    [
+     "P5",
+     "because the employer subsidy ends (mechanism)",
+     "kept",
+     "stops paying its share"
+    ],
+    [
+     "P6",
+     "Loss of coverage triggers a 60-day Marketplace special enrollment period",
+     "kept",
+     "Marketplace within 60 days"
+    ],
+    [
+     "P7",
+     "Premium tax credits are based on expected income for the year, which may be lower",
+     "kept",
+     "what you expect to earn this year"
+    ],
+    [
+     "P8",
+     "A spouse's employer plan must offer at least 30 days to enroll",
+     "kept",
+     "at least 30 days to join"
+    ],
+    [
+     "P9",
+     "Compare on total cost, not premium alone",
+     "kept",
+     "by total cost"
+    ]
+   ]
+  },
+  "le:job-loss:runway": {
+   "title": "Count your runway and file for unemployment insurance",
+   "when": "First week",
+   "body": "Divide liquid savings by essential monthly spending to get months of runway. Unemployment insurance is run by your state, so file with the state agency promptly; benefits are taxable federal income, so consider voluntary withholding. Severance is taxable wages and is normally paid with withholding. If cash is tight, cover housing, utilities, food, insurance, the transportation that keeps you working and any court-ordered payments such as child support first, then keep at least the minimum payment on every debt current; call lenders about hardship plans before a payment is missed.",
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Size your emergency fund"
+    },
+    {
+     "to": "full-chart/w2/1.4",
+     "label": "Make all minimum payments (framework 1.4)"
+    },
+    {
+     "to": "full-chart/w2/2.2",
+     "label": "Cut non-essential expenses (framework 2.2)"
+    }
+   ],
+   "claims": [
+    "CL489",
+    "CL490",
+    "CL529"
+   ],
+   "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance, the transportation that gets you to work and any payments a court has ordered, such as child support, first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment.",
+   "props": [
+    [
+     "P1",
+     "Runway = liquid savings / essential monthly spending",
+     "kept",
+     "divide your cash savings by what you must spend each month"
+    ],
+    [
+     "P2",
+     "Unemployment insurance is state-run; file promptly with the state",
+     "kept",
+     "run by your state"
+    ],
+    [
+     "P3",
+     "UI benefits are federally taxable; consider voluntary withholding",
+     "kept",
+     "income for federal tax"
+    ],
+    [
+     "P4",
+     "Severance is taxable wages, normally withheld",
+     "kept",
+     "severance is taxed like pay"
+    ],
+    [
+     "P5",
+     "When cash is tight, essentials and court-ordered payments (such as child support) first, then minimum payments on every debt kept current",
+     "kept",
+     "minimum payment on every debt"
+    ],
+    [
+     "P6",
+     "Hardship plans: call lenders before a payment is missed",
+     "kept",
+     "hardship plans"
+    ]
+   ]
+  },
+  "le:job-loss:old-401k": {
+   "title": "Decide what to do with the old employer's 401(k) — but do not cash it out by default",
+   "when": "Within 1–3 months",
+   "body": "The usual options are to leave it in the old plan, roll it to a new employer's plan, or roll it to an IRA. Cashing out triggers income tax, plus a 10% additional tax before age 59½ unless an exception applies, and a check paid to you carries 20% mandatory withholding; a direct trustee-to-trustee rollover avoids both. If you separated from service in or after the year you turn 55, that plan (not an IRA) can pay out without the 10% additional tax, which argues for leaving it in place if you may need it. If the plan holds your employer's stock, check net unrealized appreciation before rolling it, because rolling the shares into an IRA gives up that treatment. If you have an outstanding 401(k) loan, find out when it comes due: an unpaid balance is treated as a distribution (taxable, plus the 10% additional tax before 59½), though a plan-loan offset within 12 months after leaving the job can still be rolled over until your tax-filing deadline, including extensions, for that year.",
+   "links": [
+    {
+     "to": "full-chart/w2/3.1",
+     "label": "Employer match (framework 3.1)"
+    },
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Early-access strategies (framework 10.1)"
+    }
+   ],
+   "claims": [
+    "CL486",
+    "CL487",
+    "CL488",
+    "CL530"
+   ],
+   "plain": "For the old job's retirement plan, the usual choices are: leave it in the old plan, move it to your new job's plan, or move it to an IRA. Cashing it out means income tax, plus an extra 10% tax before age 59½ unless an exception applies. A check made out to you also has 20% held back for tax. Moving the money straight from one account to the other (a direct rollover) avoids both. If you left the job in or after the year you turn 55, that plan — not an IRA — can pay you without the extra 10% tax. That is a reason to leave it where it is if you might need it. If the plan holds your employer's stock, look into net unrealized appreciation before moving it, because putting those shares into an IRA loses that tax treatment. If you still owe on a 401(k) loan, find out when it comes due: an unpaid balance counts as a withdrawal (taxed, plus the extra 10% tax before 59½), but if the plan takes the loan out of your balance within 12 months after you leave, you can still roll that amount over until your tax-filing deadline, including extensions, for that year.",
+   "props": [
+    [
+     "P1",
+     "Options: leave, roll to new plan, roll to IRA",
+     "kept",
+     "leave it in the old plan"
+    ],
+    [
+     "P2",
+     "Cash-out triggers income tax plus 10% additional tax before 59½ absent an exception",
+     "kept",
+     "extra 10% tax before age 59½"
+    ],
+    [
+     "P3",
+     "A check paid to you carries 20% mandatory withholding",
+     "kept",
+     "20% held back"
+    ],
+    [
+     "P4",
+     "A direct trustee-to-trustee rollover avoids both",
+     "kept",
+     "direct rollover"
+    ],
+    [
+     "P5",
+     "Separation in/after the year you turn 55: that plan (not an IRA) pays without the 10% tax",
+     "kept",
+     "not an ira"
+    ],
+    [
+     "P6",
+     "This argues for leaving it in place if you may need it",
+     "kept",
+     "leave it where it is"
+    ],
+    [
+     "P7",
+     "Check NUA before rolling employer stock; rolling shares to an IRA forfeits it",
+     "kept",
+     "net unrealized appreciation"
+    ],
+    [
+     "P8",
+     "An unpaid 401(k) loan balance is treated as a taxable distribution (plus 10% before 59½)",
+     "kept",
+     "counts as a withdrawal"
+    ],
+    [
+     "P9",
+     "A plan-loan offset within 12 months after leaving can be rolled over until the tax-filing deadline (with extensions)",
+     "kept",
+     "tax-filing deadline"
+    ],
+    [
+     "P10",
+     "The offset must occur within 12 months after leaving the job",
+     "kept",
+     "within 12 months after you leave"
+    ]
+   ]
+  },
+  "le:job-loss:equity": {
+   "title": "Check deadlines on stock options and other equity",
+   "when": "Check the grant documents now",
+   "body": "Vested stock options often expire a fixed period after you leave, and incentive stock options lose their favorable treatment if not exercised within three months of termination of employment. The exact window is in your grant agreement; read it before it closes.",
+   "links": [
+    {
+     "to": "advanced-strategies/1",
+     "label": "Advanced · Equity compensation"
+    }
+   ],
+   "claims": [
+    "CL491"
+   ],
+   "plain": "Stock options that have vested often expire a set time after you leave. Incentive stock options lose their special tax treatment if you don't exercise them within three months after your job ends. Your grant agreement has the exact deadline — read it before it passes.",
+   "props": [
+    [
+     "P1",
+     "Vested options often expire a fixed period after leaving",
+     "kept",
+     "expire a set time after you leave"
+    ],
+    [
+     "P2",
+     "ISOs lose favorable treatment if not exercised within three months of termination",
+     "kept",
+     "within three months"
+    ],
+    [
+     "P3",
+     "The exact window is in the grant agreement; read it before it closes",
+     "kept",
+     "grant agreement"
+    ]
+   ]
+  },
+  "le:job-loss:withholding": {
+   "title": "Re-check tax withholding and restart contributions",
+   "when": "When the next job starts",
+   "body": "A year with a gap, severance and two employers is the classic under- or over-withholding year. Run the IRS Tax Withholding Estimator and file a new Form W-4 with the new employer. Each employer's payroll tracks the 401(k) limit separately, but the employee deferral limit ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so total both years' contributions yourself.",
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    },
+    {
+     "to": "full-chart/w2/8.1",
+     "label": "Max your 401(k) (framework 8.1)"
+    }
+   ],
+   "claims": [
+    "CL001",
+    "CL492",
+    "CL493"
+   ],
+   "plain": "A year with a gap, severance and two employers often ends with too much or too little tax taken out. Use the IRS Tax Withholding Estimator and give your new employer a new Form W-4. Each employer's payroll only tracks its own 401(k). But the yearly limit on what you put in ({{fig:limit_401k_deferral}} for 2026) is yours across all plans, so add up both jobs' contributions yourself.",
+   "props": [
+    [
+     "P1",
+     "Gap + severance + two employers is the classic mis-withholding year",
+     "kept",
+     "too much or too little tax"
+    ],
+    [
+     "P2",
+     "Run the IRS Tax Withholding Estimator and file a new W-4",
+     "kept",
+     "tax withholding estimator"
+    ],
+    [
+     "P3",
+     "Each employer's payroll tracks the limit separately",
+     "kept",
+     "only tracks its own 401(k)"
+    ],
+    [
+     "P4",
+     "The employee deferral limit (2026 figure) applies across all plans; total both yourself",
+     "kept",
+     "across all plans"
+    ]
+   ]
+  }
+ }
+}

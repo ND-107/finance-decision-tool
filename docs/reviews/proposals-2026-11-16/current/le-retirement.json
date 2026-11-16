@@ -1,0 +1,275 @@
+{
+ "group": "le-retirement",
+ "findings": [
+  {
+   "id": "ADV-38",
+   "head": "le:retirement:medicare | HIGH | \"Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty\"",
+   "text": "Why: readers will assume COBRA or retiree coverage counts as \"other qualifying coverage\". For delaying Part B it generally doesn't, which is a classic way people end up with a lifetime penalty.\nFix: \"COBRA and retiree coverage generally do not count. Only coverage from your own or your spouse's current employment lets you delay Part B without a penalty.\"",
+   "block": "le:retirement:medicare",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-39",
+   "head": "le:retirement:medicare | MED | omission: Medicare Savings Programs and Extra Help",
+   "text": "Why: a reader with low income who sees \"premium penalty\" and \"IRMAA surcharges\" may not know there are programs that pay the Part B premium and cut drug costs. Marketplace premium credits also stop once you're eligible for Medicare.\nFix: \"If your income and savings are limited, Medicare Savings Programs and Extra Help can pay your Part B premium and lower drug costs. If you have a Marketplace plan, switch at 65; its premium help ends.\"",
+   "block": "le:retirement:medicare",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-40",
+   "head": "le:retirement:social-security | MED | \"Claiming at 62, full retirement age or 70 is one of the largest decisions\"",
+   "text": "Why: the only reason given points toward delaying. For readers in poor health, in physically demanding jobs, or who need the money, claiming early can be right. Claiming early while still working runs into the earnings test. The block also cites no claims.\nFix: \"Delaying raises the monthly check, but claiming earlier can be the right call if you need the income or don't expect a long retirement. If you claim before full retirement age and keep working, some benefits can be withheld.\"",
+   "block": "le:retirement:social-security",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-41",
+   "head": "le:retirement:withdrawals | LOW | \"sets your lifetime tax bill\" (plain: \"shapes the taxes...\")",
+   "text": "Why: the plain text has drifted, though toward a better hedge. \"Sets\" overclaims. Many retirees also have only Social Security and one account, so this step doesn't apply to them.\nFix: change the canonical text to \"shapes\". Add \"If Social Security is your main income, this step matters less.\"",
+   "block": "le:retirement:withdrawals",
+   "severity": "LOW"
+  },
+  {
+   "id": "ADV-42",
+   "head": "le:retirement:rmd | MED | \"start at age 73\"",
+   "text": "Why: for people born in 1960 or later the starting age is higher. Without that, younger readers will plan with the wrong date. (This is a missing scope note, not a dispute with CL051.)\nFix: \"73 for most people retiring now; later for people born in 1960 or after. Roth IRAs have no RMDs during the owner's lifetime.\"",
+   "block": "le:retirement:rmd",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-43",
+   "head": "le:retirement:ltc | HIGH | \"About 70%... will need some long-term care; the decision is between insuring, self-funding, or a hybrid.\"",
+   "text": "Why: this is the insurance industry's frame. The 70% figure includes short stays, and Medicaid, the main real payer of long-term care, is left out. That is also the realistic plan for most low- and moderate-income households. LTC insurance premiums have also historically risen sharply after purchase.\nFix: \"Many people need only short-term care, and family often provides much of it. Medicaid pays for most long-term care once savings are spent down; for many households that's the realistic backstop. LTC insurance premiums can rise after you buy.\"",
+   "block": "le:retirement:ltc",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-37",
+   "head": "le:retirement:medicare — HIGH (cross-playbook interaction)",
+   "text": "Phrase: \"without other qualifying coverage\"\nWhy: COBRA and retiree health plans do not count as coverage that avoids the Part B penalty. Someone laid off at 64 who follows job-loss:coverage into COBRA, and stays on it past 65, gets a lifetime penalty plus coverage gaps. The second trap is the HSA: Part A coverage is retroactive up to 6 months for people enrolling after 65, so HSA contributions must stop about 6 months before.\nAddition: \"COBRA and retiree coverage do not count as current-employment coverage for Part B, so don't use COBRA to delay Part B. If you will contribute to an HSA past 65, stop six months before applying, because Part A coverage reaches back up to six months.\"",
+   "block": "le:retirement:medicare",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-38",
+   "head": "le:retirement:medicare — MED (missing)",
+   "text": "Missing: the 6-month Medigap open enrollment period, which starts with Part B and is the one guaranteed-issue window in most states. Also missing: IRMAA can be appealed for a work stoppage (Form SSA-44), which matters in the first retirement year, when the two-year lookback catches peak earnings.\nAddition: \"Your Medigap open enrollment runs six months from when Part B starts, which in most states is the only time insurers cannot turn you down; if a two-year-old income sets a surcharge after you stop working, you can ask SSA to use current income.\"",
+   "block": "le:retirement:medicare",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-39",
+   "head": "retirement (playbook) — HIGH (missing step)",
+   "text": "Missing: an irreversible pension election (lump sum or annuity, single-life or joint-and-survivor, with spousal consent).\nAddition: \"If you have a pension, the payout choice (lump sum or annuity, single or joint-and-survivor) is usually permanent, and a spouse must consent to giving up survivor benefits; decide it before the paperwork deadline.\"",
+   "block": null,
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-40",
+   "head": "retirement (playbook) — HIGH (missing for early retirees)",
+   "text": "The playbook assumes retirement at 65. Anyone retiring earlier needs a coverage bridge to Medicare (COBRA or the Marketplace). On the Marketplace, the income shown (withdrawals, Roth conversions, capital gains) sets the credit, which is the same cliff as finding 2.\nAddition: a first step \"Before you stop working (if before 65): plan health coverage until Medicare; Marketplace credits depend on the income you take, so withdrawals and Roth conversions change the premium.\"",
+   "block": null,
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-41",
+   "head": "le:retirement:rmd — HIGH (overgeneralization)",
+   "text": "Phrase: \"Required minimum distributions from traditional accounts start at age 73.\"\nWhy: The statutory age is 75 for people born in 1960 or later, which covers almost everyone retiring now. The first RMD can wait until April 1 of the next year, but then two RMDs fall in one tax year. People still working can usually delay RMDs from their current employer's plan.\nRewrite: \"RMDs start at 73 if you were born 1951–1959 and at 75 if born 1960 or later. The first one can wait until April 1 of the next year, at the cost of two in one year; a current employer's plan can usually wait until you retire.\"",
+   "block": "le:retirement:rmd",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-42",
+   "head": "le:retirement:withdrawals — MED (interaction)",
+   "text": "Missing: the years between retirement and RMDs or Social Security are the usual window for Roth conversions. The withdrawal order, the claim age, IRMAA tiers and Marketplace credits are one decision, not three separate steps.\nAddition: \"The years between retiring and starting Social Security or RMDs are often the lowest-tax years for Roth conversions; decide withdrawals, the Social Security claim age and conversions together, watching Medicare-surcharge and Marketplace thresholds.\"",
+   "block": "le:retirement:withdrawals",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-43",
+   "head": "le:retirement:social-security — LOW",
+   "text": "Missing: the earnings test for anyone claiming before full retirement age while still working.\nAddition: \"Claiming before full retirement age while still working can temporarily withhold benefits under the earnings test.\"",
+   "block": "le:retirement:social-security",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-44",
+   "head": "le:retirement:ltc — MED (ordering)",
+   "text": "Phrase: \"Before 70\", placed after \"Age 73\"\nWhy: This breaks the chronological rule. The insurability and pricing case for long-term care coverage is strongest in the mid-50s to mid-60s.\nFix: Move it before the Social Security step and relabel it \"50s to early 60s\"; add \"premiums and the chance of being declined both rise with age.\"",
+   "block": "le:retirement:ltc",
+   "severity": "MED"
+  }
+ ],
+ "blocks": {
+  "le:retirement:medicare": {
+   "title": "Enroll in Medicare during your initial enrollment period",
+   "when": "Months before 65",
+   "body": "The initial enrollment period runs seven months around your 65th birthday (three months before, the birthday month, three months after). Signing up late for Part B without other qualifying coverage brings a lifetime premium penalty, and COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current employment lets you delay Part B without it. Income in retirement also drives Medicare surcharges (IRMAA) with a two-year lookback.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.1",
+     "label": "Roth conversions & IRMAA (framework 10.1)"
+    }
+   ],
+   "claims": [
+    "CL514",
+    "CL362",
+    "CL532"
+   ],
+   "plain": "Your first chance to sign up for Medicare lasts seven months around your 65th birthday: three months before, your birthday month, and three months after. If you sign up late for Part B and had no other qualifying coverage, you pay a higher premium for life. COBRA or retiree coverage does not count: generally only coverage from your own or your spouse's current job lets you delay Part B without that penalty. Your retirement income also sets extra Medicare charges (IRMAA), based on your income from two years earlier.",
+   "props": [
+    [
+     "P1",
+     "Initial enrollment period is seven months around the 65th birthday",
+     "kept",
+     "seven months"
+    ],
+    [
+     "P2",
+     "Three before, the birthday month, three after",
+     "kept",
+     "three months before"
+    ],
+    [
+     "P3",
+     "Late Part B without other qualifying coverage → lifetime premium penalty",
+     "kept",
+     "higher premium for life"
+    ],
+    [
+     "P4",
+     "Retirement income drives IRMAA with a two-year lookback",
+     "kept",
+     "two years earlier"
+    ],
+    [
+     "P5",
+     "COBRA and retiree coverage do not count; generally only current-employment coverage allows delaying Part B",
+     "kept",
+     "generally only coverage"
+    ]
+   ]
+  },
+  "le:retirement:social-security": {
+   "title": "Decide when to claim Social Security",
+   "when": "Before claiming",
+   "body": "Claiming at 62, full retirement age or 70 is one of the largest decisions most retirees make; for a married higher earner, delaying also raises the survivor benefit.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.3",
+     "label": "Social Security claiming (framework 10.3)"
+    }
+   ],
+   "claims": [],
+   "plain": "Whether you claim at 62, at full retirement age, or at 70 is one of the biggest money choices most retirees make. For a married person who earned more, waiting also raises what the surviving spouse would get.",
+   "props": [
+    [
+     "P1",
+     "Claiming at 62 / FRA / 70 is among the largest retiree decisions",
+     "kept",
+     "one of the biggest money choices"
+    ],
+    [
+     "P2",
+     "For a married higher earner, delay also raises the survivor benefit",
+     "kept",
+     "surviving spouse would get"
+    ]
+   ]
+  },
+  "le:retirement:withdrawals": {
+   "title": "Set a withdrawal order and a spending rate",
+   "when": "Year one",
+   "body": "Which accounts you draw first, and how much, sets your lifetime tax bill and your sequence-of-returns exposure.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.2",
+     "label": "Withdrawal sequencing (framework 10.2)"
+    },
+    {
+     "to": "math/5",
+     "label": "The math · sequence risk"
+    },
+    {
+     "to": "math/7",
+     "label": "The math · historical-cycles simulator"
+    }
+   ],
+   "claims": [],
+   "plain": "Which accounts you take money from first, and how much you take, shapes the taxes you pay over your life and how exposed you are to a bad run of early market returns.",
+   "props": [
+    [
+     "P1",
+     "Withdrawal order and rate set lifetime tax",
+     "kept",
+     "taxes you pay over your life"
+    ],
+    [
+     "P2",
+     "…and sequence-of-returns exposure",
+     "kept",
+     "bad run of early market returns"
+    ]
+   ]
+  },
+  "le:retirement:rmd": {
+   "title": "Calendar required minimum distributions",
+   "when": "Age 73",
+   "body": "Required minimum distributions from traditional accounts start at age 73. Qualified charitable distributions from an IRA (from age 70½) can satisfy them without adding to income.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.5",
+     "label": "QCDs (framework 10.5)"
+    }
+   ],
+   "claims": [
+    "CL051",
+    "CL364"
+   ],
+   "plain": "Required minimum distributions from traditional accounts start at age 73. Giving straight from an IRA to charity (a qualified charitable distribution, allowed from age 70½) can count toward them without adding to your income.",
+   "props": [
+    [
+     "P1",
+     "RMDs start at 73",
+     "kept",
+     "age 73"
+    ],
+    [
+     "P2",
+     "QCDs from age 70½ can satisfy RMDs without adding to income",
+     "kept",
+     "without adding to your income"
+    ]
+   ]
+  },
+  "le:retirement:ltc": {
+   "title": "Decide how long-term care would be paid for",
+   "when": "Before 70",
+   "body": "About 70% of Americans turning 65 will need some long-term care; the decision is between insuring, self-funding, or a hybrid.",
+   "links": [
+    {
+     "to": "full-chart/w2/10.4",
+     "label": "Long-term care (framework 10.4)"
+    }
+   ],
+   "claims": [
+    "CL066"
+   ],
+   "plain": "About 70% of Americans turning 65 will need some long-term care. The choice is between buying insurance, paying for it yourself, or a mix.",
+   "props": [
+    [
+     "P1",
+     "About 70% of those turning 65 will need some LTC",
+     "kept",
+     "about 70%"
+    ],
+    [
+     "P2",
+     "Choice: insure, self-fund, or hybrid",
+     "kept",
+     "or a mix"
+    ]
+   ]
+  }
+ }
+}

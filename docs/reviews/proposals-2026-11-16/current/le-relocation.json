@@ -1,0 +1,231 @@
+{
+ "group": "le-relocation",
+ "findings": [
+  {
+   "id": "ADV-28",
+   "head": "le:relocation:coverage | MED | omission: Medicaid doesn't move with you, and the prior-coverage rule",
+   "text": "Why: Medicaid doesn't follow you across state lines, and eligibility differs a lot between states. The Marketplace window for a move generally also requires that you had qualifying coverage before the move.\nFix: \"If you're on Medicaid, apply in the new state right away; the rules may differ. The Marketplace move window generally requires that you had qualifying coverage before you moved.\"",
+   "block": "le:relocation:coverage",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-29",
+   "head": "le:relocation:insurance | MED | \"Check that liability limits still match your assets rather than the new state's minimum\"",
+   "text": "Why: for a driver with few assets, the coverage that protects *them* is uninsured/underinsured motorist coverage. It isn't mentioned, and higher limits cost money.\nFix: \"Also price uninsured/underinsured motorist coverage, which pays you when the other driver can't. Some states have low-cost auto programs for lower-income drivers.\"",
+   "block": "le:relocation:insurance",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-30",
+   "head": "le:relocation:estate | LOW | \"a review in the new state\"",
+   "text": "Why: this assumes a paid attorney review.\nFix: \"Legal aid or your new state's free statutory forms can cover simple documents.\"",
+   "block": "le:relocation:estate",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-28",
+   "head": "le:relocation:residency — MED",
+   "text": "Phrase: \"Each state decides for itself who is a resident\"\nWhy: The text is silent on income that follows the old state. Keeping the old home can make you a statutory resident of both states. RSUs and deferred compensation earned in the old state are often taxed there when they vest or pay out (ties to job-loss:equity). Some states tax remote work for an in-state employer.\nAddition: \"Keeping a home in the old state can leave you a resident of both; stock awards and deferred pay earned there may still be taxed there when they vest or pay out.\"",
+   "block": "le:relocation:residency",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-29",
+   "head": "relocation (playbook) — MED (missing)",
+   "text": "Missing: tell payroll to change state withholding, and file address changes with the IRS (Form 8822), SSA and plan custodians.\nAddition: \"Ask payroll to switch state withholding on the day you move, and update your address with the IRS, Social Security and every account custodian.\"",
+   "block": null,
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-30",
+   "head": "le:relocation:coverage — MED",
+   "text": "Phrase: \"A permanent move ... is a Marketplace special enrollment trigger (60 days).\"\nWhy: The common exception: the move special enrollment period generally requires qualifying coverage for at least one day in the 60 days before the move. Retirees are also missing. A Medicare Advantage plan may not work in the new area, and Medigap underwriting rules vary by state.\nAddition: \"The move window generally requires that you had coverage for at least one day in the 60 days before moving; on Medicare, a move out of your plan's service area has its own special enrollment period.\"",
+   "block": "le:relocation:coverage",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-31",
+   "head": "le:relocation:estate — MED",
+   "text": "Missing: moving into or out of a community-property state changes how property is characterized at death and at divorce.\nAddition: \"Moving into or out of a community-property state can change how a couple's property is treated, so raise it in the review.\"",
+   "block": "le:relocation:estate",
+   "severity": "MED"
+  }
+ ],
+ "blocks": {
+  "le:relocation:residency": {
+   "title": "Understand both states' residency rules",
+   "when": "Before the move",
+   "body": "Each state decides for itself who is a resident, and a move year usually means a part-year resident return in each state. If you are leaving a high-tax state, the burden of proving you left often falls on you, so keep evidence of the move (lease or deed, driver's license, voter registration).",
+   "links": [
+    {
+     "to": "advanced-strategies/5",
+     "label": "Advanced · state-domicile playbook"
+    }
+   ],
+   "claims": [
+    "CL506",
+    "CL369"
+   ],
+   "plain": "Each state decides for itself who counts as a resident. The year you move, you usually file a part-year resident return in each state. If you're leaving a high-tax state, you often have to prove you left, so keep proof of the move — a lease or deed, driver's license, voter registration.",
+   "props": [
+    [
+     "P1",
+     "States define residency independently",
+     "kept",
+     "decides for itself"
+    ],
+    [
+     "P2",
+     "A move year usually means part-year returns in each state",
+     "kept",
+     "part-year resident return"
+    ],
+    [
+     "P3",
+     "Leaving a high-tax state, the burden of proof often falls on you",
+     "kept",
+     "prove you left"
+    ],
+    [
+     "P4",
+     "Keep evidence: lease/deed, license, voter registration",
+     "kept",
+     "voter registration"
+    ]
+   ]
+  },
+  "le:relocation:coverage": {
+   "title": "Re-shop health coverage if your plan does not travel",
+   "when": "Within 60 days of the move",
+   "body": "A permanent move to a new area where your plan is not offered is a Marketplace special enrollment trigger (60 days). Employer plans may have different networks in the new state.",
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    }
+   ],
+   "claims": [
+    "CL484"
+   ],
+   "plain": "A permanent move to an area where your plan isn't offered lets you sign up for a new Marketplace plan within 60 days. Job-based plans may have a different network of doctors in the new state.",
+   "props": [
+    [
+     "P1",
+     "A permanent move out of the plan's area triggers a 60-day Marketplace SEP",
+     "kept",
+     "within 60 days"
+    ],
+    [
+     "P2",
+     "Employer plans may have different networks in the new state",
+     "kept",
+     "different network"
+    ]
+   ]
+  },
+  "le:relocation:insurance": {
+   "title": "Re-register the car and re-quote auto and renters/home insurance",
+   "when": "At the move",
+   "body": "Auto insurance requirements and prices are set state by state, so the policy has to be re-written for the new state. Check that liability limits still match your assets rather than the new state's minimum.",
+   "links": [
+    {
+     "to": "protection/auto",
+     "label": "Protection · auto"
+    },
+    {
+     "to": "protection/property",
+     "label": "Protection · renters / homeowners"
+    }
+   ],
+   "claims": [
+    "CL507"
+   ],
+   "plain": "Each state sets its own auto insurance rules and prices, so your policy must be rewritten for the new state. Make sure your liability limits still fit what you own, not just the new state's minimum.",
+   "props": [
+    [
+     "P1",
+     "Auto requirements and prices are state-by-state; policy must be rewritten",
+     "kept",
+     "rewritten for the new state"
+    ],
+    [
+     "P2",
+     "Liability limits should match assets, not the state minimum",
+     "kept",
+     "not just the new state's minimum"
+    ]
+   ]
+  },
+  "le:relocation:expenses": {
+   "title": "Do not count on deducting moving costs",
+   "when": "Tax time",
+   "body": "The federal moving-expense deduction is not available to most taxpayers (it remains for active-duty military moving under orders and, from 2026, for intelligence-community employees relocating on a change of assignment). For everyone else, employer-paid moving costs are taxable wages.",
+   "links": [],
+   "claims": [
+    "CL508"
+   ],
+   "plain": "Most people can't deduct moving costs on their federal taxes (active-duty military moving under orders still can, and from 2026 so can intelligence-community employees who relocate for a new assignment). For everyone else, if your employer pays for your move, that counts as taxable pay.",
+   "props": [
+    [
+     "P1",
+     "The federal moving-expense deduction is unavailable to most taxpayers",
+     "kept",
+     "can't deduct moving costs"
+    ],
+    [
+     "P2",
+     "Exception: active-duty military under orders",
+     "kept",
+     "active-duty military"
+    ],
+    [
+     "P3",
+     "For everyone else, employer-paid moving costs are taxable wages",
+     "kept",
+     "for everyone else"
+    ],
+    [
+     "P4",
+     "Exception from 2026: intelligence-community employees relocating on assignment",
+     "kept",
+     "intelligence-community employees"
+    ]
+   ]
+  },
+  "le:relocation:estate": {
+   "title": "Have estate documents reviewed under the new state's law",
+   "when": "First year",
+   "body": "Wills, powers of attorney and healthcare directives are governed by state law. Documents valid where they were signed are usually honored, but a review in the new state catches execution formalities and agent-designation differences.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "claims": [
+    "CL509"
+   ],
+   "plain": "Wills, powers of attorney and healthcare directives follow state law. Papers that were valid where you signed them usually still count, but having them reviewed in your new state catches differences in signing rules and in how agents are named.",
+   "props": [
+    [
+     "P1",
+     "Estate documents are governed by state law",
+     "kept",
+     "follow state law"
+    ],
+    [
+     "P2",
+     "Documents valid where signed are usually honored",
+     "kept",
+     "usually still count"
+    ],
+    [
+     "P3",
+     "A review in the new state catches execution and agent-designation differences",
+     "kept",
+     "signing rules"
+    ]
+   ]
+  }
+ }
+}

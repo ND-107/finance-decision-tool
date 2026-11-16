@@ -1,0 +1,705 @@
+{
+ "group": "le-divorce",
+ "findings": [
+  {
+   "id": "ADV-17",
+   "block": "le:divorce:counsel",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The point stands: 'close to mandatory' with no low-cost route can push a reader to sign unadvised. Kept the existing sentence and added legal aid (federal statute establishes LSC for people unable to afford legal help) and limited-scope help (a lawyer for part of the case). Mediation and court self-help centers were left out: not read at a primary source here and availability varies by court. Checker: limited-scope help is now worded as a question to ask a lawyer, because the rules are set state by state and only California's page was read.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/2996b?link-type=html",
+     "quote": "There is established ... the Legal Services Corporation, for the purpose of providing financial support for legal assistance in noncriminal proceedings or matters to persons financially unable to afford legal assistance.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://selfhelp.courts.ca.gov/limited-scope-representation",
+     "quote": "A lawyer can handle some parts of your case while you handle others. This is called limited-scope representation.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:counsel",
+   "lean": "included"
+  },
+  {
+   "id": "ADV-18",
+   "block": "le:divorce:counsel",
+   "severity": "HIGH",
+   "verdict": "accept",
+   "reason": "Correct and important. CFPB: a decree may allocate debts, but a creditor can still collect from anyone named as a borrower, unless released or refinanced. Added one sentence; wording follows the CFPB (paid off, refinanced or released) rather than the reviewer's 'close or refinance', since closing a card does not end liability for its balance. Checker: 'refinanced' narrowed to 'refinanced without your name' and the CFPB's 'generally' restored.",
+   "sources": [
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/can-a-debt-collector-contact-me-about-a-debt-after-a-divorce-en-1413/",
+     "quote": "A divorce decree or property settlement may allocate debts to a specific spouse, but it doesn't change the fact that a creditor can still collect from anyone whose name appears as a borrower on the loan or debt.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/can-a-debt-collector-contact-me-about-a-debt-after-a-divorce-en-1413/",
+     "quote": "While state laws vary, you are generally responsible for a debt unless you were contractually released by the creditor or your former spouse refinanced the loan and removed your name.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:counsel",
+   "lean": "included"
+  },
+  {
+   "id": "ADV-19",
+   "block": "le:divorce:counsel",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Added a conditional first move for safety or financial control: own account, free credit reports (CFPB: free weekly from each bureau, existing row CL527) and the national domestic violence hotline (federally funded by 42 U.S.C. 10413). Reviewer's 'domestic-violence advocate' became the national hotline, the one resource read at a primary source. Opening an account is plain advice with no factual claim. An alternative layout (a separate step) is offered under owner_decisions. Checker: the hotline now comes first, before steps a controlling spouse might notice, with the statute's referral duty as the support.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/10413?link-type=html",
+     "quote": "The Secretary shall award a grant to 1 or more private entities to provide for the ongoing operation of a 24-hour, national, toll-free telephone hotline to provide information and assistance to adult and youth victims of ... domestic violence",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/10413?link-type=html",
+     "quote": "provide counseling and referral services for callers on a 24-hour-a-day basis, and directly connect callers to service providers",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-a-free-copy-of-my-credit-reports-en-5/",
+     "quote": "You can get a free copy of your credit report from each of the three major consumer reporting companies (Equifax, Experian and TransUnion) once a week at AnnualCreditReport.com.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:counsel",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-20",
+   "block": "le:divorce:qdro",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct. The alternate payee is treated as the distributee and IRS Pub. 504 says QDRO benefits are generally included in the former spouse's income; the QDRO exception in 72(t)(2)(C) does not apply to distributions from an IRA (72(t)(3)(A)). Merged with CFP-20 into one clause.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/402?link-type=html",
+     "quote": "an alternate payee who is the spouse or former spouse of the participant shall be treated as the distributee of any distribution or payment made to the alternate payee under a qualified domestic relations order",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p504",
+     "quote": "Benefits paid under a QDRO to the plan participant's spouse or former spouse must generally be included in the spouse's or former spouse's income.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+     "quote": "(C) Payments to alternate payees pursuant to qualified domestic relations orders Any distribution to an alternate payee pursuant to a qualified domestic relations order (within the meaning of section 414(p)(1)).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+     "quote": "Subparagraphs (A)(v) and (C) of paragraph (2) shall not apply to distributions from an individual retirement plan.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:qdro",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-21",
+   "block": "le:divorce:beneficiaries",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The sequencing point stands: a settlement or court order can require keeping an ex as beneficiary, and some states restrain beneficiary changes while the case is pending (read in California Fam. Code 2040(a)(3) and 4360(a)). Kept 'file new forms on every account' but added a check-first sentence. The reviewer's contempt-of-court consequence was not read at a source and is not stated. Checker: 'some states' changed to 'your state may', since only California was read; 'as soon as you are allowed to' added so the file-new-forms instruction does not precede its limits.",
+   "sources": [
+    {
+     "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=FAM&division=6.&title=&part=1.&chapter=4.&article=",
+     "quote": "Restraining both parties from cashing, borrowing against, canceling, transferring, disposing of, or changing the beneficiaries of insurance or other coverage, including life, health, automobile, and disability",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=FAM&sectionNum=4360",
+     "quote": "the court ... may include an amount sufficient ... to maintain insurance for the benefit of the supported spouse on the life of the spouse required to make the payment of support",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:beneficiaries",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-22",
+   "block": "le:divorce:filing",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "Applied on 2026-11-06 (CL531). Current text: 'For a divorce or legal separation the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or the COBRA right can be lost.'",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1166?link-type=html",
+     "quote": "each covered employee or qualified beneficiary is responsible for notifying the administrator of the occurrence of any qualifying event described in paragraph (3) or (5) of section 1163 ... within 60 days after the date of the qualifying event",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:filing",
+   "lean": "n/a"
+  },
+  {
+   "id": "ADV-23",
+   "block": "le:divorce:filing",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Both halves verified. Head of household: an unmarried parent qualifies under 2(b), and a still-married parent living apart can too (merged with CFP-23, which states the tests). Medicaid: HealthCare.gov says to compare Marketplace plans with COBRA and that Medicaid enrollment is open any time to those eligible. One sentence added.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2?link-type=html",
+     "quote": "an individual shall be considered a head of a household if, and only if, such individual is not married at the close of his taxable year, is not a surviving spouse ... and ... maintains as his home a household",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/7703?link-type=html",
+     "quote": "(3) during the last 6 months of the taxable year, such individual's spouse is not a member of such household, such individual shall not be considered as married.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/unemployed/cobra-coverage/",
+     "quote": "Find Marketplace plans and prices to compare them to your COBRA coverage or offer. If eligible for Medicaid or CHIP, you can enroll in those programs any time and coverage can start immediately.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:filing",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-24",
+   "block": "le:divorce:rebuild",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Accepted the income-first ordering in one sentence. Narrowed 'support orders' to child support, because the read ACF pages describe state agencies enforcing child support orders; spousal-support enforcement was not read. Kept the emergency-fund and diagnostic points after it.",
+   "sources": [
+    {
+     "url": "https://acf.gov/css/about",
+     "quote": "Child support agencies provide these services to families: Locate noncustodial parents Establish paternity Establish and enforce support orders",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://acf.gov/ocse/programs-services/parents/understanding-child-support/how-its-enforced",
+     "quote": "Your local child support office can help when child support payments are not paid consistently or are past-due.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:rebuild",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-19",
+   "block": "le:divorce:filing",
+   "severity": "HIGH",
+   "verdict": "already-addressed",
+   "reason": "Same point as ADV-22, applied 2026-11-06. Current text: 'tell the plan administrator within 60 days of the event, or the COBRA right can be lost.'",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1166?link-type=html",
+     "quote": "each covered employee or qualified beneficiary is responsible for notifying the administrator of the occurrence of any qualifying event described in paragraph (3) or (5) of section 1163 ... within 60 days after the date of the qualifying event",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:filing",
+   "lean": "n/a"
+  },
+  {
+   "id": "CFP-20",
+   "block": "le:divorce:qdro",
+   "severity": "HIGH",
+   "verdict": "accept",
+   "reason": "Both points verified. The 10% QDRO exception does not reach IRA distributions (72(t)(3)(A)), so a rollover first loses it. Tax character: pre-tax plan money is income when paid, qualified Roth distributions are excluded (408A(d)(1)), and property received incident to divorce keeps the transferor's basis (1041(b); Pub. 504). Added one comparison sentence; 'cash' is not given its own clause.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+     "quote": "Subparagraphs (A)(v) and (C) of paragraph (2) shall not apply to distributions from an individual retirement plan.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p504",
+     "quote": "Benefits paid under a QDRO to the plan participant's spouse or former spouse must generally be included in the spouse's or former spouse's income.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408A?link-type=html",
+     "quote": "(1) Exclusion Any qualified distribution from a Roth IRA shall not be includible in gross income.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/1041?link-type=html",
+     "quote": "(b) Transfer treated as gift; transferee has transferor's basis ... (2) the basis of the transferee in the property shall be the adjusted basis of the transferor.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p504",
+     "quote": "Your basis in property received from your spouse (or former spouse, if incident to your divorce) is the same as your spouse's adjusted basis.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:qdro",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-21",
+   "block": "le:divorce:counsel",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Social Security half accepted: a divorced spouse qualifies only after a marriage of 10 years immediately before the divorce became effective (42 U.S.C. 416(d)), and also must be unmarried and at least 62 (402(b)), so the text says 'may later draw'. The life-insurance-for-support half was moved to the beneficiaries step as a conditional ('may require'); the reviewer's 'often' is a frequency claim not read anywhere and was dropped.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/416?link-type=html",
+     "quote": "The term \"divorced wife\" means a woman divorced from an individual, but only if she had been married to such individual for a period of 10 years immediately before the date the divorce became effective.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/402?link-type=html",
+     "quote": "every divorced wife ... of an individual entitled to old-age or disability insurance benefits, if such wife or such divorced wife ... (B)(i) has attained age 62 ... (C) in the case of a divorced wife, is not married",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=FAM&sectionNum=4360",
+     "quote": "the court ... may include an amount sufficient ... to maintain insurance for the benefit of the supported spouse on the life of the spouse required to make the payment of support",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:counsel",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-22",
+   "block": "le:divorce:beneficiaries",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted the sequencing: some states restrain beneficiary changes while the case is pending (California Fam. Code 2040(a)(3) read), and the decree may require keeping the ex. 'Ask counsel' and the power-of-attorney / health care directive prompt are added as advice. Not stated: that these documents 'can usually be revoked right away' and that ERISA spousal rights last until the decree; neither was read at a primary source (see unverified). Checker: 'some states' changed to 'your state may', since only California was read; 'as soon as you are allowed to' added so the file-new-forms instruction does not precede its limits.",
+   "sources": [
+    {
+     "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=FAM&division=6.&title=&part=1.&chapter=4.&article=",
+     "quote": "Restraining both parties from cashing, borrowing against, canceling, transferring, disposing of, or changing the beneficiaries of insurance or other coverage, including life, health, automobile, and disability",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:beneficiaries",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-23",
+   "block": "le:divorce:filing",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The head-of-household exception is right (7703(b), 2(c); Pub. 501 lists the tests). The reviewer's 'the settlement should say who claims each child' was changed: the IRS lets the noncustodial parent claim the child only with the custodial parent's signed release (Form 8332 or similar), and for decrees after 2008 the decree pages alone do not work. So the text names the release, not the settlement.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/7703?link-type=html",
+     "quote": "(3) during the last 6 months of the taxable year, such individual's spouse is not a member of such household, such individual shall not be considered as married.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2?link-type=html",
+     "quote": "(c) Certain married individuals living apart For purposes of this part, an individual shall be treated as not married at the close of the taxable year if such individual is so treated under the provisions of section 7703(b).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p501",
+     "quote": "You paid more than half the cost of keeping up your home for the tax year. Your spouse didn't live in your home during the last 6 months of the tax year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/152?link-type=html",
+     "quote": "(A) the custodial parent signs a written declaration ... that such custodial parent will not claim such child as a dependent ... and (B) the noncustodial parent attaches such written declaration to the noncustodial parent's return",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p504",
+     "quote": "The custodial parent is the parent with whom the child lived for the greater number of nights during the year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p504",
+     "quote": "If the decree or agreement went into effect after 2008, a noncustodial parent claiming a child as a dependent can't attach pages from a divorce decree or separation agreement instead of Form 8332.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:divorce:filing",
+   "lean": "excluded-not-high"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:divorce:counsel",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-17",
+    "ADV-18"
+   ],
+   "body": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. If a full-service lawyer is out of reach, look for legal aid or ask whether a lawyer will help with only part of the case. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot. A decree does not bind your lenders: until a joint debt is paid off, refinanced without your name or released by the lender, the lender can generally still collect from you.",
+   "plain": "Divorce is the one event on this list where a lawyer is close to a must: your state's property law decides what counts as shared, and a signed agreement is hard to undo. If you can't pay a lawyer for the whole case, look for legal aid or ask whether a lawyer will help with just part of it. First, list every account, debt and insurance policy. That list is also the start of your own net-worth snapshot. The divorce papers don't bind your lenders: until a shared debt is paid off, refinanced without your name, or the lender lets you off it, the lender can usually still make you pay.",
+   "props": [
+    [
+     "P1",
+     "Professional counsel is close to mandatory for divorce",
+     "kept",
+     "close to a must"
+    ],
+    [
+     "P2",
+     "State property law decides what is marital",
+     "kept",
+     "property law decides"
+    ],
+    [
+     "P3",
+     "Agreements are hard to reopen",
+     "kept",
+     "hard to undo"
+    ],
+    [
+     "P4",
+     "If a full-service lawyer is unaffordable, look for legal aid or ask about a lawyer for only part of the case",
+     "kept",
+     "legal aid"
+    ],
+    [
+     "P5",
+     "Build a complete inventory of accounts, debts, policies first",
+     "kept",
+     "list every account, debt and insurance policy"
+    ],
+    [
+     "P6",
+     "The inventory starts your own net-worth snapshot",
+     "kept",
+     "net-worth snapshot"
+    ],
+    [
+     "P7",
+     "A decree does not bind lenders; a creditor can generally collect on a joint debt until it is paid off, refinanced without your name, or you are released",
+     "kept",
+     "don't bind your lenders"
+    ]
+   ],
+   "claims": [
+    "NEW-le-divorce-1",
+    "NEW-le-divorce-3"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/0.2",
+     "label": "Calculate your net worth (framework 0.2)"
+    }
+   ],
+   "words_before": 48,
+   "words_after": 104,
+   "notes": "Lean: only the two HIGH fixes. The legal-aid / part-of-the-case sentence (ADV-17) and the joint-debt sentence (ADV-18) are taken verbatim from the final proposal (its P4 and P8). Left out as not HIGH: the safety/financial-control sentence (ADV-19, MED; with it CL527 and NEW-le-divorce-2 drop out) and the Social Security 10-year sentence (CFP-21, MED). No sentence of the current text was found wrong, so no MED correction is kept. Props renumbered P1-P7 (current P4/P5 become P5/P6). Neither added sentence carries a number."
+  },
+  {
+   "id": "le:divorce:qdro",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-20"
+   ],
+   "body": "An employer plan can only pay a former spouse under a qualified domestic relations order (QDRO); distributions to the alternate payee under a QDRO are exempt from the 10% additional tax, but the exemption does not apply to withdrawals from an IRA, so it is lost if the money is rolled into one first. IRAs are divided by a transfer incident to divorce, which is not a taxable distribution. Cashing out instead of using these routes can turn a split into a tax bill. Compare shares after tax: pre-tax retirement money is taxed when withdrawn, qualified Roth withdrawals are not, and stock you receive keeps your spouse's old tax basis, so a dollar in each is not worth the same.",
+   "plain": "A job-based plan can only pay a former spouse under a court order called a qualified domestic relations order (QDRO). Money paid to the former spouse under a QDRO skips the extra 10% tax, but that break does not apply to withdrawals from an IRA, so it is lost if the money is moved into an IRA first. An IRA is split by a transfer made as part of the divorce, which isn't taxed as a withdrawal. Cashing out instead of using these routes can turn the split into a tax bill. Compare what each share is worth after tax: pre-tax retirement money is taxed when you take it out, qualified Roth withdrawals are not, and stock you receive keeps your spouse's old tax cost, so a dollar of each is not worth the same.",
+   "props": [
+    [
+     "P1",
+     "Employer plans pay a former spouse only under a QDRO",
+     "kept",
+     "qualified domestic relations order"
+    ],
+    [
+     "P2",
+     "QDRO distributions to the alternate payee are exempt from the 10% additional tax",
+     "kept",
+     "skips the extra 10% tax"
+    ],
+    [
+     "P3",
+     "The exemption does not apply to IRA withdrawals, so rolling the money into an IRA first loses it",
+     "kept",
+     "withdrawals from an ira"
+    ],
+    [
+     "P4",
+     "IRAs are divided by transfer incident to divorce, not taxable",
+     "kept",
+     "transfer made as part of the divorce"
+    ],
+    [
+     "P5",
+     "Cashing out instead can create a tax bill",
+     "kept",
+     "tax bill"
+    ],
+    [
+     "P6",
+     "Compare shares after tax: pre-tax money is taxed on withdrawal, qualified Roth withdrawals are not, received stock keeps the old basis",
+     "kept",
+     "worth after tax"
+    ]
+   ],
+   "claims": [
+    "CL500",
+    "NEW-le-divorce-5",
+    "NEW-le-divorce-6"
+   ],
+   "links": [],
+   "words_before": 61,
+   "words_after": 120,
+   "notes": "Lean: CFP-20 (HIGH) only, both halves: the IRA-rollover limit on the 10% exemption and the after-tax comparison sentence, verbatim from the final proposal. The final's merged clause also carried ADV-20's (MED) 'but they are generally still taxable income' / 'but it is usually still taxed as income'; that clause was cut and the IRA clause joined to the exemption clause with 'but' (plain: 'but that break', in place of the final's new sentence 'That break'). The current text is incomplete there, not stated wrong, so it is not kept as a correction. NEW-le-divorce-5 is still cited (it backs the IRA clause) and is copied unchanged, so its claim row also states the taxable-income point the lean text no longer makes. Number set unchanged: 10% in both variants."
+  },
+  {
+   "id": "le:divorce:beneficiaries",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Many states automatically revoke an ex-spouse as beneficiary of some non-probate assets, but for employer plans governed by ERISA the Supreme Court held that the plan documents control (Egelhoff v. Egelhoff, 2001). Do not rely on state law: file new forms on every account and policy.",
+   "plain": "Many states automatically remove an ex-spouse as beneficiary on some accounts. But for job-based plans covered by ERISA, the Supreme Court ruled that the plan's own papers win (Egelhoff v. Egelhoff, 2001). Don't count on state law: file new beneficiary forms on every account and policy.",
+   "props": [
+    [
+     "P1",
+     "Many states auto-revoke an ex-spouse on some non-probate assets",
+     "kept",
+     "automatically remove an ex-spouse"
+    ],
+    [
+     "P2",
+     "For ERISA plans, plan documents control (Egelhoff, 2001)",
+     "kept",
+     "egelhoff v. egelhoff, 2001"
+    ],
+    [
+     "P3",
+     "File new forms everywhere rather than relying on state law",
+     "kept",
+     "file new beneficiary forms"
+    ]
+   ],
+   "claims": [
+    "CL501"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "words_before": 46,
+   "words_after": 46,
+   "notes": "Unchanged: no HIGH finding. ADV-21 and CFP-22 (MED, sequencing: possible restraint on beneficiary changes while the case is pending, decree-required life insurance) are left to the full proposal; their reasons say the sequencing point stands but do not call the current text factually wrong, so they were not kept as a correction. Owner may still want them: the current 'file new forms on every account and policy' can be read as an instruction to act where a court order forbids it."
+  },
+  {
+   "id": "le:divorce:filing",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Marital status on December 31 sets filing status for the year. Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse) and a Marketplace special enrollment trigger. For a divorce or legal separation the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or the COBRA right can be lost.",
+   "plain": "Whether you're married on December 31 sets your filing status for the year. Losing coverage under a spouse's plan lets you use COBRA (up to 36 months for a former spouse) and opens a Marketplace special enrollment window. For a divorce or legal separation, the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or you can lose the COBRA right.",
+   "props": [
+    [
+     "P1",
+     "Marital status on Dec 31 sets filing status",
+     "kept",
+     "december 31"
+    ],
+    [
+     "P2",
+     "Losing spouse-plan coverage is a COBRA qualifying event, up to 36 months for a former spouse",
+     "kept",
+     "up to 36 months"
+    ],
+    [
+     "P3",
+     "It is also a Marketplace special enrollment trigger",
+     "kept",
+     "marketplace special enrollment"
+    ],
+    [
+     "P4",
+     "After divorce or legal separation, the employee or former spouse must notify the plan within 60 days or the COBRA right can be lost",
+     "kept",
+     "within 60 days"
+    ]
+   ],
+   "claims": [
+    "CL497",
+    "CL483",
+    "CL484",
+    "CL531"
+   ],
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    }
+   ],
+   "words_before": 70,
+   "words_after": 70,
+   "notes": "Unchanged: its two HIGH findings (ADV-22, CFP-19, the COBRA 60-day notice) were already addressed in the current text (CL531, 2026-11-06). ADV-23 and CFP-23 (MED: head of household while still married, Form 8332, Medicaid) are left to the full proposal; CFP-23 calls the December 31 sentence an overgeneralization but the reason does not say it is wrong, so it was not kept as a correction."
+  },
+  {
+   "id": "le:divorce:rebuild",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "A household that had two incomes now has one, which usually means a larger emergency fund target and a re-run of the diagnostic with your new answers.",
+   "plain": "A home that ran on two incomes now runs on one. That usually means a bigger emergency fund target, and taking the diagnostic again with your new answers.",
+   "props": [
+    [
+     "P1",
+     "Two incomes become one",
+     "kept",
+     "now runs on one"
+    ],
+    [
+     "P2",
+     "Usually means a larger emergency-fund target",
+     "kept",
+     "bigger emergency fund"
+    ],
+    [
+     "P3",
+     "Re-run the diagnostic",
+     "kept",
+     "taking the diagnostic again"
+    ]
+   ],
+   "claims": [
+    "CL502"
+   ],
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Size your emergency fund"
+    },
+    {
+     "to": "plan",
+     "label": "Re-run the diagnostic"
+    }
+   ],
+   "words_before": 27,
+   "words_after": 27,
+   "notes": "Unchanged: only a LOW finding (ADV-24)."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-divorce-1",
+   "loc": "P4:life-events:divorce",
+   "claim": "People who cannot afford a full-service lawyer can look to legal aid (Congress established the Legal Services Corporation to fund legal assistance in noncriminal matters for people financially unable to afford it); limited-scope help, where a lawyer handles only part of the case, exists in at least some states",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "B",
+   "source": "42 U.S.C. §2996b(a); California Courts Self-Help Guide, 'Limited-scope representation'",
+   "url": "https://www.govinfo.gov/link/uscode/42/2996b?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 42 U.S.C. §2996b(a) (LSC established 'for the purpose of providing financial support for legal assistance in noncriminal proceedings or matters to persons financially unable to afford legal assistance'); California Courts self-help page ('A lawyer can handle some parts of your case while you handle others. This is called limited-scope representation.'). Limited-scope rules are set state by state; only California's page was read. Tier B for that reason. Added 2026-11-16 from the §4.4 persona pass (ADV-17). Checker 2026-11-16: content now says 'ask whether a lawyer will help with only part of the case' rather than stating limited-scope help is available everywhere."
+  },
+  {
+   "temp_id": "NEW-le-divorce-3",
+   "loc": "P4:life-events:divorce",
+   "claim": "A divorce decree that assigns a joint debt to one spouse does not bind the creditor; the creditor can still collect from anyone named as a borrower unless that person was released by the creditor or the loan was refinanced to remove them",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "CFPB, 'Can a debt collector contact me about a debt after a divorce?'",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/can-a-debt-collector-contact-me-about-a-debt-after-a-divorce-en-1413/",
+   "note": "Verified 2026-11-16 at the primary source: CFPB Ask CFPB 1413 ('A divorce decree or property settlement may allocate debts to a specific spouse, but it doesn't change the fact that a creditor can still collect from anyone whose name appears as a borrower'; 'you are generally responsible for a debt unless you were contractually released by the creditor or your former spouse refinanced the loan and removed your name'). The CFPB adds 'state laws vary'. Added 2026-11-16 from the §4.4 persona pass (ADV-18, HIGH). Checker 2026-11-16: content now says 'refinanced without your name' and 'generally', matching the CFPB wording."
+  },
+  {
+   "temp_id": "NEW-le-divorce-5",
+   "loc": "P4:life-events:divorce",
+   "claim": "QDRO distributions to a spouse or former spouse alternate payee are generally taxable to the alternate payee; the QDRO exception to the 10% additional tax does not apply to distributions from an IRA, so it is lost once the money is rolled into one",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §402(e)(1)(A); §72(t)(2)(C), (t)(3)(A); IRS Pub. 504 (2025)",
+   "url": "https://www.govinfo.gov/link/uscode/26/72?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: IRC §402(e)(1)(A) (spouse or former spouse alternate payee 'shall be treated as the distributee'), §72(t)(2)(C) (QDRO exception), §72(t)(3)(A) ('Subparagraphs (A)(v) and (C) of paragraph (2) shall not apply to distributions from an individual retirement plan'); IRS Pub. 504 (2025) ('Benefits paid under a QDRO to the plan participant's spouse or former spouse must generally be included in the spouse's or former spouse's income'). U.S. Code 2024 edition; Pub. 504 (2025) postdates P.L. 119-21 and shows no change. Added 2026-11-16 from the §4.4 persona pass (ADV-20, CFP-20)."
+  },
+  {
+   "temp_id": "NEW-le-divorce-6",
+   "loc": "P4:life-events:divorce",
+   "claim": "Assets split in a divorce differ in after-tax value: pre-tax plan money is taxable when paid out, qualified Roth IRA distributions are excluded from income, and property transferred incident to divorce keeps the transferor's adjusted basis",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §1041(b); §408A(d)(1); IRS Pub. 504 (2025)",
+   "url": "https://www.govinfo.gov/link/uscode/26/1041?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: IRC §1041(b)(2) ('the basis of the transferee in the property shall be the adjusted basis of the transferor'), §408A(d)(1) ('Any qualified distribution from a Roth IRA shall not be includible in gross income'); IRS Pub. 504 (2025) ('Your basis in property received from your spouse ... is the same as your spouse's adjusted basis'). The comparison itself ('not worth the same') is the framework's conclusion from those rules. Designated Roth accounts in a 401(k) (§402A) were not read; the text says 'qualified Roth withdrawals' generally. Added 2026-11-16 from the §4.4 persona pass (CFP-20)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "ADV-18",
+    "ADV-19"
+   ],
+   "what": "Optional layout change: move the safety and joint-debt sentences out of the counsel step into a new first step, 'Protect yourself first', so the counsel step stays near its current length.",
+   "why_owner": "Adding a step changes the module's shape. The proposed text already folds both findings into the counsel step (which then grows from 48 to 155 words); this draft is the alternative if that step is too long. Take one or the other, not both.",
+   "draft": {
+    "id": "protect",
+    "title": "Protect yourself and your credit first",
+    "when": "Before anything else",
+    "body": "If you fear for your safety or your spouse controls the money, first call the national domestic violence hotline, which can connect you with local help, then open an account in your own name and pull your free credit reports. A decree does not bind your lenders: until a joint debt is paid off, refinanced without your name or released by the lender, the lender can generally still collect from you.",
+    "plain": "If you are afraid for your safety or your spouse controls the money, first call the national domestic violence hotline, which can connect you with help near you. Then open a bank account in your own name and get your free credit reports. The divorce papers don't bind your lenders: until a shared debt is paid off, refinanced without your name, or the lender lets you off it, the lender can usually still make you pay.",
+    "props": [
+     [
+      "P7",
+      "If safety or financial control is a concern, first call the national domestic violence hotline (which connects callers with local help), then open an account in your own name and pull free credit reports",
+      "kept",
+      "national domestic violence hotline"
+     ],
+     [
+      "P8",
+      "A decree does not bind lenders; a creditor can generally collect on a joint debt until it is paid off, refinanced without your name, or you are released",
+      "kept",
+      "don't bind your lenders"
+     ]
+    ],
+    "claims": [
+     "NEW-le-divorce-2",
+     "CL527",
+     "NEW-le-divorce-3"
+    ],
+    "links": [
+     {
+      "to": "protection/identity",
+      "label": "Protection · identity and credit"
+     }
+    ],
+    "counsel_body_if_taken": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. If a full-service lawyer is out of reach, look for legal aid or ask whether a lawyer will help with only part of the case. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot. Note the date the divorce becomes final: a former spouse married 10 years or more before that date may later draw Social Security on the other's record."
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "ADV-17",
+   "assertion": "Mediation and the court's self-help center are affordable routes in divorce",
+   "why": "Not read at a federal primary source; services vary by court and state. Left out of the text (only California's limited-scope page and the LSC statute were read)."
+  },
+  {
+   "finding": "ADV-19",
+   "assertion": "Contact a domestic-violence advocate before starting",
+   "why": "No federal agency page with this advice was read (CFPB pages found were a newsroom item and slides); replaced with the national hotline, which 42 U.S.C. 10413 establishes."
+  },
+  {
+   "finding": "ADV-21",
+   "assertion": "Changing a beneficiary form against a restraining order or decree can put you in contempt of court",
+   "why": "Consequence not read at any primary source; not stated."
+  },
+  {
+   "finding": "CFP-21",
+   "assertion": "Support payments are often secured with life insurance named in the settlement",
+   "why": "Frequency claim; only a court's power to order such insurance was read (California Fam. Code 4360). Text says 'may require ... for example'."
+  },
+  {
+   "finding": "CFP-22",
+   "assertion": "The spouse named as agent on a power of attorney or health care proxy can usually be replaced right away; ERISA spousal rights last until the divorce is final",
+   "why": "POA revocation and termination rules are state law (the Uniform Power of Attorney Act is not law until a state enacts it) and were not read; ERISA spousal-consent timing not re-read today. Text uses an 'ask your lawyer' prompt instead."
+  },
+  {
+   "finding": "ADV-24",
+   "assertion": "State agencies enforce support orders generally (including spousal support)",
+   "why": "Only child support enforcement was read at ACF; text narrowed to child support."
+  },
+  {
+   "finding": "ADV-19",
+   "assertion": "The hotline's phone number (and a text or chat option) belongs in the sentence",
+   "why": "Not added: the federal page listing the number was not read today; adding it would also add a number to both variants. Owner may add it after reading the HHS/ACF page."
+  }
+ ]
+}

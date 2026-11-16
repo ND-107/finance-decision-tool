@@ -1,0 +1,777 @@
+{
+ "group": "le-new-baby",
+ "findings": [
+  {
+   "id": "ADV-10",
+   "block": "le:new-baby:enroll",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The point stands and is folded in, with two corrections. (1) The automatic first-year coverage applies when the mother was eligible for and receiving Medicaid (or CHIP as a pregnant woman) on the date of birth; it is a deemed-eligibility rule 'without application', so the text says 'covered until the first birthday without a separate application' rather than 'generally covered'. (2) 'There is no enrollment window' is stated as HealthCare.gov states it: apply any time of year. The reviewer's 'CHIP covers many children in working families' is not added as a rule (eligibility levels vary by state and were not read).",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-435.117",
+     "quote": "The agency must provide Medicaid to children from birth until the child's first birthday without application if, for the date of the child's birth, the child's mother was eligible for and received covered services under— (i) The Medicaid State plan",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/1396a?link-type=html",
+     "quote": "A child born to a woman eligible for and receiving medical assistance under a State plan on the date of the child's birth shall be deemed to have applied for medical assistance and to have been found eligible",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/",
+     "quote": "You can apply for Medicaid and CHIP any time of year.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:enroll",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-11",
+   "block": "le:new-baby:ssn",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "All three parts stand; wording changed. (a) Instead of a vague 'only part back', the text states the refundable cap as a new figure (ctc_refundable_max, $1,700 for 2026, Rev. Proc. 2025-32 §4.05(2)) and that it depends on earnings. (b) EITC pointer added as the IRS describes the credit. (c) The reviewer's W-7A line would imply the ATIN gets the Child Tax Credit; it does not, because §24(h)(7) requires the child's SSN, so the text says the ATIN lets you claim the child as a dependent 'but not the Child Tax Credit'. The parent-SSN rule CL494 notes is now stated: one taxpayer (one spouse on a joint return) needs an SSN valid for work, which excludes filers who have only an ITIN.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/credits-deductions/individuals/child-tax-credit",
+     "quote": "If you have little or no federal income tax liability, you may qualify for the Additional Child Tax Credit, up to $1,700 per qualifying child depending on your income.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+     "quote": "For taxable years beginning in 2026, the amount used in § 24(d)(1)(A) to determine the amount of the credit under § 24 that may be refundable is $1,700.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit-eitc",
+     "quote": "The Earned Income Tax Credit (EITC) helps low- to moderate-income workers and families get a tax break. ... The amount of your credit may change if you have children or dependents",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/individuals/adoption-taxpayer-identification-number",
+     "quote": "If you are eligible to claim the child as your dependent, and you don't have the child's SSN, then you will need to request an ATIN in order to claim the child as a dependent",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/individuals/adoption-taxpayer-identification-number",
+     "quote": "The Form W-7A, Application for Taxpayer Identification Number for Pending Adoptions, is used by qualifying taxpayers to obtain an ATIN.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+     "quote": "(i) the taxpayer's social security number (or, in the case of a joint return, the social security number of at least 1 spouse), and (ii) the social security number of such qualifying child.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/credits-deductions/individuals/child-tax-credit",
+     "quote": "you (or your spouse, if married filing jointly,) and each qualifying child must have a Social Security number that is valid for employment in the United States and issued before the due date of the tax return",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/credits-deductions/individuals/child-tax-credit",
+     "quote": "You must have earned income of at least $2,500 to be eligible for the ACTC.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:ssn",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-12",
+   "block": "le:new-baby:protection",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Merged with CFP-12 into one sentence about the parent at home or earning less. For the title's disability promise, one advice sentence and a link to protection/disability are added rather than dropping the word from the title (owner may prefer the title edit instead; see block notes).",
+   "sources": [
+    {
+     "url": "https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/buying-life-insurance.html",
+     "quote": "Even if one partner does not work outside the home, you may want to consider life insurance to help pay for childcare or other services performed by that partner.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:protection",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "ADV-13",
+   "block": "le:new-baby:protection",
+   "severity": "LOW",
+   "verdict": "reject",
+   "reason": "'Many states offer simple will forms' and 'legal aid groups often help for free' were not read at any primary source; whether a state publishes a will form, and what legal aid covers and for whom, vary by state, so a general sentence could mislead. Severity is LOW and the block already grows about 150 percent for the HIGH finding CFP-11. The estate section (protection/estate) is linked for readers who need more. The owner could revisit this with a state-by-state source.",
+   "sources": [],
+   "addressed_in": null,
+   "lean": "n/a"
+  },
+  {
+   "id": "ADV-14",
+   "block": "le:new-baby:childcare",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Both parts confirmed and folded in: a dependent care assistance program is a written plan of an employer (§129(d)), and an amount elected but not used is forfeited (Form 2441 instructions, line 14). 'Generally' is kept because a plan may add a grace period.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/129?link-type=html",
+     "quote": "a dependent care assistance program is a separate written plan of an employer for the exclusive benefit of his employees to provide such employees with dependent care assistance",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/pub/irs-pdf/i2441.pdf",
+     "quote": "If you had an employer-provided dependent care plan, enter on line 14 ... Any amount you forfeited. You forfeited an amount if you didn't receive it because you didn't incur the expense.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:childcare",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-11",
+   "block": "le:new-baby:protection",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The trap is real and is added. Wording changed: 'can end up with a court-appointed guardian' (the reviewer's 'at 18 or 21' depends on the state's act and the instrument, so no age is stated), and 'a custodian under your state's transfers-to-minors law' (UTMA is state law; the source pages are a state retirement system and a state court system). 'Often created in the will' is dropped: a trust may also be a standalone agreement, and the New York page names both. Checker added a federal agency source (VA life insurance) for the same mechanism, so the sentence no longer rests on state pages alone.",
+   "sources": [
+    {
+     "url": "https://www.osc.ny.gov/retirement/publications/life-changes-why-should-i-designate-beneficiary",
+     "quote": "If your designated beneficiary is under age 18 ..., your benefit will be paid to the child's court-appointed guardian. You may instead designate a custodian ... under the Uniform Transfers to Minors Act (UTMA).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.osc.ny.gov/retirement/publications/life-changes-why-should-i-designate-beneficiary",
+     "quote": "You may name your trust as the primary or contingent beneficiary of your death benefit, if you have a trust agreement or provided for a trust in your will.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://courts.alaska.gov/shc/probate/minors.htm",
+     "quote": "If the child inherits money from the parent who died, someone must accept and manage the money for the child.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.benefits.va.gov/INSURANCE/naming-beneficiaries.asp",
+     "quote": "To designate a Minor as your beneficiary, you should consider naming a trust instead. ... we must pay a court-appointed guardian or VA-appointed fiduciary for the minor, which can delay payment.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:protection",
+   "lean": "included"
+  },
+  {
+   "id": "CFP-12",
+   "block": "le:new-baby:protection",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Merged with ADV-12 (lower-earning or at-home parent) and the group-life point added in the same sentence, as the state insurance regulators describe both.",
+   "sources": [
+    {
+     "url": "https://idoi.illinois.gov/consumers/consumerinsurance/lifeannuities/buying-life-insurance.html",
+     "quote": "Even if one partner does not work outside the home, you may want to consider life insurance to help pay for childcare or other services performed by that partner.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.tdi.texas.gov/pubs/consumer/cb018.html",
+     "quote": "If you get life insurance through your employer, coverage typically ends when you leave your job.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:protection",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-13",
+   "block": "le:new-baby:childcare",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Birth and adoption are change-in-status events that a cafeteria plan may use to allow a mid-year election change, but §125 does not require plans to allow it and the regulation sets no 30-day deadline (that is plan design). The text therefore says 'your plan may let you' and 'ask HR right away', with no number. The step's 'when' field should change too (block notes).",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-26/section-1.125-4",
+     "quote": "A cafeteria plan may permit an employee to revoke an election during a period of coverage and to make a new election ... Section 125 does not require a cafeteria plan to permit any of these changes.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-26/section-1.125-4",
+     "quote": "Number of dependents. Events that change an employee's number of dependents, including the following: birth; death; adoption; and placement for adoption.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:childcare",
+   "lean": "excluded-not-high"
+  },
+  {
+   "id": "CFP-14",
+   "block": null,
+   "severity": "MED",
+   "verdict": "owner-decision",
+   "reason": "Three missing steps, each a change to the playbook's shape: (1) a before-the-birth leave and pay-gap step, (2) the adoption credit and employer adoption assistance, which the event title promises and the steps omit, (3) the Trump Account $1,000 pilot contribution, which the reviewer marked [VERIFY] and which is confirmed at the statute and the IRS page. Drafts are under owner_decisions. The reviewer's 'SSN also needed for a 529' line is not drafted (plan practice, not read).",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/2612?link-type=html",
+     "quote": "an eligible employee shall be entitled to a total of 12 workweeks of leave during any 12-month period for ... the birth of a son or daughter ... the placement of a son or daughter ... for adoption",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/2612?link-type=html",
+     "quote": "the employee shall provide the employer with not less than 30 days' notice, before the date the leave is to begin",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/taxtopics/tc607",
+     "quote": "You can't claim both for the same qualifying expenses ... For tax year 2026: Qualified adoption expenses are limited to $17,670 per qualifying child. Up to $5,120 is refundable per qualifying child.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+     "quote": "shall be treated as making a payment ... equal to $1,000 ... a qualifying child ... who is born after December 31, 2024, and before January 1, 2029 ... who is a United States citizen.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/trumpaccounts",
+     "quote": "You must elect the $1,000 contribution for your child, even if Treasury automatically opened the account. To request the contribution, submit Form 4547 and select the option for the $1,000 pilot program contribution.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/2614?link-type=html",
+     "quote": "any eligible employee who takes leave under section 2612 of this title for the intended purpose of the leave shall be entitled, on return from such leave— (A) to be restored by the employer to the position of employment held by th",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/taxtopics/tc607",
+     "quote": "An exception applies for special needs adoptions ... State and Indian tribal governments determine whether a child has special needs for the purpose of claiming the Adoption Credit.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+     "quote": "For taxable years beginning in 2026, under § 23(a)(3), the credit allowed for an adoption of a child with special needs is $17,670.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": null,
+   "lean": "n/a"
+  },
+  {
+   "id": "CFP-15",
+   "block": "le:new-baby:enroll",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Both points confirmed: coverage on the date of birth (or adoption/placement) for both employer plans and the Marketplace, and the HSA limit is set month by month by the type of HDHP coverage held on the first day of the month. Wording 'can cover' because a Marketplace enrollee may elect a later start.",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-29/section-2590.701-6",
+     "quote": "Coverage must begin in the case of a dependent's birth on the date of birth and in the case of a dependent's adoption or placement for adoption no later than the date of such adoption or placement for adoption",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-45/section-155.420",
+     "quote": "In the case of birth, adoption, placement for adoption ... the Exchange must ensure that coverage is effective for a qualified individual or enrollee on the date of birth, adoption, placement for adoption",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+     "quote": "The monthly limitation for any month is 1/12 of— ... (B) in the case of an eligible individual who has family coverage under a high deductible health plan as of the first day of such month",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "le:new-baby:enroll",
+   "lean": "excluded-not-high"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "le:new-baby:enroll",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Birth and adoption trigger a special enrollment period: at least 30 days for an employer group plan and 60 days on the Marketplace. Missing it can mean waiting for the next open enrollment.",
+   "plain": "A birth or adoption gives you a special window to add your child to health coverage: at least 30 days for a job-based plan and 60 days on the Marketplace. Miss it and you may have to wait for the next open enrollment.",
+   "props": [
+    [
+     "P1",
+     "Birth/adoption triggers special enrollment",
+     "kept",
+     "special window"
+    ],
+    [
+     "P2",
+     "At least 30 days for employer group plans",
+     "kept",
+     "at least 30 days"
+    ],
+    [
+     "P3",
+     "60 days on the Marketplace",
+     "kept",
+     "60 days on the marketplace"
+    ],
+    [
+     "P4",
+     "Missing it can mean waiting for the next open enrollment",
+     "kept",
+     "next open enrollment"
+    ]
+   ],
+   "claims": [
+    "CL484",
+    "CL485"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    }
+   ],
+   "words_before": 33,
+   "words_after": 33,
+   "notes": "No HIGH finding on this block and no factual error in the current text, so it is unchanged. ADV-10 (MED) and CFP-15 (LOW) add facts the current text omits; neither reason says the current text is wrong."
+  },
+  {
+   "id": "le:new-baby:ssn",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "You need the child's Social Security number to claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child). It is usually requested at the hospital with the birth registration.",
+   "plain": "To claim the Child Tax Credit (up to {{fig:ctc_per_child}} per child), your child needs a Social Security number. You can usually ask for one at the hospital when you register the birth.",
+   "props": [
+    [
+     "P1",
+     "The child's SSN is needed to claim the CTC",
+     "kept",
+     "needs a social security number"
+    ],
+    [
+     "P2",
+     "It is usually requested at the hospital with birth registration",
+     "kept",
+     "at the hospital"
+    ],
+    [
+     "P3",
+     "The credit is up to the figures-layer amount per child",
+     "kept",
+     "per child"
+    ]
+   ],
+   "claims": [
+    "CL494"
+   ],
+   "links": [],
+   "words_before": 29,
+   "words_after": 29,
+   "notes": "No HIGH finding on this block and no factual error in the current text, so it is unchanged. ADV-11 (MED) says 'up to' hides the partial refund; the current sentence is incomplete, not wrong, so the refundable-cap, EITC, ATIN and parent-SSN additions (and the ctc_refundable_max figure) stay in the full proposal only."
+  },
+  {
+   "id": "le:new-baby:protection",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-11"
+   ],
+   "body": "A dependent is the main reason to own term life insurance; the common heuristic is 10–12 times the primary earner's income, and the DIME method gives a more specific number. A will is where you name a guardian for a minor child; without one, a court decides. Update beneficiary designations at the same time, and do not name a minor child directly: money left to a minor can end up with a court-appointed guardian, so name a trust or a custodian under your state's transfers-to-minors law.",
+   "plain": "A child who depends on you is the main reason to have term life insurance. A common rule of thumb is 10–12 times the main earner's income; the DIME method gives a number that fits your household. A will is where you name a guardian for a young child — without one, a court chooses. Update the beneficiaries on your accounts at the same time. Don't name a young child as a beneficiary directly: a court may have to appoint someone to hold the money. Name a trust, or a custodian under your state's law for gifts to minors, instead.",
+   "props": [
+    [
+     "P1",
+     "A dependent is the main reason to own term life",
+     "kept",
+     "main reason to have term life"
+    ],
+    [
+     "P2",
+     "Heuristic: 10–12× primary earner's income",
+     "kept",
+     "10–12 times"
+    ],
+    [
+     "P3",
+     "DIME gives a more specific number",
+     "kept",
+     "dime method"
+    ],
+    [
+     "P4",
+     "A will names a guardian for a minor child; without one a court decides",
+     "kept",
+     "a court chooses"
+    ],
+    [
+     "P5",
+     "Update beneficiary designations at the same time",
+     "kept",
+     "update the beneficiaries"
+    ],
+    [
+     "P6",
+     "Do not name a minor directly: the money can end up with a court-appointed guardian",
+     "kept",
+     "a court may have to appoint someone"
+    ],
+    [
+     "P7",
+     "Name a trust or a custodian under the state's transfers-to-minors act instead",
+     "kept",
+     "name a trust"
+    ]
+   ],
+   "claims": [
+    "CL061",
+    "CL181",
+    "CL519",
+    "NEW-le-new-baby-10"
+   ],
+   "links": [
+    {
+     "to": "protection/term-life",
+     "label": "Protection · term life"
+    },
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    },
+    {
+     "to": "spending-essentials/4",
+     "label": "Spending · Insurance (DIME calculator)"
+    }
+   ],
+   "words_before": 54,
+   "words_after": 86,
+   "notes": "Lean: the current body plus the CFP-11 (HIGH) minor-beneficiary clause, verbatim from the final proposal (with the checker's 'minor child' wording; 'young child' kept in plain). Its propositions are the final file's P9/P10, renumbered P6/P7. Backed by NEW-le-new-baby-10 (VA, New York Comptroller, Alaska courts). Left out: the at-home or lower-earning parent and group-life sentence (ADV-12, CFP-12, MED), and the disability sentence with its protection/disability link (ADV-12). The title still promises disability coverage the body does not discuss; that ADV-12 point stays open in this variant. No factual correction to the current text was needed."
+  },
+  {
+   "id": "le:new-baby:childcare",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "A dependent-care FSA shelters childcare costs from income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Expenses reimbursed through the FSA cannot also be counted for the child and dependent care credit, so the two have to be coordinated rather than both maxed.",
+   "plain": "A dependent-care FSA lets you pay for childcare with money that skips income and payroll tax (2026 limit: {{fig:limit_dcfsa}} per household, {{fig:limit_dcfsa_mfs}} if married filing separately). Costs you pay through the FSA can't also count toward the child and dependent care credit. So plan the two together instead of trying to max both.",
+   "props": [
+    [
+     "P1",
+     "A DCFSA shelters childcare costs from income and payroll tax",
+     "kept",
+     "skips income and payroll tax"
+    ],
+    [
+     "P2",
+     "FSA-reimbursed expenses cannot also count for the credit",
+     "kept",
+     "can't also count"
+    ],
+    [
+     "P3",
+     "The two must be coordinated, not both maxed",
+     "kept",
+     "plan the two together"
+    ],
+    [
+     "P4",
+     "The 2026 limit is per household, with a lower amount for married filing separately",
+     "kept",
+     "if married filing separately"
+    ]
+   ],
+   "claims": [
+    "CL186",
+    "CL495"
+   ],
+   "links": [
+    {
+     "to": "spending-lifestyle/6",
+     "label": "Spending · Childcare (dependent-care FSA calculator)"
+    }
+   ],
+   "words_before": 48,
+   "words_after": 48,
+   "notes": "No HIGH finding on this block and no factual error in the current text, so it is unchanged. CFP-13 and ADV-14 (MED) add facts the current text omits; neither reason says the current text is wrong. The 'when' field note in the full proposal applies only if CFP-13 is taken."
+  },
+  {
+   "id": "le:new-baby:529",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "529 plans grow tax-free for qualified education costs, and about 30 states offer a state income tax deduction for contributions. The framework places education saving after the tax-advantaged retirement steps, because a student can borrow for college and a retiree cannot borrow for retirement.",
+   "plain": "A 529 plan grows tax-free when used for school costs, and about 30 states give a state tax deduction for putting money in. This tool puts education saving after your own retirement accounts, because a student can borrow for college but a retiree can't borrow for retirement.",
+   "props": [
+    [
+     "P1",
+     "529s grow tax-free for qualified education costs",
+     "kept",
+     "grows tax-free"
+    ],
+    [
+     "P2",
+     "About 30 states offer a state income tax deduction",
+     "kept",
+     "about 30 states"
+    ],
+    [
+     "P3",
+     "The framework sequences education after tax-advantaged retirement steps",
+     "kept",
+     "after your own retirement accounts"
+    ],
+    [
+     "P4",
+     "because students can borrow, retirees cannot (mechanism)",
+     "kept",
+     "can't borrow for retirement"
+    ]
+   ],
+   "claims": [
+    "CL044"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/9.4",
+     "label": "529 plans (framework 9.4)"
+    }
+   ],
+   "words_before": 44,
+   "words_after": 44,
+   "notes": "No findings against this block; unchanged."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-le-new-baby-10",
+   "loc": "P4:life-events:new-baby",
+   "claim": "A death benefit payable to a minor beneficiary can be paid to a court-appointed guardian; naming a trust, or a custodian under the state's Uniform Transfers to Minors Act, avoids that",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "B",
+   "source": "New York State Comptroller (NYSLRS), 'Life Changes: Why Should I Designate a Beneficiary?'; Alaska Court System, 'Surviving Minor Children'; U.S. Department of Veterans Affairs, 'Naming Beneficiaries - Life Insurance'",
+   "url": "https://www.osc.ny.gov/retirement/publications/life-changes-why-should-i-designate-beneficiary",
+   "note": "Verified 2026-11-16 at the primary source: NY OSC ('If your designated beneficiary is under age 18 ... paid to the child's court-appointed guardian. You may instead designate a custodian ... under the Uniform Transfers to Minors Act'; a trust may be named); Alaska Court System ('If the child inherits money ... someone must accept and manage the money for the child'). State-law point, stated in the content as 'your state's'; the age at which a custodianship ends varies and is not stated. Also VA life insurance page, read 2026-11-16 ('you should consider naming a trust instead ... we must pay a court-appointed guardian or VA-appointed fiduciary for the minor, which can delay payment'). Added 2026-11-16 from the §4.4 persona pass (CFP-11, reviewer HIGH)."
+  },
+  {
+   "temp_id": "NEW-le-new-baby-13",
+   "loc": "P4:life-events:new-baby",
+   "claim": "FMLA entitles an eligible employee to up to 12 workweeks of leave in a 12-month period for the birth of a child or placement for adoption or foster care; the leave may be unpaid; when the birth or placement is foreseeable the employee must give at least 30 days' notice, or as much as is practicable",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "29 U.S.C. §2612(a)(1)(A)-(B), (c), (e)(1); 29 U.S.C. §2614(a)(1)",
+   "url": "https://www.govinfo.gov/link/uscode/29/2612?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source (for the owner-decision draft only): 29 U.S.C. §2612(a)(1) ('a total of 12 workweeks of leave during any 12-month period'), (c) ('may consist of unpaid leave'), (e)(1) ('not less than 30 days' notice'). 'Job-protected' rests on 29 U.S.C. §2614(a)(1) (restoration to the same or an equivalent position), read 2026-11-16. Employee eligibility tests (§2611(2)) not restated. Draft only; cite only if the owner adds the step."
+  },
+  {
+   "temp_id": "NEW-le-new-baby-14",
+   "loc": "P4:life-events:new-baby",
+   "claim": "For 2026 the adoption credit covers qualified adoption expenses up to the figures-layer maximum per child, of which up to the figures-layer refundable amount is refundable; employer adoption assistance can also be excluded from income, but the same expenses cannot be used for both; for a child a state has determined to have special needs, the full credit is allowed without regard to expenses",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §23(a)(4), (b)(1) as amended by P.L. 119-21 §70402; IRC §137; Rev. Proc. 2025-32 §4.04, §4.18; IRS Topic No. 607",
+   "url": "https://www.irs.gov/taxtopics/tc607",
+   "note": "Verified 2026-11-16 at the primary source: IRS Topic 607 ('You can claim both the credit and income exclusion, but you can't claim both for the same qualifying expenses'; 2026: $17,670 per child, up to $5,120 refundable); Rev. Proc. 2025-32 §4.04(2)-(3) and §4.18; P.L. 119-21 §70402 (new §23(a)(4)). Special needs: Rev. Proc. 2025-32 §4.04(1) ('the credit allowed for an adoption of a child with special needs is $17,670') and Topic 607 ('An exception applies for special needs adoptions'; 'State and Indian tribal governments determine whether a child has special needs'). Phase-out by modified AGI not described. Draft only; cite only if the owner adds the step."
+  },
+  {
+   "temp_id": "NEW-le-new-baby-15",
+   "loc": "P4:life-events:new-baby",
+   "claim": "A U.S.-citizen child born after 2024 and before 2029 can receive a one-time federal pilot contribution to a Trump Account if a parent elects it on Form 4547 with the child's SSN",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRC §6434 as added by P.L. 119-21 §70204; IRS 'Trump Accounts' page",
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+   "note": "Verified 2026-11-16 at the primary source: P.L. 119-21 §70204 (new §6434(a) '$1,000'; (c) born after December 31, 2024, and before January 1, 2029, U.S. citizen; (e) SSN required with the election); IRS Trump Accounts page ('You must elect the $1,000 contribution ... submit Form 4547'). Draft only; cite only if the owner adds the sentence."
+  }
+ ],
+ "new_figures": [
+  {
+   "key": "adoption_credit_max",
+   "value": 17670,
+   "display": "$17,670",
+   "taxYear": 2026,
+   "source": "IRS Rev. Proc. 2025-32 §4.04(1)-(2) (§23(a)(3), (b)(1), taxable years beginning in 2026); IRS Topic No. 607",
+   "verified": "2026-11-16",
+   "expires": "2026-12-31"
+  },
+  {
+   "key": "adoption_credit_refundable_max",
+   "value": 5120,
+   "display": "$5,120",
+   "taxYear": 2026,
+   "source": "IRS Rev. Proc. 2025-32 §4.04(3) (§23(a)(4) as added by P.L. 119-21 §70402, taxable years beginning in 2026); IRS Topic No. 607",
+   "verified": "2026-11-16",
+   "expires": "2026-12-31"
+  },
+  {
+   "key": "trump_pilot_contribution",
+   "value": 1000,
+   "display": "$1,000",
+   "taxYear": 2026,
+   "source": "IRC §6434(a) as added by P.L. 119-21 §70204 (fixed statutory amount, children born 2025 through 2028); IRS Trump Accounts page",
+   "verified": "2026-11-16",
+   "expires": "2028-12-31"
+  }
+ ],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-14"
+   ],
+   "what": "Add a first step, 'Plan the leave and the pay gap', before le:new-baby:enroll.",
+   "why_owner": "Adds a new step to the playbook (a change to its shape). The reviewer calls the pay drop the first money event; the playbook today starts at the health-plan window.",
+   "draft": {
+    "id": "leave",
+    "title": "Plan the leave and the pay gap",
+    "when": "Before the birth or placement",
+    "body": "The drop in pay during leave is often the first money event. The federal FMLA gives eligible employees up to 12 workweeks of job-protected leave in a 12-month period for a birth or adoption, but the leave may be unpaid, and it asks for 30 days' notice when the date is foreseeable. Pay during leave may come from employer leave, short-term disability or a state paid-leave program if your state has one; check each one's claim rules before the due date.",
+    "plain": "Your pay may drop while you are on leave, and that is often the first money problem. The federal FMLA lets eligible workers take up to 12 workweeks of leave in a 12-month period for a birth or adoption and keep their job, but that leave can be unpaid. It asks you to tell your employer 30 days ahead when you know the date. Pay during leave can come from your employer's leave, short-term disability, or your state's paid-leave program if it has one. Check how to claim each one before the due date.",
+    "props": [
+     [
+      "P1",
+      "Pay drop during leave is often the first money event",
+      "kept",
+      "first money problem"
+     ],
+     [
+      "P2",
+      "FMLA: up to 12 workweeks of job-protected leave in a 12-month period for birth or adoption, for eligible employees",
+      "kept",
+      "up to 12 workweeks"
+     ],
+     [
+      "P3",
+      "FMLA leave may be unpaid",
+      "kept",
+      "can be unpaid"
+     ],
+     [
+      "P4",
+      "30 days' notice when foreseeable",
+      "kept",
+      "30 days ahead"
+     ],
+     [
+      "P5",
+      "Pay sources: employer leave, short-term disability, state paid leave where it exists",
+      "kept",
+      "short-term disability"
+     ],
+     [
+      "P6",
+      "Check claim rules before the due date",
+      "kept",
+      "before the due date"
+     ]
+    ],
+    "claims": [
+     "NEW-le-new-baby-13"
+    ],
+    "links": []
+   }
+  },
+  {
+   "findings": [
+    "CFP-14"
+   ],
+   "what": "Add an adoption step, 'Claim the adoption credit and any employer adoption help', after le:new-baby:ssn (shown only matters to adopting families).",
+   "why_owner": "Adds a new step; the event is titled 'New baby or adoption' but no step covers adoption costs. Needs two new figures (adoption_credit_max, adoption_credit_refundable_max), used only by this draft.",
+   "draft": {
+    "id": "adoption",
+    "title": "Claim the adoption credit and any employer adoption help",
+    "when": "The tax year the adoption costs are paid or the adoption is final",
+    "body": "For 2026 the adoption credit covers qualified adoption expenses up to {{fig:adoption_credit_max}} per child, and up to {{fig:adoption_credit_refundable_max}} of it is refundable. If your employer has an adoption assistance program, those payments can also be excluded from income, but the same expenses cannot count for both. If a state has determined the child has special needs, the full credit can be claimed even with few or no expenses. The credit phases out at higher incomes.",
+    "plain": "For 2026 the adoption credit can cover adoption costs up to {{fig:adoption_credit_max}} per child, and up to {{fig:adoption_credit_refundable_max}} of it can come back as a refund. If your employer helps pay for adoption, that help can also be left out of your taxable income, but you can't use the same costs for both. If a state says the child has special needs, you can claim the full credit even if you had few or no adoption costs. The credit gets smaller at higher incomes.",
+    "props": [
+     [
+      "P1",
+      "2026 adoption credit up to the figures-layer maximum per child",
+      "kept",
+      "adoption costs up to"
+     ],
+     [
+      "P2",
+      "Up to the figures-layer amount is refundable",
+      "kept",
+      "come back as a refund"
+     ],
+     [
+      "P3",
+      "Employer adoption assistance can be excluded from income",
+      "kept",
+      "left out of your taxable income"
+     ],
+     [
+      "P4",
+      "Same expenses cannot count for both",
+      "kept",
+      "same costs for both"
+     ],
+     [
+      "P6",
+      "Special-needs adoption (state-determined): the full credit is allowed regardless of expenses",
+      "kept",
+      "special needs"
+     ],
+     [
+      "P5",
+      "The credit phases out at higher incomes",
+      "kept",
+      "smaller at higher incomes"
+     ]
+    ],
+    "claims": [
+     "NEW-le-new-baby-14"
+    ],
+    "links": []
+   },
+   "note": "The phase-out sentence rests on Rev. Proc. 2025-32 §4.04(2) (phase-out begins above a modified AGI threshold), read 2026-11-16; no threshold is stated in the text."
+  },
+  {
+   "findings": [
+    "CFP-14"
+   ],
+   "what": "Add one sentence to le:new-baby:ssn (or a separate short step) on the Trump Account pilot contribution.",
+   "why_owner": "New program (P.L. 119-21 §70204) that the tool does not cover anywhere; adding it is a scope choice, and the ssn block already grows about 260 percent under ADV-11. Needs a new figure (trump_pilot_contribution), used only by this draft.",
+   "draft": {
+    "id": "ssn (added sentence)",
+    "title": "(unchanged)",
+    "when": "(unchanged)",
+    "body": "For a U.S.-citizen child born in 2025 through 2028, the SSN also lets you elect a one-time {{fig:trump_pilot_contribution}} federal deposit to the child's Trump Account on Form 4547.",
+    "plain": "If your child is a U.S. citizen born in 2025 through 2028, the Social Security number also lets you ask for a one-time {{fig:trump_pilot_contribution}} deposit from the government into the child's Trump Account, using Form 4547.",
+    "props": [
+     [
+      "P9",
+      "Eligible children (U.S. citizen, born 2025 through 2028) can get a one-time federal pilot deposit to a Trump Account if elected on Form 4547 with the SSN",
+      "kept",
+      "trump account"
+     ]
+    ],
+    "claims": [
+     "NEW-le-new-baby-15"
+    ],
+    "links": []
+   },
+   "note": "Numbers 2025, 2028 and 4547 appear in both variants. The IRS page says Treasury began opening accounts automatically from Oct. 1, 2026, but the $1,000 still has to be elected; the draft says 'elect'."
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "ADV-10",
+   "assertion": "CHIP covers many children in working families.",
+   "why": "CHIP income levels are set state by state; no CMS or state page was read for a general statement, so it is not in the proposed text."
+  },
+  {
+   "finding": "ADV-13",
+   "assertion": "Many states offer simple will forms, and legal aid groups often help parents name a guardian for free.",
+   "why": "Not read at any primary source; availability of statutory will forms and legal-aid scope and income limits vary by state. Finding rejected."
+  },
+  {
+   "finding": "CFP-13",
+   "assertion": "A mid-year dependent-care FSA change is typically allowed within 30 days of the birth or adoption.",
+   "why": "26 CFR §1.125-4 sets no deadline and does not require plans to allow the change; the 30 days is plan design. Text says 'ask HR right away' instead."
+  },
+  {
+   "finding": "CFP-11",
+   "assertion": "Money left to a minor reaches the child outright at 18 or 21.",
+   "why": "The age depends on the state's guardianship and transfers-to-minors law and on the instrument; no age is stated in the text."
+  },
+  {
+   "finding": "CFP-14",
+   "assertion": "The child's SSN is needed for a 529 and dependent-care benefits.",
+   "why": "A 529 beneficiary SSN is plan practice, not read in any statute or agency page; the dependent care credit requires the qualifying person's TIN (§21(e)(10)), not specifically an SSN. Not drafted."
+  },
+  {
+   "finding": "CFP-14",
+   "assertion": "Short-term disability and state paid-leave claims should be filed before the due date.",
+   "why": "Claim timing is set by each plan and state program and was not read; the draft says 'check each one's claim rules before the due date' instead of stating a rule."
+  }
+ ]
+}

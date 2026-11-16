@@ -1,0 +1,409 @@
+{
+ "group": "annual-review",
+ "findings": [
+  {
+   "id": "CFP-56",
+   "head": "Annual calendar — HIGH (missing items)",
+   "text": "The checklist has no tax-filing-season item. Missing: the April tax deadline, prior-year IRA and HSA contributions (allowed until the filing deadline), and quarterly estimated taxes (April, June, September, January) for the self-employed, retirees and windfall recipients.\nAddition: a March/April item: \"File last year's return; make any prior-year IRA or HSA contribution by the filing deadline; if you pay estimated tax, put the four due dates on the calendar.\"",
+   "block": null,
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-57",
+   "head": "ar:insurance (month 10) — HIGH for retirees",
+   "text": "Missing: the Medicare annual enrollment period (October 15–December 7), the retiree's open enrollment, where Part D and Medicare Advantage plans change every year.\nAddition: \"On Medicare: compare Part D and Medicare Advantage plans for next year between October 15 and December 7.\"",
+   "block": "ar:insurance",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-58",
+   "head": "ar:insurance (month 10) — MED",
+   "text": "Phrase: the October item never mentions FSA or HSA, even though ar:limits says \"elections are made at open enrollment.\"\nWhy: The election belongs in the month where it is actually made.\nAddition to the October item: \"Set next year's health FSA, dependent-care FSA and HSA payroll amounts.\"",
+   "block": "ar:insurance",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-59",
+   "head": "ar:year-end (month 12) — MED (timing)",
+   "text": "Phrase: \"Before December 31: ... take any required minimum distribution, make ... qualified charitable distributions\"\nWhy: Custodians set early-December cutoffs, and a QCD check must be processed by December 31, so December is late. The item also leaves out:\n- the first-year RMD option (April 1),\n- inherited-IRA annual RMDs,\n- Roth conversions (calendar-year deadline),\n- spending down the health FSA (use-it-or-lose-it unless the plan has a grace period),\n- most states' Dec 31 deadline for the 529 deduction.\nFix: Start RMDs and QCDs in November. Addition: \"Request RMDs, inherited-IRA withdrawals, QCDs and any Roth conversion by early December, since custodians set cutoffs; spend down a health FSA and make any state-deductible 529 contribution by December 31.\"",
+   "block": "ar:year-end",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-60",
+   "head": "ar:year-end — LOW",
+   "text": "Phrase: \"harvest tax losses in taxable accounts if useful\"\nWhy: The wash-sale rule reaches purchases in IRAs and a spouse's accounts. Low-income years may favor harvesting gains at the 0% rate.\nAddition: \"Avoid buying the same holding in any account, including IRAs and a spouse's, within 30 days; in a low-income year, realizing gains at the 0% rate may beat harvesting losses.\"",
+   "block": "ar:year-end",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-61",
+   "head": "ar:rebalance — LOW (overgeneralization; the plain variant too)",
+   "text": "Phrase: \"use new contributions first to avoid realizing gains\"\nWhy: Selling inside IRAs and 401(k)s creates no tax, so rebalancing there is the usual first move.\nRewrite: \"Rebalance inside retirement accounts first, where trades are not taxed, and use new contributions to steer taxable accounts.\"",
+   "block": "ar:rebalance",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-62",
+   "head": "Annual calendar — LOW",
+   "text": "July through September is empty. Natural uses for those months: a mid-year withholding or estimated-tax check, and a Social Security earnings-record check (my Social Security). FAFSA opens October 1 for families with college students.",
+   "block": null,
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-63",
+   "head": "ar:year-end plain — LOW",
+   "text": "Phrase: \"if you're giving to family\"\nWhy: Narrows the original \"if gifting.\" The annual exclusion applies to gifts to anyone.\nRewrite: \"if you're giving money to anyone.\"",
+   "block": "ar:year-end",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "ar:limits": {
+   "title": "Reset contributions to this year's limits",
+   "when": null,
+   "body": "Indexed limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise payroll elections so the deferral is spread across the year; health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) elections are made at open enrollment.",
+   "links": [
+    {
+     "to": "full-chart/w2/8.1",
+     "label": "Max your 401(k) (framework 8.1)"
+    },
+    {
+     "to": "full-chart/w2/6.2",
+     "label": "Max your IRA (framework 6.2)"
+    },
+    {
+     "to": "full-chart/w2/6.1",
+     "label": "Max your HSA (framework 6.1)"
+    }
+   ],
+   "claims": [
+    "CL001",
+    "CL002",
+    "CL003",
+    "CL004",
+    "CL005",
+    "CL006"
+   ],
+   "plain": "Contribution limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (extra catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise your payroll elections so the money goes in evenly through the year. You choose your health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) amounts at open enrollment.",
+   "props": [
+    [
+     "P1",
+     "Indexed limits change every January",
+     "kept",
+     "change every january"
+    ],
+    [
+     "P2",
+     "2026 limits for 401(k), catch-ups, IRA, HSA (figures layer)",
+     "kept",
+     "for 2026"
+    ],
+    [
+     "P3",
+     "Raise payroll elections to spread the deferral across the year",
+     "kept",
+     "evenly through the year"
+    ],
+    [
+     "P4",
+     "FSA elections are made at open enrollment",
+     "kept",
+     "at open enrollment"
+    ]
+   ]
+  },
+  "ar:credit": {
+   "title": "Pull your credit reports and confirm the freezes are on",
+   "when": null,
+   "body": "Check all three reports at AnnualCreditReport.com for accounts you do not recognize, and confirm a security freeze is in place at each bureau.",
+   "links": [
+    {
+     "to": "protection/identity",
+     "label": "Protection · credit freeze"
+    }
+   ],
+   "claims": [
+    "CL526",
+    "CL527"
+   ],
+   "plain": "Look at all three credit reports at AnnualCreditReport.com for accounts you don't recognize, and make sure a security freeze is on at each bureau.",
+   "props": [
+    [
+     "P1",
+     "Check all three reports for unrecognized accounts",
+     "kept",
+     "accounts you don't recognize"
+    ],
+    [
+     "P2",
+     "Confirm a freeze at each bureau",
+     "kept",
+     "freeze is on at each bureau"
+    ]
+   ]
+  },
+  "ar:withholding": {
+   "title": "Run a withholding check",
+   "when": null,
+   "body": "After filing last year's return, run the IRS Tax Withholding Estimator with a current pay stub and file a new W-4 if the projection is far from zero — especially after a raise, a second job, a marriage or a new child.",
+   "links": [
+    {
+     "to": "life-events/job-loss",
+     "label": "Life events · job change"
+    }
+   ],
+   "claims": [
+    "CL492"
+   ],
+   "plain": "After you file last year's return, use the IRS Tax Withholding Estimator with a recent pay stub. File a new W-4 if it shows you'll owe or get back a lot — especially after a raise, a second job, a marriage or a new child.",
+   "props": [
+    [
+     "P1",
+     "Run the estimator after filing, with a current pay stub",
+     "kept",
+     "recent pay stub"
+    ],
+    [
+     "P2",
+     "File a new W-4 if the projection is far from zero",
+     "kept",
+     "file a new w-4"
+    ],
+    [
+     "P3",
+     "Especially after raise, second job, marriage, new child",
+     "kept",
+     "a second job"
+    ]
+   ]
+  },
+  "ar:net-worth": {
+   "title": "Take a net-worth snapshot",
+   "when": null,
+   "body": "Assets minus liabilities, recorded on the same date each year. The year-over-year change is the only number that measures real progress, and the list itself is the inventory your family would need in an emergency.",
+   "links": [
+    {
+     "to": "full-chart/w2/0.2",
+     "label": "Calculate your net worth (framework 0.2)"
+    }
+   ],
+   "claims": [],
+   "plain": "Add up what you own and subtract what you owe, on the same date each year. The change from year to year is the only number that shows real progress. The list itself is what your family would need in an emergency.",
+   "props": [
+    [
+     "P1",
+     "Net worth = assets minus liabilities, same date each year",
+     "kept",
+     "subtract what you owe"
+    ],
+    [
+     "P2",
+     "Year-over-year change is the only real progress measure",
+     "kept",
+     "only number that shows real progress"
+    ],
+    [
+     "P3",
+     "The list doubles as the family's emergency inventory",
+     "kept",
+     "family would need"
+    ]
+   ]
+  },
+  "ar:subscriptions": {
+   "title": "Audit subscriptions and recurring charges",
+   "when": null,
+   "body": "Go through a few months of statements for recurring charges. Bank fees — overdraft, ATM, monthly maintenance — often cost more than any single subscription and are worth the same scrutiny.",
+   "links": [
+    {
+     "to": "spending-lifestyle/7",
+     "label": "Spending · Subscriptions (calculator)"
+    }
+   ],
+   "claims": [
+    "CL192",
+    "CL394"
+   ],
+   "plain": "Look through a few months of statements for charges that repeat. Bank fees — overdraft, ATM, monthly service fees — often cost more than any one subscription and deserve the same look.",
+   "props": [
+    [
+     "P1",
+     "Review statements for recurring charges",
+     "kept",
+     "charges that repeat"
+    ],
+    [
+     "P2",
+     "Bank fees often cost more than any single subscription",
+     "kept",
+     "bank fees"
+    ]
+   ]
+  },
+  "ar:rebalance": {
+   "title": "Check the allocation against its rebalancing bands",
+   "when": null,
+   "body": "Compare the current mix to your target and rebalance if any asset class has drifted outside its band; use new contributions first to avoid realizing gains.",
+   "links": [
+    {
+     "to": "portfolio-bogleheads/4",
+     "label": "Portfolio · Rebalancing"
+    }
+   ],
+   "claims": [],
+   "plain": "Compare your current mix of investments to your target. If any part has drifted outside its allowed range, rebalance — using new contributions first, so you don't have to sell at a gain.",
+   "props": [
+    [
+     "P1",
+     "Compare current mix to target",
+     "kept",
+     "compare your current mix"
+    ],
+    [
+     "P2",
+     "Rebalance if outside its band",
+     "kept",
+     "outside its allowed range"
+    ],
+    [
+     "P3",
+     "Use new contributions first to avoid realizing gains",
+     "kept",
+     "new contributions first"
+    ]
+   ]
+  },
+  "ar:insurance": {
+   "title": "Review insurance at open enrollment",
+   "when": null,
+   "body": "Most employers hold open enrollment in the fall. Re-check health plan choice, disability coverage, term life against current dependents and debts, and whether property, auto and umbrella liability limits still match your net worth.",
+   "links": [
+    {
+     "to": "protection/disability",
+     "label": "Protection · disability"
+    },
+    {
+     "to": "protection/term-life",
+     "label": "Protection · term life"
+    },
+    {
+     "to": "protection/umbrella",
+     "label": "Protection · umbrella"
+    }
+   ],
+   "claims": [
+    "CL061",
+    "CL182"
+   ],
+   "plain": "Most employers hold open enrollment in the fall. Check your health plan choice, your disability coverage, your term life against who depends on you and what you owe, and whether your home, auto and umbrella liability limits still fit your net worth.",
+   "props": [
+    [
+     "P1",
+     "Open enrollment is usually in the fall",
+     "kept",
+     "in the fall"
+    ],
+    [
+     "P2",
+     "Re-check health plan and disability",
+     "kept",
+     "disability coverage"
+    ],
+    [
+     "P3",
+     "Term life vs current dependents and debts",
+     "kept",
+     "who depends on you"
+    ],
+    [
+     "P4",
+     "Property/auto/umbrella limits vs net worth",
+     "kept",
+     "still fit your net worth"
+    ]
+   ]
+  },
+  "ar:beneficiaries": {
+   "title": "Review beneficiary designations and estate documents",
+   "when": null,
+   "body": "Open every retirement account, life policy and transfer-on-death registration and confirm the named beneficiaries; check that the will, power of attorney and healthcare directive still name the right people.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "claims": [
+    "CL498"
+   ],
+   "plain": "Open every retirement account, life insurance policy and transfer-on-death registration and check who is named. Make sure your will, power of attorney and healthcare directive still name the right people.",
+   "props": [
+    [
+     "P1",
+     "Confirm beneficiaries on every account, policy, TOD registration",
+     "kept",
+     "transfer-on-death"
+    ],
+    [
+     "P2",
+     "Check will, POA and directive still name the right people",
+     "kept",
+     "still name the right people"
+    ]
+   ]
+  },
+  "ar:year-end": {
+   "title": "Year-end tax moves",
+   "when": null,
+   "body": "Before December 31: harvest tax losses in taxable accounts if useful, take any required minimum distribution, make planned charitable gifts or qualified charitable distributions, and use the gift annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) if gifting.",
+   "links": [
+    {
+     "to": "full-chart/w2/9.3",
+     "label": "Tax-loss harvesting (framework 9.3)"
+    },
+    {
+     "to": "full-chart/w2/10.5",
+     "label": "QCDs (framework 10.5)"
+    }
+   ],
+   "claims": [
+    "CL051",
+    "CL364"
+   ],
+   "plain": "Before December 31: sell investments at a loss in taxable accounts if it helps, take any required minimum distribution, make planned gifts to charity or qualified charitable distributions, and use the yearly gift exclusion ({{fig:gift_annual_exclusion}} per person for 2026) if you're giving to family.",
+   "props": [
+    [
+     "P1",
+     "Deadline: before December 31",
+     "kept",
+     "before december 31"
+    ],
+    [
+     "P2",
+     "Harvest losses if useful",
+     "kept",
+     "sell investments at a loss"
+    ],
+    [
+     "P3",
+     "Take any RMD",
+     "kept",
+     "required minimum distribution"
+    ],
+    [
+     "P4",
+     "Charitable gifts / QCDs",
+     "kept",
+     "qualified charitable distributions"
+    ],
+    [
+     "P5",
+     "Use the annual gift exclusion if gifting",
+     "kept",
+     "yearly gift exclusion"
+    ]
+   ]
+  }
+ }
+}

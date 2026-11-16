@@ -1,0 +1,1024 @@
+{
+ "group": "annual-review",
+ "findings": [
+  {
+   "id": "CFP-56",
+   "block": null,
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The point stands: the checklist never names the filing deadline, the prior-year IRA/HSA window, or the estimated-tax dates. Rather than a new March/April item (a change of shape), it is folded into ar:withholding (month 3), whose current text already starts 'After filing last year's return'. Changes from the reviewer's wording: 'not counting extensions' added, because 219(f)(3) excludes extensions and 223(d)(4)(B) applies the same rule to HSAs; the four statutory due dates are given (6654(c)(2)). The weekend/holiday roll-forward is left to the linked contractor node. Owner may wish to retitle the block (e.g. 'File, then run a withholding check'); titles are outside this file.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/219?link-type=html",
+     "quote": "deemed to have made a contribution ... on the last day of the preceding taxable year if ... made not later than the time prescribed by law for filing the return for such taxable year (not including extensions thereof)",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+     "quote": "Rules similar to the following rules shall apply for purposes of this section: ... (B) Section 219(f)(3) (relating to time when contributions deemed made).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/6654?link-type=html",
+     "quote": "The due date is: 1st April 15 2nd June 15 3rd September 15 4th January 15 of the following taxable year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+     "quote": "Individuals, including sole proprietors, partners, and S corporation shareholders, generally have to make estimated tax payments if they expect to owe tax of $1,000 or more when their return is filed.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/filing/individuals/when-to-file",
+     "quote": "Calendar year filers (most common) File on: April 15, 2026",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:withholding"
+  },
+  {
+   "id": "CFP-57",
+   "block": "ar:insurance",
+   "severity": "HIGH",
+   "verdict": "accept",
+   "reason": "Correct: the Part D / Medicare Advantage annual coordinated election period is October 15 through December 7 for the following calendar year (42 CFR 423.38(b)(3), 422.62(a)(2)(iii)), and Medicare.gov says costs, benefits and providers can change each year. Added to the month-10 insurance item. The checker also added that HSA contributions stop once on Medicare, because the same block now tells readers to set HSA payroll amounts (26 U.S.C. 223(b)(7)).",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-423.38",
+     "quote": "Beginning with 2011, the annual coordinated election period for the following calendar year is October 15 through December 7.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-42/section-422.62",
+     "quote": "(iii) Beginning in 2011, the annual coordinated election period for the following calendar year is October 15 through December 7.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicare.gov/publications/11220-your-yearly-medicare-review.pdf",
+     "quote": "Open Enrollment is the time to review your Medicare health or drug coverage and decide if you want to make changes. Your Medicare costs, benefits, and providers can change each year.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section223&num=0&edition=prelim",
+     "quote": "The limitation under this subsection for any month with respect to an individual shall be zero for the first month such individual is entitled to benefits under title XVIII",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:insurance"
+  },
+  {
+   "id": "CFP-58",
+   "block": "ar:insurance",
+   "severity": "MED",
+   "verdict": "accept",
+   "reason": "Correct: ar:limits (month 1) says FSA elections are made at open enrollment, but the October item never prompts them. Pub 969 confirms the amount is designated at the start of the plan year and can change only where law and the plan allow, which is the trap worth naming. HSA payroll amount added as an action only; no rule about HSA mid-year changes is asserted. ar:limits is left unchanged (its sentence still reads correctly as a pointer). 26 CFR 1.125-4(a) (read 2026-11-16) supports the 'limited cases' wording for the dependent-care FSA too, which Pub 969 does not cover.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/publications/p969",
+     "quote": "At the beginning of the plan year, you must designate how much you want to contribute. ... You can change or revoke your election only if specifically allowed by law and the plan.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ecfr.gov/current/title-26/section-1.125-4",
+     "quote": "A cafeteria plan may permit an employee to revoke an election during a period of coverage and to make a new election only as provided in paragraphs (b) through (g) of this section.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:insurance"
+  },
+  {
+   "id": "CFP-59",
+   "block": "ar:year-end",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Accepted: request RMDs (including an inherited IRA's yearly RMD), QCDs and Roth conversions early; first-RMD April 1 option and its two-in-one-year trap; spend down a use-it-or-lose-it health FSA. Modified: 'custodians set early-December cutoffs' and 'a QCD check must be processed by December 31' are custodian practice not read at a primary source, so the text says only 'ask early, so it is done by December 31'; the 529 state-deduction deadline is state-specific and was not read, so it is left out (see unverified). The block's month (12) is not changed here; the owner may move it to 11 as the reviewer suggests.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+     "quote": "you can delay taking the first RMD until April 1 of the following year. If you reach age 73 in 2024, you must take your first RMD by April 1, 2025, and the second RMD by Dec. 31, 2025.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p590b",
+     "quote": "If the owner died on or after their required beginning date ... and you are a designated beneficiary, base your required minimum distributions for years after the year of the owner’s death on the longer of",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p590a",
+     "quote": "These amounts are normally included in income on your return for the year that you converted them from a traditional IRA to a Roth IRA.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p969",
+     "quote": "FSAs are generally “use-it-or-lose-it” plans. ... However, the plan can provide for either a grace period or a carryover.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:year-end"
+  },
+  {
+   "id": "CFP-60",
+   "block": "ar:year-end",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Accepted in part. The wash-sale reach is correct: 1091(a) sets the 30-days-before-or-after window and Pub 550 extends it to purchases for an IRA or Roth IRA and by a spouse (existing rows CL031, CL032); the text now says the loss will not count. The 0%-gains half is not added to the text: the 0% rate itself is real (1(h)(1)(B), with breakpoints now set through 1(j)(5)), but 'realizing gains may beat harvesting losses' ignores that a gain raises the MAGI used for Marketplace premium tax credits and Medicaid, which can hurt exactly the low-income reader it targets. A safe alternative wording is in the ar:year-end notes for the owner.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/1091?link-type=html",
+     "quote": "within a period beginning 30 days before the date of such sale or disposition and ending 30 days after such date, the taxpayer has acquired ... substantially identical stock or securities, then no deduction shall be allowed",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/publications/p550",
+     "quote": "Acquire substantially identical stock for your individual retirement arrangement (IRA) or Roth IRA. If you sell stock and your spouse or a corporation you control buys substantially identical stock, you also have a wash sale.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/1?link-type=html",
+     "quote": "0 percent of so much of the adjusted net capital gain as does not exceed the excess (if any) of— (i) the amount of taxable income which would ... be taxed at a rate below 25 percent",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/income-and-household-information/income/",
+     "quote": "The Marketplace uses a number called \"modified adjusted gross income (MAGI)\" to determine if you qualify for savings. ... Count these income types: ... Capital gains",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:year-end"
+  },
+  {
+   "id": "CFP-61",
+   "block": "ar:rebalance",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Correct: an IRA is exempt from tax (408(e)(1)) and a 401(a) trust is exempt under 501(a), so trades inside them realize no taxable gain. Body and plain both rewritten; new contributions stay as the tool for taxable accounts.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+     "quote": "Any individual retirement account is exempt from taxation under this subtitle unless such account has ceased to be an individual retirement account",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/501?link-type=html",
+     "quote": "An organization described in subsection (c) or (d) or section 401(a) shall be exempt from taxation under this subtitle unless such exemption is denied under section 502 or 503.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:rebalance"
+  },
+  {
+   "id": "CFP-62",
+   "block": null,
+   "severity": "LOW",
+   "verdict": "owner-decision",
+   "reason": "Filling July-September needs a new checklist item, which changes the product's shape. Draft under owner_decisions (month 8): SSA itself says to check the earnings record in August; the FAFSA must open not later than October 1 under 20 U.S.C. 1090; the withholding/estimated-tax recheck is offered as an action. The estimated-tax due dates themselves are now in ar:withholding (CFP-56).",
+   "sources": [
+    {
+     "url": "https://www.ssa.gov/prepare/review-record-earnings",
+     "quote": "Every year your employer tells us how much money you earned so we can update your Social Security record. ... Check it in August to make sure last year's amount is correct.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/20/1090?link-type=html",
+     "quote": "The Secretary shall enable applicants to submit a Free Application for Federal Student Aid developed under this section and initiate the processing of such application, not later than October 1 prior to the applicant's planned year of enrollment.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/individuals/tax-withholding-estimator",
+     "quote": "You can only use this tool if you have one of the following: A job with an employer (W-2) A pension or annuity with federal income tax withholding",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": null
+  },
+  {
+   "id": "CFP-63",
+   "block": "ar:year-end",
+   "severity": "LOW",
+   "verdict": "accept-modified",
+   "reason": "Correct that the plain text narrowed the rule: 2503(b)(1) applies to gifts 'made to any person'. Modified from 'giving money to anyone' to 'giving to anyone', because the exclusion covers gifts of property too, not only money.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/2503?link-type=html",
+     "quote": "In the case of gifts (other than gifts of future interests in property) made to any person by the donor during the calendar year, the first $10,000 of such gifts to such person shall not ... be included",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "ar:year-end"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "ar:limits",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Indexed limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise payroll elections so the deferral is spread across the year; health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) elections are made at open enrollment.",
+   "plain": "Contribution limits change every January. For 2026: 401(k)/403(b) employee deferral {{fig:limit_401k_deferral}} (extra catch-up at 50+ {{fig:limit_401k_catchup_50}}; ages 60–63 {{fig:limit_401k_supercatchup_6063}}), IRA {{fig:limit_ira}} (catch-up {{fig:limit_ira_catchup}}), HSA {{fig:limit_hsa_self}} self-only / {{fig:limit_hsa_family}} family. Raise your payroll elections so the money goes in evenly through the year. You choose your health FSA ({{fig:limit_health_fsa}}) and dependent-care FSA ({{fig:limit_dcfsa}}) amounts at open enrollment.",
+   "props": [
+    [
+     "P1",
+     "Indexed limits change every January",
+     "kept",
+     "change every january"
+    ],
+    [
+     "P2",
+     "2026 limits for 401(k), catch-ups, IRA, HSA (figures layer)",
+     "kept",
+     "for 2026"
+    ],
+    [
+     "P3",
+     "Raise payroll elections to spread the deferral across the year",
+     "kept",
+     "evenly through the year"
+    ],
+    [
+     "P4",
+     "FSA elections are made at open enrollment",
+     "kept",
+     "at open enrollment"
+    ]
+   ],
+   "claims": [
+    "CL001",
+    "CL002",
+    "CL003",
+    "CL004",
+    "CL005",
+    "CL006"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/8.1",
+     "label": "Max your 401(k) (framework 8.1)"
+    },
+    {
+     "to": "full-chart/w2/6.2",
+     "label": "Max your IRA (framework 6.2)"
+    },
+    {
+     "to": "full-chart/w2/6.1",
+     "label": "Max your HSA (framework 6.1)"
+    }
+   ],
+   "words_before": 52,
+   "words_after": 52,
+   "notes": ""
+  },
+  {
+   "id": "ar:credit",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Check all three reports at AnnualCreditReport.com for accounts you do not recognize, and confirm a security freeze is in place at each bureau.",
+   "plain": "Look at all three credit reports at AnnualCreditReport.com for accounts you don't recognize, and make sure a security freeze is on at each bureau.",
+   "props": [
+    [
+     "P1",
+     "Check all three reports for unrecognized accounts",
+     "kept",
+     "accounts you don't recognize"
+    ],
+    [
+     "P2",
+     "Confirm a freeze at each bureau",
+     "kept",
+     "freeze is on at each bureau"
+    ]
+   ],
+   "claims": [
+    "CL526",
+    "CL527"
+   ],
+   "links": [
+    {
+     "to": "protection/identity",
+     "label": "Protection · credit freeze"
+    }
+   ],
+   "words_before": 23,
+   "words_after": 23,
+   "notes": ""
+  },
+  {
+   "id": "ar:withholding",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-56"
+   ],
+   "body": "File last year's return by the April deadline. Until that deadline, not counting extensions, you can still make an IRA or HSA contribution for last year. Then run the IRS Tax Withholding Estimator with a current pay stub and file a new W-4 if the projection is far from zero — especially after a raise, a second job, a marriage or a new child. If you pay estimated tax, put the four due dates on the calendar: April 15, June 15, September 15 and January 15.",
+   "plain": "File last year's tax return by the April deadline. You can still put money into an IRA or HSA for last year until that deadline. An extension does not give you more time for this. Then use the IRS Tax Withholding Estimator with a recent pay stub. File a new W-4 if it shows you'll owe or get back a lot — especially after a raise, a second job, a marriage or a new child. If you pay estimated tax, mark the four due dates on your calendar: April 15, June 15, September 15 and January 15.",
+   "props": [
+    [
+     "P1",
+     "File last year's return by the April deadline",
+     "kept",
+     "by the april deadline"
+    ],
+    [
+     "P2",
+     "A prior-year IRA or HSA contribution can be made until the filing deadline",
+     "kept",
+     "ira or hsa for last year"
+    ],
+    [
+     "P3",
+     "Extensions do not extend that contribution deadline",
+     "kept",
+     "extension does not give you more time"
+    ],
+    [
+     "P4",
+     "Run the estimator after filing, with a current pay stub",
+     "kept",
+     "recent pay stub"
+    ],
+    [
+     "P5",
+     "File a new W-4 if the projection is far from zero",
+     "kept",
+     "file a new w-4"
+    ],
+    [
+     "P6",
+     "Especially after raise, second job, marriage, new child",
+     "kept",
+     "a second job"
+    ],
+    [
+     "P7",
+     "Estimated-tax payers: the four due dates April 15, June 15, September 15, January 15",
+     "kept",
+     "four due dates"
+    ]
+   ],
+   "claims": [
+    "CL492",
+    "NEW-annual-review-1",
+    "NEW-annual-review-2"
+   ],
+   "links": [
+    {
+     "to": "life-events/job-loss",
+     "label": "Life events · job change"
+    },
+    {
+     "to": "full-chart/contractor/0.3",
+     "label": "Set up quarterly estimated tax payments (contractor framework 0.3)"
+    }
+   ],
+   "words_before": 42,
+   "words_after": 86,
+   "notes": "Grows from 42 to 86 words (over 70 percent) because it now carries the filing-season item CFP-56 asked for; the alternative is a separate March/April item, which would be an owner decision. Title 'Run a withholding check' no longer covers the whole block; consider 'File, then run a withholding check'. New link target full-chart/contractor/0.3 exists."
+  },
+  {
+   "id": "ar:net-worth",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Assets minus liabilities, recorded on the same date each year. The year-over-year change is the only number that measures real progress, and the list itself is the inventory your family would need in an emergency.",
+   "plain": "Add up what you own and subtract what you owe, on the same date each year. The change from year to year is the only number that shows real progress. The list itself is what your family would need in an emergency.",
+   "props": [
+    [
+     "P1",
+     "Net worth = assets minus liabilities, same date each year",
+     "kept",
+     "subtract what you owe"
+    ],
+    [
+     "P2",
+     "Year-over-year change is the only real progress measure",
+     "kept",
+     "only number that shows real progress"
+    ],
+    [
+     "P3",
+     "The list doubles as the family's emergency inventory",
+     "kept",
+     "family would need"
+    ]
+   ],
+   "claims": [],
+   "links": [
+    {
+     "to": "full-chart/w2/0.2",
+     "label": "Calculate your net worth (framework 0.2)"
+    }
+   ],
+   "words_before": 35,
+   "words_after": 35,
+   "notes": ""
+  },
+  {
+   "id": "ar:subscriptions",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Go through a few months of statements for recurring charges. Bank fees — overdraft, ATM, monthly maintenance — often cost more than any single subscription and are worth the same scrutiny.",
+   "plain": "Look through a few months of statements for charges that repeat. Bank fees — overdraft, ATM, monthly service fees — often cost more than any one subscription and deserve the same look.",
+   "props": [
+    [
+     "P1",
+     "Review statements for recurring charges",
+     "kept",
+     "charges that repeat"
+    ],
+    [
+     "P2",
+     "Bank fees often cost more than any single subscription",
+     "kept",
+     "bank fees"
+    ]
+   ],
+   "claims": [
+    "CL192",
+    "CL394"
+   ],
+   "links": [
+    {
+     "to": "spending-lifestyle/7",
+     "label": "Spending · Subscriptions (calculator)"
+    }
+   ],
+   "words_before": 31,
+   "words_after": 31,
+   "notes": ""
+  },
+  {
+   "id": "ar:rebalance",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-61"
+   ],
+   "body": "Compare the current mix to your target and rebalance if any asset class has drifted outside its band. Trades inside an IRA or 401(k) are not taxed, so rebalance there first; in taxable accounts, steer new contributions toward what is underweight to avoid realizing gains.",
+   "plain": "Compare your current mix of investments to your target. If any part has drifted outside its allowed range, rebalance. Buying and selling inside an IRA or 401(k) is not taxed, so make the changes there first. In taxable accounts, put new contributions into whatever is short, so you don't have to sell at a gain.",
+   "props": [
+    [
+     "P1",
+     "Compare current mix to target",
+     "kept",
+     "compare your current mix"
+    ],
+    [
+     "P2",
+     "Rebalance if outside its band",
+     "kept",
+     "outside its allowed range"
+    ],
+    [
+     "P3",
+     "Trades inside an IRA or 401(k) are not taxed, so rebalance there first",
+     "kept",
+     "make the changes there first"
+    ],
+    [
+     "P4",
+     "In taxable accounts, steer new contributions to avoid realizing gains",
+     "kept",
+     "put new contributions into whatever is short"
+    ]
+   ],
+   "claims": [
+    "NEW-annual-review-5"
+   ],
+   "links": [
+    {
+     "to": "portfolio-bogleheads/4",
+     "label": "Portfolio · Rebalancing"
+    }
+   ],
+   "words_before": 26,
+   "words_after": 45,
+   "notes": "Grows from 26 to 45 words (about 73 percent, just over the guide) because the rewrite names where to rebalance and why. Adds the number 401 (from '401(k)') to both variants; it appears in both, so the numbers gate holds."
+  },
+  {
+   "id": "ar:insurance",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-57",
+    "CFP-58"
+   ],
+   "body": "Most employers hold open enrollment in the fall. Re-check health plan choice, disability coverage, term life against current dependents and debts, and whether property, auto and umbrella liability limits still match your net worth. Set next year's health FSA, dependent-care FSA and HSA payroll amounts while you choose the plan; an FSA election can be changed later only in limited cases. On Medicare, you can no longer contribute to an HSA; compare Part D and Medicare Advantage plans during open enrollment, October 15 to December 7, because costs, benefits and providers can change each year.",
+   "plain": "Most employers hold open enrollment in the fall. Check your health plan choice, your disability coverage, your term life against who depends on you and what you owe, and whether your home, auto and umbrella liability limits still fit your net worth. Set next year's health FSA, dependent-care FSA and HSA amounts from your pay while you pick the plan. Most of the time you can't change an FSA amount later in the year. If you have Medicare, you can't put money into an HSA anymore. Compare Part D and Medicare Advantage plans during open enrollment, October 15 to December 7. Costs, benefits and providers can change each year.",
+   "props": [
+    [
+     "P1",
+     "Open enrollment is usually in the fall",
+     "kept",
+     "in the fall"
+    ],
+    [
+     "P2",
+     "Re-check health plan and disability",
+     "kept",
+     "disability coverage"
+    ],
+    [
+     "P3",
+     "Term life vs current dependents and debts",
+     "kept",
+     "who depends on you"
+    ],
+    [
+     "P4",
+     "Property/auto/umbrella limits vs net worth",
+     "kept",
+     "still fit your net worth"
+    ],
+    [
+     "P5",
+     "Set next year's health FSA, dependent-care FSA and HSA payroll amounts at open enrollment",
+     "kept",
+     "dependent-care fsa and hsa amounts"
+    ],
+    [
+     "P6",
+     "An FSA election can be changed later only in limited cases",
+     "kept",
+     "can't change an fsa amount later"
+    ],
+    [
+     "P7",
+     "On Medicare, HSA contributions are no longer allowed",
+     "kept",
+     "can't put money into an hsa anymore"
+    ],
+    [
+     "P8",
+     "On Medicare: compare Part D and Medicare Advantage plans October 15 to December 7",
+     "kept",
+     "october 15 to december 7"
+    ],
+    [
+     "P9",
+     "Medicare plan costs, benefits and providers can change each year",
+     "kept",
+     "can change each year"
+    ]
+   ],
+   "claims": [
+    "CL061",
+    "CL182",
+    "NEW-annual-review-3",
+    "NEW-annual-review-4",
+    "NEW-annual-review-12"
+   ],
+   "links": [
+    {
+     "to": "protection/disability",
+     "label": "Protection · disability"
+    },
+    {
+     "to": "protection/term-life",
+     "label": "Protection · term life"
+    },
+    {
+     "to": "protection/umbrella",
+     "label": "Protection · umbrella"
+    },
+    {
+     "to": "life-events/retirement",
+     "label": "Life events · retirement (Medicare)"
+    }
+   ],
+   "words_before": 34,
+   "words_after": 95,
+   "notes": "Grows from 34 to 95 words (over 70 percent) because two findings land here (FSA/HSA elections, Medicare open enrollment). The checker added one clause: the draft told readers to set HSA payroll amounts in the same block that addresses Medicare enrollees, and an HSA contribution limit is zero from the first month of Medicare entitlement (26 U.S.C. 223(b)(7)). New link target life-events/retirement exists; it is optional."
+  },
+  {
+   "id": "ar:beneficiaries",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "Open every retirement account, life policy and transfer-on-death registration and confirm the named beneficiaries; check that the will, power of attorney and healthcare directive still name the right people.",
+   "plain": "Open every retirement account, life insurance policy and transfer-on-death registration and check who is named. Make sure your will, power of attorney and healthcare directive still name the right people.",
+   "props": [
+    [
+     "P1",
+     "Confirm beneficiaries on every account, policy, TOD registration",
+     "kept",
+     "transfer-on-death"
+    ],
+    [
+     "P2",
+     "Check will, POA and directive still name the right people",
+     "kept",
+     "still name the right people"
+    ]
+   ],
+   "claims": [
+    "CL498"
+   ],
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "words_before": 29,
+   "words_after": 29,
+   "notes": ""
+  },
+  {
+   "id": "ar:year-end",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-59",
+    "CFP-60",
+    "CFP-63"
+   ],
+   "body": "Before December 31: harvest tax losses in taxable accounts if useful, but do not buy a substantially identical holding within 30 days before or after in any account, including an IRA or a spouse's, or the loss will not count. Ask the custodian early for any required minimum distribution (including one from an inherited IRA), qualified charitable distribution or Roth conversion, so it is done by December 31. A first RMD can wait until April 1 of the next year, but then two are due that year. Use up any health FSA money that would be lost when its plan year ends, make planned charitable gifts, and use the gift annual exclusion ({{fig:gift_annual_exclusion}} per recipient for 2026) if gifting.",
+   "plain": "Before December 31: sell investments at a loss in taxable accounts if it helps. But don't buy the same or a nearly identical investment within 30 days before or after, in any account, including an IRA or your spouse's, or the loss won't count. Ask your account company early for any required minimum distribution (including one from an inherited IRA), qualified charitable distribution or Roth conversion, so it is done by December 31. Your first required minimum distribution can wait until April 1 of the next year, but then you must take two that year. Use up health FSA money you would otherwise lose when the plan year ends. Make planned gifts to charity, and use the yearly gift exclusion ({{fig:gift_annual_exclusion}} per person for 2026) if you're giving to anyone.",
+   "props": [
+    [
+     "P1",
+     "Deadline: before December 31",
+     "kept",
+     "before december 31"
+    ],
+    [
+     "P2",
+     "Harvest losses if useful",
+     "kept",
+     "sell investments at a loss"
+    ],
+    [
+     "P3",
+     "Wash sale: no substantially identical purchase within 30 days before or after, in any account, including an IRA or a spouse's; otherwise the loss is disallowed",
+     "kept",
+     "within 30 days before or after"
+    ],
+    [
+     "P4",
+     "Ask the custodian early so RMDs, QCDs and Roth conversions are done by December 31",
+     "kept",
+     "ask your account company early"
+    ],
+    [
+     "P5",
+     "Take any RMD, including one from an inherited IRA",
+     "kept",
+     "one from an inherited ira"
+    ],
+    [
+     "P6",
+     "Qualified charitable distributions",
+     "kept",
+     "qualified charitable distribution"
+    ],
+    [
+     "P7",
+     "Roth conversions count in the year done",
+     "kept",
+     "roth conversion"
+    ],
+    [
+     "P8",
+     "A first RMD can wait until April 1 of the next year, but then two are due that year",
+     "kept",
+     "you must take two that year"
+    ],
+    [
+     "P9",
+     "Use up health FSA money that would be forfeited at plan-year end",
+     "kept",
+     "use up health fsa money"
+    ],
+    [
+     "P10",
+     "Charitable gifts",
+     "kept",
+     "planned gifts to charity"
+    ],
+    [
+     "P11",
+     "Use the annual gift exclusion if gifting",
+     "kept",
+     "yearly gift exclusion"
+    ]
+   ],
+   "claims": [
+    "CL051",
+    "CL364",
+    "CL031",
+    "CL032",
+    "NEW-annual-review-6",
+    "NEW-annual-review-8",
+    "NEW-annual-review-9",
+    "NEW-annual-review-3"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/9.3",
+     "label": "Tax-loss harvesting (framework 9.3)"
+    },
+    {
+     "to": "full-chart/w2/10.5",
+     "label": "QCDs (framework 10.5)"
+    },
+    {
+     "to": "full-chart/w2/10.2",
+     "label": "Withdrawal sequencing (framework 10.2)"
+    }
+   ],
+   "words_before": 37,
+   "words_after": 119,
+   "notes": "Grows from 37 to 119 words, well over 70 percent: three findings land here (CFP-59 timing, CFP-60 wash sale, CFP-63 plain wording). The checker cut the draft's 0% capital-gains sentence: a reader in a low-income year is the one most likely to be on Marketplace coverage or Medicaid, and a realized gain counts in the MAGI those programs use, so 'realizing gains may be worth more' could cost them savings. If the owner wants it back, a safe form is: 'In a low-income year, long-term gains may be taxed at 0%, but they still count as income for Marketplace savings and Medicaid.' (sources: 26 U.S.C. 1(h)(1)(B) with 1(j)(5); HealthCare.gov 'What's included as income'). Hardest remaining cut candidate: the first-RMD sentence. 'Ask the custodian early' is advice; the early-December cutoff itself is not asserted (unverified). Month stays 12; CFP-59 suggests 11. CL031/CL032 are existing chart rows reused. New link full-chart/w2/10.2 exists; it is optional."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-annual-review-1",
+   "loc": "P4:annual-review:withholding",
+   "claim": "A contribution to an IRA or HSA for the prior year can be made until the due date of that year's return, not including extensions",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §219(f)(3); §223(d)(4)(B)",
+   "url": "https://www.govinfo.gov/link/uscode/26/219?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §219(f)(3) (contribution deemed made on the last day of the preceding taxable year if made 'not later than the time prescribed by law for filing the return for such taxable year (not including extensions thereof)'); §223(d)(4)(B) applies rules similar to §219(f)(3) to HSAs. Added 2026-11-16 from the §4.4 persona pass (CFP-56)."
+  },
+  {
+   "temp_id": "NEW-annual-review-2",
+   "loc": "P4:annual-review:withholding",
+   "claim": "Individual estimated tax installments are due April 15, June 15, September 15 and January 15 of the following year",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §6654(c)(2); IRS 'Estimated taxes'",
+   "url": "https://www.govinfo.gov/link/uscode/26/6654?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §6654(c)(2) (1st April 15, 2nd June 15, 3rd September 15, 4th January 15 of the following taxable year); IRS 'Estimated taxes' (individuals generally pay if they expect to owe $1,000 or more; a weekend or holiday due date moves to the next business day). Added 2026-11-16 from the §4.4 persona pass (CFP-56)."
+  },
+  {
+   "temp_id": "NEW-annual-review-3",
+   "loc": "P4:annual-review:insurance; P4:annual-review:year-end",
+   "claim": "A health FSA amount is elected at the start of the plan year and can be changed only where the law and the plan allow; FSAs are generally use-it-or-lose-it, though a plan may offer a grace period or a carryover",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS Publication 969 (2025), Flexible Spending Arrangements: 'When To Contribute'; 'Balance in an FSA'; 26 CFR 1.125-4(a)",
+   "url": "https://www.irs.gov/publications/p969",
+   "note": "Verified 2026-11-16 at the primary source: Pub. 969 'When To Contribute' ('At the beginning of the plan year, you must designate how much you want to contribute ... You can change or revoke your election only if specifically allowed by law and the plan'); 'Balance in an FSA' ('generally “use-it-or-lose-it” ... the plan can provide for either a grace period or a carryover'; grace period up to 2 1/2 months). Also 26 CFR 1.125-4(a) ('may permit an employee to revoke an election during a period of coverage ... only as provided in paragraphs (b) through (g)'), which covers dependent-care FSAs. Added 2026-11-16 from the §4.4 persona pass (CFP-58, CFP-59)."
+  },
+  {
+   "temp_id": "NEW-annual-review-4",
+   "loc": "P4:annual-review:insurance",
+   "claim": "The Medicare Advantage and Part D annual coordinated election period for the following calendar year runs October 15 through December 7; plan costs, benefits and providers can change each year",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 CFR §423.38(b)(3); §422.62(a)(2)(iii); Medicare.gov 'Your Yearly Medicare Review' (CMS Product No. 11220)",
+   "url": "https://www.ecfr.gov/current/title-42/section-423.38",
+   "note": "Verified 2026-11-16 at the primary source: 42 CFR §423.38(b)(3) and §422.62(a)(2)(iii) (eCFR, 2026-11-01 version: 'Beginning with 2011, the annual coordinated election period for the following calendar year is October 15 through December 7'); Medicare.gov publication 11220 ('Your Medicare costs, benefits, and providers can change each year'). Added 2026-11-16 from the §4.4 persona pass (CFP-57)."
+  },
+  {
+   "temp_id": "NEW-annual-review-5",
+   "loc": "P4:annual-review:rebalance",
+   "claim": "Trades inside an IRA or a qualified plan such as a 401(k) are not taxed: an IRA is exempt from taxation and a §401(a) trust is exempt under §501(a)",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §408(e)(1); §501(a)",
+   "url": "https://www.govinfo.gov/link/uscode/26/408?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §408(e)(1) ('Any individual retirement account is exempt from taxation under this subtitle unless such account has ceased to be an individual retirement account'); §501(a) (an organization described in section 401(a) 'shall be exempt from taxation'). Distributions remain taxable under their own rules. Added 2026-11-16 from the §4.4 persona pass (CFP-61)."
+  },
+  {
+   "temp_id": "NEW-annual-review-6",
+   "loc": "P4:annual-review:year-end",
+   "claim": "The wash-sale rule disallows a loss when substantially identical stock or securities are acquired within 30 days before or after the sale, including purchases for the taxpayer's IRA or Roth IRA and purchases by the taxpayer's spouse",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §1091(a); IRS Publication 550 (2025), Wash Sales",
+   "url": "https://www.govinfo.gov/link/uscode/26/1091?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: §1091(a) (period 'beginning 30 days before the date of such sale or disposition and ending 30 days after such date'); Pub. 550 Wash Sales ('Acquire substantially identical stock for your individual retirement arrangement (IRA) or Roth IRA. If you sell stock and your spouse ... buys substantially identical stock, you also have a wash sale'). Overlaps CL031/CL032. Added 2026-11-16 from the §4.4 persona pass (CFP-60)."
+  },
+  {
+   "temp_id": "NEW-annual-review-8",
+   "loc": "P4:annual-review:year-end",
+   "claim": "The first RMD can be delayed until April 1 of the year after the owner reaches RMD age, but the second RMD is then due by December 31 of that same year; a designated beneficiary of an owner who died on or after the required beginning date takes yearly RMDs",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS 'Retirement plan and IRA required minimum distributions FAQs' Q3; IRS Publication 590-B (2025), Owner Died on or After Required Beginning Date",
+   "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+   "note": "Verified 2026-11-16 at the primary source: IRS RMD FAQs Q3 ('you can delay taking the first RMD until April 1 of the following year. If you reach age 73 in 2024, you must take your first RMD by April 1, 2025, and the second RMD by Dec. 31, 2025'); Pub. 590-B ('If the owner died on or after their required beginning date ... base your required minimum distributions for years after the year of the owner’s death on'). Added 2026-11-16 from the §4.4 persona pass (CFP-59)."
+  },
+  {
+   "temp_id": "NEW-annual-review-9",
+   "loc": "P4:annual-review:year-end",
+   "claim": "Amounts converted from a traditional IRA to a Roth IRA are normally included in income for the year of the conversion",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS Publication 590-A (2025), Converting From Any Traditional IRA Into a Roth IRA: Income",
+   "url": "https://www.irs.gov/publications/p590a",
+   "note": "Verified 2026-11-16 at the primary source: Pub. 590-A ('These amounts are normally included in income on your return for the year that you converted them from a traditional IRA to a Roth IRA'). Added 2026-11-16 from the §4.4 persona pass (CFP-59)."
+  },
+  {
+   "temp_id": "NEW-annual-review-10",
+   "loc": "P4:annual-review:mid-year",
+   "claim": "SSA asks workers to check their earnings record in August to make sure last year's amount is correct; the my Social Security account shows the earnings history",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "SSA 'Review record of earnings'; SSA 'Get Your Social Security Statement' (ssa.gov/myaccount/statement.html)",
+   "url": "https://www.ssa.gov/prepare/review-record-earnings",
+   "note": "Verified 2026-11-16 at the primary source: SSA 'Review record of earnings' ('Check it in August to make sure last year's amount is correct'); SSA 'Get Your Social Security Statement' (a my Social Security account lets you 'verify your reported earnings'). DRAFT ROW: only if the owner adopts the mid-year item (CFP-62)."
+  },
+  {
+   "temp_id": "NEW-annual-review-11",
+   "loc": "P4:annual-review:mid-year",
+   "claim": "The Department of Education must let applicants submit the FAFSA not later than October 1 before the planned year of enrollment",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "20 U.S.C. §1090(d)(4)(A) (as amended by P.L. 118-145)",
+   "url": "https://www.govinfo.gov/link/uscode/20/1090?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 20 U.S.C. §1090 ('The Secretary shall enable applicants to submit a Free Application for Federal Student Aid ... not later than October 1 prior to the applicant's planned year of enrollment'). The actual launch date in a given year was not checked. DRAFT ROW: only if the owner adopts the mid-year item (CFP-62)."
+  },
+  {
+   "temp_id": "NEW-annual-review-12",
+   "loc": "P4:annual-review:insurance",
+   "claim": "An individual's HSA contribution limit is zero for the first month the individual is entitled to Medicare and every month after",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §223(b)(7)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section223&num=0&edition=prelim",
+   "note": "Verified 2026-11-16 at the primary source (OLRC text in effect August 30, 2026, includes P.L. 119-21 amendments, none to (b)(7)): §223(b)(7) ('The limitation under this subsection for any month with respect to an individual shall be zero for the first month such individual is entitled to benefits under title XVIII of the Social Security Act and for each month thereafter'). Added 2026-11-16 by the checker on the §4.4 persona pass (CFP-57/CFP-58 block)."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [
+  {
+   "findings": [
+    "CFP-62"
+   ],
+   "what": "Add a month-8 'Mid-year check' item to fill the empty July-September stretch: Social Security earnings record (SSA's own August timing), a withholding or estimated-tax recheck, and the FAFSA opening for families with a college student next year.",
+   "why_owner": "It is a new checklist item, which changes the product's shape (nine items become ten, and the export/print layout changes). The content is source-checked; the decision is whether the checklist should grow.",
+   "draft": {
+    "id": "mid-year",
+    "month": 8,
+    "title": "Mid-year check: Social Security record, withholding, FAFSA",
+    "when": null,
+    "body": "Check your Social Security earnings record at my Social Security; SSA says to check in August that last year's amount is correct. If your income has changed, rerun the IRS Tax Withholding Estimator, or redo the Form 1040-ES worksheet if you pay estimated tax. If someone in the family will be in college next school year, the FAFSA must open by October 1; file it once it opens.",
+    "plain": "Look at your Social Security earnings record in your my Social Security account. SSA says to check it in August to make sure last year's pay is right. If your income has changed, use the IRS Tax Withholding Estimator again, or redo the Form 1040-ES worksheet if you pay estimated tax. If someone in your family will be in college next school year, the FAFSA has to open by October 1. Fill it out once it opens.",
+    "props": [
+     [
+      "P1",
+      "Check the Social Security earnings record at my Social Security",
+      "kept",
+      "social security earnings record"
+     ],
+     [
+      "P2",
+      "SSA says to check in August that last year's amount is correct",
+      "kept",
+      "ssa says to check it in august"
+     ],
+     [
+      "P3",
+      "Rerun the withholding estimator, or the 1040-ES worksheet for estimated-tax payers, if income changed",
+      "kept",
+      "1040-es worksheet"
+     ],
+     [
+      "P4",
+      "FAFSA must open by October 1 for next school year",
+      "kept",
+      "has to open by october 1"
+     ],
+     [
+      "P5",
+      "File the FAFSA once it opens",
+      "kept",
+      "fill it out once it opens"
+     ]
+    ],
+    "claims": [
+     "NEW-annual-review-10",
+     "NEW-annual-review-11",
+     "CL492"
+    ],
+    "links": [
+     {
+      "to": "full-chart/w2/10.3",
+      "label": "Social Security claiming strategy (framework 10.3)"
+     },
+     {
+      "to": "full-chart/w2/9.4",
+      "label": "529 plans (framework 9.4)"
+     }
+    ]
+   }
+  }
+ ],
+ "unverified": [
+  {
+   "finding": "CFP-59",
+   "assertion": "Custodians set early-December cutoffs for RMDs, QCDs and conversions",
+   "why": "Custodian practice, not law; no primary source. The proposed text says only 'ask the custodian early, so it is done by December 31'."
+  },
+  {
+   "finding": "CFP-59",
+   "assertion": "A QCD check must be processed (cashed) by December 31 to count for the year",
+   "why": "Not read at a primary source (IRS guidance on when a mailed QCD check is treated as distributed was not located). Left out of the text."
+  },
+  {
+   "finding": "CFP-59",
+   "assertion": "Most states set a December 31 deadline for the state 529 deduction",
+   "why": "State-specific; no state agency page read. Left out; if wanted, it would have to say 'check your state'."
+  },
+  {
+   "finding": "CFP-60",
+   "assertion": "In a low-income year, realizing gains at the 0% rate may beat harvesting losses",
+   "why": "A planning judgment, not a rule, and it can mislead: only the 0% rate (26 U.S.C. 1(h)(1)(B), 1(j)(5)) is law, and a realized gain still raises the MAGI used for Marketplace savings and Medicaid (HealthCare.gov). Left out of the text."
+  },
+  {
+   "finding": "CFP-62",
+   "assertion": "FAFSA opens October 1",
+   "why": "The statute (20 U.S.C. 1090) requires availability not later than October 1; the actual launch date varies by year and was not checked. The draft says 'must open by October 1'."
+  }
+ ],
+ "review": [
+  {
+   "target": "ar:withholding",
+   "change": "Dropped 'instead' from 'If you pay estimated tax instead' (body and plain).",
+   "why": "Many readers both have withholding and pay estimated tax (a side business, a retiree with a pension); 'instead' implied the two are alternatives. IRS describes estimated tax as owed when withholding does not cover the tax.",
+   "source": {
+    "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+    "quote": "Individuals, including sole proprietors, partners, and S corporation shareholders, generally have to make estimated tax payments if they expect to owe tax of $1,000 or more when their return is filed."
+   }
+  },
+  {
+   "target": "ar:insurance",
+   "change": "Added 'On Medicare, you can no longer contribute to an HSA' (plain: 'you can't put money into an HSA anymore'), new prop, new claim NEW-annual-review-12.",
+   "why": "The draft's new sentence tells every reader to set HSA payroll amounts, in the block that now also addresses Medicare enrollees; a working 65+ reader on Part A who follows it makes excess contributions.",
+   "source": {
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section223&num=0&edition=prelim",
+    "quote": "The limitation under this subsection for any month with respect to an individual shall be zero for the first month such individual is entitled to benefits under title XVIII of the Social Security Act"
+   }
+  },
+  {
+   "target": "ar:year-end",
+   "change": "Removed the sentence 'In a low-income year, long-term gains may be taxed at 0%, so realizing gains may be worth more' (and its plain twin and prop P4); claim NEW-annual-review-7 dropped from the block and from new_claims.",
+   "why": "Advice that can hurt the low-income reader it addresses: capital gains count toward the MAGI used for Marketplace premium tax credits and Medicaid, so realizing gains in a low-income year can cut or end those benefits; the 0% federal rate is not the whole cost. A safe alternative wording is offered in the block notes.",
+   "source": {
+    "url": "https://www.healthcare.gov/income-and-household-information/income/",
+    "quote": "The figure used to determine eligibility for premium tax credits and other savings for Marketplace health insurance plans and for Medicaid ... Count these income types: ... Capital gains"
+   }
+  },
+  {
+   "target": "ar:year-end",
+   "change": "Wash-sale sentence now ends 'or the loss will not count' (plain: 'or the loss won't count').",
+   "why": "The draft told readers not to buy without saying what happens if they do; the rule disallows the loss rather than forbidding the purchase.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/1091?link-type=html",
+    "quote": "within a period beginning 30 days before the date of such sale or disposition and ending 30 days after such date, the taxpayer has acquired ... substantially identical stock or securities, then no deduction shall be allowed"
+   }
+  },
+  {
+   "target": "CFP-60",
+   "change": "Reason rewritten: the 0%-gains half is now declined in the text, with an owner-facing safe alternative; HealthCare.gov source added.",
+   "why": "Matches the ar:year-end cut.",
+   "source": {
+    "url": "https://www.healthcare.gov/income-and-household-information/income/",
+    "quote": "Count these income types: ... Capital gains"
+   }
+  },
+  {
+   "target": "CFP-58",
+   "change": "Added 26 CFR 1.125-4(a) as a source.",
+   "why": "The draft's sentence 'an FSA election can be changed later only in limited cases' covers dependent-care FSAs, but its only source (Pub 969) speaks to health FSAs; the cafeteria-plan regulation covers both.",
+   "source": {
+    "url": "https://www.ecfr.gov/current/title-26/section-1.125-4",
+    "quote": "A cafeteria plan may permit an employee to revoke an election during a period of coverage and to make a new election only as provided in paragraphs (b) through (g) of this section."
+   }
+  },
+  {
+   "target": "new_claims",
+   "change": "Removed NEW-annual-review-7 (0% capital-gains rate); added NEW-annual-review-12 (HSA limit zero once on Medicare).",
+   "why": "NEW-7 is no longer cited by any block (the gate fails on an uncited P4 row); its source also named only 1(h)(1)(B), while the 0% breakpoints for current years are set by the substitution in 1(j)(5).",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/26/1?link-type=html",
+    "quote": "Section 1(h)(1) shall be applied— (i) by substituting \"below the maximum zero rate amount\" for \"which would (without regard to this paragraph) be taxed at a rate below 25 percent\""
+   }
+  },
+  {
+   "target": "owner_decisions[CFP-62]",
+   "change": "'SSA suggests August, after last year's earnings are posted' became 'SSA says to check in August that last year's amount is correct' (plain likewise); prop P2 anchor updated.",
+   "why": "The source says only to check in August that last year's amount is correct; 'after last year's earnings are posted' is an inference the page does not state.",
+   "source": {
+    "url": "https://www.ssa.gov/prepare/review-record-earnings",
+    "quote": "Check it in August to make sure last year's amount is correct."
+   }
+  },
+  {
+   "target": "ar:withholding",
+   "change": "Notes word count corrected to 86 after the 'instead' cut.",
+   "why": "Bookkeeping.",
+   "source": {
+    "url": "n/a",
+    "quote": "n/a"
+   }
+  }
+ ]
+}

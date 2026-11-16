@@ -1,0 +1,297 @@
+{
+ "group": "le-divorce",
+ "findings": [
+  {
+   "id": "ADV-17",
+   "head": "le:divorce:counsel | HIGH | \"professional counsel is close to mandatory\"",
+   "text": "Why: this assumes the reader can pay a lawyer. A reader who can't may conclude the advice isn't for them and sign whatever is put in front of them.\nFix: \"If a full-service lawyer isn't affordable, look at legal aid, limited-scope ('unbundled') help, mediation, and your court's self-help center.\"",
+   "block": "le:divorce:counsel",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-18",
+   "head": "le:divorce:counsel | HIGH | omission: joint debts",
+   "text": "Why: a divorce decree doesn't bind lenders. Each of you stays liable on joint cards, loans and mortgages even if the decree assigns them to the other spouse. This is one of the most common ways divorce wrecks someone's credit.\nFix: \"A divorce decree doesn't bind your lenders. Close or refinance joint accounts, or you stay liable if your ex stops paying.\"",
+   "block": "le:divorce:counsel",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-19",
+   "head": "le:divorce:counsel | MED | omission: safety and financial abuse",
+   "text": "Why: in an abusive or controlling marriage, a calm inventory may not be safe. The reader may first need their own account and a credit check.\nFix: \"If you are worried about safety or financial control, open an account in your own name, pull your credit reports, and contact a domestic-violence advocate before you start.\"",
+   "block": "le:divorce:counsel",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-20",
+   "head": "le:divorce:qdro | MED | \"exempt from the 10% additional tax\" (plain: \"skips the extra 10% tax\")",
+   "text": "Why: readers may hear \"tax-free\". Income tax still applies. And the exemption is lost if the alternate payee first rolls the money to an IRA and then withdraws it.\nFix: \"It is still taxable income. The 10% exemption applies only to money paid directly from the plan; if you roll it to an IRA first and then withdraw, the 10% can apply.\"",
+   "block": "le:divorce:qdro",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-21",
+   "head": "le:divorce:beneficiaries | MED | \"Do not rely on state law: file new forms on every account and policy.\"",
+   "text": "Why: many courts bar beneficiary changes while the case is pending, and decrees often require keeping an ex as life-insurance beneficiary to secure child support. Changing the form anyway can put you in contempt of court.\nFix: \"First check whether your decree requires you to keep your ex as a beneficiary (common for life insurance that backs child support). Change every other designation.\"",
+   "block": "le:divorce:beneficiaries",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-22",
+   "head": "le:divorce:filing | HIGH | \"a COBRA qualifying event (up to 36 months for a former spouse)\"",
+   "text": "Why: COBRA rights after a divorce depend on someone notifying the plan within 60 days. If nobody does, the former spouse can lose COBRA entirely.\nFix: \"You or your ex must notify the plan administrator within 60 days of the divorce or legal separation, or COBRA rights can be lost.\"",
+   "block": "le:divorce:filing",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-23",
+   "head": "le:divorce:filing | MED | omission: head of household status and Medicaid",
+   "text": "Why: a custodial parent may qualify as head of household, which lowers tax. Medicaid may also fit better than COBRA after the split.\nFix: \"A custodial parent may be able to file as head of household. Also check Medicaid before paying for COBRA.\"",
+   "block": "le:divorce:filing",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-24",
+   "head": "le:divorce:rebuild | LOW | \"usually means a larger emergency fund target\"",
+   "text": "Why: someone whose income just shrank hears \"save more\". The more urgent steps are getting support paid, checking benefits and claiming dependents correctly.\nFix: \"Start with what comes in: make sure support orders are paid (your state's child-support agency can enforce them), re-check benefit eligibility on one income, then rebuild the fund.\"",
+   "block": "le:divorce:rebuild",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-19",
+   "head": "le:divorce:filing — HIGH (missing deadline)",
+   "text": "Phrase: \"Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse)\"\nWhy: For divorce, the former spouse (or the employee) must notify the plan within 60 days of the divorce. If they don't, COBRA rights are lost. This is the one COBRA case where the beneficiary must act first.\nRewrite: \"...but the plan must be told within 60 days of the divorce or legal separation, or the right to COBRA is lost.\"",
+   "block": "le:divorce:filing",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-20",
+   "head": "le:divorce:qdro — HIGH",
+   "text": "Phrase: \"distributions to the alternate payee under a QDRO are exempt from the 10% additional tax\"\nWhy: The exemption applies only to money paid directly from the plan. If the alternate payee rolls the share into an IRA first and then withdraws, the exemption is lost. The other missing point is tax character: $100k in a pre-tax 401(k) is not equal to $100k in cash or in a Roth, or to stock with low basis. Settlements that split nominal dollars shortchange one side.\nRewrite: \"The 10% exemption applies only to money taken directly from the plan; once it is rolled into an IRA, the usual IRA rules apply. Compare assets after tax: pre-tax retirement money, Roth money, cash and appreciated stock are not worth the same per dollar.\"",
+   "block": "le:divorce:qdro",
+   "severity": "HIGH"
+  },
+  {
+   "id": "CFP-21",
+   "head": "le:divorce:counsel — MED (missing)",
+   "text": "Missing: a former spouse can claim Social Security benefits on the other's record if the marriage lasted 10 years. Planners always check the finalization date against that mark. Life insurance to secure support payments is also absent.\nAddition: \"A marriage of 10 years or more can give a former spouse Social Security benefits on the other's record, so check the date; support payments are often secured with life insurance named in the settlement.\"",
+   "block": "le:divorce:counsel",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-22",
+   "head": "le:divorce:beneficiaries — MED (sequencing)",
+   "text": "Phrase: \"Immediately after the decree\"\nWhy: Many states impose automatic restraining orders while a divorce is pending that forbid beneficiary changes. ERISA spousal rights also last until the divorce is final, and the settlement may require keeping the ex as beneficiary for support. Meanwhile the ex-spouse is often the agent on the power of attorney and healthcare proxy. Those can usually be revoked right away.\nRewrite: \"While the case is pending, changes may be restricted, so ask counsel; you can usually replace your spouse as agent on your power of attorney and healthcare directive at once, and file new beneficiary forms as soon as the decree and settlement allow.\"",
+   "block": "le:divorce:beneficiaries",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-23",
+   "head": "le:divorce:filing — MED (overgeneralization)",
+   "text": "Phrase: \"Marital status on December 31 sets filing status for the year.\"\nWhy: The common exception is a parent still legally married who lived apart for the last six months of the year and paid most of the cost of a home for a child. That parent can file as head of household. Who claims the child (Form 8332) is also an issue the settlement settles.\nAddition: \"If you lived apart for the last six months of the year and kept up a home for a child, you may file as head of household even while still married; the settlement should say who claims each child.\"",
+   "block": "le:divorce:filing",
+   "severity": "MED"
+  }
+ ],
+ "blocks": {
+  "le:divorce:counsel": {
+   "title": "Get an attorney and inventory every account",
+   "when": "Before signing anything",
+   "body": "Divorce is the one transition in this list where professional counsel is close to mandatory: state property law decides what is marital, and agreements are hard to reopen. Build a complete list of accounts, debts and policies first; it is also the start of your own net-worth snapshot.",
+   "links": [
+    {
+     "to": "full-chart/w2/0.2",
+     "label": "Calculate your net worth (framework 0.2)"
+    }
+   ],
+   "claims": [],
+   "plain": "Divorce is the one event on this list where a lawyer is close to a must: your state's property law decides what counts as shared, and a signed agreement is hard to undo. First, list every account, debt and insurance policy. That list is also the start of your own net-worth snapshot.",
+   "props": [
+    [
+     "P1",
+     "Professional counsel is close to mandatory for divorce",
+     "kept",
+     "close to a must"
+    ],
+    [
+     "P2",
+     "State property law decides what is marital",
+     "kept",
+     "property law decides"
+    ],
+    [
+     "P3",
+     "Agreements are hard to reopen",
+     "kept",
+     "hard to undo"
+    ],
+    [
+     "P4",
+     "Build a complete inventory of accounts, debts, policies first",
+     "kept",
+     "list every account, debt and insurance policy"
+    ],
+    [
+     "P5",
+     "The inventory starts your own net-worth snapshot",
+     "kept",
+     "net-worth snapshot"
+    ]
+   ]
+  },
+  "le:divorce:qdro": {
+   "title": "Split a 401(k) or pension with a QDRO; split an IRA by transfer",
+   "when": "In the settlement",
+   "body": "An employer plan can only pay a former spouse under a qualified domestic relations order (QDRO); distributions to the alternate payee under a QDRO are exempt from the 10% additional tax. IRAs are divided by a transfer incident to divorce, which is not a taxable distribution. Cashing out instead of using these routes can turn a split into a tax bill.",
+   "links": [],
+   "claims": [
+    "CL500"
+   ],
+   "plain": "A job-based plan can only pay a former spouse under a court order called a qualified domestic relations order (QDRO). Money paid to the former spouse under a QDRO skips the extra 10% tax. An IRA is split by a transfer made as part of the divorce, which isn't taxed as a withdrawal. Cashing out instead of using these routes can turn the split into a tax bill.",
+   "props": [
+    [
+     "P1",
+     "Employer plans pay a former spouse only under a QDRO",
+     "kept",
+     "qualified domestic relations order"
+    ],
+    [
+     "P2",
+     "QDRO distributions to the alternate payee are exempt from the 10% additional tax",
+     "kept",
+     "skips the extra 10% tax"
+    ],
+    [
+     "P3",
+     "IRAs are divided by transfer incident to divorce, not taxable",
+     "kept",
+     "transfer made as part of the divorce"
+    ],
+    [
+     "P4",
+     "Cashing out instead can create a tax bill",
+     "kept",
+     "tax bill"
+    ]
+   ]
+  },
+  "le:divorce:beneficiaries": {
+   "title": "Change beneficiary designations yourself",
+   "when": "Immediately after the decree",
+   "body": "Many states automatically revoke an ex-spouse as beneficiary of some non-probate assets, but for employer plans governed by ERISA the Supreme Court held that the plan documents control (Egelhoff v. Egelhoff, 2001). Do not rely on state law: file new forms on every account and policy.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "claims": [
+    "CL501"
+   ],
+   "plain": "Many states automatically remove an ex-spouse as beneficiary on some accounts. But for job-based plans covered by ERISA, the Supreme Court ruled that the plan's own papers win (Egelhoff v. Egelhoff, 2001). Don't count on state law: file new beneficiary forms on every account and policy.",
+   "props": [
+    [
+     "P1",
+     "Many states auto-revoke an ex-spouse on some non-probate assets",
+     "kept",
+     "automatically remove an ex-spouse"
+    ],
+    [
+     "P2",
+     "For ERISA plans, plan documents control (Egelhoff, 2001)",
+     "kept",
+     "egelhoff v. egelhoff, 2001"
+    ],
+    [
+     "P3",
+     "File new forms everywhere rather than relying on state law",
+     "kept",
+     "file new beneficiary forms"
+    ]
+   ]
+  },
+  "le:divorce:filing": {
+   "title": "Re-check filing status, withholding and health coverage",
+   "when": "Before year-end",
+   "body": "Marital status on December 31 sets filing status for the year. Losing coverage under a spouse's plan is a COBRA qualifying event (up to 36 months for a former spouse) and a Marketplace special enrollment trigger. For a divorce or legal separation the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or the COBRA right can be lost.",
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    }
+   ],
+   "claims": [
+    "CL497",
+    "CL483",
+    "CL484",
+    "CL531"
+   ],
+   "plain": "Whether you're married on December 31 sets your filing status for the year. Losing coverage under a spouse's plan lets you use COBRA (up to 36 months for a former spouse) and opens a Marketplace special enrollment window. For a divorce or legal separation, the law puts the notice on you or your former spouse: tell the plan administrator within 60 days of the event, or you can lose the COBRA right.",
+   "props": [
+    [
+     "P1",
+     "Marital status on Dec 31 sets filing status",
+     "kept",
+     "december 31"
+    ],
+    [
+     "P2",
+     "Losing spouse-plan coverage is a COBRA qualifying event, up to 36 months for a former spouse",
+     "kept",
+     "up to 36 months"
+    ],
+    [
+     "P3",
+     "It is also a Marketplace special enrollment trigger",
+     "kept",
+     "marketplace special enrollment"
+    ],
+    [
+     "P4",
+     "After divorce or legal separation, the employee or former spouse must notify the plan within 60 days or the COBRA right can be lost",
+     "kept",
+     "within 60 days"
+    ]
+   ]
+  },
+  "le:divorce:rebuild": {
+   "title": "Rebuild the emergency fund and the single-income plan",
+   "when": "First year",
+   "body": "A household that had two incomes now has one, which usually means a larger emergency fund target and a re-run of the diagnostic with your new answers.",
+   "links": [
+    {
+     "to": "protection/emergency-fund",
+     "label": "Size your emergency fund"
+    },
+    {
+     "to": "plan",
+     "label": "Re-run the diagnostic"
+    }
+   ],
+   "claims": [
+    "CL502"
+   ],
+   "plain": "A home that ran on two incomes now runs on one. That usually means a bigger emergency fund target, and taking the diagnostic again with your new answers.",
+   "props": [
+    [
+     "P1",
+     "Two incomes become one",
+     "kept",
+     "now runs on one"
+    ],
+    [
+     "P2",
+     "Usually means a larger emergency-fund target",
+     "kept",
+     "bigger emergency fund"
+    ],
+    [
+     "P3",
+     "Re-run the diagnostic",
+     "kept",
+     "taking the diagnostic again"
+    ]
+   ]
+  }
+ }
+}

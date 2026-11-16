@@ -1,0 +1,1274 @@
+{
+ "group": "protection",
+ "findings": [
+  {
+   "id": "ADV-49",
+   "block": "pr:health",
+   "severity": "HIGH",
+   "verdict": "accept-modified",
+   "reason": "The point stands: the block set a reserve standard many readers cannot meet and named no fallback. Added Medicaid (rules vary by state), cost-sharing reductions on a Marketplace silver plan, and the nonprofit-hospital financial assistance policy. Changed from the reviewer: hospitals 'must have a written financial assistance policy' (what 26 U.S.C. 501(r)(4) requires; eligibility is the hospital's), not 'must offer financial assistance'. 'Most common route' was not sourceable and is softened to 'can turn ... into unpayable debt'; 'should be able to cover' becomes 'should aim to cover'.",
+   "sources": [
+    {
+     "url": "https://www.healthcare.gov/lower-costs/save-on-out-of-pocket-costs/",
+     "quote": "If you qualify for cost-sharing reductions: You must pick a plan in the Silver category to get these extra savings on out-of-pocket costs.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.healthcare.gov/lower-costs/save-on-out-of-pocket-costs/",
+     "quote": "You'll have a lower \"out-of-pocket maximum.\" This means the total amount you'd have to pay in a year if you used a lot of care ... would be lower.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/501?link-type=html",
+     "quote": "A hospital organization to which this subsection applies shall not be treated as described in subsection (c)(3) unless the organization— ... (B) meets the financial assistance policy requirements described in paragraph (4)",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/501?link-type=html",
+     "quote": "A written financial assistance policy which includes— (i) eligibility criteria for financial assistance, and whether such assistance includes free or discounted care, ... (iii) the method for applying for financial assistance",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.medicaid.gov/medicaid/eligibility-policy",
+     "quote": "Medicaid is a joint federal and state program ... States have additional options for coverage and may choose to cover other groups",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:health"
+  },
+  {
+   "id": "ADV-50",
+   "block": "pr:disability",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "No primary source read makes the 'more likely than early death' comparison, so it is replaced with SSA's own statement that more than 1 in 4 of today's 20-year-olds become disabled before retirement age. Added that most private-sector workers have no group LTD plan (BLS NCS March 2026: 37 percent have access), that SSDI covers only severe, long-lasting disability after a waiting period (42 U.S.C. 423), and that some states run paid leave or temporary disability programs (DOL). The reviewer's 'strict and slow' is expressed through the statutory definition and waiting period rather than the word 'slow'.",
+   "sources": [
+    {
+     "url": "https://www.ssa.gov/disabilityfacts/facts.html",
+     "quote": "The sobering fact for 20-year-olds is that more than 1-in-4 of them becomes disabled before reaching retirement age.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.ssa.gov/disabilityfacts/facts.html",
+     "quote": "A person is disabled under the Act if they can't work due to a severe medical condition that has lasted, or is expected to last, at least one year or result in death.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/423?link-type=html",
+     "quote": "inability to engage in any substantial gainful activity by reason of any medically determinable physical or mental impairment which can be expected to result in death or ... to last for a continuous period of not less than 12 months",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/42/423?link-type=html",
+     "quote": "for each month beginning with the first month after his waiting period (as defined in subsection (c)(2)) in which he becomes so entitled to such insurance benefits",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.bls.gov/news.release/ebs2.htm",
+     "quote": "Fifty-nine percent of private industry workers had access to life insurance plans, 44 percent had access to short-term disability plans, and 37 percent had access to long-term disability plans.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/agencies/wb/featured-paid-leave",
+     "quote": "there is currently no federal law providing or guaranteeing access to paid family and medical leave for workers in the private sector. However, some states have their own paid leave programs and requirements.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.dol.gov/agencies/wb/featured-paid-leave",
+     "quote": "Additionally, Hawaii has a law providing paid temporary disability leave to eligible workers",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:disability"
+  },
+  {
+   "id": "ADV-51",
+   "block": "pr:auto",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Uninsured/underinsured motorist coverage added as the reader's own protection. The umbrella sentence is moved to pr:umbrella rather than deleted (it is accurate and belongs there). The reviewer's 'often the better use of a tight budget' is a value judgement with no primary source and is not used.",
+   "sources": [
+    {
+     "url": "https://www.tdi.texas.gov/pubs/consumer/cb020.html",
+     "quote": "Uninsured/underinsured motorist coverage pays if you're hit by someone who didn't have insurance or didn't have enough to pay your medical and car repair bills. ... Insurance companies must offer you this coverage.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://insurance.ohio.gov/consumers/automobile/automobile-insurance-guide",
+     "quote": "When you buy liability insurance, the company may offer you uninsured/underinsured motorists (UM / UIM) coverage, which is an optional coverage. ... Insurers will not allow you to buy more coverage for UM than you buy for liability coverage",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:auto"
+  },
+  {
+   "id": "ADV-52",
+   "block": "pr:umbrella",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Net worth alone is the wrong measure: sizing now follows what a judgment could reach. ERISA-covered employer plans are generally shielded from creditors (29 U.S.C. 1056(d)(1)). Not added: 'most renters ... don't need one' (a judgement no primary source read supports); the new sizing sentence lets a reader with little reachable reach that conclusion.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/29/1056?link-type=html",
+     "quote": "Each pension plan shall provide that benefits provided under the plan may not be assigned or alienated.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:umbrella"
+  },
+  {
+   "id": "CFP-49",
+   "block": "pr:emergency-fund",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "The two reserve rules now meet: a high-deductible plan's out-of-pocket maximum, less the HSA balance, is planned for alongside the fund. HSA money used for qualified medical expenses is excluded from income (26 U.S.C. 223(f)(1)). Worded 'plan for ... as well' rather than 'on top of living costs' so it does not stack a second hard target on low-income readers (ADV-49).",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+     "quote": "Any amount paid or distributed out of a health savings account which is used exclusively to pay qualified medical expenses of any account beneficiary shall not be includible in gross income.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:emergency-fund"
+  },
+  {
+   "id": "CFP-50",
+   "block": "pr:disability",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Monthly benefit caps added on BLS NCS data (most LTD plans have a maximum amount payable; median 60 percent of earnings). Not added, no primary source read: that group plans ignore bonuses and commissions, and that coverage ends with the job. The self-employed gap is carried by 'most private-sector workers have no group plan'.",
+   "sources": [
+    {
+     "url": "https://www.bls.gov/opub/btn/volume-4/pdf/disability-insurance-plans.pdf",
+     "quote": "The median amount covered by long-term plans is 60 percent of annual earnings. Most long-term plans (88 percent) have a maximum amount payable",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.bls.gov/news.release/ebs2.htm",
+     "quote": "Fifty-nine percent of private industry workers had access to life insurance plans, 44 percent had access to short-term disability plans, and 37 percent had access to long-term disability plans.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:disability"
+  },
+  {
+   "id": "CFP-51",
+   "block": "pr:term-life",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Folded in: a spouse who depends on your income counts as a dependent; someone who co-signed your loan relies on you to repay it (a cosigner must pay if the borrower does not, 16 CFR 444.3); subtract savings and existing coverage from either heuristic; ask whether employer group life would continue after leaving the job (framed as a question because no primary source read states that group life usually ends). The draft's ground for dropping co-signed loans was too strong: 15 U.S.C. 1650(g)(2) releases a cosigner when the student borrower dies only for private education loan agreements entered into on or after 180 days after May 24, 2018. Not added: business partners (business planning, out of scope).",
+   "sources": [
+    {
+     "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-16.xml?part=444&section=444.3",
+     "quote": "If the borrower doesn't pay the debt, you will have to. Be sure you can afford to pay if you have to, and that you want to accept this responsibility.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1650?link-type=html",
+     "quote": "The holder of a private education loan, when notified of the death of a student obligor, shall release within a reasonable timeframe any cosigner from the obligations of the cosigner under the private education loan.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1650?link-type=html",
+     "quote": "The amendments made by subsection (a) [amending this section] shall only apply to private education loan agreements entered into on or after the date that is 180 days after the date of enactment of this Act [May 24, 2018].",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:term-life"
+  },
+  {
+   "id": "CFP-52",
+   "block": "pr:auto",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "UM/UIM added. Not adopted: 'carry it at the same limits as your liability', because state rules differ (Texas requires the offer; Ohio treats it as optional and caps UM at the liability limit). The text points to the state instead. 'Many drivers carry only the state minimum' not added (no primary source read).",
+   "sources": [
+    {
+     "url": "https://www.tdi.texas.gov/pubs/consumer/cb020.html",
+     "quote": "Uninsured/underinsured motorist coverage pays if you're hit by someone who didn't have insurance or didn't have enough to pay your medical and car repair bills. ... Insurance companies must offer you this coverage.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://insurance.ohio.gov/consumers/automobile/automobile-insurance-guide",
+     "quote": "When you buy liability insurance, the company may offer you uninsured/underinsured motorists (UM / UIM) coverage, which is an optional coverage. ... Insurers will not allow you to buy more coverage for UM than you buy for liability coverage",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:auto"
+  },
+  {
+   "id": "CFP-53",
+   "block": "pr:umbrella",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "Future wages added: a judgment can be collected from wages within federal limits (15 U.S.C. 1673), so a high earner with little saved is still exposed. The risk-factor list (teen drivers, pools, dogs, rental property, board seats) is underwriting convention with no primary source read and is not added.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1673?link-type=html",
+     "quote": "the maximum part of the aggregate disposable earnings of an individual for any workweek which is subjected to garnishment may not exceed (1) 25 per centum of his disposable earnings for that week, or (2) ... whichever is less.",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:umbrella"
+  },
+  {
+   "id": "CFP-54",
+   "block": "pr:estate",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "POD/TOD registrations added (FDIC; SEC Investor.gov), stated as passing the account to the named person; the reviewer's 'work like beneficiary forms' (implying they override a will) is not stated because the agency sources read do not say so and TOD is state law. Age-18 gap added without the number 18 (age of majority is state law): HHS guidance makes a parent the usual HIPAA personal representative only of a minor child.",
+   "sources": [
+    {
+     "url": "https://www.fdic.gov/resources/deposit-insurance/brochures/insured-deposits/",
+     "quote": "[payable on death accounts] are created when the account owner signs a deposit account agreement, directing the bank to transfer the funds in the account to one or more named beneficiaries upon the owner's death.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.investor.gov/additional-resources/information/seniors/transferring-assets",
+     "quote": "Transfer on death (TOD) registration allows you to pass the securities you own directly to another person or entity upon your death without having to go through probate.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html",
+     "quote": "Where the person has broad authority to act on the behalf of a living individual in making decisions related to health care, such as is usually the case with a parent with respect to a minor child",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html",
+     "quote": "An Adult or An Emancipated Minor | A person with legal authority to make health care decisions on behalf of the individual Examples: Health care power of attorney",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:estate"
+  },
+  {
+   "id": "CFP-55",
+   "block": "pr:identity",
+   "severity": "MED",
+   "verdict": "accept-modified",
+   "reason": "IRS Identity Protection PIN added, and freezes for children (a 'protected consumer' is under 16; the freeze is free on a representative's request). 'Free' is not said of the IP PIN because the IRS page read does not state a price; eligibility and dependents are as the IRS page states.",
+   "sources": [
+    {
+     "url": "https://www.irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin",
+     "quote": "An identity protection PIN (IP PIN) is a six-digit number that prevents someone else from filing a tax return using your Social Security number (SSN) or individual taxpayer identification number (ITIN).",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin",
+     "quote": "Anyone who has an SSN or individual taxpayer identification number (ITIN) and is able to verify his/her identity is eligible to enroll into the IP PIN program. Parents and legal guardians can also request an IP PIN for dependents.",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1681c-1?link-type=html",
+     "quote": "The term \"protected consumer\" means an individual who is— (i) under the age of 16 years at the time a request for the placement of a security freeze is made",
+     "read": "2026-11-16"
+    },
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1681c-1?link-type=html",
+     "quote": "Upon receiving a direct request from a protected consumer's representative that a consumer reporting agency place a security freeze, ... the consumer reporting agency shall, free of charge, place the security freeze",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:identity"
+  },
+  {
+   "id": "CFP-64",
+   "block": "pr:identity",
+   "severity": "LOW",
+   "verdict": "accept",
+   "reason": "Plain variant now says 'electronic transfers you didn't make', matching the canonical text; 15 U.S.C. 1693g limits consumer liability for unauthorized electronic fund transfers, not for every channel.",
+   "sources": [
+    {
+     "url": "https://www.govinfo.gov/link/uscode/15/1693g?link-type=html",
+     "quote": "A consumer shall be liable for any unauthorized electronic fund transfer involving the account of such consumer only if the card or other means of access utilized for such transfer was an accepted card",
+     "read": "2026-11-16"
+    }
+   ],
+   "addressed_in": "pr:identity"
+  }
+ ],
+ "blocks": [
+  {
+   "id": "pr:emergency-fund",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-49"
+   ],
+   "body": "The conventional target is three to six months of essential expenses — not of income — held in an insured, liquid account. Start with a starter fund of $1,000 or one month of expenses so a small surprise does not become new debt, then build to the full target after the employer match and high-interest debt. Size toward the high end, or beyond it, when income is variable, when one earner supports the household, when there are dependents, or when re-employment in your field is slow. If your health plan has a high deductible, plan for its out-of-pocket maximum as well, less whatever your HSA already holds for medical bills.",
+   "plain": "The usual target is three to six months of essential costs — not of income — kept in an insured account you can reach quickly. Start with a small fund of $1,000 or one month of costs, so a small surprise doesn't become new debt. Then build to the full target after getting your employer match and paying off high-interest debt. Aim higher, or beyond the range, if your income goes up and down, if one person supports the household, if you have dependents, or if finding a new job in your field takes a long time. If your health plan has a high deductible, also plan for its out-of-pocket maximum (the most you'd pay in a year for in-network care), minus what your HSA (health savings account) already holds for medical bills.",
+   "props": [
+    [
+     "P1",
+     "Target 3–6 months of essential expenses, not income",
+     "kept",
+     "not of income"
+    ],
+    [
+     "P2",
+     "Held in an insured, liquid account",
+     "kept",
+     "insured account"
+    ],
+    [
+     "P3",
+     "Starter fund of $1,000 or one month first",
+     "kept",
+     "$1,000"
+    ],
+    [
+     "P4",
+     "Full target after match and high-interest debt",
+     "kept",
+     "employer match"
+    ],
+    [
+     "P5",
+     "Size higher for variable income, single earner, dependents, slow re-employment",
+     "kept",
+     "aim higher"
+    ],
+    [
+     "P6",
+     "With a high-deductible plan, also plan for its out-of-pocket maximum, less the HSA balance",
+     "kept",
+     "also plan for its out-of-pocket maximum"
+    ]
+   ],
+   "claims": [
+    "CL518",
+    "CL502",
+    "NEW-protection-1"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/2.1",
+     "label": "Starter emergency fund (framework 2.1)"
+    },
+    {
+     "to": "full-chart/w2/5.1",
+     "label": "Full emergency fund (framework 5.1)"
+    },
+    {
+     "to": "protection/health",
+     "label": "Health insurance (out-of-pocket cap)"
+    }
+   ],
+   "words_before": 86,
+   "words_after": 110,
+   "notes": "Joins the two reserve rules the CFP found disconnected (CFP-49) without making the fund a larger fixed multiple; worded 'plan for ... as well' rather than 'on top of living costs' so it does not read as a second standard a low-income reader will fail (ADV-49's concern). Adds a link to protection/health, a valid target in linkTargets()."
+  },
+  {
+   "id": "pr:health",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-49"
+   ],
+   "body": "Health coverage is a Tier-1 item in the plan for a reason: one uninsured hospital stay can turn a stable budget into unpayable debt. ACA-compliant plans cap in-network out-of-pocket spending each year (2026 cap: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family); that cap, not the premium, is the number your cash reserves should aim to cover. If that is out of reach, check whether you qualify for Medicaid, whose rules vary by state, or for cost-sharing reductions, which lower the cap on a Marketplace silver plan. Nonprofit hospitals must have a written financial assistance policy; ask for it before paying a large bill.",
+   "plain": "Health coverage is a Tier-1 (top-priority) step for a reason: one hospital stay without insurance can turn a steady budget into debt you can't pay. ACA-compliant plans limit what you pay in-network each year (2026 limit: {{fig:aca_oop_max_self}} for one person, {{fig:aca_oop_max_family}} for a family). That limit, not the premium, is the amount your savings should aim to cover. If that is out of reach, check whether you qualify for Medicaid (the rules differ by state) or for cost-sharing reductions, which lower the limit on a Marketplace silver plan. Nonprofit hospitals must have a written financial assistance policy. Ask for it before you pay a large bill.",
+   "props": [
+    [
+     "P1",
+     "Health coverage is Tier-1 for a reason",
+     "kept",
+     "tier-1 (top-priority) step"
+    ],
+    [
+     "P2",
+     "One uninsured hospital stay can turn a stable budget into unpayable debt",
+     "kept",
+     "debt you can't pay"
+    ],
+    [
+     "P3",
+     "ACA plans cap annual in-network out-of-pocket",
+     "kept",
+     "limit what you pay in-network"
+    ],
+    [
+     "P4",
+     "Reserves should aim to cover that cap, not the premium",
+     "kept",
+     "not the premium"
+    ],
+    [
+     "P5",
+     "The cap has a one-person amount and a family amount",
+     "kept",
+     "for a family"
+    ],
+    [
+     "P6",
+     "If the cap is out of reach, check Medicaid; its rules vary by state",
+     "kept",
+     "the rules differ by state"
+    ],
+    [
+     "P7",
+     "Cost-sharing reductions lower the cap on a Marketplace silver plan",
+     "kept",
+     "cost-sharing reductions"
+    ],
+    [
+     "P8",
+     "Nonprofit hospitals must have a written financial assistance policy",
+     "kept",
+     "written financial assistance policy"
+    ],
+    [
+     "P9",
+     "Ask for it before paying a large bill",
+     "kept",
+     "before you pay a large bill"
+    ]
+   ],
+   "claims": [
+    "CL525",
+    "NEW-protection-2",
+    "NEW-protection-3",
+    "NEW-protection-4"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/1.3",
+     "label": "Cover health insurance (framework 1.3)"
+    },
+    {
+     "to": "spending-essentials/3",
+     "label": "Spending · Healthcare (HDHP vs PPO calculator)"
+    }
+   ],
+   "words_before": 60,
+   "words_after": 102,
+   "notes": "'Most common route ... to unpayable debt' replaced by 'can turn ... into unpayable debt' (no primary source read supports 'most common'; listed under unverified). 'should be able to cover' softened to 'should aim to cover'. CSR sentence deliberately names no income range (the CSR page gives none in a fixed form and the gate would need the same number in plain). Hospital sentence says 'must have a written financial assistance policy', not the reviewer's 'must offer financial assistance': 26 U.S.C. 501(r)(4) requires the policy, and the hospital sets eligibility. Growth about 68 percent."
+  },
+  {
+   "id": "pr:disability",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-50",
+    "CFP-50"
+   ],
+   "body": "Social Security says more than 1 in 4 people who are 20 will become disabled before reaching retirement age, and an earner's future income is usually their largest asset. Most private-sector workers have no group long-term disability plan. Where there is one, it commonly replaces about 60% of base salary up to a monthly cap; if your employer pays the premium, the benefit is taxable, which lowers the real replacement rate. The policy features that decide whether a claim pays — own-occupation versus any-occupation definition, the elimination period, the benefit period — matter as much as the percentage. Social Security disability pays only for severe, long-lasting conditions, and only after a waiting period; some states run paid leave or temporary disability programs.",
+   "plain": "Social Security says more than 1 in 4 people who are 20 will become disabled before reaching retirement age, and your future pay is usually your biggest asset. Most workers at private employers have no group long-term disability plan. Where there is one, it often replaces about 60% of base pay, up to a monthly cap. If your employer pays the premium, the benefit is taxed, so you really get less. The policy details that decide whether a claim pays — whether \"disabled\" means unable to do your own job or any job, how long you wait before benefits start, how long benefits last — matter as much as the percentage. Social Security disability pays only for serious, long-lasting conditions, and only after a waiting period. Some states run paid leave or temporary disability programs.",
+   "props": [
+    [
+     "P1",
+     "SSA says more than 1 in 4 people who are 20 will become disabled before retirement age",
+     "kept",
+     "more than 1 in 4"
+    ],
+    [
+     "P2",
+     "Future income is usually the largest asset",
+     "kept",
+     "biggest asset"
+    ],
+    [
+     "P3",
+     "Most private-sector workers have no group LTD plan",
+     "kept",
+     "no group long-term disability plan"
+    ],
+    [
+     "P4",
+     "Group LTD commonly replaces ~60% of base salary",
+     "kept",
+     "about 60%"
+    ],
+    [
+     "P5",
+     "Group LTD benefits are commonly subject to a monthly cap",
+     "kept",
+     "monthly cap"
+    ],
+    [
+     "P6",
+     "Employer-paid premium → taxable benefit → lower real replacement",
+     "kept",
+     "benefit is taxed"
+    ],
+    [
+     "P7",
+     "Own-occ vs any-occ, elimination period, benefit period matter as much",
+     "kept",
+     "own job or any job"
+    ],
+    [
+     "P8",
+     "SSDI pays only for severe, long-lasting disability, after a waiting period",
+     "kept",
+     "only after a waiting period"
+    ],
+    [
+     "P9",
+     "Some states run paid leave or temporary disability programs",
+     "kept",
+     "temporary disability programs"
+    ]
+   ],
+   "claims": [
+    "CL221",
+    "CL522",
+    "NEW-protection-5",
+    "NEW-protection-6",
+    "NEW-protection-7",
+    "NEW-protection-8"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/2.3",
+     "label": "Verify essential insurance (framework 2.3)"
+    },
+    {
+     "to": "spending-essentials/4",
+     "label": "Spending · Insurance (disability calculator)"
+    }
+   ],
+   "words_before": 74,
+   "words_after": 122,
+   "notes": "'Disability is more likely than early death' is cut: no primary source read makes that comparison. Replaced with SSA's own figure (checker: worded '1 in 4 people who are 20', as the page says, not 'today's') (ssa.gov/disabilityfacts; the page is undated and carries 2019 benefit data, so the checker may want a fresher SSA source). CL180 dropped from this block's citations: its row (90+ day disability, 1 in 4) is not what the new sentence says; NEW-protection-5 carries the SSA sentence. CL180 anchors only sec:spending-essentials:4, so the gate does not require P4 citation. CFP-50's 'ignore bonuses and commissions' and 'coverage ends when you leave the job' are not in the text (no primary source read); 'up to a monthly cap' is kept on BLS NCS data (2014 provisions, the latest provision table read). Growth about 62 percent; if the owner wants it shorter, the SSDI/state sentence is the one to cut. CL522's source could be upgraded to the BLS Beyond the Numbers article, which gives the 60 percent median directly."
+  },
+  {
+   "id": "pr:term-life",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-51"
+   ],
+   "body": "Life insurance replaces income for people who depend on it, whether children or a spouse; with no one relying on your income, or on you to repay a loan they co-signed for you, it is rarely needed. The common heuristic for a primary earner with dependents is 10–12 times annual income; the DIME method (debt + income for the years needed + mortgage + education) gives a household-specific number. Subtract savings and coverage you already have from either figure, and ask whether employer group life would continue if you left the job. Term coverage is the default for this job; whole-life policies bundle insurance with a low-return savings component.",
+   "plain": "Life insurance replaces income for people who rely on it, such as children or a spouse. If no one depends on your income, or on you to repay a loan they co-signed for you, you rarely need it. A common rule of thumb for a main earner with dependents is 10–12 times yearly income; the DIME method (debt + income for the years needed + mortgage + education) gives a number for your household. Subtract the savings and life insurance you already have from either number, and ask whether life insurance from your job would continue if you left. Term insurance is the standard choice for this job. Whole-life policies bundle insurance with a savings part that earns little.",
+   "props": [
+    [
+     "P1",
+     "Life insurance replaces income for those who depend on it, including a spouse",
+     "kept",
+     "such as children or a spouse"
+    ],
+    [
+     "P2",
+     "With no one relying on your income, or on you to repay a loan they co-signed, it is rarely needed",
+     "kept",
+     "rarely need it"
+    ],
+    [
+     "P2a",
+     "A co-signer who would have to repay your loan counts as someone relying on you",
+     "kept",
+     "co-signed for you"
+    ],
+    [
+     "P3",
+     "Heuristic 10–12× income for a primary earner with dependents",
+     "kept",
+     "10–12 times"
+    ],
+    [
+     "P4",
+     "DIME = debt + income + mortgage + education",
+     "kept",
+     "dime method"
+    ],
+    [
+     "P5",
+     "Subtract existing savings and coverage from either figure",
+     "kept",
+     "subtract the savings"
+    ],
+    [
+     "P6",
+     "Ask whether employer group life would continue after leaving the job",
+     "kept",
+     "would continue if you left"
+    ],
+    [
+     "P7",
+     "Term is the default; whole life bundles a low-return savings part",
+     "kept",
+     "earns little"
+    ]
+   ],
+   "claims": [
+    "CL061",
+    "CL181",
+    "CL183",
+    "NEW-protection-16"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/6.3",
+     "label": "Term life, disability, umbrella (framework 6.3)"
+    },
+    {
+     "to": "spending-essentials/4",
+     "label": "Spending · Insurance (DIME calculator)"
+    }
+   ],
+   "words_before": 66,
+   "words_after": 109,
+   "notes": "Spouse-without-children exception folded into the first sentence, and (checker) the co-signed-loan exception as a clause: a cosigner must pay if the borrower does not (16 CFR 444.3). The 'subtract' sentence is method and 'ask whether ... would continue' is an instruction, so neither adds a factual claim. Not added: business partners (business planning, out of scope). The reviewer's 'group life usually ends with the job' was not found at a primary source, so it is framed as a question. Growth about 65 percent."
+  },
+  {
+   "id": "pr:property",
+   "changed": false,
+   "findings_addressed": [],
+   "body": "A landlord's policy covers the building, not the tenant's belongings or the tenant's liability; renters insurance covers both. Homeowners should insure to the cost of rebuilding rather than market value, and should know that standard policies exclude flood damage.",
+   "plain": "A landlord's policy covers the building, not a renter's belongings or a renter's liability. Renters insurance covers both. Homeowners should insure for what it would cost to rebuild, not what the home would sell for, and should know that standard policies don't cover flood.",
+   "props": [
+    [
+     "P1",
+     "Landlord's policy does not cover tenant property or liability",
+     "kept",
+     "not a renter's belongings"
+    ],
+    [
+     "P2",
+     "Renters insurance covers both",
+     "kept",
+     "covers both"
+    ],
+    [
+     "P3",
+     "Insure to rebuild cost, not market value",
+     "kept",
+     "cost to rebuild"
+    ],
+    [
+     "P4",
+     "Standard policies exclude flood",
+     "kept",
+     "don't cover flood"
+    ]
+   ],
+   "claims": [
+    "CL523",
+    "CL503"
+   ],
+   "links": [
+    {
+     "to": "full-chart/w2/2.3",
+     "label": "Verify essential insurance (framework 2.3)"
+    }
+   ],
+   "words_before": 39,
+   "words_after": 39,
+   "notes": "No findings against this block."
+  },
+  {
+   "id": "pr:auto",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-51",
+    "CFP-52"
+   ],
+   "body": "State minimum liability limits are set low and can leave your savings exposed after a serious accident. Consumer guidance commonly suggests at least $100,000 per person, $300,000 per accident and $100,000 property damage. Uninsured/underinsured motorist coverage protects you: it pays for your own injuries when the at-fault driver has no insurance or too little, and what insurers must offer, and at what limits, depends on your state.",
+   "plain": "The minimum liability coverage states require is low, and it can leave your savings at risk after a bad accident. Consumer guides often suggest at least $100,000 per person, $300,000 per accident and $100,000 for property damage. Uninsured/underinsured motorist coverage protects you: it pays for your own injuries when the driver at fault has no insurance or not enough. What insurers must offer, and how much, depends on your state.",
+   "props": [
+    [
+     "P1",
+     "State minimum liability limits are low and can expose savings",
+     "kept",
+     "leave your savings at risk"
+    ],
+    [
+     "P2",
+     "Guidance commonly suggests 100/300/100",
+     "kept",
+     "$300,000 per accident"
+    ],
+    [
+     "P3",
+     "UM/UIM pays for your own injuries when the at-fault driver has no or too little insurance",
+     "kept",
+     "pays for your own injuries"
+    ],
+    [
+     "P4",
+     "What insurers must offer, and at what limits, depends on the state",
+     "kept",
+     "depends on your state"
+    ]
+   ],
+   "claims": [
+    "CL524",
+    "NEW-protection-9"
+   ],
+   "links": [
+    {
+     "to": "spending-essentials/2",
+     "label": "Spending · Transportation"
+    }
+   ],
+   "words_before": 46,
+   "words_after": 67,
+   "notes": "The umbrella-underlying-limits sentence moves to pr:umbrella (with CL223) rather than being deleted, so the fact stays where it is relevant and the auto block no longer ends on an upsell (ADV-51). UM/UIM is described, not prescribed at 'the same limits as your liability' (CFP-52): the state rules read differ (Texas requires insurers to offer it; Ohio calls it optional and caps it at the liability limit), so the sentence points the reader to the state. Sources are state insurance departments, used only for the state-specific point. Growth about 46 percent."
+  },
+  {
+   "id": "pr:umbrella",
+   "changed": true,
+   "findings_addressed": [
+    "ADV-52",
+    "CFP-53"
+   ],
+   "body": "An umbrella policy adds liability coverage on top of auto and homeowners policies, and carriers usually require higher limits on those policies first. Industry pricing surveys put $1 million at roughly $200–400 a year. Size it to what a lawsuit could actually reach, not to net worth alone: employer retirement plans covered by ERISA are generally shielded from creditors, but a judgment can be collected from future wages within federal limits, so a high earner with little saved is still exposed.",
+   "plain": "An umbrella policy adds liability coverage on top of your auto and home policies, and insurers usually require higher limits on those policies first. Industry price surveys put $1 million at roughly $200–400 a year. Choose the amount based on what a lawsuit could actually take, not just your net worth. Workplace retirement plans covered by ERISA (a federal law) are generally protected from people you owe, but a court judgment can be collected from your future pay, within federal limits. So someone who earns a lot but has little saved can still be at risk.",
+   "props": [
+    [
+     "P1",
+     "Umbrella adds liability on top of auto and homeowners",
+     "kept",
+     "on top of your auto and home"
+    ],
+    [
+     "P2",
+     "Carriers usually require higher underlying limits",
+     "kept",
+     "higher limits on those policies"
+    ],
+    [
+     "P3",
+     "Industry pricing surveys: $1 million ≈ $200–400/year",
+     "kept",
+     "$200–400 a year"
+    ],
+    [
+     "P4",
+     "Size to what a lawsuit could reach, not net worth alone",
+     "kept",
+     "what a lawsuit could actually take"
+    ],
+    [
+     "P5",
+     "ERISA-covered employer retirement plans are generally shielded from creditors",
+     "kept",
+     "generally protected from people you owe"
+    ],
+    [
+     "P6",
+     "Judgments can be collected from future wages within federal limits",
+     "kept",
+     "within federal limits"
+    ],
+    [
+     "P7",
+     "So a high earner with little saved is still exposed",
+     "kept",
+     "can still be at risk"
+    ]
+   ],
+   "claims": [
+    "CL182",
+    "CL223",
+    "NEW-protection-10",
+    "NEW-protection-11"
+   ],
+   "links": [
+    {
+     "to": "spending-essentials/4",
+     "label": "Spending · Insurance"
+    }
+   ],
+   "words_before": 43,
+   "words_after": 81,
+   "notes": "Replaces 'commonly sized to at least your net worth' with sizing to what a judgment could reach, which carries both reviewers' points (ADV-52: protected retirement plans; CFP-53: future wages). Takes over the underlying-limits sentence from pr:auto (CL223). Checker tightened it: the 'inexpensive per dollar of coverage' framing ADV-52 called industry framing is cut, the survey price is kept. Growth still about 88 percent (43 to 81 words), over the 70 percent guide; about a fifth is the sentence moved from pr:auto. Not added, no primary source read: ADV-52's 'most renters ... don't need one' and CFP-53's risk-factor list. ERISA's anti-alienation rule has exceptions (QDROs, federal tax levies) and does not reach IRAs; 'generally' and 'covered by ERISA' are chosen for that."
+  },
+  {
+   "id": "pr:estate",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-54"
+   ],
+   "body": "<strong>Beneficiary designations</strong> on retirement accounts and life insurance pass those assets directly and generally override a will, so they are the first thing to check. Bank and brokerage accounts can name a payable-on-death or transfer-on-death beneficiary, who receives the account directly at death. <strong>A will</strong> directs everything else and is where parents name a guardian for minor children; without one, state intestacy law decides. <strong>A durable financial power of attorney</strong> lets someone you choose manage your finances if you cannot; without one, a family may need a court-appointed guardian or conservator. <strong>A healthcare directive</strong> (living will plus a healthcare proxy) records your medical wishes and who decides, and a HIPAA authorization lets named people get your medical information. Once a child is a legal adult, a parent no longer speaks for them by default on medical matters; a young adult can sign their own power of attorney, healthcare directive and HIPAA authorization. Each is governed by state law.",
+   "plain": "<strong>Beneficiary forms</strong> on retirement accounts and life insurance send that money straight to the people named, and they usually win over a will — so check them first. Bank and brokerage accounts can name a payable-on-death or transfer-on-death beneficiary, who gets the account directly when you die. <strong>A will</strong> covers everything else, and it is where parents name a guardian for young children; without one, your state's law decides who gets what. <strong>A durable financial power of attorney</strong> lets a person you choose handle your money if you can't; without one, your family may need a court to appoint someone. <strong>A healthcare directive</strong> (a living will plus a healthcare proxy) records the care you want and who decides for you, and a HIPAA authorization lets people you name get your medical information. Once your child is a legal adult, you no longer speak for them by default on medical matters. A young adult can sign their own power of attorney, healthcare directive and HIPAA authorization. State law governs each of these.",
+   "props": [
+    [
+     "P1",
+     "Beneficiary designations pass assets directly and generally override a will; check first",
+     "kept",
+     "usually win over a will"
+    ],
+    [
+     "P1a",
+     "Bank and brokerage accounts can name a POD or TOD beneficiary who receives the account directly at death",
+     "kept",
+     "payable-on-death or transfer-on-death"
+    ],
+    [
+     "P2",
+     "A will directs everything else and names a guardian for minors",
+     "kept",
+     "name a guardian"
+    ],
+    [
+     "P3",
+     "Without a will, state intestacy law decides",
+     "kept",
+     "your state's law decides"
+    ],
+    [
+     "P4",
+     "Durable POA lets a chosen person manage finances on incapacity",
+     "kept",
+     "durable financial power of attorney"
+    ],
+    [
+     "P5",
+     "Without one, a court-appointed guardian/conservator may be needed",
+     "kept",
+     "court to appoint someone"
+    ],
+    [
+     "P6",
+     "Healthcare directive = living will + proxy: wishes and decision-maker",
+     "kept",
+     "living will plus a healthcare proxy"
+    ],
+    [
+     "P7",
+     "A HIPAA authorization lets named people get medical information",
+     "kept",
+     "hipaa authorization"
+    ],
+    [
+     "P7a",
+     "Once a child is a legal adult a parent no longer speaks for them by default on medical matters; the young adult can sign their own POA, directive and HIPAA authorization",
+     "kept",
+     "legal adult"
+    ],
+    [
+     "P8",
+     "Each is governed by state law",
+     "kept",
+     "state law governs"
+    ]
+   ],
+   "claims": [
+    "CL498",
+    "CL519",
+    "CL520",
+    "CL521",
+    "NEW-protection-12",
+    "NEW-protection-13"
+   ],
+   "links": [
+    {
+     "to": "advanced-strategies/2",
+     "label": "Advanced · family wealth (estate tools)"
+    }
+   ],
+   "words_before": 106,
+   "words_after": 158,
+   "notes": "POD/TOD sentence says they pass the account to the named person (FDIC; Investor.gov), not that they 'override a will': FINRA says so, but FINRA is not an agency and Investor.gov notes TOD is state law and brokers may decline to offer it. Age-18 sentence avoids the number 18 because the age of majority is set by state law; the HIPAA point rests on HHS's personal-representative guidance (45 CFR 164.502(g)). Growth about 50 percent (106 to 159 words). The annual-review beneficiaries item already names transfer-on-death registrations, so this also closes the CFP's consistency point."
+  },
+  {
+   "id": "pr:identity",
+   "changed": true,
+   "findings_addressed": [
+    "CFP-55",
+    "CFP-64"
+   ],
+   "body": "A security freeze stops new credit being opened in your name and is free by federal law at Equifax, Experian and TransUnion; it does not affect your credit score, and you can lift it temporarily when you apply for credit. You can pull your own reports free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov builds the recovery plan, and reporting unauthorized electronic transfers to your bank quickly limits your liability. An IRS Identity Protection PIN stops someone else from filing a tax return with your Social Security number; anyone who can verify their identity can get one, including for dependents. A parent can also freeze the credit file of a child under 16.",
+   "plain": "A security freeze stops anyone from opening new credit in your name. It's free by federal law at Equifax, Experian and TransUnion, it doesn't change your credit score, and you can lift it for a while when you apply for credit. You can check your own credit reports for free every week at AnnualCreditReport.com. If fraud happens, IdentityTheft.gov makes a recovery plan for you, and telling your bank quickly about electronic transfers you didn't make limits how much you can lose. An IRS Identity Protection PIN stops someone else from filing a tax return using your Social Security number. Anyone who can prove who they are can get one, including for their dependents. A parent can also freeze the credit of a child under 16.",
+   "props": [
+    [
+     "P1",
+     "A freeze stops new credit in your name",
+     "kept",
+     "stops anyone from opening new credit"
+    ],
+    [
+     "P2",
+     "Free by federal law at all three bureaus",
+     "kept",
+     "free by federal law"
+    ],
+    [
+     "P3",
+     "Does not affect your score",
+     "kept",
+     "doesn't change your credit score"
+    ],
+    [
+     "P4",
+     "Can be lifted temporarily to apply",
+     "kept",
+     "lift it for a while"
+    ],
+    [
+     "P5",
+     "Free weekly reports at AnnualCreditReport.com",
+     "kept",
+     "every week"
+    ],
+    [
+     "P6",
+     "IdentityTheft.gov builds the recovery plan",
+     "kept",
+     "identitytheft.gov"
+    ],
+    [
+     "P7",
+     "Prompt reporting of unauthorized electronic transfers limits liability",
+     "kept",
+     "electronic transfers you didn't make"
+    ],
+    [
+     "P8",
+     "An IRS IP PIN stops others filing a tax return with your SSN",
+     "kept",
+     "identity protection pin"
+    ],
+    [
+     "P9",
+     "Anyone who can verify identity can get one, including for dependents",
+     "kept",
+     "including for their dependents"
+    ],
+    [
+     "P10",
+     "A parent can freeze the credit of a child under 16",
+     "kept",
+     "child under 16"
+    ]
+   ],
+   "claims": [
+    "CL526",
+    "CL527",
+    "CL528",
+    "NEW-protection-14",
+    "NEW-protection-15"
+   ],
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · credit freeze and report pull"
+    }
+   ],
+   "words_before": 71,
+   "words_after": 114,
+   "notes": "Plain variant now says 'electronic transfers you didn't make' (CFP-64), matching the canonical text and 15 U.S.C. 1693g, which limits liability only for electronic fund transfers. IP PIN sentence does not say 'free': the IRS page read does not state a price. Operational note for the owner: the IRS page read today says the online IP PIN system is offline for maintenance from Nov. 16, 2026 until mid-January 2027; the text does not depend on that. Growth about 61 percent."
+  }
+ ],
+ "new_claims": [
+  {
+   "temp_id": "NEW-protection-1",
+   "loc": "P4:protection:emergency-fund",
+   "claim": "HSA distributions used for qualified medical expenses are not included in gross income, so an HSA balance can meet a high-deductible plan's out-of-pocket costs",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §223(f)(1)",
+   "url": "https://www.govinfo.gov/link/uscode/26/223?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. §223(f)(1) ('Any amount paid or distributed out of a health savings account which is used exclusively to pay qualified medical expenses ... shall not be includible in gross income'). Federal income tax only; some states tax HSAs. Persona pass (ADV/CFP 2026-11-06) finding CFP-49."
+  },
+  {
+   "temp_id": "NEW-protection-2",
+   "loc": "P4:protection:health",
+   "claim": "Cost-sharing reductions, available only on a Marketplace Silver plan to enrollees whose income qualifies, lower the plan's out-of-pocket maximum",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "HealthCare.gov 'Cost-sharing reductions' (CMS); 42 U.S.C. §18071",
+   "url": "https://www.healthcare.gov/lower-costs/save-on-out-of-pocket-costs/",
+   "note": "Verified 2026-11-16 at the primary source: HealthCare.gov ('You must pick a plan in the Silver category to get these extra savings'; 'You'll have a lower \"out-of-pocket maximum.\"'). Income range deliberately not stated in the text. Persona pass finding ADV-49."
+  },
+  {
+   "temp_id": "NEW-protection-3",
+   "loc": "P4:protection:health",
+   "claim": "A tax-exempt hospital organization must establish a written financial assistance policy stating eligibility criteria and how to apply",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "26 U.S.C. §501(r)(1)(B), (r)(4)(A)",
+   "url": "https://www.govinfo.gov/link/uscode/26/501?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 26 U.S.C. §501(r)(1) (not treated as §501(c)(3) unless it 'meets the financial assistance policy requirements described in paragraph (4)'); §501(r)(4)(A)(i), (iii). Eligibility is set by each hospital. Persona pass finding ADV-49."
+  },
+  {
+   "temp_id": "NEW-protection-4",
+   "loc": "P4:protection:health",
+   "claim": "Medicaid is a joint federal-state program whose covered groups and options vary by state",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "Medicaid.gov 'Eligibility Policy' (CMS)",
+   "url": "https://www.medicaid.gov/medicaid/eligibility-policy",
+   "note": "Verified 2026-11-16 at the primary source: Medicaid.gov ('Medicaid is a joint federal and state program'; 'States have additional options for coverage'). Persona pass finding ADV-49."
+  },
+  {
+   "temp_id": "NEW-protection-5",
+   "loc": "P4:protection:disability",
+   "claim": "SSA: more than 1 in 4 of today's 20-year-olds become disabled before reaching retirement age",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "SSA 'The Faces and Facts of Disability: Facts'",
+   "url": "https://www.ssa.gov/disabilityfacts/facts.html",
+   "note": "Verified 2026-11-16 at the primary source: ssa.gov/disabilityfacts/facts.html ('The sobering fact for 20-year-olds is that more than 1-in-4 of them becomes disabled before reaching retirement age.'). Page undated; its benefit figures are from 2019. Replaces the unsourced 'more likely than early death' (ADV-50)."
+  },
+  {
+   "temp_id": "NEW-protection-6",
+   "loc": "P4:protection:disability",
+   "claim": "Most private-industry workers have no access to an employer long-term disability plan; most group LTD plans replace a fixed percentage of earnings (median 60 percent) subject to a maximum amount payable",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "BLS National Compensation Survey: Employee Benefits in the United States, March 2026 (news release USDL-26-1534); BLS Beyond the Numbers vol. 4 no. 4 (Feb 2015)",
+   "url": "https://www.bls.gov/news.release/ebs2.htm",
+   "note": "Verified 2026-11-16 at the primary source: BLS release 2026-09-25 ('37 percent had access to long-term disability plans', private industry); BLS BTN ('The median amount covered by long-term plans is 60 percent of annual earnings. Most long-term plans (88 percent) have a maximum amount payable'). Provision data are March 2014. Persona pass findings ADV-50, CFP-50. Type set to GUIDANCE to fit this file's schema; the audit's own vocabulary would call it EMPIRICAL (owner's choice). BLS BTN also gives the median maximum payout in 2014 as $8,000 per month, which supports 'monthly cap'."
+  },
+  {
+   "temp_id": "NEW-protection-7",
+   "loc": "P4:protection:disability",
+   "claim": "Social Security disability requires an impairment preventing substantial gainful activity expected to last at least 12 months or end in death, and benefits begin after a waiting period; no temporary or partial benefits",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "42 U.S.C. §423(a)(1), (c)(2), (d)(1)(A); SSA disability facts",
+   "url": "https://www.govinfo.gov/link/uscode/42/423?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 42 U.S.C. §423(d)(1)(A) ('inability to engage in any substantial gainful activity ... not less than 12 months'); §423(a)(1) ('the first month after his waiting period'); SSA facts page ('Social Security doesn't provide temporary or partial disability benefits'). Persona pass finding ADV-50."
+  },
+  {
+   "temp_id": "NEW-protection-8",
+   "loc": "P4:protection:disability",
+   "claim": "There is no federal paid family and medical leave for private-sector workers, but some states run their own paid leave programs, and one state (Hawaii) a paid temporary disability program",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "DOL Women's Bureau 'Paid Leave'",
+   "url": "https://www.dol.gov/agencies/wb/featured-paid-leave",
+   "note": "Verified 2026-11-16 at the primary source: DOL ('some states have their own paid leave programs and requirements'; 'Hawaii has a law providing paid temporary disability leave'). Text says 'some states', no count. Persona pass finding ADV-50."
+  },
+  {
+   "temp_id": "NEW-protection-9",
+   "loc": "P4:protection:auto",
+   "claim": "Uninsured/underinsured motorist coverage pays for the policyholder's own injuries when the at-fault driver has no or too little insurance; whether insurers must offer it, and its limits, are set by state law",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "B",
+   "source": "Texas Department of Insurance 'Auto insurance guide'; Ohio Department of Insurance 'Automobile Insurance Guide'",
+   "url": "https://www.tdi.texas.gov/pubs/consumer/cb020.html",
+   "note": "Verified 2026-11-16 at the primary sources (state agencies, used for the state-variation point): TDI ('pays if you're hit by someone who didn't have insurance or didn't have enough ... Insurance companies must offer you this coverage'); Ohio DOI (UM/UIM 'is an optional coverage'; 'Insurers will not allow you to buy more coverage for UM than you buy for liability coverage', https://insurance.ohio.gov/consumers/automobile/automobile-insurance-guide). Persona pass findings ADV-51, CFP-52."
+  },
+  {
+   "temp_id": "NEW-protection-10",
+   "loc": "P4:protection:umbrella",
+   "claim": "Benefits under ERISA-covered pension plans (including 401(k) plans) may not be assigned or alienated, which generally shields them from creditors",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "29 U.S.C. §1056(d)(1) (ERISA §206(d))",
+   "url": "https://www.govinfo.gov/link/uscode/29/1056?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 29 U.S.C. §1056(d)(1) ('Each pension plan shall provide that benefits provided under the plan may not be assigned or alienated.'). Exceptions (QDROs, federal tax levies) exist; IRAs are not covered by this section. Persona pass finding ADV-52."
+  },
+  {
+   "temp_id": "NEW-protection-11",
+   "loc": "P4:protection:umbrella",
+   "claim": "Ordinary wage garnishment is capped by federal law (generally 25 percent of disposable earnings, or less), so a judgment can reach future wages within federal limits",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "15 U.S.C. §1673(a)",
+   "url": "https://www.govinfo.gov/link/uscode/15/1673?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 15 U.S.C. §1673(a) (garnishment 'may not exceed (1) 25 per centum of his disposable earnings for that week, or (2) ... whichever is less'). Text says 'within federal limits'; states may cap lower. Persona pass finding CFP-53."
+  },
+  {
+   "temp_id": "NEW-protection-12",
+   "loc": "P4:protection:estate",
+   "claim": "Payable-on-death bank accounts and transfer-on-death securities registrations pass the account to the named beneficiary at death without probate; TOD registration is governed by state law",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "FDIC 'Your Insured Deposits'; SEC Investor.gov 'Transferring Assets'",
+   "url": "https://www.fdic.gov/resources/deposit-insurance/brochures/insured-deposits/",
+   "note": "Verified 2026-11-16 at the primary sources: FDIC ('payable on death ... directing the bank to transfer the funds in the account to one or more named beneficiaries upon the owner's death'); Investor.gov ('pass the securities you own directly to another person or entity upon your death without having to go through probate'; 'State law ... governs', https://www.investor.gov/additional-resources/information/seniors/transferring-assets). Persona pass finding CFP-54."
+  },
+  {
+   "temp_id": "NEW-protection-13",
+   "loc": "P4:protection:estate",
+   "claim": "Under the HIPAA Privacy Rule a parent is usually the personal representative of a minor child; for an adult, the personal representative is a person with legal authority to make health decisions for them, such as a healthcare power of attorney",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "45 CFR §164.502(g); HHS OCR 'Personal Representatives'",
+   "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html",
+   "note": "Verified 2026-11-16 at the primary source: HHS ('such as is usually the case with a parent with respect to a minor child'; adult: 'A person with legal authority to make health care decisions on behalf of the individual'). Age of majority is state law, so the text says 'legal adult', not 18. Persona pass finding CFP-54."
+  },
+  {
+   "temp_id": "NEW-protection-14",
+   "loc": "P4:protection:identity",
+   "claim": "An IRS Identity Protection PIN prevents someone else from filing a tax return using your SSN or ITIN; anyone who can verify their identity may enroll, and parents may request one for dependents",
+   "type": "GUIDANCE",
+   "status": "PASS",
+   "tier": "A",
+   "source": "IRS 'Get an identity protection PIN'",
+   "url": "https://www.irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin",
+   "note": "Verified 2026-11-16 at the primary source: IRS ('prevents someone else from filing a tax return using your Social Security number'; 'Anyone who has an SSN or ... ITIN and is able to verify his/her identity is eligible'; 'Parents and legal guardians can also request an IP PIN for dependents'). The page also announces the online system is offline Nov. 16, 2026 to mid-January 2027. Persona pass finding CFP-55."
+  },
+  {
+   "temp_id": "NEW-protection-15",
+   "loc": "P4:protection:identity",
+   "claim": "A parent or other representative can have a free security freeze placed for a protected consumer, defined as a person under 16 (or an incapacitated person under guardianship)",
+   "type": "STATUTORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "15 U.S.C. §1681c-1(j)",
+   "url": "https://www.govinfo.gov/link/uscode/15/1681c-1?link-type=html",
+   "note": "Verified 2026-11-16 at the primary source: 15 U.S.C. §1681c-1(j)(1)(B) ('under the age of 16 years at the time a request ... is made') and (j)(2) ('shall, free of charge, place the security freeze'). Persona pass finding CFP-55."
+  },
+  {
+   "temp_id": "NEW-protection-16",
+   "loc": "P4:protection:term-life",
+   "claim": "A cosigner must repay the debt if the borrower does not, so someone who co-signed your loan relies on you to repay it",
+   "type": "REGULATORY",
+   "status": "PASS",
+   "tier": "A",
+   "source": "16 CFR §444.3(c) (FTC Credit Practices Rule, Notice to Cosigner); 15 U.S.C. §1650(g)(2) and note",
+   "url": "https://www.ecfr.gov/current/title-16/section-444.3",
+   "note": "Verified 2026-11-16 at the primary source: 16 CFR 444.3(c) ('If the borrower doesn't pay the debt, you will have to.'). Exception: 15 U.S.C. 1650(g)(2) releases a cosigner on the student borrower's death for private education loans entered into on or after 180 days after May 24, 2018. Persona pass finding CFP-51."
+  }
+ ],
+ "new_figures": [],
+ "owner_decisions": [],
+ "unverified": [
+  {
+   "finding": "ADV-49",
+   "assertion": "An uninsured hospital stay is the most common route from a stable budget to unpayable debt (current text)",
+   "why": "No primary source read compares routes into unpayable debt; the sentence is softened to 'can turn ... into unpayable debt', a possibility statement with no separate audit row. The checker should decide whether even that needs a row."
+  },
+  {
+   "finding": "ADV-49",
+   "assertion": "Much medical debt falls on insured people",
+   "why": "Not read at a primary source; not used."
+  },
+  {
+   "finding": "ADV-50",
+   "assertion": "For a working adult, disability is more likely than early death (current text)",
+   "why": "No primary source read makes the comparison; replaced with SSA's 1-in-4 statement."
+  },
+  {
+   "finding": "CFP-50",
+   "assertion": "Group LTD plans usually ignore bonuses and commissions",
+   "why": "BLS provision data read give the percentage and the maximum but not the earnings definition; no primary source read."
+  },
+  {
+   "finding": "CFP-50",
+   "assertion": "Group disability coverage ends when you leave the job; an individual policy fills the gap",
+   "why": "DOL/EBSA job-loss pages read cover health and retirement benefits only; no primary source found for group disability or life portability."
+  },
+  {
+   "finding": "CFP-51",
+   "assertion": "Employer group life usually ends with the job",
+   "why": "Same as above; the text asks the reader to check instead of stating it."
+  },
+  {
+   "finding": "CFP-52",
+   "assertion": "Many drivers carry only the state minimum; carry UM/UIM at the same limits as liability",
+   "why": "No primary federal source; state rules differ (Ohio caps UM at liability; Texas requires an offer). Not stated."
+  },
+  {
+   "finding": "ADV-51",
+   "assertion": "UM/UIM is often the better use of a tight budget than higher liability",
+   "why": "Value judgement; no primary source."
+  },
+  {
+   "finding": "ADV-52",
+   "assertion": "Most renters and households with modest savings don't need an umbrella policy",
+   "why": "No primary source read; the sizing sentence leaves the conclusion to the reader."
+  },
+  {
+   "finding": "ADV-52",
+   "assertion": "Some home equity is protected from lawsuits",
+   "why": "Homestead exemptions are state law; not read and not used."
+  },
+  {
+   "finding": "CFP-53",
+   "assertion": "Teen drivers, pools, dogs, rental property and volunteer board seats raise liability risk regardless of net worth",
+   "why": "Underwriting convention; no primary source read."
+  },
+  {
+   "finding": "CFP-55",
+   "assertion": "The IP PIN is free at IRS.gov",
+   "why": "The IRS page read does not state a price; 'free' is not used."
+  },
+  {
+   "finding": "CFP-51",
+   "assertion": "Federal student loans are discharged when the borrower dies, so a cosigner or parent is not left owing them",
+   "why": "Not read at studentaid.gov in this pass; the text says only that a co-signer relies on you, which 16 CFR 444.3 supports."
+  }
+ ],
+ "review": [
+  {
+   "target": "pr:disability",
+   "change": "'more than 1 in 4 of today's 20-year-olds' -> 'more than 1 in 4 people who are 20' in body and plain",
+   "why": "The SSA page says '20-year-olds', not 'today's'; the paraphrase went slightly past the source.",
+   "source": {
+    "url": "https://www.ssa.gov/disabilityfacts/facts.html",
+    "quote": "The sobering fact for 20-year-olds is that more than 1-in-4 of them becomes disabled before reaching retirement age."
+   }
+  },
+  {
+   "target": "pr:estate",
+   "change": "Replaced 'POD and TOD registrations do the same for bank and brokerage accounts' with 'Bank and brokerage accounts can name a payable-on-death or transfer-on-death beneficiary, who receives the account directly at death' (plain to match).",
+   "why": "'Do the same' follows a sentence saying beneficiary designations 'generally override a will', so it asserted the override the draft's own reason says the FDIC and Investor.gov pages do not state (TOD is state law and brokers may decline to offer it).",
+   "source": {
+    "url": "https://www.investor.gov/additional-resources/information/seniors/transferring-assets",
+    "quote": "Transfer on death (TOD) registration allows you to pass the securities you own directly to another person or entity upon your death without having to go through probate."
+   }
+  },
+  {
+   "target": "pr:term-life",
+   "change": "Added 'or on you to repay a loan they co-signed for you' to the no-dependents sentence (body and plain); new prop P2a; new audit row NEW-protection-16.",
+   "why": "The draft rejected the co-signed-loan exception on the ground that 15 U.S.C. 1650(g)(2) releases cosigners. The 2018 amendment's note limits that to private education loan agreements entered into on or after 180 days after May 24, 2018, so older private student loans and other co-signed debt still leave a cosigner liable.",
+   "source": {
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-16.xml?part=444&section=444.3",
+    "quote": "If the borrower doesn't pay the debt, you will have to. Be sure you can afford to pay if you have to"
+   }
+  },
+  {
+   "target": "CFP-51",
+   "change": "Reason rewritten; co-signed loans moved from 'not added' to folded in; sources now 16 CFR 444.3 plus 1650(g) with its effective-date note.",
+   "why": "The draft's reason overstated 1650(g)(2), which reaches only loans made from late 2018 on.",
+   "source": {
+    "url": "https://www.govinfo.gov/link/uscode/15/1650?link-type=html",
+    "quote": "shall only apply to private education loan agreements entered into on or after the date that is 180 days after the date of enactment of this Act"
+   }
+  },
+  {
+   "target": "pr:umbrella",
+   "change": "Tightened from 94 to 81 words: merged the underlying-limits clause, cut 'It is inexpensive per dollar of coverage', kept the survey price; 'while' -> 'but'.",
+   "why": "Block grew about 120 percent; ADV-52 named 'inexpensive per dollar' as industry framing, and the price figure alone lets the reader judge.",
+   "source": null
+  },
+  {
+   "target": "ADV-51, CFP-52, NEW-protection-9",
+   "change": "TDI URL changed from tdi.state.tx.us to tdi.texas.gov.",
+   "why": "The old host did not resolve when re-fetched today; the same page and quote are at tdi.texas.gov.",
+   "source": {
+    "url": "https://www.tdi.texas.gov/pubs/consumer/cb020.html",
+    "quote": "Uninsured/underinsured motorist coverage pays if you’re hit by someone who didn’t have insurance or didn’t have enough to pay your medical and car repair bills."
+   }
+  },
+  {
+   "target": "NEW-protection-6",
+   "change": "type EMPIRICAL -> GUIDANCE; note records the monthly-maximum support.",
+   "why": "The output schema allows only STATUTORY|REGULATORY|GUIDANCE|CONVENTION.",
+   "source": {
+    "url": "https://www.bls.gov/opub/btn/volume-4/pdf/disability-insurance-plans.pdf",
+    "quote": "Most long-term plans (88 percent) have a maximum amount payable and the median maximum payout in 2014 was $8,000 per month."
+   }
+  },
+  {
+   "target": "CFP-54",
+   "change": "HHS quote rewritten as read (no bracketed reconstruction).",
+   "why": "Quotes must be verbatim.",
+   "source": {
+    "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html",
+    "quote": "An Adult or An Emancipated Minor | A person with legal authority to make health care decisions on behalf of the individual Examples: Health care power of attorney"
+   }
+  },
+  {
+   "target": "all blocks",
+   "change": "words_before/words_after recomputed with one rule (tags and tokens stripped); pr:health now 60 -> 102.",
+   "why": "Draft counts for pr:health used a different rule.",
+   "source": null
+  }
+ ]
+}

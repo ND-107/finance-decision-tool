@@ -1,0 +1,219 @@
+{
+ "group": "le-marriage",
+ "findings": [
+  {
+   "id": "ADV-15",
+   "head": "le:marriage:filing | MED | omission: how marriage affects benefits and credits",
+   "text": "Why: for lower-income couples, marriage can reduce the EITC, change ACA premium credits, affect SSI and Medicaid eligibility, and raise income-driven student-loan payments if you file jointly. This step only talks about withholding.\nFix: \"If either of you gets SSI, Medicaid, Marketplace premium credits, the EITC or an income-driven student-loan payment, check how combining incomes changes each one.\"",
+   "block": "le:marriage:filing",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-16",
+   "head": "le:marriage:align | LOW | \"couples who disagree on risk or goals tend to stall on every other step\" / \"Export the plan as Markdown\"",
+   "text": "Why: the first is a factual claim with no source (the claims list is empty). \"Markdown\" is jargon. There is also nothing on keeping some credit and money in your own name, which protects a spouse from financial abuse.\nFix: soften to \"can stall\"; replace \"Markdown\" with \"a shareable file\"; add \"Keep at least one account and some credit in your own name.\"",
+   "block": "le:marriage:align",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-16",
+   "head": "le:marriage:enroll — MED",
+   "text": "Missing trap: if one spouse has HSA-eligible coverage and the other has a general-purpose health FSA, the FSA usually covers both spouses' expenses. That makes the HSA spouse ineligible to contribute.\nAddition: \"If one of you contributes to an HSA, a general-purpose health FSA from the other spouse's employer can make the HSA ineligible; check before electing.\"",
+   "block": "le:marriage:enroll",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-17",
+   "head": "le:marriage:filing — MED (interaction)",
+   "text": "Phrase: \"Re-run withholding under your new filing status\"\nWhy: Filing status also changes other parts of the plan. Combined income changes Roth IRA eligibility and traditional IRA deductibility, and married filing separately nearly closes direct Roth contributions. It changes income-driven student loan payments, where filing separately can be worth it. It can also end Marketplace credits for a spouse who was on the Marketplace.\nAddition: \"Combined income also changes Roth IRA eligibility, income-driven student loan payments and any Marketplace credit, so check those before choosing joint or separate.\"",
+   "block": "le:marriage:filing",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-18",
+   "head": "le:marriage:beneficiaries — MED",
+   "text": "Phrase: \"unless they waive in writing\"\nWhy: A waiver in a prenuptial agreement generally does not count, because the spouse must waive after the marriage. Marriage also does not update a will, power of attorney or healthcare proxy, and the playbook has no estate step.\nAddition: \"A prenuptial waiver generally does not count; the spouse signs the plan's waiver after the wedding. Update your will, power of attorney and healthcare directive too, because marriage alone does not.\"",
+   "block": "le:marriage:beneficiaries",
+   "severity": "MED"
+  }
+ ],
+ "blocks": {
+  "le:marriage:enroll": {
+   "title": "Choose which health plan covers whom",
+   "when": "Within 30 days",
+   "body": "Marriage opens a special enrollment period (at least 30 days for employer plans, 60 days on the Marketplace). Compare both employers' plans on premium plus expected out-of-pocket cost, including any spousal surcharge.",
+   "links": [
+    {
+     "to": "spending-essentials/3",
+     "label": "Spending · Healthcare"
+    }
+   ],
+   "claims": [
+    "CL484",
+    "CL485"
+   ],
+   "plain": "Getting married opens a special window to change health plans: at least 30 days for job-based plans and 60 days on the Marketplace. Compare both employers' plans by premium plus the costs you expect to pay yourself, including any extra charge for covering a spouse.",
+   "props": [
+    [
+     "P1",
+     "Marriage triggers special enrollment",
+     "kept",
+     "special window"
+    ],
+    [
+     "P2",
+     "At least 30 days employer / 60 days Marketplace",
+     "kept",
+     "at least 30 days"
+    ],
+    [
+     "P3",
+     "Compare on premium plus expected out-of-pocket, incl. spousal surcharge",
+     "kept",
+     "extra charge for covering a spouse"
+    ]
+   ]
+  },
+  "le:marriage:names": {
+   "title": "Update your name with Social Security first, then everywhere else",
+   "when": "Before filing taxes",
+   "body": "If either spouse changes their name, update it with the Social Security Administration before filing; a mismatch between the return and SSA records can delay processing.",
+   "links": [],
+   "claims": [
+    "CL496"
+   ],
+   "plain": "If either of you changes your name, update it with Social Security before you file taxes. If your tax return and Social Security's records don't match, your return can be delayed.",
+   "props": [
+    [
+     "P1",
+     "Update the name with SSA before filing",
+     "kept",
+     "before you file taxes"
+    ],
+    [
+     "P2",
+     "A mismatch with SSA records can delay processing",
+     "kept",
+     "can be delayed"
+    ]
+   ]
+  },
+  "le:marriage:filing": {
+   "title": "Re-run withholding under your new filing status",
+   "when": "Before year-end",
+   "body": "Your filing status is set by whether you are married on December 31, so a December wedding counts for the whole year. Two incomes withheld as if each were single often under-withhold once combined; run the IRS Tax Withholding Estimator together and file new W-4s.",
+   "links": [
+    {
+     "to": "annual-review",
+     "label": "Annual review · withholding check"
+    }
+   ],
+   "claims": [
+    "CL492",
+    "CL497"
+   ],
+   "plain": "Whether you count as married for taxes depends on December 31. So a December wedding counts for the whole year. Two paychecks each taxed as if single often don't have enough tax taken out once you're combined. Use the IRS Tax Withholding Estimator together and file new W-4s.",
+   "props": [
+    [
+     "P1",
+     "Filing status is set by marital status on December 31",
+     "kept",
+     "december 31"
+    ],
+    [
+     "P2",
+     "A December wedding counts for the whole year",
+     "kept",
+     "december wedding"
+    ],
+    [
+     "P3",
+     "Two incomes withheld as single often under-withhold combined",
+     "kept",
+     "don't have enough tax taken out"
+    ],
+    [
+     "P4",
+     "Run the estimator together and file new W-4s",
+     "kept",
+     "new w-4s"
+    ]
+   ]
+  },
+  "le:marriage:beneficiaries": {
+   "title": "Re-audit every beneficiary designation",
+   "when": "First 3 months",
+   "body": "Retirement accounts and life insurance pass by beneficiary form, not by will. In a 401(k), federal law generally makes a spouse the default beneficiary unless they waive in writing; IRAs follow whatever the form says. Read each form rather than assuming.",
+   "links": [
+    {
+     "to": "protection/estate",
+     "label": "Protection · estate basics"
+    }
+   ],
+   "claims": [
+    "CL498",
+    "CL499"
+   ],
+   "plain": "Retirement accounts and life insurance go to whoever is named on the beneficiary form, not to whoever is named in a will. In a 401(k), federal law generally makes your spouse the default beneficiary unless they give that up in writing. IRAs go to whoever the form names. Read every form instead of assuming.",
+   "props": [
+    [
+     "P1",
+     "Retirement accounts and life insurance pass by beneficiary form, not will",
+     "kept",
+     "not to whoever is named in a will"
+    ],
+    [
+     "P2",
+     "401(k): spouse is generally default beneficiary unless they waive in writing",
+     "kept",
+     "give that up in writing"
+    ],
+    [
+     "P3",
+     "IRAs follow the form",
+     "kept",
+     "iras go to whoever the form names"
+    ],
+    [
+     "P4",
+     "Read each form",
+     "kept",
+     "read every form"
+    ]
+   ]
+  },
+  "le:marriage:align": {
+   "title": "Agree on the shared plan",
+   "when": "Ongoing",
+   "body": "Run the diagnostic together — its spousal-alignment questions exist because couples who disagree on risk or goals tend to stall on every other step. Export the plan as Markdown so both of you work from the same list.",
+   "links": [
+    {
+     "to": "plan",
+     "label": "Your plan (diagnostic)"
+    }
+   ],
+   "claims": [],
+   "plain": "Take the diagnostic together. Its questions about whether you agree exist because couples who disagree on risk or goals tend to get stuck on every other step. Export the plan as Markdown so you both work from the same list.",
+   "props": [
+    [
+     "P1",
+     "Run the diagnostic together",
+     "kept",
+     "take the diagnostic together"
+    ],
+    [
+     "P2",
+     "Spousal-alignment questions exist because disagreeing couples stall",
+     "kept",
+     "get stuck"
+    ],
+    [
+     "P3",
+     "Export as Markdown to share one list",
+     "kept",
+     "export the plan as markdown"
+    ]
+   ]
+  }
+ }
+}

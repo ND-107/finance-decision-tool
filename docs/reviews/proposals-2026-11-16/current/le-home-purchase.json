@@ -1,0 +1,240 @@
+{
+ "group": "le-home-purchase",
+ "findings": [
+  {
+   "id": "ADV-25",
+   "head": "le:home-purchase:afford | MED | \"Run rent-vs-buy...\"",
+   "text": "Why: lenders' pre-approval amounts are what they will lend, not what you can afford. First-time buyers rarely hear about free counseling or down-payment help.\nFix: \"A pre-approval is the most a lender will lend, not a budget. HUD-approved housing counselors are free and can point you to down-payment assistance. Budget for taxes, insurance, any HOA fees and repairs, not just the mortgage.\"",
+   "block": "le:home-purchase:afford",
+   "severity": "MED"
+  },
+  {
+   "id": "ADV-26",
+   "head": "le:home-purchase:pmi | HIGH | \"On a conventional loan... 78%... 80%\"",
+   "text": "Why: FHA loans are common among first-time and lower-income buyers. Their mortgage insurance often lasts for the life of the loan and doesn't follow these rules, so an FHA borrower may wait for a drop-off that never comes. Automatic removal also requires being current on payments.\nFix: \"This applies to conventional loans and requires being current on payments. FHA mortgage insurance follows different rules and often lasts the life of the loan unless you refinance. Your closing papers say which you have.\"",
+   "block": "le:home-purchase:pmi",
+   "severity": "HIGH"
+  },
+  {
+   "id": "ADV-27",
+   "head": "le:home-purchase:umbrella | MED | \"Owning a home raises what you can lose... inexpensive per dollar of coverage\"",
+   "text": "Why: \"Cheap per dollar\" is a sales line. A new owner with little equity and a modest income often has little to protect (and homestead rules protect some home equity), while the policy still costs a few hundred dollars a year that this reader may not have.\nFix: \"If your equity and savings are still small, an umbrella may not be worth it yet. Revisit it as your net worth grows.\"",
+   "block": "le:home-purchase:umbrella",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-24",
+   "head": "le:home-purchase:afford — MED (missing)",
+   "text": "Missing: closing costs (often 2–5%) and an ongoing maintenance budget (commonly 1–2% of value per year). Also missing: don't open new credit or change jobs between pre-approval and closing.\nAddition: \"Save closing costs separately from the down payment, budget roughly 1–2% of the home's value a year for upkeep, and avoid new credit or a job change before closing.\"",
+   "block": "le:home-purchase:afford",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-25",
+   "head": "le:home-purchase:insure — LOW",
+   "text": "Missing: an owner's title insurance policy, which is bought once at closing. Wind, hail and earthquake exclusions and deductibles are not mentioned.\nAddition: \"Consider an owner's title policy at closing, and check wind, hail and earthquake exclusions, not just flood.\"",
+   "block": "le:home-purchase:insure",
+   "severity": "LOW"
+  },
+  {
+   "id": "CFP-26",
+   "head": "le:home-purchase (playbook) — MED (missing)",
+   "text": "Missing: a homestead exemption usually has to be applied for, by a local deadline. Also missing: how the home is titled (joint tenancy, community property, transfer-on-death deed), which sets who gets it at death and ties to the estate section.\nAddition: a \"First year\" step: \"Apply for any homestead exemption by your county's deadline, and confirm how the deed is titled, because that decides who owns it if one owner dies.\"",
+   "block": "le:home-purchase",
+   "severity": "MED"
+  },
+  {
+   "id": "CFP-27",
+   "head": "le:home-purchase:pmi — LOW",
+   "text": "Phrase: \"On a conventional loan\"\nWhy: The common exception is FHA mortgage insurance, which follows different rules and can last the life of the loan with a small down payment.\nAddition: \"FHA mortgage insurance follows different rules and may last the life of the loan; refinancing is the usual way out.\"",
+   "block": "le:home-purchase:pmi",
+   "severity": "LOW"
+  }
+ ],
+ "blocks": {
+  "le:home-purchase:afford": {
+   "title": "Run rent-vs-buy and keep the down payment separate from the emergency fund",
+   "when": "Before house-hunting",
+   "body": "The down payment is a near-term goal saved in safe assets; the emergency fund is a different pool and should still be whole after closing, because new owners take on repairs a landlord used to pay for.",
+   "links": [
+    {
+     "to": "spending-essentials/1",
+     "label": "Spending · Housing (rent-vs-buy calculator)"
+    },
+    {
+     "to": "full-chart/w2/7.1",
+     "label": "Near-term goals (framework 7.1)"
+    }
+   ],
+   "claims": [],
+   "plain": "Your down payment is a short-term goal kept in safe places. Your emergency fund is separate money, and it should still be full after closing — as an owner, you now pay for repairs a landlord used to cover.",
+   "props": [
+    [
+     "P1",
+     "The down payment is a near-term goal in safe assets",
+     "kept",
+     "short-term goal"
+    ],
+    [
+     "P2",
+     "The emergency fund is a separate pool, whole after closing",
+     "kept",
+     "still be full after closing"
+    ],
+    [
+     "P3",
+     "because owners take on repairs (mechanism)",
+     "kept",
+     "repairs a landlord used to cover"
+    ]
+   ]
+  },
+  "le:home-purchase:insure": {
+   "title": "Buy homeowners insurance — and check flood separately",
+   "when": "Before closing",
+   "body": "Lenders require homeowners insurance. Standard homeowners policies do not cover flood damage; flood coverage is a separate policy (NFIP or private), usually with a waiting period before it takes effect.",
+   "links": [
+    {
+     "to": "protection/property",
+     "label": "Protection · renters / homeowners"
+    }
+   ],
+   "claims": [
+    "CL503"
+   ],
+   "plain": "Lenders require homeowners insurance. A standard homeowners policy does not cover flood damage. Flood insurance is a separate policy (from NFIP or a private insurer), and there is usually a waiting period before it starts.",
+   "props": [
+    [
+     "P1",
+     "Lenders require homeowners insurance",
+     "kept",
+     "lenders require"
+    ],
+    [
+     "P2",
+     "Standard policies exclude flood",
+     "kept",
+     "does not cover flood"
+    ],
+    [
+     "P3",
+     "Flood is a separate NFIP or private policy",
+     "kept",
+     "separate policy"
+    ],
+    [
+     "P4",
+     "Usually a waiting period before it takes effect",
+     "kept",
+     "waiting period"
+    ]
+   ]
+  },
+  "le:home-purchase:pmi": {
+   "title": "Track when private mortgage insurance can come off",
+   "when": "After closing",
+   "body": "On a conventional loan, the lender must drop PMI automatically when the balance is scheduled to reach 78% of the original value, and you can request removal at 80%. Note the date.",
+   "links": [],
+   "claims": [
+    "CL504"
+   ],
+   "plain": "With a conventional loan, the lender must drop private mortgage insurance on its own once your balance is scheduled to reach 78% of the home's original value. You can ask for it to be removed at 80%. Write down the date.",
+   "props": [
+    [
+     "P1",
+     "PMI terminates automatically at scheduled 78% of original value (conventional loans)",
+     "kept",
+     "78%"
+    ],
+    [
+     "P2",
+     "Borrower can request removal at 80%",
+     "kept",
+     "80%"
+    ],
+    [
+     "P3",
+     "Note the date",
+     "kept",
+     "write down the date"
+    ]
+   ]
+  },
+  "le:home-purchase:umbrella": {
+   "title": "Re-check liability coverage now that you own an asset",
+   "when": "First year",
+   "body": "Owning a home raises what you can lose in a lawsuit. An umbrella policy sits on top of homeowners and auto liability and is inexpensive per dollar of coverage.",
+   "links": [
+    {
+     "to": "protection/umbrella",
+     "label": "Protection · umbrella"
+    }
+   ],
+   "claims": [
+    "CL182"
+   ],
+   "plain": "Owning a home raises what you could lose if someone sues you. An umbrella policy adds coverage on top of your home and auto liability, and it costs little for the amount of coverage you get.",
+   "props": [
+    [
+     "P1",
+     "Owning a home raises lawsuit exposure",
+     "kept",
+     "if someone sues you"
+    ],
+    [
+     "P2",
+     "Umbrella sits on top of homeowners and auto liability",
+     "kept",
+     "on top of your home and auto liability"
+    ],
+    [
+     "P3",
+     "It is inexpensive per dollar of coverage",
+     "kept",
+     "costs little"
+    ]
+   ]
+  },
+  "le:home-purchase:sale-later": {
+   "title": "Keep improvement receipts for the eventual sale",
+   "when": "Keep records",
+   "body": "Gain on selling a main home can be excluded up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) if you owned and lived in it for two of the five years before the sale. Capital improvements add to your basis, so keep the receipts.",
+   "links": [
+    {
+     "to": "spending-essentials/1",
+     "label": "Spending · Housing"
+    }
+   ],
+   "claims": [
+    "CL505"
+   ],
+   "plain": "When you sell your main home, you can leave out up to {{fig:sec121_exclusion_single}} ({{fig:sec121_exclusion_mfj}} on a qualifying joint return) of profit from tax if you owned it and lived in it for two of the five years before selling. Money spent on improvements raises your cost basis, so keep the receipts.",
+   "props": [
+    [
+     "P1",
+     "Gain on a main home can be excluded up to the §121 amount",
+     "kept",
+     "leave out up to"
+    ],
+    [
+     "P2",
+     "Requires owning and living there 2 of the 5 years before sale",
+     "kept",
+     "two of the five years"
+    ],
+    [
+     "P3",
+     "Capital improvements add to basis; keep receipts",
+     "kept",
+     "keep the receipts"
+    ],
+    [
+     "P4",
+     "A qualifying joint return gets the higher exclusion amount",
+     "kept",
+     "on a qualifying joint return"
+    ]
+   ]
+  }
+ }
+}
