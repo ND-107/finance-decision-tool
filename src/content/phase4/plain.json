@@ -60,8 +60,8 @@
   ]
  },
  "le:job-loss:runway": {
-  "hash": "5942d7d9e962",
-  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance and the transportation that gets you to work first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment.",
+  "hash": "30634ad155fa",
+  "plain": "Divide your cash savings by what you must spend each month. That is how many months you can last. Unemployment pay is run by your state, so apply with your state soon. It counts as income for federal tax, so think about having tax taken out. Severance is taxed like pay and usually has tax taken out already. If money is tight, pay for housing, utilities, food, insurance, the transportation that gets you to work and any payments a court has ordered, such as child support, first. Then keep at least the minimum payment on every debt current, and call your lenders about hardship plans before you miss a payment.",
   "props": [
    [
     "P1",
@@ -89,7 +89,7 @@
    ],
    [
     "P5",
-    "When cash is tight, essentials first, then minimum payments on every debt kept current",
+    "When cash is tight, essentials and court-ordered payments (such as child support) first, then minimum payments on every debt kept current",
     "kept",
     "minimum payment on every debt"
    ],

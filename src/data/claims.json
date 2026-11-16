@@ -6542,12 +6542,12 @@
  {
   "id": "CL529",
   "loc": "P4:life-events:job-loss",
-  "claim": "When cash is short, essentials (housing, utilities, food, insurance, transportation to work) come before unsecured-debt minimums; call lenders about hardship plans before a payment is missed",
+  "claim": "When cash is short, essentials (housing, utilities, food, insurance, transportation to work) and court-ordered payments such as child support come before unsecured-debt minimums; call lenders about hardship plans before a payment is missed",
   "type": "CONVENTION",
-  "status": "PENDING",
+  "status": "PASS",
   "tier": "D",
-  "source": "Standard nonprofit credit-counseling and CFPB hardship guidance (practitioner convention)",
-  "url": "",
+  "source": "CFPB, Your Money, Your Goals: 'Prioritizing bills' tool; CFPB blog 'Behind on bills' (2017, archived)",
+  "url": "https://files.consumerfinance.gov/f/documents/cfpb_your-money-your-goals_prioritizing-bills_tool.pdf",
   "anchors": [
    "p4:life-events:job-loss"
   ]

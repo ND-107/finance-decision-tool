@@ -1,9 +1,15 @@
 # Changelog
 
+## 2026-11-16 — CL529 source read and step corrected: PENDING → PASS [branch `v2`; deploy to `main` pending]
+
+- CL529 (`le:job-loss:runway`, essentials before unsecured-debt minimums) now cites the CFPB "Prioritizing bills" tool (Your Money, Your Goals) and the archived CFPB blog "Behind on bills", both read 2026-11-16. They support protecting housing, income, insurance and necessities first and calling the creditor before a payment is missed.
+- First recorded as PARTIAL: the CFPB gives no fixed order (it says to weigh the risk of missing each bill), and it names court-ordered obligations such as child support as a priority, which the step does not mention. No NFCC page was read.
+- **Owner's go 2026-11-16:** court-ordered payments such as child support added to the step (`le:job-loss:runway`) and to its plain variant; the row is PASS as a convention. The fixed order stays the framework's own. `main` is not updated.
+
 ## 2026-11-06 — Persona-pass fixes applied: the seven items both reviewers rated HIGH [branch `v2`; deploy to `main` pending]
 
 **Done (owner's go 2026-11-06, each rule read at its statute the same day; new audit rows CL529–CL536):**
-- `le:job-loss:runway`: essentials before unsecured-debt minimums; call lenders about hardship plans (CL529, convention, PENDING a CFPB/NFCC read).
+- `le:job-loss:runway`: essentials before unsecured-debt minimums; call lenders about hardship plans (CL529, convention; source read 2026-11-16, PASS after the step was corrected).
 - `le:job-loss:old-401k`: outstanding 401(k) loan → deemed distribution; plan-loan offset rollover until the filing deadline with extensions (CL530: IRC §72(p)(1)(A), §402(c)(3)(C)).
 - `le:divorce:filing`: the 60-day notice duty after divorce or legal separation (CL531: 29 U.S.C. §1166(a)(3)).
 - `le:retirement:medicare`: COBRA and retiree coverage do not count toward delaying Part B (CL532: 42 U.S.C. §1395p(i)(1)(A)).
@@ -12,7 +18,7 @@
 - `le:windfall:park`: means-tested benefits (SSI resource limit, new figure `ssi_resource_limit_individual`, CL535: 42 U.S.C. §1382(a)(3)(B)) and taxable windfalls (CL536: IRC §61(a), §104(a)(2)).
 - Plain variants rewritten in step; proposition maps extended (244 propositions); 13/13 gates green.
 
-**Open:** the remaining 110 findings in `docs/reviews/` (none applied); CL529 needs its source read.
+**Open:** the remaining 110 findings in `docs/reviews/` (none applied). CL529: read 2026-11-16, see above.
 
 ## 2026-11-06 — §4.4 persona pass run on the deployed Phase 4 content (findings only) [branch `v2`]
 
