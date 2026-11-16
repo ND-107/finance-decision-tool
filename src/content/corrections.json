@@ -11,6 +11,17 @@
       "reason": "The verbatim v1 node gave $201,775 / $403,550 and $276,775 / $553,550. Rev. Proc. 2025-32 §4.26 gives threshold $201,750 (all other returns) / $403,500 (MFJ) and phase-in range amount $276,750 / $553,500; $201,775 / $276,775 are the married-filing-separately figures and $403,550 / $553,550 appear nowhere in the table. Re-derived: the upper end is the threshold plus the phase-in range of $75,000 ($150,000 joint) that P.L. 119-21 §70105(a) wrote into §199A(b)(3)(B) and (d)(3): 201,750 + 75,000 = 276,750; 403,500 + 150,000 = 553,500. The rest of the sentence (the $50K/$100K to $75K/$150K expansion) matches §70105(a). Also claim CL360.",
       "source": "Rev. Proc. 2025-32 §4.26 (https://www.irs.gov/pub/irs-drop/rp-25-32.pdf); P.L. 119-21 §70105(a) (https://www.govinfo.gov/link/plaw/119/public/21?link-type=html)",
       "verified": "2026-11-16"
+    },
+    {
+      "id": "COR-007",
+      "claim": "CL369",
+      "target": "node:business/8.4",
+      "find": "OBBBA made the $10K SALT cap permanent (with limited phase-in increases for households under $500K AGI), leaving the PTET election",
+      "replace": "OBBBA raised the SALT cap to $40,400 for 2026 (rising 1% a year through 2029, then back to $10,000 from 2030), reduced by 30% of modified AGI above $505,000 but not below $10,000, leaving the PTET election",
+      "count": 1,
+      "reason": "The verbatim v1 node said OBBBA made the $10K SALT cap permanent. P.L. 119-21 §70120 (new 26 U.S.C. §164(b)(7)) sets the cap at $40,400 for 2026, 101% of the prior year's amount for 2027-2029 and $10,000 from 2030, reduced by 30% of modified AGI above $505,000 (2026) but not below $10,000 (half amounts for married filing separately, not stated on the page). Every number in the replacement is read from the statute; none is derived. The same paragraph's $400K PTET worked example (approximately $13K recovered) is NOT changed: it rests on unstated assumptions (state tax rate, other SALT paid, filing status, modified AGI), so it is flagged to the owner rather than recomputed.",
+      "source": "P.L. 119-21 §70120 (26 U.S.C. §164(b)(6)-(7) as amended), https://www.govinfo.gov/link/plaw/119/public/21?link-type=html",
+      "verified": "2026-11-16"
     }
   ],
   "_retired": "COR-001..005 (the dependent-care FSA $5,000 → $7,500 correction, claim CL186) were applied here from 2026-11-06 until main:v1/flowchart.html itself was corrected on the owner's decision the same day (main edb4b3e). After that the verbatim sources carry $7,500 and the entries were removed; the mechanism stays for the next stale figure."
