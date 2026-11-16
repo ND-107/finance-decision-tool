@@ -249,10 +249,10 @@
   },
   "ss_oasi_depletion": {
     "value": 0,
-    "display": "OASI 2033 / combined OASDI 2034",
+    "display": "OASI Q4 2032 / combined OASDI Q3 2034",
     "taxYear": 2026,
-    "source": "2025 OASDI Trustees Report (released June 18, 2025) \u2014 most recent as of June 2026; SSA TRSUM and OACT II.A highlights",
-    "verified": "2026-06-15",
+    "source": "2026 OASDI Trustees Report \u2014 SSA, A Summary of the 2026 Annual Reports (ssa.gov/oact/TRSUM): OASI pays 100% of scheduled benefits until the fourth quarter of 2032 (78% payable after), combined OASDI until the third quarter of 2034 (83% after)",
+    "verified": "2026-11-16",
     "expires": "2026-12-31"
   },
   "estate_exemption_individual": {
