@@ -259,7 +259,7 @@
     "value": 0,
     "display": "78% (OASI) / 83% (combined OASDI)",
     "taxYear": 2026,
-    "source": "2026 OASDI Trustees Report — SSA, A Summary of the 2026 Annual Reports (ssa.gov/oact/TRSUM): when reserves are depleted, continuing income pays 78% of total scheduled OASI benefits (fourth quarter of 2032) and 83% of scheduled combined OASDI benefits (third quarter of 2034). Display only: two percentages, so value is unused (0), as for ss_oasi_depletion",
+    "source": "2026 OASDI Trustees Report \u2014 SSA, A Summary of the 2026 Annual Reports (ssa.gov/oact/TRSUM): when reserves are depleted, continuing income pays 78% of total scheduled OASI benefits (fourth quarter of 2032) and 83% of scheduled combined OASDI benefits (third quarter of 2034). Display only: two percentages, so value is unused (0), as for ss_oasi_depletion",
     "verified": "2026-11-23",
     "expires": "2026-12-31"
   },
