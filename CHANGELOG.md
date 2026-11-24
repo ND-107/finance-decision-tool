@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-23 — Options-report defaults applied (owner's decision) [branch `defaults/leftovers-2026-11-23`; not merged into `v2` or `main`, not deployed]
+
+Each fact was read at its primary source on 2026-11-23 before it was written.
+
+- **PTET example, Business 8.4 (CL369):** "a CA business owner in the 37% federal bracket with $400K of pass-through income … recovers approximately $13K" → the example now names its condition (household MAGI above about $606,000, where the 2026 SALT cap is at its $10,000 floor, other state and local taxes already using it: 9.3% × $400K = $37,200 at 37% saves about $13,800) and the 2026 case below $505,000 of MAGI (cap $40,400; about $1,600–$2,400 at a 24–35% rate) (COR-009). Sources: P.L. 119-21 §70120; FTB PTE elective tax page; Rev. Proc. 2025-32 §4.01. No plain-English variant exists for framework-chart nodes, so there was none to change.
+
 ## 2026-11-16 — DRAFT, not approved: persona-pass proposals applied (HIGH findings only, 19 blocks) [branch draft only; owner's go/no-go pending]
 
 - Applied by `tools/apply-persona-proposals.py` from `docs/reviews/proposals-2026-11-16/`; see `docs/reviews/2026-11-16-persona-findings-triage.md` for the method, the verdicts and the sources.
