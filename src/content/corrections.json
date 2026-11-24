@@ -66,6 +66,17 @@
       "reason": "The verbatim v1 sentence gave 'roughly 77–81%' payable (the 2025 report's figures) and 'roughly seven to eight years out as of the 2025–2026 reports'. The 2026 Trustees Report gives OASI depletion in the fourth quarter of 2032 with 78% payable, and combined OASDI in the third quarter of 2034 with 83% payable. Both now come from the figures layer (ss_oasi_depletion, ss_payable_after_depletion), so the expiry gate forces a re-read of the Trustees Report at each refresh instead of leaving hand-typed numbers to drift. 'Well under a decade out' is hand-typed: the fourth quarter of 2032 is about six years from 2026; re-check it at each refresh, and before about 2030. Owner's decision on the 2026-11-16 options report, default C.",
       "source": "SSA, A Summary of the 2026 Annual Reports, https://www.ssa.gov/oact/TRSUM/ (read via Exa web fetch 2026-11-23; a direct request returned HTTP 403)",
       "verified": "2026-11-23"
+    },
+    {
+      "id": "COR-012",
+      "claim": "CL478",
+      "target": "section:zeitgeist-lifestyle",
+      "find": "even at the 77-80% post-depletion benefit level",
+      "replace": "even at the {{fig:ss_payable_after_depletion}} post-depletion benefit level",
+      "count": 1,
+      "reason": "Two paragraphs after COR-011, the same §8 repeats the payable share by hand as '77-80%' (the clause CL478 originally tracked). Left alone it would contradict the corrected sentence and never be caught by the expiry gate, so it draws the same figure. Not in the 2026-11-16 options report, which quoted only the first sentence; added on the same owner's decision (default C, the §8 figures onto the figures layer).",
+      "source": "SSA, A Summary of the 2026 Annual Reports, https://www.ssa.gov/oact/TRSUM/ (read via Exa web fetch 2026-11-23; a direct request returned HTTP 403)",
+      "verified": "2026-11-23"
     }
   ],
   "_retired": "COR-001..005 (the dependent-care FSA $5,000 → $7,500 correction, claim CL186) were applied here from 2026-11-06 until main:v1/flowchart.html itself was corrected on the owner's decision the same day (main edb4b3e). After that the verbatim sources carry $7,500 and the entries were removed; the mechanism stays for the next stale figure."
