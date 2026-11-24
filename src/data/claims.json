@@ -5859,12 +5859,12 @@
  {
   "id": "CL478",
   "loc": "Zeit:Life §8 (Gen-Z structural framing)",
-  "claim": "OASI trust fund reserve depletion projected for 2033 (2025 Trustees Report, 77% of scheduled benefits payable) / Q4 2032 (2026 report); combined OASI+DI funds 2034 (~81% payable)",
+  "claim": "OASI trust fund reserve depletion projected for Q4 2032 with 78% of scheduled benefits then payable; combined OASI+DI (OASDI) Q3 2034 with 83% payable (2026 Trustees Report). The Zeit:Life §8 prose takes both from figures.json (ss_oasi_depletion, ss_payable_after_depletion)",
   "type": "EMPIRICAL",
-  "status": "PASS",
+  "status": "CORRECTED",
   "tier": "A",
-  "source": "2025 + 2026 OASDI Trustees Reports (ssa.gov/oact/trsum); CRS IF13045; NOSSCR summary",
-  "url": "",
+  "source": "2026 OASDI Trustees Report: SSA, A Summary of the 2026 Annual Reports",
+  "url": "https://www.ssa.gov/oact/TRSUM/",
   "anchors": [
    "sec:zeitgeist-lifestyle:8"
   ]

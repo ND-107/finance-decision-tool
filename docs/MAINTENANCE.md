@@ -19,7 +19,7 @@ document, not to *replace* it.
 |---|---|---|
 | **January** (main ritual) | figures expire 12/31; IRS/SSA/CMS/HHS publish the new year's values in Oct–Jan | everything in the January checklist below |
 | **Mid-January to February** | HHS publishes the new poverty guidelines (FPL) | update `fpl_single_*`; re-derive the IDR worked example (AdvStrat §7); note that the ACA 400%-FPL cliff figures use the **prior** year's FPL for the coverage year |
-| **June** | Social Security and Medicare Trustees Reports | update `ss_oasi_depletion` and the Zeitgeist Gen-Z section prose |
+| **June** | Social Security and Medicare Trustees Reports | update `ss_oasi_depletion` and `ss_payable_after_depletion` (the Zeitgeist-Lifestyle §8 prose draws both through `corrections.json` COR-011); re-check that sentence's hand-typed "well under a decade out" |
 | **July 1** | federal student-loan year; OBBBA transition dates (RAP launch 2026-07-01, legacy-IDR sunset 2028-07-01) | check `src/data/deadlines.json`, AdvStrat §7, and the loan Plan actions |
 | **Any time a law passes** | new statute or IRS notice changes a figure mid-year | treat as an out-of-cycle refresh of the affected entries only |
 
